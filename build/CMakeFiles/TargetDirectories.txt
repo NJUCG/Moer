@@ -1,3 +1,0 @@
-D:/ZeroRender/Zero/build/CMakeFiles/ALL_BUILD.dir
-D:/ZeroRender/Zero/build/CMakeFiles/ZERO_CHECK.dir
-D:/ZeroRender/Zero/build/out/CMakeFiles/app.dir
