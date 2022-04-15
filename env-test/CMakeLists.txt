@@ -16,6 +16,7 @@ target_link_directories(app PUBLIC ${PROJECT_EXTERN_LIBDIR})
 # test for opengl3
 target_link_libraries(app assimp-vc142-mt imgui-opengl3 OpenGL32 glfw3)
 
-if(MSVC)
+
+if(MSVC AND ((NOT CMAKE_BUILD_TYPE) OR CMAKE_BUILD_TYPE STREQUAL "Debug") )    
     set_property(TARGET app APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
 endif()
