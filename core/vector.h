@@ -54,13 +54,13 @@ struct TVector2 {
         return *this;
     }
 
-    TVector2 operator/(const T t) const {
+    TVector2 operator/(T t) const {
         assert(t != 0);
         T recip = (T) 1 / t;
         return TVector2(x * recip, y * recip);
     }
 
-    TVector2& operator/=(const T t) {
+    TVector2& operator/=(T t) {
         assert(t != 0);
         T recip = (T) 1/t;
         x *= recip, y *= recip;
@@ -127,6 +127,21 @@ TVector2<float> normalize(const TVector2<T> &v) {
     float recip = 1.0f / v.length();
     return TVector2<float> (v.x * recip, v.y * recip);
 }
+
+template<> 
+TVector2<int> TVector2<int>::operator/(int i) const {
+    assert(i != 0);
+    return TVector2<int>(x/i, y/i);
+}
+
+template<> 
+TVector2<int>& TVector2<int>::operator/=(int i) {
+    assert(i != 0);
+    x/=i, y/=i;
+    return *this;
+}
+
+
 
 template <typename T>
 struct TVector3 {
