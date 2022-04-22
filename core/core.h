@@ -12,4 +12,6 @@
 #pragma once
 #include "vector.h"
 #include "point.h"
+#include "ray.h"
+#include "normal.h"
 #include "fwd.h"

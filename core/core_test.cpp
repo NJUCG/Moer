@@ -12,6 +12,8 @@
 #include <iostream>
 
 int main() {
-    point3i p {1, 2, 3};
-    std::cout << p/2.1 << std::endl;
+    Ray r {point3f{.0f, .0f, .0f}, vec3f {1.f, 2.f, 3.f}};
+    std::cout << r << std::endl;
+
+    std::cout << r(2.5f) << std::endl;
 }

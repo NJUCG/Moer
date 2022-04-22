@@ -128,7 +128,7 @@ struct TPoint3 {
 
     /*--- operator overloading ---*/
     TPoint3 operator+(const TVector3<T> &rhs) const {
-        return TPoint2(x+rhs.x, y+rhs.y, z+rhs.z);
+        return TPoint3(x+rhs.x, y+rhs.y, z+rhs.z);
     }
 
     TPoint3& operator+=(const TVector3<T> &rhs) {
