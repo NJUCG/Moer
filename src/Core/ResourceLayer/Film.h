@@ -32,6 +32,8 @@ public:
 	Spectrum getSpectrum(const Point2i& p);
 	RGB3 getRGB(const Point2i& p);
 
+	void setGamma(double gamma=2.2);
+
 	// @brief: 'deposit' a spectrum at p. all deposit will be averaged when get(p).
 	void deposit(const Point2i& p, const Spectrum& s);
 

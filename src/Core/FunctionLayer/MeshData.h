@@ -27,7 +27,7 @@ class MeshData
 	MeshData(double* _v, double* _n, double* _uv, double* _tan, double* _bi, int* _indice);
 
 public:
-	friend class MeshDataAllocator;
+	friend class MeshDataManager;
 
 	Point3f getVertexAt(int i) const;
 	Normal3f getNormalAt(int i) const;

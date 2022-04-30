@@ -18,7 +18,7 @@
 #include <memory>
 
 template <typename BaseType>
-class MemoryAllocator 
+class ResourceManager 
 {
 protected:
 
@@ -26,33 +26,33 @@ protected:
 
 public:
 
-	MemoryAllocator();
+	ResourceManager();
 
 };
 
-class ImageAllocator :
-	public MemoryAllocator<Image>
+class ImageManager :
+	public ResourceManager<Image>
 {
-	ImageAllocator();
-	std::shared_ptr<ImageAllocator> instance;
+	ImageManager();
+	std::shared_ptr<ImageManager> instance;
 
 public:
 	// @brief singleton pattern get.
-	static std::shared_ptr<ImageAllocator> get();
+	static std::shared_ptr<ImageManager> get();
 
 	std::shared_ptr<Image> getImage(std::string path, Image::ImageLoadMode mode);
 };
 
-class MeshDataAllocator :
-	public MemoryAllocator<MeshData>
+class MeshDataManager :
+	public ResourceManager<MeshData>
 {
-	MeshDataAllocator();
-	std::shared_ptr<MeshDataAllocator> instance;
+	MeshDataManager();
+	std::shared_ptr<MeshDataManager> instance;
 
 public:
 
 	// @brief singleton pattern get.
-	static std::shared_ptr<MeshDataAllocator> get();
+	static std::shared_ptr<MeshDataManager> get();
 
 	std::vector<std::shared_ptr<MeshData>> getMeshData(std::string path);
 
