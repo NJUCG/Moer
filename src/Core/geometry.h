@@ -9,20 +9,28 @@
  * 
  */
 #pragma once
-
+// vector.h
 template <typename T> struct TVector2;
 template <typename T> struct TVector3;
-using vec2f = TVector2<float>;
-using vec2d = TVector2<double>;
-using vec2i = TVector2<int>;
-using vec3f = TVector3<float>;
-using vec3d = TVector3<double>;
-using vec3i = TVector3<int>;
+using Vec2f = TVector2<float>;
+using Vec2d = TVector2<double>;
+using Vec2i = TVector2<int>;
+using Vec3f = TVector3<float>;
+using Vec3d = TVector3<double>;
+using Vec3i = TVector3<int>;
+// point.h
 template <typename T> struct TPoint2;
 template <typename T> struct TPoint3;
-using point2f = TPoint2<float>;
-using point2d = TPoint2<double>;
-using point2i = TPoint2<int>;
-using point3f = TPoint3<float>;
-using point3d = TPoint3<double>;
-using point3i = TPoint3<int>;
+using Point2f = TPoint2<float>;
+using Point2d = TPoint2<double>;
+using Point2i = TPoint2<int>;
+using Point3f = TPoint3<float>;
+using Point3d = TPoint3<double>;
+using Point3i = TPoint3<int>;
+// normal.h
+struct Normal3f;
+// ray.h
+struct Ray;
+// shape.h
+struct Intersection;
+class Shape;

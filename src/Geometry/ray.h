@@ -14,17 +14,17 @@
 #include "geometry.h"
 #include <iostream>
 struct Ray {
-    point3f origin;
-    vec3f dir;
+    Point3f origin;
+    Vec3f dir;
     float time;
 
     Ray() { }
 
-    Ray(const point3f &_origin, const vec3f &_dir) : origin(_origin), dir(_dir), time(0) { }
+    Ray(const Point3f &_origin, const Vec3f &_dir) : origin(_origin), dir(_dir), time(0) { }
 
-    Ray(const point3f &_origin, const vec3f &_dir, float _time) : origin(_origin), dir(_dir), time(_time) { }
+    Ray(const Point3f &_origin, const Vec3f &_dir, float _time) : origin(_origin), dir(_dir), time(_time) { }
 
-    point3f operator()(float t) const {
+    Point3f operator()(float t) const {
         return origin + t * dir;
     }
 };

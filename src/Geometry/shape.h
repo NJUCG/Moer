@@ -17,19 +17,19 @@ struct Intersection {
     std::shared_ptr<Shape> shapePtr;
 
     // position of the hit point
-    point3f p;
+    Point3f p;
     
     // normal at the hit point
-    Normal n;
+    Normal3f n;
     
     // the length from ray origin to the hit point  
     float t;
 
     // the uv coordinate
-    point2f uv;
+    Point2f uv;
 
     // the direction of the incident ray
-    vec3f wi;
+    Vec3f wi;
 };
 
 class Shape {
