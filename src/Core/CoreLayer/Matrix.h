@@ -56,6 +56,9 @@ public:
 
 	void setTranslate(double x, double y, double z);
 
+	void setScale(double x, double y, double z);
+	void setScale(double ratio);
+
 	enum class EulerType {EULER_XYZ,EULER_ZYX};
 	void setRotateEuler(Angle x, Angle y, Angle z, EulerType type = EulerType::EULER_XYZ);
 

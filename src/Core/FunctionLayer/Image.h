@@ -28,6 +28,7 @@ public:
 
 	// @brief generate one black image with resolution [width,height] and channels.
 	Image(Point2i resolution, int channels);
+	Image(Point3i shape);
 
 	friend class ImageAllocator;
 	

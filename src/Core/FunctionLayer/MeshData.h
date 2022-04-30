@@ -23,7 +23,7 @@ class MeshData
 	double* bitangentRaw;
 	int* indiceRaw;
 
-	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one file may cantain multiple MeshData.
+	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
 	MeshData(double* _v, double* _n, double* _uv, double* _tan, double* _bi, int* _indice);
 
 public:
@@ -35,7 +35,7 @@ public:
 	Vec3f getTangentAt(int i) const;
 	Vec3f getBitangentAt(int i) const;
 
-	// @brief get 3 indices for ist triangle mesh.
+	// @brief get 3 indices for ist triangle mesh. In order.
 	Point3i getTriangleIndiceAt(int i) const;
 
 	int getTriangleNum() const;

@@ -1,5 +1,5 @@
 /**
- * @file geometry.h
+ * @file Geometry.h
  * @author zcx
  * @brief The geometry part of whole program, including vector, point and normal.
  * @version 0.1
