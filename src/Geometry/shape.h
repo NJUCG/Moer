@@ -10,7 +10,7 @@
  */
 #include "ray.h"
 #include "normal.h"
-#include "frame.h"
+#include "geometry.h"
 #include <memory>
 struct Intersection {
     // pointer to the underlying shape
@@ -26,13 +26,7 @@ struct Intersection {
     float t;
 
     // the uv coordinate
-    vec2f uv;
-
-    // the local coordinate of the geo normal
-    Frame geoFrame;
-
-    // the local coordinate of the shading normal
-    Frame shFrame;
+    point2f uv;
 
     // the direction of the incident ray
     vec3f wi;

@@ -11,7 +11,7 @@
 #pragma once
 #include "point.h"
 #include "vector.h"
-#include "fwd.h"
+#include "geometry.h"
 #include <iostream>
 struct Ray {
     point3f origin;
