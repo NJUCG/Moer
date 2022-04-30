@@ -1,7 +1,7 @@
 /**
  * @file geometry.h
  * @author zcx
- * @brief forward declaration
+ * @brief The geometry part of whole program, including vector, point and normal.
  * @version 0.1
  * @date 2022-04-22
  * 
@@ -29,8 +29,3 @@ using Point3d = TPoint3<double>;
 using Point3i = TPoint3<int>;
 // normal.h
 struct Normal3f;
-// ray.h
-struct Ray;
-// shape.h
-struct Intersection;
-class Shape;
