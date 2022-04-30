@@ -1,7 +1,7 @@
 /**
  * @file core.h
  * @author zcx
- * @brief 
+ * @brief Forward Decleration of all things.
  * @version 0.1
  * @date 2022-04-22
  * 
