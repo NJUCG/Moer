@@ -28,7 +28,7 @@ public:
 	// @return true if Bvh have this node, false otherwise.
 	bool have(std::shared_ptr<BvhNode> node) const;
 
-	// @brief Ray intersect with a bounding box (instead of an object). return intersected BvhNode.
+	// @brief Ray intersect with a bounding box (NOT an object or Entity). return intersected BvhNode or nullptr.
 	std::shared_ptr<BvhNode> intersect(const Ray& r);
 
 
