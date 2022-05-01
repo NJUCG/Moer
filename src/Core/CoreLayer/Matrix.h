@@ -35,6 +35,9 @@ public:
 	getRad() const;
 
 };
+
+// todo: bare Mat4x4
+
 /*
 * @brief Encapsulated transform matrix. By default, it will be initialized as identity matrix.
 */

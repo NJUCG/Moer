@@ -10,7 +10,7 @@
  */
 #pragma once
 
-#include "../FunctionLayer/MemoryAllocator.h"
+#include "../FunctionLayer/ResourceManager.h"
 
 #include <memory>
 

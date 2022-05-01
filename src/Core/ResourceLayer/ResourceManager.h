@@ -1,5 +1,5 @@
 /**
- * @file MemoryAllocator.h
+ * @file ResourceManager.h
  * @author orbitchen
  * @brief Simple Memory Allocator.
  * @version 0.1

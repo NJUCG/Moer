@@ -43,6 +43,8 @@ public:
 	BoundingBox3 BoundingBoxUnionIntersect(const BoundingBox3& b1, const BoundingBox3& b2) {
 		// TODO
 	}
+
+	// todo: more
 };
 
 using BoundingBox3f = BoundingBox3<double>;

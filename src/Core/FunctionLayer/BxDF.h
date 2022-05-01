@@ -18,6 +18,7 @@ struct BxDFSampleResult
 	Spectrum s;
 	Vec3f directionOut;
 	double pdf;
+	// todo: enum flags
 	bool isSpecular;
 };
 
@@ -26,13 +27,13 @@ class BxDF
 
 public:
 
-	Spectrum sampleSpectrum(const Vec3f& in, const Vec3f& out) const = 0;
+	Spectrum f(const Vec3f& in, const Vec3f& out) const = 0;
 
-	Vec3f sampleDirection(const Vec3f& out) const = 0;
+	Vec3f sampleWi(const Vec3f& out) const = 0;
 
-	double samplePdf(const Vec3f& in, const Vec3f& out) const = 0;
+	double pdf(const Vec3f& in, const Vec3f& out) const = 0;
 
-	BxDFSampleResult sampleAll(const Vec3f& out) const = 0;
+	BxDFSampleResult sample(const Vec3f& out) const = 0;
 
 	bool isSpecular() const = 0;
 

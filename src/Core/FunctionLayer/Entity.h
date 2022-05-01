@@ -16,8 +16,7 @@
 #include "Ray.h"
 
 class Entity :
-	public  Transform3D,
-	public	BvhNode
+	public  Transform3D
 {
 public:
 

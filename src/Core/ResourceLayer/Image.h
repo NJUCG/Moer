@@ -15,6 +15,8 @@
 
 #include <string>
 
+// todo: support various data type
+
 class Image 
 {
 	char* imageRawData;
@@ -22,6 +24,7 @@ class Image
 	Image();
 
 	enum class ImageLoadMode { IMAGE_LOAD_BW, IMAGE_LOAD_COLOR };
+	// todo: do gamma correction
 	Image(std::string path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
 
 public:

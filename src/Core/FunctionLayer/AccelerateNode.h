@@ -14,6 +14,8 @@
 #include "../CoreLayer/BoundingBox.h"
 
 #include <memory>
+#include <vector>
+#include "Entity.h"
 
 class BvhNode
 {
@@ -21,6 +23,8 @@ protected:
 
 	std::shared_ptr<BvhNode> leftNode;
 	std::shared_ptr<BvhNode> rightNode;
+
+	std::vector<std::shared_ptr<Entity>> entities;
 
 public:
 

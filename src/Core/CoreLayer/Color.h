@@ -21,11 +21,11 @@ class Spectrum;
 // @brief the number of uniform samples for SampledSpectrum.
 static const int nSpectrumSamples = 60;
 
-class RGB3 {
+class RGB3
+{
 	double rgbData[3];
 
 public:
-
 	RGB3();
 
 	RGB3(double r, double g, double b);
@@ -34,25 +34,25 @@ public:
 	RGB3(double val);
 
 	double operator[](int i);
-	double& operator[](int i);
+	double &operator[](int i);
 
-	RGB3 operator+(const RGB3& rgb);
-	RGB3 operator-(const RGB3& rgb);
-	RGB3 operator*(const RGB3& rgb);
-	RGB3 operator/(const RGB3& rgb);
+	RGB3 operator+(const RGB3 &rgb);
+	RGB3 operator-(const RGB3 &rgb);
+	RGB3 operator*(const RGB3 &rgb);
+	RGB3 operator/(const RGB3 &rgb);
 
-	RGB3& operator+=(const RGB3& rgb);
-	RGB3& operator-=(const RGB3& rgb);
-	RGB3& operator*=(const RGB3& rgb);
-	RGB3& operator/=(const RGB3& rgb);
+	RGB3 &operator+=(const RGB3 &rgb);
+	RGB3 &operator-=(const RGB3 &rgb);
+	RGB3 &operator*=(const RGB3 &rgb);
+	RGB3 &operator/=(const RGB3 &rgb);
 
 	RGB3 operator*(double v);
 	RGB3 operator/(double v);
 
-	RGB3& operator*=(double v);
-	RGB3& operator/=(double v);
+	RGB3 &operator*=(double v);
+	RGB3 &operator/=(double v);
 
-	friend RGB3 operator*(double v, const RGB3& rgb);
+	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
 
@@ -65,7 +65,6 @@ class XYZ3
 	double xyzData[3];
 
 public:
-
 	XYZ3();
 
 	XYZ3(double x, double y, double z);
@@ -74,40 +73,37 @@ public:
 	XYZ3(double val);
 
 	double operator[](int i);
-	double& operator[](int i);
+	double &operator[](int i);
 
-	XYZ3 operator+(const XYZ3& xyz);
-	XYZ3 operator-(const XYZ3& xyz);
-	XYZ3 operator*(const XYZ3& xyz);
-	XYZ3 operator/(const XYZ3& xyz);
+	XYZ3 operator+(const XYZ3 &xyz);
+	XYZ3 operator-(const XYZ3 &xyz);
+	XYZ3 operator*(const XYZ3 &xyz);
+	XYZ3 operator/(const XYZ3 &xyz);
 
-	XYZ3& operator+=(const XYZ3& xyz);
-	XYZ3& operator-=(const XYZ3& xyz);
-	XYZ3& operator*=(const XYZ3& xyz);
-	XYZ3& operator/=(const XYZ3& xyz);
+	XYZ3 &operator+=(const XYZ3 &xyz);
+	XYZ3 &operator-=(const XYZ3 &xyz);
+	XYZ3 &operator*=(const XYZ3 &xyz);
+	XYZ3 &operator/=(const XYZ3 &xyz);
 
 	XYZ3 operator*(double v);
 	XYZ3 operator/(double v);
 
-	XYZ3& operator*=(double v);
-	XYZ3& operator/=(double v);
+	XYZ3 &operator*=(double v);
+	XYZ3 &operator/=(double v);
 
-	friend XYZ3 operator*(double v, const XYZ3& xyz);
+	friend XYZ3 operator*(double v, const XYZ3 &xyz);
 
 	RGB3 toRGB3() const;
-
 };
 
 // @brief Spectrum of nSamples sample points.
 template <int nSamples>
-class Spectrum 
+class Spectrum
 {
 protected:
-
 	double coefficients[nSamples];
 
 public:
-
 	// @brief all coefficients initialized as 0.0f.
 	Spectrum();
 
@@ -115,33 +111,33 @@ public:
 	Spectrum(double val);
 
 	double operator[](int i);
-	double& operator[](int i);
+	double &operator[](int i);
 
-	Spectrum operator+(const Spectrum& s);
-	Spectrum operator-(const Spectrum& s);
-	Spectrum operator*(const Spectrum& s);
-	Spectrum operator/(const Spectrum& s);
+	Spectrum operator+(const Spectrum &s);
+	Spectrum operator-(const Spectrum &s);
+	Spectrum operator*(const Spectrum &s);
+	Spectrum operator/(const Spectrum &s);
 
-	Spectrum& operator+=(const Spectrum& s);
-	Spectrum& operator-=(const Spectrum& s);
-	Spectrum& operator*=(const Spectrum& s);
-	Spectrum& operator/=(const Spectrum& s);
+	Spectrum &operator+=(const Spectrum &s);
+	Spectrum &operator-=(const Spectrum &s);
+	Spectrum &operator*=(const Spectrum &s);
+	Spectrum &operator/=(const Spectrum &s);
 
 	Spectrum operator*(double v);
 	Spectrum operator/(double v);
 
-	Spectrum& operator*=(double v);
-	Spectrum& operator/=(double v);
+	Spectrum &operator*=(double v);
+	Spectrum &operator/=(double v);
 
-	friend Spectrum operator*(double v, const Spectrum& s);
+	friend Spectrum operator*(double v, const Spectrum &s);
 
-	friend Spectrum sqrt(const Spectrum& s);
-	friend Spectrum pow(const Spectrum& s, double p);
-	friend Spectrum exp(const Spectrum& s);
+	friend Spectrum sqrt(const Spectrum &s);
+	friend Spectrum pow(const Spectrum &s, double p);
+	friend Spectrum exp(const Spectrum &s);
 
 	bool isBlack() const;
 	bool hasNaN() const;
-	
+
 	double sum() const;
 	double average() const;
 
@@ -157,12 +153,12 @@ struct SpectrumSample
 	SpectrumSample(double _lambda, double _value);
 
 	// @brief sorted by lambda.
-	bool operator>(const SpectrumSample& s) const;
+	bool operator>(const SpectrumSample &s) const;
 };
 
 // @brief The specturm samples uniformly. Actually used in program.
-class SampledSpectrum 
-	:public Spectrum<nSpectrumSamples>
+class SampledSpectrum
+	: public Spectrum<nSpectrumSamples>
 {
 	// these spectrums should be calculated at compile time.
 	// TODO
@@ -184,10 +180,13 @@ public:
 	SampledSpectrum(double val);
 
 	// @brief implicit construct from base type is allowed.
-	SampledSpectrum(const Spectrum& s);
+	SampledSpectrum(const Spectrum &s);
 
 	// @brief generate SampledSpectrum from a set of SpectrumSample.
 	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 };
 
-// TODO RGBSpectrum
+class RGBSpectrum : public Spectrum<3>
+{
+	// TODO RGBSpectrum
+};
