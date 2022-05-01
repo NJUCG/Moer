@@ -26,15 +26,13 @@ class BxDF
 {
 
 public:
+	Spectrum f(const Vec3f &in, const Vec3f &out) const = 0;
 
-	Spectrum f(const Vec3f& in, const Vec3f& out) const = 0;
+	Vec3f sampleWi(const Vec3f &out) const = 0;
 
-	Vec3f sampleWi(const Vec3f& out) const = 0;
+	double pdf(const Vec3f &in, const Vec3f &out) const = 0;
 
-	double pdf(const Vec3f& in, const Vec3f& out) const = 0;
-
-	BxDFSampleResult sample(const Vec3f& out) const = 0;
+	BxDFSampleResult sample(const Vec3f &out) const = 0;
 
 	bool isSpecular() const = 0;
-
 };

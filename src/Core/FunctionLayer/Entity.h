@@ -15,10 +15,8 @@
 #include "Intersection.h"
 #include "Ray.h"
 
-class Entity :
-	public  Transform3D
+class Entity : public Transform3D
 {
 public:
-
-	Intersection intersect(const Ray& r) const = 0;
+	Intersection intersect(const Ray &r) const = 0;
 };

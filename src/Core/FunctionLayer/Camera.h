@@ -16,10 +16,8 @@
 class Camera
 {
 public:
-
 	// @brief generate a ray by NDC coord ranges between [-1,1].
 	Ray generateRay(Point2f NDC);
 
 	// TODO sampler?
-
 };

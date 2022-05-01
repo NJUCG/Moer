@@ -20,14 +20,11 @@
 class BvhNode
 {
 protected:
-
 	std::shared_ptr<BvhNode> leftNode;
 	std::shared_ptr<BvhNode> rightNode;
 
 	std::vector<std::shared_ptr<Entity>> entities;
 
 public:
-
 	BoundingBox3f getBoundingBox() const;
-
 };

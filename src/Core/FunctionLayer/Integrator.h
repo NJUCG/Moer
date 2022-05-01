@@ -21,15 +21,19 @@
 class Integrator
 {
 protected:
-
-	std::shared_ptr<Scene> scene;
 	std::shared_ptr<Camera> camera;
 	std::shared_ptr<Film> film;
 	std::shared_ptr<TileGenerator> tileGenerator;
+
+public:
+	void render(std::shared_ptr<Scene> scene) const = 0;
+};
+
+class SampleIntegrator : public Integrator
+{
+protected:
 	std::shared_ptr<Sampler> sampler;
 
 public:
-
-	void render() const = 0;
-
+	void render(std::shared_ptr<Scene> scene) const = 0;
 };

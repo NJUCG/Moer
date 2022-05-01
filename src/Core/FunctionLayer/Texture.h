@@ -14,7 +14,7 @@
 #include "../CoreLayer/Color.h"
 #include <cmath>
 #include "Intersection.h"
-#include "../FunctionLayer/Image.h"
+#include "../ResourceLayer/Image.h"
 
 // Tvalue can be float or any specturm type
 template <typename Tvalue>
