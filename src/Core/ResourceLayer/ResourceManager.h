@@ -18,20 +18,16 @@
 #include <memory>
 
 template <typename BaseType>
-class ResourceManager 
+class ResourceManager
 {
 protected:
-
 	std::map<std::string, std::shared_ptr<BaseType>> hash;
 
 public:
-
 	ResourceManager();
-
 };
 
-class ImageManager :
-	public ResourceManager<Image>
+class ImageManager : public ResourceManager<Image>
 {
 	ImageManager();
 	std::shared_ptr<ImageManager> instance;
@@ -40,22 +36,17 @@ public:
 	// @brief singleton pattern get.
 	static std::shared_ptr<ImageManager> get();
 
-	std::shared_ptr<Image> getImage(std::string path, Image::ImageLoadMode mode);
+	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode);
 };
 
-class MeshDataManager :
-	public ResourceManager<MeshData>
+class MeshDataManager : public ResourceManager<MeshData>
 {
 	MeshDataManager();
 	std::shared_ptr<MeshDataManager> instance;
 
 public:
-
 	// @brief singleton pattern get.
 	static std::shared_ptr<MeshDataManager> get();
 
-	std::vector<std::shared_ptr<MeshData>> getMeshData(std::string path);
-
-
-
+	std::vector<std::shared_ptr<MeshData>> getMeshData(const std::string &path);
 };

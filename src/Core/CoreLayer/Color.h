@@ -173,7 +173,8 @@ class SampledSpectrum
 	static SampledSpectrum rgbIllum2SpectBlue;
 
 public:
-	friend class RGB3, XYZ3;
+	friend class RGB3;
+	friend class XYZ3;
 
 	SampledSpectrum();
 

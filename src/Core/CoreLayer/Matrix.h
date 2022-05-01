@@ -35,9 +35,9 @@ public:
 	 */
 	Angle(double v, AngleType type);
 
-	getDeg() const;
+	double getDeg() const;
 
-	getRad() const;
+	double getRad() const;
 };
 
 // todo: bare Mat4x4

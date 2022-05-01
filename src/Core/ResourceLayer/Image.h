@@ -17,31 +17,35 @@
 
 // todo: support various data type
 
-class Image 
+class Image
 {
-	char* imageRawData;
+	char *imageRawData;
 
 	Image();
 
-	enum class ImageLoadMode { IMAGE_LOAD_BW, IMAGE_LOAD_COLOR };
+	enum class ImageLoadMode
+	{
+		IMAGE_LOAD_BW,
+		IMAGE_LOAD_COLOR
+	};
+	// todo: support alpha reading
 	// todo: do gamma correction
-	Image(std::string path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
+	Image(const std::string &path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
 
 public:
-
 	// @brief generate one black image with resolution [width,height] and channels.
-	Image(Point2i resolution, int channels);
-	Image(Point3i shape);
+	Image(const Point2i &resolution, int channels);
+	Image(const Point3i &shape);
 
 	friend class ImageAllocator;
-	
+
 	Point2i getResolution() const;
 	int getChannels() const;
 	int getWidth() const;
 	int getHeight() const;
 
-	void setColorAt(Point2i p, const Spectrum& s);
-	void setColorAt(Point2i p, const RGB3& rgb);
+	void setColorAt(const Point2i &p, const Spectrum &s);
+	void setColorAt(const Point2i &p, const RGB3 &rgb);
 
-	bool saveTo(std::string path);
+	bool saveTo(const std::string &path);
 };

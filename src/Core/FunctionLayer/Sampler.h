@@ -15,7 +15,6 @@
 class Sampler
 {
 public:
-
 	double sample() const = 0;
 
 	std::vector<double> sample(int num) const = 0;

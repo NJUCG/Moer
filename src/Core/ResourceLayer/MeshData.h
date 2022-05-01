@@ -16,15 +16,15 @@
 
 class MeshData
 {
-	double* vertexRaw;
-	double* normalRaw;
-	double* uvRaw;
-	double* tangentRaw;
-	double* bitangentRaw;
-	int* indiceRaw;
+	double *vertexRaw;
+	double *normalRaw;
+	double *uvRaw;
+	double *tangentRaw;
+	double *bitangentRaw;
+	int *indiceRaw;
 
 	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
-	MeshData(double* _v, double* _n, double* _uv, double* _tan, double* _bi, int* _indice);
+	MeshData(double *_v, double *_n, double *_uv, double *_tan, double *_bi, int *_indice);
 
 public:
 	friend class MeshDataManager;

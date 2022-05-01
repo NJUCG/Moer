@@ -19,15 +19,13 @@
 class Scene
 {
 	std::shared_ptr<Accelerator> accelerator;
+
 public:
-
 	void addEntity(std::shared_ptr<Entity> object);
+	void addLight(std::shared_ptr<Light> object);
 
-	void addLight(std::shared_ptr<Light> object)
-
-	Intersection intersect(const Ray& r) const;
+	Intersection intersect(const Ray &r) const;
 
 	// @return true if r hits object first (closest), false otherwise.
-	bool IntersectionTest(const Ray& r, std::shared_ptr<Entity> object) const;
-
+	bool intersectionTest(const Ray &r, std::shared_ptr<Entity> object) const;
 };

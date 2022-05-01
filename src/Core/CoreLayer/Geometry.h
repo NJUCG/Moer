@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+
 // vector.h
 template <typename T>
 struct TVector2;

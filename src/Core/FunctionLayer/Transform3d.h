@@ -23,12 +23,10 @@ class Transform3D
 	bool isDone = false;
 
 protected:
-
 	// apply matrix to this object. Cache should be managed locally.
-	void apply() =0;
+	void apply() = 0;
 
 public:
-
 	Transform3D();
 
 	Transform3D(std::shared_ptr<Transform3D> _matrix);
@@ -47,5 +45,4 @@ public:
 
 	// @brief inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within.
 	void done();
-
 };
