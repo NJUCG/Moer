@@ -17,7 +17,7 @@
 class Film
 {
 protected:
-	std::shared_ptr<Image> image;
+	std::unique_ptr<Image> image;
 	std::shared_ptr<Filter> filter;
 	void syncWithGui();
 

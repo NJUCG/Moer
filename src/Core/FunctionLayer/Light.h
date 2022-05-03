@@ -16,11 +16,19 @@
 
 struct LightSampleResult
 {
+	// @brief Spectrum from light.
 	Spectrum s;
+
+	// @brief Point on an object where receives light.
 	Point3f src;
+
+	// @brief Point on a light where emits light.
 	Point3f dst;
-	Point3f dstNormal;
+
+	Normal3f dstNormal;
+
 	double pdf;
+
 	Point2f uv;
 };
 

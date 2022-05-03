@@ -22,8 +22,8 @@ class Integrator
 {
 protected:
 	std::shared_ptr<Camera> camera;
-	std::shared_ptr<Film> film;
-	std::shared_ptr<TileGenerator> tileGenerator;
+	std::unique_ptr<Film> film;
+	std::unique_ptr<TileGenerator> tileGenerator;
 
 public:
 	void render(std::shared_ptr<Scene> scene) const = 0;

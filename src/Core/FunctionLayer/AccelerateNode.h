@@ -12,10 +12,10 @@
 
 #include "../CoreLayer/Color.h"
 #include "../CoreLayer/BoundingBox.h"
+#include "Entity.h"
 
 #include <memory>
 #include <vector>
-#include "Entity.h"
 
 class BvhNode
 {

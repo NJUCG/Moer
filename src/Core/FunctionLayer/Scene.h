@@ -18,7 +18,7 @@
 
 class Scene
 {
-	std::shared_ptr<Accelerator> accelerator;
+	std::unique_ptr<Accelerator> accelerator;
 
 public:
 	void addEntity(std::shared_ptr<Entity> object);

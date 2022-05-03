@@ -16,21 +16,22 @@
 struct BxDFSampleResult
 {
 	Spectrum s;
-	Vec3f directionOut;
+	Vec3f directionIn;
 	double pdf;
 	// todo: enum flags
 	bool isSpecular;
 };
 
+// @brief BxDF. out == rays from/to camera, in == rays from/to objects/lights.
 class BxDF
 {
 
 public:
-	Spectrum f(const Vec3f &in, const Vec3f &out) const = 0;
+	Spectrum f(const Vec3f &out, const Vec3f &in) const = 0;
 
 	Vec3f sampleWi(const Vec3f &out) const = 0;
 
-	double pdf(const Vec3f &in, const Vec3f &out) const = 0;
+	double pdf(const Vec3f &out, const Vec3f &in) const = 0;
 
 	BxDFSampleResult sample(const Vec3f &out) const = 0;
 

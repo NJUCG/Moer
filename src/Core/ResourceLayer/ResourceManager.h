@@ -34,7 +34,7 @@ class ImageManager : public ResourceManager<Image>
 
 public:
 	// @brief singleton pattern get.
-	static std::shared_ptr<ImageManager> get();
+	static std::shared_ptr<ImageManager> getInstance();
 
 	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode);
 };
@@ -46,7 +46,7 @@ class MeshDataManager : public ResourceManager<MeshData>
 
 public:
 	// @brief singleton pattern get.
-	static std::shared_ptr<MeshDataManager> get();
+	static std::shared_ptr<MeshDataManager> getInstance();
 
 	std::vector<std::shared_ptr<MeshData>> getMeshData(const std::string &path);
 };

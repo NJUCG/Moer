@@ -98,17 +98,17 @@ public:
 
 // @brief Spectrum of nSamples sample points.
 template <int nSamples>
-class Spectrum
+class CoefficientSpectrum
 {
 protected:
 	double coefficients[nSamples];
 
 public:
 	// @brief all coefficients initialized as 0.0f.
-	Spectrum();
+	CoeffieientSpectrum();
 
 	// @brief all coefficients initialized as val.
-	Spectrum(double val);
+	CoeffieientSpectrum(double val);
 
 	double operator[](int i);
 	double &operator[](int i);
@@ -158,7 +158,7 @@ struct SpectrumSample
 
 // @brief The specturm samples uniformly. Actually used in program.
 class SampledSpectrum
-	: public Spectrum<nSpectrumSamples>
+	: public CoefficientSpectrum<nSpectrumSamples>
 {
 	// these spectrums should be calculated at compile time.
 	// TODO
@@ -191,3 +191,5 @@ class RGBSpectrum : public Spectrum<3>
 {
 	// TODO RGBSpectrum
 };
+
+using Spectrum = SampledSpectrum;

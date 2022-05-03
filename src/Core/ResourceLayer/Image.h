@@ -37,7 +37,7 @@ public:
 	Image(const Point2i &resolution, int channels);
 	Image(const Point3i &shape);
 
-	friend class ImageAllocator;
+	friend class ImageManager;
 
 	Point2i getResolution() const;
 	int getChannels() const;
