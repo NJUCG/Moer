@@ -31,7 +31,7 @@ RGB3::RGB3(double val)
 	rgbData[0] = rgbData[1] = rgbData[2] = val;
 }
 
-double RGB3::operator[](int i)
+double RGB3::operator[](int i) const
 {
 	// no checking of i.
 	return rgbData[i];
@@ -129,16 +129,16 @@ XYZ3 RGB3::toXYZ3() const
 					0.212671f, 0.715160f, 0.072169f,
 					0.019334f, 0.119193f, 0.950227f;
 	Eigen::Vector3d vec;
-	vec << rgbdata[0], rgbdata[1], rgbdata[2];
+	vec << rgbData[0], rgbData[1], rgbData[2];
 	auto res = rgb2xyzMatrix * vec;
 	return XYZ3(res[0], res[1], res[2]);
 }
 
 // @brief rgb to Spectrum. COSTLY so arrange cache if possible.
-Spectrum RGB3::toSpectrum() const
+Spectrum RGB3::toSpectrum(SpectrumType type) const
 {
     SampledSpectrum r;
-    if (type == SpectrumType::reflectance) {
+    if (type == SpectrumType::REFLECTANCE) {
         // Convert reflectance spectrum to rgb
         if (rgbData[0] <= rgbData[1] && rgbData[0] <= rgbData[2]) {
             // Compute reflectance _SampledSpectrum_ with _rgb[0]_ as minimum

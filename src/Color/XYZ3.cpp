@@ -31,7 +31,7 @@ XYZ3::XYZ3(double val)
 	xyzData[0] = xyzData[1] = xyzData[2] = val;
 }
 
-double XYZ3::operator[](int i)
+double XYZ3::operator[](int i) const
 {
 	// no checking of i.
 	return xyzData[i];
@@ -129,13 +129,13 @@ RGB3 XYZ3::toRGB3() const
 					-0.969256f, 1.875991f, 0.041556f,
 					0.055648f, 0.204043f, 1.057311f;
 	Eigen::Vector3d vec;
-	vec << xyzdata[0], xyzdata[1], xyzdata[2];
+	vec << xyzData[0], xyzData[1], xyzData[2];
 	auto res = rgb2xyzMatrix * vec;
 	return RGB3(res[0], res[1], res[2]);
 }
 
 XYZ3 operator*(double v, const XYZ3& xyz)
 {
-	return return XYZ3(xyz[0] * v, xyz[1] * v, xyz[2] * v);
+	return XYZ3(xyz[0] * v, xyz[1] * v, xyz[2] * v);
 }
 
