@@ -285,7 +285,9 @@ public:
 		return sum() / nSamples;
 	}
 
-	virtual XYZ3 toXYZ3() const = 0;
+	virtual XYZ3 toXYZ3() const {
+		//DEBUG this function should never be called.
+	}
 };
 
 // @brief one sample point from a spectrum.
@@ -305,20 +307,60 @@ struct SpectrumSample
 	}
 };
 
+// extra function declaration
+constexpr double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd);
+constexpr std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const double* value, const int n);
+
+// constant declaration
+// TODO should't be included by core.
+const int nCIESamples = 471;
+extern const double CIE_Y_integral = 106.856895;
+extern const double CIE_X[nCIESamples];
+extern const double CIE_Y[nCIESamples];
+extern const double CIE_Z[nCIESamples];
+extern const double CIE_lambda[nCIESamples];
+
+static const int nRGB2SpectSamples = 32;
+extern const double RGB2SpectLambda[nRGB2SpectSamples];
+extern const double RGBRefl2SpectWhite[nRGB2SpectSamples];
+extern const double RGBRefl2SpectCyan[nRGB2SpectSamples];
+extern const double RGBRefl2SpectMagenta[nRGB2SpectSamples];
+extern const double RGBRefl2SpectYellow[nRGB2SpectSamples];
+extern const double RGBRefl2SpectRed[nRGB2SpectSamples];
+extern const double RGBRefl2SpectGreen[nRGB2SpectSamples];
+extern const double RGBRefl2SpectBlue[nRGB2SpectSamples];
+extern const double RGBIllum2SpectWhite[nRGB2SpectSamples];
+extern const double RGBIllum2SpectCyan[nRGB2SpectSamples];
+extern const double RGBIllum2SpectMagenta[nRGB2SpectSamples];
+extern const double RGBIllum2SpectYellow[nRGB2SpectSamples];
+extern const double RGBIllum2SpectRed[nRGB2SpectSamples];
+extern const double RGBIllum2SpectGreen[nRGB2SpectSamples];
+extern const double RGBIllum2SpectBlue[nRGB2SpectSamples];
+
 // @brief The specturm samples uniformly. Actually used in program.
 class SampledSpectrum
 	: public CoefficientSpectrum<nSpectrumSamples>
 {
 	// these spectrums should be calculated at compile time.
-	static SampledSpectrum X, Y, Z;
-	static SampledSpectrum rgbRefl2SpectWhite, rgbRefl2SpectCyan;
-	static SampledSpectrum rgbRefl2SpectMagenta, rgbRefl2SpectYellow;
-	static SampledSpectrum rgbRefl2SpectRed, rgbRefl2SpectGreen;
-	static SampledSpectrum rgbRefl2SpectBlue;
-	static SampledSpectrum rgbIllum2SpectWhite, rgbIllum2SpectCyan;
-	static SampledSpectrum rgbIllum2SpectMagenta, rgbIllum2SpectYellow;
-	static SampledSpectrum rgbIllum2SpectRed, rgbIllum2SpectGreen;
-	static SampledSpectrum rgbIllum2SpectBlue;
+	static constexpr SampledSpectrum X = fromSampled(constructSpectrumSamples(CIE_lambda, CIE_X, nCIESamples));
+	static constexpr SampledSpectrum Y = fromSampled(constructSpectrumSamples(CIE_lambda, CIE_Y, nCIESamples));
+	static constexpr SampledSpectrum Z = fromSampled(constructSpectrumSamples(CIE_lambda, CIE_Z, nCIESamples));
+
+	static constexpr SampledSpectrum rgbRefl2SpectWhite = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectWhite, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectCyan = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectCyan, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectMagenta = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectMagenta, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectYellow = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectYellow, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectRed = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectRed, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectGreen = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectGreen, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbRefl2SpectBlue = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectBlue, nRGB2SpectSamples));
+
+	static constexpr SampledSpectrum rgbIllum2SpectWhite = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectWhite, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectCyan = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectCyan, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectMagenta = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectMagenta, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectYellow = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectYellow, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectRed = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectRed, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectGreen = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectGreen, nRGB2SpectSamples));
+	static constexpr SampledSpectrum rgbIllum2SpectBlue = fromSampled(constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectBlue, nRGB2SpectSamples));
 
 public:
 	friend class RGB3;
@@ -328,11 +370,8 @@ public:
 
 	SampledSpectrum(double val);
 
-	// @brief implicit construct from base type is allowed.
-	SampledSpectrum(const Spectrum &s);
-
 	// @brief generate SampledSpectrum from a set of SpectrumSample.
-	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
+	static constexpr SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 
 	virtual toXYZ3() const override;
 };
