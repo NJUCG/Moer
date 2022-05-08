@@ -73,7 +73,6 @@ double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambda
 std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const double* value, const int n);
 
 // constant declaration
-// TODO should't be included by core.
 const int nCIESamples = 471;
 static const double CIE_Y_integral = 106.856895;
 static const double CIE_X[nCIESamples];

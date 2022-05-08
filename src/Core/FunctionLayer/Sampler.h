@@ -15,7 +15,7 @@
 class Sampler
 {
 public:
-	double sample() const = 0;
+	virtual double sample() const = 0;
 
-	std::vector<double> sample(int num) const = 0;
+	virtual std::vector<double> sample(int num) const = 0;
 };

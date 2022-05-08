@@ -18,7 +18,10 @@
 
 class RGB3;
 class XYZ3;
-class Spectrum;
+class SampledSpectrum;
+
+// TODO: should be defined by cmake marco.
+using Spectrum = SampledSpectrum;
 
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
@@ -361,6 +364,3 @@ class RGBSpectrum : public CoefficientSpectrum<3>
 {
 	// TODO RGBSpectrum
 };
-
-// TODO: should be defined by cmake marco.
-using Spectrum = SampledSpectrum;

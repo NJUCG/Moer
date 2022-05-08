@@ -36,5 +36,5 @@ class Light
 {
 public:
 	
-	LightSampleResult sampleAll(const Ray& r) const = 0;
+	virtual LightSampleResult sampleAll(const Ray& r) const = 0;
 };

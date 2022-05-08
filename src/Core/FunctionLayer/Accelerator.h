@@ -19,6 +19,11 @@
 
 class Accelerator
 {
+protected:
+
+	// @brief Ray intersect with a bounding box (NOT an object or Entity). return intersected BvhNode or nullptr.
+	virtual std::shared_ptr<BvhNode> boundingIntersect(const Ray& r) = 0;
+
 public:
 
 	virtual Intersection intersect(const Ray &r) = 0;
@@ -31,8 +36,7 @@ class Bvh : public Accelerator
 
 protected:
 
-	// @brief Ray intersect with a bounding box (NOT an object or Entity). return intersected BvhNode or nullptr.
-	std::shared_ptr<BvhNode> intersect(const Ray &r);
+	virtual std::shared_ptr<BvhNode> boundingIntersect(const Ray& r);
 
 public:
 	Bvh();

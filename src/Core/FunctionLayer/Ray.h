@@ -10,7 +10,7 @@
  */
 #pragma once
 
-#include "../core.h"
+//#include "../core.h"
 #include "../CoreLayer/Geometry.h"
 
 struct Ray

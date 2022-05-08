@@ -11,12 +11,14 @@
 #pragma once
 
 #include "Transform3d.h"
-#include "AccelerateNode.h"
-#include "Intersection.h"
+//#include "AccelerateNode.h"
+//#include "Intersection.h"
 #include "Ray.h"
+
+struct Intersection;
 
 class Entity : public Transform3D
 {
 public:
-	Intersection intersect(const Ray &r) const = 0;
+	virtual Intersection intersect(const Ray &r) const = 0;
 };

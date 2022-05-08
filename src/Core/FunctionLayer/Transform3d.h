@@ -24,7 +24,7 @@ class Transform3D
 
 protected:
 	// apply matrix to this object. Cache should be managed locally.
-	void apply() = 0;
+	virtual void apply() = 0;
 
 public:
 	Transform3D();

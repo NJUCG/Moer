@@ -12,12 +12,9 @@
 
 #include "../CoreLayer/Geometry.h"
 #include "Material.h"
-#include "Entity.h"
 #include "Medium.h"
 
 #include <memory>
-
-class Entity;
 
 struct Intersection
 {

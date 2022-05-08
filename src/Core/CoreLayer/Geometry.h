@@ -10,6 +10,10 @@
  */
 #pragma once
 
+#include "Geometry/normal.h"
+#include "Geometry/point.h"
+#include "Geometry/vector.h"
+
 // vector.h
 template <typename T>
 struct TVector2;

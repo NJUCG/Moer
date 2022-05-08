@@ -42,6 +42,12 @@ public:
 
 // todo: bare Mat4x4
 
+enum class EulerType
+{
+	EULER_XYZ,
+	EULER_ZYX
+};
+
 /*
  * @brief Encapsulated transform matrix. By default, it will be initialized as identity matrix.
  */
@@ -65,11 +71,6 @@ public:
 	void setScale(double x, double y, double z);
 	void setScale(double ratio);
 
-	enum class EulerType
-	{
-		EULER_XYZ,
-		EULER_ZYX
-	};
 	void setRotateEuler(Angle x, Angle y, Angle z, EulerType type = EulerType::EULER_XYZ);
 
 	void setRotateQuaternion(double w, double x, double y, double z);
