@@ -12,3 +12,8 @@ cmake version >= 3.12
 
 >app.exe 会生成到 target 文件夹下，运行 RunDebug.bat，可直接拷贝 assimp-vc142-mt.dll 到 target/Debug/ 下。Release 版本需要修改一下脚本里的路径。
 
+>请大家在提交代码前先完成自测
+>
+>在SelfTest中写测试代码，至少保证编译通过
+>
+>运行RunSelfTest.bat
