@@ -27,7 +27,7 @@ struct Ray
 
 	bool withinTime(double time);
 
-	Ray(const Point3f &_origin, const Point3f &_direction, double _timeMin = .0f, double _timeMax = .0f);
+	Ray(const Point3f &_origin, const Vec3f &_direction, double _timeMin = .0f, double _timeMax = .0f);
 };
 
 struct RayDifferential : public Ray

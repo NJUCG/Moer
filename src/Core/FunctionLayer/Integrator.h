@@ -26,14 +26,6 @@ protected:
 	std::unique_ptr<TileGenerator> tileGenerator;
 
 public:
-	void render(std::shared_ptr<Scene> scene) const = 0;
+	virtual void render(std::shared_ptr<Scene> scene) = 0;
 };
 
-class SampleIntegrator : public Integrator
-{
-protected:
-	std::shared_ptr<Sampler> sampler;
-
-public:
-	void render(std::shared_ptr<Scene> scene) const = 0;
-};

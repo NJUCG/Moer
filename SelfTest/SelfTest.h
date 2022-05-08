@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Core/CoreLayer/Color.h"
+#include "Integrator/Path.h"
 
 namespace
 {
     void test()
     {
-        SampledSpectrum x;
+        PathIntegrator p;
     }
 }
 
