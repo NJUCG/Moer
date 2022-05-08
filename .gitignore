@@ -4,6 +4,3 @@ imgui.ini
 /.vs
 /NJUCG.mdj
 .vscode
-/CMakeFiles
-/SelfTest.dir/Debug
-/x64/Debug
