@@ -14,7 +14,7 @@
 Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
 {
     Spectrum L(0.0);
-    Spectrum T(0.0); // throughput
+    Spectrum T(1.0); // throughput
 
     Ray ray = ray0;
     double pdfB = 0.0; // pdf of last BSDF sample

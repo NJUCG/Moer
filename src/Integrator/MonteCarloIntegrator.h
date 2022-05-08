@@ -29,4 +29,3 @@ public:
     // @brief Get random without using MonteCarloIntegrator::sampler
     virtual double randFloat();
 };
-
