@@ -9,6 +9,8 @@ add_executable(
     ../src/Integrator/Path.cpp
     ../src/Integrator/MonteCarlo.cpp
     ../src/BoundingBox/BoundingBox.cpp
+    ../src/Ray/Ray.cpp
+    ../src/Scene/Scene.cpp
     ../src/Color/RGB3.cpp
     ../src/Color/Spectrum.cpp 
     ../src/Color/XYZ3.cpp
