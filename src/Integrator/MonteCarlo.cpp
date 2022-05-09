@@ -1,5 +1,5 @@
 /**
- * @file MonteCarloIntegrator.h
+ * @file MonteCarlo.h
  * @author Zhimin Fan
  * @brief Integrators
  * @version 0.1
@@ -9,7 +9,7 @@
  *
  */
 
-#include "MonteCarloIntegrator.h"
+#include "MonteCarlo.h"
 
 void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
 {
@@ -24,4 +24,5 @@ double MonteCarloIntegrator::MISWeight(double x, double y)
 double MonteCarloIntegrator::randFloat()
 {
     // todo
+    return 0.0;
 }

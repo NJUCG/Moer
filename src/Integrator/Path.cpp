@@ -28,8 +28,8 @@ Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
 
         // hit emitter or env
         {
-            Spectrum Le(0.0f);
-            float pdfL = 1.0f;
+            Spectrum Le(0.0);
+            double pdfL = 1.0;
             if (its.object)
             {
                 // todo: get environment Le and pdfL
@@ -38,8 +38,8 @@ Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
             {
                 // todo: get emitted Le and pdfL
             }
-            float mis = MISWeight(pdfB, pdfL);
-            Spectrum transmittance(1.0f); // todo: transmittance eval
+            double mis = MISWeight(pdfB, pdfL);
+            Spectrum transmittance(1.0); // todo: transmittance eval
             L += T * Le / pdfL * mis;
         }
 
@@ -60,16 +60,16 @@ Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
         // sample light
         {
             // todo: sample all lights and fill these vars below
-            float pdfL; // pdf with respect to solid angle, to our intersection
+            double pdfL; // pdf with respect to solid angle, to our intersection
             Vec3f wi;
             Spectrum Li;
             Point3f posL;
             // todo: media
             Spectrum bsdf = bxdf->f(-ray.direction, wi);
-            float pdfB = bxdf->pdf(wo, wi);
-            float mis = MISWeight(pdfL, pdfB);
-            float cosine = dot(n, wi);
-            Spectrum transmittance(1.0f); // todo: visibility test + transmittance eval
+            double pdfB = bxdf->pdf(wo, wi);
+            double mis = MISWeight(pdfL, pdfB);
+            double cosine = dot(n, wi);
+            Spectrum transmittance(1.0); // todo: visibility test + transmittance eval
             L += T * Li * bsdf * cosine * transmittance / pdfL * mis;
         }
 

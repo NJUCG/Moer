@@ -1,5 +1,5 @@
 /**
- * @file MonteCarloIntegrator.h
+ * @file MonteCarlo.h
  * @author Zhimin Fan
  * @brief Integrators
  * @version 0.1

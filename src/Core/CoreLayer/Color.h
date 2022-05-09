@@ -296,6 +296,7 @@ public:
 
 	virtual XYZ3 toXYZ3() const {
 		//DEBUG this function should never be called.
+		return XYZ3(0.0);
 	}
 };
 

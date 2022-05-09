@@ -10,8 +10,8 @@
  */
 
 #pragma once
-#include "vector.h"
-#include "point.h"
-#include "ray.h"
-#include "normal.h"
-#include "Geometry.h"
+//#include "vector.h"
+//#include "point.h"
+//#include "ray.h"
+//#include "normal.h"
+//#include "Geometry.h"

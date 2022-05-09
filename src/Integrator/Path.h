@@ -11,7 +11,7 @@
 #pragma once
 
 #include <cmath>
-#include "MonteCarloIntegrator.h"
+#include "MonteCarlo.h"
 #include "../Core/FunctionLayer/Ray.h"
 
 class PathIntegrator : public MonteCarloIntegrator

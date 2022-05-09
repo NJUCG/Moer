@@ -3,7 +3,7 @@ project(SelfTest)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/)
 
-add_executable(SelfTest Main.cpp)
+add_executable(SelfTest Main.cpp ../src/Integrator/Path.cpp ../src/Integrator/MonteCarlo.cpp)
 
 target_include_directories(SelfTest PUBLIC ${PROJECT_SOURCE_DIR}/../src)
 target_include_directories(SelfTest PUBLIC ${PROJECT_SOURCE_DIR}/../ext)
