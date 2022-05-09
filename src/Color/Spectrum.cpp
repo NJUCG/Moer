@@ -13,14 +13,14 @@
 
 #include <algorithm>
 
-double clamp(double source, double low, double high)
+double mathClamp(double source, double low, double high)
 {
 	if (source < low) return low;
 	if (source > high) return high;
 	return source;
 }
 
-double lerp(double source0, double source1, double ratio)
+double mathLerp(double source0, double source1, double ratio)
 {
 	return (1.0f - ratio) * source0 + ratio * source1;
 }
@@ -45,7 +45,7 @@ double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambda
 
     auto interp = [samples](double w, int i) {
         // Linear interpolation
-        return lerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
+        return mathLerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
     };
     int i = 0;
     while (lambdaBegin > samples[i + 1].lambda) i++;
@@ -68,121 +68,24 @@ std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const
     return retVal;
 }
 
-// extra function declaration
-double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd);
-std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const double* value, const int n);
+// static declaration
+SampledSpectrum SampledSpectrum::X;
+SampledSpectrum SampledSpectrum::Y;
+SampledSpectrum SampledSpectrum::Z;
+SampledSpectrum SampledSpectrum::rgbRefl2SpectWhite, SampledSpectrum::rgbRefl2SpectCyan;
+SampledSpectrum SampledSpectrum::rgbRefl2SpectMagenta, SampledSpectrum::rgbRefl2SpectYellow;
+SampledSpectrum SampledSpectrum::rgbRefl2SpectRed, SampledSpectrum::rgbRefl2SpectGreen;
+SampledSpectrum SampledSpectrum::rgbRefl2SpectBlue;
+SampledSpectrum SampledSpectrum::rgbIllum2SpectWhite, SampledSpectrum::rgbIllum2SpectCyan;
+SampledSpectrum SampledSpectrum::rgbIllum2SpectMagenta, SampledSpectrum::rgbIllum2SpectYellow;
+SampledSpectrum SampledSpectrum::rgbIllum2SpectRed, SampledSpectrum::rgbIllum2SpectGreen;
+SampledSpectrum SampledSpectrum::rgbIllum2SpectBlue;
 
 // constant declaration
 const int nCIESamples = 471;
 static const double CIE_Y_integral = 106.856895;
-static const double CIE_X[nCIESamples];
-static const double CIE_Y[nCIESamples];
-static const double CIE_Z[nCIESamples];
-static const double CIE_lambda[nCIESamples];
 
 static const int nRGB2SpectSamples = 32;
-static const double RGB2SpectLambda[nRGB2SpectSamples];
-static const double RGBRefl2SpectWhite[nRGB2SpectSamples];
-static const double RGBRefl2SpectCyan[nRGB2SpectSamples];
-static const double RGBRefl2SpectMagenta[nRGB2SpectSamples];
-static const double RGBRefl2SpectYellow[nRGB2SpectSamples];
-static const double RGBRefl2SpectRed[nRGB2SpectSamples];
-static const double RGBRefl2SpectGreen[nRGB2SpectSamples];
-static const double RGBRefl2SpectBlue[nRGB2SpectSamples];
-static const double RGBIllum2SpectWhite[nRGB2SpectSamples];
-static const double RGBIllum2SpectCyan[nRGB2SpectSamples];
-static const double RGBIllum2SpectMagenta[nRGB2SpectSamples];
-static const double RGBIllum2SpectYellow[nRGB2SpectSamples];
-static const double RGBIllum2SpectRed[nRGB2SpectSamples];
-static const double RGBIllum2SpectGreen[nRGB2SpectSamples];
-static const double RGBIllum2SpectBlue[nRGB2SpectSamples];
-
-SampledSpectrum::SampledSpectrum()
-    :CoefficientSpectrum()
-{
-    // empty
-}
-
-SampledSpectrum::SampledSpectrum(double val)
-    :CoefficientSpectrum(val)
-{
-    // empty
-}
-
-SampledSpectrum::SampledSpectrum(const CoefficientSpectrum& s)
-    : CoefficientSpectrum(s)
-{
-    // empty
-}
-
-SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> v)
-{
-    if (!std::is_sorted(v.begin(), v.end()))
-        std::sort(v.begin(), v.end());
-    SampledSpectrum r(0.0);
-    for (int i = 0; i < nSpectrumSamples; i++) {
-        double lambda0 = lerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
-        double lambda1 = lerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
-        r[i] = averageSpectrumSamples(v, lambda0, lambda1);
-    }
-    return r;
-}
-
-void SampledSpectrum::init()
-{
-    auto vecX = constructSpectrumSamples(CIE_lambda, CIE_X, nCIESamples);
-    auto vecY = constructSpectrumSamples(CIE_lambda, CIE_Y, nCIESamples);
-    auto vecZ = constructSpectrumSamples(CIE_lambda, CIE_Z, nCIESamples);
-
-    X = fromSampled(vecX);
-    Y = fromSampled(vecY);
-    Z = fromSampled(vecZ);
-
-    auto Refl2SpectWhite = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectWhite, nRGB2SpectSamples);
-    auto Refl2SpectCyan = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectCyan, nRGB2SpectSamples);
-    auto Refl2SpectMagenta = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectMagenta, nRGB2SpectSamples);
-    auto Refl2SpectYellow = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectYellow, nRGB2SpectSamples);
-    auto Refl2SpectRed = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectRed, nRGB2SpectSamples);
-    auto Refl2SpectGreen = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectGreen, nRGB2SpectSamples);
-    auto Refl2SpectBlue = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectBlue, nRGB2SpectSamples);
-
-    rgbRefl2SpectWhite = fromSampled(Refl2SpectWhite);
-    rgbRefl2SpectCyan = fromSampled(Refl2SpectCyan);
-    rgbRefl2SpectMagenta = fromSampled(Refl2SpectMagenta);
-    rgbRefl2SpectYellow = fromSampled(Refl2SpectYellow);
-    rgbRefl2SpectRed = fromSampled(Refl2SpectRed);
-    rgbRefl2SpectGreen = fromSampled(Refl2SpectGreen);
-    rgbRefl2SpectBlue = fromSampled(Refl2SpectBlue);
-
-    auto Illum2SpectWhite = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectWhite, nRGB2SpectSamples);
-    auto Illum2SpectCyan = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectCyan, nRGB2SpectSamples);
-    auto Illum2SpectMagenta = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectMagenta, nRGB2SpectSamples);
-    auto Illum2SpectYellow = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectYellow, nRGB2SpectSamples);
-    auto Illum2SpectRed = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectRed, nRGB2SpectSamples);
-    auto Illum2SpectGreen = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectGreen, nRGB2SpectSamples);
-    auto Illum2SpectBlue = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectBlue, nRGB2SpectSamples);
-
-    rgbIllum2SpectWhite = fromSampled(Illum2SpectWhite);
-    rgbIllum2SpectCyan = fromSampled(Illum2SpectCyan);
-    rgbIllum2SpectMagenta = fromSampled(Illum2SpectMagenta);
-    rgbIllum2SpectYellow = fromSampled(Illum2SpectYellow);
-    rgbIllum2SpectRed = fromSampled(Illum2SpectRed);
-    rgbIllum2SpectGreen = fromSampled(Illum2SpectGreen);
-    rgbIllum2SpectBlue = fromSampled(Illum2SpectBlue);
-}
-
-XYZ3 SampledSpectrum::toXYZ3() const
-{
-    XYZ3 xyz(0.0, 0.0, 0.0);
-    for (int i = 0; i < nSpectrumSamples; i++) {
-        xyz[0] += X[i] * coefficients[i];
-        xyz[1] += Y[i] * coefficients[i];
-        xyz[2] += Z[i] * coefficients[i];
-    }
-    double scale = double(sampledLambdaEnd - sampledLambdaStart) / double(CIE_Y_integral * nSpectrumSamples);
-    xyz *= scale;
-    return xyz;
-}
 
 const double CIE_X[nCIESamples] = {
     // CIE X function values
@@ -1123,3 +1026,90 @@ const double RGBIllum2SpectBlue[nRGB2SpectSamples] = {
     8.8773879881746481e-02,  1.3873621740236541e-01,  1.5535067531939065e-01,
     1.4878477178237029e-01,  1.6624255403475907e-01,  1.6997613960634927e-01,
     1.5769743995852967e-01,  1.9069090525482305e-01 };
+
+SampledSpectrum::SampledSpectrum()
+    :CoefficientSpectrum()
+{
+    // empty
+}
+
+SampledSpectrum::SampledSpectrum(double val)
+    : CoefficientSpectrum(val)
+{
+    // empty
+}
+
+SampledSpectrum::SampledSpectrum(const CoefficientSpectrum& s)
+    : CoefficientSpectrum(s)
+{
+    // empty
+}
+
+SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> v)
+{
+    if (!std::is_sorted(v.begin(), v.end()))
+        std::sort(v.begin(), v.end());
+    SampledSpectrum r(0.0);
+    for (int i = 0; i < nSpectrumSamples; i++) {
+        double lambda0 = mathLerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+        double lambda1 = mathLerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+        r[i] = averageSpectrumSamples(v, lambda0, lambda1);
+    }
+    return r;
+}
+
+void SampledSpectrum::init()
+{
+    auto vecX = constructSpectrumSamples(CIE_lambda, CIE_X, nCIESamples);
+    auto vecY = constructSpectrumSamples(CIE_lambda, CIE_Y, nCIESamples);
+    auto vecZ = constructSpectrumSamples(CIE_lambda, CIE_Z, nCIESamples);
+
+    X = fromSampled(vecX);
+    Y = fromSampled(vecY);
+    Z = fromSampled(vecZ);
+
+    auto Refl2SpectWhite = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectWhite, nRGB2SpectSamples);
+    auto Refl2SpectCyan = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectCyan, nRGB2SpectSamples);
+    auto Refl2SpectMagenta = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectMagenta, nRGB2SpectSamples);
+    auto Refl2SpectYellow = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectYellow, nRGB2SpectSamples);
+    auto Refl2SpectRed = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectRed, nRGB2SpectSamples);
+    auto Refl2SpectGreen = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectGreen, nRGB2SpectSamples);
+    auto Refl2SpectBlue = constructSpectrumSamples(RGB2SpectLambda, RGBRefl2SpectBlue, nRGB2SpectSamples);
+
+    rgbRefl2SpectWhite = fromSampled(Refl2SpectWhite);
+    rgbRefl2SpectCyan = fromSampled(Refl2SpectCyan);
+    rgbRefl2SpectMagenta = fromSampled(Refl2SpectMagenta);
+    rgbRefl2SpectYellow = fromSampled(Refl2SpectYellow);
+    rgbRefl2SpectRed = fromSampled(Refl2SpectRed);
+    rgbRefl2SpectGreen = fromSampled(Refl2SpectGreen);
+    rgbRefl2SpectBlue = fromSampled(Refl2SpectBlue);
+
+    auto Illum2SpectWhite = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectWhite, nRGB2SpectSamples);
+    auto Illum2SpectCyan = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectCyan, nRGB2SpectSamples);
+    auto Illum2SpectMagenta = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectMagenta, nRGB2SpectSamples);
+    auto Illum2SpectYellow = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectYellow, nRGB2SpectSamples);
+    auto Illum2SpectRed = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectRed, nRGB2SpectSamples);
+    auto Illum2SpectGreen = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectGreen, nRGB2SpectSamples);
+    auto Illum2SpectBlue = constructSpectrumSamples(RGB2SpectLambda, RGBIllum2SpectBlue, nRGB2SpectSamples);
+
+    rgbIllum2SpectWhite = fromSampled(Illum2SpectWhite);
+    rgbIllum2SpectCyan = fromSampled(Illum2SpectCyan);
+    rgbIllum2SpectMagenta = fromSampled(Illum2SpectMagenta);
+    rgbIllum2SpectYellow = fromSampled(Illum2SpectYellow);
+    rgbIllum2SpectRed = fromSampled(Illum2SpectRed);
+    rgbIllum2SpectGreen = fromSampled(Illum2SpectGreen);
+    rgbIllum2SpectBlue = fromSampled(Illum2SpectBlue);
+}
+
+XYZ3 SampledSpectrum::toXYZ3() const
+{
+    XYZ3 xyz(0.0, 0.0, 0.0);
+    for (int i = 0; i < nSpectrumSamples; i++) {
+        xyz[0] += X[i] * coefficients[i];
+        xyz[1] += Y[i] * coefficients[i];
+        xyz[2] += Z[i] * coefficients[i];
+    }
+    double scale = double(sampledLambdaEnd - sampledLambdaStart) / double(CIE_Y_integral * nSpectrumSamples);
+    xyz *= scale;
+    return xyz;
+}

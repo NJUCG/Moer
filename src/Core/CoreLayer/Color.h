@@ -30,10 +30,10 @@ static const double sampledLambdaEnd = 700.0;
 static const int nSpectrumSamples = 60;
 
 // @brief mathematical clamp.
-double clamp(double source, double low=0.0, double high=DBL_MAX);
+double mathClamp(double source, double low=0.0, double high=DBL_MAX);
 
 // @brief mathematical lerp.
-double lerp(double source0,double source1,double ratio);
+double mathLerp(double source0,double source1,double ratio);
 
 // @brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };
@@ -131,7 +131,7 @@ public:
 	// @brief all coefficients initialized as val.
 	CoefficientSpectrum(double val) {
 		for (int i = 0; i < nSamples; i++) {
-			coefficients[i] = initVal;
+			coefficients[i] = val;
 		}
 	}
 
@@ -277,7 +277,7 @@ public:
 	inline CoefficientSpectrum clamp(double low = 0.0, double high = DBL_MAX) const {
 		CoefficientSpectrum retVal;
 		for (int i = 0; i < nSamples; i++) {
-			retVal[i] = clamp(coefficients[i], low, high);
+			retVal[i] = mathClamp(coefficients[i], low, high);
 		}
 		return retVal;
 	}
@@ -314,6 +314,11 @@ struct SpectrumSample
 	// @brief sorted by lambda.
 	bool operator>(const SpectrumSample& s) const {
 		return lambda > s.lambda;
+	}
+
+	// @brief sorted by lambda.
+	bool operator<(const SpectrumSample& s) const {
+		return lambda < s.lambda;
 	}
 };
 
