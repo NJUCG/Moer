@@ -30,7 +30,7 @@ Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
         {
             Spectrum Le(0.0);
             double pdfL = 1.0;
-            if (its.object)
+            if (!its.object)
             {
                 // todo: get environment Le and pdfL
             }
