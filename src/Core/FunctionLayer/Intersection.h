@@ -13,6 +13,7 @@
 #include "../CoreLayer/Geometry.h"
 #include "Material.h"
 #include "Medium.h"
+#include "Entity.h"
 
 #include <memory>
 

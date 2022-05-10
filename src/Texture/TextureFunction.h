@@ -32,18 +32,14 @@ class CheckerboardTextureFunction2D : public TextureFunction<float, TextureCoord
 {
 protected:
 public:
-    virtual float eval(const TextureCoord2D &coord) const override
-    {
-        return int(floor(coord.coord.x) + floor(coord.coord.y)) & 1 ? 1.0f : 0.0f;
-    }
+    // todo: constructor
+    virtual float eval(const TextureCoord2D &coord) const override;
 };
 
 class CheckerboardTextureFunction3D : public TextureFunction<float, TextureCoord3D>
 {
 protected:
 public:
-    virtual float eval(const TextureCoord3D &coord) const override
-    {
-        return int(floor(coord.coord.x) + floor(coord.coord.y) + floor(coord.coord.z)) & 1 ? 1.0f : 0.0f;
-    }
+    // todo: constructor
+    virtual float eval(const TextureCoord3D &coord) const override;
 };

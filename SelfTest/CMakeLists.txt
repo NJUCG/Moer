@@ -14,6 +14,10 @@ add_executable(
     ../src/Color/RGB3.cpp
     ../src/Color/Spectrum.cpp 
     ../src/Color/XYZ3.cpp
+    ../src/Texture/Texture.cpp
+    ../src/Texture/TextureMapping.cpp
+    ../src/Texture/TextureFunction.cpp
+    ../src/Texture/ImageTexture.cpp
 )
 
 target_include_directories(SelfTest PUBLIC ${PROJECT_SOURCE_DIR}/../src)

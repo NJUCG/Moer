@@ -32,13 +32,7 @@ class UVTextureMapping2D : public TextureMapping<TextureCoord2D>
 protected:
     // todo: add a affine transform
 public:
-    virtual TextureCoord2D mapping(const Intersection &intersection) const override
-    {
-        TextureCoord2D answer;
-        answer.coord = intersection.uv;
-        // todo: eval dctdx and dctdy
-        return answer;
-    }
+    virtual TextureCoord2D mapping(const Intersection &intersection) const override;
 };
 
 class NaturalTextureMapping3D : public TextureMapping<TextureCoord3D>
@@ -46,11 +40,5 @@ class NaturalTextureMapping3D : public TextureMapping<TextureCoord3D>
 protected:
     // todo: add a affine transform
 public:
-    virtual TextureCoord3D mapping(const Intersection &intersection) const override
-    {
-        TextureCoord3D answer;
-        answer.coord = intersection.position;
-        // todo: eval dctdx and dctdy
-        return answer;
-    }
+    virtual TextureCoord3D mapping(const Intersection &intersection) const override;
 };

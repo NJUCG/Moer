@@ -25,11 +25,8 @@ protected:
     Tvalue value;
 
 public:
-    ConstantTexture(const Tvalue &value) : value(value) {}
-    virtual Tvalue eval(const Intersection &intersection) const
-    {
-        return value;
-    }
+    ConstantTexture(const Tvalue &value);
+    virtual Tvalue eval(const Intersection &intersection) const;
 };
 
 template <typename Tvalue>
@@ -43,15 +40,9 @@ protected:
 public:
     MixTexture(std::shared_ptr<Texture<Tvalue>> srcA,
                std::shared_ptr<Texture<Tvalue>> srcB,
-               std::shared_ptr<Texture<float>> factor) : srcA(srcA), srcB(srcB), factor(factor)
-    {
-    }
+               std::shared_ptr<Texture<float>> factor);
 
-    virtual Tvalue eval(const Intersection &intersection) const
-    {
-        float alpha = factor->eval(intersection);
-        return srcA->eval(intersection) * alpha + srcB->eval(intersection) * (1 - alpha);
-    }
+    virtual Tvalue eval(const Intersection &intersection) const;
 };
 
 // @brief StdTexture refers to a texture which consists of a TextureMapping and a TextureFunction.
@@ -64,18 +55,9 @@ protected:
 
 public:
     StdTexture(std::shared_ptr<TextureFunction<Tvalue, Tcoord>> func,
-               std::shared_ptr<TextureMapping<Tcoord>> map) : map(map), func(func)
-    {
-    }
+               std::shared_ptr<TextureMapping<Tcoord>> map);
 
-    StdTexture(std::shared_ptr<TextureFunction<Tvalue, Tcoord>> func) : func(func)
-    {
-        // todo: use default mapping for 2D and 3D
-    }
+    StdTexture(std::shared_ptr<TextureFunction<Tvalue, Tcoord>> func);
 
-    virtual Tvalue eval(const Intersection &intersection) const
-    {
-        Tcoord coord = map->mapping(intersection);
-        return func->eval(coord);
-    }
+    virtual Tvalue eval(const Intersection &intersection) const;
 };
