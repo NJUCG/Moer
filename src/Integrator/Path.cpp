@@ -23,66 +23,97 @@ Spectrum PathIntegrator::Li(const Ray &ray0, std::shared_ptr<Scene> scene)
     while (true)
     {
         Intersection its = scene->intersect(ray);
-        Vec3f wo = -ray.direction;
-        Vec3f n; // todo: get shading normal
 
-        // hit emitter or env
-        {
-            Spectrum Le(0.0);
-            double pdfL = 1.0;
-            if (!its.object)
-            {
-                // todo: get environment Le and pdfL
-            }
-            else if (/* hit object is emitter */ 0)
-            {
-                // todo: get emitted Le and pdfL
-            }
-            double mis = MISWeight(pdfB, pdfL);
-            Spectrum transmittance(1.0); // todo: transmittance eval
-            L += T * Le / pdfL * mis;
-        }
+        auto [Le, pdfL] = evalLight(scene, its, ray);
+        double mis = MISWeight(pdfB, pdfL);
+        L += T * Le / pdfL * mis;
 
-        // terminate path
-        double q = std::min(0.95, T.sum());
-        if (randFloat() < q && its.object)
-        {
-            T /= q;
-        }
-        else
-        {
+        auto [b, q] = russianRoulette(scene, its, T);
+        if (!b)
             break;
-        }
         nBounce++;
 
-        std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
+        auto [wl, Ll, pdfL1] = sampleLight(scene, its, ray);
+        double pdfB1 = evalScatter(scene, its, ray, wl);
+        double mis2 = MISWeight(pdfL, pdfB1);
+        L += T * Ll / pdfL1 * mis2;
 
-        // sample light
-        {
-            // todo: sample all lights and fill these vars below
-            double pdfL; // pdf with respect to solid angle, to our intersection
-            Vec3f wi;
-            Spectrum Li;
-            Point3f posL;
-            // todo: media
-            Spectrum bsdf = bxdf->f(-ray.direction, wi);
-            double pdfB = bxdf->pdf(wo, wi);
-            double mis = MISWeight(pdfL, pdfB);
-            double cosine = dot(n, wi);
-            Spectrum transmittance(1.0); // todo: visibility test + transmittance eval
-            L += T * Li * bsdf * cosine * transmittance / pdfL * mis;
-        }
-
-        // sample scatter
-        {
-            // todo: media
-            BxDFSampleResult bsdfSample = bxdf->sample(wo);
-            pdfB = bsdfSample.pdf;
-            Vec3f wi = bsdfSample.directionIn;
-            T *= bsdfSample.s * dot(wi, n) * pdfB;
-            ray = Ray(its.position, wi); // todo: set time
-        }
+        auto [wi, t, pdf] = sampleScatter(scene, its, ray);
+        pdfB = pdf;
+        T *= t / pdf;
+        ray = Ray(its.position, wi);
     }
 
     return L;
+}
+
+std::tuple<Spectrum, double> PathIntegrator::evalLight(std::shared_ptr<Scene> scene,
+                                                      const Intersection &its,
+                                                      const Ray &ray)
+{
+    Vec3f wo = -ray.direction;
+    Vec3f n; // todo: get shading normal
+
+    Spectrum Le(0.0);
+    double pdfL = 1.0;
+    if (!its.object)
+    {
+        // todo: get environment Le and pdfL
+    }
+    else if (/* hit object is emitter */ 0)
+    {
+        // todo: get emitted Le and pdfL
+    }
+    Spectrum transmittance(1.0); // todo: transmittance eval
+    return {Le * transmittance, pdfL};
+}
+
+std::tuple<Vec3f, Spectrum, double> PathIntegrator::sampleLight(std::shared_ptr<Scene> scene,
+                                                                const Intersection &its,
+                                                                const Ray &ray)
+{
+    Vec3f wo = -ray.direction;
+    Vec3f n; // todo: get shading normal
+    std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
+    // todo: sample all lights and fill these vars below
+    double pdfL; // pdf with respect to solid angle, to our intersection
+    Vec3f wi;
+    Spectrum Li;
+    Point3f posL;
+    // todo: media
+    Spectrum bsdf = bxdf->f(-ray.direction, wi);
+    double cosine = dot(n, wi);
+    Spectrum transmittance(1.0); // todo: visibility test + transmittance eval
+    return {wi, Li * bsdf * cosine * transmittance, pdfL};
+}
+
+double PathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
+                                  const Intersection &its,
+                                  const Ray &ray,
+                                  const Vec3f &wi)
+{
+    std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
+    return bxdf->pdf(-ray.direction, wi);
+}
+
+std::tuple<Vec3f, Spectrum, double> PathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
+                                                                  const Intersection &its,
+                                                                  const Ray &ray)
+{
+    Vec3f wo = -ray.direction;
+    Vec3f n; // todo: get shading normal
+    std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
+    // todo: media
+    BxDFSampleResult bsdfSample = bxdf->sample(wo);
+    double pdfB = bsdfSample.pdf;
+    Vec3f wi = bsdfSample.directionIn;
+    return {wi, bsdfSample.s * dot(wi, n), pdfB};
+}
+
+std::tuple<bool, double> PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
+                                                         const Intersection &its,
+                                                         const Spectrum &T)
+{
+    double q = std::min(0.95, T.sum());
+    return {randFloat() < q && its.object, q};
 }
