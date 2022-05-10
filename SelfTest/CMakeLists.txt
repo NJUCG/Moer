@@ -18,6 +18,7 @@ add_executable(
     ../src/Texture/TextureMapping.cpp
     ../src/Texture/TextureFunction.cpp
     ../src/Texture/ImageTexture.cpp
+    ../src/Matrix/Matrix.cpp
 )
 
 target_include_directories(SelfTest PUBLIC ${PROJECT_SOURCE_DIR}/../src)

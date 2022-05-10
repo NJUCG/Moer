@@ -1,9 +1,9 @@
 /**
  * @file Matrix.h
  * @author orbitchen
- * @brief Transform matrix for the whole program, including 2D transform matrix and 3D transform matrix. Using Eigen as matrix backend.
- * @version 0.1
- * @date 2022-04-30
+ * @brief Matrix4x4 (Eigen backend) and TransformMatrix3D.
+ * @version 0.2
+ * @date 2022-05-10
  *
  * @copyright Copyright (c) 2022
  *
@@ -14,9 +14,9 @@
 
 #include "Eigen/Dense"
 
-/*
- * @brief Angle type. Providing convenient angle transformation between deg and rad.
- */
+ /*
+  * @brief Angle type. Providing convenient angle transformation between deg and rad.
+  */
 class Angle
 {
 	double deg;
@@ -40,12 +40,48 @@ public:
 	double getRad() const;
 };
 
-// todo: bare Mat4x4
-
 enum class EulerType
 {
 	EULER_XYZ,
 	EULER_ZYX
+};
+
+// @brief a simple wrap of Eigen Matrix 4x4.
+class Matrix4x4
+{
+private:
+
+	// @brief Eigen data. inaccessible from outside.
+	Eigen::Matrix4d matrix=Eigen::Matrix4d::Identity();
+
+	// @brief init from Eigen data. inaccessible from outside.
+	Matrix4x4(const Eigen::Matrix4d& _matrix);
+
+public:
+
+	Matrix4x4();
+
+	Matrix4x4 operator*(const Matrix4x4& mat);
+
+	Vec3f operator*(const Vec3f& v);
+	Point3f operator*(const Point3f& p);
+	Normal3f operator*(const Normal3f& n);
+
+	// model
+	static Matrix4x4 translate(double x, double y, double z);
+	static Matrix4x4 scale(double x, double y, double z);
+	static Matrix4x4 scale(double ratio);
+	static Matrix4x4 rotateEuler(const Angle& x, const Angle& y, const Angle& z, EulerType type = EulerType::EULER_XYZ);
+	static Matrix4x4 rotateQuaternion(double w, double x, double y, double z);
+	static Matrix4x4 rotateAxis(const Vec3f& axis, const Angle& angle);
+
+	// view & projection
+	static Matrix4x4 lookAt(const Point3f& lookFrom, const Vec3f& vecLookAt, const Vec3f& up);
+	static Matrix4x4 orthographic(double left,double right,double up,double down,double near,double far);
+	static Matrix4x4 perspective(const Angle& fov,double aspect, double near, double far);
+
+	Matrix4x4 inverse();
+	Matrix4x4 transpose();
 };
 
 /*
@@ -54,14 +90,16 @@ enum class EulerType
 class TransformMatrix3D
 {
 	// @brief the matrix that applies rotate, scale and translate.
-	Eigen::Matrix4d matrixAll;
+	Matrix4x4 matrixAll;
 
-	Eigen::Matrix4d matrixRotate;
-	Eigen::Matrix4d matrixScale;
-	Eigen::Matrix4d matrixTranslate;
+	Matrix4x4 matrixRotate;
+	Matrix4x4 matrixScale;
+	Matrix4x4 matrixTranslate;
 
 	// @brief true iff matrixAll!=matrixTranslate*matrixScale*matrixRotate.
 	bool dirty;
+
+	void update();
 
 public:
 	TransformMatrix3D();
@@ -71,12 +109,12 @@ public:
 	void setScale(double x, double y, double z);
 	void setScale(double ratio);
 
-	void setRotateEuler(Angle x, Angle y, Angle z, EulerType type = EulerType::EULER_XYZ);
+	void setRotateEuler(const Angle& x, const Angle& y, const Angle& z, EulerType type = EulerType::EULER_XYZ);
 
 	void setRotateQuaternion(double w, double x, double y, double z);
 
 	// @brief Rotate by axis. Counterclockwise rotate.
-	void setRotateAxis(Angle angle, Vec3f axis);
+	void setRotateAxis(const Vec3f& axis, const Angle& angle);
 
 	Vec3f operator*(const Vec3f &v);
 	Point3f operator*(const Point3f &p);
