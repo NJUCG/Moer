@@ -27,14 +27,21 @@ struct LightSampleResult
 
 	Normal3f dstNormal;
 
-	double pdf;
+	double pdfPos;
+
+	double pdfDir;
 
 	Point2f uv;
+
+	// @brief FALSE for area and volume light, TRUE for point and etc
+	bool isDeltaPos;
+	bool isDeltaDir;
+	bool isInf;
 };
 
 class Light
 {
 public:
-	
 	virtual LightSampleResult sampleAll(const Ray& r) const = 0;
+
 };

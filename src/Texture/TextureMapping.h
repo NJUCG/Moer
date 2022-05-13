@@ -14,16 +14,7 @@
 #include <cmath>
 #include "../Core/FunctionLayer/Texture.h"
 #include "../Core/FunctionLayer/Intersection.h"
-#include "TextureCoord.h"
-
-// @brief TextureMapping maps an intersection to texture coordinates of type Tcoord.
-template <typename Tcoord>
-class TextureMapping
-{
-protected:
-public:
-    virtual Tcoord mapping(const Intersection &intersection) const = 0;
-};
+#include "Texture.h"
 
 // Various kinds of TextureMapping
 

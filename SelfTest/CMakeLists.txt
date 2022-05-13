@@ -16,8 +16,8 @@ add_executable(
     ../src/Color/XYZ3.cpp
     ../src/Texture/Texture.cpp
     ../src/Texture/TextureMapping.cpp
-    ../src/Texture/TextureFunction.cpp
     ../src/Texture/ImageTexture.cpp
+    ../src/Texture/ProceduralTexture.cpp
     ../src/Matrix/Matrix.cpp
 )
 

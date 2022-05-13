@@ -11,9 +11,3 @@
 
 #include "ImageTexture.h"
 
-template <typename T>
-void PrefilteredImage<T>::setWrapMode(enum WrapMode _wrapMode)
-{
-    wrapMode = _wrapMode;
-}
-

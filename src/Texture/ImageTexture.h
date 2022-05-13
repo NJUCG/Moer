@@ -15,9 +15,8 @@
 #include "../Core/FunctionLayer/Texture.h"
 #include "../Core/FunctionLayer/Intersection.h"
 #include "../Core/ResourceLayer/Image.h"
-#include "TextureCoord.h"
+#include "Texture.h"
 #include "TextureMapping.h"
-#include "TextureFunction.h"
 
 enum class WrapMode
 {
@@ -52,37 +51,29 @@ public:
 };
 
 template <typename T>
-class ImageTextureFunction2D : public TextureFunction<T, TextureCoord2D>
-{
-protected:
-public:
-    ImageTextureFunction2D(const std::string &filename); // using default sampler
-    ImageTextureFunction2D(const std::string &filename, std::shared_ptr<PrefilteredImage<T>> imageSampler);
-    virtual T eval(const TextureCoord2D &coord) const = 0;
-};
-
-template <typename Tvalue, typename Tcoord>
-class StdTexture;
-
-// @brief Convenient class for image-based StdTexture
-template <typename T>
 class ImageTexture : public StdTexture<T, TextureCoord2D>
 {
 protected:
 public:
-    ImageTexture(const std::string &filename); // using default sampler
-    ImageTexture(const std::string &filename, std::shared_ptr<PrefilteredImage<T>> imageSampler);
-    ImageTexture(const std::string &filename, std::shared_ptr<TextureMapping<TextureCoord2D>> mapping);
-    ImageTexture(const std::string &filename, std::shared_ptr<PrefilteredImage<T>> imageSampler, std::shared_ptr<TextureMapping<TextureCoord2D>> mapping);
+    ImageTexture(const std::string &filename,
+                 std::shared_ptr<TextureMapping2D> mapping = std::make_shared<UVTextureMapping2D>()); // using default sampler
+    ImageTexture(const std::string &filename,
+                 std::shared_ptr<PrefilteredImage<T>> imageSampler,
+                 std::shared_ptr<TextureMapping2D> mapping = std::make_shared<UVTextureMapping2D>());
+    virtual T eval(const TextureCoord2D &coord) const = 0;
 };
+
+template <typename T>
+void PrefilteredImage<T>::setWrapMode(enum WrapMode _wrapMode)
+{
+    wrapMode = _wrapMode;
+}
 
 // * Example: Creating a Image-based Color Texture using UV coordinates from mesh
 // * >  ImageTexture<RGB3>("1.jpg");
 // * >  ImageTexture<RGB3>("1.jpg", std::make_shared<DirectSampler>());
 // * >  ImageTexture<RGB3>("1.jpg", std::make_shared<UVTextureMapping2D>());
 // * >  ImageTexture<RGB3>("1.jpg", std::make_shared<DirectSampler>(), std::make_shared<UVTextureMapping2D>());
-// * >  StdTexture<RGB3,TextureCoord2D>(std::make_shared<ImageTextureFunction2D>("1.jpg"));
-// * >  StdTexture<RGB3,TextureCoord2D>(std::make_shared<ImageTextureFunction2D>("1.jpg"), std::make_shared<DirectSampler>());
 
 // * Example: Create a Image-based Normal Map (wip)
 // * since normal cannot be directly interpolated, you need to provide T with some compact NDF type
