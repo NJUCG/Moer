@@ -25,12 +25,11 @@ struct LightSampleResult
 	// @brief Point on a light where emits light.
 	Point3f dst;
 
+	Ray ray;
+
 	Normal3f dstNormal;
-
 	double pdfPos;
-
 	double pdfDir;
-
 	Point2f uv;
 
 	// @brief FALSE for area and volume light, TRUE for point and etc
@@ -42,6 +41,7 @@ struct LightSampleResult
 class Light
 {
 public:
-	virtual LightSampleResult sampleAll(const Ray& r) const = 0;
-
+	virtual LightSampleResult eval(const Ray &ray) = 0;
+	virtual LightSampleResult sampleEmit(const Point2f &positionSample, const Point2f &directionSample, float time) = 0;
+	virtual LightSampleResult sampleDirect(const Point2f &sample, float time) = 0;
 };
