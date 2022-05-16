@@ -6,8 +6,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/)
 add_executable(
     SelfTest 
     Main.cpp
-    ../src/Integrator/Path.cpp
-    ../src/Integrator/MonteCarlo.cpp
+    ../src/Integrator/AbstractPathIntegrator.cpp
+    ../src/Integrator/PathIntegrator.cpp
+    ../src/Integrator/MonteCarloIntegrator.cpp
     ../src/BoundingBox/BoundingBox.cpp
     ../src/Ray/Ray.cpp
     ../src/Scene/Scene.cpp

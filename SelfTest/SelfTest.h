@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Integrator/Path.h"
+#include "Integrator/PathIntegrator.h"
 
 namespace
 {

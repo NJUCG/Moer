@@ -1,5 +1,5 @@
 /**
- * @file Path.h
+ * @file PathIntegrator.h
  * @author Zhimin Fan
  * @brief Path Integrator
  * @version 0.1
@@ -11,27 +11,15 @@
 #pragma once
 
 #include <cmath>
-#include "MonteCarlo.h"
+#include "AbstractPathIntegrator.h"
 #include "../Core/FunctionLayer/Ray.h"
 
-struct PathIntegratorLocalRecord
-{
-    Vec3f wi;
-    Spectrum f;
-    double pdf;
-};
 
-class PathIntegrator : public MonteCarloIntegrator
+class PathIntegrator : public AbstractPathIntegrator
 {
 protected:
 public:
     // todo: constructor
-
-    virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene);
-
-    /*************************************************************
-    Functions below should be override when derived, to support path guiding and etc
-    *************************************************************/
 
     // @brief Return emitted radiance along the given ray.
     // @param scene     Ptr to scene.
@@ -44,9 +32,9 @@ public:
     //                  Note that the probability of importance sampling
     //                  may not be divided, and MIS weight should not be considered.
     //                  The field pdf is the probability of light importance sampling.
-    PathIntegratorLocalRecord evalLight(std::shared_ptr<Scene> scene,
+    virtual PathIntegratorLocalRecord evalLight(std::shared_ptr<Scene> scene,
                                         const Intersection &its,
-                                        const Ray &ray);
+                                        const Ray &ray) override;
 
     // @brief Sample incident direction by direct lighting, returning incident radiance at given intersection.
     // @param scene     Ptr to scene.
@@ -58,9 +46,9 @@ public:
     //                  Note that the probability of importance sampling
     //                  may not be divided, and MIS weight should not be considered.
     //                  The field pdf is the probability of light importance sampling.
-    PathIntegratorLocalRecord sampleLight(std::shared_ptr<Scene> scene,
+    virtual PathIntegratorLocalRecord sampleLight(std::shared_ptr<Scene> scene,
                                           const Intersection &its,
-                                          const Ray &ray);
+                                          const Ray &ray) override;
 
     // @brief Return scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.
@@ -71,10 +59,10 @@ public:
     //                  The field f is the product (of scatter value of BSDF or phase function)
     //                  with cosine between shading normal and wi.
     //                  The field pdf is the probability of scatter importance sampling.
-    PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
+    virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                           const Intersection &its,
                                           const Ray &ray,
-                                          const Vec3f &wi);
+                                          const Vec3f &wi) override;
 
     // @brief Sample incident direction by scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.
@@ -84,13 +72,13 @@ public:
     //                  The field f is the product (of scatter value of BSDF or phase function)
     //                  with cosine between shading normal and wi.
     //                  The field pdf is the probability of scatter importance sampling.
-    PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
+    virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
                                             const Intersection &its,
                                             const Ray &ray);
 
     // @brief Return survive probability of Russian roulette.
-    double russianRoulette(std::shared_ptr<Scene> scene,
+    virtual double russianRoulette(std::shared_ptr<Scene> scene,
                            const Intersection &its,
                            const Spectrum &T,
-                           int nBounce);
+                           int nBounce) override;
 };

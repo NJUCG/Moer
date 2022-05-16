@@ -1,5 +1,5 @@
 /**
- * @file MonteCarlo.h
+ * @file MonteCarloIntegrator.h
  * @author Zhimin Fan
  * @brief Integrators
  * @version 0.1
@@ -9,7 +9,7 @@
  *
  */
 
-#include "MonteCarlo.h"
+#include "MonteCarloIntegrator.h"
 
 void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
 {
