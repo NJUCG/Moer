@@ -16,3 +16,9 @@ Intersection Scene::intersect(const Ray &r) const
     // todo
     return Intersection();
 }
+
+std::shared_ptr<std::vector<std::shared_ptr<Light>>> Scene::getLights() const
+{
+    // todo
+    return nullptr;
+}

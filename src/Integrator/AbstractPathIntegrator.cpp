@@ -11,6 +11,12 @@
 
 #include "AbstractPathIntegrator.h"
 
+
+double AbstractPathIntegrator::MISWeight(double x, double y)
+{
+    return x / (x + y);
+}
+
 Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> scene)
 {
     Spectrum L(0.0);

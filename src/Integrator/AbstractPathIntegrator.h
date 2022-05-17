@@ -28,6 +28,7 @@ public:
     // todo: constructor
 
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene);
+    virtual double MISWeight(double x, double y);
 
     /*************************************************************
     Functions below need to be implemented in derived classes
@@ -68,8 +69,8 @@ public:
     // @param ray       Current ray, only used to specify out direction.
     // @param wi        Incident direction.
     // @return          The field wi is just copied from param wi.
-    //                  The field f is the product (of scatter value of BSDF or phase function)
-    //                  with cosine between shading normal and wi.
+    //                  The field f is the product (of scatter value of BSDF)
+    //                  with cosine between shading normal and wi, or phase function.
     //                  The field pdf is the probability of scatter importance sampling.
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                           const Intersection &its,
@@ -81,8 +82,8 @@ public:
     // @param its       Intersection that ray hits.
     // @param ray       Current ray, only used to specify out direction.
     // @return          The field wi is the sampled direction.
-    //                  The field f is the product (of scatter value of BSDF or phase function)
-    //                  with cosine between shading normal and wi.
+    //                  The field f is the product (of scatter value of BSDF)
+    //                  with cosine between shading normal and wi, or phase function.
     //                  The field pdf is the probability of scatter importance sampling.
     virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
                                             const Intersection &its,

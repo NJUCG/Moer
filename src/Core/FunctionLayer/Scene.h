@@ -22,10 +22,12 @@ class Scene
 
 public:
 	void addEntity(std::shared_ptr<Entity> object);
-	void addLight(std::shared_ptr<Light> object);
+	void addLight(std::shared_ptr<Light> light);
 
 	Intersection intersect(const Ray &r) const;
 
 	// @return true if r hits object first (closest), false otherwise.
 	bool intersectionTest(const Ray &r, std::shared_ptr<Entity> object) const;
+
+	std::shared_ptr<std::vector<std::shared_ptr<Light>>> getLights() const;
 };

@@ -25,7 +25,6 @@ public:
 
     // @brief Estimate radiance on a given ray
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene) = 0;
-    virtual double MISWeight(double x, double y);
     // @brief Get random without using MonteCarloIntegrator::sampler
     virtual double randFloat();
 };

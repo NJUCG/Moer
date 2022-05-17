@@ -16,13 +16,9 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
     // todo
 }
 
-double MonteCarloIntegrator::MISWeight(double x, double y)
-{
-    return x / (x + y);
-}
-
 double MonteCarloIntegrator::randFloat()
 {
+    // Get random WITHOUT using MonteCarloIntegrator::sampler
     // todo
     return 0.0;
 }
