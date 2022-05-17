@@ -16,7 +16,7 @@
 struct BxDFSampleResult
 {
 	Spectrum s;
-	Vec3f directionIn;
+	Vec3d directionIn;
 	double pdf;
 	bool isSpecular;
 };
@@ -26,13 +26,13 @@ class BxDF
 {
 
 public:
-	virtual Spectrum f(const Vec3f &out, const Vec3f &in) const = 0;
+	virtual Spectrum f(const Vec3d &out, const Vec3d &in) const = 0;
 
-	virtual Vec3f sampleWi(const Vec3f &out) const = 0;
+	virtual Vec3d sampleWi(const Vec3d &out) const = 0;
 
-	virtual double pdf(const Vec3f &out, const Vec3f &in) const = 0;
+	virtual double pdf(const Vec3d &out, const Vec3d &in) const = 0;
 
-	virtual BxDFSampleResult sample(const Vec3f &out) const = 0;
+	virtual BxDFSampleResult sample(const Vec3d &out) const = 0;
 
 	virtual bool isSpecular() const = 0;
 };

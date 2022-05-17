@@ -12,13 +12,13 @@
 #pragma once
 #include "vector.h"
 
-struct Normal3f : public TVector3<float> {
+struct Normal3d : public TVector3<double> {
     
-    Normal3f() { }
+    Normal3d() { }
 
-    Normal3f (const TVector3<float> &v) : TVector3<float>(normalize(v)) { }
+    Normal3d (const TVector3<double> &v) : TVector3<double>(normalize(v)) { }
 
-    Normal3f (float _x, float _y, float _z) : Normal3f(TVector3<float> {_x, _y, _z})  { }
+    Normal3d (double _x, double _y, double _z) : Normal3d(TVector3<double> {_x, _y, _z})  { }
 
     
 }; 

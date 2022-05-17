@@ -41,7 +41,7 @@ public:
 	void setRotateQuaternion(double w, double x, double y, double z);
 
 	// @brief Rotate by axis. Counterclockwise rotate.
-	void setRotateAxis(Angle angle, Vec3f axis);
+	void setRotateAxis(Angle angle, Vec3d axis);
 
 	// @brief inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within.
 	void done();

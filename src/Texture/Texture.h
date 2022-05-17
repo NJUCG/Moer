@@ -24,8 +24,8 @@ struct TextureCoord
     Tvec dcdy;
 };
 
-typedef TextureCoord<Point2f, Vec2f> TextureCoord2D;
-typedef TextureCoord<Point3f, Vec3f> TextureCoord3D;
+typedef TextureCoord<Point2d, Vec2d> TextureCoord2D;
+typedef TextureCoord<Point3d, Vec3d> TextureCoord3D;
 
 // @brief TextureMapping maps an intersection to texture coordinates of type Tcoord.
 template <typename Tcoord>

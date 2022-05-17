@@ -16,23 +16,23 @@
 
 struct Ray
 {
-	Point3f origin;
-	Vec3f direction;
+	Point3d origin;
+	Vec3d direction;
 
 	double timeMin;
 	double timeMax;
 
 	std::shared_ptr<Medium> medium;
 
-	Point3f at(double t);
+	Point3d at(double t);
 
 	bool withinTime(double time);
 
-	Ray(const Point3f &_origin, const Vec3f &_direction, double _timeMin = .0f, double _timeMax = .0f);
+	Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin = .0f, double _timeMax = .0f);
 };
 
 struct RayDifferential : public Ray
 {
-	Point3f origin_x, origin_y;
-	Vec3f direction_x, direction_y;
+	Point3d origin_x, origin_y;
+	Vec3d direction_x, direction_y;
 };

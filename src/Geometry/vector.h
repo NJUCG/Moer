@@ -123,9 +123,9 @@ decltype(auto) absDot(const TVector2<T> &v1, const TVector2<T> &v2) {
 }
 
 template <typename T>
-TVector2<float> normalize(const TVector2<T> &v) {
-    float recip = 1.0f / v.length();
-    return TVector2<float> (v.x * recip, v.y * recip);
+TVector2<double> normalize(const TVector2<T> &v) {
+    double recip = 1.0f / v.length();
+    return TVector2<double> (v.x * recip, v.y * recip);
 }
 
 template<> 
@@ -251,9 +251,9 @@ decltype(auto) absDot(const TVector3<T> &v1, const TVector3<T> &v2) {
 }
 
 template <typename T>
-TVector3<float> normalize(const TVector3<T> &v) {
-    float recip = 1.0f / v.length();
-    return TVector3<float> (v.x * recip, v.y * recip, v.z * recip);
+TVector3<double> normalize(const TVector3<T> &v) {
+    double recip = 1.0f / v.length();
+    return TVector3<double> (v.x * recip, v.y * recip, v.z * recip);
 }
 
 /**

@@ -63,9 +63,9 @@ public:
 
 	Matrix4x4 operator*(const Matrix4x4& mat);
 
-	Vec3f operator*(const Vec3f& v);
-	Point3f operator*(const Point3f& p);
-	Normal3f operator*(const Normal3f& n);
+	Vec3d operator*(const Vec3d& v);
+	Point3d operator*(const Point3d& p);
+	Normal3d operator*(const Normal3d& n);
 
 	// model
 	static Matrix4x4 translate(double x, double y, double z);
@@ -73,10 +73,10 @@ public:
 	static Matrix4x4 scale(double ratio);
 	static Matrix4x4 rotateEuler(const Angle& x, const Angle& y, const Angle& z, EulerType type = EulerType::EULER_XYZ);
 	static Matrix4x4 rotateQuaternion(double w, double x, double y, double z);
-	static Matrix4x4 rotateAxis(const Vec3f& axis, const Angle& angle);
+	static Matrix4x4 rotateAxis(const Vec3d& axis, const Angle& angle);
 
 	// view & projection
-	static Matrix4x4 lookAt(const Point3f& lookFrom, const Vec3f& vecLookAt, const Vec3f& up);
+	static Matrix4x4 lookAt(const Point3d& lookFrom, const Vec3d& vecLookAt, const Vec3d& up);
 	static Matrix4x4 orthographic(double left,double right,double up,double down,double near,double far);
 	static Matrix4x4 perspective(const Angle& fov,double aspect, double near, double far);
 
@@ -114,11 +114,11 @@ public:
 	void setRotateQuaternion(double w, double x, double y, double z);
 
 	// @brief Rotate by axis. Counterclockwise rotate.
-	void setRotateAxis(const Vec3f& axis, const Angle& angle);
+	void setRotateAxis(const Vec3d& axis, const Angle& angle);
 
-	Vec3f operator*(const Vec3f &v);
-	Point3f operator*(const Point3f &p);
-	Normal3f operator*(const Normal3f &n);
+	Vec3d operator*(const Vec3d &v);
+	Point3d operator*(const Point3d &p);
+	Normal3d operator*(const Normal3d &n);
 };
 
 // TODO TransformMatrix2D

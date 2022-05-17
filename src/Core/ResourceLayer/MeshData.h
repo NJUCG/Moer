@@ -29,11 +29,11 @@ class MeshData
 public:
 	friend class MeshDataManager;
 
-	Point3f getVertexAt(int i) const;
-	Normal3f getNormalAt(int i) const;
-	Point2f getUvAt(int i) const;
-	Vec3f getTangentAt(int i) const;
-	Vec3f getBitangentAt(int i) const;
+	Point3d getVertexAt(int i) const;
+	Normal3d getNormalAt(int i) const;
+	Point2d getUvAt(int i) const;
+	Vec3d getTangentAt(int i) const;
+	Vec3d getBitangentAt(int i) const;
 
 	// @brief get 3 indices for ist triangle mesh. In order.
 	Point3i getTriangleIndiceAt(int i) const;

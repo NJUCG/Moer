@@ -20,17 +20,17 @@ struct LightSampleResult
 	Spectrum s;
 
 	// @brief Point on an object where receives light.
-	Point3f src;
+	Point3d src;
 
 	// @brief Point on a light where emits light.
-	Point3f dst;
+	Point3d dst;
 
 	Ray ray;
 
-	Normal3f dstNormal;
+	Normal3d dstNormal;
 	double pdfPos;
 	double pdfDir;
-	Point2f uv;
+	Point2d uv;
 
 	// @brief FALSE for area and volume light, TRUE for point and etc
 	bool isDeltaPos;
@@ -42,6 +42,6 @@ class Light
 {
 public:
 	virtual LightSampleResult eval(const Ray &ray) = 0;
-	virtual LightSampleResult sampleEmit(const Point2f &positionSample, const Point2f &directionSample, float time) = 0;
-	virtual LightSampleResult sampleDirect(const Intersection& its, const Point2f &sample, float time) = 0;
+	virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) = 0;
+	virtual LightSampleResult sampleDirect(const Intersection& its, const Point2d &sample, float time) = 0;
 };

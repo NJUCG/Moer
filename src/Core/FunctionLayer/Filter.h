@@ -18,9 +18,9 @@
 class Filter
 {
 public:
-    virtual float eval(const Point2f &pos) = 0;
+    virtual float eval(const Point2d &pos) = 0;
 
     // @brief: also known as Kernel Size
-    virtual Point2f support() = 0;
+    virtual Point2d support() = 0;
 };
 

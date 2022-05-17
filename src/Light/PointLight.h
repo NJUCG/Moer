@@ -20,6 +20,6 @@ class PointLight : public Light
 public:
     PointLight(const Spectrum &intensity, const TransformMatrix3D &transform);
     virtual LightSampleResult eval(const Ray &ray) override;
-    virtual LightSampleResult sampleEmit(const Point2f &positionSample, const Point2f &directionSample, float time) override;
-    virtual LightSampleResult sampleDirect(const Intersection& its, const Point2f &sample, float time) override;
+    virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;
+    virtual LightSampleResult sampleDirect(const Intersection& its, const Point2d &sample, float time) override;
 };

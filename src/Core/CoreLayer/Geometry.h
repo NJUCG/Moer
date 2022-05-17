@@ -37,4 +37,4 @@ using Point3f = TPoint3<float>;
 using Point3d = TPoint3<double>;
 using Point3i = TPoint3<int>;
 // normal.h
-struct Normal3f;
+struct Normal3d;

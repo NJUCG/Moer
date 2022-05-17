@@ -16,7 +16,7 @@
 
 struct PathIntegratorLocalRecord
 {
-    Vec3f wi;
+    Vec3d wi;
     Spectrum f;
     double pdf;
 };
@@ -63,7 +63,7 @@ public:
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                           const Intersection &its,
                                           const Ray &ray,
-                                          const Vec3f &wi) = 0;
+                                          const Vec3d &wi) = 0;
 
     // @brief Sample incident direction by scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.

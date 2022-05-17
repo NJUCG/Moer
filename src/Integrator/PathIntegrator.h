@@ -52,7 +52,7 @@ public:
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray,
-                                                  const Vec3f &wi) override;
+                                                  const Vec3d &wi) override;
 
     // @brief Sample incident direction by scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.

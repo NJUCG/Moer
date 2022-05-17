@@ -31,25 +31,25 @@ Matrix4x4 Matrix4x4::operator*(const Matrix4x4& mat) {
 	return Matrix4x4(matrix * mat.matrix);
 }
 
-Vec3f Matrix4x4::operator*(const Vec3f& v) {
+Vec3d Matrix4x4::operator*(const Vec3d& v) {
 	Eigen::Vector3d vec = Eigen::Vector3d(v[0], v[1], v[2]);
 	Eigen::Vector3d result = matrix.block<3, 3>(0, 0) * vec;
-	return Vec3f(result[0], result[1], result[2]);
+	return Vec3d(result[0], result[1], result[2]);
 }
 
-Point3f Matrix4x4::operator*(const Point3f& p) {
+Point3d Matrix4x4::operator*(const Point3d& p) {
 	Eigen::Vector4d vec = Eigen::Vector4d(p[0], p[1], p[2], 1.0f);
 	Eigen::Vector4d result = matrix * vec;
-	return Point3f(result[0] / result[3], result[1] / result[3], result[2] / result[3]);
+	return Point3d(result[0] / result[3], result[1] / result[3], result[2] / result[3]);
 }
 
-Normal3f Matrix4x4::operator*(const Normal3f& n) {
+Normal3d Matrix4x4::operator*(const Normal3d& n) {
 	Eigen::Vector3d vec = Eigen::Vector3d(n[0], n[1], n[2]);
 	Eigen::Matrix3d mat = matrix.block<3, 3>(0, 0);
 	// M_{normal}=(M_{point}^{-1})^T
 	mat = mat.inverse().transpose();
 	Eigen::Vector3d result = mat * vec;
-	return Normal3f(result[0], result[1], result[2]);
+	return Normal3d(result[0], result[1], result[2]);
 }
 
 Matrix4x4 Matrix4x4::translate(double x, double y, double z) {
@@ -103,7 +103,7 @@ Matrix4x4 Matrix4x4::rotateQuaternion(double w, double x, double y, double z) {
 	return retVal;
 }
 
-Matrix4x4 Matrix4x4::rotateAxis(const Vec3f& axis, const Angle& angle) {
+Matrix4x4 Matrix4x4::rotateAxis(const Vec3d& axis, const Angle& angle) {
 	Matrix4x4 retVal;
 	Eigen::Matrix3d block = Eigen::AngleAxisd(angle.getRad(), Eigen::Vector3d(axis[0], axis[1], axis[2])).matrix();
 	retVal.matrix.block<3, 3>(0, 0) = block;
@@ -111,11 +111,11 @@ Matrix4x4 Matrix4x4::rotateAxis(const Vec3f& axis, const Angle& angle) {
 }
 
  // @brief camera coord: x->right y->up z->in
-Matrix4x4 Matrix4x4::lookAt(const Point3f& lookFrom, const Vec3f& vecLookAt, const Vec3f& up) {
+Matrix4x4 Matrix4x4::lookAt(const Point3d& lookFrom, const Vec3d& vecLookAt, const Vec3d& up) {
 	Matrix4x4 translateMat = translate(-lookFrom[0], -lookFrom[1], -lookFrom[2]);
-	Vec3f realLookAt = normalize(vecLookAt);
-	Vec3f right = normalize(cross(realLookAt, up));
-	Vec3f realUp = normalize(cross(right, realLookAt));
+	Vec3d realLookAt = normalize(vecLookAt);
+	Vec3d right = normalize(cross(realLookAt, up));
+	Vec3d realUp = normalize(cross(right, realLookAt));
 	Matrix4x4 rotMat;
 	// input manually
 	rotMat.matrix <<
@@ -209,25 +209,25 @@ void TransformMatrix3D::setRotateQuaternion(double w, double x, double y, double
 	matrixRotate = Matrix4x4::rotateQuaternion(w, x, y, z);
 }
 
-void TransformMatrix3D::setRotateAxis(const Vec3f& axis, const Angle& angle)
+void TransformMatrix3D::setRotateAxis(const Vec3d& axis, const Angle& angle)
 {
 	dirty = true;
 	matrixRotate = Matrix4x4::rotateAxis(axis, angle);
 }
 
-Vec3f TransformMatrix3D::operator*(const Vec3f& v)
+Vec3d TransformMatrix3D::operator*(const Vec3d& v)
 {
 	update();
 	return matrixAll * v;
 }
 
-Point3f TransformMatrix3D::operator*(const Point3f& p)
+Point3d TransformMatrix3D::operator*(const Point3d& p)
 {
 	update();
 	return matrixAll * p;
 }
 
-Normal3f TransformMatrix3D::operator*(const Normal3f& n)
+Normal3d TransformMatrix3D::operator*(const Normal3d& n)
 {
 	update();
 	return matrixAll * n;

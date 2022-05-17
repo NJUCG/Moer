@@ -19,12 +19,12 @@
 
 struct Intersection
 {
-	Point3f position;
-	Normal3f geometryNormal;
-	Point2f uv;
+	Point3d position;
+	Normal3d geometryNormal;
+	Point2d uv;
 
-	Point3f dpdu, dpdv;
-	Normal3f dndu, dndv;
+	Point3d dpdu, dpdv;
+	Normal3d dndu, dndv;
 
 	std::shared_ptr<Entity> object;
 	std::shared_ptr<Material> material;

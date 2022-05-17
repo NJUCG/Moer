@@ -15,7 +15,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
                                                     std::optional<Intersection> itsOpt,
                                                     const Ray &ray)
 {
-    Vec3f wo = -ray.direction;
+    Vec3d wo = -ray.direction;
 
     Spectrum LEmission(0.0);
     double pdfEmission = 1.0;
@@ -29,7 +29,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
     else if (/* Hit object is emitter. How to judge? */ 0)
     {
         auto its = itsOpt.value();
-        Normal3f n = its.geometryNormal;
+        Normal3d n = its.geometryNormal;
         // todo: get emitted LEmission and pdfEmission of hit object
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
@@ -41,11 +41,11 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
                                                       const Ray &ray)
 {
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
-    auto record = light->sampleDirect(its, Point2f(sampler->sample(), sampler->sample()), ray.timeMin);
+    auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
     double pdfEmission = record.pdfDir; // pdfScatter with respect to solid angle
-    Vec3f dirScatter = record.ray.direction;
+    Vec3d dirScatter = record.ray.direction;
     Spectrum Li = record.s;
-    Point3f posL = record.dst;
+    Point3d posL = record.dst;
     Spectrum transmittance(1.0); // todo: visibility test + transmittance eval
     return {dirScatter, Li * transmittance, pdfEmission};
 }
@@ -53,12 +53,12 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
 PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
                                                       const Intersection &its,
                                                       const Ray &ray,
-                                                      const Vec3f &dirScatter)
+                                                      const Vec3d &dirScatter)
 {
     if (its.material != nullptr)
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
-        Normal3f n = its.geometryNormal;
+        Normal3d n = its.geometryNormal;
         double wiDotN = dot(n, dirScatter);
         return {
             dirScatter,
@@ -78,12 +78,12 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
 {
     if (its.material != nullptr)
     {
-        Vec3f wo = -ray.direction;
+        Vec3d wo = -ray.direction;
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
-        Vec3f n = its.geometryNormal;
+        Vec3d n = its.geometryNormal;
         BxDFSampleResult bsdfSample = bxdf->sample(wo);
         double pdfLastScatterSample = bsdfSample.pdf;
-        Vec3f dirScatter = bsdfSample.directionIn;
+        Vec3d dirScatter = bsdfSample.directionIn;
         double wiDotN = dot(dirScatter, n);
         return {dirScatter, bsdfSample.s * wiDotN, pdfLastScatterSample};
     }
