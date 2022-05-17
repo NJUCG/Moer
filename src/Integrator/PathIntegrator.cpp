@@ -16,6 +16,7 @@ PathIntegratorLocalRecord PathIntegrator::evalLight(std::shared_ptr<Scene> scene
                                                     const Ray &ray)
 {
     Vec3f wo = -ray.direction;
+    // TODO: Vec3f->Normal3f
     Vec3f n = its.geometryNormal;
 
     Spectrum LEmission(0.0);
@@ -57,7 +58,9 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
     if (its.material != nullptr)
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
+        // TODO: Vec3f->Normal3f
         Vec3f n = its.geometryNormal;
+        // TODO: possible name conflict 'cosine'
         double cosine = dot(n, dirScatter);
         return {
             dirScatter,
@@ -99,6 +102,7 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
                                        int nBounce)
 {
     double pSurvive = std::min(0.95, throughput.sum());
+    // TODO:20->var
     if (nBounce > 20)
         pSurvive = 0.0;
     return pSurvive;
@@ -112,6 +116,8 @@ std::shared_ptr<Light> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> sce
     // may need some prepare process each time we start rendering. where to put it?
     // current implementation uses 3 randnums for light sampling (1 for choosing light, 2 for direct sampling)
     // current implementation uses uniform weight
+
+    // TODO: float lightSample -> double lightSample
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
     int numLights = lights->size();
     int lightID = std::min(numLights - 1, (int)(lightSample * numLights));

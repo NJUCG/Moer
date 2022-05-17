@@ -43,5 +43,6 @@ class Light
 public:
 	virtual LightSampleResult eval(const Ray &ray) = 0;
 	virtual LightSampleResult sampleEmit(const Point2f &positionSample, const Point2f &directionSample, float time) = 0;
+	// TODO: Intersection as arg
 	virtual LightSampleResult sampleDirect(const Point2f &sample, float time) = 0;
 };

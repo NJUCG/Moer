@@ -16,6 +16,8 @@
 #include "Intersection.h"
 #include "Light.h"
 
+#include <optional>
+
 class Scene
 {
 	std::unique_ptr<Accelerator> accelerator;
@@ -24,7 +26,7 @@ public:
 	void addEntity(std::shared_ptr<Entity> object);
 	void addLight(std::shared_ptr<Light> light);
 
-	Intersection intersect(const Ray &r) const;
+	std::optional<Intersection> intersect(const Ray &r) const;
 
 	// @return true if r hits object first (closest), false otherwise.
 	bool intersectionTest(const Ray &r, std::shared_ptr<Entity> object) const;

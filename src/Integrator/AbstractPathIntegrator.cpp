@@ -27,7 +27,12 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
     while (true)
     {
-        Intersection its = scene->intersect(ray);
+        std::optional<Intersection> itsOpt = scene->intersect(ray);
+        if (!itsOpt.has_value()) {
+            // TODO: hit nothing. env lights.
+        }
+        auto its=itsOpt.value();
+
         PathIntegratorLocalRecord evalLightRecord = evalLight(scene, its, ray);
         L += throughput * evalLightRecord.f / evalLightRecord.pdf * MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
 
