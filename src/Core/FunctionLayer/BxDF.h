@@ -18,7 +18,6 @@ struct BxDFSampleResult
 	Spectrum s;
 	Vec3f directionIn;
 	double pdf;
-	// todo: enum flags
 	bool isSpecular;
 };
 

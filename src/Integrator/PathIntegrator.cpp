@@ -11,38 +11,38 @@
 
 #include "PathIntegrator.h"
 
-PathIntegratorLocalRecord PathIntegrator::evalLight(std::shared_ptr<Scene> scene,
-                                                    const Intersection &its,
+PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> scene,
+                                                    std::optional<Intersection> itsOpt,
                                                     const Ray &ray)
 {
     Vec3f wo = -ray.direction;
-    // TODO: Vec3f->Normal3f
-    Vec3f n = its.geometryNormal;
 
     Spectrum LEmission(0.0);
     double pdfEmission = 1.0;
-    if (!its.object)
+    if (!itsOpt.has_value())
     {
         auto record = evalEnvLights(scene, ray);
         ;
         LEmission = record.f;
         pdfEmission = record.pdf;
     }
-    else if (/* hit object is emitter, how to judge? */ 0)
+    else if (/* Hit object is emitter. How to judge? */ 0)
     {
+        auto its = itsOpt.value();
+        Normal3f n = its.geometryNormal;
         // todo: get emitted LEmission and pdfEmission of hit object
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
     return {ray.direction, transmittance * LEmission, pdfEmission};
 }
 
-PathIntegratorLocalRecord PathIntegrator::sampleLight(std::shared_ptr<Scene> scene,
+PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
                                                       const Intersection &its,
                                                       const Ray &ray)
 {
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
-    auto record = light->sampleDirect(Point2f(sampler->sample(), sampler->sample()), ray.timeMin);
-    double pdfEmission = record.pdfDir; // pdfScatter with respect to solid angle, to our intersection
+    auto record = light->sampleDirect(its, Point2f(sampler->sample(), sampler->sample()), ray.timeMin);
+    double pdfEmission = record.pdfDir; // pdfScatter with respect to solid angle
     Vec3f dirScatter = record.ray.direction;
     Spectrum Li = record.s;
     Point3f posL = record.dst;
@@ -58,13 +58,11 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
     if (its.material != nullptr)
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
-        // TODO: Vec3f->Normal3f
-        Vec3f n = its.geometryNormal;
-        // TODO: possible name conflict 'cosine'
-        double cosine = dot(n, dirScatter);
+        Normal3f n = its.geometryNormal;
+        double wiDotN = dot(n, dirScatter);
         return {
             dirScatter,
-            bxdf->f(-ray.direction, dirScatter) * cosine,
+            bxdf->f(-ray.direction, dirScatter) * wiDotN,
             bxdf->pdf(-ray.direction, dirScatter)};
     }
     else
@@ -86,8 +84,8 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         BxDFSampleResult bsdfSample = bxdf->sample(wo);
         double pdfLastScatterSample = bsdfSample.pdf;
         Vec3f dirScatter = bsdfSample.directionIn;
-        double cosine = dot(dirScatter, n);
-        return {dirScatter, bsdfSample.s * cosine, pdfLastScatterSample};
+        double wiDotN = dot(dirScatter, n);
+        return {dirScatter, bsdfSample.s * wiDotN, pdfLastScatterSample};
     }
     else
     {
@@ -101,9 +99,8 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
                                        const Spectrum &throughput,
                                        int nBounce)
 {
-    double pSurvive = std::min(0.95, throughput.sum());
-    // TODO:20->var
-    if (nBounce > 20)
+    double pSurvive = std::min(pRussianRoulette, throughput.sum());
+    if (nBounce > nPathLengthLimit)
         pSurvive = 0.0;
     return pSurvive;
 }
@@ -111,13 +108,9 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
 std::shared_ptr<Light> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
                                                       const Intersection &its,
                                                       const Ray &ray,
-                                                      float lightSample)
+                                                      double lightSample)
 {
-    // may need some prepare process each time we start rendering. where to put it?
-    // current implementation uses 3 randnums for light sampling (1 for choosing light, 2 for direct sampling)
-    // current implementation uses uniform weight
-
-    // TODO: float lightSample -> double lightSample
+    // uniformly weighted
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
     int numLights = lights->size();
     int lightID = std::min(numLights - 1, (int)(lightSample * numLights));
@@ -128,11 +121,9 @@ std::shared_ptr<Light> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> sce
 PathIntegratorLocalRecord PathIntegrator::evalEnvLights(std::shared_ptr<Scene> scene,
                                                         const Ray &ray)
 {
-    // current implementation just iter through each light and call it's eval(ray)
-    // definately, delta lights will return nothing and area lights will not be hitted
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
     Spectrum L(0.0);
-    float pdf = 0.0;
+    double pdf = 0.0;
     for (auto light : *lights)
     {
         auto record = light->eval(ray);

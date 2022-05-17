@@ -17,47 +17,38 @@
 class PathIntegrator : public AbstractPathIntegrator
 {
 protected:
+    const int nPathLengthLimit = 20;
+    const double pRussianRoulette = 0.95;
 public:
     // todo: constructor
 
-    // @brief Return emitted radiance along the given ray.
+    // @brief Return the radiance along given ray, emitted from given intersection.
     // @param scene     Ptr to scene.
-    // @param its       Intersection that ray hits. If intersection is a emitter,
-    //                  it contributes to the returned radiance.
-    // @param ray       Current ray, which the returned radiance is along.
-    // @return          The field wi is just copied from param ray.
-    //                  The field f is the incident radiance at ray.origin,
-    //                  in the direction of inverse of ray.direction.
-    //                  Note that the probability of importance sampling
-    //                  may not be divided, and MIS weight should not be considered.
-    //                  The field pdf is the probability of light importance sampling.
-    virtual PathIntegratorLocalRecord evalLight(std::shared_ptr<Scene> scene,
-                                                const Intersection &its,
+    // @param its       Intersection hit by ray.
+    // @param ray       Ray to evaluate.
+    // @return          Direction of given ray, incident radiance at origin of ray, pdf of direct light sampling.
+    virtual PathIntegratorLocalRecord evalEmittance(std::shared_ptr<Scene> scene,
+                                                std::optional<Intersection> its,
                                                 const Ray &ray) override;
 
-    // @brief Sample incident direction by direct lighting, returning incident radiance at given intersection.
+
+    // @brief Sample incident direction of direct lighting. 
     // @param scene     Ptr to scene.
-    // @param its       Intersection that ray hits.
-    // @param ray       Current ray, only used to specify out direction.
-    // @return          The field wi is the sampled direction.
-    //                  The field f is incident radiance at given intersection
-    //                  in the direction of sampled direction wi.
-    //                  Note that the probability of importance sampling
-    //                  may not be divided, and MIS weight should not be considered.
-    //                  The field pdf is the probability of light importance sampling.
-    virtual PathIntegratorLocalRecord sampleLight(std::shared_ptr<Scene> scene,
+    // @param its       Reference point.
+    // @param ray       Ray, used to specify wo (out direction).
+    // @return          Sampled incident direction, incident radiance and pdf per solid angle.
+    virtual PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray) override;
 
     // @brief Return scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.
-    // @param its       Intersection that ray hits.
-    // @param ray       Current ray, only used to specify out direction.
-    // @param wi        Incident direction.
-    // @return          The field wi is just copied from param wi.
-    //                  The field f is the product (of scatter value of BSDF)
-    //                  with cosine between shading normal and wi, or phase function.
-    //                  The field pdf is the probability of scatter importance sampling.
+    // @param its       Reference point.
+    // @param ray       Ray, used to specify wo (out direction).
+    // @param wi        Incident direction wi.
+    // @return          Incident direction, scatter throughput f, pdf per solid angle.
+    //                  For surface, f is the product of BSDF value and cosine term.
+    //                  For medium, f is the value of phase function.
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray,
@@ -65,12 +56,11 @@ public:
 
     // @brief Sample incident direction by scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.
-    // @param its       Intersection that ray hits.
-    // @param ray       Current ray, only used to specify out direction.
-    // @return          The field wi is the sampled direction.
-    //                  The field f is the product (of scatter value of BSDF)
-    //                  with cosine between shading normal and wi, or phase function.
-    //                  The field pdf is the probability of scatter importance sampling.
+    // @param its       Reference point.
+    // @param ray       Ray, used to specify wo (out direction).
+    // @return          Sampled incident direction, scatter throughput f, pdf per solid angle.
+    //                  For surface, f is the product of BSDF value and cosine term.
+    //                  For medium, f is the value of phase function.
     virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
                                                     const Intersection &its,
                                                     const Ray &ray);
@@ -86,7 +76,7 @@ public:
     virtual std::shared_ptr<Light> chooseOneLight(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray,
-                                                  float lightSample);
+                                                  double lightSample);
 
     // @brief Evaluate radiance of env lights
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,

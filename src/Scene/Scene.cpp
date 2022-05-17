@@ -11,7 +11,7 @@
 
 #include "../Core/FunctionLayer/Scene.h"
 
-Intersection Scene::intersect(const Ray &r) const
+std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
     // todo
     return Intersection();

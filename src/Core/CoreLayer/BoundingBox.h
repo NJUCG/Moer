@@ -53,8 +53,6 @@ public:
 		TPoint3<BaseType> _pMax = (std::min(b1[0], b2[0]), std::min(b1[1], b2[1]), std::min(b1[2], b2[2]));
 		return BoundingBox3(_pMin, _pMax);
 	}
-
-	// todo: more
 };
 
 using BoundingBox3f = BoundingBox3<double>;

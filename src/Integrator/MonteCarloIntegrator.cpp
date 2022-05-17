@@ -18,7 +18,7 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
 
 double MonteCarloIntegrator::randFloat()
 {
-    // Get random WITHOUT using MonteCarloIntegrator::sampler
+    // Get a random number WITHOUT using MonteCarloIntegrator::sampler
     // todo
     return 0.0;
 }

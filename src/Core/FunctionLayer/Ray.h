@@ -12,6 +12,7 @@
 
 //#include "../core.h"
 #include "../CoreLayer/Geometry.h"
+#include "../FunctionLayer/Medium.h"
 
 struct Ray
 {
@@ -21,7 +22,7 @@ struct Ray
 	double timeMin;
 	double timeMax;
 
-	// todo: ptr to medium
+	std::shared_ptr<Medium> medium;
 
 	Point3f at(double t);
 

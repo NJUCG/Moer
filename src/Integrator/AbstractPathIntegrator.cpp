@@ -11,7 +11,6 @@
 
 #include "AbstractPathIntegrator.h"
 
-
 double AbstractPathIntegrator::MISWeight(double x, double y)
 {
     return x / (x + y);
@@ -28,13 +27,14 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
     while (true)
     {
         std::optional<Intersection> itsOpt = scene->intersect(ray);
-        if (!itsOpt.has_value()) {
-            // TODO: hit nothing. env lights.
-        }
-        auto its=itsOpt.value();
 
-        PathIntegratorLocalRecord evalLightRecord = evalLight(scene, its, ray);
+        PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
         L += throughput * evalLightRecord.f / evalLightRecord.pdf * MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
+
+        if (!itsOpt.has_value())
+            break;
+
+        auto its = itsOpt.value();
 
         nBounce++;
         double pSurvive = russianRoulette(scene, its, throughput, nBounce);
@@ -42,7 +42,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
             break;
         throughput /= pSurvive;
 
-        PathIntegratorLocalRecord sampleLightRecord = sampleLight(scene, its, ray);
+        PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
         PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, its, ray, sampleLightRecord.wi);
         L += throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
 

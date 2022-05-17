@@ -23,8 +23,8 @@ public:
 
     virtual void render(std::shared_ptr<Scene> scene);
 
-    // @brief Estimate radiance on a given ray
+    // @brief Estimate radiance along a given ray
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene) = 0;
-    // @brief Get random without using MonteCarloIntegrator::sampler
+    // @brief Get a random number WITHOUT using MonteCarloIntegrator::sampler
     virtual double randFloat();
 };
