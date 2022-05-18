@@ -24,6 +24,8 @@ struct PathIntegratorLocalRecord
 class AbstractPathIntegrator : public MonteCarloIntegrator
 {
 protected:
+    const int nDirectLightSamples = 1;
+    const double misWeightPower = 1.0f;
 public:
     // todo: constructor
 
