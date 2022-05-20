@@ -20,6 +20,10 @@ add_executable(
     ../src/Texture/ImageTexture.cpp
     ../src/Texture/ProceduralTexture.cpp
     ../src/Matrix/Matrix.cpp
+    ../src/Light/PointLight.cpp
+    ../src/Light/AreaLight.cpp
+    ../src/Light/DiffuseAreaLight.cpp
+    ../src/Transform/Transform3d.cpp
 )
 
 target_include_directories(SelfTest PUBLIC ${PROJECT_SOURCE_DIR}/../src)

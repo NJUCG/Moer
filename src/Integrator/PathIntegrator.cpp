@@ -43,7 +43,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
     auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
     double pdfEmission = record.pdfDir; // pdfScatter with respect to solid angle
-    Vec3d dirScatter = record.ray.direction;
+    Vec3d dirScatter = record.wi;
     Spectrum Li = record.s;
     Point3d posL = record.dst;
     Spectrum transmittance(1.0); // todo: visibility test + transmittance eval

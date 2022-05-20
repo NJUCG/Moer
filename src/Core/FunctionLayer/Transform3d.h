@@ -45,4 +45,6 @@ public:
 
 	// @brief inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within.
 	void done();
+
+	Point3d getTranslate();
 };

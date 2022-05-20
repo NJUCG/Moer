@@ -140,6 +140,10 @@ struct TPoint3 {
         return TPoint3(x-rhs.x, y-rhs.y, z-rhs.z);
     }
 
+    TVector3<T> operator-(const TPoint3<T> &rhs) const {
+        return TVector3<T>(x-rhs.x, y-rhs.y, z-rhs.z);
+    }
+
     TPoint3& operator-=(const TVector3<T> &rhs) {
         x -= rhs.x, y -= rhs.y, z -= rhs.z;
         return *this;
