@@ -55,3 +55,17 @@ Testing(
 ```
 
 `Testing()`中保留希望测试的模块名即可。
+
+## 具体测试问题查看
+
+### 方法一
+
+```bash
+.\>cd build
+.\build>ctest -C DEBUG -V
+```
+
+### 方法二（推荐）
+
+直接进入`test\target`目录下运行对应的`exe`文件。
+

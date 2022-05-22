@@ -8,5 +8,5 @@ TEST_CASE( "test catch framework" )
 {
     std::string_view str = "Hello";
 
-    REQUIRE( str == "Hello" );
+    REQUIRE( str == "Hellox" );
 }
