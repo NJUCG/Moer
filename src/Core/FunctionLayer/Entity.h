@@ -15,10 +15,14 @@
 //#include "Intersection.h"
 #include "Ray.h"
 
+#include <memory>
 struct Intersection;
+class Light;
 
 class Entity : public Transform3D
 {
 public:
 	virtual Intersection intersect(const Ray &r) const = 0;
+	// @brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
+	virtual std::shared_ptr<Light> getLight() const = 0;
 };

@@ -22,7 +22,8 @@ public:
     DiffuseAreaLight(std::shared_ptr<Entity> shape,
                      Spectrum radiance,
                      std::shared_ptr<Transform3D> transform3D);
-    virtual LightSampleResult eval(const Ray &ray) override;
+    virtual LightSampleResult evalEnvironment(const Ray &ray) override;
+	virtual LightSampleResult eval(const Intersection &its, const Vec3d &d) override;
     virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;
     virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) override;
 };

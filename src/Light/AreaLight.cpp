@@ -11,6 +11,6 @@
 
 #include "AreaLight.h"
 
-AreaLight::AreaLight(std::shared_ptr<Transform3D> transform3D) : transform3D(transform3D)
+AreaLight::AreaLight(std::shared_ptr<Transform3D> transform3D) : transform(transform3D)
 {
 }

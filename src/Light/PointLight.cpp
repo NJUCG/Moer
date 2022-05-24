@@ -13,7 +13,7 @@
 
 #define DIRAC 1.0 // todo: delete it
 
-LightSampleResult PointLight::eval(const Ray &ray)
+LightSampleResult PointLight::evalEnvironment(const Ray &ray)
 {
     // Fill s, src, dst, wi, pdf, pdfP, pdfD, isDP, isDD
     LightSampleResult ans;

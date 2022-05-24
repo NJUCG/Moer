@@ -12,8 +12,8 @@
 #include "PathIntegrator.h"
 
 PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> scene,
-                                                    std::optional<Intersection> itsOpt,
-                                                    const Ray &ray)
+                                                        std::optional<Intersection> itsOpt,
+                                                        const Ray &ray)
 {
     Vec3d wo = -ray.direction;
 
@@ -22,23 +22,25 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
     if (!itsOpt.has_value())
     {
         auto record = evalEnvLights(scene, ray);
-        ;
         LEmission = record.f;
         pdfEmission = record.pdf;
     }
-    else if (/* Hit object is emitter. How to judge? */ 0)
+    else if (itsOpt.value().object && itsOpt.value().object->getLight())
     {
         auto its = itsOpt.value();
         Normal3d n = its.geometryNormal;
-        // todo: get emitted LEmission and pdfEmission of hit object
+        auto light = itsOpt.value().object->getLight();
+        auto record = light->eval(its, ray.direction);
+        LEmission = record.s;
+        pdfEmission = record.pdf;
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
     return {ray.direction, transmittance * LEmission, pdfEmission};
 }
 
 PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
-                                                      const Intersection &its,
-                                                      const Ray &ray)
+                                                               const Intersection &its,
+                                                               const Ray &ray)
 {
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
     auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
@@ -126,7 +128,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEnvLights(std::shared_ptr<Scene> s
     double pdf = 0.0;
     for (auto light : *lights)
     {
-        auto record = light->eval(ray);
+        auto record = light->evalEnvironment(ray);
         L += record.s;
         pdf += record.pdfDir;
     }
