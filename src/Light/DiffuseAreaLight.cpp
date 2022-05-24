@@ -21,32 +21,81 @@ DiffuseAreaLight::DiffuseAreaLight(std::shared_ptr<Entity> shape,
 
 LightSampleResult DiffuseAreaLight::evalEnvironment(const Ray &ray)
 {
-    // Fill s, src, dst, wi, pdf, pdfP, pdfD, isDP, isDD
     LightSampleResult ans;
-    // todo
+    ans.s = 0.0;
+    ans.src = ray.origin;
+    ans.dst = transform->getTranslate(); // fake
+    ans.wi = normalize(ans.dst - ans.src);
+    ans.pdfDirect = 0.0;
+    ans.pdfEmitPos = 0.0;
+    ans.pdfEmitDir = 0.0;
+    ans.isDeltaPos = false;
+    ans.isDeltaDir = false;
     return ans;
 }
 
-LightSampleResult eval(const Intersection &its, const Vec3d &d)
+LightSampleResult DiffuseAreaLight::eval(const Ray &ray, const Intersection &its, const Vec3d &d)
 {
     // Fill s, src, dst, wi, pdf, pdfP, pdfD, isDP, isDD
     LightSampleResult ans;
-    // todo
+    ans.src = ray.origin;
+    ans.dst = its.position;
+    ans.wi = d;
+    ans.isDeltaPos = false;
+    ans.isDeltaDir = false;
+    double dist2 = (ans.dst - ans.src).length2();
+    if (dot(d, its.geometryNormal) > 0.0)
+    {
+        ans.s = radiance;
+        ans.pdfEmitPos = 1.0 / shape->area();
+        ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
+        ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-ans.wi, its.geometryNormal);
+    }
+    else
+    {
+        ans.s = 0.0;
+        ans.pdfEmitPos = 0.0;
+        ans.pdfEmitDir = 0.0;
+        ans.pdfDirect = 0.0;
+    }
     return ans;
 }
 
 LightSampleResult DiffuseAreaLight::sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time)
 {
     // Fill s, src, dst, wi, pdf, pdfP, pdfD, isDP, isDD
+    Intersection itsEmitter = shape->sample(positionSample);
+    Point3d pos = itsEmitter.position;
+    Normal3d normal = itsEmitter.geometryNormal;
+    Vec3d wi; // todo: hemisphere sample, using 'directionalSample'
     LightSampleResult ans;
-    // todo
+    ans.s = radiance;
+    ans.pdfEmitPos = 1.0 / shape->area();
+    ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
+    ans.dst = itsEmitter.position;
+    ans.wi = wi;
+    ans.isDeltaPos = false;
+    ans.isDeltaDir = false;
     return ans;
 }
 
 LightSampleResult DiffuseAreaLight::sampleDirect(const Intersection &its, const Point2d &sample, float time)
 {
     // Fill s, src, dst, wi, pdf, pdfP, pdfD, isDP, isDD
+    Intersection itsEmitter = shape->sample(sample);
+    Point3d pos = itsEmitter.position;
+    Normal3d normal = itsEmitter.geometryNormal;
+    Vec3d wi = normalize(pos - its.position);
     LightSampleResult ans;
-    // todo
+    ans.src = its.position;
+    ans.dst = itsEmitter.position;
+    double dist2 = (ans.dst - ans.src).length2();
+    ans.s = radiance;
+    ans.pdfEmitPos = 1.0 / shape->area();
+    ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
+    ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-ans.wi, its.geometryNormal);
+    ans.wi = wi;
+    ans.isDeltaPos = false;
+    ans.isDeltaDir = false;
     return ans;
 }

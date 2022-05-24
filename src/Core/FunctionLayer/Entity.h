@@ -25,4 +25,6 @@ public:
 	virtual Intersection intersect(const Ray &r) const = 0;
 	// @brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
 	virtual std::shared_ptr<Light> getLight() const = 0;
+	virtual double area() const = 0;
+	virtual Intersection sample(const Point2d& positionSample) const = 0;
 };

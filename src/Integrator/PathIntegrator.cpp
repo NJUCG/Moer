@@ -30,9 +30,9 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
         auto its = itsOpt.value();
         Normal3d n = its.geometryNormal;
         auto light = itsOpt.value().object->getLight();
-        auto record = light->eval(its, ray.direction);
+        auto record = light->eval(ray, its, ray.direction);
         LEmission = record.s;
-        pdfEmission = record.pdf;
+        pdfEmission = record.pdfDirect;
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
     return {ray.direction, transmittance * LEmission, pdfEmission};
@@ -44,7 +44,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
 {
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
     auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
-    double pdfEmission = record.pdfDir; // pdfScatter with respect to solid angle
+    double pdfEmission = record.pdfEmitDir; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
     Spectrum Li = record.s;
     Point3d posL = record.dst;
@@ -130,7 +130,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEnvLights(std::shared_ptr<Scene> s
     {
         auto record = light->evalEnvironment(ray);
         L += record.s;
-        pdf += record.pdfDir;
+        pdf += record.pdfEmitDir;
     }
     return {-ray.direction, L, pdf};
 }

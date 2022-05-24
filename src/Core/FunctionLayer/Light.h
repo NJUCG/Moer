@@ -32,12 +32,12 @@ struct LightSampleResult
 	Normal3d dstNormal;
 	Point2d uv;
 
-	// @brief Total pdf.
-	double pdf;
-	// @brief Positional PDF if exists.
-	double pdfPos;
-	// @brief Directional PDF if exists.
-	double pdfDir;
+	// @brief PDF of direct light sampling.
+	double pdfDirect;
+	// @brief Positional emission PDF if exists.
+	double pdfEmitPos;
+	// @brief Directional emission PDF if exists.
+	double pdfEmitDir;
 
 	// @brief FALSE for area and volume light, TRUE for point and etc
 	bool isDeltaPos;
@@ -48,8 +48,13 @@ struct LightSampleResult
 class Light
 {
 public:
+	// @brief Assume that the given ray hits nothing in the scene.
+	// Note that this function will not return a direct light sampling PDF.
 	virtual LightSampleResult evalEnvironment(const Ray &ray) = 0;
-	virtual LightSampleResult eval(const Intersection &its, const Vec3d &d) = 0;
+	// @brief Assume that the given intersection is on the emitter. 
+	// Note that param ray is only used to fill 'src' field.
+	virtual LightSampleResult eval(const Ray& ray, const Intersection &its, const Vec3d &d) = 0;
+	// @brief Note that this function will not return a direct light sampling PDF.
 	virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) = 0;
 	virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) = 0;
 };
