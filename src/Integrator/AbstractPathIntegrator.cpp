@@ -11,6 +11,10 @@
 
 #include "AbstractPathIntegrator.h"
 
+AbstractPathIntegrator::AbstractPathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp) : MonteCarloIntegrator(camera, std::move(film), std::move(tileGenerator), sampler, spp)
+{
+}
+
 double AbstractPathIntegrator::MISWeight(double x, double y)
 {
     double pow_x = std::pow(x, misWeightPower);
@@ -40,7 +44,10 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
         // TERMINATE IF NO INTERSECTION
         if (!itsOpt.has_value())
+        {
             break;
+        }
+
         Intersection its = itsOpt.value();
 
         // RUSSIAN ROULETTE
@@ -70,7 +77,12 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
         }
-        ray = Ray(its.position, sampleScatterRecord.wi);
+        else
+        {
+            break;
+        }
+        const double eps = 1e-4; // todo
+        ray = Ray(its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi);
     }
 
     return L;

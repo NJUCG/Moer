@@ -10,6 +10,11 @@
  */
 
 #include "PathIntegrator.h"
+#include "../Geometry/CoordConvertor.h"
+
+PathIntegrator::PathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp) : AbstractPathIntegrator(camera, std::move(film), std::move(tileGenerator), sampler, spp)
+{
+}
 
 PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> scene,
                                                         std::optional<Intersection> itsOpt,
@@ -44,12 +49,19 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
 {
     std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
     auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
-    double pdfEmission = record.pdfEmitDir; // pdfScatter with respect to solid angle
+    double pdfDirect = record.pdfDirect; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
     Spectrum Li = record.s;
     Point3d posL = record.dst;
-    Spectrum transmittance(1.0); // todo: visibility test + transmittance eval
-    return {dirScatter, Li * transmittance, pdfEmission};
+    Point3d posS = its.position;
+    Spectrum transmittance(1.0); // todo: transmittance eval
+    Ray visibilityTestingRay(posL - dirScatter * 1e-4, -dirScatter, ray.timeMin, ray.timeMax);
+    auto visibilityTestingIts = scene->intersect(visibilityTestingRay);
+    if (!visibilityTestingIts.has_value() || visibilityTestingIts->object != its.object || (visibilityTestingIts->position - posS).length2() > 1e-6)
+    {
+        transmittance = 0.0;
+    }
+    return {dirScatter, Li * transmittance, pdfDirect};
 }
 
 PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
@@ -61,11 +73,13 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Normal3d n = its.geometryNormal;
-        double wiDotN = dot(n, dirScatter);
+        double wiDotN = std::abs(dot(n, dirScatter));
+        Vec3d wi = dirScatter;
+        Vec3d wo = -ray.direction;
         return {
             dirScatter,
-            bxdf->f(-ray.direction, dirScatter) * wiDotN,
-            bxdf->pdf(-ray.direction, dirScatter)};
+            bxdf->f(wo, wi) * wiDotN,
+            bxdf->pdf(wo, wi)};
     }
     else
     {
@@ -83,10 +97,10 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         Vec3d wo = -ray.direction;
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Vec3d n = its.geometryNormal;
-        BxDFSampleResult bsdfSample = bxdf->sample(wo);
+        BxDFSampleResult bsdfSample = bxdf->sample(wo, Point2d(sampler->sample(), sampler->sample()));
         double pdfLastScatterSample = bsdfSample.pdf;
         Vec3d dirScatter = bsdfSample.directionIn;
-        double wiDotN = dot(dirScatter, n);
+        double wiDotN = std::abs(dot(dirScatter, n));
         return {dirScatter, bsdfSample.s * wiDotN, pdfLastScatterSample};
     }
     else
@@ -104,6 +118,8 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
     double pSurvive = std::min(pRussianRoulette, throughput.sum());
     if (nBounce > nPathLengthLimit)
         pSurvive = 0.0;
+    if (nBounce <= 2)
+        pSurvive = 1.0;
     return pSurvive;
 }
 

@@ -17,9 +17,10 @@ class MonteCarloIntegrator : public Integrator
 {
 protected:
     std::shared_ptr<Sampler> sampler;
+    int spp = 4;
 
 public:
-    // todo: constructor
+    MonteCarloIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp);
 
     virtual void render(std::shared_ptr<Scene> scene);
 

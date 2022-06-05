@@ -4,7 +4,7 @@
  * @brief Path Integrator
  * @version 0.1
  * @date 2022-05-06
- *
+ * 
  * @copyright Copyright (c) 2022
  *
  */
@@ -19,8 +19,9 @@ class PathIntegrator : public AbstractPathIntegrator
 protected:
     const int nPathLengthLimit = 20;
     const double pRussianRoulette = 0.95;
+
 public:
-    // todo: constructor
+    PathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp);
 
     // @brief Return the radiance along given ray, emitted from given intersection.
     // @param scene     Ptr to scene.
@@ -28,18 +29,17 @@ public:
     // @param ray       Ray to evaluate.
     // @return          Direction of given ray, incident radiance at origin of ray, pdf of direct light sampling.
     virtual PathIntegratorLocalRecord evalEmittance(std::shared_ptr<Scene> scene,
-                                                std::optional<Intersection> its,
-                                                const Ray &ray) override;
+                                                    std::optional<Intersection> its,
+                                                    const Ray &ray) override;
 
-
-    // @brief Sample incident direction of direct lighting. 
+    // @brief Sample incident direction of direct lighting.
     // @param scene     Ptr to scene.
     // @param its       Reference point.
     // @param ray       Ray, used to specify wo (out direction).
     // @return          Sampled incident direction, incident radiance and pdf per solid angle.
     virtual PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
-                                                  const Intersection &its,
-                                                  const Ray &ray) override;
+                                                           const Intersection &its,
+                                                           const Ray &ray) override;
 
     // @brief Return scatter value of BSDF or phase function.
     // @param scene     Ptr to scene.
@@ -80,5 +80,5 @@ public:
 
     // @brief Evaluate radiance of env lights
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
-                                   const Ray &ray);
+                                                    const Ray &ray);
 };

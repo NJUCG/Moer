@@ -52,7 +52,7 @@ LightSampleResult PointLight::sampleEmit(const Point2d &positionSample, const Po
     ans.dst = transform->getTranslate();
     ans.wi = wi;
     ans.pdfEmitPos = 1.0 * DIRAC;
-    ans.pdfEmitDir = 1.0 / 3.1415926 / 4; // todo: replace with a constant pi
+    ans.pdfEmitDir = 1.0 / 3.14159 / 4; // todo: replace with a constant pi
     ans.pdfDirect = 0.0;
     ans.isDeltaPos = true;
     ans.isDeltaDir = false;
