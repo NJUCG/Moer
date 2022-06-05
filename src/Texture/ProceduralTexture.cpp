@@ -10,6 +10,15 @@
  */
 
 #include "ProceduralTexture.h"
+#include "TextureMapping.h"
+
+Checkerboard2D::Checkerboard2D() : StdTexture(std::make_shared<UVTextureMapping2D>())
+{
+}
+
+Checkerboard3D::Checkerboard3D() : StdTexture(std::make_shared<NaturalTextureMapping3D>())
+{
+}
 
 double Checkerboard2D::eval(const TextureCoord2D &coord) const
 {

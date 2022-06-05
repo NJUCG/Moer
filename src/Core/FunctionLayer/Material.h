@@ -19,9 +19,6 @@ struct Intersection;
 class Material
 {
 public:
-	
-	virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const=0;
-
-	virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const=0;
-
+	virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const = 0;
+	virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const = 0;
 };

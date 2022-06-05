@@ -21,6 +21,8 @@ struct Intersection
 {
 	Point3d position;
 	Normal3d geometryNormal;
+	Normal3d geometryTangent;
+	Normal3d geometryBitangent;
 	Point2d uv;
 
 	Point3d dpdu, dpdv;

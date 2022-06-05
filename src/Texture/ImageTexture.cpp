@@ -11,3 +11,19 @@
 
 #include "ImageTexture.h"
 
+template <typename T>
+void PrefilteredImage<T>::setWrapMode(enum WrapMode _wrapMode)
+{
+    wrapMode = _wrapMode;
+}
+
+template <typename T>
+WrapMode PrefilteredImage<T>::getWrapMode()
+{
+    return wrapMode;
+}
+
+template <typename T>
+T DirectImage<T>::eval(const TextureCoord2D &coord)
+{
+}

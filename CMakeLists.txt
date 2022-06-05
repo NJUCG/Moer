@@ -25,6 +25,6 @@ Testing(
     example-test1
     example-test2
     test-env
-    test-texture
+    test-integrator
     # add new test module name
 )

@@ -11,7 +11,7 @@
 
 #include "../Core/FunctionLayer/Ray.h"
 
-Ray::Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin, double _timeMax)
+Ray::Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin, double _timeMax) : origin(_origin),
+                                                                                              direction(_direction)
 {
-    // todo
 }

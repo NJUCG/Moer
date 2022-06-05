@@ -31,22 +31,35 @@ protected:
 
 public:
     virtual void setWrapMode(enum WrapMode _wrapMode);
+    virtual WrapMode getWrapMode();
     // todo: other common parameters
 
-    virtual void loadImage(const std::string &filename) = 0;
-    virtual T sample(const TextureCoord2D &coord) = 0;
+    virtual T eval(const TextureCoord2D &coord) = 0;
     virtual T texel(const Point2i &coord) = 0;
+    virtual void loadImage(const std::string &filename) = 0;
 };
 
 template <typename T>
-class DirectPrefilteredImage : public PrefilteredImage<T>
+class DirectImage : public PrefilteredImage<T>
 {
 protected:
     std::shared_ptr<Image> image;
 
 public:
     virtual void loadImage(const std::string &filename);
-    virtual T sample(const TextureCoord2D &coord);
+    virtual T eval(const TextureCoord2D &coord);
+    virtual T texel(const Point2i &coord);
+};
+
+template <typename T>
+class LinearMIPMap : public PrefilteredImage<T>
+{
+protected:
+    std::shared_ptr<Image> image;
+
+public:
+    virtual void loadImage(const std::string &filename);
+    virtual T eval(const TextureCoord2D &coord);
     virtual T texel(const Point2i &coord);
 };
 
@@ -60,14 +73,9 @@ public:
     ImageTexture(const std::string &filename,
                  std::shared_ptr<PrefilteredImage<T>> imageSampler,
                  std::shared_ptr<TextureMapping2D> mapping = std::make_shared<UVTextureMapping2D>());
-    virtual T eval(const TextureCoord2D &coord) const = 0;
+    virtual T eval(const Intersection &its) const;
 };
 
-template <typename T>
-void PrefilteredImage<T>::setWrapMode(enum WrapMode _wrapMode)
-{
-    wrapMode = _wrapMode;
-}
 
 // * Example: Creating a Image-based Color Texture using UV coordinates from mesh
 // * >  ImageTexture<RGB3>("1.jpg");

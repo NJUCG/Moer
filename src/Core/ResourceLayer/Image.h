@@ -19,9 +19,13 @@
 
 class Image
 {
-	char *imageRawData;
+	unsigned char *imageRawData;
+	Point2i resolution;
+	int channels;
 
+public:
 	Image();
+	~Image();
 
 	enum class ImageLoadMode
 	{
@@ -32,7 +36,6 @@ class Image
 	// todo: do gamma correction
 	Image(const std::string &path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
 
-public:
 	// @brief generate one black image with resolution [width,height] and channels.
 	Image(const Point2i &resolution, int channels);
 	Image(const Point3i &shape);
@@ -46,6 +49,8 @@ public:
 
 	void setColorAt(const Point2i &p, const Spectrum &s);
 	void setColorAt(const Point2i &p, const RGB3 &rgb);
+	RGB3 getRGBColorAt(const Point2i &p);
+	Spectrum getSpectrumColorAt(const Point2i &p);
 
 	bool saveTo(const std::string &path);
 };

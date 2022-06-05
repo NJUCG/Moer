@@ -15,7 +15,8 @@ class Checkerboard2D : public StdTexture<double, TextureCoord2D>
 {
 protected:
 public:
-    // todo: constructor
+    Checkerboard2D();
+    using StdTexture::eval;
     virtual double eval(const TextureCoord2D &coord) const override;
 };
 
@@ -23,7 +24,7 @@ class Checkerboard3D : public StdTexture<double, TextureCoord3D>
 {
 protected:
 public:
-    // todo: constructor
+    Checkerboard3D();
+    using StdTexture::eval;
     virtual double eval(const TextureCoord3D &coord) const override;
 };
-

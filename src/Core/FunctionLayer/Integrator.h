@@ -26,6 +26,8 @@ protected:
 	std::unique_ptr<TileGenerator> tileGenerator;
 
 public:
+	Integrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator);
 	virtual void render(std::shared_ptr<Scene> scene) = 0;
+	virtual void save(const std::string& path);
+	
 };
-

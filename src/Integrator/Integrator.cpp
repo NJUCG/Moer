@@ -16,3 +16,8 @@ Integrator::Integrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> fil
                                                                                                                                    tileGenerator(std::move(tileGenerator))
 {
 }
+
+void Integrator::save(const std::string &path)
+{
+    film->save(path);
+}

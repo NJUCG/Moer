@@ -110,12 +110,6 @@ Tvalue MixTexture<Tvalue>::eval(const Intersection &intersection) const
 }
 
 template <typename Tvalue, typename Tcoord>
-StdTexture<Tvalue, Tcoord>::StdTexture()
-{
-    // todo: initialize mapping with default 2D or 3D mapper
-}
-
-template <typename Tvalue, typename Tcoord>
 StdTexture<Tvalue, Tcoord>::StdTexture(std::shared_ptr<TextureMapping<Tcoord>> mapping): mapping(mapping)
 {
 }

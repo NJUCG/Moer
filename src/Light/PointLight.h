@@ -12,16 +12,16 @@
 #include "../Core/FunctionLayer/Light.h"
 #include "../Core/FunctionLayer/Transform3D.h"
 
-class PointLight : public Light
+class PointLight : public Light, public Transform3D
 {
 protected:
-    std::shared_ptr<Transform3D> transform;
     Spectrum intensity;
 
 public:
-    PointLight(const Spectrum &intensity, const std::shared_ptr<Transform3D> &transform);
+    PointLight(const Spectrum &intensity, const Point3d &center);
+    virtual void apply() override;
     virtual LightSampleResult evalEnvironment(const Ray &ray) override;
-	virtual LightSampleResult eval(const Ray& ray, const Intersection &its, const Vec3d &d) override;
+    virtual LightSampleResult eval(const Ray &ray, const Intersection &its, const Vec3d &d) override;
     virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;
-    virtual LightSampleResult sampleDirect(const Intersection& its, const Point2d &sample, float time) override;
+    virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) override;
 };

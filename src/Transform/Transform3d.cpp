@@ -12,8 +12,17 @@
 
 #include "../Core/FunctionLayer/Transform3d.h"
 
+Transform3D::Transform3D() : matrix(std::make_shared<TransformMatrix3D>())
+{
+}
+
 Point3d Transform3D::getTranslate()
 {
-    // todo
-    return Point3d();
+    Point3d p(0.0);
+    return *matrix * p;
+}
+
+void Transform3D::setTranslate(double x, double y, double z)
+{
+    matrix->setTranslate(x, y, z);
 }

@@ -10,15 +10,21 @@
  */
 
 #include "PointLight.h"
+#include "../Geometry/CoordConvertor.h"
 
 #define DIRAC 1.0 // todo: delete it
+
+PointLight::PointLight(const Spectrum &intensity, const Point3d &center) : intensity(intensity)
+{
+    Transform3D::setTranslate(center.x, center.y, center.z);
+}
 
 LightSampleResult PointLight::evalEnvironment(const Ray &ray)
 {
     LightSampleResult ans;
     ans.s = 0.0;
     ans.src = ray.origin;
-    ans.dst = transform->getTranslate();
+    ans.dst = Transform3D::getTranslate();
     ans.wi = normalize(ans.dst - ans.src);
     ans.pdfDirect = 0.0;
     ans.pdfEmitPos = 0.0;
@@ -28,7 +34,7 @@ LightSampleResult PointLight::evalEnvironment(const Ray &ray)
     return ans;
 }
 
-LightSampleResult PointLight::eval(const Ray& ray, const Intersection &its, const Vec3d &d)
+LightSampleResult PointLight::eval(const Ray &ray, const Intersection &its, const Vec3d &d)
 {
     // This function should not be called.
     LightSampleResult ans;
@@ -46,10 +52,10 @@ LightSampleResult PointLight::eval(const Ray& ray, const Intersection &its, cons
 
 LightSampleResult PointLight::sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time)
 {
-    Normal3d wi; // todo: convert directionSample to wi
+    Normal3d wi = CoordConvertor::cartesian2SphericalVec(directionSample);
     LightSampleResult ans;
     ans.s = intensity * DIRAC;
-    ans.dst = transform->getTranslate();
+    ans.dst = Transform3D::getTranslate();
     ans.wi = wi;
     ans.pdfEmitPos = 1.0 * DIRAC;
     ans.pdfEmitDir = 1.0 / 3.14159 / 4; // todo: replace with a constant pi
@@ -61,14 +67,18 @@ LightSampleResult PointLight::sampleEmit(const Point2d &positionSample, const Po
 
 LightSampleResult PointLight::sampleDirect(const Intersection &its, const Point2d &sample, float time)
 {
-    Normal3d wi = normalize(transform->getTranslate() - its.position);
+    Normal3d wi = normalize(Transform3D::getTranslate() - its.position);
     LightSampleResult ans;
     ans.src = its.position;
-    ans.dst = transform->getTranslate();
+    ans.dst = Transform3D::getTranslate();
     ans.s = intensity / (ans.dst - ans.src).length2() * DIRAC;
     ans.wi = wi;
     ans.pdfDirect = 1.0 * DIRAC;
     ans.isDeltaPos = true;
     ans.isDeltaDir = false;
     return ans;
+}
+
+void PointLight::apply()
+{
 }

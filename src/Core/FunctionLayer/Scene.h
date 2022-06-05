@@ -21,8 +21,11 @@
 class Scene
 {
 	std::unique_ptr<Accelerator> accelerator;
+	std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights;
+	std::shared_ptr<std::vector<std::shared_ptr<Entity>>> entities;
 
 public:
+	Scene();
 	void addEntity(std::shared_ptr<Entity> object);
 	void addLight(std::shared_ptr<Light> light);
 
