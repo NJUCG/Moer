@@ -1,0 +1,231 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "ext/catch2",
+					"jsonFile" : "directory-ext.catch2-Release-1d7130648615910f8ff5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "ext/catch2",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"jsonFile" : "directory-test-Release-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test"
+				},
+				{
+					"build" : "test/example/test1",
+					"jsonFile" : "directory-test.example.test1-Release-232078cf6407093f0347.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/example/test1",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "test/example/test2",
+					"jsonFile" : "directory-test.example.test2-Release-79c289590d6bb58edb9e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/example/test2",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "test/test-env",
+					"jsonFile" : "directory-test.test-env-Release-6f267bcf74104fcb13fd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-env",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "test/test-integrator",
+					"jsonFile" : "directory-test.test-integrator-Release-e562e34f078455a8db68.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-integrator",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "test/test-materials",
+					"jsonFile" : "directory-test.test-materials-Release-cd705f31f39c90872e5a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-materials",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "Zero",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "catch2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Catch2::@1a1407070b82d77799a2",
+					"jsonFile" : "target-Catch2-Release-0b3b2f49e497b69f3a1f.json",
+					"name" : "Catch2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Zero_example-test1::@818fe9580a959895a19f",
+					"jsonFile" : "target-Zero_example-test1-Release-708cf68321a7df823f0a.json",
+					"name" : "Zero_example-test1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "Zero_example-test2::@ad857f01c6461133eb9f",
+					"jsonFile" : "target-Zero_example-test2-Release-5d800e51d674fa369cf2.json",
+					"name" : "Zero_example-test2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "Zero_test-env::@ec7987f13a2f440536ff",
+					"jsonFile" : "target-Zero_test-env-Release-5642385316b0dd088311.json",
+					"name" : "Zero_test-env",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "Zero_test-integrator::@6bdefd54a5033dc46b9d",
+					"jsonFile" : "target-Zero_test-integrator-Release-414cec83095215730bb1.json",
+					"name" : "Zero_test-integrator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "Zero_test-materials::@1bd9715f93fa40c6110a",
+					"jsonFile" : "target-Zero_test-materials-Release-8c136e516addc396767f.json",
+					"name" : "Zero_test-materials",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/code/Zero/cmake-build-release",
+		"source" : "C:/code/Zero"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

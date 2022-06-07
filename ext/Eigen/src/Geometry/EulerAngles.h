@@ -19,11 +19,11 @@ namespace Eigen {
   *
   * Each of the three parameters \a a0,\a a1,\a a2 represents the respective rotation axis as an integer in {0,1,2}.
   * For instance, in:
-  * \code Vector3f ea = mat.eulerAngles(2, 0, 2); \endcode
+  * \code Vec3f ea = mat.eulerAngles(2, 0, 2); \endcode
   * "2" represents the z axis and "0" the x axis, etc. The returned angles are such that
   * we have the following equality:
   * \code
-  * mat == AngleAxisf(ea[0], Vector3f::UnitZ())
+  * mat == AngleAxisf(ea[0], Vec3f::UnitZ())
   *      * AngleAxisf(ea[1], Vector3f::UnitX())
   *      * AngleAxisf(ea[2], Vector3f::UnitZ()); \endcode
   * This corresponds to the right-multiply conventions (with right hand side frames).

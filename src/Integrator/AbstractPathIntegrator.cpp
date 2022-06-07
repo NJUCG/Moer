@@ -76,6 +76,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         if (sampleScatterRecord.f.isBlack() == false)
         {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
+
         }
         else
         {

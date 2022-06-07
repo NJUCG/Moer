@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "mesh.h"
 #include "light.h"
 #include "camera.h"
-#include "material.h"
+#include "Matte.h"
 #include "anim.h"
 #include "metadata.h"
 

@@ -9,7 +9,7 @@
  *
  */
 
-#pragma once
+    #pragma once
 
 #include "../Core/FunctionLayer/BxDF.h"
 #include "../Core/FunctionLayer/Intersection.h"

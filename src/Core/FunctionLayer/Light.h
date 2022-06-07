@@ -9,7 +9,6 @@
  *
  */
 #pragma once
-
 #include "../CoreLayer/Geometry.h"
 #include "../Core/FunctionLayer/Intersection.h"
 #include "../CoreLayer/Color.h"

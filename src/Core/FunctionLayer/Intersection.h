@@ -14,6 +14,7 @@
 #include "Material.h"
 #include "Medium.h"
 #include "Entity.h"
+#include "Frame.h"
 
 #include <memory>
 
@@ -25,6 +26,10 @@ struct Intersection
 	Normal3d geometryBitangent;
 	Point2d uv;
 
+
+    // shadingFrame
+    Frame shFrame;
+
 	Point3d dpdu, dpdv;
 	Normal3d dndu, dndv;
 
@@ -32,4 +37,13 @@ struct Intersection
 	std::shared_ptr<Material> material;
 	std::shared_ptr<Medium> mediumInside;
 	std::shared_ptr<Medium> mediumOutside;
+
+    Vec3d toLocal(const Vec3d & d) const {
+        return shFrame.toLocal(d);
+    }
+
+
+    Vec3d toWorld(const Vec3d & d) const {
+        return shFrame.toWorld(d);
+    }
 };

@@ -51,6 +51,9 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.geometryTangent = normalize(Vec3d(n.z, 0, -n.x));
         ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
         ans.material = material;
+
+        ans.shFrame = Frame(n);
+
         flag = true;
     }
     if (t2 >= 0 && t2 < t)
@@ -63,6 +66,9 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.geometryTangent = normalize(Vec3d(n.z, 0, -n.x));
         ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
         ans.material = material;
+
+        ans.shFrame = Frame(n);
+
         flag = true;
     }
     return flag ? std::make_optional(ans) : std::nullopt;

@@ -12,7 +12,7 @@
 
 #include "../CoreLayer/Color.h"
 #include "../CoreLayer/Geometry.h"
-
+#include "../FunctionLayer/Sampler.h"
 struct BxDFSampleResult
 {
 	Spectrum s;

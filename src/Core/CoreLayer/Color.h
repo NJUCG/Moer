@@ -23,6 +23,8 @@ class SampledSpectrum;
 // TODO: should be defined by cmake marco.
 using Spectrum = SampledSpectrum;
 
+//using Spectrum = RGB3;
+
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
 

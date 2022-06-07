@@ -11,6 +11,7 @@
 #pragma once
 
 //#include "../core.h"
+#include <memory>
 #include "../CoreLayer/Geometry.h"
 #include "../FunctionLayer/Medium.h"
 
