@@ -26,5 +26,6 @@ Testing(
     example-test2
     test-env
     test-integrator
+    test-materials
     # add new test module name
 )

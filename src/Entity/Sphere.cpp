@@ -86,7 +86,7 @@ void Sphere::setLight(std::shared_ptr<Light> light)
 
 double Sphere::area() const
 {
-    return 4 * 3.14159 * radius;
+    return 4 * M_PI* radius;
 }
 
 Intersection Sphere::sample(const Point2d &positionSample) const

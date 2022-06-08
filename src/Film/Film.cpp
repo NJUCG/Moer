@@ -16,6 +16,7 @@ Film::Film(Point2i resolution, int channels) : resolution(resolution), channels(
 {
     image = std::make_unique<Image>(resolution, channels);
     sumWeights.resize(resolution.x * resolution.y);
+    sumValues.resize(resolution.x * resolution.y);
 }
 
 Spectrum Film::getSpectrum(const Point2i &p)
@@ -30,23 +31,29 @@ RGB3 Film::getRGB(const Point2i &p)
 
 void Film::deposit(const Point2d &p, const Spectrum &s)
 {
+    // ! A temp implementation
     // ignore filter now
     Point2i pi(p.x, p.y);
     int id = pi.y * resolution.x + pi.x;
-    double originalW = sumWeights[id];
     sumWeights[id] += 1.0;
-    double currentW = sumWeights[id];
-    auto original = image->getSpectrumColorAt(pi);
-    auto current = (originalW * original + s) / currentW;
-    image->setColorAt(pi, s);
-
-    // debug
-    static std::ofstream ofs("render_result.txt");
-    ofs << p.x << " " << p.y << " " << s.average() << std::endl;
+    sumValues[id] += s;
 }
 
 void Film::save(const std::string &path)
 {
+    // ! A temp implementation
+    std::ofstream ofs("render_result.txt");
+    for (int i = 0; i < resolution.y; i++)
+    {
+        for (int j = 0; j < resolution.x; j++)
+        {
+            int id = i * resolution.x + j;
+            Spectrum value = sumValues[id] / sumWeights[id];
+            image->setColorAt(Point2i(j, i), RGB3(value.average()));
+            // for debug
+            ofs << j << " " << i << " " << value.average() << std::endl;
+        }
+    }
     image->saveTo(path);
 }
 

@@ -28,7 +28,7 @@ TEST_CASE("test-material")
     // scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -1.5), 1.0, lambert));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -101.0, 0.0), 100.0, matte));
     std::cout << "scene created" << std::endl;
-    scene->addLight(std::make_shared<PointLight>(1.0, Point3d(0, 2, 1)));
+    scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 2, 1)));
     std::cout << "scene prepared" << std::endl;
     PathIntegrator integrator(std::make_shared<TestCamera>(), std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 4);
     std::cout << "start rendering" << std::endl;

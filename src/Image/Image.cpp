@@ -57,6 +57,7 @@ Image::Image(const Point3i &shape) : resolution(shape.x, shape.y), channels(shap
     int h = resolution.y;
     int c = channels;
     imageRawData = new unsigned char[w * h * c];
+    memset(imageRawData, 0, w * h * c * sizeof(unsigned char));
 }
 
 Point2i Image::getResolution() const
@@ -81,8 +82,7 @@ int Image::getHeight() const
 
 void Image::setColorAt(const Point2i &p, const Spectrum &s)
 {
-    // setColorAt(p, s.toXYZ3().toRGB3()); // this can not work
-    setColorAt(p, RGB3(s.sum() / 3));
+    setColorAt(p, RGB3(s.average())); // todo: color support
 }
 
 void Image::setColorAt(const Point2i &p, const RGB3 &rgb)
@@ -93,9 +93,9 @@ void Image::setColorAt(const Point2i &p, const RGB3 &rgb)
     int w = resolution.x;
     int srcIdx = c * i + c * w * j;
 
-    int r = rgb[0] * 255;
-    int g = rgb[1] * 255;
-    int b = rgb[2] * 255;
+    int r = std::min(1.0, std::max(0.0, rgb[0])) * 255;
+    int g = std::min(1.0, std::max(0.0, rgb[1])) * 255;
+    int b = std::min(1.0, std::max(0.0, rgb[2])) * 255;
 
     imageRawData[srcIdx + 0] = r;
     imageRawData[srcIdx + 1] = g;
@@ -118,7 +118,7 @@ RGB3 Image::getRGBColorAt(const Point2i &p)
 
 Spectrum Image::getSpectrumColorAt(const Point2i &p)
 {
-    return getRGBColorAt(p).toSpectrum();
+    return Spectrum(getRGBColorAt(p)[0]); // todo: color support
 }
 
 bool Image::saveTo(const std::string &path)

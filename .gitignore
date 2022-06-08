@@ -20,3 +20,5 @@ imgui.ini
 
 /cmake-build-debug
 /cmake-build-release
+selftest
+tmp

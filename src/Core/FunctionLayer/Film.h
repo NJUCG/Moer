@@ -22,6 +22,7 @@ protected:
 	Point2i resolution;
 	int channels;
 	std::vector<float> sumWeights; // a temp impl
+	std::vector<Spectrum> sumValues; // a temp impl
 
 	void syncWithGui();
 
