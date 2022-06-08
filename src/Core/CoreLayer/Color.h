@@ -35,7 +35,7 @@ static const int nSpectrumSamples = 60;
 double mathClamp(double source, double low=0.0, double high=DBL_MAX);
 
 // @brief mathematical lerp.
-double mathLerp(double source0,double source1,double ratio);
+double mathLerp(double ratio,double source0,double source1);
 
 // @brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };

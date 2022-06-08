@@ -125,9 +125,9 @@ RGB3 XYZ3::toRGB3() const
 {
 	// TODO: Eigen impl maybe even slower.
 	Eigen::Matrix3d rgb2xyzMatrix;
-	rgb2xyzMatrix <<3.240479f, 1.537150f, 0.498535f,
+	rgb2xyzMatrix <<3.240479f, -1.537150f, -0.498535f,
 					-0.969256f, 1.875991f, 0.041556f,
-					0.055648f, 0.204043f, 1.057311f;
+					0.055648f, -0.204043f, 1.057311f;
 	Eigen::Vector3d vec;
 	vec << xyzData[0], xyzData[1], xyzData[2];
 	auto res = rgb2xyzMatrix * vec;
