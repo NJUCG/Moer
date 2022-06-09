@@ -18,7 +18,7 @@ imgui.ini
 /ALL_BUILD.vcxproj.user
 /ALL_BUILD.vcxproj.filters
 /ALL_BUILD.vcxproj
-
+/extlib
 /cmake-build-debug
 /cmake-build-release
 selftest
