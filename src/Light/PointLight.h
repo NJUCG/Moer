@@ -10,7 +10,7 @@
  */
 
 #include "../Core/FunctionLayer/Light.h"
-#include "../Core/FunctionLayer/Transform3D.h"
+#include "../Core/FunctionLayer/Transform3d.h"
 
 class PointLight : public Light, public Transform3D
 {

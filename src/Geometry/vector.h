@@ -129,13 +129,13 @@ TVector2<double> normalize(const TVector2<T> &v) {
 }
 
 template<> 
-TVector2<int> TVector2<int>::operator/(int i) const {
+inline TVector2<int> TVector2<int>::operator/(int i) const {
     assert(i != 0);
     return TVector2<int>(x/i, y/i);
 }
 
 template<> 
-TVector2<int>& TVector2<int>::operator/=(int i) {
+inline TVector2<int>& TVector2<int>::operator/=(int i) {
     assert(i != 0);
     x/=i, y/=i;
     return *this;

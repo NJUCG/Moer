@@ -12,6 +12,7 @@
 
 #include "BxDF.h"
 #include "BSSRDF.h"
+#include <memory>
 //#include "Intersection.h"
 
 

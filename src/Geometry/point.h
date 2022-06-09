@@ -101,13 +101,13 @@ TPoint2<T> operator*(T t, const TPoint2<T> &v) {
 }
 
 template<>
-TPoint2<int> TPoint2<int>::operator/(int i) const {
+inline TPoint2<int> TPoint2<int>::operator/(int i) const {
     assert(i!=0);
     return TPoint2<int>(x/i, y/i);
 }
 
 template<>
-TPoint2<int>& TPoint2<int>::operator/=(int i) {
+inline TPoint2<int>& TPoint2<int>::operator/=(int i) {
     assert(i!=0);
     x/=i, y/=i;
     return *this; 
@@ -208,13 +208,13 @@ TPoint3<T> operator*(T t, const TPoint3<T> &v) {
 }
 
 template<>
-TPoint3<int> TPoint3<int>::operator/(int i) const {
+inline TPoint3<int> TPoint3<int>::operator/(int i) const {
     assert(i!=0);
     return TPoint3<int>(x/i, y/i, z/i);
 }
 
 template<>
-TPoint3<int>& TPoint3<int>::operator/=(int i) {
+inline TPoint3<int>& TPoint3<int>::operator/=(int i) {
     assert(i!=0);
     x/=i, y/=i, z/i;
     return *this; 

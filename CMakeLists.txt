@@ -26,3 +26,4 @@ Testing(
     test-materials
     # add new test module name
 )
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
