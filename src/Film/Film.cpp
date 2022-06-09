@@ -49,7 +49,7 @@ void Film::save(const std::string &path)
         {
             int id = i * resolution.x + j;
             Spectrum value = sumValues[id] / sumWeights[id];
-            image->setColorAt(Point2i(j, i), RGB3(value.average()));
+            image->setColorAt(Point2i(j, i), value);
             // for debug
             ofs << j << " " << i << " " << value.average() << std::endl;
         }

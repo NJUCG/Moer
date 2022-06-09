@@ -3,14 +3,14 @@
 #include "../BxDF/TestBxDFLambert.h"
 #include "../Texture/ProceduralTexture.h"
 
-TestMaterialLambert::TestMaterialLambert()
+TestMaterialLambert::TestMaterialLambert(Spectrum s) : s(s)
 {
 }
 
 std::shared_ptr<BxDF> TestMaterialLambert::getBxDF(Intersection intersect) const
 {
     std::shared_ptr<TestBxDFLambert> bxdf = std::make_shared<TestBxDFLambert>(intersect);
-    bxdf->diffuse = 0.2;
+    bxdf->diffuse = s;
     return bxdf;
 }
 

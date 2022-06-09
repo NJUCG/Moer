@@ -19,6 +19,7 @@
 
 TEST_CASE("test-material")
 {
+    Spectrum::init();
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
