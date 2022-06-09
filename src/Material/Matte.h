@@ -13,6 +13,7 @@ class Matte     : public  Material{
 private:
     Spectrum albedo;
 public:
+    Matte(Spectrum a = Spectrum(0.5));
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
     virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const;
 

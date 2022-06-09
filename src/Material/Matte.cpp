@@ -4,9 +4,13 @@
 
 #include "Matte.h"
 
+Matte::Matte(Spectrum a) : albedo(a)
+{
+}
+
 std::shared_ptr<BxDF> Matte::getBxDF(Intersection intersect) const
 {
-    Spectrum color(0.2);
+    Spectrum color = albedo;
     std::shared_ptr<Diffuse> bxdf = std::make_shared<Diffuse>(color);
     return bxdf;
 }

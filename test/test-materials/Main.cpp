@@ -24,7 +24,7 @@ TEST_CASE("test-material")
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
     std::shared_ptr<Matte> matte  = std::make_shared<Matte>();
-    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.5), 1.0,  matte));
+    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -2.0), 1.0,  matte));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -1.5), 1.0, lambert));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -1.5), 1.0, lambert));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -101.0, 0.0), 100.0, matte));
