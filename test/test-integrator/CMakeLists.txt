@@ -38,6 +38,8 @@ AddTestModule(
      ../../src/Core/FunctionLayer/Frame.h
      ../../src/BxDF/Diffuse.h
      ../../src/BxDF/Diffuse.cpp
+     ../../src/BxDF/TestMirrorBxdf.cpp
+     ../../src/Material/TestMirror.cpp
 
 
 )
