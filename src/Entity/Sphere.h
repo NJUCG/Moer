@@ -27,6 +27,6 @@ public:
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;
     virtual Intersection sample(const Point2d &positionSample) const;
-    virtual std::shared_ptr<Light> getLight();
+    virtual std::shared_ptr<Light> getLight() const;
     virtual void setLight(std::shared_ptr<Light> light);
 };
