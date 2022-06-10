@@ -29,19 +29,12 @@ AddTestModule(
     ../../src/Film/Film.cpp
     ../../src/Geometry/CoordConvertor.cpp
     ../../src/Material/Matte.cpp
-    ../../src/Material/Matte.h
     ../../src/Sampler/DirectSampler.cpp
     ../../src/Transform/Transform3d.cpp
     ../../src/Image/Image.cpp
-
-    ../../src/Core/CoreLayer/Common.h
-     ../../src/Core/FunctionLayer/Frame.h
-     ../../src/BxDF/Diffuse.h
      ../../src/BxDF/Diffuse.cpp
      ../../src/BxDF/TestMirrorBxdf.cpp
      ../../src/Material/TestMirror.cpp
-
-
 )
 
 

@@ -67,7 +67,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
         ans.material = material;
         ans.shFrame = Frame(n);
-        ans.uv.x = (atan2(n.y, n.x) + M_PI) / M_PI / 2;
+        ans.uv.x = (atan2(n.z, n.x) + M_PI) / M_PI / 2;
         ans.uv.y = acos(n.y) / M_PI;
         flag = true;
     }

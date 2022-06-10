@@ -11,38 +11,19 @@
 
 #include "ImageTexture.h"
 
-template <typename T>
-void PrefilteredImage<T>::setWrapMode(enum WrapMode _wrapMode)
+template <>
+RGB3 DirectImage<RGB3>::eval(const TextureCoord2D &coord)
 {
-    wrapMode = _wrapMode;
+    Point2d uv = coord.coord;
+    // todo: apply wrap mode
+    uv.x = std::max(0.0, std::min(0.99999, uv.x)) * image->getResolution().x;
+    uv.y = std::max(0.0, std::min(0.99999, uv.y)) * image->getResolution().y;
+    Point2i xy(uv.x, uv.y);
+    return image->getRGBColorAt(xy);
 }
 
-template <typename T>
-WrapMode PrefilteredImage<T>::getWrapMode()
+template <>
+Spectrum ImageTexture<Spectrum, RGB3>::eval(const TextureCoord2D &coord) const
 {
-    return wrapMode;
-}
-
-template <typename T>
-T DirectImage<T>::eval(const TextureCoord2D &coord)
-{
-}
-
-template <typename T>
-ImageTexture<T>::ImageTexture(const std::string &filename,
-                              std::shared_ptr<TextureMapping2D> mapping) : mapping(mapping)
-{
-}
-
-template <typename T>
-ImageTexture<T>::ImageTexture(const std::string &filename,
-                              std::shared_ptr<PrefilteredImage<T>> imageSampler,
-                              std::shared_ptr<TextureMapping2D> mapping) : mapping(mapping)
-{
-}
-
-template <typename T>
-T ImageTexture<T>::eval(const TextureCoord2D &coord) const
-{
-    return RGB3(coord.coord.x, coord.coord.y, 0.0);
+    return imageSampler->eval(coord).toSpectrum();
 }
