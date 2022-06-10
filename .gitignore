@@ -18,5 +18,7 @@ imgui.ini
 /ALL_BUILD.vcxproj.filters
 /ALL_BUILD.vcxproj
 
-/cmake-build-debug
-/cmake-build-release
+
+cmake-build-debug
+cmake-build-release
+build

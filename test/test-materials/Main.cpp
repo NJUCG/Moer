@@ -15,14 +15,15 @@
 #include "../src/Camera/TestCamera.h"
 #include "../src/Sampler/DirectSampler.h"
 #include "../src/Light/PointLight.h"
-#include "../src/Material/Matte.h"
+#include "../src/Material/MatteMaterial.h"
+#include "../src/Material/MirrorMaterial.h"
 
-TEST_CASE("test-material")
+TEST_CASE("test-material-diffuse")
 {
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<Matte> matte  = std::make_shared<Matte>();
+    std::shared_ptr<MatteMaterial> matte  = std::make_shared<MatteMaterial>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.5), 1.0,  matte));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -1.5), 1.0, lambert));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -1.5), 1.0, lambert));
@@ -34,6 +35,27 @@ TEST_CASE("test-material")
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("diffuse_result.bmp");
+    std::cout << "finish" << std::endl;
+    return;
+}
+
+TEST_CASE("test-material-mirror")
+{
+    std::cout << "NJUCG Zero v0.1" << std::endl;
+    std::shared_ptr<Scene> scene = std::make_shared<Scene>();
+    std::cout << "scene start" << std::endl;
+    std::shared_ptr<MirrorMaterial> material  = std::make_shared<MirrorMaterial>();
+    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.5), 1.0,  material));
+    // scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -1.5), 1.0, lambert));
+    // scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -1.5), 1.0, lambert));
+    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -101.0, 0.0), 100.0, material));
+    std::cout << "scene created" << std::endl;
+    scene->addLight(std::make_shared<PointLight>(1.0, Point3d(0, 2, 1)));
+    std::cout << "scene prepared" << std::endl;
+    PathIntegrator integrator(std::make_shared<TestCamera>(), std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 4);
+    std::cout << "start rendering" << std::endl;
+    integrator.render(scene);
+    integrator.save("mirror_result.bmp");
     std::cout << "finish" << std::endl;
     return;
 }

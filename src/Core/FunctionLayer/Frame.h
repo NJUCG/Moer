@@ -12,9 +12,11 @@
  * @copyright Copyright (c) 2022
  *
  */
+#pragma once
 
 #include "../CoreLayer/Geometry.h"
 #include "Core/CoreLayer/Common.h"
+
 
 static void coordinateSystem(const Normal3d &a, Vec3d  &b, Vec3d  &c) {
     if (std::abs(a.x) > std::abs(a.y)) {

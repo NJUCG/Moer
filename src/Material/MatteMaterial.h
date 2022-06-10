@@ -5,15 +5,20 @@
 
 #include "../Core/FunctionLayer/Material.h"
 #include "../BxDF/Diffuse.h"
-
-
-
+#include "Core/FunctionLayer/Intersection.h"
+#include "Core/FunctionLayer/Texture.h"
 #pragma  once
-class Matte     : public  Material{
+class MatteMaterial     : public  Material{
 private:
-    Spectrum albedo;
+    std::shared_ptr<Texture<Spectrum>> kd ;
 public:
+
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
+
+    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd )  : kd(kd){
+
+    }
+
     virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const;
 
 };

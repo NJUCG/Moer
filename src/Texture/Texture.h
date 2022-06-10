@@ -1,5 +1,5 @@
 /**
- * @file Texture.h
+ @file Texture.h
  * @author Zhimin Fan
  * @brief Texture of different types.
  * @version 0.1

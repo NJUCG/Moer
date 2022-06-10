@@ -1,32 +1,21 @@
 /**
- * @file  Diffuse.h
+ * @file  Mirror.h
  * @author Junping Yuan
- * @brief diffuse bxdf
+ * @brief   Mirror Material
  * @version 0.1
- * @date 2022/06/06
+ * @date 2022/6/8
  *
  * @copyright Copyright (c) 2022
  *
  */
 
+
 #pragma  once
-
-
-
 
 #include "../Core/FunctionLayer/BxDF.h"
 #include "Core/FunctionLayer/Frame.h"
 
-
-
-class Diffuse : public  BxDF{
-private:
-
-    Spectrum  albedo;
-
-public:
-
-    Diffuse(Spectrum albedo);
+class Mirror : public  BxDF {
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 
@@ -37,8 +26,5 @@ public:
     virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const;
 
     virtual bool isSpecular() const;
-
 };
-
-
 
