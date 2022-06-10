@@ -32,7 +32,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
     double a = d.length2();
     double b = 2 * dot(u, d);
     double c = u.length2() - R * R;
-    double delta = b * b - 4 * a * c + 1e-8;
+    double delta = b * b - 4 * a * c;
     if (delta < 0)
         return std::nullopt;
     double sqrtDelta = sqrt(delta);
@@ -81,7 +81,7 @@ std::shared_ptr<Light> Sphere::getLight() const
     return lightPtr;
 }
 
-void Sphere::setLight(std::shared_ptr<Light> light) 
+void Sphere::setLight(std::shared_ptr<Light> light)
 {
     lightPtr = light;
 }
