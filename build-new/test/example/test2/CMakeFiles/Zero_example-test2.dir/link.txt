@@ -1,1 +1,0 @@
-/usr/bin/c++ "CMakeFiles/Zero_example-test2.dir/Main.cpp.o" "CMakeFiles/Zero_example-test2.dir/Other.cpp.o" -o ../../../../test/target/Zero_example-test2 
