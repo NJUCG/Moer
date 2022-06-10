@@ -27,3 +27,22 @@ template <typename T>
 T DirectImage<T>::eval(const TextureCoord2D &coord)
 {
 }
+
+template <typename T>
+ImageTexture<T>::ImageTexture(const std::string &filename,
+                              std::shared_ptr<TextureMapping2D> mapping) : mapping(mapping)
+{
+}
+
+template <typename T>
+ImageTexture<T>::ImageTexture(const std::string &filename,
+                              std::shared_ptr<PrefilteredImage<T>> imageSampler,
+                              std::shared_ptr<TextureMapping2D> mapping) : mapping(mapping)
+{
+}
+
+template <typename T>
+T ImageTexture<T>::eval(const TextureCoord2D &coord) const
+{
+    return RGB3(coord.coord.x, coord.coord.y, 0.0);
+}

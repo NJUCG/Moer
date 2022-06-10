@@ -2,21 +2,22 @@
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
 
-#include "../../src/Texture/ProceduralTexture.h"
+#include "../../src/Texture/Texture.h"
 #include <iostream>
 #include <cstdio>
 #include <vector>
-#include "../src/Integrator/PathIntegrator.h"
-#include "../src/Core/FunctionLayer/Scene.h"
-#include "../src/Core/FunctionLayer/Entity.h"
-#include "../src/Core/FunctionLayer/Camera.h"
-#include "../src/Core/FunctionLayer/Film.h"
-#include "../src/Entity/Sphere.h"
-#include "../src/Camera/TestCamera.h"
-#include "../src/Sampler/DirectSampler.h"
-#include "../src/Light/PointLight.h"
-#include "../src/Material/Matte.h"
-#include "../src/Material/TestMirror.h"
+#include <memory>
+#include "../../src/Integrator/PathIntegrator.h"
+#include "../../src/Core/FunctionLayer/Scene.h"
+#include "../../src/Core/FunctionLayer/Entity.h"
+#include "../../src/Core/FunctionLayer/Camera.h"
+#include "../../src/Core/FunctionLayer/Film.h"
+#include "../../src/Entity/Sphere.h"
+#include "../../src/Camera/TestCamera.h"
+#include "../../src/Sampler/DirectSampler.h"
+#include "../../src/Light/PointLight.h"
+#include "../../src/Material/Matte.h"
+#include "../../src/Material/TestMirror.h"
 
 TEST_CASE("test-integrator")
 {
@@ -24,11 +25,11 @@ TEST_CASE("test-integrator")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<Matte> lambert = std::make_shared<Matte>(RGB3(0.5, 0.5, 0.5).toSpectrum());
-    std::shared_ptr<Matte> lambertR = std::make_shared<Matte>(RGB3(0.8, 0.0, 0.0).toSpectrum());
-    std::shared_ptr<Matte> lambertG = std::make_shared<Matte>(RGB3(0.0, 0.8, 0.0).toSpectrum());
-    std::shared_ptr<Matte> lambertB = std::make_shared<Matte>(RGB3(0.0, 0.0, 0.8).toSpectrum());
-    std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>(RGB3(0.0, 0.0, 0.8).toSpectrum());
+    std::shared_ptr<Matte> lambert = std::make_shared<Matte>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
+    std::shared_ptr<Matte> lambertR = std::make_shared<Matte>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
+    std::shared_ptr<Matte> lambertG = std::make_shared<Matte>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.8, 0.0).toSpectrum()));
+    std::shared_ptr<Matte> lambertB = std::make_shared<Matte>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
+    std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, mirror));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -2.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));

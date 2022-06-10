@@ -73,7 +73,7 @@ public:
     ImageTexture(const std::string &filename,
                  std::shared_ptr<PrefilteredImage<T>> imageSampler,
                  std::shared_ptr<TextureMapping2D> mapping = std::make_shared<UVTextureMapping2D>());
-    virtual T eval(const Intersection &its) const;
+    virtual T eval(const TextureCoord2D &coord) const override;
 };
 
 

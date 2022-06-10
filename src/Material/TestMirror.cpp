@@ -1,6 +1,6 @@
 #include "TestMirror.h"
 
-TestMirror::TestMirror(Spectrum a) : albedo(a)
+TestMirror::TestMirror()
 {
 }
 

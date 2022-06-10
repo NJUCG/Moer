@@ -51,9 +51,9 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.geometryTangent = normalize(Vec3d(n.z, 0, -n.x));
         ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
         ans.material = material;
-
         ans.shFrame = Frame(n);
-
+        ans.uv.x = (atan2(n.y, n.x) + M_PI) / M_PI / 2;
+        ans.uv.y = acos(n.y) / M_PI;
         flag = true;
     }
     if (t2 >= 0 && t2 < t)
@@ -66,9 +66,9 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.geometryTangent = normalize(Vec3d(n.z, 0, -n.x));
         ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
         ans.material = material;
-
         ans.shFrame = Frame(n);
-
+        ans.uv.x = (atan2(n.y, n.x) + M_PI) / M_PI / 2;
+        ans.uv.y = acos(n.y) / M_PI;
         flag = true;
     }
     return flag ? std::make_optional(ans) : std::nullopt;
@@ -86,7 +86,7 @@ void Sphere::setLight(std::shared_ptr<Light> light)
 
 double Sphere::area() const
 {
-    return 4 * M_PI* radius;
+    return 4 * M_PI * radius;
 }
 
 Intersection Sphere::sample(const Point2d &positionSample) const
