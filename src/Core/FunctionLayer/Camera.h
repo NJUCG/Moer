@@ -16,8 +16,11 @@
 class Camera
 {
 public:
-	// @brief generate a ray by NDC coord ranges between [-1,1].
-	Ray generateRay(Point2d NDC);
+
+	//// @brief generate a ray by NDC coord ranges between [-1,1].
+	// change NDC unit square
+	virtual Ray generateRay(Point2d NDC) const = 0;
 
 	// TODO sampler?
+	virtual Ray generateRay(Point2d NDC, Point2d sample) const = 0;
 };

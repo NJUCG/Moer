@@ -1,0 +1,342 @@
+[
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/example/test1",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_example-test1.dir/Main.cpp.o -c /mnt/renderer/Zero/test/example/test1/Main.cpp",
+  "file": "/mnt/renderer/Zero/test/example/test1/Main.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/example/test2",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_example-test2.dir/Main.cpp.o -c /mnt/renderer/Zero/test/example/test2/Main.cpp",
+  "file": "/mnt/renderer/Zero/test/example/test2/Main.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/example/test2",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_example-test2.dir/Other.cpp.o -c /mnt/renderer/Zero/test/example/test2/Other.cpp",
+  "file": "/mnt/renderer/Zero/test/example/test2/Other.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/Main.cpp.o -c /mnt/renderer/Zero/test/test-integrator/Main.cpp",
+  "file": "/mnt/renderer/Zero/test/test-integrator/Main.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Integrator/Integrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/Integrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/Integrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Integrator/AbstractPathIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/AbstractPathIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/AbstractPathIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Integrator/MonteCarloIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/MonteCarloIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/MonteCarloIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Integrator/PathIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/PathIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/PathIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/BoundingBox/BoundingBox.cpp.o -c /mnt/renderer/Zero/src/BoundingBox/BoundingBox.cpp",
+  "file": "/mnt/renderer/Zero/src/BoundingBox/BoundingBox.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Ray/Ray.cpp.o -c /mnt/renderer/Zero/src/Ray/Ray.cpp",
+  "file": "/mnt/renderer/Zero/src/Ray/Ray.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Scene/Scene.cpp.o -c /mnt/renderer/Zero/src/Scene/Scene.cpp",
+  "file": "/mnt/renderer/Zero/src/Scene/Scene.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Color/RGB3.cpp.o -c /mnt/renderer/Zero/src/Color/RGB3.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/RGB3.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Color/Spectrum.cpp.o -c /mnt/renderer/Zero/src/Color/Spectrum.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/Spectrum.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Color/XYZ3.cpp.o -c /mnt/renderer/Zero/src/Color/XYZ3.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/XYZ3.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Texture/Texture.cpp.o -c /mnt/renderer/Zero/src/Texture/Texture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/Texture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Texture/TextureMapping.cpp.o -c /mnt/renderer/Zero/src/Texture/TextureMapping.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/TextureMapping.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Texture/ImageTexture.cpp.o -c /mnt/renderer/Zero/src/Texture/ImageTexture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/ImageTexture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Texture/ProceduralTexture.cpp.o -c /mnt/renderer/Zero/src/Texture/ProceduralTexture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/ProceduralTexture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Matrix/Matrix.cpp.o -c /mnt/renderer/Zero/src/Matrix/Matrix.cpp",
+  "file": "/mnt/renderer/Zero/src/Matrix/Matrix.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Light/PointLight.cpp.o -c /mnt/renderer/Zero/src/Light/PointLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/PointLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Light/AreaLight.cpp.o -c /mnt/renderer/Zero/src/Light/AreaLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/AreaLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Light/DiffuseAreaLight.cpp.o -c /mnt/renderer/Zero/src/Light/DiffuseAreaLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/DiffuseAreaLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Transform/Transform3d.cpp.o -c /mnt/renderer/Zero/src/Transform/Transform3d.cpp",
+  "file": "/mnt/renderer/Zero/src/Transform/Transform3d.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Camera/TestCamera.cpp.o -c /mnt/renderer/Zero/src/Camera/TestCamera.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/TestCamera.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Entity/Sphere.cpp.o -c /mnt/renderer/Zero/src/Entity/Sphere.cpp",
+  "file": "/mnt/renderer/Zero/src/Entity/Sphere.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Film/Film.cpp.o -c /mnt/renderer/Zero/src/Film/Film.cpp",
+  "file": "/mnt/renderer/Zero/src/Film/Film.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Geometry/CoordConvertor.cpp.o -c /mnt/renderer/Zero/src/Geometry/CoordConvertor.cpp",
+  "file": "/mnt/renderer/Zero/src/Geometry/CoordConvertor.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Material/Matte.cpp.o -c /mnt/renderer/Zero/src/Material/Matte.cpp",
+  "file": "/mnt/renderer/Zero/src/Material/Matte.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Sampler/DirectSampler.cpp.o -c /mnt/renderer/Zero/src/Sampler/DirectSampler.cpp",
+  "file": "/mnt/renderer/Zero/src/Sampler/DirectSampler.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Image/Image.cpp.o -c /mnt/renderer/Zero/src/Image/Image.cpp",
+  "file": "/mnt/renderer/Zero/src/Image/Image.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/BxDF/Diffuse.cpp.o -c /mnt/renderer/Zero/src/BxDF/Diffuse.cpp",
+  "file": "/mnt/renderer/Zero/src/BxDF/Diffuse.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/BxDF/TestMirrorBxdf.cpp.o -c /mnt/renderer/Zero/src/BxDF/TestMirrorBxdf.cpp",
+  "file": "/mnt/renderer/Zero/src/BxDF/TestMirrorBxdf.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Material/TestMirror.cpp.o -c /mnt/renderer/Zero/src/Material/TestMirror.cpp",
+  "file": "/mnt/renderer/Zero/src/Material/TestMirror.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Camera/Pinhole.cpp.o -c /mnt/renderer/Zero/src/Camera/Pinhole.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/Pinhole.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-integrator",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-integrator.dir/__/__/src/Camera/Thinlens.cpp.o -c /mnt/renderer/Zero/src/Camera/Thinlens.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/Thinlens.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/Main.cpp.o -c /mnt/renderer/Zero/test/test-materials/Main.cpp",
+  "file": "/mnt/renderer/Zero/test/test-materials/Main.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Integrator/Integrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/Integrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/Integrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Integrator/AbstractPathIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/AbstractPathIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/AbstractPathIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Integrator/MonteCarloIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/MonteCarloIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/MonteCarloIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Integrator/PathIntegrator.cpp.o -c /mnt/renderer/Zero/src/Integrator/PathIntegrator.cpp",
+  "file": "/mnt/renderer/Zero/src/Integrator/PathIntegrator.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/BoundingBox/BoundingBox.cpp.o -c /mnt/renderer/Zero/src/BoundingBox/BoundingBox.cpp",
+  "file": "/mnt/renderer/Zero/src/BoundingBox/BoundingBox.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Ray/Ray.cpp.o -c /mnt/renderer/Zero/src/Ray/Ray.cpp",
+  "file": "/mnt/renderer/Zero/src/Ray/Ray.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Scene/Scene.cpp.o -c /mnt/renderer/Zero/src/Scene/Scene.cpp",
+  "file": "/mnt/renderer/Zero/src/Scene/Scene.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Color/RGB3.cpp.o -c /mnt/renderer/Zero/src/Color/RGB3.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/RGB3.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Color/Spectrum.cpp.o -c /mnt/renderer/Zero/src/Color/Spectrum.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/Spectrum.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Color/XYZ3.cpp.o -c /mnt/renderer/Zero/src/Color/XYZ3.cpp",
+  "file": "/mnt/renderer/Zero/src/Color/XYZ3.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Texture/Texture.cpp.o -c /mnt/renderer/Zero/src/Texture/Texture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/Texture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Texture/TextureMapping.cpp.o -c /mnt/renderer/Zero/src/Texture/TextureMapping.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/TextureMapping.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Texture/ImageTexture.cpp.o -c /mnt/renderer/Zero/src/Texture/ImageTexture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/ImageTexture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Texture/ProceduralTexture.cpp.o -c /mnt/renderer/Zero/src/Texture/ProceduralTexture.cpp",
+  "file": "/mnt/renderer/Zero/src/Texture/ProceduralTexture.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Matrix/Matrix.cpp.o -c /mnt/renderer/Zero/src/Matrix/Matrix.cpp",
+  "file": "/mnt/renderer/Zero/src/Matrix/Matrix.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Light/PointLight.cpp.o -c /mnt/renderer/Zero/src/Light/PointLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/PointLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Light/AreaLight.cpp.o -c /mnt/renderer/Zero/src/Light/AreaLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/AreaLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Light/DiffuseAreaLight.cpp.o -c /mnt/renderer/Zero/src/Light/DiffuseAreaLight.cpp",
+  "file": "/mnt/renderer/Zero/src/Light/DiffuseAreaLight.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Transform/Transform3d.cpp.o -c /mnt/renderer/Zero/src/Transform/Transform3d.cpp",
+  "file": "/mnt/renderer/Zero/src/Transform/Transform3d.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Camera/TestCamera.cpp.o -c /mnt/renderer/Zero/src/Camera/TestCamera.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/TestCamera.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Entity/Sphere.cpp.o -c /mnt/renderer/Zero/src/Entity/Sphere.cpp",
+  "file": "/mnt/renderer/Zero/src/Entity/Sphere.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Film/Film.cpp.o -c /mnt/renderer/Zero/src/Film/Film.cpp",
+  "file": "/mnt/renderer/Zero/src/Film/Film.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Geometry/CoordConvertor.cpp.o -c /mnt/renderer/Zero/src/Geometry/CoordConvertor.cpp",
+  "file": "/mnt/renderer/Zero/src/Geometry/CoordConvertor.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Material/Matte.cpp.o -c /mnt/renderer/Zero/src/Material/Matte.cpp",
+  "file": "/mnt/renderer/Zero/src/Material/Matte.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Sampler/DirectSampler.cpp.o -c /mnt/renderer/Zero/src/Sampler/DirectSampler.cpp",
+  "file": "/mnt/renderer/Zero/src/Sampler/DirectSampler.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/Image/Image.cpp.o -c /mnt/renderer/Zero/src/Image/Image.cpp",
+  "file": "/mnt/renderer/Zero/src/Image/Image.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-materials",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-materials.dir/__/__/src/BxDF/Diffuse.cpp.o -c /mnt/renderer/Zero/src/BxDF/Diffuse.cpp",
+  "file": "/mnt/renderer/Zero/src/BxDF/Diffuse.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-camera",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-camera.dir/Main.cpp.o -c /mnt/renderer/Zero/test/test-camera/Main.cpp",
+  "file": "/mnt/renderer/Zero/test/test-camera/Main.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-camera",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-camera.dir/__/__/src/Camera/Pinhole.cpp.o -c /mnt/renderer/Zero/src/Camera/Pinhole.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/Pinhole.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-camera",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-camera.dir/__/__/src/Camera/Thinlens.cpp.o -c /mnt/renderer/Zero/src/Camera/Thinlens.cpp",
+  "file": "/mnt/renderer/Zero/src/Camera/Thinlens.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-camera",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-camera.dir/__/__/src/Ray/Ray.cpp.o -c /mnt/renderer/Zero/src/Ray/Ray.cpp",
+  "file": "/mnt/renderer/Zero/src/Ray/Ray.cpp"
+},
+{
+  "directory": "/mnt/renderer/Zero/build-new/test/test-camera",
+  "command": "/usr/bin/c++  -I/mnt/renderer/Zero/src -I/mnt/renderer/Zero/ext -I/mnt/renderer/Zero/ext/catch2 -std=gnu++17 -o CMakeFiles/Zero_test-camera.dir/__/__/src/Matrix/Matrix.cpp.o -c /mnt/renderer/Zero/src/Matrix/Matrix.cpp",
+  "file": "/mnt/renderer/Zero/src/Matrix/Matrix.cpp"
+}
+]

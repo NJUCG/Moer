@@ -16,5 +16,7 @@ class TestCamera : public Camera
 {
 public:
     // @brief generate a ray by NDC coord ranges between [-1,1].
-    Ray generateRay(Point2d NDC);
+    Ray generateRay(Point2d NDC) const;
+
+    Ray generateRay(Point2d NDC, Point2d sample) const;
 };

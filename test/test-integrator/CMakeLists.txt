@@ -41,7 +41,8 @@ AddTestModule(
      ../../src/BxDF/TestMirrorBxdf.cpp
      ../../src/Material/TestMirror.cpp
 
-
+     ../../src/Camera/Pinhole.cpp
+     ../../src/Camera/Thinlens.cpp
 )
 
 

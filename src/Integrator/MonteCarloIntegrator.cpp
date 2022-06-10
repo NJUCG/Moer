@@ -20,15 +20,15 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
 {
     int filmWidth = film->getResolution().x;
     int filmHeight = film->getResolution().y;
-    TestCamera cam;
+    const auto &cam = *this->camera;
     for (int y = 0; y < filmHeight; y++)
     {
         for (int x = 0; x < filmWidth; x++)
         {
             for (int i = 0; i < spp; i++)
             {
-                Point2d NDC(2.0 * (x + sampler->sample()) / filmWidth - 1, -2.0 * (y + sampler->sample()) / filmHeight + 1);
-                auto L = Li(cam.generateRay(NDC), scene);
+                Point2d NDC((x + sampler->sample()) / filmWidth, (y + sampler->sample()) / filmHeight);
+                auto L = Li(cam.generateRay(NDC, Point2d(sampler->sample(), sampler->sample())), scene);
                 film->deposit(Point2d(x, y), L);
             }
         }

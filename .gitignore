@@ -5,6 +5,7 @@ imgui.ini
 /NJUCG.mdj
 .vscode
 .idea
+.cache
 /CMakeFiles
 /SelfTest.dir/Debug
 /x64/Debug

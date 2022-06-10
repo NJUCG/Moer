@@ -13,6 +13,8 @@
 #include "../src/Core/FunctionLayer/Film.h"
 #include "../src/Entity/Sphere.h"
 #include "../src/Camera/TestCamera.h"
+#include "../src/Camera/Pinhole.h"
+#include "../src/Camera/Thinlens.h"
 #include "../src/Sampler/DirectSampler.h"
 #include "../src/Light/PointLight.h"
 #include "../src/Material/Matte.h"
@@ -37,10 +39,21 @@ TEST_CASE("test-integrator")
     std::cout << "scene created" << std::endl;
     scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 2, 1)));
     std::cout << "scene prepared" << std::endl;
-    PathIntegrator integrator(std::make_shared<TestCamera>(), std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
+
+    Point3d lookFrom(0, 1, 2),
+            lookAt(0, 0, 0);
+    Vec3d up(0, 1, 0); 
+    auto pinhole = std::make_shared<PinholeCamera>(
+        lookFrom, lookAt, up, 90.f, 1.f, 1.f
+    );
+    auto thinlens = std::make_shared<ThinlensCamera>(
+        lookFrom, lookAt, up, 90.f, 1.f, 2
+    );
+
+    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 64);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("result.bmp");
+    integrator.save("result-thinlens2.bmp");
     std::cout << "finish" << std::endl;
     return;
 }

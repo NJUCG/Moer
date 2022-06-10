@@ -61,11 +61,11 @@ public:
 
 	Matrix4x4();
 
-	Matrix4x4 operator*(const Matrix4x4& mat);
+	Matrix4x4 operator*(const Matrix4x4& mat) const;
 
-	Vec3d operator*(const Vec3d& v);
-	Point3d operator*(const Point3d& p);
-	Normal3d operator*(const Normal3d& n);
+	Vec3d operator*(const Vec3d& v) const;
+	Point3d operator*(const Point3d& p) const;
+	Normal3d operator*(const Normal3d& n) const;
 
 	// model
 	static Matrix4x4 translate(double x, double y, double z);
@@ -82,6 +82,8 @@ public:
 
 	Matrix4x4 inverse();
 	Matrix4x4 transpose();
+
+	friend void printMatrix(const Matrix4x4 &mat);
 };
 
 /*
