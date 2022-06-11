@@ -6,7 +6,7 @@
 
 std::shared_ptr<BxDF> MatteMaterial::getBxDF(Intersection intersect) const
 {
-    Spectrum color(0.4);
+    auto color = kd->eval(intersect);
     std::shared_ptr<Diffuse> bxdf = std::make_shared<Diffuse>(color);
     return bxdf;
 }

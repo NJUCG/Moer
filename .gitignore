@@ -4,6 +4,7 @@ imgui.ini
 /.vs
 /NJUCG.mdj
 .vscode
+.idea
 /CMakeFiles
 /SelfTest.dir/Debug
 /x64/Debug
@@ -18,7 +19,14 @@ imgui.ini
 /ALL_BUILD.vcxproj.filters
 /ALL_BUILD.vcxproj
 
+<<<<<<< HEAD
 
 cmake-build-debug
 cmake-build-release
 build
+=======
+/cmake-build-debug
+/cmake-build-release
+selftest
+tmp
+>>>>>>> 510bf978b9c1e360a4ef7ba5d420c8d9ddde3aad

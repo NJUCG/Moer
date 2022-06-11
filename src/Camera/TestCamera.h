@@ -11,6 +11,7 @@
 
 #include "../Core/FunctionLayer/Camera.h"
 
+#pragma  once
 // @brief This camera always generates rays along direction (0,0,-1), started at (x,y,INF) where (x,y) is specified by NDC.
 class TestCamera : public Camera
 {

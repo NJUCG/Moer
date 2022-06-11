@@ -12,6 +12,8 @@
 #include "../Core/FunctionLayer/Light.h"
 #include "../Core/FunctionLayer/Transform3D.h"
 
+#pragma  once
+
 class PointLight : public Light, public Transform3D
 {
 protected:

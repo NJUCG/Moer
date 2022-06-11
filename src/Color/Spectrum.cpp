@@ -20,7 +20,7 @@ double mathClamp(double source, double low, double high)
 	return source;
 }
 
-double mathLerp(double source0, double source1, double ratio)
+double mathLerp(double ratio,double source0, double source1)
 {
 	return (1.0f - ratio) * source0 + ratio * source1;
 }

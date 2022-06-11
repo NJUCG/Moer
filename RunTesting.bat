@@ -1,5 +1,7 @@
 @echo off
 
+echo RUNNING ALL TESTS OF ZERO
+
 set cur_dir=%~dp0
 set target_dir=%cur_dir%target\Debug\
 

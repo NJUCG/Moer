@@ -15,9 +15,7 @@ public:
 
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
 
-    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd )  : kd(kd){
-
-    }
+    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd )  : kd(kd){}
 
     virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const;
 

@@ -6,9 +6,9 @@ AddTestModule(
     ModuleName ${TEST_NAME}
     Src Main.cpp 
     ../../src/Integrator/Integrator.cpp
-    ../../src/Integrator/AbstractPathIntegrator.cpp 
-    ../../src/Integrator/PathIntegrator.cpp
+    ../../src/Integrator/AbstractPathIntegrator.cpp
     ../../src/Integrator/MonteCarloIntegrator.cpp
+    ../../src/Integrator/PathIntegrator.cpp
     ../../src/BoundingBox/BoundingBox.cpp
     ../../src/Ray/Ray.cpp
     ../../src/Scene/Scene.cpp
@@ -28,13 +28,13 @@ AddTestModule(
     ../../src/Entity/Sphere.cpp
     ../../src/Film/Film.cpp
     ../../src/Geometry/CoordConvertor.cpp
-    ../../src/BxDF/TestBxDFLambert.cpp
-    ../../src/Material/TestMaterialLambert.cpp
+    ../../src/Material/MatteMaterial.cpp
     ../../src/Sampler/DirectSampler.cpp
     ../../src/Transform/Transform3d.cpp
     ../../src/Image/Image.cpp
-
-
+     ../../src/BxDF/Diffuse.cpp
+     ../../src/BxDF/TestMirrorBxdf.cpp
+     ../../src/Material/TestMirror.cpp
 )
 
 

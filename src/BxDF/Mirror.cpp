@@ -14,7 +14,7 @@ Vec3d Mirror::sampleWi(const Vec3d &wo, const Point2d &sample) const {
 }
 
 double Mirror::pdf(const Vec3d &wo, const Vec3d &wi) const {
-    return 0;
+    return 0.0;
 }
 
 BxDFSampleResult Mirror::sample(const Vec3d &wo, const Point2d &sample) const {

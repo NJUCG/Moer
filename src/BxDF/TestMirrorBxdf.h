@@ -1,24 +1,11 @@
-/**
- * @file  Mirror.h
- * @author Junping Yuan
- * @brief   Mirror Material
- * @version 0.1
- * @date 2022/6/8
- *
- * @copyright Copyright (c) 2022
- *
- */
-
-
-
+#pragma once
 
 #include "../Core/FunctionLayer/BxDF.h"
-#include "Core/FunctionLayer/Frame.h"
+#include "../Core/FunctionLayer/Intersection.h"
 
-#pragma  once
-
-class Mirror : public  BxDF {
-
+class TestMirrorBxdf : public BxDF
+{
+public:
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 
     virtual Vec3d sampleWi(const Vec3d &wo, const Point2d &sample) const;
@@ -29,4 +16,3 @@ class Mirror : public  BxDF {
 
     virtual bool isSpecular() const;
 };
-
