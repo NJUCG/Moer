@@ -12,7 +12,7 @@
 #include "../src/Core/FunctionLayer/Camera.h"
 #include "../src/Core/FunctionLayer/Film.h"
 #include "../src/Entity/Sphere.h"
-#include "../src/Camera/TestCamera.h"
+#include "../src/Camera/Pinhole.h"
 #include "../src/Sampler/DirectSampler.h"
 #include "../src/Light/PointLight.h"
 #include "../src/Material/Matte.h"
@@ -23,15 +23,20 @@ TEST_CASE("test-material")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<Matte> matte  = std::make_shared<Matte>();
-    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -2.0), 1.0,  matte));
+    std::shared_ptr<Matte> matte = std::make_shared<Matte>();
+    scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -2.0), 1.0, matte));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -1.5), 1.0, lambert));
     // scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -1.5), 1.0, lambert));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -101.0, 0.0), 100.0, matte));
     std::cout << "scene created" << std::endl;
     scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 2, 1)));
     std::cout << "scene prepared" << std::endl;
-    PathIntegrator integrator(std::make_shared<TestCamera>(), std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 4);
+    Point3d lookFrom(0, 1, 2),
+        lookAt(0, 0, 0);
+    Vec3d up(0, 1, 0);
+    auto pinhole = std::make_shared<PinholeCamera>(
+        lookFrom, lookAt, up, 90.f, 1.f, 1.f);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 4);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("diffuse_result.bmp");

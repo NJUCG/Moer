@@ -38,8 +38,8 @@ AddTestModule(
      ../../src/Core/FunctionLayer/Frame.h
      ../../src/BxDF/Diffuse.h
      ../../src/BxDF/Diffuse.cpp
-
-
+     ../../src/Camera/Pinhole.cpp
+     ../../src/Camera/Thinlens.cpp
 )
 
 

@@ -1,4 +1,7 @@
 #include "Thinlens.h"
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <math.h>
 
 Ray ThinlensCamera::generateRay(Point2d NDC) const {
     Point3d pointOnFilm = sampleToFilm * Point3d (NDC.x, NDC.y, 0),
