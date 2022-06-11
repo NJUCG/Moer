@@ -5,6 +5,7 @@ imgui.ini
 /NJUCG.mdj
 .vscode
 .idea
+.cache
 /CMakeFiles
 /SelfTest.dir/Debug
 /x64/Debug
@@ -18,7 +19,7 @@ imgui.ini
 /ALL_BUILD.vcxproj.user
 /ALL_BUILD.vcxproj.filters
 /ALL_BUILD.vcxproj
-
+/extlib
 /cmake-build-debug
 /cmake-build-release
 selftest

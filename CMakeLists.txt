@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(Zero LANGUAGES CXX)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(PROJECT_EXTERN_INCLUDE "${PROJECT_SOURCE_DIR}/ext")
 set(PROJECT_EXTERN_LIBDIR "${PROJECT_SOURCE_DIR}/extlib")
 message(STATUS ${PROJECT_EXTERN_INCLUDE})
@@ -24,5 +24,7 @@ endfunction(Testing)
 Testing(
     test-integrator
     test-materials
+    test-camera
     # add new test module name
 )
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

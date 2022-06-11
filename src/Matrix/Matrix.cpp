@@ -41,26 +41,26 @@ Matrix4x4::Matrix4x4()
 	// empty
 }
 
-Matrix4x4 Matrix4x4::operator*(const Matrix4x4 &mat)
+Matrix4x4 Matrix4x4::operator*(const Matrix4x4 &mat) const
 {
 	return Matrix4x4(matrix * mat.matrix);
 }
 
-Vec3d Matrix4x4::operator*(const Vec3d &v)
+Vec3d Matrix4x4::operator*(const Vec3d &v) const
 {
 	Eigen::Vector3d vec = Eigen::Vector3d(v[0], v[1], v[2]);
 	Eigen::Vector3d result = matrix.block<3, 3>(0, 0) * vec;
 	return Vec3d(result[0], result[1], result[2]);
 }
 
-Point3d Matrix4x4::operator*(const Point3d &p)
+Point3d Matrix4x4::operator*(const Point3d &p) const
 {
 	Eigen::Vector4d vec = Eigen::Vector4d(p[0], p[1], p[2], 1.0f);
 	Eigen::Vector4d result = matrix * vec;
 	return Point3d(result[0] / result[3], result[1] / result[3], result[2] / result[3]);
 }
 
-Normal3d Matrix4x4::operator*(const Normal3d &n)
+Normal3d Matrix4x4::operator*(const Normal3d &n) const
 {
 	Eigen::Vector3d vec = Eigen::Vector3d(n[0], n[1], n[2]);
 	Eigen::Matrix3d mat = matrix.block<3, 3>(0, 0);
@@ -142,8 +142,8 @@ Matrix4x4 Matrix4x4::lookAt(const Point3d &lookFrom, const Vec3d &vecLookAt, con
 {
 	Matrix4x4 translateMat = translate(-lookFrom[0], -lookFrom[1], -lookFrom[2]);
 	Vec3d realLookAt = normalize(vecLookAt);
-	Vec3d right = normalize(cross(realLookAt, up));
-	Vec3d realUp = normalize(cross(right, realLookAt));
+	Vec3d right = normalize(cross(up, realLookAt));
+	Vec3d realUp = normalize(cross(realLookAt, right));
 	Matrix4x4 rotMat;
 	// input manually
 	rotMat.matrix << right[0], right[1], right[2], 0.0f, realUp[0], realUp[1], realUp[2], 0.0f,
@@ -172,12 +172,22 @@ Matrix4x4 Matrix4x4::orthographic(double left, double right, double up, double d
  */
 Matrix4x4 Matrix4x4::perspective(const Angle &fov, double aspect, double near, double far)
 {
+	/*
 	double cotHalfFov = (1 / std::tan(fov.getRad() / 2.0));
 	Matrix4x4 retVal;
 	retVal.matrix << cotHalfFov, 0.0f, 0.0f, 0.0f,
 		0.0f, cotHalfFov / aspect, 0.0f, 0.0f,
 		0.0f, 0.0f, (far + near) / (far - near), -2.0 * far * near / (far - near),
 		0.0f, 0.0f, 1.0f, 0.0f;
+	return retVal;
+	*/
+	// zcx 6.10
+	double cotHalfFov = (1 / std::tan(fov.getRad() / 2.0));
+	Matrix4x4 retVal;
+	retVal.matrix << cotHalfFov, 0, 0, 0,
+		      		 0, cotHalfFov * aspect, 0, 0,
+			  		 0, 0, far/(far-near), -far*near/(far-near),
+			  		 0, 0, 1, 0;
 	return retVal;
 }
 

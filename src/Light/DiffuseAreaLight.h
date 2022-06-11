@@ -10,7 +10,7 @@
  */
 
 #include "AreaLight.h"
-#include "../Core/FunctionLayer/Transform3D.h"
+#include "../Core/FunctionLayer/Transform3d.h"
 #include "../Core/FunctionLayer/Entity.h"
 
 class DiffuseAreaLight : public AreaLight

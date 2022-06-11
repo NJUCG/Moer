@@ -10,7 +10,7 @@
  */
 #pragma once
 #include "../CoreLayer/Geometry.h"
-#include "../Core/FunctionLayer/Intersection.h"
+#include "Intersection.h"
 #include "../CoreLayer/Color.h"
 #include "Ray.h"
 
