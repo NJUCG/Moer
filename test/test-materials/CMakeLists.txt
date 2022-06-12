@@ -24,7 +24,6 @@ AddTestModule(
     ../../src/Light/AreaLight.cpp
     ../../src/Light/DiffuseAreaLight.cpp
     ../../src/Transform/Transform3d.cpp
-    ../../src/Camera/TestCamera.cpp
     ../../src/Entity/Sphere.cpp
     ../../src/Film/Film.cpp
     ../../src/Geometry/CoordConvertor.cpp
@@ -41,6 +40,7 @@ AddTestModule(
 
      ../../src/BxDF/Diffuse.h
      ../../src/BxDF/Diffuse.cpp
+
      ../../src/BxDF/Mirror.cpp
      ../../src/BxDF/Mirror.h
      ../../src/BxDF/Dielectric.cpp
@@ -55,6 +55,9 @@ AddTestModule(
         ../../src/Material/DelectricMaterial.cpp
         ../../src/Material/DelectricMaterial.h
         ../../src/BxDF/TestMirrorBxdf.cpp
+
+     ../../src/Camera/Pinhole.cpp
+     ../../src/Camera/Thinlens.cpp
 )
 
 
@@ -67,7 +70,7 @@ target_link_directories(${EXCNAME} PUBLIC ${PROJECT_EXTERN_LIBDIR})
 # target_link_libraries(app assimp-vc142-mt imgui-dx11 d3d11 d3dcompiler)
 
 # test for opengl3
-target_link_libraries(${EXCNAME} assimp-vc142-mt imgui-opengl3 OpenGL32 glfw3)
+#target_link_libraries(${EXCNAME} assimp-vc142-mt imgui-opengl3 OpenGL32 glfw3)
 
 
 if(MSVC AND ((NOT CMAKE_BUILD_TYPE) OR CMAKE_BUILD_TYPE STREQUAL "Debug") )    

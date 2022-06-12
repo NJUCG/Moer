@@ -10,12 +10,12 @@
  */
 
 #include "DiffuseAreaLight.h"
+#include "../Geometry/CoordConvertor.h"
 
 DiffuseAreaLight::DiffuseAreaLight(std::shared_ptr<Entity> shape,
-                                   Spectrum radiance,
-                                   std::shared_ptr<Transform3D> transform3D) : shape(shape),
-                                                                               radiance(radiance),
-                                                                               AreaLight(transform3D)
+                                   Spectrum radiance) : shape(shape),
+                                                        radiance(radiance),
+                                                        AreaLight(nullptr)
 {
 }
 
@@ -24,8 +24,6 @@ LightSampleResult DiffuseAreaLight::evalEnvironment(const Ray &ray)
     LightSampleResult ans;
     ans.s = 0.0;
     ans.src = ray.origin;
-    ans.dst = transform->getTranslate(); // fake
-    ans.wi = normalize(ans.dst - ans.src);
     ans.pdfDirect = 0.0;
     ans.pdfEmitPos = 0.0;
     ans.pdfEmitDir = 0.0;
@@ -44,11 +42,11 @@ LightSampleResult DiffuseAreaLight::eval(const Ray &ray, const Intersection &its
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
     double dist2 = (ans.dst - ans.src).length2();
-    if (dot(d, its.geometryNormal) > 0.0)
+    if (dot(-d, its.geometryNormal) > 0.0)
     {
         ans.s = radiance;
         ans.pdfEmitPos = 1.0 / shape->area();
-        ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
+        ans.pdfEmitDir = 1.0 / M_PI / 2;
         ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-ans.wi, its.geometryNormal);
     }
     else
@@ -67,11 +65,15 @@ LightSampleResult DiffuseAreaLight::sampleEmit(const Point2d &positionSample, co
     Intersection itsEmitter = shape->sample(positionSample);
     Point3d pos = itsEmitter.position;
     Normal3d normal = itsEmitter.geometryNormal;
-    Vec3d wi; // todo: hemisphere sample, using 'directionalSample'
+    Vec3d wi = CoordConvertor::cartesian2SphericalVec(directionSample);
+    if (dot(wi, normal) < 0)
+    {
+        wi = -wi;
+    }
     LightSampleResult ans;
     ans.s = radiance;
     ans.pdfEmitPos = 1.0 / shape->area();
-    ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
+    ans.pdfEmitDir = 1.0 / M_PI / 2;
     ans.dst = itsEmitter.position;
     ans.wi = wi;
     ans.isDeltaPos = false;
@@ -92,9 +94,9 @@ LightSampleResult DiffuseAreaLight::sampleDirect(const Intersection &its, const 
     double dist2 = (ans.dst - ans.src).length2();
     ans.s = radiance;
     ans.pdfEmitPos = 1.0 / shape->area();
-    ans.pdfEmitDir = 1.0 / 3.1415926 / 2;
-    ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-ans.wi, its.geometryNormal);
+    ans.pdfEmitDir = 1.0 / M_PI / 2;
     ans.wi = wi;
+    ans.pdfDirect = ans.pdfEmitPos * dist2 / std::max(1e-9, dot(-ans.wi, its.geometryNormal));
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
     return ans;

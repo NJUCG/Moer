@@ -1,6 +1,13 @@
-//
-// Created by 袁军平 on 2022/6/11.
-//
+/**
+ * @file
+ * @author Junping Yuan
+ * @brief
+ * @version 0.1
+ * @date 2022/6/11
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 
 #include "../Core/FunctionLayer/Material.h"
 #include "../BxDF/Dielectric.h"
@@ -23,7 +30,6 @@ public:
     DelectricMaterial(){
 
     }
-
 private:
     std::shared_ptr<Texture<float>> m_intIDR;
     std::shared_ptr<Texture<float>> m_extIDR;

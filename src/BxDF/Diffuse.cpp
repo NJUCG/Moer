@@ -1,7 +1,15 @@
-//
-// Created by 袁军平 on 2022/6/6.
-//
+/**
+ * @file
+ * @author Junping Yuan 
+ * @brief 
+ * @version 0.1
+ * @date 
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 
+#pragma  once
 #include "Diffuse.h"
 
 

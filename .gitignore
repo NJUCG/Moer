@@ -5,6 +5,7 @@ imgui.ini
 /NJUCG.mdj
 .vscode
 .idea
+.cache
 /CMakeFiles
 /SelfTest.dir/Debug
 /x64/Debug
@@ -18,6 +19,7 @@ imgui.ini
 /ALL_BUILD.vcxproj.user
 /ALL_BUILD.vcxproj.filters
 /ALL_BUILD.vcxproj
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
@@ -25,8 +27,14 @@ cmake-build-debug
 cmake-build-release
 build
 =======
+=======
+/extlib
+>>>>>>> fdfa8851ea41c909547de433ac063c93e268a913
 /cmake-build-debug
 /cmake-build-release
 selftest
 tmp
+<<<<<<< HEAD
 >>>>>>> 510bf978b9c1e360a4ef7ba5d420c8d9ddde3aad
+=======
+>>>>>>> fdfa8851ea41c909547de433ac063c93e268a913

@@ -1,8 +1,13 @@
-//
-// Created by 袁军平 on 2022/6/10.
-//
-
-
+/**
+ * @file
+ * @author Junping Yuan
+ * @brief
+ * @version 0.1
+ * @date 2022/6/9
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 
 #include "../Core/FunctionLayer/Material.h"
 #include "../BxDF/Mirror.h"

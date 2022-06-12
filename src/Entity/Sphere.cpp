@@ -32,7 +32,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
     double a = d.length2();
     double b = 2 * dot(u, d);
     double c = u.length2() - R * R;
-    double delta = b * b - 4 * a * c + 1e-3;
+    double delta = b * b - 4 * a * c;
     if (delta < 0)
         return std::nullopt;
     double sqrtDelta = sqrt(delta);
@@ -44,7 +44,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
     if (t1 >= 0 && t1 < t)
     {
         t = t1;
-        Vec3d n = o + d * t2 - C;
+        Vec3d n = o + d * t1 - C;
         n = normalize(n);
         ans.position = o + d * t1;
         ans.geometryNormal = n;
@@ -54,6 +54,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.shFrame = Frame(n);
         ans.uv.x = (atan2(n.y, n.x) + M_PI) / M_PI / 2;
         ans.uv.y = acos(n.y) / M_PI;
+        ans.object = this;
         flag = true;
     }
     if (t2 >= 0 && t2 < t)
@@ -69,12 +70,13 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.shFrame = Frame(n);
         ans.uv.x = (atan2(n.z, n.x) + M_PI) / M_PI / 2;
         ans.uv.y = acos(n.y) / M_PI;
+        ans.object = this;
         flag = true;
     }
     return flag ? std::make_optional(ans) : std::nullopt;
 }
 
-std::shared_ptr<Light> Sphere::getLight()
+std::shared_ptr<Light> Sphere::getLight() const
 {
     return lightPtr;
 }

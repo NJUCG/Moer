@@ -26,24 +26,26 @@ struct Intersection
 	Normal3d geometryBitangent;
 	Point2d uv;
 
-
-    // shadingFrame
-    Frame shFrame;
+	// shadingFrame
+	Frame shFrame;
 
 	Point3d dpdu, dpdv;
 	Normal3d dndu, dndv;
 
-	std::shared_ptr<Entity> object;
+	// std::shared_ptr<Entity> object;
+	const Entity *object;
+
 	std::shared_ptr<Material> material;
 	std::shared_ptr<Medium> mediumInside;
 	std::shared_ptr<Medium> mediumOutside;
 
-    Vec3d toLocal(const Vec3d & d) const {
-        return shFrame.toLocal(d);
-    }
+	Vec3d toLocal(const Vec3d &d) const
+	{
+		return shFrame.toLocal(d);
+	}
 
-
-    Vec3d toWorld(const Vec3d & d) const {
-        return shFrame.toWorld(d);
-    }
+	Vec3d toWorld(const Vec3d &d) const
+	{
+		return shFrame.toWorld(d);
+	}
 };

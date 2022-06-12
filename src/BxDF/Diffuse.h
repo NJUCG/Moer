@@ -10,10 +10,6 @@
  */
 
 #pragma  once
-
-
-
-
 #include "../Core/FunctionLayer/BxDF.h"
 #include "Core/FunctionLayer/Frame.h"
 

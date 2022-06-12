@@ -10,7 +10,7 @@
  */
 
 #include "AreaLight.h"
-#include "../Core/FunctionLayer/Transform3D.h"
+#include "../Core/FunctionLayer/Transform3d.h"
 #include "../Core/FunctionLayer/Entity.h"
 
 class DiffuseAreaLight : public AreaLight
@@ -20,8 +20,7 @@ class DiffuseAreaLight : public AreaLight
 
 public:
     DiffuseAreaLight(std::shared_ptr<Entity> shape,
-                     Spectrum radiance,
-                     std::shared_ptr<Transform3D> transform3D);
+                     Spectrum radiance);
     virtual LightSampleResult evalEnvironment(const Ray &ray) override;
 	virtual LightSampleResult eval(const Ray& ray, const Intersection &its, const Vec3d &d) override;
     virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;

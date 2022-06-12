@@ -1,6 +1,3 @@
-//
-// Created by 袁军平 on 2022/6/7.
-//
 
 #include "MatteMaterial.h"
 

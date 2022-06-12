@@ -1,6 +1,4 @@
-//
-// Created by 袁军平 on 2022/6/10.
-//
+
 
 #include "Dielectric.h"
 
@@ -12,12 +10,13 @@ Spectrum Dielectric::f(const Vec3d &wo, const Vec3d &wi) const {
 
 Vec3d Dielectric::sampleWi(const Vec3d &wo, const Point2d &sample) const {
     float cosThetaI = Frame::cosTheta(wo);
+
     float fresnelVal = fresnel(cosThetaI,m_extIOR,m_intIOR);
     if(fresnelVal>sample[0]){
         return  reflect(wo);
     }
     else{
-        return refract(wo);
+        return  refract(wo);
     }
 }
 
@@ -32,7 +31,7 @@ bool Dielectric::isSpecular() const {
 BxDFSampleResult Dielectric::sample(const Vec3d &wo, const Point2d &sample) const {
     BxDFSampleResult result;
     result.pdf=1;
-    result.directionIn= sampleWi(wo,sample);
+    result.directionIn= sampleWi(wo,sample) ;
     result.isSpecular= true;
     result.s=1;
     return  result;

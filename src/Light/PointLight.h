@@ -9,8 +9,10 @@
  *
  */
 
+#pragma once
+
 #include "../Core/FunctionLayer/Light.h"
-#include "../Core/FunctionLayer/Transform3D.h"
+#include "../Core/FunctionLayer/Transform3d.h"
 
 #pragma  once
 

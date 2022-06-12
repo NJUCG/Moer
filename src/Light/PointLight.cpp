@@ -12,7 +12,7 @@
 #include "PointLight.h"
 #include "../Geometry/CoordConvertor.h"
 
-#define DIRAC 1.0 // todo: delete it
+#define DIRAC 1.0
 
 PointLight::PointLight(const Spectrum &intensity, const Point3d &center) : intensity(intensity)
 {
@@ -58,7 +58,7 @@ LightSampleResult PointLight::sampleEmit(const Point2d &positionSample, const Po
     ans.dst = Transform3D::getTranslate();
     ans.wi = wi;
     ans.pdfEmitPos = 1.0 * DIRAC;
-    ans.pdfEmitDir = 1.0 / M_PI/ 4; // todo: replace with a constant pi
+    ans.pdfEmitDir = 1.0 / M_PI / 4;
     ans.pdfDirect = 0.0;
     ans.isDeltaPos = true;
     ans.isDeltaDir = false;

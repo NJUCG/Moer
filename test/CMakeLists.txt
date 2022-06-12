@@ -8,6 +8,7 @@ include(Testing.cmake)
 
 add_subdirectory(example/test1)
 add_subdirectory(example/test2)
-add_subdirectory(test-env)
+#add_subdirectory(test-env)
 add_subdirectory(test-integrator)
 add_subdirectory(test-materials)
+add_subdirectory(test-camera)

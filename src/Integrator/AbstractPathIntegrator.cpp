@@ -27,7 +27,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
     Spectrum L(0.0);
     Spectrum throughput(1.0);
     Ray ray = initialRay;
-    double pdfLastScatterSample = INFINITY;
+    double pdfLastScatterSample = 1e99;
     int nBounce = 0;
 
     while (true)
@@ -76,7 +76,6 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         if (sampleScatterRecord.f.isBlack() == false)
         {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
-
         }
         else
         {
