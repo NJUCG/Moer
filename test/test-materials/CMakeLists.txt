@@ -43,6 +43,8 @@ AddTestModule(
      ../../src/BxDF/Diffuse.cpp
      ../../src/BxDF/Mirror.cpp
      ../../src/BxDF/Mirror.h
+     ../../src/BxDF/Dielectric.cpp
+        ../../src/BxDF/Dielectric.h
 
      ../../src/Material/TestMirror.cpp
      ../../src/Material/TestMirror.h
@@ -50,8 +52,8 @@ AddTestModule(
         ../../src/Material/MirrorMaterial.cpp
      ../../src/Material/MatteMaterial.cpp
      ../../src/Material/MatteMaterial.h
-
-
+        ../../src/Material/DelectricMaterial.cpp
+        ../../src/Material/DelectricMaterial.h
         ../../src/BxDF/TestMirrorBxdf.cpp
 )
 
