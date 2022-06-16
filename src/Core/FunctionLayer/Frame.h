@@ -134,13 +134,5 @@ struct Frame {
         return !operator==(frame);
     }
 
-//    /// Return a human-readable string summary of this frame
-//    std::string toString() const {
-//        return tfm::format(
-//                "Frame[\n"
-//                "  s = %s,\n"
-//                "  t = %s,\n"
-//                "  n = %s\n"
-//                "]", s.toString(), t.toString(), n.toString());
-//    }
+
 };

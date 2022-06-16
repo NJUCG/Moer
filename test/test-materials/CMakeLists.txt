@@ -36,7 +36,7 @@ AddTestModule(
 
 
     ../../src/Core/CoreLayer/Common.h
-     ../../src/Core/FunctionLayer/Frame.h
+    ../../src/Core/FunctionLayer/Frame.h
 
      ../../src/BxDF/Diffuse.h
      ../../src/BxDF/Diffuse.cpp
@@ -44,17 +44,20 @@ AddTestModule(
      ../../src/BxDF/Mirror.cpp
      ../../src/BxDF/Mirror.h
      ../../src/BxDF/Dielectric.cpp
-        ../../src/BxDF/Dielectric.h
+     ../../src/BxDF/Dielectric.h
+     ../../src/BxDF/Microfacet.h
+     ../../src/BxDF/Mircofacet.cpp
 
      ../../src/Material/TestMirror.cpp
      ../../src/Material/TestMirror.h
-        ../../src/Material/MirrorMaterial.h
-        ../../src/Material/MirrorMaterial.cpp
+     ../../src/Material/MirrorMaterial.h
+     ../../src/Material/MirrorMaterial.cpp
      ../../src/Material/MatteMaterial.cpp
      ../../src/Material/MatteMaterial.h
-        ../../src/Material/DelectricMaterial.cpp
-        ../../src/Material/DelectricMaterial.h
-        ../../src/BxDF/TestMirrorBxdf.cpp
+     ../../src/Material/DelectricMaterial.cpp
+     ../../src/Material/DelectricMaterial.h
+
+     ../../src/BxDF/TestMirrorBxdf.cpp
 
      ../../src/Camera/Pinhole.cpp
      ../../src/Camera/Thinlens.cpp

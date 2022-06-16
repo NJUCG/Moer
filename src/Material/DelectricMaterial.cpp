@@ -4,5 +4,5 @@ std::shared_ptr<BxDF> DelectricMaterial::getBxDF(Intersection intersect) const {
 }
 
 std::shared_ptr<BSSRDF> DelectricMaterial::getBSSRDF(Intersection intersect) const {
-    return std::shared_ptr<BSSRDF>();
+    return nullptr ;
 }

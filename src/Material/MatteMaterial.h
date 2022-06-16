@@ -11,6 +11,7 @@
 
 #include "../Core/FunctionLayer/Material.h"
 #include "../BxDF/Diffuse.h"
+#include "../BxDF/Microfacet.h"
 #include "Core/FunctionLayer/Intersection.h"
 #include "Core/FunctionLayer/Texture.h"
 #pragma  once

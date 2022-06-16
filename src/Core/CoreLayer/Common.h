@@ -76,6 +76,38 @@ inline  float fresnel(float cosThetaI, float extIOR, float intIOR) {
     return (Rs * Rs + Rp * Rp) / 2.0f;
 }
 
+inline  double fresnel(double cosThetaI, double extIOR, double intIOR) {
+    double etaI = extIOR, etaT = intIOR;
+
+    if (extIOR == intIOR)
+        return 0.0;
+
+    /* Swap the indices of refraction if the interaction starts
+       at the inside of the object */
+    if (cosThetaI < 0.0f) {
+        std::swap(etaI, etaT);
+        cosThetaI = -cosThetaI;
+    }
+
+    /* Using Snell's law, calculate the squared sine of the
+       angle between the normal and the transmitted ray */
+    double eta = etaI / etaT,
+            sinThetaTSqr = eta*eta * (1-cosThetaI*cosThetaI);
+
+    if (sinThetaTSqr > 1.0f)
+        return 1.0f;  /* Total internal reflection! */
+
+    double cosThetaT = std::sqrt(1.0f - sinThetaTSqr);
+
+    double Rs = (etaI * cosThetaI - etaT * cosThetaT)
+               / (etaI * cosThetaI + etaT * cosThetaT);
+    double Rp = (etaT * cosThetaI - etaI * cosThetaT)
+               / (etaT * cosThetaI + etaI * cosThetaT);
+
+    return (Rs * Rs + Rp * Rp) / 2.0;
+}
+
+
 
 
 

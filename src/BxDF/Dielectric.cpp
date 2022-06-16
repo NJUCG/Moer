@@ -11,13 +11,14 @@ Spectrum Dielectric::f(const Vec3d &wo, const Vec3d &wi) const {
 Vec3d Dielectric::sampleWi(const Vec3d &wo, const Point2d &sample) const {
     float cosThetaI = Frame::cosTheta(wo);
 
+//    return  reflect(wo);
     float fresnelVal = fresnel(cosThetaI,m_extIOR,m_intIOR);
-    if(fresnelVal>sample[0]){
-        return  reflect(wo);
-    }
-    else{
+//    if(fresnelVal>sample[0]){
+//        return  reflect(wo);
+//    }
+//    else{
         return  refract(wo);
-    }
+//    }
 }
 
 double Dielectric::pdf(const Vec3d &wo, const Vec3d &wi) const {
