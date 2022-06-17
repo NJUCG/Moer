@@ -61,7 +61,7 @@ TEST_CASE("test-integrator")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 64);
+    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-thinlens2.bmp");

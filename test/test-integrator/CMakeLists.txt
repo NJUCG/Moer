@@ -33,8 +33,9 @@ AddTestModule(
     ../../src/Image/Image.cpp
      ../../src/BxDF/Diffuse.cpp
      ../../src/BxDF/TestMirrorBxdf.cpp
+     ../../src/BxDF/Microfacet.h
+     ../../src/BxDF/Mircofacet.cpp
      ../../src/Material/TestMirror.cpp
-
      ../../src/Camera/Pinhole.cpp
      ../../src/Camera/Thinlens.cpp
 )

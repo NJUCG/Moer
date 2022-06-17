@@ -19,7 +19,7 @@ class MatteMaterial     : public  Material{
 private:
     std::shared_ptr<Texture<Spectrum>> kd ;
 public:
-    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd )  : kd(kd){}
+    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd );
 
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
 
