@@ -22,10 +22,10 @@ function(Testing)
 endfunction(Testing)
 
 Testing(
-    test-integrator
+    # test-integrator
+    # test-materials
+    # test-camera
     test-integrator-validate
-    test-materials
-    test-camera
     # add new test module name
 )
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

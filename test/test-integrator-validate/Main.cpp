@@ -17,21 +17,21 @@
 #include "../../src/Light/PointLight.h"
 #include "../../src/Material/MatteMaterial.h"
 #include "../../src/Material/TestMirror.h"
-#include "../src/Texture/Texture.h"
-#include "../src/Texture/ImageTexture.h"
-#include "../src/Integrator/PathIntegrator.h"
-#include "../src/Core/FunctionLayer/Scene.h"
-#include "../src/Core/FunctionLayer/Entity.h"
-#include "../src/Core/FunctionLayer/Camera.h"
-#include "../src/Core/FunctionLayer/Film.h"
-#include "../src/Entity/Sphere.h"
-#include "../src/Camera/Pinhole.h"
-#include "../src/Camera/Thinlens.h"
-#include "../src/Sampler/DirectSampler.h"
-#include "../src/Light/PointLight.h"
-#include "../src/Material/MatteMaterial.h"
-#include "../src/Material/TestMirror.h"
-
+#include "../../src/Texture/Texture.h"
+#include "../../src/Texture/ImageTexture.h"
+#include "../../src/Integrator/PathIntegrator.h"
+#include "../../src/Core/FunctionLayer/Scene.h"
+#include "../../src/Core/FunctionLayer/Entity.h"
+#include "../../src/Core/FunctionLayer/Camera.h"
+#include "../../src/Core/FunctionLayer/Film.h"
+#include "../../src/Entity/Sphere.h"
+#include "../../src/Camera/Pinhole.h"
+#include "../../src/Camera/Thinlens.h"
+#include "../../src/Sampler/DirectSampler.h"
+#include "../../src/Light/PointLight.h"
+#include "../../src/Material/MatteMaterial.h"
+#include "../../src/Material/TestMirror.h"
+#include "../../src/Light/DiffuseAreaLight.h"
 
 TEST_CASE("test-integrator-validate")
 {
@@ -41,10 +41,15 @@ TEST_CASE("test-integrator-validate")
     std::cout << "scene start" << std::endl;
     std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
     std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>();
+    auto sphereEmitterShape = std::make_shared<Sphere>(Point3d(0.0, 3.0, -1.0), 1.0, lambert);
+    auto sphereEmitterLight = std::make_shared<DiffuseAreaLight>(sphereEmitterShape, 10.0);
+    sphereEmitterShape->setLight(sphereEmitterLight);
+    scene->addEntity(sphereEmitterShape);
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.0), 1.0, lambert));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -101.0, 0.0), 100.0, lambert));
     std::cout << "scene created" << std::endl;
-    scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 3, 1)));
+    // scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 3, 1)));
+    scene->addLight(sphereEmitterLight);
     std::cout << "scene prepared" << std::endl;
 
     Point3d lookFrom(0, 1, 2),
