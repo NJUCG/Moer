@@ -23,6 +23,7 @@ endfunction(Testing)
 
 Testing(
     test-integrator
+    test-integrator-validate
     test-materials
     test-camera
     # add new test module name
