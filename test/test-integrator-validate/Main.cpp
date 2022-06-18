@@ -39,7 +39,6 @@ TEST_CASE("test-integrator-validate")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<ImageTexture<Spectrum, RGB3>> imageTexture = std::make_shared<ImageTexture<Spectrum, RGB3>>("../asset/tex.jpg");
     std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
     std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.0), 1.0, lambert));
@@ -56,7 +55,7 @@ TEST_CASE("test-integrator-validate")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-integrator-validate.bmp");
