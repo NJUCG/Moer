@@ -96,7 +96,7 @@ LightSampleResult DiffuseAreaLight::sampleDirect(const Intersection &its, const 
     ans.pdfEmitPos = 1.0 / shape->area();
     ans.pdfEmitDir = 1.0 / M_PI / 2;
     ans.wi = wi;
-    ans.pdfDirect = ans.pdfEmitPos * dist2 / std::max(1e-9, dot(-ans.wi, its.geometryNormal));
+    ans.pdfDirect = ans.pdfEmitPos * dist2 / std::max(1e-9, dot(-ans.wi, itsEmitter.geometryNormal));
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
     return ans;
