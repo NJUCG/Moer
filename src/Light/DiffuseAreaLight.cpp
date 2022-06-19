@@ -47,7 +47,7 @@ LightSampleResult DiffuseAreaLight::eval(const Ray &ray, const Intersection &its
         ans.s = radiance;
         ans.pdfEmitPos = 1.0 / shape->area();
         ans.pdfEmitDir = 1.0 / M_PI / 2;
-        ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-ans.wi, its.geometryNormal);
+        ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-d, its.geometryNormal);
     }
     else
     {
@@ -92,11 +92,22 @@ LightSampleResult DiffuseAreaLight::sampleDirect(const Intersection &its, const 
     ans.src = its.position;
     ans.dst = itsEmitter.position;
     double dist2 = (ans.dst - ans.src).length2();
-    ans.s = radiance;
-    ans.pdfEmitPos = 1.0 / shape->area();
-    ans.pdfEmitDir = 1.0 / M_PI / 2;
-    ans.wi = wi;
-    ans.pdfDirect = ans.pdfEmitPos * dist2 / std::max(1e-9, dot(-ans.wi, itsEmitter.geometryNormal));
+    if (dot(wi, its.geometryNormal) > 0 && dot(-wi, itsEmitter.geometryNormal) > 0)
+    {
+        ans.s = radiance;
+        ans.pdfEmitPos = 1.0 / shape->area();
+        ans.pdfEmitDir = 1.0 / M_PI / 2;
+        ans.wi = wi;
+        ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-wi, itsEmitter.geometryNormal);
+    }
+    else
+    {
+        ans.s = 0;
+        ans.pdfEmitPos = 0;
+        ans.pdfEmitDir = 0;
+        ans.pdfDirect = 0;
+        ans.wi = wi;
+    }
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
     return ans;

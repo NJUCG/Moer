@@ -52,7 +52,7 @@ TEST_CASE("test-integrator-validate")
     scene->addLight(sphereEmitterLight);
     std::cout << "scene prepared" << std::endl;
 
-    Point3d lookFrom(0, 1, 2),
+    Point3d lookFrom(0, 2, 3),
         lookAt(0, 0, 0);
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
@@ -60,7 +60,7 @@ TEST_CASE("test-integrator-validate")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 64);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-integrator-validate.bmp");

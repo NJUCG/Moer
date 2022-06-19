@@ -14,7 +14,7 @@
 
 Point3d CoordConvertor::cartesian2Spherical(const Point2d &p)
 {
-    double phi = p.x * 3.14159;
+    double phi = p.x * 2 * 3.14159;
     double theta = acos(p.y * 2 - 1);
     double cosPhi = cos(phi);
     double sinPhi = sin(phi);

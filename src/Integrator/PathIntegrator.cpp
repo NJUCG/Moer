@@ -23,12 +23,12 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
     Vec3d wo = -ray.direction;
 
     Spectrum LEmission(0.0);
-    double pdfEmission = 1.0;
+    double pdfDirect = 1.0;
     if (!itsOpt.has_value())
     {
         auto record = evalEnvLights(scene, ray);
         LEmission = record.f;
-        pdfEmission = record.pdf;
+        pdfDirect = record.pdf;
     }
     else if (itsOpt.value().object && itsOpt.value().object->getLight())
     {
@@ -37,10 +37,10 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
         auto light = itsOpt.value().object->getLight();
         auto record = light->eval(ray, its, ray.direction);
         LEmission = record.s;
-        pdfEmission = record.pdfDirect;
+        pdfDirect = record.pdfDirect;
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
-    return {ray.direction, transmittance * LEmission, pdfEmission};
+    return {ray.direction, transmittance * LEmission, pdfDirect};
 }
 
 PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
@@ -98,10 +98,10 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Vec3d n = its.geometryNormal;
         BxDFSampleResult bsdfSample = bxdf->sample(wo, Point2d(sampler->sample(), sampler->sample()));
-        double pdfLastScatterSample = bsdfSample.pdf;
+        double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));
-        return {dirScatter, bsdfSample.s * wiDotN, pdfLastScatterSample};
+        return {dirScatter, bsdfSample.s * wiDotN, pdf};
     }
     else
     {

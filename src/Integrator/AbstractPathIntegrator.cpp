@@ -39,7 +39,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
         if (evalLightRecord.f.isBlack() == false)
         {
-            L += throughput * evalLightRecord.f / evalLightRecord.pdf * MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
+            L += throughput * evalLightRecord.f * MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
         }
 
         // TERMINATE IF NO INTERSECTION
