@@ -19,6 +19,7 @@ struct PathIntegratorLocalRecord
     Vec3d wi;
     Spectrum f;
     double pdf;
+    bool isDelta = false;
 };
 
 class AbstractPathIntegrator : public MonteCarloIntegrator

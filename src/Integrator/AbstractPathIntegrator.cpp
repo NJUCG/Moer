@@ -28,6 +28,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
     Spectrum throughput(1.0);
     Ray ray = initialRay;
     double pdfLastScatterSample = 1e99;
+    bool isLastScatterSampleDelta = false;
     int nBounce = 0;
 
     while (true)
@@ -39,7 +40,12 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
         if (evalLightRecord.f.isBlack() == false)
         {
-            L += throughput * evalLightRecord.f * MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
+            double misw = MISWeight(pdfLastScatterSample, evalLightRecord.pdf);
+            if (isLastScatterSampleDelta)
+            {
+                misw = 1.0;
+            }
+            L += throughput * evalLightRecord.f * misw;
         }
 
         // TERMINATE IF NO INTERSECTION
@@ -66,13 +72,19 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
             if (sampleLightRecord.f.isBlack() == false)
             {
-                L += throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf) / nDirectLightSamples;
+                double misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
+                if (sampleLightRecord.isDelta)
+                {
+                    misw = 1.0;
+                }
+                L += throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / nDirectLightSamples;
             }
         }
 
         // SAMPLE SCATTER (BSDF or PHASE)
         PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, its, ray);
         pdfLastScatterSample = sampleScatterRecord.pdf;
+        isLastScatterSampleDelta = sampleScatterRecord.isDelta;
         if (sampleScatterRecord.f.isBlack() == false)
         {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;

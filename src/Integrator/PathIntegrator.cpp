@@ -41,7 +41,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
         pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, tmpIts, ray, light);
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
-    return {ray.direction, transmittance * LEmission, pdfDirect}; 
+    return {ray.direction, transmittance * LEmission, pdfDirect, false}; 
 }
 
 PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
@@ -62,7 +62,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
     {
         transmittance = 0.0;
     }
-    return {dirScatter, Li * transmittance, pdfDirect};
+    return {dirScatter, Li * transmittance, pdfDirect, record.isDeltaPos};
 }
 
 PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
@@ -80,7 +80,8 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
         return {
             dirScatter,
             bxdf->f(wo, wi) * wiDotN,
-            bxdf->pdf(wo, wi)};
+            bxdf->pdf(wo, wi),
+            false};
     }
     else
     {
@@ -102,7 +103,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));
-        return {dirScatter, bsdfSample.s * wiDotN, pdf};
+        return {dirScatter, bsdfSample.s * wiDotN, pdf, bsdfSample.isSpecular};
     }
     else
     {
