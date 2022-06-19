@@ -21,7 +21,6 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
                                                         const Ray &ray)
 {
     Vec3d wo = -ray.direction;
-
     Spectrum LEmission(0.0);
     double pdfDirect = 1.0;
     if (!itsOpt.has_value())
@@ -37,19 +36,21 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
         auto light = itsOpt.value().object->getLight();
         auto record = light->eval(ray, its, ray.direction);
         LEmission = record.s;
-        pdfDirect = record.pdfDirect;
+        Intersection tmpIts;
+        tmpIts.position = ray.origin;
+        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, tmpIts, ray, light);
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
-    return {ray.direction, transmittance * LEmission, pdfDirect};
+    return {ray.direction, transmittance * LEmission, pdfDirect}; 
 }
 
 PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
                                                                const Intersection &its,
                                                                const Ray &ray)
 {
-    std::shared_ptr<Light> light = chooseOneLight(scene, its, ray, sampler->sample());
+    auto [light, pdfChooseLight] = chooseOneLight(scene, its, ray, sampler->sample());
     auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
-    double pdfDirect = record.pdfDirect; // pdfScatter with respect to solid angle
+    double pdfDirect = record.pdfDirect * pdfChooseLight; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
     Spectrum Li = record.s;
     Point3d posL = record.dst;
@@ -124,17 +125,27 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
     return pSurvive;
 }
 
-std::shared_ptr<Light> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
-                                                      const Intersection &its,
-                                                      const Ray &ray,
-                                                      double lightSample)
+std::pair<std::shared_ptr<Light>, double> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
+                                                                         const Intersection &its,
+                                                                         const Ray &ray,
+                                                                         double lightSample)
 {
     // uniformly weighted
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
     int numLights = lights->size();
     int lightID = std::min(numLights - 1, (int)(lightSample * numLights));
     std::shared_ptr<Light> light = lights->operator[](lightID);
-    return light;
+    return {light, 1.0 / numLights};
+}
+
+double PathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
+                                         const Intersection &its,
+                                         const Ray &ray,
+                                         std::shared_ptr<Light> light)
+{
+    std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
+    int numLights = lights->size();
+    return 1.0 / numLights;
 }
 
 PathIntegratorLocalRecord PathIntegrator::evalEnvLights(std::shared_ptr<Scene> scene,

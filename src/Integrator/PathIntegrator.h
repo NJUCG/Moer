@@ -4,7 +4,7 @@
  * @brief Path Integrator
  * @version 0.1
  * @date 2022-05-06
- * 
+ *
  * @copyright Copyright (c) 2022
  *
  */
@@ -73,10 +73,16 @@ public:
 
     // todo: move light sampling into a new class (called LightDistribution?)
     // @brief Sample a light, by some weight distribution
-    virtual std::shared_ptr<Light> chooseOneLight(std::shared_ptr<Scene> scene,
-                                                  const Intersection &its,
-                                                  const Ray &ray,
-                                                  double lightSample);
+    virtual std::pair<std::shared_ptr<Light>, double> chooseOneLight(std::shared_ptr<Scene> scene,
+                                                                     const Intersection &its,
+                                                                     const Ray &ray,
+                                                                     double lightSample);
+
+    // @brief Probability of choosing a specified light source
+    virtual double chooseOneLightPdf(std::shared_ptr<Scene> scene,
+                                     const Intersection &its,
+                                     const Ray &ray,
+                                     std::shared_ptr<Light> light);
 
     // @brief Evaluate radiance of env lights
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
