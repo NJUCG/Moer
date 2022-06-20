@@ -22,9 +22,9 @@ function(Testing)
 endfunction(Testing)
 
 Testing(
-    # test-integrator
-    # test-materials
-    # test-camera
+    test-integrator
+    test-materials
+    test-camera
     test-integrator-validate
     # add new test module name
 )

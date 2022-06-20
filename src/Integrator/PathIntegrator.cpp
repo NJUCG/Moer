@@ -117,8 +117,7 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
                                        const Spectrum &throughput,
                                        int nBounce)
 {
-    // double pSurvive = std::min(pRussianRoulette, throughput.sum());
-    double pSurvive = pRussianRoulette;
+    double pSurvive = std::min(pRussianRoulette, throughput.sum());
     if (nBounce > nPathLengthLimit)
         pSurvive = 0.0;
     if (nBounce <= 2)
