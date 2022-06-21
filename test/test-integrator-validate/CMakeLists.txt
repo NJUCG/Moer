@@ -44,6 +44,16 @@ AddTestModule(
 
 set(EXCNAME ${PROJECT_NAME}_${TEST_NAME})
 
+target_include_directories(${EXCNAME} PUBLIC ${PROJECT_EXTERN_DEPENDENCIES})
+target_link_directories(${EXCNAME} PUBLIC ${PROJECT_EXTERN_LIBDIR})
+
+# test for imgui-dx11
+# target_link_libraries(app assimp-vc142-mt imgui-dx11 d3d11 d3dcompiler)
+
+# test for opengl3
+# target_link_libraries(${EXCNAME} assimp-vc142-mt imgui-opengl3 OpenGL32 glfw3)
+
+
 if(MSVC AND ((NOT CMAKE_BUILD_TYPE) OR CMAKE_BUILD_TYPE STREQUAL "Debug") )    
     set_property(TARGET ${EXCNAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
 endif()
