@@ -1,5 +1,5 @@
-#include "../src/Camera/Perspective.h"
-#include "../src/Camera/Pinhole.h"
+#include "FunctionLayer/Camera/Perspective.h"
+#include "FunctionLayer/Camera/Pinhole.h"
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
 

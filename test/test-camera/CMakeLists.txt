@@ -5,10 +5,11 @@ set(TEST_NAME test-camera)
 AddTestModule(
     ModuleName ${TEST_NAME}
     Src Main.cpp
-    ../../src/Camera/Pinhole.cpp
-    ../../src/Camera/Thinlens.cpp
-    ../../src/Ray/Ray.cpp
-    ../../src/Matrix/Matrix.cpp
+    #${FUNCTION_LAYER_DIR}/Camera/Pinhole.cpp
+    #${FUNCTION_LAYER_DIR}/Camera/Thinlens.cpp
+    #${CORE_LAYER_DIR}/Ray/Ray.cpp
+    #${CORE_LAYER_DIR}/Math/Matrix.cpp
+    ${ZERO_SOURCES}
 )
 
 set(EXCNAME ${PROJECT_NAME}_${TEST_NAME})

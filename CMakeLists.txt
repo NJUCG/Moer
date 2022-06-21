@@ -1,31 +1,18 @@
 cmake_minimum_required(VERSION 3.12)
-
 project(Zero LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(PROJECT_EXTERN_INCLUDE "${PROJECT_SOURCE_DIR}/ext")
-set(PROJECT_EXTERN_LIBDIR "${PROJECT_SOURCE_DIR}/extlib")
-message(STATUS ${PROJECT_EXTERN_INCLUDE})
 
-# ============================================================ test module
-set(TEST_DIR ${PROJECT_SOURCE_DIR}/test/)
+set(ZERO_DEPENDENCIES_DIR ${PROJECT_SOURCE_DIR}/ext)
+set(ZERO_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
 
-# add catch2 unit test lib
-add_subdirectory(${PROJECT_EXTERN_INCLUDE}/catch2)
-add_subdirectory(test)
+include_directories(${ZERO_DEPENDENCIES_DIR})
+include_directories(${ZERO_SOURCE_DIR})
 
-enable_testing()
+## complie for dependencies
+add_subdirectory(${ZERO_DEPENDENCIES_DIR})
 
-function(Testing)
-    foreach(TestModuleName IN LISTS ARGN)
-        add_test(NAME ${PROJECT_NAME}_${TestModuleName} COMMAND $<TARGET_FILE:${PROJECT_NAME}_${TestModuleName}>)
-    endforeach()
-endfunction(Testing)
-
-Testing(
-    test-integrator
-    test-materials
-    test-camera
-    test-integrator-validate
-    # add new test module name
-)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+## complie for Zero
+file(GLOB_RECURSE ZERO_SOURCES ${ZERO_SOURCES_DIR}/*.cpp)
+add_subdirectory(./test)
