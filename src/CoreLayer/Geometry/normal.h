@@ -1,0 +1,24 @@
+/**
+ * @file normal.h
+ * @author zcx
+ * @brief 
+ * @version 0.1
+ * @date 2022-04-22
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
+#pragma once
+#include "vector.h"
+
+struct Normal3d : public TVector3<double> {
+    
+    Normal3d() { }
+
+    Normal3d (const TVector3<double> &v) : TVector3<double>(normalize(v)) { }
+
+    Normal3d (double _x, double _y, double _z) : Normal3d(TVector3<double> {_x, _y, _z})  { }
+
+    
+}; 
