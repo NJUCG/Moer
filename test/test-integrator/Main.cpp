@@ -2,35 +2,25 @@
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
 
-#include "../../src/Texture/Texture.h"
 #include <iostream>
 #include <cstdio>
 #include <vector>
 #include <memory>
-#include "../../src/Integrator/PathIntegrator.h"
-#include "../../src/Core/FunctionLayer/Scene.h"
-#include "../../src/Core/FunctionLayer/Entity.h"
-#include "../../src/Core/FunctionLayer/Camera.h"
-#include "../../src/Core/FunctionLayer/Film.h"
-#include "../../src/Entity/Sphere.h"
-#include "../../src/Sampler/DirectSampler.h"
-#include "../../src/Light/PointLight.h"
-#include "../../src/Material/MatteMaterial.h"
-#include "../../src/Material/TestMirror.h"
-#include "../src/Texture/Texture.h"
-#include "../src/Texture/ImageTexture.h"
-#include "../src/Integrator/PathIntegrator.h"
-#include "../src/Core/FunctionLayer/Scene.h"
-#include "../src/Core/FunctionLayer/Entity.h"
-#include "../src/Core/FunctionLayer/Camera.h"
-#include "../src/Core/FunctionLayer/Film.h"
-#include "../src/Entity/Sphere.h"
-#include "../src/Camera/Pinhole.h"
-#include "../src/Camera/Thinlens.h"
-#include "../src/Sampler/DirectSampler.h"
-#include "../src/Light/PointLight.h"
-#include "../src/Material/MatteMaterial.h"
-#include "../src/Material/TestMirror.h"
+#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Camera/Camera.h"
+#include "FunctionLayer/Camera/Thinlens.h"
+#include "FunctionLayer/Camera/Pinhole.h"
+#include "FunctionLayer/Film/Film.h"
+#include "FunctionLayer/Shape/Entity.h"
+#include "FunctionLayer/Shape/Sphere.h"
+#include "FunctionLayer/Sampler/DirectSampler.h"
+#include "FunctionLayer/Light/PointLight.h"
+#include "FunctionLayer/Material/MatteMaterial.h"
+#include "FunctionLayer/Material/TestMirror.h"
+#include "FunctionLayer/Texture/Texture.h"
+#include "FunctionLayer/Texture/ImageTexture.h"
+#include "FunctionLayer/Integrator/PathIntegrator.h"
+#include "FunctionLayer/Integrator/PathIntegrator.h"
 
 TEST_CASE("test-integrator")
 {
@@ -61,10 +51,11 @@ TEST_CASE("test-integrator")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 64);
+    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<DirectSampler>(), 16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-thinlens2.bmp");
     std::cout << "finish" << std::endl;
     return;
 }
+

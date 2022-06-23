@@ -2,41 +2,26 @@
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
 
-#include "../../src/Texture/ProceduralTexture.h"
 #include <iostream>
 #include <cstdio>
 #include <vector>
-#include "../src/Integrator/PathIntegrator.h"
-#include "../src/Core/FunctionLayer/Scene.h"
-#include "../src/Core/FunctionLayer/Entity.h"
-#include "../src/Core/FunctionLayer/Camera.h"
-#include "../src/Core/FunctionLayer/Film.h"
-#include "../src/Entity/Sphere.h"
-#include "../src/Camera/TestCamera.h"
-#include "../src/Sampler/DirectSampler.h"
-#include "../src/Light/PointLight.h"
-#include "../src/Material/MatteMaterial.h"
-#include "../src/Material/MirrorMaterial.h"
-#include "../src/Material/DelectricMaterial.h"
-#include "../src/Material/TestMirror.h"
-#include "../../src/Integrator/PathIntegrator.h"
-#include "../../src/Core/FunctionLayer/Scene.h"
-#include "../../src/Core/FunctionLayer/Entity.h"
-#include "../../src/Core/FunctionLayer/Camera.h"
-#include "../../src/Core/FunctionLayer/Film.h"
-#include "../../src/Entity/Sphere.h"
-#include "../../src/Sampler/DirectSampler.h"
-#include "../../src/Light/PointLight.h"
-
-#include "../src/Integrator/PathIntegrator.h"
-#include "../src/Core/FunctionLayer/Scene.h"
-#include "../src/Core/FunctionLayer/Entity.h"
-#include "../src/Core/FunctionLayer/Camera.h"
-#include "../src/Core/FunctionLayer/Film.h"
-#include "../src/Entity/Sphere.h"
-#include "../src/Camera/Pinhole.h"
-#include "../src/Sampler/DirectSampler.h"
-#include "../src/Light/PointLight.h"
+#include <memory>
+#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Camera/Camera.h"
+#include "FunctionLayer/Camera/Thinlens.h"
+#include "FunctionLayer/Camera/Pinhole.h"
+#include "FunctionLayer/Film/Film.h"
+#include "FunctionLayer/Shape/Entity.h"
+#include "FunctionLayer/Shape/Sphere.h"
+#include "FunctionLayer/Sampler/DirectSampler.h"
+#include "FunctionLayer/Light/PointLight.h"
+#include "FunctionLayer/Material/MatteMaterial.h"
+#include "FunctionLayer/Material/MirrorMaterial.h"
+#include "FunctionLayer/Material/DelectricMaterial.h"
+#include "FunctionLayer/Texture/Texture.h"
+#include "FunctionLayer/Texture/ImageTexture.h"
+#include "FunctionLayer/Integrator/PathIntegrator.h"
+#include "FunctionLayer/Integrator/PathIntegrator.h"
 
 TEST_CASE("test-material-diffuse")
 {

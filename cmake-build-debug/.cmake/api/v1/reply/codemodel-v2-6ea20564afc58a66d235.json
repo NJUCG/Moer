@@ -1,0 +1,216 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "ext/catch2",
+					"jsonFile" : "directory-ext.catch2-Debug-1d7130648615910f8ff5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "ext/catch2"
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"jsonFile" : "directory-test-Debug-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test"
+				},
+				{
+					"build" : "test/example/test1",
+					"jsonFile" : "directory-test.example.test1-Debug-232078cf6407093f0347.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/example/test1",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "test/example/test2",
+					"jsonFile" : "directory-test.example.test2-Debug-79c289590d6bb58edb9e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/example/test2",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "test/test-integrator",
+					"jsonFile" : "directory-test.test-integrator-Debug-e562e34f078455a8db68.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-integrator",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "test/test-materials",
+					"jsonFile" : "directory-test.test-materials-Debug-cd705f31f39c90872e5a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-materials",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "test/test-camera",
+					"jsonFile" : "directory-test.test-camera-Debug-4bfe17057ffa4c4cf693.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/test-camera",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "Zero",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "catch2",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "Zero_example-test1::@818fe9580a959895a19f",
+					"jsonFile" : "target-Zero_example-test1-Debug-bb5860c6daa8540c2f65.json",
+					"name" : "Zero_example-test1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "Zero_example-test2::@ad857f01c6461133eb9f",
+					"jsonFile" : "target-Zero_example-test2-Debug-2acd613da4361b16bdff.json",
+					"name" : "Zero_example-test2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "Zero_test-camera::@7c555e14cf32d22fd929",
+					"jsonFile" : "target-Zero_test-camera-Debug-f7bd47dd5c7a690369cf.json",
+					"name" : "Zero_test-camera",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "Zero_test-integrator::@6bdefd54a5033dc46b9d",
+					"jsonFile" : "target-Zero_test-integrator-Debug-9746c0043b1f1e17ebcb.json",
+					"name" : "Zero_test-integrator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "Zero_test-materials::@1bd9715f93fa40c6110a",
+					"jsonFile" : "target-Zero_test-materials-Debug-97293244ac1a57055a70.json",
+					"name" : "Zero_test-materials",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/code/Zero/cmake-build-debug",
+		"source" : "C:/code/Zero"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
