@@ -11,6 +11,7 @@ include_directories(${ZERO_DEPENDENCIES_DIR})
 include_directories(${ZERO_SOURCE_DIR})
 
 ## complie for dependencies
+set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
 add_subdirectory(${ZERO_DEPENDENCIES_DIR})
 
 ## complie for Zero
