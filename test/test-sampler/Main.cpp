@@ -14,7 +14,7 @@
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Shape/Sphere.h"
 #include "FunctionLayer/Sampler/DirectSampler.h"
-#include "FunctionLayer/Sampler/Independent.h"
+#include "FunctionLayer/Sampler/Stratified.h"
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
 #include "FunctionLayer/Material/MirrorMaterial.h"
@@ -23,6 +23,7 @@
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
+
 
 TEST_CASE("test-material-diffuse")
 {
@@ -47,7 +48,7 @@ TEST_CASE("test-material-diffuse")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 4);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<StratifiedSampler>(2, 6), 4);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("diffuse_result.bmp");
@@ -75,7 +76,7 @@ TEST_CASE("test-material-mirror")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
             lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 4);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<StratifiedSampler>(2, 6), 4);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("mirror_result.bmp");
@@ -106,7 +107,7 @@ TEST_CASE("test-material-delectric")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
             lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 4);    std::cout << "start rendering" << std::endl;
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<StratifiedSampler>(2, 6), 4);    std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("deletric_result.bmp");
     std::cout << "finish" << std::endl;
@@ -135,7 +136,7 @@ TEST_CASE("test-material-mircofacet")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
             lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 4);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<StratifiedSampler>(2, 6), 4);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("microfacet-result.bmp");

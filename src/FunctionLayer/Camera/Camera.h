@@ -13,14 +13,17 @@
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Ray/Ray.h"
 
+struct CameraSample {
+	Point2d xy;
+	double time;
+	Point2d lens;
+};
+
 class Camera
 {
 public:
 
-	//// @brief generate a ray by NDC coord ranges between [-1,1].
-	// change NDC unit square
-	virtual Ray generateRay(Point2d NDC) const = 0;
-
-	// TODO sampler?
-	virtual Ray generateRay(Point2d NDC, Point2d sample) const = 0;
+	virtual Ray generateRay(const Point2i &filmResolution, 
+							const Point2i &pixelPosition, 
+							const CameraSample &sample) const = 0;
 };
