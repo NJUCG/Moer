@@ -29,7 +29,7 @@ struct Intersection
 	// shadingFrame
 	Frame shFrame;
 
-	Point3d dpdu, dpdv;
+	Vec3d dpdu, dpdv;
 	Normal3d dndu, dndv;
 
 	// std::shared_ptr<Entity> object;

@@ -29,8 +29,8 @@ public:
 
 	BoundingBox3(TPoint3<BaseType> _pMin, TPoint3<BaseType> _pMax)
 	{
-		pMin = pMin;
-		pMax = pMax;
+		pMin = _pMin;
+		pMax = _pMax;
 	}
 
 	/*

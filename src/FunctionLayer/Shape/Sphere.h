@@ -11,7 +11,6 @@
 #pragma once
 
 #include "Entity.h"
-#include "FunctionLayer/Material/Material.h"
 #include <optional>
 
 class Sphere : public Entity
@@ -19,11 +18,10 @@ class Sphere : public Entity
 protected:
     double radius;
     Point3d center;
-	std::shared_ptr<Material> material;
     virtual void apply() override;
 
 public:
-    Sphere(Point3d center, double radius, std::shared_ptr<Material> material);
+    Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material);
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;
     virtual Intersection sample(const Point2d &positionSample) const;

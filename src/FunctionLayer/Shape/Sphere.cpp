@@ -13,9 +13,10 @@
 #include "FunctionLayer/Intersection.h"
 #include "CoreLayer/Geometry/CoordConvertor.h"
 
-Sphere::Sphere(Point3d center, double radius, std::shared_ptr<Material> material)
-    : center(center), radius(radius), material(material)
+Sphere::Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material)
+    : center(_center), radius(_radius)
 {
+	this->material = _material;
 }
 
 void Sphere::apply()

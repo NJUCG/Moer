@@ -11,6 +11,8 @@
 #pragma once
 
 #include "CoreLayer/Geometry/Transform3d.h"
+#include "FunctionLayer/Material/Material.h"
+#include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
 
 #include <optional>
@@ -21,12 +23,12 @@ class Light;
 
 class Entity : public Transform3D
 {
-protected:
-	std::shared_ptr<Light> lightPtr;
-
 public:
+	std::shared_ptr<Light> lightPtr;
+	std::shared_ptr<Material> material;
+	//@brief Returns the intersection of the entity and the ray
 	virtual std::optional<Intersection> intersect(const Ray &r) const = 0;
-	// @brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
+	//@brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
 	virtual std::shared_ptr<Light> getLight() const = 0;
 	virtual void setLight(std::shared_ptr<Light> light) = 0;
 	virtual double area() const = 0;
