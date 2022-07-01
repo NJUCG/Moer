@@ -27,4 +27,5 @@ public:
     virtual Intersection sample(const Point2d &positionSample) const;
     virtual std::shared_ptr<Light> getLight() const;
     virtual void setLight(std::shared_ptr<Light> light);
+	virtual BoundingBox3f WorldBound() const;
 };

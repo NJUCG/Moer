@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(TEST_NAME test-tri_bvh)
+set(TEST_NAME test-triangle)
 
 AddTestModule(
     ModuleName ${TEST_NAME}

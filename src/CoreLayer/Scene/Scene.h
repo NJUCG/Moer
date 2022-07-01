@@ -12,7 +12,7 @@
 
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Shape/Entity.h"
-#include "FunctionLayer/Aggregate/Accelerator.h"
+#include "FunctionLayer/Aggregate/Bvh.h"
 #include "FunctionLayer/Intersection.h"
 #include "FunctionLayer/Light/Light.h"
 
@@ -20,7 +20,7 @@
 
 class Scene
 {
-	std::unique_ptr<Accelerator> accelerator;
+	std::shared_ptr<Bvh> BVH;
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights;
 	std::shared_ptr<std::vector<std::shared_ptr<Entity>>> entities;
 
@@ -29,6 +29,7 @@ public:
 	void addEntity(std::shared_ptr<Entity> object);
 	void addLight(std::shared_ptr<Light> light);
 
+	void build();
 	std::optional<Intersection> intersect(const Ray &r) const;
 
 	// @return true if r hits object first (closest), false otherwise.

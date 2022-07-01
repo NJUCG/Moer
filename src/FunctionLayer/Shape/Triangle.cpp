@@ -1,5 +1,5 @@
 /**
- * @file BoundingBox.h
+ * @file Triangle.cpp
  * @author Pengpei Hong
  * @brief Triangle implementation, transform not implemented yet
  * @version 0.1
@@ -13,8 +13,8 @@
 TriangleMesh::TriangleMesh(const int& _nTriangles, const int& _nVertices,
 	const std::shared_ptr<std::vector<int>>& _vertexIndices, const std::shared_ptr<std::vector<Point3d>>& _p,
 	const std::shared_ptr<std::vector<Normal3d>>& _n, const std::shared_ptr<std::vector<Vec3d>>& _s,
-	const std::shared_ptr<std::vector<Point2d>>& _uv, const std::shared_ptr<Material> _material) :
-	nTriangles(_nTriangles), nVertices(_nVertices), vertexIndices(_vertexIndices), p(_p), n(_n), s(_s), uv(_uv), material(_material){
+	const std::shared_ptr<std::vector<Point2d>>& _uv, const std::shared_ptr<Material>& _material) :
+	nTriangles(_nTriangles), nVertices(_nVertices), vertexIndices(std::move(_vertexIndices)), p(_p), n(_n), s(_s), uv(_uv), material(_material){
 }
 Triangle::Triangle(const std::shared_ptr<TriangleMesh>& _mesh, const int& _faceId): mesh(_mesh), faceId(_faceId){
 	vertexId[0] = _mesh->vertexIndices->at(_faceId * 3);
@@ -23,6 +23,7 @@ Triangle::Triangle(const std::shared_ptr<TriangleMesh>& _mesh, const int& _faceI
 	material = mesh->material;
 }
 Triangle::Triangle(const std::vector<Point3d>& points, const std::shared_ptr<Material>& _material){
+	assert(points.size() >= 3);
 	std::shared_ptr<std::vector<Point3d>> p = std::make_shared<std::vector<Point3d>>(points);
 	std::shared_ptr<std::vector<int>> vertexIndices = std::make_shared<std::vector<int>>(std::vector<int>({ 0, 1, 2 }));
 	mesh = std::make_shared<TriangleMesh>(1, 3, vertexIndices, p, nullptr, nullptr, nullptr, material);
@@ -190,5 +191,10 @@ double Triangle::area() const
 	const Point3d& p1 = mesh->p->at(vertexId[1]);
 	const Point3d& p2 = mesh->p->at(vertexId[2]);
 	return 0.5 * cross(p1 - p0, p2 - p0).length();
+}
+BoundingBox3f Triangle::WorldBound() const{
+	BoundingBox3f result;
+	for(int i = 0; i < 3; i++) result = BoundingBoxUnion(result, BoundingBox3f(mesh->p->at(vertexId[i])));
+	return result;
 }
 

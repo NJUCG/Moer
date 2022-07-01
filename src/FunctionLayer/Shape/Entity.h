@@ -33,4 +33,6 @@ public:
 	virtual void setLight(std::shared_ptr<Light> light) = 0;
 	virtual double area() const = 0;
 	virtual Intersection sample(const Point2d &positionSample) const = 0;
+	//@brief Return the bounding box of the entity
+	virtual BoundingBox3f WorldBound() const = 0;
 };

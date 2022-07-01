@@ -42,7 +42,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
     bool flag = false;
     Intersection ans;
     double t = INFINITY;
-    if (t1 >= 0 && t1 < t)
+    if (t1 >= 0 && t1 < t && t1 >= r.timeMin && t1 <= r.timeMax)
     {
         t = t1;
         Vec3d n = o + d * t1 - C;
@@ -58,7 +58,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.object = this;
         flag = true;
     }
-    if (t2 >= 0 && t2 < t)
+    if (t2 >= 0 && t2 < t && t2 >= r.timeMin && t2 <= r.timeMax)
     {
         t = t2;
         Vec3d n = o + d * t2 - C;
@@ -103,4 +103,10 @@ Intersection Sphere::sample(const Point2d &positionSample) const
     ans.geometryBitangent = normalize(cross(n, ans.geometryTangent));
     ans.material = material;
     return ans;
+}
+
+BoundingBox3f Sphere::WorldBound() const {
+	Point3d pMin = center - Vec3d(radius);
+	Point3d pMax = center + Vec3d(radius);
+	return BoundingBox3f(pMin, pMax);
 }

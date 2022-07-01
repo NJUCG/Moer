@@ -24,7 +24,6 @@
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Shape/Triangle.h"
-
 TEST_CASE("test-material-diffuse")
 {
     Spectrum::init();
