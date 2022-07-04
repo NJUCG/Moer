@@ -10,8 +10,9 @@
  */
 
 #pragma  once
-#include <math.h>
+#include <cmath>
 #include <limits>
+#include <utility>
 // some constant values
 #define M_PI         3.14159265358979323846f
 #define INV_PI       0.31830988618379067154f

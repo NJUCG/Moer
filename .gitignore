@@ -1,3 +1,5 @@
 build
 target
 .cache
+/.vs
+/NJUCG.mdj

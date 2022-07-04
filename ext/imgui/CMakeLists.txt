@@ -9,3 +9,7 @@ add_library(imgui
     ./imgui_widgets.cpp
     ./imgui.cpp
 )
+
+target_link_libraries (imgui
+    glfw
+)
