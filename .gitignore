@@ -7,6 +7,6 @@ target
 /cmake-build-debug
 /build
 /cmake-build-release
-
+/.gitignore
 
 

@@ -30,9 +30,7 @@
     <list default="true" id="ede74337-9679-48aa-8e2e-00ad4a3490a4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/test-materials/CMakeFiles/Zero_test-materials.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/test-materials/CMakeFiles/Zero_test-materials.dir/vc140.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ext/pcg/pcg_uint128.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/ext/pcg/pcg_uint128.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FunctionLayer/Material/DelectricMaterial.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/FunctionLayer/Material/DelectricMaterial.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +282,7 @@
       <workItem from="1655988004597" duration="2126000" />
       <workItem from="1655994759236" duration="724000" />
       <workItem from="1656141876969" duration="1349000" />
-      <workItem from="1657023299497" duration="1913000" />
+      <workItem from="1657023299497" duration="3870000" />
     </task>
     <servers />
   </component>

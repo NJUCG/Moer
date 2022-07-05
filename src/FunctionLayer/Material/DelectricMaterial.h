@@ -15,7 +15,7 @@
 #include "FunctionLayer/Intersection.h"
 #include "FunctionLayer/Texture/Texture.h"
 
-class DelectricMaterial : public  Material{\
+class DelectricMaterial : public  Material{
 
 public:
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
