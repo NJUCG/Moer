@@ -1,9 +1,0 @@
-libdir=C:/Program Files (x86)/Zero/lib
-includedir=C:/Program Files (x86)/Zero/include
-
-Name: Zero
-Description: Import various well-known 3D model formats in an uniform manner.
-Version: 5.2.0
-Libs: -L${libdir} -lassimp
-Libs.private:  
-Cflags: -I${includedir}
