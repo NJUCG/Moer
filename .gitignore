@@ -3,3 +3,10 @@ target
 .cache
 /.vs
 /NJUCG.mdj
+
+/cmake-build-debug
+/build
+/cmake-build-release
+
+
+
