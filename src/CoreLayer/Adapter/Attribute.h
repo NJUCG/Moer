@@ -8,12 +8,11 @@
  * @copyright Copyright (c) 2022
  * 
  */
-
 #pragma once
+#include "rapidjson/document.h"
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include "rapidjson/document.h"
 #include <iostream>
 #include <memory>
 
@@ -195,17 +194,17 @@ inline Attribute::Attribute(const rapidjson::Document &document) {
         const std::string &member_key = itr->name.GetString();
         const auto &member_value = itr->value;
         if (member_value.IsBool()) {
-            attribute = new Attribute(member_key, itr->value.GetBool());
+            attribute = new Attribute(member_key, member_value.GetBool());
         } else if (member_value.IsInt()) {
-            attribute = new Attribute(member_key, itr->value.GetInt());
+            attribute = new Attribute(member_key, member_value.GetInt());
         } else if (member_value.IsDouble()) {
-            attribute = new Attribute(member_key, itr->value.GetDouble());
+            attribute = new Attribute(member_key, member_value.GetDouble());
         } else if (member_value.IsString()) {
-            attribute = new Attribute(member_key, std::string(itr->value.GetString()));
+            attribute = new Attribute(member_key, std::string(member_value.GetString()));
         } else if (member_value.IsArray()) {
-            attribute = new Attribute(member_key, itr->value.GetArray());
+            attribute = new Attribute(member_key, member_value.GetArray());
         } else if (member_value.IsObject()) {
-            attribute = new Attribute(member_key, itr->value.GetObject());
+            attribute = new Attribute(member_key, member_value.GetObject());
         } 
         if (attribute == nullptr){
             std::cout << "Error type\n";
@@ -281,17 +280,17 @@ inline Attribute::Attribute(
         const std::string &member_key = itr->name.GetString();
         const auto &member_value = itr->value;
         if (member_value.IsBool()) {
-            attribute = new Attribute(member_key, itr->value.GetBool());
+            attribute = new Attribute(member_key, member_value.GetBool());
         } else if (member_value.IsInt()) {
-            attribute = new Attribute(member_key, itr->value.GetInt());
+            attribute = new Attribute(member_key, member_value.GetInt());
         } else if (member_value.IsDouble()) {
-            attribute = new Attribute(member_key, itr->value.GetDouble());
+            attribute = new Attribute(member_key, member_value.GetDouble());
         } else if (member_value.IsString()) {
-            attribute = new Attribute(member_key, std::string(itr->value.GetString()));
+            attribute = new Attribute(member_key, std::string(member_value.GetString()));
         } else if (member_value.IsArray()) {
-            attribute = new Attribute(member_key, itr->value.GetArray());
+            attribute = new Attribute(member_key, member_value.GetArray());
         } else if (member_value.IsObject()) {
-            attribute = new Attribute(member_key, itr->value.GetObject());
+            attribute = new Attribute(member_key, member_value.GetObject());
         } 
         if (attribute == nullptr){
             std::cout << "Error type\n";
