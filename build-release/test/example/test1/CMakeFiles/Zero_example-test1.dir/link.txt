@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG "CMakeFiles/Zero_example-test1.dir/Main.cpp.o" -o ../../../../target/bin/Zero_example-test1 

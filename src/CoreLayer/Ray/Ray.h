@@ -14,7 +14,7 @@
 #include <memory>
 #include "CoreLayer/Geometry/Geometry.h"
 #include "FunctionLayer/Medium/Medium.h"
-
+#include <cfloat>
 struct Ray
 {
 	Point3d origin;
