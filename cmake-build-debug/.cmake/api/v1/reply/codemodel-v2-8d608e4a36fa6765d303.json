@@ -1,0 +1,578 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						11
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "ext",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						8,
+						10
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext-Debug-63b9e8ce5dc84e05b5e9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ext"
+				},
+				{
+					"build" : "ext/catch2",
+					"jsonFile" : "directory-ext.catch2-Debug-1d7130648615910f8ff5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "ext/catch2"
+				},
+				{
+					"build" : "ext/assimp",
+					"childIndexes" : 
+					[
+						4,
+						5,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext.assimp-Debug-5f129080a93d2f788aea.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "ext/assimp",
+					"targetIndexes" : 
+					[
+						0,
+						13
+					]
+				},
+				{
+					"build" : "ext/assimp/contrib/zlib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext.assimp.contrib.zlib-Debug-e8f05147f47c55d645f7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 3,
+					"source" : "ext/assimp/contrib/zlib",
+					"targetIndexes" : 
+					[
+						16
+					]
+				},
+				{
+					"build" : "ext/assimp/code",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext.assimp.code-Debug-64f41df973d8be19bbf1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "ext/assimp/code",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "ext/assimp/test",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-ext.assimp.test-Debug-3a9482c8b96e5dbfc723.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "ext/assimp/test",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "ext/assimp/test/headercheck",
+					"jsonFile" : "directory-ext.assimp.test.headercheck-Debug-1c4a6a2672063c81c55b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 2,
+					"source" : "ext/assimp/test/headercheck"
+				},
+				{
+					"build" : "ext/glfw",
+					"childIndexes" : 
+					[
+						9
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext.glfw-Debug-aeba3bf48f317388fb94.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 4,
+					"source" : "ext/glfw"
+				},
+				{
+					"build" : "ext/glfw/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-ext.glfw.src-Debug-4da5937fc7fd68c4a267.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 4,
+					"source" : "ext/glfw/src",
+					"targetIndexes" : 
+					[
+						11,
+						15
+					]
+				},
+				{
+					"build" : "ext/imgui",
+					"jsonFile" : "directory-ext.imgui-Debug-411fbc17847f652cbde3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "ext/imgui",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					],
+					"jsonFile" : "directory-test-Debug-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test"
+				},
+				{
+					"build" : "test/example/test1",
+					"jsonFile" : "directory-test.example.test1-Debug-232078cf6407093f0347.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/example/test1",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "test/example/test2",
+					"jsonFile" : "directory-test.example.test2-Debug-79c289590d6bb58edb9e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/example/test2",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "test/test-integrator",
+					"jsonFile" : "directory-test.test-integrator-Debug-e562e34f078455a8db68.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-integrator",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "test/test-integrator-validate",
+					"jsonFile" : "directory-test.test-integrator-validate-Debug-1a2bb8b5506a41ab3055.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-integrator-validate",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "test/test-materials",
+					"jsonFile" : "directory-test.test-materials-Debug-cd705f31f39c90872e5a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-materials",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "test/test-camera",
+					"jsonFile" : "directory-test.test-camera-Debug-4bfe17057ffa4c4cf693.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-camera",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "test/test-sampler",
+					"jsonFile" : "directory-test.test-sampler-Debug-4357fc97f4f334ea15df.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-sampler",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "test/test-triangle",
+					"jsonFile" : "directory-test.test-triangle-Debug-50c253e632ca72b42530.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-triangle",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "test/test-bvh",
+					"jsonFile" : "directory-test.test-bvh-Debug-8123ac8ab083510accc3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 11,
+					"projectIndex" : 0,
+					"source" : "test/test-bvh",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					],
+					"name" : "Zero",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "catch2",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						3,
+						5,
+						6,
+						7
+					],
+					"name" : "Assimp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						10,
+						13,
+						14
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "zlib",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8,
+						9
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "UpdateAssimpLibsDebugSymbolsAndDLLs::@784833bb8a91fe3452a0",
+					"jsonFile" : "target-UpdateAssimpLibsDebugSymbolsAndDLLs-Debug-e96059b1ff44bd814ec8.json",
+					"name" : "UpdateAssimpLibsDebugSymbolsAndDLLs",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "Zero_example-test1::@818fe9580a959895a19f",
+					"jsonFile" : "target-Zero_example-test1-Debug-4773edf951cfc313e43d.json",
+					"name" : "Zero_example-test1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "Zero_example-test2::@ad857f01c6461133eb9f",
+					"jsonFile" : "target-Zero_example-test2-Debug-b78f8f704299477c6231.json",
+					"name" : "Zero_example-test2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 20,
+					"id" : "Zero_test-bvh::@2937e9fc1b08ec80d894",
+					"jsonFile" : "target-Zero_test-bvh-Debug-903e259b50a165478561.json",
+					"name" : "Zero_test-bvh",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 17,
+					"id" : "Zero_test-camera::@7c555e14cf32d22fd929",
+					"jsonFile" : "target-Zero_test-camera-Debug-b20d148a79ef20c1169b.json",
+					"name" : "Zero_test-camera",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "Zero_test-integrator::@6bdefd54a5033dc46b9d",
+					"jsonFile" : "target-Zero_test-integrator-Debug-073f1e4451524533e446.json",
+					"name" : "Zero_test-integrator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "Zero_test-integrator-validate::@ed61745ba8ce28ebfc3c",
+					"jsonFile" : "target-Zero_test-integrator-validate-Debug-3d0b8fa3f27ed2c1b994.json",
+					"name" : "Zero_test-integrator-validate",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 16,
+					"id" : "Zero_test-materials::@1bd9715f93fa40c6110a",
+					"jsonFile" : "target-Zero_test-materials-Debug-bfd863a0975c50964908.json",
+					"name" : "Zero_test-materials",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 18,
+					"id" : "Zero_test-sampler::@d9bbc3a5864b4b3a3219",
+					"jsonFile" : "target-Zero_test-sampler-Debug-532e15c771da20e3a2ba.json",
+					"name" : "Zero_test-sampler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 19,
+					"id" : "Zero_test-triangle::@3b2ed96a56c174d441f3",
+					"jsonFile" : "target-Zero_test-triangle-Debug-78d467d858799b25f1c3.json",
+					"name" : "Zero_test-triangle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "assimp::@f00565dfd11dd3fb0a83",
+					"jsonFile" : "target-assimp-Debug-537b3db2e9d79749cdce.json",
+					"name" : "assimp",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "glfw::@f6f7721c76705297a9b5",
+					"jsonFile" : "target-glfw-Debug-0cc2d687a83b421af990.json",
+					"name" : "glfw",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "imgui::@b74f06831d21e0dfde8d",
+					"jsonFile" : "target-imgui-Debug-f7b51bd9f5a285bbd595.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "uninstall::@784833bb8a91fe3452a0",
+					"jsonFile" : "target-uninstall-Debug-1633460c2b5998c81712.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "unit::@9a5c2743616ff3b21d65",
+					"jsonFile" : "target-unit-Debug-a1dae9ab9627c06686f8.json",
+					"name" : "unit",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "update_mappings::@f6f7721c76705297a9b5",
+					"jsonFile" : "target-update_mappings-Debug-4f53aef27b957be28452.json",
+					"name" : "update_mappings",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "zlibstatic::@7a28b6cbaad6a501317b",
+					"jsonFile" : "target-zlibstatic-Debug-e530116ccad93aec1031.json",
+					"name" : "zlibstatic",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/code/Zero/cmake-build-debug",
+		"source" : "C:/code/Zero"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

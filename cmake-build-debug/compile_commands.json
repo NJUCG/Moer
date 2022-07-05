@@ -1241,121 +1241,6 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\AnimEvaluator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\AnimEvaluator.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\AnimEvaluator.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Background.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Background.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Background.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Display.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Display.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Display.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\HelpDialog.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\HelpDialog.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\HelpDialog.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Input.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Input.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Input.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\LogDisplay.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\LogDisplay.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\LogDisplay.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\LogWindow.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\LogWindow.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\LogWindow.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Material.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Material.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Material.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\MeshRenderer.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\MeshRenderer.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\MeshRenderer.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\MessageProc.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\MessageProc.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\MessageProc.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Normals.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Normals.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Normals.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\SceneAnimator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\SceneAnimator.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\SceneAnimator.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\Shaders.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Shaders.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\Shaders.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\assimp_view.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\assimp_view.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\assimp_view.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I\"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\stdafx.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\stdafx.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\stdafx.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x86\\rc.exe -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp -I C:\\code\\Zero\\ext\\assimp\\include -I C:\\code\\Zero\\ext\\assimp\\code -I C:\\code\\Zero\\ext\\assimp\\. -I C:\\code\\Zero\\ext -I C:\\code\\Zero\\ext\\assimp\\contrib\\zlib -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I \"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared\" -I C:\\code\\Zero\\ext\\assimp\\code\\..\\include -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include -DWIN32 -D_DEBUG /fo ext\\assimp\\tools\\assimp_view\\CMakeFiles\\assimp_viewer.dir\\assimp_view.rc.res C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\assimp_view.rc",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_view\\assimp_view.rc"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\CompareDump.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\CompareDump.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\CompareDump.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\ImageExtractor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\ImageExtractor.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\ImageExtractor.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\Main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Main.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Main.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\WriteDump.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\WriteDump.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\WriteDump.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\Info.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Info.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Info.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG /Zi /Od /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\Export.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Export.cpp",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\Export.cpp"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x86\\rc.exe -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DUNICODE -DWIN32_LEAN_AND_MEAN -D_UNICODE -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp -I C:\\code\\Zero\\ext\\assimp\\include -I C:\\code\\Zero\\ext\\assimp\\code -I C:\\code\\Zero\\ext\\assimp\\. -I C:\\code\\Zero\\ext -I C:\\code\\Zero\\ext\\assimp\\contrib\\zlib -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\tools\\assimp_cmd -I C:\\code\\Zero\\ext\\assimp\\code\\..\\include -I C:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include -DWIN32 -D_DEBUG /fo ext\\assimp\\tools\\assimp_cmd\\CMakeFiles\\assimp_cmd.dir\\assimp_cmd.rc.res C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\assimp_cmd.rc",
-  "file": "C:\\code\\Zero\\ext\\assimp\\tools\\assimp_cmd\\assimp_cmd.rc"
-},
-{
-  "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo -DASSIMP_BUILD_NO_C4D_IMPORTER -DASSIMP_BUILD_NO_M3D_EXPORTER -DASSIMP_BUILD_NO_M3D_IMPORTER -DASSIMP_TEST_MODELS_DIR=\\\"C:/code/Zero/ext/assimp/test/models\\\" -DASSIMP_TEST_MODELS_NONBSD_DIR=\\\"C:/code/Zero/ext/assimp/test/models-nonbsd\\\" -DRAPIDJSON_HAS_STDSTRING=1 -DRAPIDJSON_NOMEMBERITERATORCLASS -DUNICODE -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp -IC:\\code\\Zero\\ext\\assimp\\include -IC:\\code\\Zero\\ext\\assimp\\code -IC:\\code\\Zero\\ext\\assimp\\. -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\contrib\\zlib -IC:\\code\\Zero\\ext\\assimp\\test\\unit -IC:\\code\\Zero\\ext\\assimp\\contrib\\gtest\\include -IC:\\code\\Zero\\ext\\assimp\\contrib\\gtest -IC:\\code\\Zero\\ext\\assimp\\contrib\\pugixml\\src -IC:\\code\\Zero\\ext\\assimp\\test\\..\\contrib\\rapidjson\\include -IC:\\code\\Zero\\ext\\assimp\\code\\..\\include -IC:\\code\\Zero\\cmake-build-debug\\ext\\assimp\\code\\..\\include /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /MP /bigobj /W4 /WX /wd4244 /Foext\\assimp\\test\\CMakeFiles\\unit.dir\\unit\\CCompilerTest.c.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\assimp\\test\\unit\\CCompilerTest.c",
   "file": "C:\\code\\Zero\\ext\\assimp\\test\\unit\\CCompilerTest.c"
 },
@@ -2026,37 +1911,37 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_demo.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_demo.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_demo.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_demo.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_demo.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_draw.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_draw.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_draw.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_draw.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_draw.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_impl_glfw.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_impl_glfw.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_impl_glfw.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_impl_glfw.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_impl_glfw.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_impl_opengl3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_impl_opengl3.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_impl_opengl3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_impl_opengl3.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_impl_opengl3.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_tables.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_tables.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_tables.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_tables.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_tables.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_widgets.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_widgets.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui_widgets.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui_widgets.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui_widgets.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -Dimgui_EXPORTS -IC:\\code\\Zero\\ext /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui.cpp",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -DGLFW_DLL -Dimgui_EXPORTS -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\ext\\glfw\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Foext\\imgui\\CMakeFiles\\imgui.dir\\imgui.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\ext\\imgui\\imgui.cpp",
   "file": "C:\\code\\Zero\\ext\\imgui\\imgui.cpp"
 },
 {
@@ -2123,6 +2008,11 @@
   "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
   "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2226,8 +2116,23 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
   "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator\\CMakeFiles\\Zero_test-integrator.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2298,6 +2203,11 @@
   "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
   "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2401,8 +2311,23 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
   "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-integrator-validate\\CMakeFiles\\Zero_test-integrator-validate.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2473,6 +2398,11 @@
   "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
   "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2576,8 +2506,23 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
   "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-materials\\CMakeFiles\\Zero_test-materials.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2648,6 +2593,11 @@
   "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
   "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2751,8 +2701,23 @@
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
   "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
 },
 {
   "directory": "C:/code/Zero/cmake-build-debug",
@@ -2772,6 +2737,591 @@
 {
   "directory": "C:/code/Zero/cmake-build-debug",
   "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-camera\\CMakeFiles\\Zero_test-camera.dir\\__\\__\\src\\ResourceLayer\\File\\Image.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp",
+  "file": "C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\Main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\test\\test-sampler\\Main.cpp",
+  "file": "C:\\code\\Zero\\test\\test-sampler\\Main.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\RGB3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Geometry\\BoundingBox.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Geometry\\Matrix.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Geometry\\Transform3d.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Ray\\Ray.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Camera\\Pinhole.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Camera\\Thinlens.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Film\\Film.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Integrator\\Integrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Light\\AreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Light\\PointLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\MatteMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Material\\TestMirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Texture\\ImageTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\FunctionLayer\\Texture\\TextureMapping.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-sampler\\CMakeFiles\\Zero_test-sampler.dir\\__\\__\\src\\ResourceLayer\\File\\Image.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp",
+  "file": "C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\Main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\test\\test-triangle\\Main.cpp",
+  "file": "C:\\code\\Zero\\test\\test-triangle\\Main.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\RGB3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Geometry\\BoundingBox.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Geometry\\Matrix.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Geometry\\Transform3d.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Ray\\Ray.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Camera\\Pinhole.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Camera\\Thinlens.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Film\\Film.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Integrator\\Integrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Light\\AreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Light\\PointLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\MatteMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Material\\TestMirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Texture\\ImageTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\FunctionLayer\\Texture\\TextureMapping.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-triangle\\CMakeFiles\\Zero_test-triangle.dir\\__\\__\\src\\ResourceLayer\\File\\Image.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp",
+  "file": "C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\Main.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\test\\test-bvh\\Main.cpp",
+  "file": "C:\\code\\Zero\\test\\test-bvh\\Main.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\RGB3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\RGB3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\Spectrum.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\ColorSpace\\XYZ3.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Geometry\\BoundingBox.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\BoundingBox.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\CoordConvertor.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Geometry\\Matrix.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Matrix.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Geometry\\Transform3d.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Geometry\\Transform3d.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Ray\\Ray.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Ray\\Ray.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\CoreLayer\\Scene\\Scene.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp",
+  "file": "C:\\code\\Zero\\src\\CoreLayer\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Aggregate\\Bvh.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Aggregate\\Bvh.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Camera\\Pinhole.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Pinhole.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Camera\\Thinlens.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Camera\\Thinlens.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Film\\Film.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Film\\Film.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\AbstractPathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Integrator\\Integrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\Integrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\MonteCarloIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Integrator\\PathIntegrator.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Light\\AreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\AreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\DiffuseAreaLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Light\\PointLight.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Light\\PointLight.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Dielectric.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Diffuse.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mircofacet.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\Mirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\BxDF\\TestMirrorBxdf.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\DelectricMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\MatteMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MatteMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\MirrorMaterial.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Material\\TestMirror.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Material\\TestMirror.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\DirectSampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Sampler.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Sampler.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Sampler\\Stratified.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Sampler\\Stratified.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Shape\\Sphere.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Sphere.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Shape\\Triangle.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Shape\\Triangle.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Texture\\ImageTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ImageTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\ProceduralTexture.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\FunctionLayer\\Texture\\TextureMapping.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp",
+  "file": "C:\\code\\Zero\\src\\FunctionLayer\\Texture\\TextureMapping.cpp"
+},
+{
+  "directory": "C:/code/Zero/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1432~1.313\\bin\\Hostx86\\x86\\cl.exe  /nologo /TP -IC:\\code\\Zero\\ext -IC:\\code\\Zero\\src -IC:\\code\\Zero\\ext\\catch2 /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17 /Fotest\\test-bvh\\CMakeFiles\\Zero_test-bvh.dir\\__\\__\\src\\ResourceLayer\\File\\Image.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp",
   "file": "C:\\code\\Zero\\src\\ResourceLayer\\File\\Image.cpp"
 }
 ]

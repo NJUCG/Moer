@@ -40,6 +40,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/code/Zero/cmake-build-debug/test/test-integrator-validate/cmake_install.cmake")
   include("C:/code/Zero/cmake-build-debug/test/test-materials/cmake_install.cmake")
   include("C:/code/Zero/cmake-build-debug/test/test-camera/cmake_install.cmake")
+  include("C:/code/Zero/cmake-build-debug/test/test-sampler/cmake_install.cmake")
+  include("C:/code/Zero/cmake-build-debug/test/test-triangle/cmake_install.cmake")
+  include("C:/code/Zero/cmake-build-debug/test/test-bvh/cmake_install.cmake")
 
 endif()
 

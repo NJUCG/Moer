@@ -66,8 +66,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/code/Zero/cmake-build-debug/ext/assimp/contrib/zlib/cmake_install.cmake")
   include("C:/code/Zero/cmake-build-debug/ext/assimp/code/cmake_install.cmake")
-  include("C:/code/Zero/cmake-build-debug/ext/assimp/tools/assimp_view/cmake_install.cmake")
-  include("C:/code/Zero/cmake-build-debug/ext/assimp/tools/assimp_cmd/cmake_install.cmake")
   include("C:/code/Zero/cmake-build-debug/ext/assimp/test/cmake_install.cmake")
 
 endif()
