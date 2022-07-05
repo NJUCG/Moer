@@ -48,8 +48,8 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
                                                                const Intersection &its,
                                                                const Ray &ray)
 {
-    auto [light, pdfChooseLight] = chooseOneLight(scene, its, ray, sampler->sample());
-    auto record = light->sampleDirect(its, Point2d(sampler->sample(), sampler->sample()), ray.timeMin);
+    auto [light, pdfChooseLight] = chooseOneLight(scene, its, ray, sampler->sample1D());
+    auto record = light->sampleDirect(its, sampler->sample2D(), ray.timeMin);
     double pdfDirect = record.pdfDirect * pdfChooseLight; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
     Spectrum Li = record.s;
@@ -99,7 +99,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         Vec3d wo = its.toLocal(-ray.direction);
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Vec3d n = its.geometryNormal;
-        BxDFSampleResult bsdfSample = bxdf->sample(wo, Point2d(sampler->sample(), sampler->sample()));
+        BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D());
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));

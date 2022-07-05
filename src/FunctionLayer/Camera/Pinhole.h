@@ -20,7 +20,8 @@ public:
      * @param NDC 
      * @return Ray 
      */
-    virtual Ray generateRay(Point2d NDC) const;
 
-    virtual Ray generateRay(Point2d NDC, Point2d sample) const;
+    virtual Ray generateRay(const Point2i &filmResolution, 
+                            const Point2i &pixelPosition, 
+                            const CameraSample &sample) const override;
 };

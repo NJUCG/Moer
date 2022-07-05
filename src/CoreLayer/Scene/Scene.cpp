@@ -15,8 +15,12 @@ Scene::Scene() : lights(std::make_shared<std::vector<std::shared_ptr<Light>>>())
 {
 }
 
+void Scene::build() {
+	BVH = std::make_shared<Bvh>(*entities);
+}
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
+	return BVH->Intersect(r);
     std::optional<Intersection> minIntersection;
     for (auto i : *entities)
     {

@@ -10,5 +10,4 @@
  */
 
 #include "BoundingBox.h"
-
 // empty cuz template.

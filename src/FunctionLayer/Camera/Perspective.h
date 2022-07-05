@@ -63,8 +63,4 @@ public:
             * filmToSample;
         sampleToFilm = sampleToFilm.inverse();
     }
-
-    virtual Ray generateRay(Point2d NDC) const = 0;
-
-    virtual Ray generateRay(Point2d NDC, Point2d sample) const = 0;
 };

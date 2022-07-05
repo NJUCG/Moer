@@ -24,11 +24,19 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
     {
         for (int x = 0; x < filmWidth; x++)
         {
+            Point2i pixelPosition = Point2i{x, y};
+            sampler->startPixel(pixelPosition);
             for (int i = 0; i < spp; i++)
             {
-                Point2d NDC((x + sampler->sample()) / filmWidth, (y + sampler->sample()) / filmHeight);
-                auto L = Li(cam.generateRay(NDC, Point2d(sampler->sample(), sampler->sample())), scene);
+                auto L = Li(
+                    cam.generateRay(
+                        film->getResolution(), 
+                        pixelPosition, 
+                        sampler->getCameraSample()
+                    ), scene
+                );
                 film->deposit(Point2d(x, y), L);
+                sampler->nextSample();
             }
         }
     }

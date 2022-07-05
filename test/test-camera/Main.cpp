@@ -1,3 +1,4 @@
+#include "CoreLayer/Math/Common.h"
 #include "FunctionLayer/Camera/Perspective.h"
 #include "FunctionLayer/Camera/Pinhole.h"
 #define CATCH_CONFIG_MAIN
@@ -34,6 +35,12 @@ TEST_CASE("test-camera") {
     std::cout << camera->sampleToFilm * Point3d(0.5, 0.5, 0) << std::endl;  // Point3d(0, 0, 1.7778));
     */
 
+    if (ONEMINUSEPSILON < 1) {
+        std::cout << "Yes\n";
+    } else {
+        std::cout << "No\n";
+    }
+
     PinholeCamera *camera = 
         new PinholeCamera (
             Point3d (0, 1, 1),
@@ -44,8 +51,4 @@ TEST_CASE("test-camera") {
             1
         );
 //    printMatrix(camera->cameraToWorld);
-    Ray ray = camera->generateRay(Point2d(0.5, 0.5));
-    std::cout << "Origin     = " << ray.origin << std::endl;
-    std::cout << "direction  = " << ray.direction << std::endl;
-
 }
