@@ -1,11 +1,12 @@
 /**
  * @file  Common.h
  * @author Junping Yuan
- * @brief some  common but useful functions
+ * @brief some common but useful functions
  * @version 0.1
  * @date 2022/06/06
  *
- * @copyright Copyright (c) 2022
+ * @copyright NJUMeta (c) 2022 
+ * www.njumeta.com
  *
  */
 

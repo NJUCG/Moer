@@ -1,5 +1,5 @@
 //
-// Created by 袁军平 on 2022/6/6.
+// Created by yjp on 2022/6/6.
 //
 
 /**
@@ -9,7 +9,8 @@
  * @version 0.1
  * @date  2022/06/06
  *
- * @copyright Copyright (c) 2022
+ * @copyright NJUMeta (c) 2022 
+ * www.njumeta.com
  *
  */
 #pragma once

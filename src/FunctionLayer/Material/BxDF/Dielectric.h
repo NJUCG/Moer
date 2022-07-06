@@ -5,7 +5,8 @@
  * @version 0.1
  * @date
  *
- * @copyright Copyright (c) 2022
+ * @copyright NJUMeta (c) 2022 
+ * www.njumeta.com
  *
  */
 #pragma  once
