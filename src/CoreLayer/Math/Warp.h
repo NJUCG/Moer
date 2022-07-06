@@ -1,7 +1,7 @@
 #include "CoreLayer/Geometry/Geometry.h"
 #include "Common.h"
 
-static  float TentInverse(float x){
+static  double TentInverse(double x){
     if(x<=.5f)
         return std::sqrt(2*x)-1;
     return  1- std::sqrt(2-2*x);
@@ -13,7 +13,7 @@ inline   Point2d SquareToTent(const Point2d &sample) {
 }
 
 inline  float SquareToTentPdf(const Point2d &p) {
-    return (1.f-abs(p[0])) * (1.f-abs(p[1]));
+    return (1.0-abs(p[0])) * (1.0-abs(p[1]));
 }
 
 
