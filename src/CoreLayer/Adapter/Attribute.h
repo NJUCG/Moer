@@ -5,8 +5,8 @@
  * @version 0.1
  * @date 2022-07-04
  * 
- * @copyright Copyright (c) 2022
- * 
+ * @copyright NJUMeta (c) 2022
+ * www.njumeta.com
  */
 #pragma once
 #include "rapidjson/document.h"
