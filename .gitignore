@@ -1,0 +1,7 @@
+build
+target
+.cache
+.vs*
+NJUCG.mdj
+cmake-build*
+.idea
