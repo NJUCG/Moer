@@ -24,6 +24,7 @@
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Shape/Triangle.h"
+#include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
 TEST_CASE("test-material-diffuse")
 {
@@ -54,7 +55,7 @@ TEST_CASE("test-material-diffuse")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<StratifiedSampler>(5, 6), 25);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), std::make_unique<SequenceTileGenerator>(Point2i(128, 128)), std::make_shared<StratifiedSampler>(5, 6), 25);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("diffuse_result.bmp");

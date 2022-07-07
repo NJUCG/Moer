@@ -30,7 +30,13 @@ protected:
     const double misWeightPower = 1.0f;
 
 public:
-    AbstractPathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp);
+    AbstractPathIntegrator(
+        std::shared_ptr<Camera> _camera, 
+        std::unique_ptr<Film> _film, 
+        std::unique_ptr<TileGenerator> _tileGenerator, 
+        std::shared_ptr<Sampler> _sampler, 
+        int _spp,
+        int _renderThreadNum=4);
 
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene);
     virtual double MISWeight(double x, double y);
