@@ -1,5 +1,18 @@
+/**
+ * @file  Warp.h
+ * @author Junping Yuan
+ * @brief some warp functions
+ * @version 0.1
+ * @date 2022/06/07
+ *
+ * @copyright NJUMeta (c) 2022
+ * www.njumeta.com
+ *
+ */
+
 #include "CoreLayer/Geometry/Geometry.h"
 #include "Common.h"
+
 
 static  double TentInverse(double x){
     if(x<=.5f)
@@ -9,7 +22,6 @@ static  double TentInverse(double x){
 inline   Point2d SquareToTent(const Point2d &sample) {
     Point2d  res(TentInverse(sample[0]), TentInverse(sample[1]));
     return  res;
-//    throw NoriException("SquareToTent() is not yet implemented!");
 }
 
 inline  float SquareToTentPdf(const Point2d &p) {
@@ -17,14 +29,6 @@ inline  float SquareToTentPdf(const Point2d &p) {
 }
 
 
-//Point2d SquareToUniformDisk(const Point2d &sample) {
-//    auto phi=2*sample.x()*M_PI;
-//    auto r=sqrt(sample.y());
-//    return {r*cos(phi),r*sin(phi)};
-//}
-//
-//float SquareToUniformDiskPdf(const Point2d &p) {
-//    return  < 1.f ? INV_PI : .0f;}
 
 inline  Vec3d SquareToUniformSphere(const Point2d &sample) {
     float z = 1 - 2 * sample[0];
@@ -58,7 +62,8 @@ inline  Vec3d SquareToCosineHemisphere(const Point2d &sample) {
 inline  float SquareToCosineHemispherePdf(const Vec3d &v) {
     return v[2] >=0 ? v.z * INV_PI : .0f;
 }
-//
+
+
 inline  Vec3d SquareToBeckmann(const Point2d &sample,double alpha) {
     auto tan2theta= -alpha*alpha*log( sample.x );
     auto cosTheta=sqrt(1/(1+tan2theta));
@@ -67,7 +72,8 @@ inline  Vec3d SquareToBeckmann(const Point2d &sample,double alpha) {
     Vec3d t1= Vec3d(sinTheta*cos(phi), sinTheta*sin(phi),cosTheta);
     return t1;
 }
-//
+
+
 inline  float SquareToBeckmannPdf(const Vec3d &m, double alpha) {
     if(m.z<=0)
         return 0.0f;

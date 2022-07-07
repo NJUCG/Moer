@@ -1,3 +1,6 @@
+
+
+
 #include "Microfacet.h"
 
 Mircofacet::Mircofacet(Spectrum kd, double intIOR, double extIOR,double alpha) : kd(kd),intIOR(intIOR),extIOR(extIOR),alpha(alpha) {

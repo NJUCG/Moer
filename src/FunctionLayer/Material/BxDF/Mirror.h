@@ -1,7 +1,7 @@
 /**
  * @file  Mirror.h
  * @author Junping Yuan
- * @brief   Mirror Material
+ * @brief   Mirror bxdf
  * @version 0.1
  * @date 2022/6/8
  *

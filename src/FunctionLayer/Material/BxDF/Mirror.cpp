@@ -1,4 +1,14 @@
-
+/**
+ * @file  Mirror.cpp
+ * @author Junping Yuan
+ * @brief   Mirror bxdf
+ * @version 0.1
+ * @date 2022/6/8
+ *
+ * @copyright NJUMeta (c) 2022
+ * www.njumeta.com
+ *
+ */
 
 #include "Mirror.h"
 

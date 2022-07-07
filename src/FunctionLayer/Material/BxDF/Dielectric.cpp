@@ -1,8 +1,16 @@
-
+/**
+ * @file  Dielectric.cpp
+ * @author Junping Yuan
+ * @brief  Dielectric Bxdf
+ * @version 0.1
+ * @date
+ *
+ * @copyright NJUMeta (c) 2022
+ * www.njumeta.com
+ *
+ */
 
 #include "Dielectric.h"
-
-
 
 Spectrum Dielectric::f(const Vec3d &wo, const Vec3d &wi) const {
     return {0.f};

@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file DielectricMaterial.h
  * @author Junping Yuan
  * @brief
  * @version 0.1

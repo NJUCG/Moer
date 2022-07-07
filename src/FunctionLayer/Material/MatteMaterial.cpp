@@ -1,3 +1,15 @@
+/**
+ * @file MatteMaterial.cpp
+ * @author Junping Yuan
+ * @brief
+ * @version 0.1
+ * @date 2022/6/7
+ *
+ * @copyright NJUMeta (c) 2022
+ * www.njumeta.com
+ *
+ */
+
 #include "MatteMaterial.h"
 #include "FunctionLayer/Material/BxDF/Diffuse.h"
 

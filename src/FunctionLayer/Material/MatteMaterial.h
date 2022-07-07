@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file MatteMaterial.h
  * @author Junping Yuan
  * @brief
  * @version 0.1

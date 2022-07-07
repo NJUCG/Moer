@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file MirrorMaterial.h
  * @author Junping Yuan
  * @brief
  * @version 0.1
@@ -16,7 +16,6 @@
 
 #pragma  once
 class MirrorMaterial  : public  Material{
-
 
 public:
     virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
