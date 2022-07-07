@@ -12,9 +12,11 @@
 
 #include "Integrator.h"
 
-Integrator::Integrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator) : camera(camera),
-                                                                                                                                   film(std::move(film)),
-                                                                                                                                   tileGenerator(std::move(tileGenerator))
+Integrator::Integrator(
+    std::shared_ptr<Camera> _camera, 
+    std::unique_ptr<Film> _film) : 
+        camera(_camera),
+        film(std::move(_film))
 {
 }
 

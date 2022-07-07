@@ -22,7 +22,13 @@ protected:
     const double pRussianRoulette = 0.95;
 
 public:
-    PathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp);
+    PathIntegrator(
+        std::shared_ptr<Camera> _camera, 
+        std::unique_ptr<Film> _film, 
+        std::unique_ptr<TileGenerator> _tileGenerator, 
+        std::shared_ptr<Sampler> _sampler, 
+        int _spp,
+        int _renderThreadNum=4);
 
     // @brief Return the radiance along given ray, emitted from given intersection.
     // @param scene     Ptr to scene.

@@ -13,8 +13,16 @@
 #include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PathIntegrator.h"
 
-PathIntegrator::PathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp) : AbstractPathIntegrator(camera, std::move(film), std::move(tileGenerator), sampler, spp)
+PathIntegrator::PathIntegrator(
+        std::shared_ptr<Camera> _camera, 
+        std::unique_ptr<Film> _film, 
+        std::unique_ptr<TileGenerator> _tileGenerator, 
+        std::shared_ptr<Sampler> _sampler, 
+        int _spp,
+        int _renderThreadNum=4):
+            AbstractPathIntegrator(_camera,std::move(_film),std::move(_tileGenerator),_sampler,_spp,_renderThreadNum)
 {
+
 }
 
 PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> scene,

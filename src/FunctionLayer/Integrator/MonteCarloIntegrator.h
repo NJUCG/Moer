@@ -1,6 +1,7 @@
 /**
  * @file MonteCarloIntegrator.h
  * @author Zhimin Fan
+ * edited by orbitchen at 2022-7-7: apply multithread acceleration and tile generator.
  * @brief Integrators
  * @version 0.1
  * @date 2022-05-06
@@ -20,8 +21,22 @@ protected:
     std::shared_ptr<Sampler> sampler;
     int spp = 4;
 
+    std::shared_ptr<TileGenerator> tileGenerator;
+
+    // @brief: render process per thread. Should be called in render().
+    void renderPerThread(std::shared_ptr<Scene> scene);
+
+    int renderThreadNum=4;
+
 public:
-    MonteCarloIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp);
+    MonteCarloIntegrator(
+        std::shared_ptr<Camera> _camera, 
+        std::unique_ptr<Film> _film, 
+        std::unique_ptr<TileGenerator> _tileGenerator, 
+        std::shared_ptr<Sampler> _sampler, 
+        int _spp,
+        int _renderThreadNum=4
+        );
 
     virtual void render(std::shared_ptr<Scene> scene);
 

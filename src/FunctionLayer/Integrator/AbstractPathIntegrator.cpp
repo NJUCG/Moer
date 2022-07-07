@@ -12,8 +12,16 @@
 
 #include "AbstractPathIntegrator.h"
 
-AbstractPathIntegrator::AbstractPathIntegrator(std::shared_ptr<Camera> camera, std::unique_ptr<Film> film, std::unique_ptr<TileGenerator> tileGenerator, std::shared_ptr<Sampler> sampler, int spp) : MonteCarloIntegrator(camera, std::move(film), std::move(tileGenerator), sampler, spp)
+AbstractPathIntegrator::AbstractPathIntegrator(
+        std::shared_ptr<Camera> _camera, 
+        std::unique_ptr<Film> _film, 
+        std::unique_ptr<TileGenerator> _tileGenerator, 
+        std::shared_ptr<Sampler> _sampler, 
+        int _spp,
+        int _renderThreadNum=4):
+            MonteCarloIntegrator(_camera,std::move(_film),std::move(_tileGenerator),_sampler,_spp,_renderThreadNum)
 {
+
 }
 
 double AbstractPathIntegrator::MISWeight(double x, double y)
