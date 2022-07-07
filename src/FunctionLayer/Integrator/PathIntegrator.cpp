@@ -19,7 +19,7 @@ PathIntegrator::PathIntegrator(
         std::unique_ptr<TileGenerator> _tileGenerator, 
         std::shared_ptr<Sampler> _sampler, 
         int _spp,
-        int _renderThreadNum=4):
+        int _renderThreadNum):
             AbstractPathIntegrator(_camera,std::move(_film),std::move(_tileGenerator),_sampler,_spp,_renderThreadNum)
 {
 

@@ -12,6 +12,21 @@
 
 #include "TileGenerator.h"
 
+// implemention of Tile
+
+Tile::Tile(const Point2i& _pBegin, const Point2i& _pEnd)
+{
+	pBegin = _pBegin;
+	pEnd = _pEnd;
+}
+
+// implemention of TileGenerator
+
+TileGenerator::TileGenerator(const Point2i& _resolution)
+{
+	resolution = _resolution;
+}
+
 // implemention of PointIterator
 
 PointIterator::PointIterator(const Point2i& _pBegin, const Point2i& _pEnd,const Point2i& p)
@@ -41,6 +56,12 @@ PointIterator& PointIterator::operator++()
 		currentP.x = xMin;
 		currentP.y++;
 	}
+	else
+	{
+		// currentP=[xMax-1,yMax-1]
+		// jump to [xMax,yMax]
+		currentP = Point2i(xMax, yMax);
+	}
 
 	// do nothing if iteration is over.
 
@@ -50,22 +71,19 @@ PointIterator& PointIterator::operator++()
 bool PointIterator::operator!=(const PointIterator& anotherIt)
 {
 	// try to make it stop earlier.
-	return currentP != anotherIt.currentP
-		&& pBegin != anotherIt.pBegin 
-		&& pEnd != anotherIt.pEnd;
+	return currentP != anotherIt.currentP  
+		|| pBegin != anotherIt.pBegin
+		|| pEnd != anotherIt.pEnd;
 }
 
 // implemention of SquareTile
 
 SquareTile::SquareTile(const Point2i& _pBegin, const Point2i& _pEnd)
+	:Tile(_pBegin,_pEnd),
+	beginIte(pBegin, pEnd, pBegin),
+	endIte(pBegin, pEnd, Point2i(pEnd.x, pEnd.y))
 {
-	pBegin = _pBegin;
-	pEnd = _pEnd;
-
 	// TODO: check pBegin < pEnd and assert/log.
-
-	beginIte = PointIterator(pBegin, pEnd, pBegin);
-	endIte = PointIterator(pBegin, pEnd, Point2i(pEnd.x - 1, pEnd.y - 1));
 }
 
 PointIterator SquareTile::begin() const

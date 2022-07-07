@@ -41,8 +41,6 @@ protected:
 
 public:
 
-	PointIterator();
-
 	PointIterator(const Point2i& _pBegin, const Point2i& _pEnd,const Point2i& p);
 
 	Point2i operator*() const;
@@ -66,8 +64,6 @@ protected:
 	Point2i pEnd;
 
 public:
-
-	Tile();
 
 	Tile(const Point2i& _pBegin, const Point2i& _pEnd);
 
@@ -104,8 +100,6 @@ protected:
 	std::mutex mute;
 
 public:
-
-	TileGenerator();
 
 	TileGenerator(const Point2i& _resolution);
 

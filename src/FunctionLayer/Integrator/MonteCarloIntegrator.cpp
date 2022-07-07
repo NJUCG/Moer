@@ -40,7 +40,7 @@ void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
             break;
         auto tile=optionalTile.value();
 
-        for(auto it=tile->begin();it!=tile->end();it++)
+        for(auto it=tile->begin();it!=tile->end();++it)
         {
             auto pixelPosition=*it;
 
@@ -60,7 +60,6 @@ void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
             }
         }
     }
-    
 }
 
 void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
@@ -73,29 +72,6 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
     for(int i=0;i<renderThreadNum;i++){
         threads[i].join();
     }
-    // int filmWidth = film->getResolution().x;
-    // int filmHeight = film->getResolution().y;
-    // const auto &cam = *this->camera;
-    // for (int y = 0; y < filmHeight; y++)
-    // {
-    //     for (int x = 0; x < filmWidth; x++)
-    //     {
-    //         Point2i pixelPosition = Point2i{x, y};
-    //         sampler->startPixel(pixelPosition);
-    //         for (int i = 0; i < spp; i++)
-    //         {
-    //             auto L = Li(
-    //                 cam.generateRay(
-    //                     film->getResolution(), 
-    //                     pixelPosition, 
-    //                     sampler->getCameraSample()
-    //                 ), scene
-    //             );
-    //             film->deposit(Point2d(x, y), L);
-    //             sampler->nextSample();
-    //         }
-    //     }
-    // }
 }
 
 double MonteCarloIntegrator::randFloat()

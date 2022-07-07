@@ -13,8 +13,8 @@
 #include "SequenceTileGenerator.h"
 
 SequenceTileGenerator::SequenceTileGenerator(const Point2i& _resolution, int _size)
+	:TileGenerator(_resolution)
 {
-	resolution = _resolution;
 	size = _size;
 
 	int xCount = resolution.x / size;
@@ -23,12 +23,14 @@ SequenceTileGenerator::SequenceTileGenerator(const Point2i& _resolution, int _si
 	for (int i = 0; i < xCount; i++)
 		xList.push_back(i * size);
 	if (resolution.x % size != 0)
-		xList.push_back(resolution.x);
+		xList.push_back(xCount * size);
+	xList.push_back(resolution.x);
 
 	for (int i = 0; i < yCount; i++)
 		yList.push_back(i * size);
 	if (resolution.y % size != 0)
-		yList.push_back(resolution.y);
+		yList.push_back(yCount * size);
+	yList.push_back(resolution.y);
 
 	currentBeginIndex = Point2i(0, 0);
 }
@@ -56,8 +58,11 @@ std::optional<std::shared_ptr<Tile>> SequenceTileGenerator::generateNextTile()
 	//lock
 	mute.lock();
 
-	if(reachedEnd)
+	if (reachedEnd)
+	{
+		mute.unlock();
 		return std::nullopt;
+	}
 
 	int yListLen = yList.size();
 	int xListLen = xList.size();
@@ -68,13 +73,16 @@ std::optional<std::shared_ptr<Tile>> SequenceTileGenerator::generateNextTile()
 		&& reachedEnd==false)
 	{
 		reachedEnd=true;
-		return std::make_optional<std::shared_ptr<Tile>>(
+		auto retVal= std::make_optional<std::shared_ptr<Tile>>(
 			std::make_shared<SquareTile>(
-				Point2i(xList[currentBeginIndex.x],yList[currentBeginIndex.y]),
-				Point2i(xList[currentBeginIndex.x+1],yList[currentBeginIndex.y+1])
-			)
-		);
+				Point2i(xList[currentBeginIndex.x], yList[currentBeginIndex.y]),
+				Point2i(xList[currentBeginIndex.x + 1], yList[currentBeginIndex.y + 1])
+				)
+			);
+		mute.unlock();
+		return retVal;
 	}
+
 	std::optional<std::shared_ptr<Tile>> retVal=
 		std::make_optional<std::shared_ptr<Tile>>(std::make_shared<SquareTile>(
 			Point2i(xList[currentBeginIndex.x],yList[currentBeginIndex.y]),

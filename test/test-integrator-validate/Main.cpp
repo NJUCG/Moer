@@ -23,6 +23,7 @@
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
+#include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
 
 TEST_CASE("test-integrator-validate")
@@ -52,7 +53,7 @@ TEST_CASE("test-integrator-validate")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 64);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), std::make_unique<SequenceTileGenerator>(Point2i(128, 128)), std::make_shared<IndependentSampler>(), 64);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-integrator-validate.bmp");
