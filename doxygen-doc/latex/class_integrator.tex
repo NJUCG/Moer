@@ -1,0 +1,134 @@
+\hypertarget{class_integrator}{}\doxysection{Integrator Class Reference}
+\label{class_integrator}\index{Integrator@{Integrator}}
+
+
+Base class for all integrators solving the rendering equation.  
+
+
+
+
+{\ttfamily \#include $<$Integrator.\+h$>$}
+
+Inheritance diagram for Integrator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_integrator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}{Integrator}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \+\_\+camera, std\+::unique\+\_\+ptr$<$ Film $>$ \+\_\+film)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_integrator}{Integrator}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13}{render}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)=0
+\begin{DoxyCompactList}\small\item\em Start to render the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{save}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Save the rendering result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}{camera}}
+\item 
+std\+::unique\+\_\+ptr$<$ Film $>$ \mbox{\hyperlink{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}{film}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all integrators solving the rendering equation. 
+
+Definition at line \mbox{\hyperlink{_integrator_8h_source_l00027}{27}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}\label{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}} 
+\index{Integrator@{Integrator}!Integrator@{Integrator}}
+\index{Integrator@{Integrator}!Integrator@{Integrator}}
+\doxysubsubsection{\texorpdfstring{Integrator()}{Integrator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_integrator}{Integrator\+::\+Integrator}} (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{\+\_\+camera,  }\item[{std\+::unique\+\_\+ptr$<$ Film $>$}]{\+\_\+film }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_integrator}{Integrator}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+camera} & \\
+\hline
+{\em \+\_\+film} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_integrator_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_integrator_8cpp_source}{Integrator.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_integrator_a3958bc05b83165d22165a8605b212e13}\label{class_integrator_a3958bc05b83165d22165a8605b212e13}} 
+\index{Integrator@{Integrator}!render@{render}}
+\index{render@{render}!Integrator@{Integrator}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual void Integrator\+::render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Start to render the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene to be rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_monte_carlo_integrator_aa36b5367a5af05914af0f8dc3e0581c7}{Monte\+Carlo\+Integrator}}.
+
+\mbox{\Hypertarget{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}\label{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}} 
+\index{Integrator@{Integrator}!save@{save}}
+\index{save@{save}!Integrator@{Integrator}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Integrator\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Save the rendering result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to save the result \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_integrator_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_integrator_8cpp_source}{Integrator.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}\label{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}} 
+\index{Integrator@{Integrator}!camera@{camera}}
+\index{camera@{camera}!Integrator@{Integrator}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_camera}{Camera}}$>$ Integrator\+::camera\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_integrator_8h_source_l00030}{30}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
+
+\mbox{\Hypertarget{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}\label{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}} 
+\index{Integrator@{Integrator}!film@{film}}
+\index{film@{film}!Integrator@{Integrator}}
+\doxysubsubsection{\texorpdfstring{film}{film}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$Film$>$ Integrator\+::film\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_integrator_8h_source_l00031}{31}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_integrator_8h}{Integrator.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_integrator_8cpp}{Integrator.\+cpp}}\end{DoxyCompactItemize}

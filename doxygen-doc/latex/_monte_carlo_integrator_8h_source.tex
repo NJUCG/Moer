@@ -1,0 +1,40 @@
+\hypertarget{_monte_carlo_integrator_8h_source}{}\doxysection{Monte\+Carlo\+Integrator.\+h}
+\label{_monte_carlo_integrator_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Integrator/MonteCarloIntegrator.h@{/mnt/renderer/Zero/src/FunctionLayer/Integrator/MonteCarloIntegrator.h}}
+\mbox{\hyperlink{_monte_carlo_integrator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_integrator_8h}{Integrator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00022}\mbox{\hyperlink{class_monte_carlo_integrator}{00022}} \textcolor{keyword}{class }\mbox{\hyperlink{class_monte_carlo_integrator}{MonteCarloIntegrator}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_integrator}{Integrator}}}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00024}00024 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00025}00025     std::shared\_ptr<Sampler> sampler;}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00026}\mbox{\hyperlink{class_monte_carlo_integrator_a149ebd55e2dafda299c6e9bb31891b5f}{00026}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_monte_carlo_integrator_a149ebd55e2dafda299c6e9bb31891b5f}{spp}} = 4;                        }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00028}00028     std::shared\_ptr<TileGenerator> tileGenerator;}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00031}00031     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_monte_carlo_integrator_a7ad0d97f79ebbc49af3b3bbf1b98a77d}{renderPerThread}}(std::shared\_ptr<Scene> scene);}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00033}\mbox{\hyperlink{class_monte_carlo_integrator_a98db47e38b3b9c1aa64db02b571db860}{00033}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_monte_carlo_integrator_a98db47e38b3b9c1aa64db02b571db860}{renderThreadNum}}=4;              }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00035}00035 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00036}00036     \mbox{\hyperlink{class_monte_carlo_integrator}{MonteCarloIntegrator}}(}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00037}00037         std::shared\_ptr<Camera> \_camera, }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00038}00038         std::unique\_ptr<Film> \_film, }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00039}00039         std::unique\_ptr<TileGenerator> \_tileGenerator, }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00040}00040         std::shared\_ptr<Sampler> \_sampler, }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00041}00041         \textcolor{keywordtype}{int} \_spp,}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00042}00042         \textcolor{keywordtype}{int} \_renderThreadNum=4}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00043}00043         );}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00045}00045     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_monte_carlo_integrator_aa36b5367a5af05914af0f8dc3e0581c7}{render}}(std::shared\_ptr<Scene> scene);}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00048}\mbox{\hyperlink{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}{00048}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}{Li}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray, std::shared\_ptr<Scene> scene) = 0;}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00049}00049     }
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00051}00051     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_monte_carlo_integrator_a873051e970b7ce5e4b432778bea15f35}{randFloat}}();}
+\DoxyCodeLine{\Hypertarget{_monte_carlo_integrator_8h_source_l00052}00052 \};}
+
+\end{DoxyCode}

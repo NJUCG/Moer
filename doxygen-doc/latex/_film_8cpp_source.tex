@@ -1,0 +1,58 @@
+\hypertarget{_film_8cpp_source}{}\doxysection{Film.\+cpp}
+\label{_film_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.cpp}}
+\mbox{\hyperlink{_film_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_film_8h}{Film.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00016}00016 Film::Film(\mbox{\hyperlink{struct_t_point2}{Point2i}} resolution, \textcolor{keywordtype}{int} channels) : resolution(resolution), channels(channels)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00017}00017 \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00018}00018     image = std::make\_unique<Image>(resolution, channels);}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00019}00019     sumWeights.resize(resolution.x * resolution.y);}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00020}00020     sumValues.resize(resolution.x * resolution.y);}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00021}00021 \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00023}00023 \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Film::getSpectrum(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00025}00025     \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00026}00026 \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00028}00028 RGB3 Film::getRGB(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00030}00030     \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00031}00031 \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00033}00033 \textcolor{keywordtype}{void} Film::deposit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00034}00034 \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00035}00035     \textcolor{comment}{// ! A temp implementation}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00036}00036     \textcolor{comment}{// ignore filter now}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00037}00037     \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = p.y * resolution.x + p.x;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00038}00038     sumWeights[id] += 1.0;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00039}00039     sumValues[id] += s;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00040}00040 \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00042}00042 \textcolor{keywordtype}{void} Film::save(\textcolor{keyword}{const} std::string \&path)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00044}00044     \textcolor{comment}{// ! A temp implementation}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00045}00045     std::ofstream ofs(\textcolor{stringliteral}{"{}render\_result.txt"{}});}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00046}00046     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < resolution.y; i++)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00047}00047     \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00048}00048         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < resolution.x; j++)}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00049}00049         \{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00050}00050             \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = i * resolution.x + j;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00051}00051             \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} value = sumValues[id] / sumWeights[id];}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00052}00052             image-\/>setColorAt(\mbox{\hyperlink{struct_t_point2}{Point2i}}(j, i), value);}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00053}00053             \textcolor{comment}{// for debug}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00054}00054             ofs << j << \textcolor{stringliteral}{"{} "{}} << i << \textcolor{stringliteral}{"{} "{}} << value.average() << std::endl;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00056}00056     \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00057}00057     image-\/>saveTo(path);}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00060}00060 \mbox{\hyperlink{struct_t_point2}{Point2i}} Film::getResolution()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00061}00061 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00062}00062     \textcolor{keywordflow}{return} resolution;}
+\DoxyCodeLine{\Hypertarget{_film_8cpp_source_l00063}00063 \}}
+
+\end{DoxyCode}

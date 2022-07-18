@@ -1,0 +1,27 @@
+\hypertarget{_camera_8h_source}{}\doxysection{Camera.\+h}
+\label{_camera_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Camera/Camera.h@{/mnt/renderer/Zero/src/FunctionLayer/Camera/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_ray_8h}{CoreLayer/Ray/Ray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00018}\mbox{\hyperlink{struct_camera_sample}{00018}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_camera_sample}{CameraSample}} \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00019}00019     \mbox{\hyperlink{struct_t_point2}{Point2d}} xy;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00020}00020     \textcolor{keywordtype}{double} time;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00021}00021     \mbox{\hyperlink{struct_t_point2}{Point2d}} lens;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00022}00022 \};}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00030}\mbox{\hyperlink{class_camera}{00030}} \textcolor{keyword}{class }\mbox{\hyperlink{class_camera}{Camera}}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00031}00031 \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00032}00032 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00042}\mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{00042}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{generateRay}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&filmResolution, }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00043}00043                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition, }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00044}00044                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_camera_sample}{CameraSample}} \&sample) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00045}00045 \};}
+
+\end{DoxyCode}

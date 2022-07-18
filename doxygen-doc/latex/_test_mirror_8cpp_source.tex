@@ -1,0 +1,21 @@
+\hypertarget{_test_mirror_8cpp_source}{}\doxysection{Test\+Mirror.\+cpp}
+\label{_test_mirror_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/TestMirror.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Material/TestMirror.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}TestMirror.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00003}00003 TestMirror::TestMirror()}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00005}00005 \}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00007}00007 std::shared\_ptr<BxDF> TestMirror::getBxDF(Intersection intersect)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00008}00008 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00009}00009     std::shared\_ptr<TestMirrorBxdf> bxdf = std::make\_shared<TestMirrorBxdf>();}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00010}00010     \textcolor{keywordflow}{return} bxdf;}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00011}00011 \}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00012}00012 std::shared\_ptr<BSSRDF> TestMirror::getBSSRDF(Intersection intersect)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00013}00013 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00014}00014     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8cpp_source_l00015}00015 \}}
+
+\end{DoxyCode}

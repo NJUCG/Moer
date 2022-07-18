@@ -1,0 +1,59 @@
+\hypertarget{_bvh_8h_source}{}\doxysection{Bvh.\+h}
+\label{_bvh_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Aggregate/Bvh.h@{/mnt/renderer/Zero/src/FunctionLayer/Aggregate/Bvh.h}}
+\mbox{\hyperlink{_bvh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bounding_box_8h}{CoreLayer/Geometry/BoundingBox.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{FunctionLayer/Shape/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00019}\mbox{\hyperlink{struct_entity_info}{00019}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_entity_info}{EntityInfo}} \{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00020}00020     \mbox{\hyperlink{struct_entity_info}{EntityInfo}}()\{\}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00021}00021     \mbox{\hyperlink{struct_entity_info}{EntityInfo}}(\textcolor{keywordtype}{int} \_EntityId, \textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}}\& \_bounds): EntityId(\_EntityId), bounds(\_bounds), center(0.5 * (\_bounds.pMin + \_bounds.pMax))\{\}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00022}00022     \textcolor{keywordtype}{int} EntityId;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00023}00023     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} bounds;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00024}00024     \mbox{\hyperlink{struct_t_point3}{Point3d}} center;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00025}00025 \};}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00027}00027 \textcolor{keyword}{struct }BvhTreeNode \{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00028}00028     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} bounds;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00029}00029     std::shared\_ptr<BvhTreeNode> children[2] = \{\textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\};\textcolor{comment}{//0: left, 1: right}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00030}00030     \textcolor{keywordtype}{int} splitAxis;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00031}00031     \textcolor{keywordtype}{int} nEntites = 0;\textcolor{comment}{//0: interior nodes, otherwise: leaf nodes}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00032}00032     \textcolor{keywordtype}{int} entityOffset;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00033}00033 \};}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00036}\mbox{\hyperlink{struct_linear_bvh_node}{00036}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_linear_bvh_node}{LinearBvhNode}} \{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00037}00037     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} bounds;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00038}00038     \textcolor{keyword}{union}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00039}00039     \{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00040}00040         \textcolor{keywordtype}{int} firstdEntityOffset;\textcolor{comment}{//for leaves to enumerate}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00041}00041         \textcolor{keywordtype}{int} secondChildOrder;\textcolor{comment}{//for interior nodes to traverse}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00042}00042     \};}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00043}00043     \textcolor{keywordtype}{int} nEntites = 0;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00044}00044     \textcolor{keywordtype}{int} splitAxis;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00045}00045 \};}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00047}00047 \textcolor{keyword}{struct }Bvh \{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00048}00048 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00049}00049     \textcolor{keyword}{enum class} SplitMethod\{}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00050}00050         SAH, }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00051}00051         Middle, }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00052}00052         EqualCounts}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00053}00053     \};\textcolor{comment}{//not support LBVH yet}}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00054}00054     \textcolor{keyword}{const} SplitMethod splitMethod;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00055}00055     std::vector<std::shared\_ptr<Entity>> entites;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00056}00056     std::vector<LinearBvhNode> linearBvhNodes;}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00063}00063     Bvh(std::vector<std::shared\_ptr<Entity>>\& \_entites, SplitMethod \_splitMethod = SplitMethod::SAH);}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00069}00069     std::shared\_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>\& entityInfo, \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} end, \textcolor{keywordtype}{int}\& nodeNumber, std::vector<std::shared\_ptr<Entity>>\& orderedEntites);}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00072}00072     \textcolor{keywordtype}{void} Flatten(std::shared\_ptr<BvhTreeNode> node, \textcolor{keywordtype}{int}\& dfsOrder);}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00075}00075     std::optional<Intersection> Intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r);}
+\DoxyCodeLine{\Hypertarget{_bvh_8h_source_l00076}00076 \};}
+
+\end{DoxyCode}

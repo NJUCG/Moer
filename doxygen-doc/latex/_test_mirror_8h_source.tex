@@ -1,0 +1,19 @@
+\hypertarget{_test_mirror_8h_source}{}\doxysection{Test\+Mirror.\+h}
+\label{_test_mirror_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/TestMirror.h@{/mnt/renderer/Zero/src/FunctionLayer/Material/TestMirror.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00002}00002 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{Material.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}FunctionLayer/Material/BxDF/TestMirrorBxdf.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00006}00006 \textcolor{keyword}{class }TestMirror : \textcolor{keyword}{public} Material}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00008}00008 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00009}00009 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00010}00010     TestMirror();}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00011}00011     \textcolor{keyword}{virtual} std::shared\_ptr<BxDF> getBxDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00012}00012     \textcolor{keyword}{virtual} std::shared\_ptr<BSSRDF> getBSSRDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_8h_source_l00013}00013 \};}
+
+\end{DoxyCode}

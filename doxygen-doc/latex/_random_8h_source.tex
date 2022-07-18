@@ -1,0 +1,29 @@
+\hypertarget{_random_8h_source}{}\doxysection{Random.\+h}
+\label{_random_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Adapter/Random.h@{/mnt/renderer/Zero/src/CoreLayer/Adapter/Random.h}}
+\mbox{\hyperlink{_random_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}pcg/pcg\_random.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{CoreLayer/Math/Common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00022}\mbox{\hyperlink{class_random_number_generator}{00022}} \textcolor{keyword}{class }\mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}} \{}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00023}00023     std::uniform\_real\_distribution<> dist;}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00024}00024     pcg\_extras::seed\_seq\_from<std::random\_device> seedSource;}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00025}00025     pcg32 rng;}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00026}00026 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00027}00027     \mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}}():dist(0, ONEMINUSEPSILON), rng(seedSource) \{ \}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00028}00028     }
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00030}\mbox{\hyperlink{class_random_number_generator_af24ebb29a219641d8234ae178010cfaa}{00030}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_random_number_generator_af24ebb29a219641d8234ae178010cfaa}{operator()}}() \{}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00031}00031         \textcolor{keywordflow}{return} dist(rng);}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00035}\mbox{\hyperlink{class_random_number_generator_a26ad0b1dfb9bf5051dac42f5e994b6b3}{00035}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_random_number_generator_a26ad0b1dfb9bf5051dac42f5e994b6b3}{operator()}}(\textcolor{keywordtype}{int} begin, \textcolor{keywordtype}{int} end) \{}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00036}00036         \textcolor{keywordtype}{int} sample = begin + (end -\/ begin) * dist(rng);}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00037}00037         \textcolor{keywordflow}{return} std::min(end -\/ 1, sample);}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_random_8h_source_l00040}00040 \};}
+
+\end{DoxyCode}

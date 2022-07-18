@@ -1,7 +1,7 @@
 /**
  * @file Geometry.h
- * @author zcx
- * @brief The geometry part of whole program, including vector, point and normal.
+ * @author Chenxi Zhou
+ * @brief All the forward declarations of geometry part
  * @version 0.1
  * @date 2022-04-22
  *
@@ -15,6 +15,8 @@
 #include "point.h"
 #include "vector.h"
 
+/// \defgroup Geometry 
+/// \todo Cause all the real number will be represented as double, maybe delete the float version  
 
 // vector.h
 template <typename T>

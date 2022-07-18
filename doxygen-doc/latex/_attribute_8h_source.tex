@@ -1,0 +1,343 @@
+\hypertarget{_attribute_8h_source}{}\doxysection{Attribute.\+h}
+\label{_attribute_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Adapter/Attribute.h@{/mnt/renderer/Zero/src/CoreLayer/Adapter/Attribute.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00011}00011 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}rapidjson/document.h"{}}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00019}00019 \textcolor{keyword}{struct }Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00020}00020     Value() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00021}00021     \textcolor{keyword}{virtual} \string~Value() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00023}00023     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00024}00024 \}; }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00026}00026 \textcolor{keyword}{class }Attribute \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00027}00027 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00028}00028     Attribute() : m\_type(EValueType::EInvalid), m\_value(nullptr) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00030}00030     Attribute(\textcolor{keyword}{const} rapidjson::Document \&document);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00031}00031     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00032}00032     Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00034}00034     Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00036}00036     Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{double} d);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00038}00038     Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keyword}{const} std::string \&str);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00040}00040     Attribute(\textcolor{keyword}{const} std::string \&key,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00041}00041               \textcolor{keyword}{const} rapidjson::GenericValue<rapidjson::UTF8<>>::ConstArray \&array);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00043}00043     Attribute(\textcolor{keyword}{const} std::string \&key,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00044}00044               \textcolor{keyword}{const} rapidjson::GenericValue<rapidjson::UTF8<>>::ConstObject \&\textcolor{keywordtype}{object});}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00047}00047     \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00048}00048         std::cout << \textcolor{stringliteral}{"{}Key = "{}} << m\_key << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00049}00049         m\_value-\/>print();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00050}00050     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00052}00052     Attribute operator[](\textcolor{keyword}{const} std::string \&key) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00054}00054     Attribute operator[](\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00056}00056     \textcolor{keywordtype}{bool} getBool() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00057}00057     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00058}00058     \textcolor{keywordtype}{int} getInt() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00060}00060     \textcolor{keywordtype}{double} getDouble() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00062}00062     std::string getString() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00064}00064 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00066}00066     \textcolor{keyword}{enum class} EValueType \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00067}00067         EInvalid = 0,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00068}00068         EBool,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00069}00069         EInt,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00070}00070         EDouble,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00071}00071         EString,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00072}00072         EArray,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00073}00073         EObject}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00074}00074     \} m\_type;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00076}00076     std::string m\_key;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00078}00078     std::shared\_ptr<Value> m\_value;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00079}00079     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00080}00080 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00083}00083 \textcolor{keyword}{struct }BoolValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00084}00084     BoolValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00086}00086     BoolValue(\textcolor{keywordtype}{bool} b) : data(b) \{ \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00088}00088     \textcolor{keyword}{virtual} \string~BoolValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00090}00090     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00091}00091         std::cout << \textcolor{stringliteral}{"{}BoolValue : "{}} << (data ? \textcolor{stringliteral}{"{}true"{}} : \textcolor{stringliteral}{"{}false"{}}) << std::endl;    }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00092}00092     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00093}00093     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00094}00094     \textcolor{keywordtype}{bool} data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00096}00096 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00098}00098 \textcolor{keyword}{struct }IntValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00099}00099     IntValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00101}00101     IntValue(\textcolor{keywordtype}{int} i) : data(i) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00103}00103     \textcolor{keyword}{virtual} \string~IntValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00105}00105     \textcolor{keywordtype}{int} data; }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00107}00107     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00108}00108         std::cout << \textcolor{stringliteral}{"{}IntValue : "{}} << data << std::endl;    }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00109}00109     \}   }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00110}00110 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00113}00113 \textcolor{keyword}{struct }DoubleValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00114}00114     DoubleValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00116}00116     DoubleValue(\textcolor{keywordtype}{double} d) : data(d) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00118}00118     \textcolor{keyword}{virtual} \string~DoubleValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00120}00120     \textcolor{keywordtype}{double} data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00122}00122     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00123}00123         std::cout << \textcolor{stringliteral}{"{}DoubleValue : "{}} << data << std::endl;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00124}00124     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00125}00125 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00128}00128 \textcolor{keyword}{struct }ArrayValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00129}00129     ArrayValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00131}00131     \textcolor{keyword}{virtual} \string~ArrayValue() \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00132}00132         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < data.size(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00133}00133             \textcolor{keyword}{delete} data[i];}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00134}00134         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00135}00135     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00137}00137     std::vector<Attribute *> data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00139}00139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00140}00140         std::cout << \textcolor{stringliteral}{"{}ArrayValue : \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00141}00141         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < data.size(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00142}00142             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00143}00143             data[i]-\/>print();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00144}00144         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00145}00145     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00146}00146 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00148}00148 \textcolor{keyword}{struct }StringValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00149}00149     StringValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00151}00151     StringValue(\textcolor{keyword}{const} std::string \&str) : data(str) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00152}00152 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00153}00153     \textcolor{keyword}{virtual} \string~StringValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00155}00155     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00156}00156         std::cout << \textcolor{stringliteral}{"{}StringValue : "{}} << data << std::endl;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00159}00159     std::string data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00161}00161 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00163}00163 \textcolor{keyword}{struct }ObjectValue : \textcolor{keyword}{public} Value \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00164}00164     ObjectValue() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00166}00166     \textcolor{keyword}{virtual} \string~ObjectValue() \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00167}00167         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = data.begin(); itr != data.end(); ++itr) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00168}00168             \textcolor{keyword}{delete} itr-\/>second;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00169}00169         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00170}00170     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00172}00172     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} print()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00173}00173         std::cout << \textcolor{stringliteral}{"{}ObjectValue : \{\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00174}00174         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = data.begin(); itr!=data.end(); ++itr) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00175}00175             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00176}00176             itr-\/>second-\/>print();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00177}00177         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00178}00178         std::cout <<\textcolor{stringliteral}{"{}\}"{}}<<std::endl;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00179}00179     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00181}00181     std::unordered\_map<std::string, Attribute *> data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00182}00182 \};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00185}00185 \textcolor{keyword}{inline} Attribute::Attribute(\textcolor{keyword}{const} rapidjson::Document \&document) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00186}00186     m\_type = EValueType::EObject;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00187}00187     m\_key = \textcolor{stringliteral}{"{}root"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00188}00188     m\_value = std::make\_shared<ObjectValue>();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00189}00189 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00190}00190     ObjectValue* object\_value = \textcolor{keyword}{static\_cast<}ObjectValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00192}00192     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = document.MemberBegin(); itr != document.MemberEnd(); ++itr) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00193}00193         Attribute *attribute = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00194}00194         \textcolor{keyword}{const} std::string \&member\_key = itr-\/>name.GetString();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00195}00195         \textcolor{keyword}{const} \textcolor{keyword}{auto} \&member\_value = itr-\/>value;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00196}00196         \textcolor{keywordflow}{if} (member\_value.IsBool()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00197}00197             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetBool());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00198}00198         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsInt()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00199}00199             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetInt());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00200}00200         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsDouble()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00201}00201             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetDouble());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00202}00202         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsString()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00203}00203             attribute = \textcolor{keyword}{new} Attribute(member\_key, std::string(member\_value.GetString()));}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00204}00204         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsArray()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00205}00205             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetArray());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00206}00206         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsObject()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00207}00207             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetObject());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00208}00208         \} }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00209}00209         \textcolor{keywordflow}{if} (attribute == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00210}00210             std::cout << \textcolor{stringliteral}{"{}Error type\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00211}00211             std::exit(1);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00212}00212         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00213}00213         object\_value-\/>data[member\_key] = attribute;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00214}00214     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00215}00215 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00216}00216 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00217}00217 \textcolor{keyword}{inline} Attribute::Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{bool} b) :}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00218}00218     m\_type(EValueType::EBool),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00219}00219     m\_key(key),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00220}00220     m\_value(new BoolValue \{b\}) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00221}00221 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00222}00222 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00223}00223 \textcolor{keyword}{inline} Attribute::Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{int} i) : }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00224}00224     m\_type(EValueType::EInt),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00225}00225     m\_key(key), }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00226}00226     m\_value(new IntValue \{i\}) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00227}00227 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00228}00228 \textcolor{keyword}{inline} Attribute::Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keywordtype}{double} d) : }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00229}00229     m\_type(EValueType::EDouble),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00230}00230     m\_key(key),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00231}00231     m\_value(new DoubleValue \{d\}) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00232}00232 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00233}00233 \textcolor{keyword}{inline} Attribute::Attribute(\textcolor{keyword}{const} std::string \&key, \textcolor{keyword}{const} std::string \&str) :}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00234}00234     m\_type(EValueType::EString),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00235}00235     m\_key(key),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00236}00236     m\_value(new StringValue \{str\}) \{ \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00238}00238 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00239}00239 \textcolor{keyword}{inline} Attribute::Attribute(}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00240}00240     \textcolor{keyword}{const} std::string \&key,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00241}00241     \textcolor{keyword}{const} rapidjson::GenericValue<rapidjson::UTF8<>>::ConstArray \&array) :}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00242}00242     m\_type(EValueType::EArray),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00243}00243     m\_key(key) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00244}00244     }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00245}00245     m\_value = std::make\_shared<ArrayValue>();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00246}00246     ArrayValue *array\_value = \textcolor{keyword}{static\_cast<}ArrayValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00247}00247     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = array.Begin(); itr != array.End(); ++itr) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00248}00248         Attribute *attribute = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00249}00249         \textcolor{keywordflow}{if} (itr-\/>IsBool()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00250}00250             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, itr-\/>GetBool());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00251}00251         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (itr-\/>IsInt()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00252}00252             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, itr-\/>GetInt());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00253}00253         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (itr-\/>IsDouble()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00254}00254             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, itr-\/>GetDouble());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00255}00255         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (itr-\/>IsString()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00256}00256             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, std::string(itr-\/>GetString()));}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00257}00257         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (itr-\/>IsArray()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00258}00258             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, itr-\/>GetArray());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00259}00259         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (itr-\/>IsObject()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00260}00260             attribute = \textcolor{keyword}{new} Attribute(\textcolor{stringliteral}{"{}"{}}, itr-\/>GetObject());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00261}00261         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00262}00262         \textcolor{keywordflow}{if} (attribute == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00263}00263             std::cout << \textcolor{stringliteral}{"{}Error Type\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00264}00264             std::exit(1);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00265}00265         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00266}00266         array\_value-\/>data.emplace\_back(attribute);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00267}00267     \} }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00268}00268 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00269}00269 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00270}00270 \textcolor{keyword}{inline} Attribute::Attribute(}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00271}00271     \textcolor{keyword}{const} std::string \&key,}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00272}00272     \textcolor{keyword}{const} rapidjson::GenericValue<rapidjson::UTF8<>>::ConstObject \&\textcolor{keywordtype}{object}) :}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00273}00273     m\_type(EValueType::EObject),}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00274}00274     m\_key(key) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00275}00275 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00276}00276     m\_value = std::make\_shared<ObjectValue>();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00277}00277     ObjectValue *object\_value = \textcolor{keyword}{static\_cast<}ObjectValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00278}00278     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = \textcolor{keywordtype}{object}.MemberBegin(); itr != \textcolor{keywordtype}{object}.MemberEnd(); ++itr) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00279}00279         Attribute *attribute = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00280}00280         \textcolor{keyword}{const} std::string \&member\_key = itr-\/>name.GetString();}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00281}00281         \textcolor{keyword}{const} \textcolor{keyword}{auto} \&member\_value = itr-\/>value;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00282}00282         \textcolor{keywordflow}{if} (member\_value.IsBool()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00283}00283             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetBool());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00284}00284         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsInt()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00285}00285             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetInt());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00286}00286         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsDouble()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00287}00287             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetDouble());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00288}00288         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsString()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00289}00289             attribute = \textcolor{keyword}{new} Attribute(member\_key, std::string(member\_value.GetString()));}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00290}00290         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsArray()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00291}00291             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetArray());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00292}00292         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (member\_value.IsObject()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00293}00293             attribute = \textcolor{keyword}{new} Attribute(member\_key, member\_value.GetObject());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00294}00294         \} }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00295}00295         \textcolor{keywordflow}{if} (attribute == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00296}00296             std::cout << \textcolor{stringliteral}{"{}Error type\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00297}00297             std::exit(1);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00298}00298         \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00299}00299         object\_value-\/>data[member\_key] = attribute;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00300}00300     \} }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00301}00301 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00302}00302 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00303}00303 \textcolor{keyword}{inline} Attribute Attribute::operator[](\textcolor{keyword}{const} std::string \&key)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00304}00304     assert(m\_type == EValueType::EObject);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00305}00305     ObjectValue *object\_value = \textcolor{keyword}{static\_cast<}ObjectValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00306}00306     \textcolor{keyword}{const} \textcolor{keyword}{auto} attributes = object\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00307}00307     \textcolor{keywordflow}{if} (\textcolor{keyword}{auto} itr = attributes.find(key); itr == attributes.end()) \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00308}00308         std::cout << \textcolor{stringliteral}{"{}No such a key \(\backslash\)"{}"{}} << key <<  \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00309}00309         std::exit(1);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00310}00310     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00311}00311         \textcolor{keywordflow}{return} *(itr-\/>second);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00312}00312     \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00313}00313 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00314}00314 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00315}00315 \textcolor{keyword}{inline} Attribute Attribute::operator[](\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00316}00316     assert(m\_type == EValueType::EArray);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00317}00317     ArrayValue *array\_value = \textcolor{keyword}{static\_cast<}ArrayValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00318}00318     \textcolor{keyword}{const} \textcolor{keyword}{auto} attribute\_list = array\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00319}00319     assert(i < attribute\_list.size());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00320}00320     \textcolor{keywordflow}{return} *attribute\_list[i];}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00321}00321 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00322}00322 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00323}00323 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Attribute::getBool()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00324}00324     assert(m\_type == EValueType::EBool);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00325}00325     BoolValue *bool\_value = \textcolor{keyword}{static\_cast<}BoolValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00326}00326     \textcolor{keywordflow}{return} bool\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00327}00327 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00328}00328 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00329}00329 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Attribute::getInt()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00330}00330     assert(m\_type == EValueType::EInt);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00331}00331     IntValue *int\_value = \textcolor{keyword}{static\_cast<}IntValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00332}00332     \textcolor{keywordflow}{return} int\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00333}00333 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00334}00334 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00335}00335 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} Attribute::getDouble()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00336}00336     assert(m\_type == EValueType::EDouble);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00337}00337     DoubleValue *double\_value = \textcolor{keyword}{static\_cast<}DoubleValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00338}00338     \textcolor{keywordflow}{return} double\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00339}00339 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00340}00340 }
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00341}00341 \textcolor{keyword}{inline} std::string Attribute::getString()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00342}00342     assert(m\_type == EValueType::EString);}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00343}00343     StringValue *string\_value = \textcolor{keyword}{static\_cast<}StringValue *\textcolor{keyword}{>}(m\_value.get());}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00344}00344     \textcolor{keywordflow}{return} string\_value-\/>data;}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00345}00345 \}}
+\DoxyCodeLine{\Hypertarget{_attribute_8h_source_l00346}00346 }
+
+\end{DoxyCode}

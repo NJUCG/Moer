@@ -1,0 +1,26 @@
+\hypertarget{_procedural_texture_8h_source}{}\doxysection{Procedural\+Texture.\+h}
+\label{_procedural_texture_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Texture/ProceduralTexture.h@{/mnt/renderer/Zero/src/FunctionLayer/Texture/ProceduralTexture.h}}
+\mbox{\hyperlink{_procedural_texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00015}00015 \textcolor{keyword}{class }Checkerboard2D : \textcolor{keyword}{public} StdTexture<double, TextureCoord2D>}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00017}00017 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00018}00018 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00019}00019     Checkerboard2D();}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00020}00020     \textcolor{keyword}{using }StdTexture::eval;}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00021}00021     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} eval(\textcolor{keyword}{const} TextureCoord2D \&coord) \textcolor{keyword}{const override};}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00022}00022 \};}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00024}00024 \textcolor{keyword}{class }Checkerboard3D : \textcolor{keyword}{public} StdTexture<double, TextureCoord3D>}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00026}00026 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00027}00027 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00028}00028     Checkerboard3D();}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00029}00029     \textcolor{keyword}{using }StdTexture::eval;}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00030}00030     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} eval(\textcolor{keyword}{const} TextureCoord3D \&coord) \textcolor{keyword}{const override};}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8h_source_l00031}00031 \};}
+
+\end{DoxyCode}

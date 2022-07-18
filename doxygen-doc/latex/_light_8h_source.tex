@@ -1,0 +1,56 @@
+\hypertarget{_light_8h_source}{}\doxysection{Light.\+h}
+\label{_light_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Light/Light.h@{/mnt/renderer/Zero/src/FunctionLayer/Light/Light.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_ray_8h}{CoreLayer/Ray/Ray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00018}00018 \textcolor{keyword}{struct }LightSampleResult}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00020}00020     \textcolor{comment}{// @brief Spectrum from light.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00021}00021     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} s;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00023}00023     \textcolor{comment}{// @brief Point on an object where receives light if exists.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00024}00024     \mbox{\hyperlink{struct_t_point3}{Point3d}} src;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00026}00026     \textcolor{comment}{// @brief Point on a light where emits light if exists.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00027}00027     \mbox{\hyperlink{struct_t_point3}{Point3d}} dst;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00029}00029     \textcolor{comment}{// @brief Direction from src to dst.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00030}00030     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} wi;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00032}00032     \mbox{\hyperlink{struct_normal3d}{Normal3d}} dstNormal;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00033}00033     \mbox{\hyperlink{struct_t_point2}{Point2d}} uv;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00035}00035     \textcolor{comment}{// @brief PDF of direct light sampling.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00036}00036     \textcolor{keywordtype}{double} pdfDirect;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00037}00037     \textcolor{comment}{// @brief Positional emission PDF if exists.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00038}00038     \textcolor{keywordtype}{double} pdfEmitPos;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00039}00039     \textcolor{comment}{// @brief Directional emission PDF if exists.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00040}00040     \textcolor{keywordtype}{double} pdfEmitDir;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00042}00042     \textcolor{comment}{// @brief FALSE for area and volume light, TRUE for point and etc}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00043}00043     \textcolor{keywordtype}{bool} isDeltaPos;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00044}00044     \textcolor{comment}{// @brief TRUE for distant light}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00045}00045     \textcolor{keywordtype}{bool} isDeltaDir;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00046}00046 \};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00048}00048 \textcolor{keyword}{class }Light}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00049}00049 \{}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00050}00050 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00051}00051     \textcolor{comment}{// @brief Assume that the given ray hits nothing in the scene.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00052}00052     \textcolor{comment}{// Note that this function will not return a direct light sampling PDF.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00053}00053     \textcolor{keyword}{virtual} LightSampleResult evalEnvironment(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray) = 0;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00054}00054     \textcolor{comment}{// @brief Assume that the given intersection is on the emitter. }}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00055}00055     \textcolor{comment}{// Note that param ray is only used to fill 'src' field.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00056}00056     \textcolor{keyword}{virtual} LightSampleResult eval(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& ray, \textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) = 0;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00057}00057     \textcolor{comment}{// @brief Note that this function will not return a direct light sampling PDF.}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00058}00058     \textcolor{keyword}{virtual} LightSampleResult sampleEmit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&positionSample, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&directionSample, \textcolor{keywordtype}{float} time) = 0;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00059}00059     \textcolor{keyword}{virtual} LightSampleResult sampleDirect(\textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, \textcolor{keywordtype}{float} time) = 0;}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00060}00060 \};}
+
+\end{DoxyCode}

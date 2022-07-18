@@ -1,0 +1,56 @@
+\hypertarget{class_image_texture}{}\doxysection{Image\+Texture\texorpdfstring{$<$}{<} Treturn, Tmemory \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_image_texture}\index{ImageTexture$<$ Treturn, Tmemory $>$@{ImageTexture$<$ Treturn, Tmemory $>$}}
+Inheritance diagram for Image\+Texture\texorpdfstring{$<$}{<} Treturn, Tmemory \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_image_texture}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_texture_acc30c1ae25bb9fb3e1e50597f3be6562}\label{class_image_texture_acc30c1ae25bb9fb3e1e50597f3be6562}} 
+{\bfseries Image\+Texture} (const std\+::string \&filename, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping2D}} $>$ mapping=std\+::make\+\_\+shared$<$ \mbox{\hyperlink{class_u_v_texture_mapping2_d}{UVTexture\+Mapping2D}} $>$())
+\item 
+\mbox{\Hypertarget{class_image_texture_a8a81d8c05c8ccfd894ebf18c7bd6e5f9}\label{class_image_texture_a8a81d8c05c8ccfd894ebf18c7bd6e5f9}} 
+{\bfseries Image\+Texture} (const std\+::string \&filename, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_prefiltered_image}{Prefiltered\+Image}}$<$ Tmemory $>$ $>$ image\+Sampler, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping2D}} $>$ mapping=std\+::make\+\_\+shared$<$ \mbox{\hyperlink{class_u_v_texture_mapping2_d}{UVTexture\+Mapping2D}} $>$())
+\item 
+virtual Treturn \mbox{\hyperlink{class_image_texture_a5cfb49f9683d6bcd63e5a666aa8c89ec}{eval}} (const \mbox{\hyperlink{struct_texture_coord}{Texture\+Coord2D}} \&coord) const override
+\item 
+\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_image_texture_a94fbbd597579204e77d7fd2291655d98}{eval}} (const \mbox{\hyperlink{struct_texture_coord}{Texture\+Coord2D}} \&coord) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_texture_a0e8a908075ce34e4bbe77a7837aa9cc8}\label{class_image_texture_a0e8a908075ce34e4bbe77a7837aa9cc8}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_prefiltered_image}{Prefiltered\+Image}}$<$ Tmemory $>$ $>$ {\bfseries image\+Sampler}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_image_texture_a94fbbd597579204e77d7fd2291655d98}\label{class_image_texture_a94fbbd597579204e77d7fd2291655d98}} 
+\index{ImageTexture$<$ Treturn, Tmemory $>$@{ImageTexture$<$ Treturn, Tmemory $>$}!eval@{eval}}
+\index{eval@{eval}!ImageTexture$<$ Treturn, Tmemory $>$@{ImageTexture$<$ Treturn, Tmemory $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_image_texture}{Image\+Texture}}$<$ \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}}, \mbox{\hyperlink{class_r_g_b3}{RGB3}} $>$\+::eval (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_texture_coord}{Texture\+Coord2D}} \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_std_texture}{Std\+Texture$<$ Treturn, Texture\+Coord2\+D $>$}}.
+
+\mbox{\Hypertarget{class_image_texture_a5cfb49f9683d6bcd63e5a666aa8c89ec}\label{class_image_texture_a5cfb49f9683d6bcd63e5a666aa8c89ec}} 
+\index{ImageTexture$<$ Treturn, Tmemory $>$@{ImageTexture$<$ Treturn, Tmemory $>$}!eval@{eval}}
+\index{eval@{eval}!ImageTexture$<$ Treturn, Tmemory $>$@{ImageTexture$<$ Treturn, Tmemory $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Treturn , typename Tmemory $>$ \\
+virtual Treturn \mbox{\hyperlink{class_image_texture}{Image\+Texture}}$<$ Treturn, Tmemory $>$\+::eval (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_texture_coord}{Texture\+Coord2D}} \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_std_texture}{Std\+Texture$<$ Treturn, Texture\+Coord2\+D $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Texture/\mbox{\hyperlink{_image_texture_8h}{Image\+Texture.\+h}}\end{DoxyCompactItemize}

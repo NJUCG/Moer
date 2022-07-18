@@ -1,0 +1,128 @@
+\hypertarget{_image_texture_8h_source}{}\doxysection{Image\+Texture.\+h}
+\label{_image_texture_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Texture/ImageTexture.h@{/mnt/renderer/Zero/src/FunctionLayer/Texture/ImageTexture.h}}
+\mbox{\hyperlink{_image_texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_image_8h}{ResourceLayer/File/Image.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_mapping_8h}{TextureMapping.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00021}00021 \textcolor{keyword}{enum class} WrapMode}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00023}00023     \textcolor{comment}{// todo}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00024}00024 \};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00026}00026 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00027}00027 \textcolor{keyword}{class }PrefilteredImage}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00028}00028 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00029}00029 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00030}00030     WrapMode wrapMode;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00032}00032 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00033}00033     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setWrapMode(\textcolor{keyword}{enum} WrapMode \_wrapMode);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00034}00034     \textcolor{keyword}{virtual} WrapMode getWrapMode();}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00035}00035     \textcolor{comment}{// todo: other common parameters}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00037}00037     \textcolor{keyword}{virtual} T eval(\textcolor{keyword}{const} TextureCoord2D \&coord) = 0;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00038}00038     \textcolor{keyword}{virtual} T texel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&coord) = 0;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00039}00039     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} loadImage(\textcolor{keyword}{const} std::string \&filename) = 0;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00040}00040 \};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00042}00042 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00043}00043 \textcolor{keyword}{class }DirectImage : \textcolor{keyword}{public} PrefilteredImage<T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00044}00044 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00045}00045 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00046}00046     std::shared\_ptr<Image> image;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00048}00048 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00049}00049     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} loadImage(\textcolor{keyword}{const} std::string \&filename);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00050}00050     \textcolor{keyword}{virtual} T eval(\textcolor{keyword}{const} TextureCoord2D \&coord);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00051}00051     \textcolor{keyword}{virtual} T texel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&coord);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00052}00052 \};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00054}00054 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00055}00055 \textcolor{keyword}{class }LinearMIPMap : \textcolor{keyword}{public} PrefilteredImage<T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00056}00056 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00057}00057 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00058}00058     std::shared\_ptr<Image> image;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00060}00060 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00061}00061     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} loadImage(\textcolor{keyword}{const} std::string \&filename);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00062}00062     \textcolor{keyword}{virtual} T eval(\textcolor{keyword}{const} TextureCoord2D \&coord);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00063}00063     \textcolor{keyword}{virtual} T texel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&coord);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00064}00064 \};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00066}00066 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Treturn, \textcolor{keyword}{typename} Tmemory>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00067}00067 \textcolor{keyword}{class }ImageTexture : \textcolor{keyword}{public} StdTexture<Treturn, TextureCoord2D>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00068}00068 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00069}00069 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00070}00070     std::shared\_ptr<PrefilteredImage<Tmemory>> imageSampler;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00072}00072 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00073}00073     ImageTexture(\textcolor{keyword}{const} std::string \&filename,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00074}00074                  std::shared\_ptr<TextureMapping2D> mapping = std::make\_shared<UVTextureMapping2D>()); \textcolor{comment}{// using default sampler}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00075}00075     ImageTexture(\textcolor{keyword}{const} std::string \&filename,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00076}00076                  std::shared\_ptr<PrefilteredImage<Tmemory>> imageSampler,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00077}00077                  std::shared\_ptr<TextureMapping2D> mapping = std::make\_shared<UVTextureMapping2D>());}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00078}00078     \textcolor{keyword}{virtual} Treturn eval(\textcolor{keyword}{const} TextureCoord2D \&coord) \textcolor{keyword}{const override};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00079}00079 \};}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00081}00081 \textcolor{comment}{// * Example: Creating a Image-\/based Color Texture using UV coordinates from mesh}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00082}00082 \textcolor{comment}{// * >  ImageTexture<RGB3>("{}1.jpg"{});}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00083}00083 \textcolor{comment}{// * >  ImageTexture<RGB3>("{}1.jpg"{}, std::make\_shared<DirectSampler>());}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00084}00084 \textcolor{comment}{// * >  ImageTexture<RGB3>("{}1.jpg"{}, std::make\_shared<UVTextureMapping2D>());}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00085}00085 \textcolor{comment}{// * >  ImageTexture<RGB3>("{}1.jpg"{}, std::make\_shared<DirectSampler>(), std::make\_shared<UVTextureMapping2D>());}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00087}00087 \textcolor{comment}{// * Example: Create a Image-\/based Normal Map (wip)}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00088}00088 \textcolor{comment}{// * since normal cannot be directly interpolated, you need to provide T with some compact NDF type}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00089}00089 \textcolor{comment}{// * The NDF must provide convertor from RGB3 and some accessors for shadings (depends on implementation of material)}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00091}00091 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00092}00092 \textcolor{keywordtype}{void} PrefilteredImage<T>::setWrapMode(\textcolor{keyword}{enum} WrapMode \_wrapMode)}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00093}00093 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00094}00094     wrapMode = \_wrapMode;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00097}00097 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00098}00098 WrapMode PrefilteredImage<T>::getWrapMode()}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00099}00099 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00100}00100     \textcolor{keywordflow}{return} wrapMode;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00101}00101 \}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00103}00103 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00104}00104 \textcolor{keywordtype}{void} DirectImage<T>::loadImage(\textcolor{keyword}{const} std::string \&filename)}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00105}00105 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00106}00106     image = std::make\_shared<Image>(filename);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00107}00107 \}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00109}00109 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00110}00110 T DirectImage<T>::texel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&coord)}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00111}00111 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00112}00112     \textcolor{comment}{// todo}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00113}00113     \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00114}00114 \}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00116}00116 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Treturn, \textcolor{keyword}{typename} Tmemory>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00117}00117 ImageTexture<Treturn, Tmemory>::ImageTexture(\textcolor{keyword}{const} std::string \&filename,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00118}00118                                              std::shared\_ptr<TextureMapping2D> mapping) : StdTexture<Treturn, TextureCoord2D>(mapping)}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00119}00119 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00120}00120     imageSampler = std::make\_shared<DirectImage<Tmemory>>();}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00121}00121     imageSampler-\/>loadImage(filename);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00126}00126 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Treturn, \textcolor{keyword}{typename} Tmemory>}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00127}00127 ImageTexture<Treturn, Tmemory>::ImageTexture(\textcolor{keyword}{const} std::string \&filename,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00128}00128                                              std::shared\_ptr<PrefilteredImage<Tmemory>> imageSampler,}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00129}00129                                              std::shared\_ptr<TextureMapping2D> mapping) : imageSampler(imageSampler), StdTexture<Treturn, TextureCoord2D>(mapping)}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00130}00130 \{}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00131}00131     this-\/>imageSampler-\/>loadImage(filename);}
+\DoxyCodeLine{\Hypertarget{_image_texture_8h_source_l00132}00132 \}}
+
+\end{DoxyCode}

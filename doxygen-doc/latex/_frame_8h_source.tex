@@ -1,0 +1,108 @@
+\hypertarget{_frame_8h_source}{}\doxysection{Frame.\+h}
+\label{_frame_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Geometry/Frame.h@{/mnt/renderer/Zero/src/CoreLayer/Geometry/Frame.h}}
+\mbox{\hyperlink{_frame_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00002}00002 \textcolor{comment}{// Created by yjp on 2022/6/6.}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00016}00016 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{CoreLayer/Math/Common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00022}00022 \textcolor{keyword}{static} \textcolor{keywordtype}{void} coordinateSystem(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&a, \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \&b, \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \&c) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00023}00023     \textcolor{keywordflow}{if} (std::abs(a.x) > std::abs(a.y)) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00024}00024         \textcolor{keywordtype}{float} invLen = 1.0f / std::sqrt(a.x * a.x + a.z * a.z);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00025}00025         c = \mbox{\hyperlink{struct_t_vector3}{Vec3d}} (a.z * invLen, 0.0f, -\/a.x * invLen);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00026}00026     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00027}00027         \textcolor{keywordtype}{float} invLen = 1.0f / std::sqrt(a.y * a.y + a.z * a.z);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00028}00028         c = \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(0.0f, a.z * invLen, -\/a.y * invLen);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00030}00030     \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \_a(a.x,a.y,a.z);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00031}00031     b = \mbox{\hyperlink{vector_8h_ab82aa209c23c60f76558d0d672e5cd8e}{cross}}(\_a,c);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00032}00032 \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00036}\mbox{\hyperlink{struct_frame}{00036}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_frame}{Frame}} \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00037}00037     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} s, t;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00038}00038     \mbox{\hyperlink{struct_normal3d}{Normal3d}}  n;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00041}\mbox{\hyperlink{struct_frame_ad2e5946cf41d4817e750500acf05d02b}{00041}}     \mbox{\hyperlink{struct_frame_ad2e5946cf41d4817e750500acf05d02b}{Frame}}() \{ \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00044}\mbox{\hyperlink{struct_frame_a7749295b5d75079e15d19946acb5254a}{00044}}     \mbox{\hyperlink{struct_frame_a7749295b5d75079e15d19946acb5254a}{Frame}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \&s, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, \textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}}  \&n)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00045}00045             : s(s), t(t), n(n) \{ \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00048}\mbox{\hyperlink{struct_frame_a3812db625a40925378672674ea5992a3}{00048}}     \mbox{\hyperlink{struct_frame_a3812db625a40925378672674ea5992a3}{Frame}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&x, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&y, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&z)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00049}00049             : s(x), t(y), n(z.x,z.y,z.z) \{ \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00052}\mbox{\hyperlink{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}{00052}}     \mbox{\hyperlink{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}{Frame}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}} n) : n(n)\{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00053}00053         coordinateSystem(n, s, t);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00054}00054     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00057}\mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{00057}}     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{toLocal}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00058}00058         \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00059}00059                 dot(v,s), dot(v,t), dot(v,n)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00060}00060         );}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00064}\mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{00064}}     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{toWorld}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00065}00065         \textcolor{keywordflow}{return} s * v.x + t * v.y   + n * v.z ;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00070}\mbox{\hyperlink{struct_frame_acc3afa4f7865320db0a81a946cd73497}{00070}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_acc3afa4f7865320db0a81a946cd73497}{cosTheta}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00071}00071         \textcolor{keywordflow}{return} v.z;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00072}00072     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00076}\mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{00076}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00077}00077         \textcolor{keywordtype}{float} temp = \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00078}00078         \textcolor{keywordflow}{if} (temp <= 0.0f)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00079}00079             \textcolor{keywordflow}{return} 0.0f;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00080}00080         \textcolor{keywordflow}{return} std::sqrt(temp);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00085}\mbox{\hyperlink{struct_frame_a6de539bfd929d602c3a57ee049e6331e}{00085}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a6de539bfd929d602c3a57ee049e6331e}{tanTheta}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00086}00086         \textcolor{keywordtype}{float} temp = 1 -\/ v.z*v.z;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00087}00087         \textcolor{keywordflow}{if} (temp <= 0.0f)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00088}00088             \textcolor{keywordflow}{return} 0.0f;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00089}00089         \textcolor{keywordflow}{return} std::sqrt(temp) / v.z;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00094}\mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{00094}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00095}00095         \textcolor{keywordflow}{return} 1.0f -\/ v.z * v.z;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00096}00096     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00100}\mbox{\hyperlink{struct_frame_a1340ec99788fefde702f043a4ffc93c3}{00100}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a1340ec99788fefde702f043a4ffc93c3}{sinPhi}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00101}00101         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} = \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{Frame::sinTheta}}(v);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00102}00102         \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} == 0.0f)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00103}00103             \textcolor{keywordflow}{return} 1.0f;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00104}00104         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.y / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00105}00105     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00109}\mbox{\hyperlink{struct_frame_a9516d7ef17c182b1192c179c861906b7}{00109}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a9516d7ef17c182b1192c179c861906b7}{cosPhi}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00110}00110         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} = \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{Frame::sinTheta}}(v);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00111}00111         \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} == 0.0f)}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00112}00112             \textcolor{keywordflow}{return} 1.0f;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00113}00113         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.x / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00119}\mbox{\hyperlink{struct_frame_ac5a798094759b36a5650699b8d1bcad9}{00119}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_ac5a798094759b36a5650699b8d1bcad9}{sinPhi2}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00120}00120         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.y * v.y / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00121}00121     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00126}\mbox{\hyperlink{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}{00126}}     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}{cosPhi2}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00127}00127         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.x * v.x / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00128}00128     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00131}\mbox{\hyperlink{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}{00131}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_frame}{Frame}} \&frame)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00132}00132         \textcolor{keywordflow}{return} frame.s == s \&\& frame.t == t \&\& frame.n == n;}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00133}00133     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00136}\mbox{\hyperlink{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}{00136}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_frame}{Frame}} \&frame)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00137}00137         \textcolor{keywordflow}{return} !\mbox{\hyperlink{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}{operator==}}(frame);}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_frame_8h_source_l00141}00141 \};}
+
+\end{DoxyCode}

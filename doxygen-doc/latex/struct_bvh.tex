@@ -1,0 +1,44 @@
+\hypertarget{struct_bvh}{}\doxysection{Bvh Struct Reference}
+\label{struct_bvh}\index{Bvh@{Bvh}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_bvh_ad824ac0e9e00dbb7753f31acdfc8da3f}\label{struct_bvh_ad824ac0e9e00dbb7753f31acdfc8da3f}} 
+enum class {\bfseries Split\+Method} \{ {\bfseries SAH}
+, {\bfseries Middle}
+, {\bfseries Equal\+Counts}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_bvh_a514af7e4d3dc0552367ed9396e6d3722}\label{struct_bvh_a514af7e4d3dc0552367ed9396e6d3722}} 
+{\bfseries Bvh} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ $>$ \&\+\_\+entites, Split\+Method \+\_\+split\+Method=Split\+Method\+::\+SAH)
+\item 
+\mbox{\Hypertarget{struct_bvh_abbf3d3cb9777083e5ae55765a9e55ad3}\label{struct_bvh_abbf3d3cb9777083e5ae55765a9e55ad3}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_bvh_tree_node}{Bvh\+Tree\+Node}} $>$ {\bfseries Recursive\+Build} (std\+::vector$<$ \mbox{\hyperlink{struct_entity_info}{Entity\+Info}} $>$ \&entity\+Info, int start, int end, int \&node\+Number, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ $>$ \&ordered\+Entites)
+\item 
+\mbox{\Hypertarget{struct_bvh_a55a4477b7033d9d7ec0b0fbd6ff4838d}\label{struct_bvh_a55a4477b7033d9d7ec0b0fbd6ff4838d}} 
+void {\bfseries Flatten} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_bvh_tree_node}{Bvh\+Tree\+Node}} $>$ node, int \&dfs\+Order)
+\item 
+\mbox{\Hypertarget{struct_bvh_a93b1b69d629ee241e7c41ab9a8373d04}\label{struct_bvh_a93b1b69d629ee241e7c41ab9a8373d04}} 
+std\+::optional$<$ \mbox{\hyperlink{struct_intersection}{Intersection}} $>$ {\bfseries Intersect} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_bvh_acd21c5472ed28eab73d829f92e4a05a1}\label{struct_bvh_acd21c5472ed28eab73d829f92e4a05a1}} 
+const Split\+Method {\bfseries split\+Method}
+\item 
+\mbox{\Hypertarget{struct_bvh_a25e9347e58552db1a757e3d0d89fb59a}\label{struct_bvh_a25e9347e58552db1a757e3d0d89fb59a}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ $>$ {\bfseries entites}
+\item 
+\mbox{\Hypertarget{struct_bvh_af3556e85c7af1c8af627765118064c64}\label{struct_bvh_af3556e85c7af1c8af627765118064c64}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_linear_bvh_node}{Linear\+Bvh\+Node}} $>$ {\bfseries linear\+Bvh\+Nodes}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Aggregate/\mbox{\hyperlink{_bvh_8h}{Bvh.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Aggregate/Bvh.\+cpp\end{DoxyCompactItemize}

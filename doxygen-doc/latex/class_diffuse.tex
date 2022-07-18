@@ -1,0 +1,83 @@
+\hypertarget{class_diffuse}{}\doxysection{Diffuse Class Reference}
+\label{class_diffuse}\index{Diffuse@{Diffuse}}
+Inheritance diagram for Diffuse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_diffuse}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_diffuse_a20a4304d698249bda07fbefa737487a4}\label{class_diffuse_a20a4304d698249bda07fbefa737487a4}} 
+{\bfseries Diffuse} (\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} albedo)
+\item 
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_diffuse_a8b48ad2e224c4d06e6cc22781c7025b1}{f}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_diffuse_a8bb0affbeb0e1fc7708ccabfb77c65c9}{sample\+Wi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual double \mbox{\hyperlink{class_diffuse_ae2369afbf866f64477fe27958b94bee2}{pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} \mbox{\hyperlink{class_diffuse_a39c15bd4bb8100ace0b464353ee01377}{sample}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual bool \mbox{\hyperlink{class_diffuse_abf4316d1310c026fc0903ba8320b8f4a}{is\+Specular}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_diffuse_a8b48ad2e224c4d06e6cc22781c7025b1}\label{class_diffuse_a8b48ad2e224c4d06e6cc22781c7025b1}} 
+\index{Diffuse@{Diffuse}!f@{f}}
+\index{f@{f}!Diffuse@{Diffuse}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Diffuse\+::f (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_diffuse_abf4316d1310c026fc0903ba8320b8f4a}\label{class_diffuse_abf4316d1310c026fc0903ba8320b8f4a}} 
+\index{Diffuse@{Diffuse}!isSpecular@{isSpecular}}
+\index{isSpecular@{isSpecular}!Diffuse@{Diffuse}}
+\doxysubsubsection{\texorpdfstring{isSpecular()}{isSpecular()}}
+{\footnotesize\ttfamily bool Diffuse\+::is\+Specular (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_diffuse_ae2369afbf866f64477fe27958b94bee2}\label{class_diffuse_ae2369afbf866f64477fe27958b94bee2}} 
+\index{Diffuse@{Diffuse}!pdf@{pdf}}
+\index{pdf@{pdf}!Diffuse@{Diffuse}}
+\doxysubsubsection{\texorpdfstring{pdf()}{pdf()}}
+{\footnotesize\ttfamily double Diffuse\+::pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_diffuse_a39c15bd4bb8100ace0b464353ee01377}\label{class_diffuse_a39c15bd4bb8100ace0b464353ee01377}} 
+\index{Diffuse@{Diffuse}!sample@{sample}}
+\index{sample@{sample}!Diffuse@{Diffuse}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} Diffuse\+::sample (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_diffuse_a8bb0affbeb0e1fc7708ccabfb77c65c9}\label{class_diffuse_a8bb0affbeb0e1fc7708ccabfb77c65c9}} 
+\index{Diffuse@{Diffuse}!sampleWi@{sampleWi}}
+\index{sampleWi@{sampleWi}!Diffuse@{Diffuse}}
+\doxysubsubsection{\texorpdfstring{sampleWi()}{sampleWi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Diffuse\+::sample\+Wi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/\mbox{\hyperlink{_diffuse_8h}{Diffuse.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/\mbox{\hyperlink{_diffuse_8cpp}{Diffuse.\+cpp}}\end{DoxyCompactItemize}

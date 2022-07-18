@@ -1,0 +1,126 @@
+\hypertarget{_texture_8h_source}{}\doxysection{Texture.\+h}
+\label{_texture_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Texture/Texture.h@{/mnt/renderer/Zero/src/FunctionLayer/Texture/Texture.h}}
+\mbox{\hyperlink{_texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00018}00018 \textcolor{comment}{// Tvalue can be float or any specturm type}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00019}00019 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00020}00020 \textcolor{keyword}{class }Texture}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00022}00022 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00023}00023     \textcolor{keyword}{virtual} Tvalue eval(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00024}00024 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00027}00027 \textcolor{comment}{// @brief Struct for texture coord C and dC/dx, dC/dy.}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00028}00028 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tpos, \textcolor{keyword}{typename} Tvec>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00029}00029 \textcolor{keyword}{struct }TextureCoord}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00030}00030 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00031}00031     Tpos coord;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00032}00032     Tvec dcdx;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00033}00033     Tvec dcdy;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00034}00034 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00036}00036 \textcolor{keyword}{typedef} TextureCoord<Point2d, Vec2d> TextureCoord2D;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00037}00037 \textcolor{keyword}{typedef} TextureCoord<Point3d, Vec3d> TextureCoord3D;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00039}00039 \textcolor{comment}{// @brief TextureMapping maps an intersection to texture coordinates of type Tcoord.}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00040}00040 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tcoord>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00041}00041 \textcolor{keyword}{class }TextureMapping}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00042}00042 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00043}00043 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00044}00044 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00045}00045     \textcolor{keyword}{virtual} Tcoord mapping(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00046}00046 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00048}00048 \textcolor{keyword}{typedef} TextureMapping<TextureCoord2D> TextureMapping2D;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00049}00049 \textcolor{keyword}{typedef} TextureMapping<TextureCoord3D> TextureMapping3D;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00051}00051 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00052}00052 \textcolor{keyword}{class }ConstantTexture : \textcolor{keyword}{public} Texture<Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00054}00054 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00055}00055     Tvalue value;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00057}00057 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00058}00058     ConstantTexture(\textcolor{keyword}{const} Tvalue \&value);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00059}00059     \textcolor{keyword}{virtual} Tvalue eval(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00060}00060 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00062}00062 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00063}00063 \textcolor{keyword}{class }MixTexture : \textcolor{keyword}{public} Texture<Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00064}00064 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00065}00065 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00066}00066     std::shared\_ptr<Texture<Tvalue>> srcA;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00067}00067     std::shared\_ptr<Texture<Tvalue>> srcB;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00068}00068     std::shared\_ptr<Texture<double>> factor;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00070}00070 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00071}00071     MixTexture(std::shared\_ptr<Texture<Tvalue>> srcA,}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00072}00072                std::shared\_ptr<Texture<Tvalue>> srcB,}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00073}00073                std::shared\_ptr<Texture<double>> factor);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00075}00075     \textcolor{keyword}{virtual} Tvalue eval(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00076}00076 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00078}00078 \textcolor{comment}{// @brief StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00079}00079 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue, \textcolor{keyword}{typename} Tcoord>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00080}00080 \textcolor{keyword}{class }StdTexture : \textcolor{keyword}{public} Texture<Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00081}00081 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00082}00082 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00083}00083     std::shared\_ptr<TextureMapping<Tcoord>> mapping;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00085}00085 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00086}00086     StdTexture();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00087}00087     StdTexture(std::shared\_ptr<TextureMapping<Tcoord>> mapping);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00089}00089     \textcolor{comment}{// @brief This function just redirects the query to eval(coord) using member TextureMapping. Derived should NOT overwrite this.}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00090}00090     \textcolor{keyword}{virtual} Tvalue eval(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const} \textcolor{keyword}{final};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00092}00092     \textcolor{comment}{// @brief Eval texture value at given texture coord. (Derived needs to implement this)}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00093}00093     \textcolor{keyword}{virtual} Tvalue eval(\textcolor{keyword}{const} Tcoord \&coord) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00094}00094 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00096}00096 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00097}00097 ConstantTexture<Tvalue>::ConstantTexture(\textcolor{keyword}{const} Tvalue \&value) : value(value)}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00098}00098 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00099}00099 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00101}00101 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00102}00102 Tvalue ConstantTexture<Tvalue>::eval(\textcolor{keyword}{const} Intersection \&intersection)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00103}00103 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00104}00104     \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00107}00107 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00108}00108 MixTexture<Tvalue>::MixTexture(std::shared\_ptr<Texture<Tvalue>> srcA,}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00109}00109                                std::shared\_ptr<Texture<Tvalue>> srcB,}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00110}00110                                std::shared\_ptr<Texture<double>> factor) : srcA(srcA), srcB(srcB), factor(factor)}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00111}00111 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00112}00112 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00114}00114 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00115}00115 Tvalue MixTexture<Tvalue>::eval(\textcolor{keyword}{const} Intersection \&intersection)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00116}00116 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00117}00117     \textcolor{keywordtype}{double} alpha = factor-\/>eval(intersection);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00118}00118     \textcolor{keywordflow}{return} srcA-\/>eval(intersection) * alpha + srcB-\/>eval(intersection) * (1 -\/ alpha);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00119}00119 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00121}00121 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue, \textcolor{keyword}{typename} Tcoord>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00122}00122 StdTexture<Tvalue, Tcoord>::StdTexture(std::shared\_ptr<TextureMapping<Tcoord>> mapping): mapping(mapping)}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00123}00123 \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00124}00124 \}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00126}00126 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Tvalue, \textcolor{keyword}{typename} Tcoord>}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00127}00127 Tvalue StdTexture<Tvalue, Tcoord>::eval(\textcolor{keyword}{const} Intersection \&intersection)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00128}00128 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00129}00129     \textcolor{keywordflow}{return} eval(mapping-\/>mapping(intersection));}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00130}00130 \}}
+
+\end{DoxyCode}

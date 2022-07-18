@@ -12,7 +12,7 @@
 #pragma once
 
 #include <vector>
-#include "CoreLayer/Adapter/random.h"
+#include "CoreLayer/Adapter/Random.h"
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Math/Common.h"
 

@@ -1,0 +1,94 @@
+\hypertarget{struct_linear_bvh_node}{}\doxysection{Linear\+Bvh\+Node Struct Reference}
+\label{struct_linear_bvh_node}\index{LinearBvhNode@{LinearBvhNode}}
+
+
+Bvh Nodes in Dfs-\/\+Order.  
+
+
+
+
+{\ttfamily \#include $<$Bvh.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3f}} \mbox{\hyperlink{struct_linear_bvh_node_a75095d6db1b4b94030719aa715d87fc7}{bounds}}
+\item 
+\mbox{\Hypertarget{struct_linear_bvh_node_a82cb6662a76ce8cd8a30305229cf7dae}\label{struct_linear_bvh_node_a82cb6662a76ce8cd8a30305229cf7dae}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int \mbox{\hyperlink{struct_linear_bvh_node_aca3d3e0b5334687d2016a0dd0a9ba077}{firstdEntityOffset}}\\
+\>int \mbox{\hyperlink{struct_linear_bvh_node_afd02a965fce5518d044f30d06980592f}{secondChildOrder}}\\
+\}; \\
+
+\end{tabbing}\item 
+int \mbox{\hyperlink{struct_linear_bvh_node_a9278aabfb6904524172e8e769ce54ff8}{n\+Entites}} = 0
+\item 
+int \mbox{\hyperlink{struct_linear_bvh_node_a46187d4694b81723172dd257f9423f1d}{split\+Axis}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bvh Nodes in Dfs-\/\+Order. 
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00036}{36}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_linear_bvh_node_a75095d6db1b4b94030719aa715d87fc7}\label{struct_linear_bvh_node_a75095d6db1b4b94030719aa715d87fc7}} 
+\index{LinearBvhNode@{LinearBvhNode}!bounds@{bounds}}
+\index{bounds@{bounds}!LinearBvhNode@{LinearBvhNode}}
+\doxysubsubsection{\texorpdfstring{bounds}{bounds}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3f}} Linear\+Bvh\+Node\+::bounds}
+
+
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00037}{37}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+\mbox{\Hypertarget{struct_linear_bvh_node_aca3d3e0b5334687d2016a0dd0a9ba077}\label{struct_linear_bvh_node_aca3d3e0b5334687d2016a0dd0a9ba077}} 
+\index{LinearBvhNode@{LinearBvhNode}!firstdEntityOffset@{firstdEntityOffset}}
+\index{firstdEntityOffset@{firstdEntityOffset}!LinearBvhNode@{LinearBvhNode}}
+\doxysubsubsection{\texorpdfstring{firstdEntityOffset}{firstdEntityOffset}}
+{\footnotesize\ttfamily int Linear\+Bvh\+Node\+::firstd\+Entity\+Offset}
+
+
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00040}{40}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+\mbox{\Hypertarget{struct_linear_bvh_node_a9278aabfb6904524172e8e769ce54ff8}\label{struct_linear_bvh_node_a9278aabfb6904524172e8e769ce54ff8}} 
+\index{LinearBvhNode@{LinearBvhNode}!nEntites@{nEntites}}
+\index{nEntites@{nEntites}!LinearBvhNode@{LinearBvhNode}}
+\doxysubsubsection{\texorpdfstring{nEntites}{nEntites}}
+{\footnotesize\ttfamily int Linear\+Bvh\+Node\+::n\+Entites = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00043}{43}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+\mbox{\Hypertarget{struct_linear_bvh_node_afd02a965fce5518d044f30d06980592f}\label{struct_linear_bvh_node_afd02a965fce5518d044f30d06980592f}} 
+\index{LinearBvhNode@{LinearBvhNode}!secondChildOrder@{secondChildOrder}}
+\index{secondChildOrder@{secondChildOrder}!LinearBvhNode@{LinearBvhNode}}
+\doxysubsubsection{\texorpdfstring{secondChildOrder}{secondChildOrder}}
+{\footnotesize\ttfamily int Linear\+Bvh\+Node\+::second\+Child\+Order}
+
+
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00041}{41}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+\mbox{\Hypertarget{struct_linear_bvh_node_a46187d4694b81723172dd257f9423f1d}\label{struct_linear_bvh_node_a46187d4694b81723172dd257f9423f1d}} 
+\index{LinearBvhNode@{LinearBvhNode}!splitAxis@{splitAxis}}
+\index{splitAxis@{splitAxis}!LinearBvhNode@{LinearBvhNode}}
+\doxysubsubsection{\texorpdfstring{splitAxis}{splitAxis}}
+{\footnotesize\ttfamily int Linear\+Bvh\+Node\+::split\+Axis}
+
+
+
+Definition at line \mbox{\hyperlink{_bvh_8h_source_l00044}{44}} of file \mbox{\hyperlink{_bvh_8h_source}{Bvh.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Aggregate/\mbox{\hyperlink{_bvh_8h}{Bvh.\+h}}\end{DoxyCompactItemize}

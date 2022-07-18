@@ -1,0 +1,39 @@
+\hypertarget{_mesh_data_8h_source}{}\doxysection{Mesh\+Data.\+h}
+\label{_mesh_data_8h_source}\index{/mnt/renderer/Zero/src/ResourceLayer/File/MeshData.h@{/mnt/renderer/Zero/src/ResourceLayer/File/MeshData.h}}
+\mbox{\hyperlink{_mesh_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00018}00018 \textcolor{keyword}{class }MeshData}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00020}00020     \textcolor{keywordtype}{double} *vertexRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00021}00021     \textcolor{keywordtype}{double} *normalRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00022}00022     \textcolor{keywordtype}{double} *uvRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00023}00023     \textcolor{keywordtype}{double} *tangentRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00024}00024     \textcolor{keywordtype}{double} *bitangentRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00025}00025     \textcolor{keywordtype}{int} *indiceRaw;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00027}00027     \textcolor{comment}{// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.}}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00028}00028     MeshData(\textcolor{keywordtype}{double} *\_v, \textcolor{keywordtype}{double} *\_n, \textcolor{keywordtype}{double} *\_uv, \textcolor{keywordtype}{double} *\_tan, \textcolor{keywordtype}{double} *\_bi, \textcolor{keywordtype}{int} *\_indice);}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00030}00030 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00031}00031     \textcolor{keyword}{friend} \textcolor{keyword}{class }MeshDataManager;}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00033}00033     \mbox{\hyperlink{struct_t_point3}{Point3d}} getVertexAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00034}00034     \mbox{\hyperlink{struct_normal3d}{Normal3d}} getNormalAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00035}00035     \mbox{\hyperlink{struct_t_point2}{Point2d}} getUvAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00036}00036     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} getTangentAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00037}00037     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} getBitangentAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00039}00039     \textcolor{comment}{// @brief get 3 indices for ist triangle mesh. In order.}}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00040}00040     \mbox{\hyperlink{struct_t_point3}{Point3i}} getTriangleIndiceAt(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00042}00042     \textcolor{keywordtype}{int} getTriangleNum() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mesh_data_8h_source_l00043}00043 \};}
+
+\end{DoxyCode}

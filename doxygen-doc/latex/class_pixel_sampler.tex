@@ -1,0 +1,235 @@
+\hypertarget{class_pixel_sampler}{}\doxysection{Pixel\+Sampler Class Reference}
+\label{class_pixel_sampler}\index{PixelSampler@{PixelSampler}}
+
+
+Base class for pixel sampler, which generate specific samples before rendering each pixel need the dimensions and samples\+Per\+Pixels when construct.  
+
+
+
+
+{\ttfamily \#include $<$Sampler.\+h$>$}
+
+
+
+Inherits Sampler.
+
+
+
+Inherited by Stratified\+Sampler.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pixel_sampler_a12c729bdb93bc5ca73ea948fab31ae8c}{Pixel\+Sampler}} (int \+\_\+spp\+Sqrt)
+\item 
+\mbox{\hyperlink{class_pixel_sampler_a3de1ca4cdab2deb7ece45959196c078b}{Pixel\+Sampler}} (int \+\_\+spp\+Sqrt, int \+\_\+n\+Dimensions)
+\item 
+virtual void \mbox{\hyperlink{class_pixel_sampler_aeaef002137c4664db461acdd696fb2e5}{start\+Pixel}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&\+\_\+pixel\+Positon) override
+\item 
+virtual void \mbox{\hyperlink{class_pixel_sampler_a312e010bd1ee5fe1ba1ac238241bc5b2}{next\+Sample}} () override
+\item 
+virtual double \mbox{\hyperlink{class_pixel_sampler_adab6672d229cc574a0d38354b9a487c0}{sample1D}} () override
+\item 
+virtual \mbox{\hyperlink{struct_t_point2}{Point2d}} \mbox{\hyperlink{class_pixel_sampler_ae4ec1ed716791e4e1f58f1330fec4090}{sample2D}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_pixel_sampler_a766d0de4b081550d990ccc81b8f66453}\label{class_pixel_sampler_a766d0de4b081550d990ccc81b8f66453}} 
+virtual void {\bfseries generate\+Samples1D} (std\+::vector$<$ double $>$ \&samples)=0
+\item 
+\mbox{\Hypertarget{class_pixel_sampler_a05d48381b8e714fdf626751b74e6f97c}\label{class_pixel_sampler_a05d48381b8e714fdf626751b74e6f97c}} 
+virtual void {\bfseries generate\+Samples2D} (std\+::vector$<$ \mbox{\hyperlink{struct_t_point2}{Point2d}} $>$ \&samples)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_t_point2}{Point2i}} \mbox{\hyperlink{class_pixel_sampler_a0d6e1011f6e9800615f3186027909481}{pixel\+Position}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_pixel_sampler_a6ecb3fc83b110da213f725652bdd4d4b}{samples1D}}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{struct_t_point2}{Point2d}} $>$ $>$ \mbox{\hyperlink{class_pixel_sampler_aef2baa41756ce101168f24b1b81894cb}{samples2D}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_ae66894474b9d53b1aa59187f3f203ea8}{spp\+Sqrt}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_a9adf13d9d07c68cc91a786fcc9785d35}{samples\+Per\+Pixel}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_a8c21cc01aa30c8187c91229748fc26f9}{n\+Dimensions}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_a5fc3cd83a08947821933de4834b73a8f}{cur\+Sample\+Pixel\+Index}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_a0d0c3bc8c18638dacd90250f06c51fd2}{cur\+Dimension\+Index1D}}
+\item 
+int \mbox{\hyperlink{class_pixel_sampler_a6f16bb8e5b0e1e07fb962109fcf2b27b}{cur\+Dimension\+Index2D}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for pixel sampler, which generate specific samples before rendering each pixel need the dimensions and samples\+Per\+Pixels when construct. 
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00065}{65}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pixel_sampler_a12c729bdb93bc5ca73ea948fab31ae8c}\label{class_pixel_sampler_a12c729bdb93bc5ca73ea948fab31ae8c}} 
+\index{PixelSampler@{PixelSampler}!PixelSampler@{PixelSampler}}
+\index{PixelSampler@{PixelSampler}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{PixelSampler()}{PixelSampler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pixel_sampler}{Pixel\+Sampler\+::\+Pixel\+Sampler}} (\begin{DoxyParamCaption}\item[{int}]{\+\_\+spp\+Sqrt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00083}{83}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a3de1ca4cdab2deb7ece45959196c078b}\label{class_pixel_sampler_a3de1ca4cdab2deb7ece45959196c078b}} 
+\index{PixelSampler@{PixelSampler}!PixelSampler@{PixelSampler}}
+\index{PixelSampler@{PixelSampler}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{PixelSampler()}{PixelSampler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pixel_sampler}{Pixel\+Sampler\+::\+Pixel\+Sampler}} (\begin{DoxyParamCaption}\item[{int}]{\+\_\+spp\+Sqrt,  }\item[{int}]{\+\_\+n\+Dimensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00091}{91}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pixel_sampler_a312e010bd1ee5fe1ba1ac238241bc5b2}\label{class_pixel_sampler_a312e010bd1ee5fe1ba1ac238241bc5b2}} 
+\index{PixelSampler@{PixelSampler}!nextSample@{nextSample}}
+\index{nextSample@{nextSample}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{nextSample()}{nextSample()}}
+{\footnotesize\ttfamily virtual void Pixel\+Sampler\+::next\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00118}{118}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_adab6672d229cc574a0d38354b9a487c0}\label{class_pixel_sampler_adab6672d229cc574a0d38354b9a487c0}} 
+\index{PixelSampler@{PixelSampler}!sample1D@{sample1D}}
+\index{sample1D@{sample1D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{sample1D()}{sample1D()}}
+{\footnotesize\ttfamily virtual double Pixel\+Sampler\+::sample1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00125}{125}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_ae4ec1ed716791e4e1f58f1330fec4090}\label{class_pixel_sampler_ae4ec1ed716791e4e1f58f1330fec4090}} 
+\index{PixelSampler@{PixelSampler}!sample2D@{sample2D}}
+\index{sample2D@{sample2D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{sample2D()}{sample2D()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_t_point2}{Point2d}} Pixel\+Sampler\+::sample2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00134}{134}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_aeaef002137c4664db461acdd696fb2e5}\label{class_pixel_sampler_aeaef002137c4664db461acdd696fb2e5}} 
+\index{PixelSampler@{PixelSampler}!startPixel@{startPixel}}
+\index{startPixel@{startPixel}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{startPixel()}{startPixel()}}
+{\footnotesize\ttfamily virtual void Pixel\+Sampler\+::start\+Pixel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{\+\_\+pixel\+Positon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00103}{103}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pixel_sampler_a0d0c3bc8c18638dacd90250f06c51fd2}\label{class_pixel_sampler_a0d0c3bc8c18638dacd90250f06c51fd2}} 
+\index{PixelSampler@{PixelSampler}!curDimensionIndex1D@{curDimensionIndex1D}}
+\index{curDimensionIndex1D@{curDimensionIndex1D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{curDimensionIndex1D}{curDimensionIndex1D}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::cur\+Dimension\+Index1D\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00074}{74}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a6f16bb8e5b0e1e07fb962109fcf2b27b}\label{class_pixel_sampler_a6f16bb8e5b0e1e07fb962109fcf2b27b}} 
+\index{PixelSampler@{PixelSampler}!curDimensionIndex2D@{curDimensionIndex2D}}
+\index{curDimensionIndex2D@{curDimensionIndex2D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{curDimensionIndex2D}{curDimensionIndex2D}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::cur\+Dimension\+Index2D\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00075}{75}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a5fc3cd83a08947821933de4834b73a8f}\label{class_pixel_sampler_a5fc3cd83a08947821933de4834b73a8f}} 
+\index{PixelSampler@{PixelSampler}!curSamplePixelIndex@{curSamplePixelIndex}}
+\index{curSamplePixelIndex@{curSamplePixelIndex}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{curSamplePixelIndex}{curSamplePixelIndex}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::cur\+Sample\+Pixel\+Index\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00073}{73}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a8c21cc01aa30c8187c91229748fc26f9}\label{class_pixel_sampler_a8c21cc01aa30c8187c91229748fc26f9}} 
+\index{PixelSampler@{PixelSampler}!nDimensions@{nDimensions}}
+\index{nDimensions@{nDimensions}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{nDimensions}{nDimensions}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::n\+Dimensions\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00072}{72}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a0d6e1011f6e9800615f3186027909481}\label{class_pixel_sampler_a0d6e1011f6e9800615f3186027909481}} 
+\index{PixelSampler@{PixelSampler}!pixelPosition@{pixelPosition}}
+\index{pixelPosition@{pixelPosition}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{pixelPosition}{pixelPosition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point2}{Point2i}} Pixel\+Sampler\+::pixel\+Position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00067}{67}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a6ecb3fc83b110da213f725652bdd4d4b}\label{class_pixel_sampler_a6ecb3fc83b110da213f725652bdd4d4b}} 
+\index{PixelSampler@{PixelSampler}!samples1D@{samples1D}}
+\index{samples1D@{samples1D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{samples1D}{samples1D}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Pixel\+Sampler\+::samples1D\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00068}{68}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_aef2baa41756ce101168f24b1b81894cb}\label{class_pixel_sampler_aef2baa41756ce101168f24b1b81894cb}} 
+\index{PixelSampler@{PixelSampler}!samples2D@{samples2D}}
+\index{samples2D@{samples2D}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{samples2D}{samples2D}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{struct_t_point2}{Point2d}}$>$ $>$ Pixel\+Sampler\+::samples2D\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00069}{69}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_a9adf13d9d07c68cc91a786fcc9785d35}\label{class_pixel_sampler_a9adf13d9d07c68cc91a786fcc9785d35}} 
+\index{PixelSampler@{PixelSampler}!samplesPerPixel@{samplesPerPixel}}
+\index{samplesPerPixel@{samplesPerPixel}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{samplesPerPixel}{samplesPerPixel}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::samples\+Per\+Pixel\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00071}{71}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+\mbox{\Hypertarget{class_pixel_sampler_ae66894474b9d53b1aa59187f3f203ea8}\label{class_pixel_sampler_ae66894474b9d53b1aa59187f3f203ea8}} 
+\index{PixelSampler@{PixelSampler}!sppSqrt@{sppSqrt}}
+\index{sppSqrt@{sppSqrt}!PixelSampler@{PixelSampler}}
+\doxysubsubsection{\texorpdfstring{sppSqrt}{sppSqrt}}
+{\footnotesize\ttfamily int Pixel\+Sampler\+::spp\+Sqrt\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sampler_8h_source_l00070}{70}} of file \mbox{\hyperlink{_sampler_8h_source}{Sampler.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Sampler/\mbox{\hyperlink{_sampler_8h}{Sampler.\+h}}\end{DoxyCompactItemize}

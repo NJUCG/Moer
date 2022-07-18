@@ -1,0 +1,36 @@
+\hypertarget{_scene_8h_source}{}\doxysection{Scene.\+h}
+\label{_scene_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Scene/Scene.h@{/mnt/renderer/Zero/src/CoreLayer/Scene/Scene.h}}
+\mbox{\hyperlink{_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_ray_8h}{CoreLayer/Ray/Ray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{FunctionLayer/Shape/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bvh_8h}{FunctionLayer/Aggregate/Bvh.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}FunctionLayer/Light/Light.h"{}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00023}\mbox{\hyperlink{class_scene}{00023}} \textcolor{keyword}{class }\mbox{\hyperlink{class_scene}{Scene}}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00025}00025     std::shared\_ptr<Bvh> BVH;                                           }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00027}00027     std::shared\_ptr<std::vector<std::shared\_ptr<Light>>> lights;}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00028}00028     std::shared\_ptr<std::vector<std::shared\_ptr<Entity>>> entities;}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00030}00030 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00031}00031     \mbox{\hyperlink{class_scene}{Scene}}();}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00032}00032     \textcolor{keywordtype}{void} addEntity(std::shared\_ptr<Entity> \textcolor{keywordtype}{object});}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00033}00033     \textcolor{keywordtype}{void} addLight(std::shared\_ptr<Light> light);}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00035}00035     \textcolor{keywordtype}{void} build();}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00036}00036     std::optional<Intersection> intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&r) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00038}00038     \textcolor{comment}{// @return true if r hits object first (closest), false otherwise.}}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00039}00039     \textcolor{keywordtype}{bool} intersectionTest(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&r, std::shared\_ptr<Entity> \textcolor{keywordtype}{object}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00041}00041     std::shared\_ptr<std::vector<std::shared\_ptr<Light>>> getLights() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_scene_8h_source_l00042}00042 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,105 @@
+\hypertarget{_abstract_path_integrator_8cpp_source}{}\doxysection{Abstract\+Path\+Integrator.\+cpp}
+\label{_abstract_path_integrator_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Integrator/AbstractPathIntegrator.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Integrator/AbstractPathIntegrator.cpp}}
+\mbox{\hyperlink{_abstract_path_integrator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_abstract_path_integrator_8h}{AbstractPathIntegrator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00015}00015 \mbox{\hyperlink{class_abstract_path_integrator}{AbstractPathIntegrator::AbstractPathIntegrator}}(}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00016}00016         std::shared\_ptr<Camera> \_camera, }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00017}00017         std::unique\_ptr<Film> \_film, }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00018}00018         std::unique\_ptr<TileGenerator> \_tileGenerator, }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00019}00019         std::shared\_ptr<Sampler> \_sampler, }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00020}00020         \textcolor{keywordtype}{int} \_spp,}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00021}00021         \textcolor{keywordtype}{int} \_renderThreadNum):}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00022}00022             \mbox{\hyperlink{class_monte_carlo_integrator}{MonteCarloIntegrator}}(\_camera,std::move(\_film),std::move(\_tileGenerator),\_sampler,\_spp,\_renderThreadNum)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00027}00027 \textcolor{keywordtype}{double} AbstractPathIntegrator::MISWeight(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00028}00028 \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00029}00029     \textcolor{keywordtype}{double} pow\_x = std::pow(x, misWeightPower);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00030}00030     \textcolor{keywordtype}{double} pow\_y = std::pow(y, misWeightPower);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00031}00031     \textcolor{keywordflow}{return} pow\_x / (pow\_x + pow\_y);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00032}00032 \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00034}\mbox{\hyperlink{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}{00034}} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}{AbstractPathIntegrator::Li}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&initialRay, std::shared\_ptr<Scene> scene)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00035}00035 \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00036}00036     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} L(0.0);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00037}00037     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} throughput(1.0);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00038}00038     \mbox{\hyperlink{struct_ray}{Ray}} ray = initialRay;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00039}00039     \textcolor{keywordtype}{double} pdfLastScatterSample = 1e99;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00040}00040     \textcolor{keywordtype}{bool} isLastScatterSampleDelta = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00041}00041     \textcolor{keywordtype}{int} nBounce = 0;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00043}00043     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00044}00044     \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00045}00045         std::optional<Intersection> itsOpt = scene-\/>intersect(ray);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00047}00047         \textcolor{comment}{// EVAL EMITTANCE}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00048}00048         \mbox{\hyperlink{struct_path_integrator_local_record}{PathIntegratorLocalRecord}} evalLightRecord = \mbox{\hyperlink{class_abstract_path_integrator_ae0319b02e06f722f2715ec5e6c583061}{evalEmittance}}(scene, itsOpt, ray);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00050}00050         \textcolor{keywordflow}{if} (evalLightRecord.f.isBlack() == \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00051}00051         \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00052}00052             \textcolor{keywordtype}{double} misw = MISWeight(pdfLastScatterSample, evalLightRecord.pdf);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00053}00053             \textcolor{keywordflow}{if} (isLastScatterSampleDelta)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00054}00054             \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00055}00055                 misw = 1.0;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00056}00056             \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00057}00057             L += throughput * evalLightRecord.f * misw;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00060}00060         \textcolor{comment}{// TERMINATE IF NO INTERSECTION}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00061}00061         \textcolor{keywordflow}{if} (!itsOpt.has\_value())}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00062}00062         \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00063}00063             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00066}00066         Intersection its = itsOpt.value();}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00068}00068         \textcolor{comment}{// RUSSIAN ROULETTE}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00069}00069         nBounce++;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00070}00070         \textcolor{keywordtype}{double} pSurvive = \mbox{\hyperlink{class_abstract_path_integrator_ab4b6bda664ef6b9129aae6dc14bfe9f2}{russianRoulette}}(scene, its, throughput, nBounce);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00071}00071         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_monte_carlo_integrator_a873051e970b7ce5e4b432778bea15f35}{randFloat}}() > pSurvive)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00072}00072             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00073}00073         throughput /= pSurvive;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00075}00075         \textcolor{comment}{// SAMPLE DIRECT LIGHTING}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00076}00076         \textcolor{comment}{// Support multiple direct light samples per intersection. n=1 by default.}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00077}00077         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_abstract_path_integrator_a2efce2d9a16b71a83b05c6bab3d38133}{nDirectLightSamples}}; i++)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00078}00078         \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00079}00079             \mbox{\hyperlink{struct_path_integrator_local_record}{PathIntegratorLocalRecord}} sampleLightRecord = \mbox{\hyperlink{class_abstract_path_integrator_a0abd0f1493fd7881508006e3cccc0475}{sampleDirectLighting}}(scene, its, ray);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00080}00080             \mbox{\hyperlink{struct_path_integrator_local_record}{PathIntegratorLocalRecord}} evalScatterRecord = \mbox{\hyperlink{class_abstract_path_integrator_aee510e134c59cdd95e1138f9033be81b}{evalScatter}}(scene, its, ray, sampleLightRecord.wi);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00082}00082             \textcolor{keywordflow}{if} (sampleLightRecord.f.isBlack() == \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00083}00083             \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00084}00084                 \textcolor{keywordtype}{double} misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00085}00085                 \textcolor{keywordflow}{if} (sampleLightRecord.isDelta)}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00086}00086                 \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00087}00087                     misw = 1.0;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00088}00088                 \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00089}00089                 L += throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / \mbox{\hyperlink{class_abstract_path_integrator_a2efce2d9a16b71a83b05c6bab3d38133}{nDirectLightSamples}};}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00090}00090             \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00091}00091         \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00093}00093         \textcolor{comment}{// SAMPLE SCATTER (BSDF or PHASE)}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00094}00094         \mbox{\hyperlink{struct_path_integrator_local_record}{PathIntegratorLocalRecord}} sampleScatterRecord = \mbox{\hyperlink{class_abstract_path_integrator_afd751de0df4b208a7165fadf74bd0c98}{sampleScatter}}(scene, its, ray);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00095}00095         pdfLastScatterSample = sampleScatterRecord.pdf;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00096}00096         isLastScatterSampleDelta = sampleScatterRecord.isDelta;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00097}00097         \textcolor{keywordflow}{if} (sampleScatterRecord.f.isBlack() == \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00098}00098         \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00099}00099             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00100}00100         \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00101}00101         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00102}00102         \{}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00103}00103             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00104}00104         \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00105}00105         \textcolor{keyword}{const} \textcolor{keywordtype}{double} eps = 1e-\/4; \textcolor{comment}{// todo}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00106}00106         ray = \mbox{\hyperlink{struct_ray}{Ray}}(its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi);}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00107}00107     \}}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00109}00109     \textcolor{keywordflow}{return} L;}
+\DoxyCodeLine{\Hypertarget{_abstract_path_integrator_8cpp_source_l00110}00110 \}}
+
+\end{DoxyCode}

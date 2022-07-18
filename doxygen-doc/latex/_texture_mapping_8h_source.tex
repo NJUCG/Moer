@@ -1,0 +1,30 @@
+\hypertarget{_texture_mapping_8h_source}{}\doxysection{Texture\+Mapping.\+h}
+\label{_texture_mapping_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Texture/TextureMapping.h@{/mnt/renderer/Zero/src/FunctionLayer/Texture/TextureMapping.h}}
+\mbox{\hyperlink{_texture_mapping_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00018}00018 \textcolor{comment}{// Various kinds of TextureMapping}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00020}00020 \textcolor{keyword}{class }UVTextureMapping2D : \textcolor{keyword}{public} TextureMapping<TextureCoord2D>}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00022}00022 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00023}00023     \textcolor{comment}{// todo: add a affine transform}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00024}00024 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00025}00025     \textcolor{keyword}{virtual} TextureCoord2D mapping(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const override};}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00026}00026 \};}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00028}00028 \textcolor{keyword}{class }NaturalTextureMapping3D : \textcolor{keyword}{public} TextureMapping<TextureCoord3D>}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00030}00030 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00031}00031     \textcolor{comment}{// todo: add a affine transform}}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00032}00032 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00033}00033     \textcolor{keyword}{virtual} TextureCoord3D mapping(\textcolor{keyword}{const} Intersection \&intersection) \textcolor{keyword}{const override};}
+\DoxyCodeLine{\Hypertarget{_texture_mapping_8h_source_l00034}00034 \};}
+
+\end{DoxyCode}

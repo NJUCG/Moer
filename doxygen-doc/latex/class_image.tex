@@ -1,0 +1,61 @@
+\hypertarget{class_image}{}\doxysection{Image Class Reference}
+\label{class_image}\index{Image@{Image}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_a9634cd6d9192d08bc60fc2d41bf67bf6}\label{class_image_a9634cd6d9192d08bc60fc2d41bf67bf6}} 
+enum class {\bfseries Image\+Load\+Mode} \{ {\bfseries IMAGE\+\_\+\+LOAD\+\_\+\+BW}
+, {\bfseries IMAGE\+\_\+\+LOAD\+\_\+\+COLOR}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_a60606613ebbe0213b6f72dfb07590128}\label{class_image_a60606613ebbe0213b6f72dfb07590128}} 
+{\bfseries Image} (const std\+::string \&path, Image\+Load\+Mode=Image\+Load\+Mode\+::\+IMAGE\+\_\+\+LOAD\+\_\+\+COLOR)
+\item 
+\mbox{\Hypertarget{class_image_ab8bb8b25712ccf129c674494c62cb9be}\label{class_image_ab8bb8b25712ccf129c674494c62cb9be}} 
+{\bfseries Image} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&resolution, int channels)
+\item 
+\mbox{\Hypertarget{class_image_ad270605587e8f1e97f76e0eaaafd493f}\label{class_image_ad270605587e8f1e97f76e0eaaafd493f}} 
+{\bfseries Image} (const \mbox{\hyperlink{struct_t_point3}{Point3i}} \&shape)
+\item 
+\mbox{\Hypertarget{class_image_a1a9a796b7a7492a38adbb2071eb7fb7f}\label{class_image_a1a9a796b7a7492a38adbb2071eb7fb7f}} 
+\mbox{\hyperlink{struct_t_point2}{Point2i}} {\bfseries get\+Resolution} () const
+\item 
+\mbox{\Hypertarget{class_image_a821f52f44e80051e48b3f2689ba48611}\label{class_image_a821f52f44e80051e48b3f2689ba48611}} 
+int {\bfseries get\+Channels} () const
+\item 
+\mbox{\Hypertarget{class_image_a36bcae4838228d574738249a87dc4464}\label{class_image_a36bcae4838228d574738249a87dc4464}} 
+int {\bfseries get\+Width} () const
+\item 
+\mbox{\Hypertarget{class_image_a1cd7587f88b6932b5269051d1ba08ff9}\label{class_image_a1cd7587f88b6932b5269051d1ba08ff9}} 
+int {\bfseries get\+Height} () const
+\item 
+\mbox{\Hypertarget{class_image_ad97cce86d0e42d63f8d766aa2447a6a3}\label{class_image_ad97cce86d0e42d63f8d766aa2447a6a3}} 
+void {\bfseries set\+Color\+At} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, const \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s)
+\item 
+\mbox{\Hypertarget{class_image_a36fab53afd77aaa93dec0e51b5b17797}\label{class_image_a36fab53afd77aaa93dec0e51b5b17797}} 
+void {\bfseries set\+Color\+At} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, const \mbox{\hyperlink{class_r_g_b3}{RGB3}} \&rgb)
+\item 
+\mbox{\Hypertarget{class_image_a3309e2fceb4fba88a883e9dee9e43571}\label{class_image_a3309e2fceb4fba88a883e9dee9e43571}} 
+\mbox{\hyperlink{class_r_g_b3}{RGB3}} {\bfseries get\+RGBColor\+At} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p)
+\item 
+\mbox{\Hypertarget{class_image_ae498bd4f8d8ddb2140056c96a19a38e5}\label{class_image_ae498bd4f8d8ddb2140056c96a19a38e5}} 
+\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} {\bfseries get\+Spectrum\+Color\+At} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p)
+\item 
+\mbox{\Hypertarget{class_image_a85dc3b95484bddecec3cbc0eec2ee968}\label{class_image_a85dc3b95484bddecec3cbc0eec2ee968}} 
+bool {\bfseries save\+To} (const std\+::string \&path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_a3d777a026a772de1f70d37031a8aa117}\label{class_image_a3d777a026a772de1f70d37031a8aa117}} 
+class {\bfseries Image\+Manager}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Resource\+Layer/\+File/\mbox{\hyperlink{_image_8h}{Image.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Resource\+Layer/\+File/Image.\+cpp\end{DoxyCompactItemize}

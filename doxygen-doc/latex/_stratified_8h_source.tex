@@ -1,0 +1,25 @@
+\hypertarget{_stratified_8h_source}{}\doxysection{Stratified.\+h}
+\label{_stratified_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Stratified.h@{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Stratified.h}}
+\mbox{\hyperlink{_stratified_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sampler_8h}{Sampler.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00016}00016 \textcolor{keyword}{class }StratifiedSampler : \textcolor{keyword}{public} \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}} \{}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00017}00017     \textcolor{comment}{// fill the samples1D}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00018}00018     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} generateSamples1D(std::vector<double> \&samples) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00019}00019     \textcolor{comment}{// fill the samples2D}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00020}00020     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} generateSamples2D(std::vector<Point2d> \&samples) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00021}00021 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00022}00022     StratifiedSampler() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00024}00024     StratifiedSampler(\textcolor{keywordtype}{int} sppSqrt) : \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}}(sppSqrt) \{ \}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00026}00026     StratifiedSampler(\textcolor{keywordtype}{int} sppSqrt, \textcolor{keywordtype}{int} \_nDimensions) : \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}}(sppSqrt, \_nDimensions) \{ \}}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00028}00028     \string~StratifiedSampler() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00029}00029     }
+\DoxyCodeLine{\Hypertarget{_stratified_8h_source_l00030}00030 \};}
+
+\end{DoxyCode}

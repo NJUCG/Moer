@@ -1,0 +1,199 @@
+\hypertarget{_common_8h}{}\doxysection{/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Math/\+Common.h File Reference}
+\label{_common_8h}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h}}
+
+
+some common but useful functions  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846f
+\item 
+\#define \mbox{\hyperlink{_common_8h_aebad45bfa06a5d66805c5813fbc59f4b}{INV\+\_\+\+PI}}~0.\+31830988618379067154f
+\item 
+\#define \mbox{\hyperlink{_common_8h_a42177ad937b6de334f376c039189e067}{INV\+\_\+\+TWOPI}}~0.\+15915494309189533577f
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}} (float value, float min, float max)
+\begin{DoxyCompactList}\small\item\em Simple floating point clamping function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_common_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}{clamp}} (int value, int min, int max)
+\begin{DoxyCompactList}\small\item\em Simple integer clamping function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}{lerp}} (float t, float v1, float v2)
+\begin{DoxyCompactList}\small\item\em Linearly interpolate between two values. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}{mod}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Always-\/positive modulo operation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}} (float cos\+ThetaI, float ext\+IOR, float int\+IOR)
+\begin{DoxyCompactList}\small\item\em Compute fresnel term in reflection. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_common_8h_a2ad2c6c590e48dd021738bd29c0dbae8}{fresnel}} (double cos\+ThetaI, double ext\+IOR, double int\+IOR)
+\begin{DoxyCompactList}\small\item\em Compute fresnel term in reflection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr double \mbox{\hyperlink{_common_8h_a88945c2b061fef56019f5c800f210c5d}{ONEMINUSEPSILON}} = 1 -\/ std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+some common but useful functions 
+
+\begin{DoxyAuthor}{Author}
+Junping Yuan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022/06/06
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+NJUMeta (c) 2022 www.\+njumeta.\+com 
+\end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_common_8h_aebad45bfa06a5d66805c5813fbc59f4b}\label{_common_8h_aebad45bfa06a5d66805c5813fbc59f4b}} 
+\index{Common.h@{Common.h}!INV\_PI@{INV\_PI}}
+\index{INV\_PI@{INV\_PI}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{INV\_PI}{INV\_PI}}
+{\footnotesize\ttfamily \#define INV\+\_\+\+PI~0.\+31830988618379067154f}
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00019}{19}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_a42177ad937b6de334f376c039189e067}\label{_common_8h_a42177ad937b6de334f376c039189e067}} 
+\index{Common.h@{Common.h}!INV\_TWOPI@{INV\_TWOPI}}
+\index{INV\_TWOPI@{INV\_TWOPI}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{INV\_TWOPI}{INV\_TWOPI}}
+{\footnotesize\ttfamily \#define INV\+\_\+\+TWOPI~0.\+15915494309189533577f}
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00020}{20}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}\label{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}} 
+\index{Common.h@{Common.h}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265358979323846f}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]multiple defination M\+\_\+\+PI \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00018}{18}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}\label{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}} 
+\index{Common.h@{Common.h}!clamp@{clamp}}
+\index{clamp@{clamp}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float clamp (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Simple floating point clamping function. 
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00025}{25}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}\label{_common_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}} 
+\index{Common.h@{Common.h}!clamp@{clamp}}
+\index{clamp@{clamp}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int clamp (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Simple integer clamping function. 
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00034}{34}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_a2ad2c6c590e48dd021738bd29c0dbae8}\label{_common_8h_a2ad2c6c590e48dd021738bd29c0dbae8}} 
+\index{Common.h@{Common.h}!fresnel@{fresnel}}
+\index{fresnel@{fresnel}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{fresnel()}{fresnel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double fresnel (\begin{DoxyParamCaption}\item[{double}]{cos\+ThetaI,  }\item[{double}]{ext\+IOR,  }\item[{double}]{int\+IOR }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute fresnel term in reflection. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Where should this function be placed \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00088}{88}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_aa4bc628102111f721c678c58c1d81aa1}\label{_common_8h_aa4bc628102111f721c678c58c1d81aa1}} 
+\index{Common.h@{Common.h}!fresnel@{fresnel}}
+\index{fresnel@{fresnel}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{fresnel()}{fresnel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float fresnel (\begin{DoxyParamCaption}\item[{float}]{cos\+ThetaI,  }\item[{float}]{ext\+IOR,  }\item[{float}]{int\+IOR }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute fresnel term in reflection. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]delete this float version \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00055}{55}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}\label{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}} 
+\index{Common.h@{Common.h}!lerp@{lerp}}
+\index{lerp@{lerp}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{lerp()}{lerp()}}
+{\footnotesize\ttfamily float lerp (\begin{DoxyParamCaption}\item[{float}]{t,  }\item[{float}]{v1,  }\item[{float}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Linearly interpolate between two values. 
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00043}{43}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+\mbox{\Hypertarget{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}\label{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}} 
+\index{Common.h@{Common.h}!mod@{mod}}
+\index{mod@{mod}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{mod()}{mod()}}
+{\footnotesize\ttfamily int mod (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Always-\/positive modulo operation. 
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00048}{48}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_common_8h_a88945c2b061fef56019f5c800f210c5d}\label{_common_8h_a88945c2b061fef56019f5c800f210c5d}} 
+\index{Common.h@{Common.h}!ONEMINUSEPSILON@{ONEMINUSEPSILON}}
+\index{ONEMINUSEPSILON@{ONEMINUSEPSILON}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{ONEMINUSEPSILON}{ONEMINUSEPSILON}}
+{\footnotesize\ttfamily constexpr double ONEMINUSEPSILON = 1 -\/ std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{_common_8h_source_l00022}{22}} of file \mbox{\hyperlink{_common_8h_source}{Common.\+h}}.
+

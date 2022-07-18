@@ -1,0 +1,108 @@
+\hypertarget{_sphere_8cpp_source}{}\doxysection{Sphere.\+cpp}
+\label{_sphere_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Shape/Sphere.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Shape/Sphere.cpp}}
+\mbox{\hyperlink{_sphere_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sphere_8h}{Sphere.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_coord_convertor_8h}{CoreLayer/Geometry/CoordConvertor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00017}00017 Sphere::Sphere(\mbox{\hyperlink{struct_t_point3}{Point3d}} \_center, \textcolor{keywordtype}{double} \_radius, std::shared\_ptr<Material> \_material)}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00018}00018     : center(\_center), radius(\_radius)}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00020}00020     this-\/>material = \_material;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00021}00021 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00023}00023 \textcolor{keywordtype}{void} Sphere::apply()}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00027}00027 std::optional<Intersection> Sphere::intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&r)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00028}00028 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00029}00029     \textcolor{keyword}{auto} R = radius;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00030}00030     \textcolor{keyword}{auto} C = center;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00031}00031     \textcolor{keyword}{auto} o = r.\mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00032}00032     \textcolor{keyword}{auto} d = r.\mbox{\hyperlink{struct_ray_a317ee29d4f6213ede639f2f757f84784}{direction}};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00033}00033     \textcolor{keyword}{auto} u = o -\/ C;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00034}00034     \textcolor{keywordtype}{double} a = d.length2();}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00035}00035     \textcolor{keywordtype}{double} b = 2 * dot(u, d);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00036}00036     \textcolor{keywordtype}{double} c = u.length2() -\/ R * R;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00037}00037     \textcolor{keywordtype}{double} delta = b * b -\/ 4 * a * c;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00038}00038     \textcolor{keywordflow}{if} (delta < 0)}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00039}00039         \textcolor{keywordflow}{return} std::nullopt;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00040}00040     \textcolor{keywordtype}{double} sqrtDelta = sqrt(delta);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00041}00041     \textcolor{keywordtype}{double} t1 = (-\/b + sqrtDelta) / (2.0 * a);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00042}00042     \textcolor{keywordtype}{double} t2 = (-\/b -\/ sqrtDelta) / (2.0 * a);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00043}00043     \textcolor{keywordtype}{bool} flag = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00044}00044     Intersection ans;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00045}00045     \textcolor{keywordtype}{double} t = INFINITY;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00046}00046     \textcolor{keywordflow}{if} (t1 >= 0 \&\& t1 < t \&\& t1 >= r.\mbox{\hyperlink{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}{timeMin}} \&\& t1 <= r.\mbox{\hyperlink{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}{timeMax}})}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00047}00047     \{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00048}00048         t = t1;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00049}00049         \mbox{\hyperlink{struct_t_vector3}{Vec3d}} n = o + d * t1 -\/ C;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00050}00050         n = normalize(n);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00051}00051         ans.position = o + d * t1;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00052}00052         ans.geometryNormal = n;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00053}00053         ans.geometryTangent = normalize(\mbox{\hyperlink{struct_t_vector3}{Vec3d}}(n.z, 0, -\/n.x));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00054}00054         ans.geometryBitangent = normalize(\mbox{\hyperlink{vector_8h_ab82aa209c23c60f76558d0d672e5cd8e}{cross}}(n, ans.geometryTangent));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00055}00055         ans.material = material;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00056}00056         ans.shFrame = \mbox{\hyperlink{struct_frame}{Frame}}(n);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00057}00057         ans.uv.x = (atan2(n.y, n.x) + \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}}) / \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} / 2;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00058}00058         ans.uv.y = acos(n.y) / \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00059}00059         ans.object = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00060}00060         flag = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00062}00062     \textcolor{keywordflow}{if} (t2 >= 0 \&\& t2 < t \&\& t2 >= r.\mbox{\hyperlink{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}{timeMin}} \&\& t2 <= r.\mbox{\hyperlink{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}{timeMax}})}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00063}00063     \{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00064}00064         t = t2;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00065}00065         \mbox{\hyperlink{struct_t_vector3}{Vec3d}} n = o + d * t2 -\/ C;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00066}00066         n = normalize(n);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00067}00067         ans.position = o + d * t2;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00068}00068         ans.geometryNormal = n;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00069}00069         ans.geometryTangent = normalize(\mbox{\hyperlink{struct_t_vector3}{Vec3d}}(n.z, 0, -\/n.x));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00070}00070         ans.geometryBitangent = normalize(\mbox{\hyperlink{vector_8h_ab82aa209c23c60f76558d0d672e5cd8e}{cross}}(n, ans.geometryTangent));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00071}00071         ans.material = material;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00072}00072         ans.shFrame = \mbox{\hyperlink{struct_frame}{Frame}}(n);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00073}00073         ans.uv.x = (atan2(n.z, n.x) + \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}}) / \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} / 2;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00074}00074         ans.uv.y = acos(n.y) / \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00075}00075         ans.object = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00076}00076         flag = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00078}00078     \textcolor{keywordflow}{return} flag ? std::make\_optional(ans) : std::nullopt;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00081}00081 std::shared\_ptr<Light> Sphere::getLight()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00082}00082 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00083}00083     \textcolor{keywordflow}{return} lightPtr;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00086}00086 \textcolor{keywordtype}{void} Sphere::setLight(std::shared\_ptr<Light> light)}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00087}00087 \{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00088}00088     lightPtr = light;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00089}00089 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00091}00091 \textcolor{keywordtype}{double} Sphere::area()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00092}00092 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00093}00093     \textcolor{keywordflow}{return} 4 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} * radius * radius;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00096}00096 Intersection Sphere::sample(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&positionSample)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00097}00097 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00098}00098     Intersection ans;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00099}00099     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} v = CoordConvertor::cartesian2SphericalVec(positionSample);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00100}00100     ans.position = center + v * radius;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00101}00101     ans.geometryNormal = v;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00102}00102     \textcolor{keyword}{auto} n = v;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00103}00103     ans.geometryTangent = normalize(\mbox{\hyperlink{struct_t_vector3}{Vec3d}}(n.z, 0, -\/n.x));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00104}00104     ans.geometryBitangent = normalize(\mbox{\hyperlink{vector_8h_ab82aa209c23c60f76558d0d672e5cd8e}{cross}}(n, ans.geometryTangent));}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00105}00105     ans.material = material;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00106}00106     \textcolor{keywordflow}{return} ans;}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00107}00107 \}}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00109}00109 \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} Sphere::WorldBound()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00110}00110     \mbox{\hyperlink{struct_t_point3}{Point3d}} pMin = center -\/ \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(radius);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00111}00111     \mbox{\hyperlink{struct_t_point3}{Point3d}} pMax = center + \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(radius);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00112}00112     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}}(pMin, pMax);}
+\DoxyCodeLine{\Hypertarget{_sphere_8cpp_source_l00113}00113 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\hypertarget{_test_mirror_bxdf_8h_source}{}\doxysection{Test\+Mirror\+Bxdf.\+h}
+\label{_test_mirror_bxdf_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/TestMirrorBxdf.h@{/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/TestMirrorBxdf.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bx_d_f_8h}{BxDF.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00006}00006 \textcolor{keyword}{class }TestMirrorBxdf : \textcolor{keyword}{public} BxDF}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00008}00008 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00009}00009     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} f(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00011}00011     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} sampleWi(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00013}00013     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} pdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00015}00015     \textcolor{keyword}{virtual} BxDFSampleResult sample(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00017}00017     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} isSpecular() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_test_mirror_bxdf_8h_source_l00018}00018 \};}
+
+\end{DoxyCode}

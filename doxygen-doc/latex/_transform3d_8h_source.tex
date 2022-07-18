@@ -1,0 +1,45 @@
+\hypertarget{_transform3d_8h_source}{}\doxysection{Transform3d.\+h}
+\label{_transform3d_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Geometry/Transform3d.h@{/mnt/renderer/Zero/src/CoreLayer/Geometry/Transform3d.h}}
+\mbox{\hyperlink{_transform3d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_matrix_8h}{Matrix.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00021}\mbox{\hyperlink{class_transform3_d}{00021}} \textcolor{keyword}{class }\mbox{\hyperlink{class_transform3_d}{Transform3D}}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00024}00024     std::shared\_ptr<TransformMatrix3D> matrix;}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00026}00026     \textcolor{keywordtype}{bool} isDone = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00028}00028 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00029}00029     \textcolor{comment}{// apply matrix to this object. Cache should be managed locally.}}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00030}00030     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} apply() = 0;}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00032}00032 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00033}00033     \mbox{\hyperlink{class_transform3_d}{Transform3D}}();}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00035}00035     \mbox{\hyperlink{class_transform3_d}{Transform3D}}(std::shared\_ptr<Transform3D> \_matrix);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00037}00037     \textcolor{keywordtype}{void} setTranslate(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00039}00039     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00040}00040     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} ratio);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00042}00042     \textcolor{keywordtype}{void} setRotateEuler(\mbox{\hyperlink{class_angle}{Angle}} x, \mbox{\hyperlink{class_angle}{Angle}} y, \mbox{\hyperlink{class_angle}{Angle}} z, EulerType type = EulerType::EULER\_XYZ);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00044}00044     \textcolor{keywordtype}{void} setRotateQuaternion(\textcolor{keywordtype}{double} w, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00047}\mbox{\hyperlink{class_transform3_d_a56b97f42f25d90dee505fae9bf993524}{00047}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transform3_d_a56b97f42f25d90dee505fae9bf993524}{setRotateAxis}}(\mbox{\hyperlink{class_angle}{Angle}} angle, \mbox{\hyperlink{struct_t_vector3}{Vec3d}} axis);}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00050}\mbox{\hyperlink{class_transform3_d_a44a5deb9c20936a2f67126322a6d38a4}{00050}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transform3_d_a44a5deb9c20936a2f67126322a6d38a4}{done}}();}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00052}00052     \mbox{\hyperlink{struct_t_point3}{Point3d}} getTranslate();}
+\DoxyCodeLine{\Hypertarget{_transform3d_8h_source_l00053}00053 \};}
+
+\end{DoxyCode}

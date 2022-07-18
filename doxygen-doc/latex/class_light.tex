@@ -1,0 +1,28 @@
+\hypertarget{class_light}{}\doxysection{Light Class Reference}
+\label{class_light}\index{Light@{Light}}
+Inheritance diagram for Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_light}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_light_af031c0b8a4fa97a6e9384cb8ddd88c5c}\label{class_light_af031c0b8a4fa97a6e9384cb8ddd88c5c}} 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} {\bfseries eval\+Environment} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray)=0
+\item 
+\mbox{\Hypertarget{class_light_a6fc405d6a5bfda84e10d4b03a60b025f}\label{class_light_a6fc405d6a5bfda84e10d4b03a60b025f}} 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} {\bfseries eval} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, const \mbox{\hyperlink{struct_intersection}{Intersection}} \&its, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)=0
+\item 
+\mbox{\Hypertarget{class_light_ade04196bcb5b1a6637a5e1fa4942e0fa}\label{class_light_ade04196bcb5b1a6637a5e1fa4942e0fa}} 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} {\bfseries sample\+Emit} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&position\+Sample, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&direction\+Sample, float time)=0
+\item 
+\mbox{\Hypertarget{class_light_a2eaf106886214705c1349b6564b4bfd2}\label{class_light_a2eaf106886214705c1349b6564b4bfd2}} 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} {\bfseries sample\+Direct} (const \mbox{\hyperlink{struct_intersection}{Intersection}} \&its, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, float time)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Light/Light.\+h\end{DoxyCompactItemize}

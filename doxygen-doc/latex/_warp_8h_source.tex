@@ -1,0 +1,77 @@
+\hypertarget{_warp_8h_source}{}\doxysection{Warp.\+h}
+\label{_warp_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h}}
+\mbox{\hyperlink{_warp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{Common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00014}00014 \textcolor{keyword}{static}  \textcolor{keywordtype}{double} TentInverse(\textcolor{keywordtype}{double} x)\{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00015}00015     \textcolor{keywordflow}{if}(x<=.5f)}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00016}00016         \textcolor{keywordflow}{return} std::sqrt(2*x)-\/1;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00017}00017     \textcolor{keywordflow}{return}  1-\/ std::sqrt(2-\/2*x);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00019}00019 \textcolor{keyword}{inline}   \mbox{\hyperlink{struct_t_point2}{Point2d}} SquareToTent(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00020}00020     \mbox{\hyperlink{struct_t_point2}{Point2d}}  res(TentInverse(sample[0]), TentInverse(sample[1]));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00021}00021     \textcolor{keywordflow}{return}  res;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00022}00022 \textcolor{comment}{//    throw NoriException("{}SquareToTent() is not yet implemented!"{});}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00023}00023 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00025}00025 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} SquareToTentPdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00026}00026     \textcolor{keywordflow}{return} (1.0-\/std::abs(p[0])) * (1.0-\/std::abs(p[1]));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00029}00029 \textcolor{keyword}{inline} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToUniformSphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00030}00030     \textcolor{keywordtype}{float} z = 1 -\/ 2 * sample[0];}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00031}00031     \textcolor{keywordtype}{float} r = std::sqrt(std::max((\textcolor{keywordtype}{float} )0, (\textcolor{keywordtype}{float})1 -\/ z * z));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00032}00032     \textcolor{keywordtype}{float} phi = 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} * sample[1];}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00033}00033     \textcolor{keywordflow}{return} \{r * std::cos(phi), r * std::sin(phi), z\};}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00034}00034 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00036}00036 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} SquareToUniformSpherePdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00037}00037     \textcolor{keywordflow}{return} 0.25f*INV\_PI;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00038}00038 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00040}00040 \textcolor{keyword}{inline}  \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToUniformHemisphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00041}00041     \textcolor{keywordtype}{float} z = 1 -\/ 2 * sample[0];}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00042}00042     \textcolor{keywordtype}{float} r = std::sqrt(std::max((\textcolor{keywordtype}{float} )0, (\textcolor{keywordtype}{float})1 -\/ z * z));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00043}00043     \textcolor{keywordtype}{float} phi = 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} * sample[1];}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00044}00044     \textcolor{keywordflow}{return} \{r * std::cos(phi), r * std::sin(phi), std::abs(z)\};}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00047}00047 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} SquareToUniformHemispherePdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00048}00048     \textcolor{keywordflow}{return} v[2] >=0 ? 0.5f * INV\_PI : .0f;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00049}00049 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00051}00051 \textcolor{keyword}{inline}  \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToCosineHemisphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00052}00052     \textcolor{keywordtype}{float} z=sqrt(1-\/sample.x);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00053}00053     \textcolor{keywordtype}{float} phi=sample.y*2*\mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00055}00055     \textcolor{keywordflow}{return} \{sqrt(sample.x)* cos(phi),sqrt(sample.x)*sin(phi),z\};}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00056}00056 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00058}00058 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} SquareToCosineHemispherePdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00059}00059     \textcolor{keywordflow}{return} v[2] >=0 ? v.z * INV\_PI : .0f;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00060}00060 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00061}00061 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00062}00062 \textcolor{keyword}{inline}  \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToBeckmann(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample,\textcolor{keywordtype}{double} alpha) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00063}00063     \textcolor{keyword}{auto} tan2theta= -\/alpha*alpha*log( sample.x );}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00064}00064     \textcolor{keyword}{auto} cosTheta=sqrt(1/(1+tan2theta));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00065}00065     \textcolor{keyword}{auto} sinTheta= sqrt(1-\/cosTheta*cosTheta);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00066}00066     \textcolor{keyword}{auto} phi=sample.y * 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00067}00067     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} t1= \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(sinTheta*cos(phi), sinTheta*sin(phi),cosTheta);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00068}00068     \textcolor{keywordflow}{return} t1;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00069}00069 \}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00070}00070 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00071}00071 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} SquareToBeckmannPdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&m, \textcolor{keywordtype}{double} alpha) \{}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00072}00072     \textcolor{keywordflow}{if}(m.z<=0)}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00073}00073         \textcolor{keywordflow}{return} 0.0f;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00074}00074     \textcolor{keyword}{auto} cosTheta=m.z;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00075}00075     \textcolor{keyword}{auto} sinTheta=sqrt(1-\/cosTheta*cosTheta);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00076}00076     \textcolor{keyword}{auto} tan2Theta=(sinTheta* sinTheta)/(cosTheta*cosTheta);}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00077}00077     \textcolor{keywordtype}{float} azimuthal =   INV\_PI;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00078}00078     \textcolor{keywordtype}{float} longitudinal = exp(-\/tan2Theta/(alpha*alpha))  / (alpha*alpha*pow(cosTheta,3));}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00079}00079     \textcolor{keywordflow}{return} azimuthal * longitudinal;}
+\DoxyCodeLine{\Hypertarget{_warp_8h_source_l00080}00080 \}}
+
+\end{DoxyCode}

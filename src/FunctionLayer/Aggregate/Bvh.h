@@ -15,7 +15,7 @@
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Intersection.h"
 
-//@brief Entity information declaration for building BVH
+/// @brief Entity information declaration for building BVH
 struct EntityInfo {
 	EntityInfo(){}
 	EntityInfo(int _EntityId, const BoundingBox3f& _bounds): EntityId(_EntityId), bounds(_bounds), center(0.5 * (_bounds.pMin + _bounds.pMax)){}
@@ -32,7 +32,7 @@ struct BvhTreeNode {
 	int entityOffset;
 };
 
-//@brief Bvh Nodes in Dfs-Order
+/// @brief Bvh Nodes in Dfs-Order
 struct LinearBvhNode {
 	BoundingBox3f bounds;
 	union
@@ -55,22 +55,22 @@ public:
 	std::vector<std::shared_ptr<Entity>> entites;
 	std::vector<LinearBvhNode> linearBvhNodes;
 
-	/*
+	/**
 	 * @brief Bvh constructor
 	 * @param <_entites>
 	 * @param <_SplitMeshod>
 	 */
 	Bvh(std::vector<std::shared_ptr<Entity>>& _entites, SplitMethod _splitMethod = SplitMethod::SAH);
 
-	/*
+	/**
 	* @brief recursively build BVH
 	* @return the root of BVH
 	*/
 	std::shared_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>& entityInfo, int start, int end, int& nodeNumber, std::vector<std::shared_ptr<Entity>>& orderedEntites);
 
-	//@brief flatten the BVH to Dfs-Order
+	/// @brief flatten the BVH to Dfs-Order
 	void Flatten(std::shared_ptr<BvhTreeNode> node, int& dfsOrder);
 
-	//@brief return the scene intersection
+	/// @brief return the scene intersection
 	std::optional<Intersection> Intersect(const Ray& r);
 };

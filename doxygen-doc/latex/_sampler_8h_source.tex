@@ -1,0 +1,122 @@
+\hypertarget{_sampler_8h_source}{}\doxysection{Sampler.\+h}
+\label{_sampler_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Sampler.h@{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Sampler.h}}
+\mbox{\hyperlink{_sampler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_random_8h}{CoreLayer/Adapter/Random.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{CoreLayer/Math/Common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00023}00023 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_camera_sample}{CameraSample}};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00025}00025 \textcolor{keyword}{class }Sampler}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00026}00026 \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00027}00027 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00028}00028     \mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}} rng;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00029}00029 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00030}00030     Sampler() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00032}00032     \textcolor{keyword}{virtual} \string~Sampler() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00034}00034     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} startPixel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition) = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00036}00036     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} nextSample() = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00037}00037     }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00038}00038     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} sample1D() = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00040}00040     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_point2}{Point2d}} sample2D() = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00042}00042     \mbox{\hyperlink{struct_camera_sample}{CameraSample}} getCameraSample();}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00044}00044 \};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00052}00052 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00053}\mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(std::vector<T> \&samples, \mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}} \&rng) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00054}00054     \textcolor{keywordtype}{int} count = samples.size();}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00055}00055     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < count; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00056}00056         \textcolor{keywordtype}{int} other = rng(i, count);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00057}00057         std::swap(samples[i], samples[other]);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00059}00059 \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00065}\mbox{\hyperlink{class_pixel_sampler}{00065}} \textcolor{keyword}{class }\mbox{\hyperlink{class_pixel_sampler}{PixelSampler}} : \textcolor{keyword}{public} Sampler \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00066}00066 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00067}00067     \mbox{\hyperlink{struct_t_point2}{Point2i}} pixelPosition;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00068}00068     std::vector<std::vector<double>>  samples1D;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00069}00069     std::vector<std::vector<Point2d>> samples2D;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00070}00070     \textcolor{keywordtype}{int} sppSqrt;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00071}00071     \textcolor{keywordtype}{int} samplesPerPixel;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00072}00072     \textcolor{keywordtype}{int} nDimensions;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00073}00073     \textcolor{keywordtype}{int} curSamplePixelIndex;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00074}00074     \textcolor{keywordtype}{int} curDimensionIndex1D;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00075}00075     \textcolor{keywordtype}{int} curDimensionIndex2D;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00077}00077     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} generateSamples1D(std::vector<double> \&samples) = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00078}00078     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} generateSamples2D(std::vector<Point2d> \&samples) = 0; }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00080}00080 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00081}00081     \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}}() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00082}00082     }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00083}00083     \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}}(\textcolor{keywordtype}{int} \_sppSqrt)}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00084}00084         : sppSqrt(\_sppSqrt), samplesPerPixel(\_sppSqrt * \_sppSqrt), nDimensions(4), curSamplePixelIndex(0), curDimensionIndex1D(0), curDimensionIndex2D(0) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00085}00085         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nDimensions; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00086}00086             samples1D.emplace\_back(std::vector<double>(samplesPerPixel));}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00087}00087             samples2D.emplace\_back(std::vector<Point2d>(samplesPerPixel));}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00088}00088         \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00090}00090     }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00091}00091     \mbox{\hyperlink{class_pixel_sampler}{PixelSampler}}(\textcolor{keywordtype}{int} \_sppSqrt, \textcolor{keywordtype}{int} \_nDimensions)}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00092}00092         : sppSqrt(\_sppSqrt) ,samplesPerPixel(\_sppSqrt * \_sppSqrt), nDimensions(\_nDimensions), curSamplePixelIndex(0), curDimensionIndex1D(0), curDimensionIndex2D(0) \{ }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00093}00093         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nDimensions; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00094}00094             samples1D.emplace\_back(std::vector<double>(samplesPerPixel));}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00095}00095             samples2D.emplace\_back(std::vector<Point2d>(samplesPerPixel));}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00096}00096         \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00097}00097     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00098}00098     }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00099}00099     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pixel_sampler}{\string~PixelSampler}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00100}00100     }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00101}00101     \textcolor{comment}{// @brief The sampler may change the sampling stragety at different pixel location ,record the current pixel location}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00102}00102     \textcolor{comment}{// @param \_pixelPositon location of current pixel}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00103}00103     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} startPixel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&\_pixelPositon)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00104}00104         \textcolor{comment}{// record the position}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00105}00105         pixelPosition = \_pixelPositon;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00106}00106         \textcolor{comment}{// reset the sample index}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00107}00107         curDimensionIndex1D = curDimensionIndex2D = curSamplePixelIndex = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00108}00108         \textcolor{comment}{// generate the samples will be used in current pixel}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00109}00109         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nDimensions; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00110}00110             generateSamples1D(samples1D[i]);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00111}00111             \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(samples1D[i], rng);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00112}00112             generateSamples2D(samples2D[i]);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00113}00113             \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(samples2D[i], rng);}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00114}00114         \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00115}00115     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00117}00117     \textcolor{comment}{// @brief Start the next sample at a specific pixel}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00118}00118     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} nextSample()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00119}00119         ++curSamplePixelIndex;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00120}00120         curDimensionIndex1D = curDimensionIndex2D = 0;}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00121}00121     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00123}00123     \textcolor{comment}{// @brief Sample a double in [0, 1], if curDimension exceeds the nDimensions, just return rng()}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00124}00124     \textcolor{comment}{// @return A double sample}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00125}00125     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} sample1D()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00126}00126         \textcolor{keywordflow}{if} (curDimensionIndex1D < nDimensions)}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00127}00127             \textcolor{keywordflow}{return} samples1D[curDimensionIndex1D++][curSamplePixelIndex];}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00128}00128         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00129}00129             \textcolor{keywordflow}{return} rng();}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00130}00130     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00132}00132     \textcolor{comment}{// @brief Sample a point2d in [0, 1]\string^2, if curDimension exceeds the nDimensions, just return \{rng(), rng()\}}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00133}00133     \textcolor{comment}{// @return A point2d sample }}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00134}00134     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_point2}{Point2d}} sample2D()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00135}00135         \textcolor{keywordflow}{if} (curDimensionIndex2D < nDimensions)}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00136}00136             \textcolor{keywordflow}{return} samples2D[curDimensionIndex2D++][curSamplePixelIndex];}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00137}00137         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00138}00138             \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_t_point2}{Point2d}}\{rng(), rng()\};}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00139}00139     \}}
+\DoxyCodeLine{\Hypertarget{_sampler_8h_source_l00140}00140 \};}
+
+\end{DoxyCode}

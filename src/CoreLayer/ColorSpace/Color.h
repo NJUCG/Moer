@@ -11,8 +11,6 @@
  */
 #pragma once
 
-//#include "Geometry.h"
-
 #include <vector>
 #include <cmath>
 #include <cfloat>
@@ -29,16 +27,16 @@ using Spectrum = SampledSpectrum;
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
 
-// @brief the number of uniform samples for SampledSpectrum.
+/// \brief The number of uniform samples for SampledSpectrum.
 static const int nSpectrumSamples = 60;
 
-// @brief mathematical clamp.
+/// \brief Mathematical clamp.
 double mathClamp(double source, double low=0.0, double high=DBL_MAX);
 
-// @brief mathematical lerp.
-double mathLerp(double ratio,double source0,double source1);
+/// \brief Mathematical lerp.
+double mathLerp(double ratio, double source0, double source1);
 
-// @brief types of spectrum. different strategies will be applied.
+/// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };
 
 class RGB3
@@ -116,7 +114,7 @@ public:
 	RGB3 toRGB3() const;
 };
 
-// @brief Spectrum of nSamples sample points.
+/// \brief Spectrum of nSamples sample points.
 template <int nSamples>
 class CoefficientSpectrum
 {
@@ -124,27 +122,27 @@ protected:
 	double coefficients[nSamples];
 
 public:
-	// @brief all coefficients initialized as 0.0f.
+	/// \brief All coefficients initialized as 0.0f.
 	CoefficientSpectrum() {
 		for (int i = 0; i < nSamples; i++) {
 			coefficients[i] = 0.0;
 		}
 	}
 
-	// @brief all coefficients initialized as val.
+	/// \brief All coefficients initialized as val.
 	CoefficientSpectrum(double val) {
 		for (int i = 0; i < nSamples; i++) {
 			coefficients[i] = val;
 		}
 	}
 
+	/// \attention No bounding check
 	double operator[](int i) const {
-		// no bounding check.
 		return coefficients[i];
 	}
 
+	/// \attention  No bounding check
 	double &operator[](int i) {
-		// no bounding check.
 		return coefficients[i];
 	}
 
@@ -172,6 +170,7 @@ public:
 		return retVal;
 	}
 
+	/// \attention There may be NaNs in result
 	CoefficientSpectrum operator/(const CoefficientSpectrum&s) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -201,6 +200,7 @@ public:
 		return *this;
 	}
 
+	/// \attention There may be NaNs in result
 	CoefficientSpectrum& operator/=(const CoefficientSpectrum&s) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] /= s.coefficients[i];	// NaN
@@ -216,6 +216,7 @@ public:
 		return retVal;
 	}
 
+	/// \attention There may be NaNs in result
 	CoefficientSpectrum operator/(double v) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -231,6 +232,7 @@ public:
 		return *this;
 	}
 
+	/// \attention There may be NaNs in result
 	CoefficientSpectrum& operator/=(double v) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] /= v;	// NaN
@@ -242,6 +244,7 @@ public:
 		return s * v;
 	}
 
+	/// \attention Does not check if each component is greater than 0
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
@@ -297,13 +300,14 @@ public:
 		return sum() / nSamples;
 	}
 
+	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
 		//DEBUG this function should never be called.
 		return XYZ3(0.0);
 	}
 };
 
-// @brief one sample point from a spectrum.
+/// \brief One sample point from a spectrum.
 struct SpectrumSample
 {
 	double lambda;
@@ -314,18 +318,18 @@ struct SpectrumSample
 		value = _value;
 	}
 
-	// @brief sorted by lambda.
+	/// \brief Sorted by lambda.
 	bool operator>(const SpectrumSample& s) const {
 		return lambda > s.lambda;
 	}
 
-	// @brief sorted by lambda.
+	/// \brief Sorted by lambda.
 	bool operator<(const SpectrumSample& s) const {
 		return lambda < s.lambda;
 	}
 };
 
-// @brief The specturm samples uniformly. Actually used in program.
+/// \brief The specturm samples uniformly. Actually used in program.
 class SampledSpectrum
 	: public CoefficientSpectrum<nSpectrumSamples>
 {
@@ -354,7 +358,7 @@ public:
 	friend class RGB3;
 	friend class XYZ3;
 
-	// @brief global init of static values. should be called before any constructor of SampledSpectrum.
+	/// \brief Global init of static values. should be called before any constructor of SampledSpectrum.
 	static void init();
 
 	SampledSpectrum();
@@ -363,12 +367,13 @@ public:
 
 	SampledSpectrum(const CoefficientSpectrum& s);
 
-	// @brief generate SampledSpectrum from a set of SpectrumSample.
+	/// \brief generate SampledSpectrum from a set of SpectrumSample.
 	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 
 	virtual XYZ3 toXYZ3() const override;
 };
 
+/// \todo To be finished
 class RGBSpectrum : public CoefficientSpectrum<3>
 {
 	// TODO RGBSpectrum

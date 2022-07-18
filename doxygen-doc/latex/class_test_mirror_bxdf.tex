@@ -1,0 +1,80 @@
+\hypertarget{class_test_mirror_bxdf}{}\doxysection{Test\+Mirror\+Bxdf Class Reference}
+\label{class_test_mirror_bxdf}\index{TestMirrorBxdf@{TestMirrorBxdf}}
+Inheritance diagram for Test\+Mirror\+Bxdf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_test_mirror_bxdf}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_test_mirror_bxdf_a533119567cc0c49619ae0fb3230e027f}{f}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_test_mirror_bxdf_a4438b4a7632d71d2576e17cd1dfe348f}{sample\+Wi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual double \mbox{\hyperlink{class_test_mirror_bxdf_ad76d4cebcfa1f8847af35e174cd0f4b8}{pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} \mbox{\hyperlink{class_test_mirror_bxdf_a7b61e6d39de2020e6e7f378827a71698}{sample}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual bool \mbox{\hyperlink{class_test_mirror_bxdf_ae8bfc4b35d03db0842086b5244692348}{is\+Specular}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_test_mirror_bxdf_a533119567cc0c49619ae0fb3230e027f}\label{class_test_mirror_bxdf_a533119567cc0c49619ae0fb3230e027f}} 
+\index{TestMirrorBxdf@{TestMirrorBxdf}!f@{f}}
+\index{f@{f}!TestMirrorBxdf@{TestMirrorBxdf}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Test\+Mirror\+Bxdf\+::f (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_test_mirror_bxdf_ae8bfc4b35d03db0842086b5244692348}\label{class_test_mirror_bxdf_ae8bfc4b35d03db0842086b5244692348}} 
+\index{TestMirrorBxdf@{TestMirrorBxdf}!isSpecular@{isSpecular}}
+\index{isSpecular@{isSpecular}!TestMirrorBxdf@{TestMirrorBxdf}}
+\doxysubsubsection{\texorpdfstring{isSpecular()}{isSpecular()}}
+{\footnotesize\ttfamily bool Test\+Mirror\+Bxdf\+::is\+Specular (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_test_mirror_bxdf_ad76d4cebcfa1f8847af35e174cd0f4b8}\label{class_test_mirror_bxdf_ad76d4cebcfa1f8847af35e174cd0f4b8}} 
+\index{TestMirrorBxdf@{TestMirrorBxdf}!pdf@{pdf}}
+\index{pdf@{pdf}!TestMirrorBxdf@{TestMirrorBxdf}}
+\doxysubsubsection{\texorpdfstring{pdf()}{pdf()}}
+{\footnotesize\ttfamily double Test\+Mirror\+Bxdf\+::pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_test_mirror_bxdf_a7b61e6d39de2020e6e7f378827a71698}\label{class_test_mirror_bxdf_a7b61e6d39de2020e6e7f378827a71698}} 
+\index{TestMirrorBxdf@{TestMirrorBxdf}!sample@{sample}}
+\index{sample@{sample}!TestMirrorBxdf@{TestMirrorBxdf}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} Test\+Mirror\+Bxdf\+::sample (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_test_mirror_bxdf_a4438b4a7632d71d2576e17cd1dfe348f}\label{class_test_mirror_bxdf_a4438b4a7632d71d2576e17cd1dfe348f}} 
+\index{TestMirrorBxdf@{TestMirrorBxdf}!sampleWi@{sampleWi}}
+\index{sampleWi@{sampleWi}!TestMirrorBxdf@{TestMirrorBxdf}}
+\doxysubsubsection{\texorpdfstring{sampleWi()}{sampleWi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Test\+Mirror\+Bxdf\+::sample\+Wi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/Test\+Mirror\+Bxdf.\+h\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/Test\+Mirror\+Bxdf.\+cpp\end{DoxyCompactItemize}

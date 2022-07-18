@@ -1,0 +1,24 @@
+\hypertarget{_diffuse_area_light_8h_source}{}\doxysection{Diffuse\+Area\+Light.\+h}
+\label{_diffuse_area_light_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Light/DiffuseAreaLight.h@{/mnt/renderer/Zero/src/FunctionLayer/Light/DiffuseAreaLight.h}}
+\mbox{\hyperlink{_diffuse_area_light_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_area_light_8h}{AreaLight.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_transform3d_8h}{CoreLayer/Geometry/Transform3d.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{FunctionLayer/Shape/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00017}00017 \textcolor{keyword}{class }DiffuseAreaLight : \textcolor{keyword}{public} AreaLight}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00018}00018 \{}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00019}00019     std::shared\_ptr<Entity> shape;}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00020}00020     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} radiance;}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00022}00022 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00023}00023     DiffuseAreaLight(std::shared\_ptr<Entity> shape,}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00024}00024                      \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} radiance);}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00025}00025     \textcolor{keyword}{virtual} LightSampleResult evalEnvironment(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00026}00026     \textcolor{keyword}{virtual} LightSampleResult eval(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& ray, \textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00027}00027     \textcolor{keyword}{virtual} LightSampleResult sampleEmit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&positionSample, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&directionSample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00028}00028     \textcolor{keyword}{virtual} LightSampleResult sampleDirect(\textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_diffuse_area_light_8h_source_l00029}00029 \};}
+
+\end{DoxyCode}

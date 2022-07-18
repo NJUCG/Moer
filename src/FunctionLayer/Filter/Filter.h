@@ -15,7 +15,7 @@
 
 // ! Note that we cannot use any non-linear "filter" here, such as bilteral and etc
 
-// @brief: Base class for linear filter used for film
+/// @brief: Base class for linear filter used for film
 class Filter
 {
 public:

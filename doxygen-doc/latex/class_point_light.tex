@@ -1,0 +1,90 @@
+\hypertarget{class_point_light}{}\doxysection{Point\+Light Class Reference}
+\label{class_point_light}\index{PointLight@{PointLight}}
+Inheritance diagram for Point\+Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_point_light}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_light_a618c0bbebe21a1a8921dd0750d7eff88}\label{class_point_light_a618c0bbebe21a1a8921dd0750d7eff88}} 
+{\bfseries Point\+Light} (const \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&intensity, const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&center)
+\item 
+virtual void \mbox{\hyperlink{class_point_light_ac2ed5b5fe97faf0971b0d96774f306c3}{apply}} () override
+\item 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} \mbox{\hyperlink{class_point_light_a06682d6ae9c4b83a2b22cbd2abd3d6ca}{eval\+Environment}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray) override
+\item 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} \mbox{\hyperlink{class_point_light_ad565c2cee14fcf354059e30e4f06e879}{eval}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, const \mbox{\hyperlink{struct_intersection}{Intersection}} \&its, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) override
+\item 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} \mbox{\hyperlink{class_point_light_a9cfb6a9f9307abac0ac81e11be0c22e2}{sample\+Emit}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&position\+Sample, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&direction\+Sample, float time) override
+\item 
+virtual \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} \mbox{\hyperlink{class_point_light_a5a32b28bc0975f303c3a69ce7c090a19}{sample\+Direct}} (const \mbox{\hyperlink{struct_intersection}{Intersection}} \&its, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, float time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_light_a115a1134dd75920f7aa182453ce633dc}\label{class_point_light_a115a1134dd75920f7aa182453ce633dc}} 
+\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} {\bfseries intensity}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_point_light_ac2ed5b5fe97faf0971b0d96774f306c3}\label{class_point_light_ac2ed5b5fe97faf0971b0d96774f306c3}} 
+\index{PointLight@{PointLight}!apply@{apply}}
+\index{apply@{apply}!PointLight@{PointLight}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily void Point\+Light\+::apply (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_transform3_d}{Transform3D}}.
+
+\mbox{\Hypertarget{class_point_light_ad565c2cee14fcf354059e30e4f06e879}\label{class_point_light_ad565c2cee14fcf354059e30e4f06e879}} 
+\index{PointLight@{PointLight}!eval@{eval}}
+\index{eval@{eval}!PointLight@{PointLight}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} Point\+Light\+::eval (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray,  }\item[{const \mbox{\hyperlink{struct_intersection}{Intersection}} \&}]{its,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_point_light_a06682d6ae9c4b83a2b22cbd2abd3d6ca}\label{class_point_light_a06682d6ae9c4b83a2b22cbd2abd3d6ca}} 
+\index{PointLight@{PointLight}!evalEnvironment@{evalEnvironment}}
+\index{evalEnvironment@{evalEnvironment}!PointLight@{PointLight}}
+\doxysubsubsection{\texorpdfstring{evalEnvironment()}{evalEnvironment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} Point\+Light\+::eval\+Environment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_point_light_a5a32b28bc0975f303c3a69ce7c090a19}\label{class_point_light_a5a32b28bc0975f303c3a69ce7c090a19}} 
+\index{PointLight@{PointLight}!sampleDirect@{sampleDirect}}
+\index{sampleDirect@{sampleDirect}!PointLight@{PointLight}}
+\doxysubsubsection{\texorpdfstring{sampleDirect()}{sampleDirect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} Point\+Light\+::sample\+Direct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_intersection}{Intersection}} \&}]{its,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample,  }\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_point_light_a9cfb6a9f9307abac0ac81e11be0c22e2}\label{class_point_light_a9cfb6a9f9307abac0ac81e11be0c22e2}} 
+\index{PointLight@{PointLight}!sampleEmit@{sampleEmit}}
+\index{sampleEmit@{sampleEmit}!PointLight@{PointLight}}
+\doxysubsubsection{\texorpdfstring{sampleEmit()}{sampleEmit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_light_sample_result}{Light\+Sample\+Result}} Point\+Light\+::sample\+Emit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{position\+Sample,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{direction\+Sample,  }\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Light/\mbox{\hyperlink{_point_light_8h}{Point\+Light.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Light/\mbox{\hyperlink{_point_light_8cpp}{Point\+Light.\+cpp}}\end{DoxyCompactItemize}

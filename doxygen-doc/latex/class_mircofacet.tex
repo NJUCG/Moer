@@ -1,0 +1,85 @@
+\hypertarget{class_mircofacet}{}\doxysection{Mircofacet Class Reference}
+\label{class_mircofacet}\index{Mircofacet@{Mircofacet}}
+Inheritance diagram for Mircofacet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mircofacet}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mircofacet_a5ae9f8171978a03ca27eeb85fe2bc379}\label{class_mircofacet_a5ae9f8171978a03ca27eeb85fe2bc379}} 
+{\bfseries Mircofacet} (\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} kd, double int\+IOR, double ext\+IOR, double alpha)
+\item 
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_mircofacet_a1dd10172c9f3ac90b688c9e003b22f62}{f}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_mircofacet_adc1b791e6539c2e8b4204505e447d4a2}{sample\+Wi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual double \mbox{\hyperlink{class_mircofacet_a53bdb64e41fc6348e9a7c0d1207cc578}{pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} \mbox{\hyperlink{class_mircofacet_a2ad7016e53f06505e42fa7fa7717b3d3}{sample}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual bool \mbox{\hyperlink{class_mircofacet_ab4c108b194b81839f36d67fb4eb64f1e}{is\+Specular}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mircofacet_a1dd10172c9f3ac90b688c9e003b22f62}\label{class_mircofacet_a1dd10172c9f3ac90b688c9e003b22f62}} 
+\index{Mircofacet@{Mircofacet}!f@{f}}
+\index{f@{f}!Mircofacet@{Mircofacet}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Mircofacet\+::f (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_mircofacet_ab4c108b194b81839f36d67fb4eb64f1e}\label{class_mircofacet_ab4c108b194b81839f36d67fb4eb64f1e}} 
+\index{Mircofacet@{Mircofacet}!isSpecular@{isSpecular}}
+\index{isSpecular@{isSpecular}!Mircofacet@{Mircofacet}}
+\doxysubsubsection{\texorpdfstring{isSpecular()}{isSpecular()}}
+{\footnotesize\ttfamily bool Mircofacet\+::is\+Specular (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_mircofacet_a53bdb64e41fc6348e9a7c0d1207cc578}\label{class_mircofacet_a53bdb64e41fc6348e9a7c0d1207cc578}} 
+\index{Mircofacet@{Mircofacet}!pdf@{pdf}}
+\index{pdf@{pdf}!Mircofacet@{Mircofacet}}
+\doxysubsubsection{\texorpdfstring{pdf()}{pdf()}}
+{\footnotesize\ttfamily double Mircofacet\+::pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_mircofacet_a2ad7016e53f06505e42fa7fa7717b3d3}\label{class_mircofacet_a2ad7016e53f06505e42fa7fa7717b3d3}} 
+\index{Mircofacet@{Mircofacet}!sample@{sample}}
+\index{sample@{sample}!Mircofacet@{Mircofacet}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} Mircofacet\+::sample (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_mircofacet_adc1b791e6539c2e8b4204505e447d4a2}\label{class_mircofacet_adc1b791e6539c2e8b4204505e447d4a2}} 
+\index{Mircofacet@{Mircofacet}!sampleWi@{sampleWi}}
+\index{sampleWi@{sampleWi}!Mircofacet@{Mircofacet}}
+\doxysubsubsection{\texorpdfstring{sampleWi()}{sampleWi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Mircofacet\+::sample\+Wi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+specular case
+
+diffuse case
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/Microfacet.\+h\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/Mircofacet.\+cpp\end{DoxyCompactItemize}

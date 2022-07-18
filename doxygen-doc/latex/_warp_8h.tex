@@ -1,0 +1,170 @@
+\hypertarget{_warp_8h}{}\doxysection{/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Math/\+Warp.h File Reference}
+\label{_warp_8h}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h}}
+
+
+The warp function to transform from unifrom sample to specific sample.  
+
+
+{\ttfamily \#include \char`\"{}Core\+Layer/\+Geometry/\+Geometry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Common.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{_warp_8h_a54f577562cb9f63ca88b5d9d043ad4ac}{Tent\+Inverse}} (double x)
+\item 
+\mbox{\hyperlink{struct_t_point2}{Point2d}} \mbox{\hyperlink{_warp_8h_aade369a68545ecb4a63f4fee6a90fe10}{Square\+To\+Tent}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+double \mbox{\hyperlink{_warp_8h_a883a63b992df5acadbe365635e0c0d71}{Square\+To\+Tent\+Pdf}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
+\item 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{_warp_8h_a062bfdb79575375604fd64943c4723b7}{Square\+To\+Uniform\+Sphere}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+float \mbox{\hyperlink{_warp_8h_ac1f783709c5bbe664c5df76069045c4a}{Square\+To\+Uniform\+Sphere\+Pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{_warp_8h_ab42d663a37cd47b992525b352acab9df}{Square\+To\+Uniform\+Hemisphere}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+float \mbox{\hyperlink{_warp_8h_af2d217bf4e9106124d6e1fd41e4e9d07}{Square\+To\+Uniform\+Hemisphere\+Pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{_warp_8h_a44c44160670d60bd1ff1cccd0aa45b8a}{Square\+To\+Cosine\+Hemisphere}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+float \mbox{\hyperlink{_warp_8h_afa82a00dd5d4e5bd6b026855d7662d00}{Square\+To\+Cosine\+Hemisphere\+Pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{_warp_8h_a106eb5d214471486946fdd4fac9726c9}{Square\+To\+Beckmann}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, double alpha)
+\item 
+float \mbox{\hyperlink{_warp_8h_a197e1b9c0021a00c9f08dca796056632}{Square\+To\+Beckmann\+Pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&m, double alpha)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The warp function to transform from unifrom sample to specific sample. 
+
+\begin{DoxyAuthor}{Author}
+Chenxi Zhou 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/07-\/18 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]The up direction is (0, 1, 0) or (0, 0, 1) ?? \end{DoxyRefDesc}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_warp_8h_a106eb5d214471486946fdd4fac9726c9}\label{_warp_8h_a106eb5d214471486946fdd4fac9726c9}} 
+\index{Warp.h@{Warp.h}!SquareToBeckmann@{SquareToBeckmann}}
+\index{SquareToBeckmann@{SquareToBeckmann}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToBeckmann()}{SquareToBeckmann()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Square\+To\+Beckmann (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample,  }\item[{double}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00062}{62}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_a197e1b9c0021a00c9f08dca796056632}\label{_warp_8h_a197e1b9c0021a00c9f08dca796056632}} 
+\index{Warp.h@{Warp.h}!SquareToBeckmannPdf@{SquareToBeckmannPdf}}
+\index{SquareToBeckmannPdf@{SquareToBeckmannPdf}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToBeckmannPdf()}{SquareToBeckmannPdf()}}
+{\footnotesize\ttfamily float Square\+To\+Beckmann\+Pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{m,  }\item[{double}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00071}{71}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_a44c44160670d60bd1ff1cccd0aa45b8a}\label{_warp_8h_a44c44160670d60bd1ff1cccd0aa45b8a}} 
+\index{Warp.h@{Warp.h}!SquareToCosineHemisphere@{SquareToCosineHemisphere}}
+\index{SquareToCosineHemisphere@{SquareToCosineHemisphere}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToCosineHemisphere()}{SquareToCosineHemisphere()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Square\+To\+Cosine\+Hemisphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00051}{51}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_afa82a00dd5d4e5bd6b026855d7662d00}\label{_warp_8h_afa82a00dd5d4e5bd6b026855d7662d00}} 
+\index{Warp.h@{Warp.h}!SquareToCosineHemispherePdf@{SquareToCosineHemispherePdf}}
+\index{SquareToCosineHemispherePdf@{SquareToCosineHemispherePdf}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToCosineHemispherePdf()}{SquareToCosineHemispherePdf()}}
+{\footnotesize\ttfamily float Square\+To\+Cosine\+Hemisphere\+Pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00058}{58}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_aade369a68545ecb4a63f4fee6a90fe10}\label{_warp_8h_aade369a68545ecb4a63f4fee6a90fe10}} 
+\index{Warp.h@{Warp.h}!SquareToTent@{SquareToTent}}
+\index{SquareToTent@{SquareToTent}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToTent()}{SquareToTent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point2}{Point2d}} Square\+To\+Tent (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00019}{19}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_a883a63b992df5acadbe365635e0c0d71}\label{_warp_8h_a883a63b992df5acadbe365635e0c0d71}} 
+\index{Warp.h@{Warp.h}!SquareToTentPdf@{SquareToTentPdf}}
+\index{SquareToTentPdf@{SquareToTentPdf}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToTentPdf()}{SquareToTentPdf()}}
+{\footnotesize\ttfamily double Square\+To\+Tent\+Pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00025}{25}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_ab42d663a37cd47b992525b352acab9df}\label{_warp_8h_ab42d663a37cd47b992525b352acab9df}} 
+\index{Warp.h@{Warp.h}!SquareToUniformHemisphere@{SquareToUniformHemisphere}}
+\index{SquareToUniformHemisphere@{SquareToUniformHemisphere}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToUniformHemisphere()}{SquareToUniformHemisphere()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Square\+To\+Uniform\+Hemisphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00040}{40}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_af2d217bf4e9106124d6e1fd41e4e9d07}\label{_warp_8h_af2d217bf4e9106124d6e1fd41e4e9d07}} 
+\index{Warp.h@{Warp.h}!SquareToUniformHemispherePdf@{SquareToUniformHemispherePdf}}
+\index{SquareToUniformHemispherePdf@{SquareToUniformHemispherePdf}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToUniformHemispherePdf()}{SquareToUniformHemispherePdf()}}
+{\footnotesize\ttfamily float Square\+To\+Uniform\+Hemisphere\+Pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00047}{47}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_a062bfdb79575375604fd64943c4723b7}\label{_warp_8h_a062bfdb79575375604fd64943c4723b7}} 
+\index{Warp.h@{Warp.h}!SquareToUniformSphere@{SquareToUniformSphere}}
+\index{SquareToUniformSphere@{SquareToUniformSphere}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToUniformSphere()}{SquareToUniformSphere()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Square\+To\+Uniform\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00029}{29}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_ac1f783709c5bbe664c5df76069045c4a}\label{_warp_8h_ac1f783709c5bbe664c5df76069045c4a}} 
+\index{Warp.h@{Warp.h}!SquareToUniformSpherePdf@{SquareToUniformSpherePdf}}
+\index{SquareToUniformSpherePdf@{SquareToUniformSpherePdf}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{SquareToUniformSpherePdf()}{SquareToUniformSpherePdf()}}
+{\footnotesize\ttfamily float Square\+To\+Uniform\+Sphere\+Pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00036}{36}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+
+\mbox{\Hypertarget{_warp_8h_a54f577562cb9f63ca88b5d9d043ad4ac}\label{_warp_8h_a54f577562cb9f63ca88b5d9d043ad4ac}} 
+\index{Warp.h@{Warp.h}!TentInverse@{TentInverse}}
+\index{TentInverse@{TentInverse}!Warp.h@{Warp.h}}
+\doxysubsubsection{\texorpdfstring{TentInverse()}{TentInverse()}}
+{\footnotesize\ttfamily static double Tent\+Inverse (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_warp_8h_source_l00014}{14}} of file \mbox{\hyperlink{_warp_8h_source}{Warp.\+h}}.
+

@@ -1,0 +1,19 @@
+\hypertarget{_mirror_material_8h_source}{}\doxysection{Mirror\+Material.\+h}
+\label{_mirror_material_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/MirrorMaterial.h@{/mnt/renderer/Zero/src/FunctionLayer/Material/MirrorMaterial.h}}
+\mbox{\hyperlink{_mirror_material_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{Material.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mirror_8h}{FunctionLayer/Material/BxDF/Mirror.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00017}00017 \textcolor{preprocessor}{\#pragma  once}}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00018}00018 \textcolor{keyword}{class }MirrorMaterial  : \textcolor{keyword}{public}  Material\{}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00021}00021 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00022}00022     \textcolor{keyword}{virtual} std::shared\_ptr<BxDF> getBxDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00023}00023     \textcolor{keyword}{virtual} std::shared\_ptr<BSSRDF> getBSSRDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_mirror_material_8h_source_l00024}00024 \};}
+
+\end{DoxyCode}

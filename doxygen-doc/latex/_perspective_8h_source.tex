@@ -1,0 +1,51 @@
+\hypertarget{_perspective_8h_source}{}\doxysection{Perspective.\+h}
+\label{_perspective_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Camera/Perspective.h@{/mnt/renderer/Zero/src/FunctionLayer/Camera/Perspective.h}}
+\mbox{\hyperlink{_perspective_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_matrix_8h}{CoreLayer/Geometry/Matrix.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00020}\mbox{\hyperlink{class_perspective_camera}{00020}} \textcolor{keyword}{class }\mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_camera}{Camera}} \{}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00021}00021 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00022}00022 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00023}00023     \textcolor{comment}{// TODO replace martrix with transform3d}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00026}00026 \textcolor{comment}{}    \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00027}00027     \textcolor{comment}{//     [0, 0]-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/> x}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00028}00028     \textcolor{comment}{//          |      |}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00029}00029     \textcolor{comment}{//          |-\/-\/-\/-\/-\/-\/+ [x, y]}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00030}00030     \textcolor{comment}{//          |}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00031}00031     \textcolor{comment}{//          y}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00032}\mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{00032}}     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{cameraToWorld}}, sampleToFilm;}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00033}00033 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00034}00034     \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00035}00035     }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00046}\mbox{\hyperlink{class_perspective_camera_a2067e13621a56fa40625ac1fae20d7de}{00046}}     \mbox{\hyperlink{class_perspective_camera_a2067e13621a56fa40625ac1fae20d7de}{PerspectiveCamera}}(}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00047}00047         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookFrom, }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00048}00048         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookAt, }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00049}00049         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up,}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00050}00050         \textcolor{keywordtype}{double} xFov,}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00051}00051         \textcolor{keywordtype}{double} aspectRatio,}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00052}00052         \textcolor{keywordtype}{double} distToFilm}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00053}00053     )}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00054}00054     \{}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00055}00055         \mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{cameraToWorld}} = }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00056}00056             \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{Matrix4x4::lookAt}}(lookFrom, lookAt -\/ lookFrom, up).inverse();}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00057}00057         \textcolor{comment}{// ! near is the distToFilm and far set to MAX\_FLOAT }}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00058}00058         \textcolor{comment}{// ! if far set to MAX\_DOUBLE, it will crash when computing the matrix }}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00059}00059         \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} filmToSample = \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{Matrix4x4::perspective}}(}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00060}00060             \mbox{\hyperlink{class_angle}{Angle}}(xFov, Angle::AngleType::ANGLE\_DEG), }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00061}00061             aspectRatio, }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00062}00062             distToFilm, }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00063}00063             std::numeric\_limits<float>::max()}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00064}00064         );}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00065}00065         sampleToFilm =}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00066}00066             Matrix4x4::scale(0.5, -\/0.5, 1.0)}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00067}00067             * Matrix4x4::translate(1, -\/1, 0) }
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00068}00068             * filmToSample;}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00069}00069         sampleToFilm = sampleToFilm.inverse();}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{_perspective_8h_source_l00071}00071 \};}
+
+\end{DoxyCode}

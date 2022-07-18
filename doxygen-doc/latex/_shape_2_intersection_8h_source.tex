@@ -1,0 +1,48 @@
+\hypertarget{_shape_2_intersection_8h_source}{}\doxysection{Intersection.\+h}
+\label{_shape_2_intersection_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Shape/Intersection.h@{/mnt/renderer/Zero/src/FunctionLayer/Shape/Intersection.h}}
+\mbox{\hyperlink{_shape_2_intersection_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_8h}{CoreLayer/Geometry/Frame.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{FunctionLayer/Material/Material.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_medium_8h}{FunctionLayer/Medium/Medium.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00022}00022 \textcolor{keyword}{struct }Intersection}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00024}00024     \mbox{\hyperlink{struct_t_point3}{Point3d}} position;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00025}00025     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryNormal;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00026}00026     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryTangent;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00027}00027     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryBitangent;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00028}00028     \mbox{\hyperlink{struct_t_point2}{Point2d}} uv;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00030}00030     \textcolor{comment}{// shadingFrame}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00031}00031     \mbox{\hyperlink{struct_frame}{Frame}} shFrame;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00033}00033     \mbox{\hyperlink{struct_t_point3}{Point3d}} dpdu, dpdv;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00034}00034     \mbox{\hyperlink{struct_normal3d}{Normal3d}} dndu, dndv;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00036}00036     \textcolor{comment}{// std::shared\_ptr<Entity> object;}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00037}00037     \textcolor{keyword}{const} Entity *object;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00039}00039     std::shared\_ptr<Material> material;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00040}00040     std::shared\_ptr<Medium> mediumInside;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00041}00041     std::shared\_ptr<Medium> mediumOutside;}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00043}00043     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toLocal(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00044}00044 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00045}00045         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{toLocal}}(d);}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00048}00048     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toWorld(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00049}00049 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00050}00050         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{toWorld}}(d);}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00051}00051     \}}
+\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00052}00052 \};}
+
+\end{DoxyCode}

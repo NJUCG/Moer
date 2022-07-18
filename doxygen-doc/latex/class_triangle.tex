@@ -1,0 +1,123 @@
+\hypertarget{class_triangle}{}\doxysection{Triangle Class Reference}
+\label{class_triangle}\index{Triangle@{Triangle}}
+Inheritance diagram for Triangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_triangle}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_triangle_a4ae0e4165db33a444394de6c9f41f348}{apply}} () override
+\item 
+\mbox{\Hypertarget{class_triangle_a449d84f57d5ed5725e506b80e6547dd3}\label{class_triangle_a449d84f57d5ed5725e506b80e6547dd3}} 
+{\bfseries Triangle} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_triangle_mesh}{Triangle\+Mesh}} $>$ \&\+\_\+mesh, const int \&\+\_\+face\+Id)
+\item 
+\mbox{\Hypertarget{class_triangle_addb2164a398fbf25d797881761ac02f9}\label{class_triangle_addb2164a398fbf25d797881761ac02f9}} 
+{\bfseries Triangle} (const std\+::vector$<$ \mbox{\hyperlink{struct_t_point3}{Point3d}} $>$ \&points, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \&\+\_\+material)
+\item 
+virtual std\+::optional$<$ \mbox{\hyperlink{struct_intersection}{Intersection}} $>$ \mbox{\hyperlink{class_triangle_ac0961090d6666417d1ef30c015b02f48}{intersect}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r) const
+\item 
+virtual double \mbox{\hyperlink{class_triangle_a5b86d43152f84325da7c657650e1f3f1}{area}} () const
+\item 
+virtual \mbox{\hyperlink{struct_intersection}{Intersection}} \mbox{\hyperlink{class_triangle_ae5b5f4aab46080dc95e8fb6e33829e60}{sample}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&position\+Sample) const
+\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_light}{Light}} $>$ \mbox{\hyperlink{class_triangle_ae704be048eeb44bf465c68384bd71e3a}{get\+Light}} () const
+\item 
+virtual void \mbox{\hyperlink{class_triangle_a3aceb6f3dadb5fea80e080b21204ed70}{set\+Light}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_light}{Light}} $>$ light)
+\item 
+virtual \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3f}} \mbox{\hyperlink{class_triangle_a54920123a8d96419111df40de17ffedb}{World\+Bound}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_triangle_a8f4050c4ddfc5171ec98f8ebebfe4ba4}\label{class_triangle_a8f4050c4ddfc5171ec98f8ebebfe4ba4}} 
+int {\bfseries vertex\+Id} \mbox{[}3\mbox{]}
+\item 
+\mbox{\Hypertarget{class_triangle_a2e85081c319a82ad4c1813a9110e1436}\label{class_triangle_a2e85081c319a82ad4c1813a9110e1436}} 
+int {\bfseries face\+Id}
+\item 
+\mbox{\Hypertarget{class_triangle_abb6eee76cbd2cbc2314a83897576b111}\label{class_triangle_abb6eee76cbd2cbc2314a83897576b111}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_triangle_mesh}{Triangle\+Mesh}} $>$ {\bfseries mesh}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_triangle_a4ae0e4165db33a444394de6c9f41f348}\label{class_triangle_a4ae0e4165db33a444394de6c9f41f348}} 
+\index{Triangle@{Triangle}!apply@{apply}}
+\index{apply@{apply}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily void Triangle\+::apply (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_transform3_d}{Transform3D}}.
+
+\mbox{\Hypertarget{class_triangle_a5b86d43152f84325da7c657650e1f3f1}\label{class_triangle_a5b86d43152f84325da7c657650e1f3f1}} 
+\index{Triangle@{Triangle}!area@{area}}
+\index{area@{area}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Triangle\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_triangle_ae704be048eeb44bf465c68384bd71e3a}\label{class_triangle_ae704be048eeb44bf465c68384bd71e3a}} 
+\index{Triangle@{Triangle}!getLight@{getLight}}
+\index{getLight@{getLight}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{getLight()}{getLight()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_light}{Light}} $>$ Triangle\+::get\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_triangle_ac0961090d6666417d1ef30c015b02f48}\label{class_triangle_ac0961090d6666417d1ef30c015b02f48}} 
+\index{Triangle@{Triangle}!intersect@{intersect}}
+\index{intersect@{intersect}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{intersect()}{intersect()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{struct_intersection}{Intersection}} $>$ Triangle\+::intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{r }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_triangle_ae5b5f4aab46080dc95e8fb6e33829e60}\label{class_triangle_ae5b5f4aab46080dc95e8fb6e33829e60}} 
+\index{Triangle@{Triangle}!sample@{sample}}
+\index{sample@{sample}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_intersection}{Intersection}} Triangle\+::sample (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{position\+Sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_triangle_a3aceb6f3dadb5fea80e080b21204ed70}\label{class_triangle_a3aceb6f3dadb5fea80e080b21204ed70}} 
+\index{Triangle@{Triangle}!setLight@{setLight}}
+\index{setLight@{setLight}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{setLight()}{setLight()}}
+{\footnotesize\ttfamily void Triangle\+::set\+Light (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_light}{Light}} $>$}]{light }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_triangle_a54920123a8d96419111df40de17ffedb}\label{class_triangle_a54920123a8d96419111df40de17ffedb}} 
+\index{Triangle@{Triangle}!WorldBound@{WorldBound}}
+\index{WorldBound@{WorldBound}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{WorldBound()}{WorldBound()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3f}} Triangle\+::\+World\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Shape/\mbox{\hyperlink{_triangle_8h}{Triangle.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Shape/\mbox{\hyperlink{_triangle_8cpp}{Triangle.\+cpp}}\end{DoxyCompactItemize}

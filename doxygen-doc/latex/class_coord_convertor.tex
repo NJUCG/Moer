@@ -1,0 +1,96 @@
+\hypertarget{class_coord_convertor}{}\doxysection{Coord\+Convertor Class Reference}
+\label{class_coord_convertor}\index{CoordConvertor@{CoordConvertor}}
+
+
+Provides transformations between different coordinate systems.  
+
+
+
+
+{\ttfamily \#include $<$Coord\+Convertor.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_t_point3}{Point3d}} \mbox{\hyperlink{class_coord_convertor_a6f5154f84a5ed35b8602d27f4b7d3450}{cartesian2\+Spherical}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
+\begin{DoxyCompactList}\small\item\em Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_coord_convertor_a35900e1deaafa324234d5ad53c12b7f4}{cartesian2\+Spherical\+Vec}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
+\item 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_coord_convertor_a187b04a42d83b5df8cd536b54617b452}{world2\+TBN}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&b, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&n)
+\item 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_coord_convertor_ae3137d0296f862b95cbe342be370af02}{TBN2\+World}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&b, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides transformations between different coordinate systems. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]A namespace contains function might better? \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_coord_convertor_8h_source_l00018}{18}} of file \mbox{\hyperlink{_coord_convertor_8h_source}{Coord\+Convertor.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_coord_convertor_a6f5154f84a5ed35b8602d27f4b7d3450}\label{class_coord_convertor_a6f5154f84a5ed35b8602d27f4b7d3450}} 
+\index{CoordConvertor@{CoordConvertor}!cartesian2Spherical@{cartesian2Spherical}}
+\index{cartesian2Spherical@{cartesian2Spherical}!CoordConvertor@{CoordConvertor}}
+\doxysubsubsection{\texorpdfstring{cartesian2Spherical()}{cartesian2Spherical()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point3}{Point3d}} Coord\+Convertor\+::cartesian2\+Spherical (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Sperical2cartesian? The function name doesn\textquotesingle{}t match \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & $ (\phi, \theta) $ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The correspoding coordinate in cartesian 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_coord_convertor_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_coord_convertor_8cpp_source}{Coord\+Convertor.\+cpp}}.
+
+\mbox{\Hypertarget{class_coord_convertor_a35900e1deaafa324234d5ad53c12b7f4}\label{class_coord_convertor_a35900e1deaafa324234d5ad53c12b7f4}} 
+\index{CoordConvertor@{CoordConvertor}!cartesian2SphericalVec@{cartesian2SphericalVec}}
+\index{cartesian2SphericalVec@{cartesian2SphericalVec}!CoordConvertor@{CoordConvertor}}
+\doxysubsubsection{\texorpdfstring{cartesian2SphericalVec()}{cartesian2SphericalVec()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Coord\+Convertor\+::cartesian2\+Spherical\+Vec (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_coord_convertor_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_coord_convertor_8cpp_source}{Coord\+Convertor.\+cpp}}.
+
+\mbox{\Hypertarget{class_coord_convertor_ae3137d0296f862b95cbe342be370af02}\label{class_coord_convertor_ae3137d0296f862b95cbe342be370af02}} 
+\index{CoordConvertor@{CoordConvertor}!TBN2World@{TBN2World}}
+\index{TBN2World@{TBN2World}!CoordConvertor@{CoordConvertor}}
+\doxysubsubsection{\texorpdfstring{TBN2World()}{TBN2World()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Coord\+Convertor\+::\+TBN2\+World (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{t,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{b,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_coord_convertor_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_coord_convertor_8cpp_source}{Coord\+Convertor.\+cpp}}.
+
+\mbox{\Hypertarget{class_coord_convertor_a187b04a42d83b5df8cd536b54617b452}\label{class_coord_convertor_a187b04a42d83b5df8cd536b54617b452}} 
+\index{CoordConvertor@{CoordConvertor}!world2TBN@{world2TBN}}
+\index{world2TBN@{world2TBN}!CoordConvertor@{CoordConvertor}}
+\doxysubsubsection{\texorpdfstring{world2TBN()}{world2TBN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Coord\+Convertor\+::world2\+TBN (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{t,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{b,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_coord_convertor_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_coord_convertor_8cpp_source}{Coord\+Convertor.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_coord_convertor_8h}{Coord\+Convertor.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_coord_convertor_8cpp}{Coord\+Convertor.\+cpp}}\end{DoxyCompactItemize}

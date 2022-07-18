@@ -1,0 +1,27 @@
+\hypertarget{_procedural_texture_8cpp_source}{}\doxysection{Procedural\+Texture.\+cpp}
+\label{_procedural_texture_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Texture/ProceduralTexture.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Texture/ProceduralTexture.cpp}}
+\mbox{\hyperlink{_procedural_texture_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_procedural_texture_8h}{ProceduralTexture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_mapping_8h}{TextureMapping.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00016}00016 Checkerboard2D::Checkerboard2D() : StdTexture(std::make\_shared<UVTextureMapping2D>())}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00017}00017 \{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00020}00020 Checkerboard3D::Checkerboard3D() : StdTexture(std::make\_shared<NaturalTextureMapping3D>())}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00024}00024 \textcolor{keywordtype}{double} Checkerboard2D::eval(\textcolor{keyword}{const} TextureCoord2D \&coord)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00025}00025 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00026}00026     \textcolor{keywordflow}{return} int(floor(coord.coord.x) + floor(coord.coord.y)) \& 1 ? 1.0f : 0.0f;}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00029}00029 \textcolor{keywordtype}{double} Checkerboard3D::eval(\textcolor{keyword}{const} TextureCoord3D \&coord)\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00030}00030 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00031}00031     \textcolor{keywordflow}{return} int(floor(coord.coord.x) + floor(coord.coord.y) + floor(coord.coord.z)) \& 1 ? 1.0f : 0.0f;}
+\DoxyCodeLine{\Hypertarget{_procedural_texture_8cpp_source_l00032}00032 \}}
+
+\end{DoxyCode}

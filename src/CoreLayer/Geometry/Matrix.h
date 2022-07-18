@@ -15,7 +15,8 @@
 
 #include "Eigen/Dense"
 
- /*
+
+ /**
   * @brief Angle type. Providing convenient angle transformation between deg and rad.
   */
 class Angle
@@ -29,7 +30,8 @@ public:
 		ANGLE_DEG,
 		ANGLE_RAD
 	};
-	/*
+
+	/**
 	 * @brief init an angle.
 	 * @param v value of angle, deg or rad.
 	 * @param type the type of v.
@@ -47,15 +49,15 @@ enum class EulerType
 	EULER_ZYX
 };
 
-// @brief a simple wrap of Eigen Matrix 4x4.
+/// \brief a simple wrap of Eigen Matrix 4x4.
 class Matrix4x4
 {
 private:
 
-	// @brief Eigen data. inaccessible from outside.
+	/// @brief Eigen data. inaccessible from outside.
 	Eigen::Matrix4d matrix=Eigen::Matrix4d::Identity();
 
-	// @brief init from Eigen data. inaccessible from outside.
+	/// @brief init from Eigen data. inaccessible from outside.
 	Matrix4x4(const Eigen::Matrix4d& _matrix);
 
 public:
@@ -87,19 +89,19 @@ public:
 	friend void printMatrix(const Matrix4x4 &mat);
 };
 
-/*
+/**
  * @brief Encapsulated transform matrix. By default, it will be initialized as identity matrix.
  */
 class TransformMatrix3D
 {
-	// @brief the matrix that applies rotate, scale and translate.
+	/// @brief the matrix that applies rotate, scale and translate.
 	Matrix4x4 matrixAll;
 
 	Matrix4x4 matrixRotate;
 	Matrix4x4 matrixScale;
 	Matrix4x4 matrixTranslate;
 
-	// @brief true iff matrixAll!=matrixTranslate*matrixScale*matrixRotate.
+	/// @brief true iff matrixAll!=matrixTranslate*matrixScale*matrixRotate.
 	bool dirty;
 
 	void update();
@@ -116,7 +118,7 @@ public:
 
 	void setRotateQuaternion(double w, double x, double y, double z);
 
-	// @brief Rotate by axis. Counterclockwise rotate.
+	/// @brief Rotate by axis. Counterclockwise rotate.
 	void setRotateAxis(const Vec3d& axis, const Angle& angle);
 
 	Vec3d operator*(const Vec3d &v);

@@ -1,0 +1,21 @@
+\hypertarget{_integrator_8cpp_source}{}\doxysection{Integrator.\+cpp}
+\label{_integrator_8cpp_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Integrator/Integrator.cpp@{/mnt/renderer/Zero/src/FunctionLayer/Integrator/Integrator.cpp}}
+\mbox{\hyperlink{_integrator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_integrator_8h}{Integrator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00015}\mbox{\hyperlink{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}{00015}} \mbox{\hyperlink{class_integrator}{Integrator::Integrator}}(}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00016}00016     std::shared\_ptr<Camera> \_camera, }
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00017}00017     std::unique\_ptr<Film> \_film) : }
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00018}00018         camera(\_camera),}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00019}00019         film(std::move(\_film))}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00021}00021 \}}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00023}\mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{00023}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{Integrator::save}}(\textcolor{keyword}{const} std::string \&path)}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00025}00025     film-\/>save(path);}
+\DoxyCodeLine{\Hypertarget{_integrator_8cpp_source_l00026}00026 \}}
+
+\end{DoxyCode}

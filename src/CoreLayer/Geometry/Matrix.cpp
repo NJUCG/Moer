@@ -12,6 +12,8 @@
 
 #include "Matrix.h"
 
+/// \todo replace the 3.14159
+// todo
 Angle::Angle(double v, AngleType type)
 {
 	if (type == AngleType::ANGLE_DEG)
@@ -138,7 +140,7 @@ Matrix4x4 Matrix4x4::rotateAxis(const Vec3d &axis, const Angle &angle)
 	return retVal;
 }
 
-// @brief camera coord: x->right y->up z->in
+/// @brief camera coord: x->right y->up z->in
 Matrix4x4 Matrix4x4::lookAt(const Point3d &lookFrom, const Vec3d &vecLookAt, const Vec3d &up)
 {
 	Matrix4x4 translateMat = translate(-lookFrom[0], -lookFrom[1], -lookFrom[2]);
@@ -164,7 +166,7 @@ Matrix4x4 Matrix4x4::orthographic(double left, double right, double up, double d
 	return retVal;
 }
 
-/*
+/**
  * @brief get persepctive projection matrix.
  * @param fov fov on x (left-right)
  * @param aspect x/y. e.g. 1920x1080 -> aspect=1920/1080

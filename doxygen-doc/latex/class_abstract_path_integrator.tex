@@ -1,0 +1,248 @@
+\hypertarget{class_abstract_path_integrator}{}\doxysection{Abstract\+Path\+Integrator Class Reference}
+\label{class_abstract_path_integrator}\index{AbstractPathIntegrator@{AbstractPathIntegrator}}
+
+
+Base class for all path\+\_\+tracing-\/like integrators.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Path\+Integrator.\+h$>$}
+
+Inheritance diagram for Abstract\+Path\+Integrator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_abstract_path_integrator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_path_integrator_a3f4c5a5a797748ccbdd82de4b8d2d534}{Abstract\+Path\+Integrator}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \+\_\+camera, std\+::unique\+\_\+ptr$<$ Film $>$ \+\_\+film, std\+::unique\+\_\+ptr$<$ Tile\+Generator $>$ \+\_\+tile\+Generator, std\+::shared\+\_\+ptr$<$ Sampler $>$ \+\_\+sampler, int \+\_\+spp, int \+\_\+render\+Thread\+Num=4)
+\item 
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}{Li}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)
+\begin{DoxyCompactList}\small\item\em Estimate radiance along a given ray. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_abstract_path_integrator_a1db595c4fd330da3f02ecbef69b5c1b1}{MISWeight}} (double x, double y)
+\item 
+virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} \mbox{\hyperlink{class_abstract_path_integrator_ae0319b02e06f722f2715ec5e6c583061}{eval\+Emittance}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, std\+::optional$<$ Intersection $>$ its, const \mbox{\hyperlink{struct_ray}{Ray}} \&ray)=0
+\begin{DoxyCompactList}\small\item\em Return the radiance along given ray, emitted from given intersection. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} \mbox{\hyperlink{class_abstract_path_integrator_a0abd0f1493fd7881508006e3cccc0475}{sample\+Direct\+Lighting}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, const Intersection \&its, const \mbox{\hyperlink{struct_ray}{Ray}} \&ray)=0
+\begin{DoxyCompactList}\small\item\em Sample incident direction of direct lighting. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} \mbox{\hyperlink{class_abstract_path_integrator_aee510e134c59cdd95e1138f9033be81b}{eval\+Scatter}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, const Intersection \&its, const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi)=0
+\begin{DoxyCompactList}\small\item\em Return scatter value of BSDF or phase function. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} \mbox{\hyperlink{class_abstract_path_integrator_afd751de0df4b208a7165fadf74bd0c98}{sample\+Scatter}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, const Intersection \&its, const \mbox{\hyperlink{struct_ray}{Ray}} \&ray)=0
+\begin{DoxyCompactList}\small\item\em Sample incident direction by scatter value of BSDF or phase function. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_abstract_path_integrator_ab4b6bda664ef6b9129aae6dc14bfe9f2}{russian\+Roulette}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, const Intersection \&its, const \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&T, int n\+Bounce)=0
+\begin{DoxyCompactList}\small\item\em Return probability of Russian roulette. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_abstract_path_integrator_a2efce2d9a16b71a83b05c6bab3d38133}{n\+Direct\+Light\+Samples}} = 1
+\begin{DoxyCompactList}\small\item\em Default, sample the direct illumination at each hitpoint once. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{class_abstract_path_integrator_ad87961f597e0cb852db90608a7968420}{mis\+Weight\+Power}} = 1.\+0f
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Base class for all path\+\_\+tracing-\/like integrators. 
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8h_source_l00034}{34}} of file \mbox{\hyperlink{_abstract_path_integrator_8h_source}{Abstract\+Path\+Integrator.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_abstract_path_integrator_a3f4c5a5a797748ccbdd82de4b8d2d534}\label{class_abstract_path_integrator_a3f4c5a5a797748ccbdd82de4b8d2d534}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{AbstractPathIntegrator()}{AbstractPathIntegrator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_path_integrator}{Abstract\+Path\+Integrator\+::\+Abstract\+Path\+Integrator}} (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{\+\_\+camera,  }\item[{std\+::unique\+\_\+ptr$<$ Film $>$}]{\+\_\+film,  }\item[{std\+::unique\+\_\+ptr$<$ Tile\+Generator $>$}]{\+\_\+tile\+Generator,  }\item[{std\+::shared\+\_\+ptr$<$ Sampler $>$}]{\+\_\+sampler,  }\item[{int}]{\+\_\+spp,  }\item[{int}]{\+\_\+render\+Thread\+Num = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_abstract_path_integrator_8cpp_source}{Abstract\+Path\+Integrator.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_abstract_path_integrator_ae0319b02e06f722f2715ec5e6c583061}\label{class_abstract_path_integrator_ae0319b02e06f722f2715ec5e6c583061}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!evalEmittance@{evalEmittance}}
+\index{evalEmittance@{evalEmittance}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{evalEmittance()}{evalEmittance()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} Abstract\+Path\+Integrator\+::eval\+Emittance (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{std\+::optional$<$ Intersection $>$}]{its,  }\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return the radiance along given ray, emitted from given intersection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Ptr to scene. \\
+\hline
+{\em its} & Intersection hit by ray. \\
+\hline
+{\em ray} & \mbox{\hyperlink{struct_ray}{Ray}} to evaluate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Direction of given ray, incident radiance at origin of ray, pdf of direct light sampling. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_path_integrator_aed2feeee5709bc0ba5bf4198486f0392}{Path\+Integrator}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_aee510e134c59cdd95e1138f9033be81b}\label{class_abstract_path_integrator_aee510e134c59cdd95e1138f9033be81b}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!evalScatter@{evalScatter}}
+\index{evalScatter@{evalScatter}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{evalScatter()}{evalScatter()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} Abstract\+Path\+Integrator\+::eval\+Scatter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return scatter value of BSDF or phase function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Ptr to scene. \\
+\hline
+{\em its} & Reference point. \\
+\hline
+{\em ray} & \mbox{\hyperlink{struct_ray}{Ray}}, used to specify wo (out direction). \\
+\hline
+{\em wi} & Incident direction wi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Incident direction, scatter throughput f, pdf per solid angle. For surface, f is the product of BSDF value and cosine term. For medium, f is the value of phase function. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_path_integrator_a96034877fb87f552e7b0061f2c184781}{Path\+Integrator}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}\label{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!Li@{Li}}
+\index{Li@{Li}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{Li()}{Li()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Abstract\+Path\+Integrator\+::\+Li (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Estimate radiance along a given ray. 
+
+
+
+Implements \mbox{\hyperlink{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}{Monte\+Carlo\+Integrator}}.
+
+
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_abstract_path_integrator_8cpp_source}{Abstract\+Path\+Integrator.\+cpp}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_a1db595c4fd330da3f02ecbef69b5c1b1}\label{class_abstract_path_integrator_a1db595c4fd330da3f02ecbef69b5c1b1}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!MISWeight@{MISWeight}}
+\index{MISWeight@{MISWeight}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{MISWeight()}{MISWeight()}}
+{\footnotesize\ttfamily double Abstract\+Path\+Integrator\+::\+MISWeight (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_abstract_path_integrator_8cpp_source}{Abstract\+Path\+Integrator.\+cpp}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_ab4b6bda664ef6b9129aae6dc14bfe9f2}\label{class_abstract_path_integrator_ab4b6bda664ef6b9129aae6dc14bfe9f2}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!russianRoulette@{russianRoulette}}
+\index{russianRoulette@{russianRoulette}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{russianRoulette()}{russianRoulette()}}
+{\footnotesize\ttfamily virtual double Abstract\+Path\+Integrator\+::russian\+Roulette (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&}]{T,  }\item[{int}]{n\+Bounce }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return probability of Russian roulette. 
+
+
+
+Implemented in \mbox{\hyperlink{class_path_integrator_aab8f02d77ad68804cc73f26414e69116}{Path\+Integrator}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_a0abd0f1493fd7881508006e3cccc0475}\label{class_abstract_path_integrator_a0abd0f1493fd7881508006e3cccc0475}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!sampleDirectLighting@{sampleDirectLighting}}
+\index{sampleDirectLighting@{sampleDirectLighting}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{sampleDirectLighting()}{sampleDirectLighting()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} Abstract\+Path\+Integrator\+::sample\+Direct\+Lighting (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sample incident direction of direct lighting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Ptr to scene. \\
+\hline
+{\em its} & Reference point. \\
+\hline
+{\em ray} & \mbox{\hyperlink{struct_ray}{Ray}}, used to specify wo (out direction). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sampled incident direction, incident radiance and pdf per solid angle. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_path_integrator_ac42f7dd6e356f7f674c61dddca928b17}{Path\+Integrator}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_afd751de0df4b208a7165fadf74bd0c98}\label{class_abstract_path_integrator_afd751de0df4b208a7165fadf74bd0c98}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!sampleScatter@{sampleScatter}}
+\index{sampleScatter@{sampleScatter}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{sampleScatter()}{sampleScatter()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_path_integrator_local_record}{Path\+Integrator\+Local\+Record}} Abstract\+Path\+Integrator\+::sample\+Scatter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sample incident direction by scatter value of BSDF or phase function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & Ptr to scene. \\
+\hline
+{\em its} & Reference point. \\
+\hline
+{\em ray} & \mbox{\hyperlink{struct_ray}{Ray}}, used to specify wo (out direction). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sampled incident direction, scatter throughput f, pdf per solid angle. For surface, f is the product of BSDF value and cosine term. For medium, f is the value of phase function. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_path_integrator_a70b02a3b0c88a62a49ab6947aedcf2ec}{Path\+Integrator}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_abstract_path_integrator_ad87961f597e0cb852db90608a7968420}\label{class_abstract_path_integrator_ad87961f597e0cb852db90608a7968420}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!misWeightPower@{misWeightPower}}
+\index{misWeightPower@{misWeightPower}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{misWeightPower}{misWeightPower}}
+{\footnotesize\ttfamily const double Abstract\+Path\+Integrator\+::mis\+Weight\+Power = 1.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8h_source_l00038}{38}} of file \mbox{\hyperlink{_abstract_path_integrator_8h_source}{Abstract\+Path\+Integrator.\+h}}.
+
+\mbox{\Hypertarget{class_abstract_path_integrator_a2efce2d9a16b71a83b05c6bab3d38133}\label{class_abstract_path_integrator_a2efce2d9a16b71a83b05c6bab3d38133}} 
+\index{AbstractPathIntegrator@{AbstractPathIntegrator}!nDirectLightSamples@{nDirectLightSamples}}
+\index{nDirectLightSamples@{nDirectLightSamples}!AbstractPathIntegrator@{AbstractPathIntegrator}}
+\doxysubsubsection{\texorpdfstring{nDirectLightSamples}{nDirectLightSamples}}
+{\footnotesize\ttfamily const int Abstract\+Path\+Integrator\+::n\+Direct\+Light\+Samples = 1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Default, sample the direct illumination at each hitpoint once. 
+
+
+
+Definition at line \mbox{\hyperlink{_abstract_path_integrator_8h_source_l00037}{37}} of file \mbox{\hyperlink{_abstract_path_integrator_8h_source}{Abstract\+Path\+Integrator.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_abstract_path_integrator_8h}{Abstract\+Path\+Integrator.\+h}}\item 
+/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_abstract_path_integrator_8cpp}{Abstract\+Path\+Integrator.\+cpp}}\end{DoxyCompactItemize}

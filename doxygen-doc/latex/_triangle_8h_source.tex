@@ -1,0 +1,52 @@
+\hypertarget{_triangle_8h_source}{}\doxysection{Triangle.\+h}
+\label{_triangle_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Shape/Triangle.h@{/mnt/renderer/Zero/src/FunctionLayer/Shape/Triangle.h}}
+\mbox{\hyperlink{_triangle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00018}00018 \textcolor{keyword}{class }TriangleMesh\{}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00019}00019 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00020}00020     \textcolor{keyword}{const} \textcolor{keywordtype}{int} nTriangles;}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00021}00021     \textcolor{keyword}{const} \textcolor{keywordtype}{int} nVertices;}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00022}00022     std::shared\_ptr<std::vector<int>> vertexIndices;\textcolor{comment}{//the i-\/th triangle maps vertex[i * 3], vertex[i * 3 + 1], vertex[i * 3 + 2]}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00023}00023     std::shared\_ptr<std::vector<Point3d>> p; \textcolor{comment}{//geometry position}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00024}00024     std::shared\_ptr<std::vector<Normal3d>> n; \textcolor{comment}{//shading normal}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00025}00025     std::shared\_ptr<std::vector<Vec3d>> s; \textcolor{comment}{//shading tangent(optional)}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00026}00026     std::shared\_ptr<std::vector<Point2d>> uv; \textcolor{comment}{//uv coordinates}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00027}00027     std::shared\_ptr<Material> material;}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00028}00028     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00029}00029 \textcolor{comment}{    @brief constructor of TriangleMesh, parameter pointers(except material) will point to nullptr after construction}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00030}00030 \textcolor{comment}{    @param <\_nTriangles> number of triangle}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00031}00031 \textcolor{comment}{    @param <\_nVertices> number of vertices(equal to the sizeof of \_p)}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00032}00032 \textcolor{comment}{    @param <\_p> position of vertices}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00033}00033 \textcolor{comment}{    @param <\_n> shading normal of vertices(optional)}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00034}00034 \textcolor{comment}{    @param <\_s> shading tangent of vertices(optional)}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00035}00035 \textcolor{comment}{    @param <\_uv> uv coordinates of vertices(optional)}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00036}00036 \textcolor{comment}{    @param <\_material> material of triangle mesh}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00037}00037 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00038}00038     TriangleMesh(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& \_nTriangles, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& \_nVertices, \textcolor{keyword}{const} std::shared\_ptr<std::vector<int>>\& \_vertexIndices, \textcolor{keyword}{const} std::shared\_ptr<std::vector<Point3d>>\& \_p, \textcolor{keyword}{const} std::shared\_ptr<std::vector<Normal3d>>\& \_n, \textcolor{keyword}{const} std::shared\_ptr<std::vector<Vec3d>>\& \_s, \textcolor{keyword}{const} std::shared\_ptr<std::vector<Point2d>>\& \_uv, \textcolor{keyword}{const} std::shared\_ptr<Material>\& \_material);}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00039}00039 \};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00041}00041 \textcolor{comment}{//vertices in counter-\/clockwise order}}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00042}00042 \textcolor{keyword}{class }Triangle: \textcolor{keyword}{public} Entity\{}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00043}00043 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00044}00044     \textcolor{keywordtype}{int} vertexId[3];}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00045}00045     \textcolor{keywordtype}{int} faceId;}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00046}00046     std::shared\_ptr<TriangleMesh> mesh;}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00047}00047 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00048}00048     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} apply() \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00049}00049     Triangle(\textcolor{keyword}{const} std::shared\_ptr<TriangleMesh>\& \_mesh, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& \_faceId);}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00050}00050     Triangle(\textcolor{keyword}{const} std::vector<Point3d>\& points, \textcolor{keyword}{const} std::shared\_ptr<Material>\& \_material);}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00051}00051     \textcolor{keyword}{virtual} std::optional<Intersection> intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00052}00052     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} area() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00053}00053     \textcolor{keyword}{virtual} Intersection sample(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}}\& positionSample) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00054}00054     \textcolor{keyword}{virtual} std::shared\_ptr<Light> getLight() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00055}00055     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setLight(std::shared\_ptr<Light> light);}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00056}00056     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} WorldBound() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_triangle_8h_source_l00057}00057 \};}
+
+\end{DoxyCode}
