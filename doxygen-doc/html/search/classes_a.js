@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['randomnumbergenerator_0',['RandomNumberGenerator',['../class_random_number_generator.html',1,'']]],
-  ['ray_1',['Ray',['../struct_ray.html',1,'']]],
-  ['raydifferential_2',['RayDifferential',['../struct_ray_differential.html',1,'']]],
-  ['rgbspectrum_3',['RGBSpectrum',['../class_r_g_b_spectrum.html',1,'']]]
+  ['pathintegrator_0',['PathIntegrator',['../class_path_integrator.html',1,'']]],
+  ['pathintegratorlocalrecord_1',['PathIntegratorLocalRecord',['../struct_path_integrator_local_record.html',1,'']]],
+  ['perspectivecamera_2',['PerspectiveCamera',['../class_perspective_camera.html',1,'']]],
+  ['pinholecamera_3',['PinholeCamera',['../class_pinhole_camera.html',1,'']]],
+  ['pixelsampler_4',['PixelSampler',['../class_pixel_sampler.html',1,'']]],
+  ['pointlight_5',['PointLight',['../class_point_light.html',1,'']]]
 ];

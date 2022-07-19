@@ -2,52 +2,52 @@
 \label{_image_8h_source}\index{/mnt/renderer/Zero/src/ResourceLayer/File/Image.h@{/mnt/renderer/Zero/src/ResourceLayer/File/Image.h}}
 \mbox{\hyperlink{_image_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00019}00019 \textcolor{comment}{// todo: support various data type}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00021}00021 \textcolor{keyword}{class }Image}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00022}00022 \{}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00023}00023     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *imageRawData;}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00024}00024     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00025}00025     \textcolor{keywordtype}{int} channels;}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00027}00027 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00028}00028     Image();}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00029}00029     \string~Image();}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00031}00031     \textcolor{keyword}{enum class} ImageLoadMode}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00032}00032     \{}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00033}00033         IMAGE\_LOAD\_BW,}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00034}00034         IMAGE\_LOAD\_COLOR}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00035}00035     \};}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00036}00036     \textcolor{comment}{// todo: support alpha reading}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00037}00037     \textcolor{comment}{// todo: do gamma correction}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00038}00038     Image(\textcolor{keyword}{const} std::string \&path, ImageLoadMode = ImageLoadMode::IMAGE\_LOAD\_COLOR);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00040}00040     \textcolor{comment}{// @brief generate one black image with resolution [width,height] and channels.}}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00041}00041     Image(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&resolution, \textcolor{keywordtype}{int} channels);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00042}00042     Image(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3i}} \&shape);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00044}00044     \textcolor{keyword}{friend} \textcolor{keyword}{class }ImageManager;}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00046}00046     \mbox{\hyperlink{struct_t_point2}{Point2i}} getResolution() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00047}00047     \textcolor{keywordtype}{int} getChannels() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00048}00048     \textcolor{keywordtype}{int} getWidth() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00049}00049     \textcolor{keywordtype}{int} getHeight() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00051}00051     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00052}00052     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00053}00053     RGB3 getRGBColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00054}00054     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrumColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00056}00056     \textcolor{keywordtype}{bool} saveTo(\textcolor{keyword}{const} std::string \&path);}
-\DoxyCodeLine{\Hypertarget{_image_8h_source_l00057}00057 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// todo: support various data type}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }Image}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *imageRawData;}
+\DoxyCodeLine{24     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} channels;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     Image();}
+\DoxyCodeLine{29     \string~Image();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{enum class} ImageLoadMode}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         IMAGE\_LOAD\_BW,}
+\DoxyCodeLine{34         IMAGE\_LOAD\_COLOR}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36     \textcolor{comment}{// todo: support alpha reading}}
+\DoxyCodeLine{37     \textcolor{comment}{// todo: do gamma correction}}
+\DoxyCodeLine{38     Image(\textcolor{keyword}{const} std::string \&path, ImageLoadMode = ImageLoadMode::IMAGE\_LOAD\_COLOR);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// @brief generate one black image with resolution [width,height] and channels.}}
+\DoxyCodeLine{41     Image(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&resolution, \textcolor{keywordtype}{int} channels);}
+\DoxyCodeLine{42     Image(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3i}} \&shape);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{friend} \textcolor{keyword}{class }ImageManager;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{struct_t_point2}{Point2i}} getResolution() \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} getChannels() \textcolor{keyword}{const};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} getWidth() \textcolor{keyword}{const};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} getHeight() \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{53     RGB3 getRGBColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrumColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} saveTo(\textcolor{keyword}{const} std::string \&path);}
+\DoxyCodeLine{57 \};}
 
 \end{DoxyCode}

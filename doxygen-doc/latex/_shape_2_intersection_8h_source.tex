@@ -2,47 +2,47 @@
 \label{_shape_2_intersection_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Shape/Intersection.h@{/mnt/renderer/Zero/src/FunctionLayer/Shape/Intersection.h}}
 \mbox{\hyperlink{_shape_2_intersection_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_8h}{CoreLayer/Geometry/Frame.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{FunctionLayer/Material/Material.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_medium_8h}{FunctionLayer/Medium/Medium.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00022}00022 \textcolor{keyword}{struct }Intersection}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00023}00023 \{}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00024}00024     \mbox{\hyperlink{struct_t_point3}{Point3d}} position;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00025}00025     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryNormal;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00026}00026     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryTangent;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00027}00027     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryBitangent;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00028}00028     \mbox{\hyperlink{struct_t_point2}{Point2d}} uv;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00030}00030     \textcolor{comment}{// shadingFrame}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00031}00031     \mbox{\hyperlink{struct_frame}{Frame}} shFrame;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00033}00033     \mbox{\hyperlink{struct_t_point3}{Point3d}} dpdu, dpdv;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00034}00034     \mbox{\hyperlink{struct_normal3d}{Normal3d}} dndu, dndv;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00036}00036     \textcolor{comment}{// std::shared\_ptr<Entity> object;}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00037}00037     \textcolor{keyword}{const} Entity *object;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00039}00039     std::shared\_ptr<Material> material;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00040}00040     std::shared\_ptr<Medium> mediumInside;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00041}00041     std::shared\_ptr<Medium> mediumOutside;}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00043}00043     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toLocal(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00044}00044 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00045}00045         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{toLocal}}(d);}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00046}00046     \}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00048}00048     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toWorld(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00049}00049 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00050}00050         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{toWorld}}(d);}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00051}00051     \}}
-\DoxyCodeLine{\Hypertarget{_shape_2_intersection_8h_source_l00052}00052 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_8h}{CoreLayer/Geometry/Frame.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{FunctionLayer/Material/Material.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_medium_8h}{FunctionLayer/Medium/Medium.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{struct }Intersection}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{struct_t_point3}{Point3d}} position;}
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryNormal;}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryTangent;}
+\DoxyCodeLine{27     \mbox{\hyperlink{struct_normal3d}{Normal3d}} geometryBitangent;}
+\DoxyCodeLine{28     \mbox{\hyperlink{struct_t_point2}{Point2d}} uv;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// shadingFrame}}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct_frame}{Frame}} shFrame;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{struct_t_point3}{Point3d}} dpdu, dpdv;}
+\DoxyCodeLine{34     \mbox{\hyperlink{struct_normal3d}{Normal3d}} dndu, dndv;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// std::shared\_ptr<Entity> object;}}
+\DoxyCodeLine{37     \textcolor{keyword}{const} Entity *object;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     std::shared\_ptr<Material> material;}
+\DoxyCodeLine{40     std::shared\_ptr<Medium> mediumInside;}
+\DoxyCodeLine{41     std::shared\_ptr<Medium> mediumOutside;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toLocal(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
+\DoxyCodeLine{44 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{toLocal}}(d);}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} toWorld(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d)\textcolor{keyword}{ const}}
+\DoxyCodeLine{49 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} shFrame.\mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{toWorld}}(d);}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 \};}
 
 \end{DoxyCode}

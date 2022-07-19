@@ -18,41 +18,13 @@ Inheritance diagram for Thinlens\+Camera\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_thinlens_camera_aca5fb8ccdc27da38686ad9b40d9e7bbb}{Thinlens\+Camera}} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up, double x\+Fov, double aspect\+Ratio, double \+\_\+foca\+Distance, double \+\_\+aperture\+Radius=0.\+1, double \+\_\+focal\+Len=0.\+05)
-\item 
 virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}{generate\+Ray}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&film\+Resolution, const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position, const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&sample) const override
 \begin{DoxyCompactList}\small\item\em Generate a ray from camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-double \mbox{\hyperlink{class_thinlens_camera_ac6d7795c14252806c440520a83aa359e}{aperture\+Radius}}
-\item 
-double \mbox{\hyperlink{class_thinlens_camera_abc31540f08cd9d9f69d6fecb0e1c326b}{focal\+Len}}
-\item 
-double \mbox{\hyperlink{class_thinlens_camera_ae5bc4eb88b34004929046e0c5f14fb61}{focal\+Distance}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Thinlens camera. 
-
-Definition at line \mbox{\hyperlink{_thinlens_8h_source_l00009}{9}} of file \mbox{\hyperlink{_thinlens_8h_source}{Thinlens.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_thinlens_camera_aca5fb8ccdc27da38686ad9b40d9e7bbb}\label{class_thinlens_camera_aca5fb8ccdc27da38686ad9b40d9e7bbb}} 
-\index{ThinlensCamera@{ThinlensCamera}!ThinlensCamera@{ThinlensCamera}}
-\index{ThinlensCamera@{ThinlensCamera}!ThinlensCamera@{ThinlensCamera}}
-\doxysubsubsection{\texorpdfstring{ThinlensCamera()}{ThinlensCamera()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_thinlens_camera}{Thinlens\+Camera\+::\+Thinlens\+Camera}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+From,  }\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+At,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{up,  }\item[{double}]{x\+Fov,  }\item[{double}]{aspect\+Ratio,  }\item[{double}]{\+\_\+foca\+Distance,  }\item[{double}]{\+\_\+aperture\+Radius = {\ttfamily 0.1},  }\item[{double}]{\+\_\+focal\+Len = {\ttfamily 0.05} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_thinlens_8h_source_l00014}{14}} of file \mbox{\hyperlink{_thinlens_8h_source}{Thinlens.\+h}}.
-
-
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}\label{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}} 
@@ -80,43 +52,6 @@ Generate a ray from camera.
 
 
 Implements \mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_thinlens_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_thinlens_8cpp_source}{Thinlens.\+cpp}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_thinlens_camera_ac6d7795c14252806c440520a83aa359e}\label{class_thinlens_camera_ac6d7795c14252806c440520a83aa359e}} 
-\index{ThinlensCamera@{ThinlensCamera}!apertureRadius@{apertureRadius}}
-\index{apertureRadius@{apertureRadius}!ThinlensCamera@{ThinlensCamera}}
-\doxysubsubsection{\texorpdfstring{apertureRadius}{apertureRadius}}
-{\footnotesize\ttfamily double Thinlens\+Camera\+::aperture\+Radius\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_thinlens_8h_source_l00011}{11}} of file \mbox{\hyperlink{_thinlens_8h_source}{Thinlens.\+h}}.
-
-\mbox{\Hypertarget{class_thinlens_camera_ae5bc4eb88b34004929046e0c5f14fb61}\label{class_thinlens_camera_ae5bc4eb88b34004929046e0c5f14fb61}} 
-\index{ThinlensCamera@{ThinlensCamera}!focalDistance@{focalDistance}}
-\index{focalDistance@{focalDistance}!ThinlensCamera@{ThinlensCamera}}
-\doxysubsubsection{\texorpdfstring{focalDistance}{focalDistance}}
-{\footnotesize\ttfamily double Thinlens\+Camera\+::focal\+Distance\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_thinlens_8h_source_l00011}{11}} of file \mbox{\hyperlink{_thinlens_8h_source}{Thinlens.\+h}}.
-
-\mbox{\Hypertarget{class_thinlens_camera_abc31540f08cd9d9f69d6fecb0e1c326b}\label{class_thinlens_camera_abc31540f08cd9d9f69d6fecb0e1c326b}} 
-\index{ThinlensCamera@{ThinlensCamera}!focalLen@{focalLen}}
-\index{focalLen@{focalLen}!ThinlensCamera@{ThinlensCamera}}
-\doxysubsubsection{\texorpdfstring{focalLen}{focalLen}}
-{\footnotesize\ttfamily double Thinlens\+Camera\+::focal\+Len\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_thinlens_8h_source_l00011}{11}} of file \mbox{\hyperlink{_thinlens_8h_source}{Thinlens.\+h}}.
 
 
 

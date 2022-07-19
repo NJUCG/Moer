@@ -66,7 +66,9 @@ public:
 	* @brief recursively build BVH
 	* @return the root of BVH
 	*/
-	std::shared_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>& entityInfo, int start, int end, int& nodeNumber, std::vector<std::shared_ptr<Entity>>& orderedEntites);
+	std::shared_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>& entityInfo, 
+												int start, int end, int& nodeNumber, 
+												std::vector<std::shared_ptr<Entity>>& orderedEntites);
 
 	/// @brief flatten the BVH to Dfs-Order
 	void Flatten(std::shared_ptr<BvhTreeNode> node, int& dfsOrder);

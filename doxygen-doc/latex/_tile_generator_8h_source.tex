@@ -2,110 +2,110 @@
 \label{_tile_generator_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/TileGenerator/TileGenerator.h@{/mnt/renderer/Zero/src/FunctionLayer/TileGenerator/TileGenerator.h}}
 \mbox{\hyperlink{_tile_generator_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <mutex>}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <optional>}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00020}00020 \textcolor{comment}{/*@brief Iterator for Point2i.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00021}00021 \textcolor{comment}{* It will generate points between pBegin and pEnd but pEnd is not included.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00022}00022 \textcolor{comment}{* e.g, pBegin=[0,0], pEnd=[2,2], and the generated points will be }}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00023}00023 \textcolor{comment}{* [0,0], [1,0], [0,1] and [1,1].}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00024}00024 \textcolor{comment}{* */}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00025}00025 \textcolor{keyword}{class }PointIterator}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00026}00026 \{}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00028}00028 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00030}00030     \textcolor{comment}{// @brief the first point of a tile.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00031}00031     \mbox{\hyperlink{struct_t_point2}{Point2i}} pBegin;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00033}00033     \textcolor{comment}{// @brief the last point of a tile. }}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00034}00034     \mbox{\hyperlink{struct_t_point2}{Point2i}} pEnd;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00036}00036     \textcolor{comment}{// @brief current point in tile.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00037}00037     \mbox{\hyperlink{struct_t_point2}{Point2i}} currentP;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00039}00039     \textcolor{keywordtype}{int} xMin, xMax;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00040}00040     \textcolor{keywordtype}{int} yMin, yMax;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00042}00042 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00044}00044     PointIterator(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd,\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& p);}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00046}00046     \mbox{\hyperlink{struct_t_point2}{Point2i}} operator*() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00048}00048     PointIterator\& operator++();}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00049}00049 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00050}00050     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} PointIterator\& anotherIt);}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00052}00052 \};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00054}00054 \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00055}00055 \textcolor{comment}{* @brief Tile representation, and generate points within the tile.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00056}00056 \textcolor{comment}{* Check PointIterator for more information.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00057}00057 \textcolor{comment}{*/}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00058}00058 \textcolor{keyword}{class }Tile}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00059}00059 \{}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00060}00060 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00061}00061 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00062}00062 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00063}00063     \mbox{\hyperlink{struct_t_point2}{Point2i}} pBegin;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00064}00064     \mbox{\hyperlink{struct_t_point2}{Point2i}} pEnd;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00066}00066 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00068}00068     Tile(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd);}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00070}00070     \textcolor{keyword}{virtual} PointIterator begin() \textcolor{keyword}{const}=0;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00071}00071     \textcolor{keyword}{virtual} PointIterator end() \textcolor{keyword}{const}=0;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00072}00072 \};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00073}00073 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00074}00074 \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00075}00075 \textcolor{comment}{* @brief Basic Tile implemention. Generate points in a square.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00076}00076 \textcolor{comment}{*/}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00077}00077 \textcolor{keyword}{class }SquareTile : \textcolor{keyword}{public} Tile}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00078}00078 \{}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00079}00079 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00081}00081     PointIterator beginIte;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00082}00082     PointIterator endIte;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00083}00083 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00084}00084 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00085}00085     SquareTile(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd);}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00086}00086 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00087}00087     \textcolor{keyword}{virtual} PointIterator begin() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00088}00088     \textcolor{keyword}{virtual} PointIterator end() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00089}00089 \};}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00090}00090 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00091}00091 \textcolor{keyword}{class }TileGenerator}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00092}00092 \{}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00093}00093 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00094}00094 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00096}00096     \textcolor{comment}{// @brief the resolution of render image.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00097}00097     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00098}00098 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00099}00099     \textcolor{comment}{// @brief lock for generateNextTile.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00100}00100     std::mutex mute;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00102}00102 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00104}00104     TileGenerator(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_resolution);}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00106}00106     \textcolor{comment}{// @brief generate all tiles. No mutex.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00107}00107     \textcolor{keyword}{virtual} std::vector<std::shared\_ptr<Tile>> generateTiles() = 0;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00108}00108 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00109}00109     \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00110}00110 \textcolor{comment}{    * @brief generate next tile.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00111}00111 \textcolor{comment}{    * Use mutex to make sure that threads will have different tiles.}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00112}00112 \textcolor{comment}{    */}}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00113}00113     \textcolor{keyword}{virtual} std::optional<std::shared\_ptr<Tile>> generateNextTile() = 0;}
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00114}00114 }
-\DoxyCodeLine{\Hypertarget{_tile_generator_8h_source_l00115}00115 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{/*@brief Iterator for Point2i.}}
+\DoxyCodeLine{21 \textcolor{comment}{* It will generate points between pBegin and pEnd but pEnd is not included.}}
+\DoxyCodeLine{22 \textcolor{comment}{* e.g, pBegin=[0,0], pEnd=[2,2], and the generated points will be }}
+\DoxyCodeLine{23 \textcolor{comment}{* [0,0], [1,0], [0,1] and [1,1].}}
+\DoxyCodeLine{24 \textcolor{comment}{* */}}
+\DoxyCodeLine{25 \textcolor{keyword}{class }PointIterator}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// @brief the first point of a tile.}}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct_t_point2}{Point2i}} pBegin;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{// @brief the last point of a tile. }}
+\DoxyCodeLine{34     \mbox{\hyperlink{struct_t_point2}{Point2i}} pEnd;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// @brief current point in tile.}}
+\DoxyCodeLine{37     \mbox{\hyperlink{struct_t_point2}{Point2i}} currentP;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} xMin, xMax;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} yMin, yMax;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     PointIterator(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd,\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& p);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{struct_t_point2}{Point2i}} operator*() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     PointIterator\& operator++();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} PointIterator\& anotherIt);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/*}}
+\DoxyCodeLine{55 \textcolor{comment}{* @brief Tile representation, and generate points within the tile.}}
+\DoxyCodeLine{56 \textcolor{comment}{* Check PointIterator for more information.}}
+\DoxyCodeLine{57 \textcolor{comment}{*/}}
+\DoxyCodeLine{58 \textcolor{keyword}{class }Tile}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \mbox{\hyperlink{struct_t_point2}{Point2i}} pBegin;}
+\DoxyCodeLine{64     \mbox{\hyperlink{struct_t_point2}{Point2i}} pEnd;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{public}:}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     Tile(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} PointIterator begin() \textcolor{keyword}{const}=0;}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} PointIterator end() \textcolor{keyword}{const}=0;}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{/*}}
+\DoxyCodeLine{75 \textcolor{comment}{* @brief Basic Tile implemention. Generate points in a square.}}
+\DoxyCodeLine{76 \textcolor{comment}{*/}}
+\DoxyCodeLine{77 \textcolor{keyword}{class }SquareTile : \textcolor{keyword}{public} Tile}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79 \textcolor{keyword}{private}:}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     PointIterator beginIte;}
+\DoxyCodeLine{82     PointIterator endIte;}
+\DoxyCodeLine{83 \textcolor{keyword}{public}:}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     SquareTile(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pBegin, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_pEnd);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} PointIterator begin() \textcolor{keyword}{const};}
+\DoxyCodeLine{88     \textcolor{keyword}{virtual} PointIterator end() \textcolor{keyword}{const};}
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{class }TileGenerator}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{comment}{// @brief the resolution of render image.}}
+\DoxyCodeLine{97     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{comment}{// @brief lock for generateNextTile.}}
+\DoxyCodeLine{100     std::mutex mute;}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{public}:}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     TileGenerator(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}}\& \_resolution);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{comment}{// @brief generate all tiles. No mutex.}}
+\DoxyCodeLine{107     \textcolor{keyword}{virtual} std::vector<std::shared\_ptr<Tile>> generateTiles() = 0;}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{comment}{/*}}
+\DoxyCodeLine{110 \textcolor{comment}{    * @brief generate next tile.}}
+\DoxyCodeLine{111 \textcolor{comment}{    * Use mutex to make sure that threads will have different tiles.}}
+\DoxyCodeLine{112 \textcolor{comment}{    */}}
+\DoxyCodeLine{113     \textcolor{keyword}{virtual} std::optional<std::shared\_ptr<Tile>> generateNextTile() = 0;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \};}
 
 \end{DoxyCode}

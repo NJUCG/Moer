@@ -65,7 +65,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_integrator-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Integrator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group___integrator.html">Integrator</a></div></div></div>
 </div><!--header-->
@@ -98,18 +97,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c0740135cc5089095dbaffa5c6990bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">save</a> (const std::string &amp;path)</td></tr>
 <tr class="memdesc:a7c0740135cc5089095dbaffa5c6990bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the rendering result.  <a href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">More...</a><br /></td></tr>
 <tr class="separator:a7c0740135cc5089095dbaffa5c6990bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ad3b7c350dc419b21cf584a4717e32c87"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#ad3b7c350dc419b21cf584a4717e32c87">camera</a></td></tr>
-<tr class="separator:ad3b7c350dc419b21cf584a4717e32c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac482591f4fc9fe3a5c485bf0f72ba8e4"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Film &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#ac482591f4fc9fe3a5c485bf0f72ba8e4">film</a></td></tr>
-<tr class="separator:ac482591f4fc9fe3a5c485bf0f72ba8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Base class for all integrators solving the rendering equation. </p>
-
-<p class="definition">Definition at line <a class="el" href="_integrator_8h_source.html#l00027">27</a> of file <a class="el" href="_integrator_8h_source.html">Integrator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a542e74d4e2a070e6cb730aa400dd56fc" name="a542e74d4e2a070e6cb730aa400dd56fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a542e74d4e2a070e6cb730aa400dd56fc">&#9670;&nbsp;</a></span>Integrator()</h2>
@@ -145,8 +135,6 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_integrator_8cpp_source.html#l00015">15</a> of file <a class="el" href="_integrator_8cpp_source.html">Integrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -219,62 +207,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_integrator_8cpp_source.html#l00023">23</a> of file <a class="el" href="_integrator_8cpp_source.html">Integrator.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad3b7c350dc419b21cf584a4717e32c87" name="ad3b7c350dc419b21cf584a4717e32c87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3b7c350dc419b21cf584a4717e32c87">&#9670;&nbsp;</a></span>camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_camera.html">Camera</a>&gt; Integrator::camera</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_integrator_8h_source.html#l00030">30</a> of file <a class="el" href="_integrator_8h_source.html">Integrator.h</a>.</p>
-
-</div>
-</div>
-<a id="ac482591f4fc9fe3a5c485bf0f72ba8e4" name="ac482591f4fc9fe3a5c485bf0f72ba8e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac482591f4fc9fe3a5c485bf0f72ba8e4">&#9670;&nbsp;</a></span>film</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;Film&gt; Integrator::film</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_integrator_8h_source.html#l00031">31</a> of file <a class="el" href="_integrator_8h_source.html">Integrator.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_integrator_8h_source.html">Integrator.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_integrator_8cpp_source.html">Integrator.cpp</a></li>
+<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_integrator_8cpp.html">Integrator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

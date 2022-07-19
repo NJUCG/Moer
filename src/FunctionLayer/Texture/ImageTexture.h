@@ -63,6 +63,8 @@ public:
     virtual T texel(const Point2i &coord);
 };
 
+/// \brief Image-based texture
+/// \ingroup Texture
 template <typename Treturn, typename Tmemory>
 class ImageTexture : public StdTexture<Treturn, TextureCoord2D>
 {

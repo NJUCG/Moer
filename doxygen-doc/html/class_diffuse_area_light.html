@@ -64,221 +64,28 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_diffuse_area_light-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">DiffuseAreaLight Class Reference</div></div>
+  <div class="headertitle"><div class="title">DiffuseAreaLight Class Reference<div class="ingroups"><a class="el" href="group___light.html">Light</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_diffuse.html" title="Lambertian reflection model.">Diffuse</a> area light source.  
+ <a href="class_diffuse_area_light.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_diffuse_area_light_8h_source.html">DiffuseAreaLight.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DiffuseAreaLight:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_diffuse_area_light.png" usemap="#DiffuseAreaLight_map" alt=""/>
   <map id="DiffuseAreaLight_map" name="DiffuseAreaLight_map">
-<area href="class_area_light.html" alt="AreaLight" shape="rect" coords="0,56,107,80"/>
-<area href="class_light.html" alt="Light" shape="rect" coords="0,0,107,24"/>
+<area href="class_area_light.html" title="Base class for all area light source." alt="AreaLight" shape="rect" coords="0,56,107,80"/>
+<area href="class_light.html" title="The base class for all light source." alt="Light" shape="rect" coords="0,0,107,24"/>
   </map>
 </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ac49f63f50fabc71ad24067bee17293"><td class="memItemLeft" align="right" valign="top"><a id="a0ac49f63f50fabc71ad24067bee17293" name="a0ac49f63f50fabc71ad24067bee17293"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DiffuseAreaLight</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; shape, <a class="el" href="class_sampled_spectrum.html">Spectrum</a> radiance)</td></tr>
-<tr class="separator:a0ac49f63f50fabc71ad24067bee17293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e13903c6e7a748f0aa6fff68060613b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse_area_light.html#a2e13903c6e7a748f0aa6fff68060613b">evalEnvironment</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray) override</td></tr>
-<tr class="separator:a2e13903c6e7a748f0aa6fff68060613b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74285887832036c3a8750109fad559c6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse_area_light.html#a74285887832036c3a8750109fad559c6">eval</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;d) override</td></tr>
-<tr class="separator:a74285887832036c3a8750109fad559c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fa45f08989f0a7e1961d0780d17b640"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse_area_light.html#a3fa45f08989f0a7e1961d0780d17b640">sampleEmit</a> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;positionSample, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;directionSample, float time) override</td></tr>
-<tr class="separator:a3fa45f08989f0a7e1961d0780d17b640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51932ea173fbd8191412ce95848c9ffc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse_area_light.html#a51932ea173fbd8191412ce95848c9ffc">sampleDirect</a> (const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample, float time) override</td></tr>
-<tr class="separator:a51932ea173fbd8191412ce95848c9ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_area_light"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_area_light')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_area_light.html">AreaLight</a></td></tr>
-<tr class="memitem:a90f03f7955012d639f70aa0a0bf3b883 inherit pub_methods_class_area_light"><td class="memItemLeft" align="right" valign="top"><a id="a90f03f7955012d639f70aa0a0bf3b883" name="a90f03f7955012d639f70aa0a0bf3b883"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AreaLight</b> (std::shared_ptr&lt; <a class="el" href="class_transform3_d.html">Transform3D</a> &gt; transform3D)</td></tr>
-<tr class="separator:a90f03f7955012d639f70aa0a0bf3b883 inherit pub_methods_class_area_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af031c0b8a4fa97a6e9384cb8ddd88c5c"><td class="memItemLeft" align="right" valign="top"><a id="af031c0b8a4fa97a6e9384cb8ddd88c5c" name="af031c0b8a4fa97a6e9384cb8ddd88c5c"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>evalEnvironment</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray)=0</td></tr>
-<tr class="separator:af031c0b8a4fa97a6e9384cb8ddd88c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fc405d6a5bfda84e10d4b03a60b025f"><td class="memItemLeft" align="right" valign="top"><a id="a6fc405d6a5bfda84e10d4b03a60b025f" name="a6fc405d6a5bfda84e10d4b03a60b025f"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;d)=0</td></tr>
-<tr class="separator:a6fc405d6a5bfda84e10d4b03a60b025f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade04196bcb5b1a6637a5e1fa4942e0fa"><td class="memItemLeft" align="right" valign="top"><a id="ade04196bcb5b1a6637a5e1fa4942e0fa" name="ade04196bcb5b1a6637a5e1fa4942e0fa"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleEmit</b> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;positionSample, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;directionSample, float time)=0</td></tr>
-<tr class="separator:ade04196bcb5b1a6637a5e1fa4942e0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eaf106886214705c1349b6564b4bfd2"><td class="memItemLeft" align="right" valign="top"><a id="a2eaf106886214705c1349b6564b4bfd2" name="a2eaf106886214705c1349b6564b4bfd2"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleDirect</b> (const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample, float time)=0</td></tr>
-<tr class="separator:a2eaf106886214705c1349b6564b4bfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_class_area_light"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_area_light')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_area_light.html">AreaLight</a></td></tr>
-<tr class="memitem:af0bf31c9852bab009d4da202a273be55 inherit pro_attribs_class_area_light"><td class="memItemLeft" align="right" valign="top"><a id="af0bf31c9852bab009d4da202a273be55" name="af0bf31c9852bab009d4da202a273be55"></a>
-std::shared_ptr&lt; <a class="el" href="class_transform3_d.html">Transform3D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b></td></tr>
-<tr class="separator:af0bf31c9852bab009d4da202a273be55 inherit pro_attribs_class_area_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a74285887832036c3a8750109fad559c6" name="a74285887832036c3a8750109fad559c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74285887832036c3a8750109fad559c6">&#9670;&nbsp;</a></span>eval()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_light_sample_result.html">LightSampleResult</a> DiffuseAreaLight::eval </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_intersection.html">Intersection</a> &amp;&#160;</td>
-          <td class="paramname"><em>its</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_light.html">Light</a>.</p>
-
-</div>
-</div>
-<a id="a2e13903c6e7a748f0aa6fff68060613b" name="a2e13903c6e7a748f0aa6fff68060613b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e13903c6e7a748f0aa6fff68060613b">&#9670;&nbsp;</a></span>evalEnvironment()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_light_sample_result.html">LightSampleResult</a> DiffuseAreaLight::evalEnvironment </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_light.html">Light</a>.</p>
-
-</div>
-</div>
-<a id="a51932ea173fbd8191412ce95848c9ffc" name="a51932ea173fbd8191412ce95848c9ffc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51932ea173fbd8191412ce95848c9ffc">&#9670;&nbsp;</a></span>sampleDirect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_light_sample_result.html">LightSampleResult</a> DiffuseAreaLight::sampleDirect </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_intersection.html">Intersection</a> &amp;&#160;</td>
-          <td class="paramname"><em>its</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_light.html">Light</a>.</p>
-
-</div>
-</div>
-<a id="a3fa45f08989f0a7e1961d0780d17b640" name="a3fa45f08989f0a7e1961d0780d17b640"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fa45f08989f0a7e1961d0780d17b640">&#9670;&nbsp;</a></span>sampleEmit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_light_sample_result.html">LightSampleResult</a> DiffuseAreaLight::sampleEmit </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
-          <td class="paramname"><em>positionSample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
-          <td class="paramname"><em>directionSample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_light.html">Light</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_diffuse.html" title="Lambertian reflection model.">Diffuse</a> area light source. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/FunctionLayer/Light/<a class="el" href="_diffuse_area_light_8h_source.html">DiffuseAreaLight.h</a></li>
 <li>/mnt/renderer/Zero/src/FunctionLayer/Light/<a class="el" href="_diffuse_area_light_8cpp.html">DiffuseAreaLight.cpp</a></li>
 </ul>

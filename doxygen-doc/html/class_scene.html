@@ -64,7 +64,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_scene-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Scene Class Reference</div></div>
 </div><!--header-->
@@ -74,149 +73,11 @@ $(function() {
  <a href="class_scene.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_scene_8h_source.html">Scene.h</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4b6ab4aab60de59ac8e33d36d6fa56e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a4b6ab4aab60de59ac8e33d36d6fa56e3">addEntity</a> (std::shared_ptr&lt; Entity &gt; object)</td></tr>
-<tr class="separator:a4b6ab4aab60de59ac8e33d36d6fa56e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa0a1e846f5e8e852749ad773d112c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acfa0a1e846f5e8e852749ad773d112c7">addLight</a> (std::shared_ptr&lt; Light &gt; light)</td></tr>
-<tr class="separator:acfa0a1e846f5e8e852749ad773d112c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e33abfb4027a9bc2a5bb944fe4c4c9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a6e33abfb4027a9bc2a5bb944fe4c4c9a">build</a> ()</td></tr>
-<tr class="separator:a6e33abfb4027a9bc2a5bb944fe4c4c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af94142ca49f3495ad832c0b446ee1377"><td class="memItemLeft" align="right" valign="top">std::optional&lt; Intersection &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#af94142ca49f3495ad832c0b446ee1377">intersect</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;r) const</td></tr>
-<tr class="separator:af94142ca49f3495ad832c0b446ee1377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b59eb8acd781df8c2673831dda7b43a"><td class="memItemLeft" align="right" valign="top"><a id="a8b59eb8acd781df8c2673831dda7b43a" name="a8b59eb8acd781df8c2673831dda7b43a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>intersectionTest</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;r, std::shared_ptr&lt; Entity &gt; object) const</td></tr>
-<tr class="separator:a8b59eb8acd781df8c2673831dda7b43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7048134caa1918d2ca324f082f8824"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; std::vector&lt; std::shared_ptr&lt; Light &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3a7048134caa1918d2ca324f082f8824">getLights</a> () const</td></tr>
-<tr class="separator:a3a7048134caa1918d2ca324f082f8824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Store the primitives in scene. </p>
-
-<p class="definition">Definition at line <a class="el" href="_scene_8h_source.html#l00023">23</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad10176d75a9cc0da56626f682d083507" name="ad10176d75a9cc0da56626f682d083507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad10176d75a9cc0da56626f682d083507">&#9670;&nbsp;</a></span>Scene()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_scene.html">Scene::Scene</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00015">15</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b6ab4aab60de59ac8e33d36d6fa56e3" name="a4b6ab4aab60de59ac8e33d36d6fa56e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b6ab4aab60de59ac8e33d36d6fa56e3">&#9670;&nbsp;</a></span>addEntity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Scene::addEntity </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; Entity &gt;&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00054">54</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<a id="acfa0a1e846f5e8e852749ad773d112c7" name="acfa0a1e846f5e8e852749ad773d112c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfa0a1e846f5e8e852749ad773d112c7">&#9670;&nbsp;</a></span>addLight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Scene::addLight </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; Light &gt;&#160;</td>
-          <td class="paramname"><em>light</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00059">59</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a6e33abfb4027a9bc2a5bb944fe4c4c9a" name="a6e33abfb4027a9bc2a5bb944fe4c4c9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e33abfb4027a9bc2a5bb944fe4c4c9a">&#9670;&nbsp;</a></span>build()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Scene::build </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00019">19</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a3a7048134caa1918d2ca324f082f8824" name="a3a7048134caa1918d2ca324f082f8824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a7048134caa1918d2ca324f082f8824">&#9670;&nbsp;</a></span>getLights()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; std::vector&lt; std::shared_ptr&lt; Light &gt; &gt; &gt; Scene::getLights </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00049">49</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<a id="af94142ca49f3495ad832c0b446ee1377" name="af94142ca49f3495ad832c0b446ee1377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af94142ca49f3495ad832c0b446ee1377">&#9670;&nbsp;</a></span>intersect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt; Intersection &gt; Scene::intersect </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00022">22</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/CoreLayer/Scene/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Scene/<a class="el" href="_scene_8cpp_source.html">Scene.cpp</a></li>
+<li>/mnt/renderer/Zero/src/CoreLayer/Scene/<a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -2,28 +2,28 @@
 \label{_integrator_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Integrator/Integrator.h@{/mnt/renderer/Zero/src/FunctionLayer/Integrator/Integrator.h}}
 \mbox{\hyperlink{_integrator_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_8h}{CoreLayer/Scene/Scene.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{FunctionLayer/Camera/Camera.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_film_8h}{FunctionLayer/Film/Film.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sampler_8h}{FunctionLayer/Sampler/Sampler.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tile_generator_8h}{FunctionLayer/TileGenerator/TileGenerator.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00027}\mbox{\hyperlink{class_integrator}{00027}} \textcolor{keyword}{class }\mbox{\hyperlink{class_integrator}{Integrator}}}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00028}00028 \{}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00029}00029 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00030}00030     std::shared\_ptr<Camera> camera;}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00031}00031     std::unique\_ptr<Film> film;}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00033}00033 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00040}00040     \mbox{\hyperlink{class_integrator}{Integrator}}(std::shared\_ptr<Camera> \_camera, std::unique\_ptr<Film> \_film);}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00046}\mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13}{00046}}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13}{render}}(std::shared\_ptr<Scene> scene) = 0;}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00052}00052     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{save}}(\textcolor{keyword}{const} std::string\& path);}
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00053}00053     }
-\DoxyCodeLine{\Hypertarget{_integrator_8h_source_l00054}00054 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_8h}{CoreLayer/Scene/Scene.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{FunctionLayer/Camera/Camera.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_film_8h}{FunctionLayer/Film/Film.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sampler_8h}{FunctionLayer/Sampler/Sampler.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tile_generator_8h}{FunctionLayer/TileGenerator/TileGenerator.h}}"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_integrator}{Integrator}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{30     std::shared\_ptr<Camera> camera;}
+\DoxyCodeLine{31     std::unique\_ptr<Film> film;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_integrator}{Integrator}}(std::shared\_ptr<Camera> \_camera, std::unique\_ptr<Film> \_film);}
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13}{render}}(std::shared\_ptr<Scene> scene) = 0;}
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{save}}(\textcolor{keyword}{const} std::string\& path);}
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54 \};}
 
 \end{DoxyCode}

@@ -8,5 +8,6 @@ var searchData=
   ['boundingboxunionintersect_5',['BoundingBoxUnionIntersect',['../_bounding_box_8h.html#aa8342387fe8fb82925e302ba0342a632',1,'BoundingBox.h']]],
   ['bssrdf_2eh_6',['BSSRDF.h',['../_b_s_s_r_d_f_8h.html',1,'']]],
   ['bvh_2eh_7',['Bvh.h',['../_bvh_8h.html',1,'']]],
-  ['bxdf_2eh_8',['BxDF.h',['../_bx_d_f_8h.html',1,'']]]
+  ['bxdf_8',['BxDF',['../class_bx_d_f.html',1,'BxDF'],['../group___bx_d_f.html',1,'(Global Namespace)']]],
+  ['bxdf_2eh_9',['BxDF.h',['../_bx_d_f_8h.html',1,'']]]
 ];

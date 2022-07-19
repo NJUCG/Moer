@@ -2,76 +2,76 @@
 \label{_bounding_box_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Geometry/BoundingBox.h@{/mnt/renderer/Zero/src/CoreLayer/Geometry/BoundingBox.h}}
 \mbox{\hyperlink{_bounding_box_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_ray_8h}{CoreLayer/Ray/Ray.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <optional>}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <algorithm>}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <limits>}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00025}00025 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00026}\mbox{\hyperlink{class_bounding_box3}{00026}} \textcolor{keyword}{class }\mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00027}00027 \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00028}00028 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00029}00029     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} pMin;            }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00030}00030     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} pMax;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00032}00032     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}() \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00033}00033         pMin[0] = pMin[1] = pMin[2] = std::numeric\_limits<BaseType>::max();}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00034}00034         pMax[0] = pMax[1] = pMax[2] = std::numeric\_limits<BaseType>::min();}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00035}00035     \};}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00037}00037     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_p)}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00038}00038     \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00039}00039         pMin = pMax = \_p;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00040}00040     \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00041}00041     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin, \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax)}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00042}00042     \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00043}00043         pMin = \_pMin;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00044}00044         pMax = \_pMax;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00045}00045     \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00051}\mbox{\hyperlink{class_bounding_box3_aafe501d9cb9f76a7bd1e6d97a031dba6}{00051}}     std::optional<Point2d> \mbox{\hyperlink{class_bounding_box3_aafe501d9cb9f76a7bd1e6d97a031dba6}{Intersection}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r) \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00052}00052         \textcolor{keywordtype}{double} t0 = 0, t1 = DBL\_MAX;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00053}00053         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00054}00054             \textcolor{keywordtype}{double} inv = 1.0 / r.\mbox{\hyperlink{struct_ray_a317ee29d4f6213ede639f2f757f84784}{direction}}[i];}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00055}00055             \textcolor{keywordtype}{double} tNear = (pMin[i] -\/ r.\mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}}[i]) * inv;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00056}00056             \textcolor{keywordtype}{double} tFar = (pMax[i] -\/ r.\mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}}[i]) * inv;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00057}00057             \textcolor{keywordflow}{if} (tNear > tFar) std::swap(tNear, tFar);}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00058}00058             \textcolor{keywordflow}{if} (t0 < tNear) t0 = tNear;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00059}00059             \textcolor{keywordflow}{if} (t1 > tFar) t1 = tFar;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00060}00060         \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00061}00061         \textcolor{keywordflow}{if} (t0 > t1) \textcolor{keywordflow}{return} std::nullopt;}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00062}00062         \textcolor{keywordflow}{return} std::make\_optional(\mbox{\hyperlink{struct_t_point2}{Point2d}}(t0, t1));}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00063}00063     \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00069}\mbox{\hyperlink{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}{00069}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}{SurfaceArea}}() \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00070}00070         \textcolor{keywordtype}{double} x = pMax[0] -\/ pMin[0];}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00071}00071         \textcolor{keywordtype}{double} y = pMax[1] -\/ pMin[1];}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00072}00072         \textcolor{keywordtype}{double} z = pMax[2] -\/ pMin[2];}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00073}00073         \textcolor{keywordflow}{return} 2 * (x * y + x * z + y * z);}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00074}00074     \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00075}00075 \};}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00076}00076 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00081}00081 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00082}\mbox{\hyperlink{_bounding_box_8h_a70e5ea0119706a75a45a00bfeeeaa9f5}{00082}} \textcolor{keyword}{static} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}} \mbox{\hyperlink{_bounding_box_8h_a70e5ea0119706a75a45a00bfeeeaa9f5}{BoundingBoxUnion}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b1, }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00083}00083                                                \textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b2)}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00084}00084 \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00085}00085     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin(std::min(b1.pMin[0], b2.pMin[0]), std::min(b1.pMin[1], b2.pMin[1]), std::min(b1.pMin[2], b2.pMin[2]));}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00086}00086     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax(std::max(b1.pMax[0], b2.pMax[0]), std::max(b1.pMax[1], b2.pMax[1]), std::max(b1.pMax[2], b2.pMax[2]));}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00087}00087     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\_pMin, \_pMax);}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00088}00088 \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00094}00094 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00095}\mbox{\hyperlink{_bounding_box_8h_aa8342387fe8fb82925e302ba0342a632}{00095}} \textcolor{keyword}{static} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}} \mbox{\hyperlink{_bounding_box_8h_aa8342387fe8fb82925e302ba0342a632}{BoundingBoxUnionIntersect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b1, }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00096}00096                                                         \textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b2)}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00097}00097 \{}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00098}00098     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin(std::max(b1.pMin[0], b2.pMin[0]), std::max(b1.pMin[1], b2.pMin[1]), std::max(b1.pMin[2], b2.pMin[2]));}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00099}00099     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax(std::min(b1.pMax[0], b2.pMax[0]), std::min(b1.pMax[1], b2.pMax[1]), std::min(b1.pMax[2], b2.pMax[2]));}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00100}00100     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\_pMin, \_pMax);}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00101}00101 \}}
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00102}00102 }
-\DoxyCodeLine{\Hypertarget{_bounding_box_8h_source_l00103}00103 \textcolor{keyword}{using }\mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} = \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<double>}};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_ray_8h}{CoreLayer/Ray/Ray.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{25 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} pMin;            }
+\DoxyCodeLine{30     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} pMax;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}() \{}
+\DoxyCodeLine{33         pMin[0] = pMin[1] = pMin[2] = std::numeric\_limits<BaseType>::max();}
+\DoxyCodeLine{34         pMax[0] = pMax[1] = pMax[2] = std::numeric\_limits<BaseType>::min();}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_p)}
+\DoxyCodeLine{38     \{}
+\DoxyCodeLine{39         pMin = pMax = \_p;}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin, \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax)}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         pMin = \_pMin;}
+\DoxyCodeLine{44         pMax = \_pMax;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{51     std::optional<Point2d> \mbox{\hyperlink{class_bounding_box3_aafe501d9cb9f76a7bd1e6d97a031dba6}{Intersection}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r) \{}
+\DoxyCodeLine{52         \textcolor{keywordtype}{double} t0 = 0, t1 = DBL\_MAX;}
+\DoxyCodeLine{53         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
+\DoxyCodeLine{54             \textcolor{keywordtype}{double} inv = 1.0 / r.\mbox{\hyperlink{struct_ray_a317ee29d4f6213ede639f2f757f84784}{direction}}[i];}
+\DoxyCodeLine{55             \textcolor{keywordtype}{double} tNear = (pMin[i] -\/ r.\mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}}[i]) * inv;}
+\DoxyCodeLine{56             \textcolor{keywordtype}{double} tFar = (pMax[i] -\/ r.\mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}}[i]) * inv;}
+\DoxyCodeLine{57             \textcolor{keywordflow}{if} (tNear > tFar) std::swap(tNear, tFar);}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} (t0 < tNear) t0 = tNear;}
+\DoxyCodeLine{59             \textcolor{keywordflow}{if} (t1 > tFar) t1 = tFar;}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{if} (t0 > t1) \textcolor{keywordflow}{return} std::nullopt;}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} std::make\_optional(\mbox{\hyperlink{struct_t_point2}{Point2d}}(t0, t1));}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}{SurfaceArea}}() \{}
+\DoxyCodeLine{70         \textcolor{keywordtype}{double} x = pMax[0] -\/ pMin[0];}
+\DoxyCodeLine{71         \textcolor{keywordtype}{double} y = pMax[1] -\/ pMin[1];}
+\DoxyCodeLine{72         \textcolor{keywordtype}{double} z = pMax[2] -\/ pMin[2];}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} 2 * (x * y + x * z + y * z);}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{81 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
+\DoxyCodeLine{82 \textcolor{keyword}{static} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}} \mbox{\hyperlink{_bounding_box_8h_a70e5ea0119706a75a45a00bfeeeaa9f5}{BoundingBoxUnion}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b1, }
+\DoxyCodeLine{83                                                \textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b2)}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin(std::min(b1.pMin[0], b2.pMin[0]), std::min(b1.pMin[1], b2.pMin[1]), std::min(b1.pMin[2], b2.pMin[2]));}
+\DoxyCodeLine{86     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax(std::max(b1.pMax[0], b2.pMax[0]), std::max(b1.pMax[1], b2.pMax[1]), std::max(b1.pMax[2], b2.pMax[2]));}
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\_pMin, \_pMax);}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{94 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
+\DoxyCodeLine{95 \textcolor{keyword}{static} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}} \mbox{\hyperlink{_bounding_box_8h_aa8342387fe8fb82925e302ba0342a632}{BoundingBoxUnionIntersect}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b1, }
+\DoxyCodeLine{96                                                         \textcolor{keyword}{const} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<BaseType>}}\& b2)}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMin(std::max(b1.pMin[0], b2.pMin[0]), std::max(b1.pMin[1], b2.pMin[1]), std::max(b1.pMin[2], b2.pMin[2]));}
+\DoxyCodeLine{99     \mbox{\hyperlink{struct_t_point3}{TPoint3<BaseType>}} \_pMax(std::min(b1.pMax[0], b2.pMax[0]), std::min(b1.pMax[1], b2.pMax[1]), std::min(b1.pMax[2], b2.pMax[2]));}
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_bounding_box3}{BoundingBox3}}(\_pMin, \_pMax);}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{using }\mbox{\hyperlink{class_bounding_box3}{BoundingBox3f}} = \mbox{\hyperlink{class_bounding_box3}{BoundingBox3<double>}};}
 
 \end{DoxyCode}

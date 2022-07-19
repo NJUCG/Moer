@@ -66,191 +66,32 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_mircofacet-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Mircofacet Class Reference</div></div>
+  <div class="headertitle"><div class="title">Mircofacet Class Reference<div class="ingroups"><a class="el" href="group___bx_d_f.html">BxDF</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Micro-facet reflection model.  
+ <a href="class_mircofacet.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_microfacet_8h_source.html">Microfacet.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Mircofacet:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_mircofacet.png" usemap="#Mircofacet_map" alt=""/>
   <map id="Mircofacet_map" name="Mircofacet_map">
-<area href="class_bx_d_f.html" alt="BxDF" shape="rect" coords="0,0,73,24"/>
+<area href="class_bx_d_f.html" title="BxDF. out == rays from/to camera, in == rays from/to objects/lights." alt="BxDF" shape="rect" coords="0,0,73,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ae9f8171978a03ca27eeb85fe2bc379"><td class="memItemLeft" align="right" valign="top"><a id="a5ae9f8171978a03ca27eeb85fe2bc379" name="a5ae9f8171978a03ca27eeb85fe2bc379"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mircofacet</b> (<a class="el" href="class_sampled_spectrum.html">Spectrum</a> kd, double intIOR, double extIOR, double alpha)</td></tr>
-<tr class="separator:a5ae9f8171978a03ca27eeb85fe2bc379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dd10172c9f3ac90b688c9e003b22f62"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mircofacet.html#a1dd10172c9f3ac90b688c9e003b22f62">f</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
-<tr class="separator:a1dd10172c9f3ac90b688c9e003b22f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc1b791e6539c2e8b4204505e447d4a2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mircofacet.html#adc1b791e6539c2e8b4204505e447d4a2">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
 <tr class="separator:adc1b791e6539c2e8b4204505e447d4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53bdb64e41fc6348e9a7c0d1207cc578"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mircofacet.html#a53bdb64e41fc6348e9a7c0d1207cc578">pdf</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
-<tr class="separator:a53bdb64e41fc6348e9a7c0d1207cc578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad7016e53f06505e42fa7fa7717b3d3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_bx_d_f_sample_result.html">BxDFSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mircofacet.html#a2ad7016e53f06505e42fa7fa7717b3d3">sample</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
-<tr class="separator:a2ad7016e53f06505e42fa7fa7717b3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4c108b194b81839f36d67fb4eb64f1e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mircofacet.html#ab4c108b194b81839f36d67fb4eb64f1e">isSpecular</a> () const</td></tr>
-<tr class="separator:ab4c108b194b81839f36d67fb4eb64f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54e38ea9387160d54c1393a664a3118c"><td class="memItemLeft" align="right" valign="top"><a id="a54e38ea9387160d54c1393a664a3118c" name="a54e38ea9387160d54c1393a664a3118c"></a>
-virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>f</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
-<tr class="separator:a54e38ea9387160d54c1393a664a3118c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bx_d_f.html#a6d116e406a8aa819ab2c40ebb04d33f1">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
-<tr class="separator:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memItemLeft" align="right" valign="top"><a id="a5da96c45f63e8ea96f7c1e8527216c78" name="a5da96c45f63e8ea96f7c1e8527216c78"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>pdf</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
-<tr class="separator:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91816792b34433274c8c02ab75425282"><td class="memItemLeft" align="right" valign="top"><a id="a91816792b34433274c8c02ab75425282" name="a91816792b34433274c8c02ab75425282"></a>
-virtual <a class="el" href="struct_bx_d_f_sample_result.html">BxDFSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sample</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
-<tr class="separator:a91816792b34433274c8c02ab75425282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfcb853695e4f708df98615efd95f990"><td class="memItemLeft" align="right" valign="top"><a id="adfcb853695e4f708df98615efd95f990" name="adfcb853695e4f708df98615efd95f990"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSpecular</b> () const =0</td></tr>
-<tr class="separator:adfcb853695e4f708df98615efd95f990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1dd10172c9f3ac90b688c9e003b22f62" name="a1dd10172c9f3ac90b688c9e003b22f62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dd10172c9f3ac90b688c9e003b22f62">&#9670;&nbsp;</a></span>f()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_sampled_spectrum.html">Spectrum</a> Mircofacet::f </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>wo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>wi</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
-
-</div>
-</div>
-<a id="ab4c108b194b81839f36d67fb4eb64f1e" name="ab4c108b194b81839f36d67fb4eb64f1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4c108b194b81839f36d67fb4eb64f1e">&#9670;&nbsp;</a></span>isSpecular()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Mircofacet::isSpecular </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
-
-</div>
-</div>
-<a id="a53bdb64e41fc6348e9a7c0d1207cc578" name="a53bdb64e41fc6348e9a7c0d1207cc578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53bdb64e41fc6348e9a7c0d1207cc578">&#9670;&nbsp;</a></span>pdf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Mircofacet::pdf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>wo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>wi</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
-
-</div>
-</div>
-<a id="a2ad7016e53f06505e42fa7fa7717b3d3" name="a2ad7016e53f06505e42fa7fa7717b3d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ad7016e53f06505e42fa7fa7717b3d3">&#9670;&nbsp;</a></span>sample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_bx_d_f_sample_result.html">BxDFSampleResult</a> Mircofacet::sample </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>wo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Micro-facet reflection model. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adc1b791e6539c2e8b4204505e447d4a2" name="adc1b791e6539c2e8b4204505e447d4a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc1b791e6539c2e8b4204505e447d4a2">&#9670;&nbsp;</a></span>sampleWi()</h2>
 

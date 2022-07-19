@@ -80,18 +80,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_point3.html">Point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coord_convertor.html#a6f5154f84a5ed35b8602d27f4b7d3450">cartesian2Spherical</a> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;p)</td></tr>
 <tr class="memdesc:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a spherical coordinate <img class="formulaInl" alt="$ (\phi, \theta) $" src="form_1.png" width="28" height="14"/> to cartesian coordinate.  <a href="class_coord_convertor.html#a6f5154f84a5ed35b8602d27f4b7d3450">More...</a><br /></td></tr>
 <tr class="separator:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35900e1deaafa324234d5ad53c12b7f4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coord_convertor.html#a35900e1deaafa324234d5ad53c12b7f4">cartesian2SphericalVec</a> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;p)</td></tr>
-<tr class="separator:a35900e1deaafa324234d5ad53c12b7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a187b04a42d83b5df8cd536b54617b452"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coord_convertor.html#a187b04a42d83b5df8cd536b54617b452">world2TBN</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;t, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;b, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;n)</td></tr>
-<tr class="separator:a187b04a42d83b5df8cd536b54617b452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3137d0296f862b95cbe342be370af02"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coord_convertor.html#ae3137d0296f862b95cbe342be370af02">TBN2World</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;t, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;b, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;n)</td></tr>
-<tr class="separator:ae3137d0296f862b95cbe342be370af02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Provides transformations between different coordinate systems. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>A namespace contains function might better? </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_coord_convertor_8h_source.html#l00018">18</a> of file <a class="el" href="_coord_convertor_8h_source.html">CoordConvertor.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6f5154f84a5ed35b8602d27f4b7d3450" name="a6f5154f84a5ed35b8602d27f4b7d3450"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f5154f84a5ed35b8602d27f4b7d3450">&#9670;&nbsp;</a></span>cartesian2Spherical()</h2>
@@ -127,141 +119,11 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The correspoding coordinate in cartesian </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_coord_convertor_8cpp_source.html#l00016">16</a> of file <a class="el" href="_coord_convertor_8cpp_source.html">CoordConvertor.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a35900e1deaafa324234d5ad53c12b7f4" name="a35900e1deaafa324234d5ad53c12b7f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35900e1deaafa324234d5ad53c12b7f4">&#9670;&nbsp;</a></span>cartesian2SphericalVec()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_t_vector3.html">Vec3d</a> CoordConvertor::cartesian2SphericalVec </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coord_convertor_8cpp_source.html#l00027">27</a> of file <a class="el" href="_coord_convertor_8cpp_source.html">CoordConvertor.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae3137d0296f862b95cbe342be370af02" name="ae3137d0296f862b95cbe342be370af02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3137d0296f862b95cbe342be370af02">&#9670;&nbsp;</a></span>TBN2World()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_t_vector3.html">Vec3d</a> CoordConvertor::TBN2World </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coord_convertor_8cpp_source.html#l00041">41</a> of file <a class="el" href="_coord_convertor_8cpp_source.html">CoordConvertor.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a187b04a42d83b5df8cd536b54617b452" name="a187b04a42d83b5df8cd536b54617b452"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a187b04a42d83b5df8cd536b54617b452">&#9670;&nbsp;</a></span>world2TBN()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_t_vector3.html">Vec3d</a> CoordConvertor::world2TBN </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coord_convertor_8cpp_source.html#l00033">33</a> of file <a class="el" href="_coord_convertor_8cpp_source.html">CoordConvertor.cpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_coord_convertor_8h_source.html">CoordConvertor.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_coord_convertor_8cpp_source.html">CoordConvertor.cpp</a></li>
+<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_coord_convertor_8cpp.html">CoordConvertor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['sampledspectrum_0',['SampledSpectrum',['../class_sampled_spectrum.html',1,'']]],
-  ['scene_1',['Scene',['../class_scene.html',1,'']]],
-  ['spectrumsample_2',['SpectrumSample',['../struct_spectrum_sample.html',1,'']]]
+  ['randomnumbergenerator_0',['RandomNumberGenerator',['../class_random_number_generator.html',1,'']]],
+  ['ray_1',['Ray',['../struct_ray.html',1,'']]],
+  ['raydifferential_2',['RayDifferential',['../struct_ray_differential.html',1,'']]],
+  ['rgbspectrum_3',['RGBSpectrum',['../class_r_g_b_spectrum.html',1,'']]]
 ];

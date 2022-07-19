@@ -12,21 +12,10 @@ Axis-\/aligned bounding box 3D base type, the box edges are mutually perpendicul
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_bounding_box3_a030d87867c2fee993f95b1929a97c213}{Bounding\+Box3}} (\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p)
-\item 
-\mbox{\hyperlink{class_bounding_box3_a89a4f33ad89ae456c2805138c3d9f1fd}{Bounding\+Box3}} (\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p\+Min, \mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p\+Max)
-\item 
 std\+::optional$<$ \mbox{\hyperlink{struct_t_point2}{Point2d}} $>$ \mbox{\hyperlink{class_bounding_box3_aafe501d9cb9f76a7bd1e6d97a031dba6}{Intersection}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r)
 \begin{DoxyCompactList}\small\item\em Intersect of ray and bounding box. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}{Surface\+Area}} ()
 \begin{DoxyCompactList}\small\item\em The surface area of the bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \mbox{\hyperlink{class_bounding_box3_a084cff00422304537d71bdd3d674dbf0}{p\+Min}}
-\item 
-\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \mbox{\hyperlink{class_bounding_box3_aea417abafea3385d6a582341e2ba3592}{p\+Max}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -39,46 +28,6 @@ Axis-\/aligned bounding box 3D base type, the box edges are mutually perpendicul
 {\em Base\+Type} & the type of the bounding box, int/float/double. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00026}{26}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_bounding_box3_a4182ce69b5a2e0552e3e7804ee2bc2a5}\label{class_bounding_box3_a4182ce69b5a2e0552e3e7804ee2bc2a5}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!BoundingBox3@{BoundingBox3}}
-\index{BoundingBox3@{BoundingBox3}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{BoundingBox3()}{BoundingBox3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-\mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\mbox{\hyperlink{class_bounding_box3}{\+::\+Bounding\+Box3}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00032}{32}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
-\mbox{\Hypertarget{class_bounding_box3_a030d87867c2fee993f95b1929a97c213}\label{class_bounding_box3_a030d87867c2fee993f95b1929a97c213}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!BoundingBox3@{BoundingBox3}}
-\index{BoundingBox3@{BoundingBox3}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{BoundingBox3()}{BoundingBox3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-\mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\mbox{\hyperlink{class_bounding_box3}{\+::\+Bounding\+Box3}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$}]{\+\_\+p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00037}{37}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
-\mbox{\Hypertarget{class_bounding_box3_a89a4f33ad89ae456c2805138c3d9f1fd}\label{class_bounding_box3_a89a4f33ad89ae456c2805138c3d9f1fd}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!BoundingBox3@{BoundingBox3}}
-\index{BoundingBox3@{BoundingBox3}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{BoundingBox3()}{BoundingBox3()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-\mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\mbox{\hyperlink{class_bounding_box3}{\+::\+Bounding\+Box3}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$}]{\+\_\+p\+Min,  }\item[{\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$}]{\+\_\+p\+Max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00041}{41}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
 
 
 \doxysubsection{Member Function Documentation}
@@ -96,10 +45,6 @@ Intersect of ray and bounding box.
 \begin{DoxyReturn}{Returns}
 A pointer to the pair (t0, t1) 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00051}{51}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
 \mbox{\Hypertarget{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}\label{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}} 
 \index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!SurfaceArea@{SurfaceArea}}
 \index{SurfaceArea@{SurfaceArea}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
@@ -114,35 +59,6 @@ The surface area of the bounding box.
 \begin{DoxyReturn}{Returns}
 A double represents the bounding box\textquotesingle{}s surface area 
 \end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00069}{69}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_bounding_box3_aea417abafea3385d6a582341e2ba3592}\label{class_bounding_box3_aea417abafea3385d6a582341e2ba3592}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!pMax@{pMax}}
-\index{pMax@{pMax}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{pMax}{pMax}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$Base\+Type$>$ \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\+::p\+Max}
-
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00030}{30}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
-\mbox{\Hypertarget{class_bounding_box3_a084cff00422304537d71bdd3d674dbf0}\label{class_bounding_box3_a084cff00422304537d71bdd3d674dbf0}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!pMin@{pMin}}
-\index{pMin@{pMin}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{pMin}{pMin}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$Base\+Type$>$ \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\+::p\+Min}
-
-
-
-Definition at line \mbox{\hyperlink{_bounding_box_8h_source_l00029}{29}} of file \mbox{\hyperlink{_bounding_box_8h_source}{Bounding\+Box.\+h}}.
-
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

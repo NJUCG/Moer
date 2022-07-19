@@ -2,30 +2,30 @@
 \label{_independent_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Independent.h@{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Independent.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sampler_8h}{Sampler.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00004}00004 \textcolor{keyword}{class }IndependentSampler : \textcolor{keyword}{public} Sampler \{}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00005}00005 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00006}00006     IndependentSampler() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00007}00007     }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00008}00008     \textcolor{keyword}{virtual} \string~IndependentSampler() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00010}00010     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} startPixel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition)\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00011}00011         \textcolor{comment}{// do nothing       }}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00012}00012     \}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00014}00014     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} nextSample()\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00015}00015         \textcolor{comment}{// do nothing}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00016}00016     \}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00018}00018     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} sample1D()\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00019}00019         \textcolor{keywordflow}{return} rng();}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00020}00020     \}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00022}00022     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_point2}{Point2d}} sample2D()\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00023}00023         \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_t_point2}{Point2d}}\{rng(), rng()\};}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00024}00024     \}}
-\DoxyCodeLine{\Hypertarget{_independent_8h_source_l00025}00025 \};}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sampler_8h}{Sampler.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_independent_sampler}{IndependentSampler}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_sampler}{Sampler}} \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_independent_sampler}{IndependentSampler}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{9     }
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_independent_sampler}{\string~IndependentSampler}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} startPixel(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{13         \textcolor{comment}{// do nothing       }}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} nextSample()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{17         \textcolor{comment}{// do nothing}}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} sample1D()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{21         \textcolor{keywordflow}{return} rng();}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_point2}{Point2d}} sample2D()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_t_point2}{Point2d}}\{rng(), rng()\};}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 \};}
 
 \end{DoxyCode}

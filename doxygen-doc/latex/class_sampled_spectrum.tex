@@ -18,98 +18,23 @@ Inheritance diagram for Sampled\+Spectrum\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_sampled_spectrum_ab3c6b1672a8e51eff217571990aba5d4}{Sampled\+Spectrum}} (double val)
-\item 
-\mbox{\hyperlink{class_sampled_spectrum_a667655643aa969eee124c8ee34a3f2d0}{Sampled\+Spectrum}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
-\item 
 virtual XYZ3 \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}{to\+XYZ3}} () const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}{init}} ()
+\mbox{\Hypertarget{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}\label{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}} 
+static void {\bfseries init} ()
 \begin{DoxyCompactList}\small\item\em Global init of static values. should be called before any constructor of \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} \mbox{\hyperlink{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}{from\+Sampled}} (std\+::vector$<$ \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}} $>$ v)
+\mbox{\Hypertarget{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}\label{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}} 
+static \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} {\bfseries from\+Sampled} (std\+::vector$<$ \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}} $>$ v)
 \begin{DoxyCompactList}\small\item\em generate \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} from a set of \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{class_sampled_spectrum_aae89217b9afcd66ec32a3bd549ed830f}{RGB3}}
-\item 
-class \mbox{\hyperlink{class_sampled_spectrum_ac0c19d3a534d53a7706366dcc50db84c}{XYZ3}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 The specturm samples uniformly. Actually used in program. 
 
-Definition at line \mbox{\hyperlink{_color_8h_source_l00333}{333}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_sampled_spectrum_aa41e51dc8339b588d447c3daf82fe2cf}\label{class_sampled_spectrum_aa41e51dc8339b588d447c3daf82fe2cf}} 
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{SampledSpectrum()}{SampledSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum\+::\+Sampled\+Spectrum}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01031}{1031}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-\mbox{\Hypertarget{class_sampled_spectrum_ab3c6b1672a8e51eff217571990aba5d4}\label{class_sampled_spectrum_ab3c6b1672a8e51eff217571990aba5d4}} 
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{SampledSpectrum()}{SampledSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum\+::\+Sampled\+Spectrum}} (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01037}{1037}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-\mbox{\Hypertarget{class_sampled_spectrum_a667655643aa969eee124c8ee34a3f2d0}\label{class_sampled_spectrum_a667655643aa969eee124c8ee34a3f2d0}} 
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\index{SampledSpectrum@{SampledSpectrum}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{SampledSpectrum()}{SampledSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum\+::\+Sampled\+Spectrum}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&}]{s }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01043}{1043}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}\label{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}} 
-\index{SampledSpectrum@{SampledSpectrum}!fromSampled@{fromSampled}}
-\index{fromSampled@{fromSampled}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{fromSampled()}{fromSampled()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} Sampled\+Spectrum\+::from\+Sampled (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}} $>$}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-generate \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} from a set of \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}}. 
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01049}{1049}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-\mbox{\Hypertarget{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}\label{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}} 
-\index{SampledSpectrum@{SampledSpectrum}!init@{init}}
-\index{init@{init}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily void Sampled\+Spectrum\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Global init of static values. should be called before any constructor of \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}. 
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01062}{1062}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
 \mbox{\Hypertarget{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}\label{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}} 
 \index{SampledSpectrum@{SampledSpectrum}!toXYZ3@{toXYZ3}}
 \index{toXYZ3@{toXYZ3}!SampledSpectrum@{SampledSpectrum}}
@@ -122,33 +47,6 @@ This function is just used for debugging
 
 
 Reimplemented from \mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{Coefficient\+Spectrum$<$ n\+Spectrum\+Samples $>$}}.
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l01105}{1105}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-
-
-\doxysubsection{Friends And Related Function Documentation}
-\mbox{\Hypertarget{class_sampled_spectrum_aae89217b9afcd66ec32a3bd549ed830f}\label{class_sampled_spectrum_aae89217b9afcd66ec32a3bd549ed830f}} 
-\index{SampledSpectrum@{SampledSpectrum}!RGB3@{RGB3}}
-\index{RGB3@{RGB3}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{RGB3}{RGB3}}
-{\footnotesize\ttfamily friend class RGB3\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00358}{358}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_sampled_spectrum_ac0c19d3a534d53a7706366dcc50db84c}\label{class_sampled_spectrum_ac0c19d3a534d53a7706366dcc50db84c}} 
-\index{SampledSpectrum@{SampledSpectrum}!XYZ3@{XYZ3}}
-\index{XYZ3@{XYZ3}!SampledSpectrum@{SampledSpectrum}}
-\doxysubsubsection{\texorpdfstring{XYZ3}{XYZ3}}
-{\footnotesize\ttfamily friend class XYZ3\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00359}{359}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
 
 
 

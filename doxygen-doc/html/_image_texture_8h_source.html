@@ -125,78 +125,81 @@ $(function() {
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">virtual</span> T texel(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;coord);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">class </span>ImageTexture : <span class="keyword">public</span> StdTexture&lt;Treturn, TextureCoord2D&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    ImageTexture(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                 std::shared_ptr&lt;TextureMapping2D&gt; mapping = std::make_shared&lt;UVTextureMapping2D&gt;()); <span class="comment">// using default sampler</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    ImageTexture(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                 std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                 std::shared_ptr&lt;TextureMapping2D&gt; mapping = std::make_shared&lt;UVTextureMapping2D&gt;());</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">virtual</span> Treturn eval(<span class="keyword">const</span> TextureCoord2D &amp;coord) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">// * Example: Creating a Image-based Color Texture using UV coordinates from mesh</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;);</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;DirectSampler&gt;());</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;UVTextureMapping2D&gt;());</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;DirectSampler&gt;(), std::make_shared&lt;UVTextureMapping2D&gt;());</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// * Example: Create a Image-based Normal Map (wip)</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">// * since normal cannot be directly interpolated, you need to provide T with some compact NDF type</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">// * The NDF must provide convertor from RGB3 and some accessors for shadings (depends on implementation of material)</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> PrefilteredImage&lt;T&gt;::setWrapMode(<span class="keyword">enum</span> WrapMode _wrapMode)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    wrapMode = _wrapMode;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>WrapMode PrefilteredImage&lt;T&gt;::getWrapMode()</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> wrapMode;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> DirectImage&lt;T&gt;::loadImage(<span class="keyword">const</span> std::string &amp;filename)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    image = std::make_shared&lt;Image&gt;(filename);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>T DirectImage&lt;T&gt;::texel(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;coord)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">// todo</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span> 0.0;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>ImageTexture&lt;Treturn, Tmemory&gt;::ImageTexture(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                                             std::shared_ptr&lt;TextureMapping2D&gt; mapping) : StdTexture&lt;Treturn, TextureCoord2D&gt;(mapping)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    imageSampler = std::make_shared&lt;DirectImage&lt;Tmemory&gt;&gt;();</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    imageSampler-&gt;loadImage(filename);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_image_texture.html">   69</a></span><span class="keyword">class </span><a class="code hl_class" href="class_image_texture.html">ImageTexture</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_std_texture.html">StdTexture</a>&lt;Treturn, TextureCoord2D&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_class" href="class_image_texture.html">ImageTexture</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                 std::shared_ptr&lt;TextureMapping2D&gt; mapping = std::make_shared&lt;UVTextureMapping2D&gt;()); <span class="comment">// using default sampler</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="class_image_texture.html">ImageTexture</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                 std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                 std::shared_ptr&lt;TextureMapping2D&gt; mapping = std::make_shared&lt;UVTextureMapping2D&gt;());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_image_texture.html#a5cfb49f9683d6bcd63e5a666aa8c89ec">   80</a></span>    <span class="keyword">virtual</span> Treturn <a class="code hl_function" href="class_image_texture.html#a5cfb49f9683d6bcd63e5a666aa8c89ec">eval</a>(<span class="keyword">const</span> TextureCoord2D &amp;coord) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">// * Example: Creating a Image-based Color Texture using UV coordinates from mesh</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;);</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;DirectSampler&gt;());</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;UVTextureMapping2D&gt;());</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// * &gt;  ImageTexture&lt;RGB3&gt;(&quot;1.jpg&quot;, std::make_shared&lt;DirectSampler&gt;(), std::make_shared&lt;UVTextureMapping2D&gt;());</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">// * Example: Create a Image-based Normal Map (wip)</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">// * since normal cannot be directly interpolated, you need to provide T with some compact NDF type</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">// * The NDF must provide convertor from RGB3 and some accessors for shadings (depends on implementation of material)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> PrefilteredImage&lt;T&gt;::setWrapMode(<span class="keyword">enum</span> WrapMode _wrapMode)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    wrapMode = _wrapMode;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>WrapMode PrefilteredImage&lt;T&gt;::getWrapMode()</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">return</span> wrapMode;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">void</span> DirectImage&lt;T&gt;::loadImage(<span class="keyword">const</span> std::string &amp;filename)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    image = std::make_shared&lt;Image&gt;(filename);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>T DirectImage&lt;T&gt;::texel(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;coord)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>{</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// todo</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">return</span> 0.0;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><a class="code hl_class" href="class_image_texture.html">ImageTexture&lt;Treturn, Tmemory&gt;::ImageTexture</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                                             std::shared_ptr&lt;TextureMapping2D&gt; mapping) : <a class="code hl_class" href="class_std_texture.html">StdTexture</a>&lt;Treturn, TextureCoord2D&gt;(mapping)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    imageSampler = std::make_shared&lt;DirectImage&lt;Tmemory&gt;&gt;();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    imageSampler-&gt;loadImage(filename);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>ImageTexture&lt;Treturn, Tmemory&gt;::ImageTexture(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                                             std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                                             std::shared_ptr&lt;TextureMapping2D&gt; mapping) : imageSampler(imageSampler), StdTexture&lt;Treturn, TextureCoord2D&gt;(mapping)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    this-&gt;imageSampler-&gt;loadImage(filename);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Treturn, <span class="keyword">typename</span> Tmemory&gt;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><a class="code hl_class" href="class_image_texture.html">ImageTexture&lt;Treturn, Tmemory&gt;::ImageTexture</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                                             std::shared_ptr&lt;PrefilteredImage&lt;Tmemory&gt;&gt; imageSampler,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                                             std::shared_ptr&lt;TextureMapping2D&gt; mapping) : imageSampler(imageSampler), <a class="code hl_class" href="class_std_texture.html">StdTexture</a>&lt;Treturn, TextureCoord2D&gt;(mapping)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>{</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    this-&gt;imageSampler-&gt;loadImage(filename);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
 <div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
 <div class="ttc" id="a_image_8h_html"><div class="ttname"><a href="_image_8h.html">Image.h</a></div><div class="ttdoc">Simple Image representation.</div></div>
 <div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
 <div class="ttc" id="a_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div><div class="ttdoc">Texture of different types.</div></div>
 <div class="ttc" id="a_texture_mapping_8h_html"><div class="ttname"><a href="_texture_mapping_8h.html">TextureMapping.h</a></div><div class="ttdoc">Texture mapping.</div></div>
+<div class="ttc" id="aclass_image_texture_html"><div class="ttname"><a href="class_image_texture.html">ImageTexture</a></div><div class="ttdoc">Image-based texture.</div><div class="ttdef"><b>Definition:</b> ImageTexture.h:70</div></div>
+<div class="ttc" id="aclass_image_texture_html_a5cfb49f9683d6bcd63e5a666aa8c89ec"><div class="ttname"><a href="class_image_texture.html#a5cfb49f9683d6bcd63e5a666aa8c89ec">ImageTexture::eval</a></div><div class="ttdeci">virtual Treturn eval(const TextureCoord2D &amp;coord) const override</div><div class="ttdoc">Eval texture value at given texture coord. (Derived needs to implement this)</div></div>
+<div class="ttc" id="aclass_std_texture_html"><div class="ttname"><a href="class_std_texture.html">StdTexture</a></div><div class="ttdoc">StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection.</div><div class="ttdef"><b>Definition:</b> Texture.h:86</div></div>
 <div class="ttc" id="astruct_t_point2_html"><div class="ttname"><a href="struct_t_point2.html">TPoint2&lt; int &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

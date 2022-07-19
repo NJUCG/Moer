@@ -19,33 +19,26 @@ class \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}
 \begin{DoxyCompactList}\small\item\em The specturm samples uniformly. Actually used in program. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_r_g_b_spectrum}{RGBSpectrum}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-using \mbox{\hyperlink{_color_8h_a210d564251453aa1f6f1615388cdbaa4}{Spectrum}} = \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum class \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{Spectrum\+Type}} \{ {\bfseries REFLECTANCE}
-, {\bfseries ILLUMINANT}
- \}
+\mbox{\Hypertarget{_color_8h_ab7b974cef152e339967fce62f49de0d9}\label{_color_8h_ab7b974cef152e339967fce62f49de0d9}} 
+enum class \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{Spectrum\+Type}} 
 \begin{DoxyCompactList}\small\item\em types of spectrum. different strategies will be applied. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{math\+Clamp}} (double source, double low=0.\+0, double high=DBL\+\_\+\+MAX)
+\mbox{\Hypertarget{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}\label{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}} 
+double {\bfseries math\+Clamp} (double source, double low=0.\+0, double high=DBL\+\_\+\+MAX)
 \begin{DoxyCompactList}\small\item\em Mathematical clamp. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}{math\+Lerp}} (double ratio, double source0, double source1)
+\mbox{\Hypertarget{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}\label{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}} 
+double {\bfseries math\+Lerp} (double ratio, double source0, double source1)
 \begin{DoxyCompactList}\small\item\em Mathematical lerp. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-static const double \mbox{\hyperlink{_color_8h_a7294288dac91b2f0629c88935c3a3db4}{sampled\+Lambda\+Start}} = 400.\+0
-\item 
-static const double \mbox{\hyperlink{_color_8h_aa658e6acb4c63af4875024311f38cdaa}{sampled\+Lambda\+End}} = 700.\+0
-\item 
-static const int \mbox{\hyperlink{_color_8h_aa517fb822956ff9568b0a9074eb68274}{n\+Spectrum\+Samples}} = 60
+\mbox{\Hypertarget{_color_8h_aa517fb822956ff9568b0a9074eb68274}\label{_color_8h_aa517fb822956ff9568b0a9074eb68274}} 
+static const int {\bfseries n\+Spectrum\+Samples} = 60
 \begin{DoxyCompactList}\small\item\em The number of uniform samples for \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -70,105 +63,3 @@ orbitchen
 \begin{DoxyCopyright}{Copyright}
 NJUMeta (c) 2022 www.\+njumeta.\+com 
 \end{DoxyCopyright}
-
-
-Definition in file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{_color_8h_a210d564251453aa1f6f1615388cdbaa4}\label{_color_8h_a210d564251453aa1f6f1615388cdbaa4}} 
-\index{Color.h@{Color.h}!Spectrum@{Spectrum}}
-\index{Spectrum@{Spectrum}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{Spectrum}{Spectrum}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} =  \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00023}{23}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{_color_8h_ab7b974cef152e339967fce62f49de0d9}\label{_color_8h_ab7b974cef152e339967fce62f49de0d9}} 
-\index{Color.h@{Color.h}!SpectrumType@{SpectrumType}}
-\index{SpectrumType@{SpectrumType}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{SpectrumType}{SpectrumType}}
-{\footnotesize\ttfamily enum class \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{Spectrum\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
-
-
-
-types of spectrum. different strategies will be applied. 
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00040}{40}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}\label{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}} 
-\index{Color.h@{Color.h}!mathClamp@{mathClamp}}
-\index{mathClamp@{mathClamp}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{mathClamp()}{mathClamp()}}
-{\footnotesize\ttfamily double math\+Clamp (\begin{DoxyParamCaption}\item[{double}]{source,  }\item[{double}]{low = {\ttfamily 0.0},  }\item[{double}]{high = {\ttfamily DBL\+\_\+MAX} }\end{DoxyParamCaption})}
-
-
-
-Mathematical clamp. 
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-\mbox{\Hypertarget{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}\label{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}} 
-\index{Color.h@{Color.h}!mathLerp@{mathLerp}}
-\index{mathLerp@{mathLerp}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{mathLerp()}{mathLerp()}}
-{\footnotesize\ttfamily double math\+Lerp (\begin{DoxyParamCaption}\item[{double}]{ratio,  }\item[{double}]{source0,  }\item[{double}]{source1 }\end{DoxyParamCaption})}
-
-
-
-Mathematical lerp. 
-
-
-
-Definition at line \mbox{\hyperlink{_spectrum_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_spectrum_8cpp_source}{Spectrum.\+cpp}}.
-
-
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{_color_8h_aa517fb822956ff9568b0a9074eb68274}\label{_color_8h_aa517fb822956ff9568b0a9074eb68274}} 
-\index{Color.h@{Color.h}!nSpectrumSamples@{nSpectrumSamples}}
-\index{nSpectrumSamples@{nSpectrumSamples}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{nSpectrumSamples}{nSpectrumSamples}}
-{\footnotesize\ttfamily const int n\+Spectrum\+Samples = 60\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-The number of uniform samples for \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}. 
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00031}{31}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{_color_8h_aa658e6acb4c63af4875024311f38cdaa}\label{_color_8h_aa658e6acb4c63af4875024311f38cdaa}} 
-\index{Color.h@{Color.h}!sampledLambdaEnd@{sampledLambdaEnd}}
-\index{sampledLambdaEnd@{sampledLambdaEnd}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{sampledLambdaEnd}{sampledLambdaEnd}}
-{\footnotesize\ttfamily const double sampled\+Lambda\+End = 700.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00028}{28}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{_color_8h_a7294288dac91b2f0629c88935c3a3db4}\label{_color_8h_a7294288dac91b2f0629c88935c3a3db4}} 
-\index{Color.h@{Color.h}!sampledLambdaStart@{sampledLambdaStart}}
-\index{sampledLambdaStart@{sampledLambdaStart}!Color.h@{Color.h}}
-\doxysubsubsection{\texorpdfstring{sampledLambdaStart}{sampledLambdaStart}}
-{\footnotesize\ttfamily const double sampled\+Lambda\+Start = 400.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00027}{27}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-

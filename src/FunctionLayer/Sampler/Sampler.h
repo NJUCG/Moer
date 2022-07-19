@@ -16,12 +16,14 @@
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Math/Common.h"
 
-/**
- * @brief Base class for samplers
- * 
- */
 struct CameraSample;
 
+/// \defgroup Sampler
+/**
+ * @brief Base class for all samplers
+ * @ingroup Sampler
+   @todo Handle the multi-threads issue
+ */
 class Sampler
 {
 protected:
@@ -61,6 +63,7 @@ void shuffle(std::vector<T> &samples, RandomNumberGenerator &rng) {
 /**
  * @brief Base class for pixel sampler, which generate specific samples before rendering each pixel
  *  need the dimensions and samplesPerPixels when construct
+ * @ingroup Sampler
  */
 class PixelSampler : public Sampler {
 protected:
@@ -81,7 +84,13 @@ public:
 	PixelSampler() = delete;
 	
 	PixelSampler(int _sppSqrt)
-		: sppSqrt(_sppSqrt), samplesPerPixel(_sppSqrt * _sppSqrt), nDimensions(4), curSamplePixelIndex(0), curDimensionIndex1D(0), curDimensionIndex2D(0) {
+		: sppSqrt(_sppSqrt), 
+		  samplesPerPixel(_sppSqrt * _sppSqrt), 
+		  nDimensions(4), 
+		  curSamplePixelIndex(0), 
+		  curDimensionIndex1D(0), 
+		  curDimensionIndex2D(0) 
+	{
 		for (int i = 0; i < nDimensions; ++i) {
 			samples1D.emplace_back(std::vector<double>(samplesPerPixel));
 			samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
@@ -89,7 +98,13 @@ public:
 	}
 	
 	PixelSampler(int _sppSqrt, int _nDimensions)
-		: sppSqrt(_sppSqrt) ,samplesPerPixel(_sppSqrt * _sppSqrt), nDimensions(_nDimensions), curSamplePixelIndex(0), curDimensionIndex1D(0), curDimensionIndex2D(0) { 
+		: sppSqrt(_sppSqrt), 
+		  samplesPerPixel(_sppSqrt * _sppSqrt), 
+		  nDimensions(_nDimensions), 
+		  curSamplePixelIndex(0), 
+		  curDimensionIndex1D(0), 
+		  curDimensionIndex2D(0) 
+	{ 
 		for (int i = 0; i < nDimensions; ++i) {
 			samples1D.emplace_back(std::vector<double>(samplesPerPixel));
 			samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
@@ -98,8 +113,8 @@ public:
 	
 	virtual ~PixelSampler() = default;
 	
-	// @brief The sampler may change the sampling stragety at different pixel location ,record the current pixel location
-	// @param _pixelPositon location of current pixel
+	/// @brief The sampler may change the sampling stragety at different pixel location ,record the current pixel location
+	/// @param _pixelPositon location of current pixel
 	virtual void startPixel(const Point2i &_pixelPositon) override {
 		// record the position
 		pixelPosition = _pixelPositon;
@@ -114,14 +129,14 @@ public:
 		}
 	}
 
-	// @brief Start the next sample at a specific pixel
+	/// @brief Start the next sample at a specific pixel
 	virtual void nextSample() override {
 		++curSamplePixelIndex;
 		curDimensionIndex1D = curDimensionIndex2D = 0;
 	}
 
-	// @brief Sample a double in [0, 1], if curDimension exceeds the nDimensions, just return rng()
-	// @return A double sample
+	/// @brief Sample a double in [0, 1], if curDimension exceeds the nDimensions, just return rng()
+	/// @return A double sample
 	virtual double sample1D() override {
 		if (curDimensionIndex1D < nDimensions)
 			return samples1D[curDimensionIndex1D++][curSamplePixelIndex];
@@ -129,8 +144,8 @@ public:
 			return rng();
 	}
 
-	// @brief Sample a point2d in [0, 1]^2, if curDimension exceeds the nDimensions, just return {rng(), rng()}
-	// @return A point2d sample	
+	/// @brief Sample a point2d in [0, 1]^2, if curDimension exceeds the nDimensions, just return {rng(), rng()}
+	/// @return A point2d sample	
 	virtual Point2d sample2D() override {
 		if (curDimensionIndex2D < nDimensions)
 			return samples2D[curDimensionIndex2D++][curSamplePixelIndex];

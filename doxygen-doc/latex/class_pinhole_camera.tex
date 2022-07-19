@@ -18,8 +18,6 @@ Inheritance diagram for Pinhole\+Camera\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_pinhole_camera_acd85d4d2fc3227f4c5f4ca3e0b7bc212}{Pinhole\+Camera}} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up, double x\+Fov, double aspect\+Ratio, double dist\+To\+Film)
-\item 
 virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}{generate\+Ray}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&film\+Resolution, const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position, const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&sample) const override
 \begin{DoxyCompactList}\small\item\em ! Notice, NDC is the sample in unit square \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
@@ -27,23 +25,6 @@ virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_pinhole_camera
 
 \doxysubsection{Detailed Description}
 Pinhole camera. 
-
-Definition at line \mbox{\hyperlink{_pinhole_8h_source_l00009}{9}} of file \mbox{\hyperlink{_pinhole_8h_source}{Pinhole.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_pinhole_camera_acd85d4d2fc3227f4c5f4ca3e0b7bc212}\label{class_pinhole_camera_acd85d4d2fc3227f4c5f4ca3e0b7bc212}} 
-\index{PinholeCamera@{PinholeCamera}!PinholeCamera@{PinholeCamera}}
-\index{PinholeCamera@{PinholeCamera}!PinholeCamera@{PinholeCamera}}
-\doxysubsubsection{\texorpdfstring{PinholeCamera()}{PinholeCamera()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_pinhole_camera}{Pinhole\+Camera\+::\+Pinhole\+Camera}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+From,  }\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+At,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{up,  }\item[{double}]{x\+Fov,  }\item[{double}]{aspect\+Ratio,  }\item[{double}]{dist\+To\+Film }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_pinhole_8h_source_l00012}{12}} of file \mbox{\hyperlink{_pinhole_8h_source}{Pinhole.\+h}}.
-
-
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}\label{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}} 
@@ -67,10 +48,6 @@ Definition at line \mbox{\hyperlink{_pinhole_8h_source_l00012}{12}} of file \mbo
 
 
 Implements \mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_pinhole_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_pinhole_8cpp_source}{Pinhole.\+cpp}}.
 
 
 

@@ -9,145 +9,20 @@ a simple wrap of Eigen Matrix 4x4.
 
 {\ttfamily \#include $<$Matrix.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a579bbf73a9ecba308e260afdd83bd2cd}{operator$\ast$}} (const \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \&mat) const
-\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_matrix4x4_acde38b75420f1a19cb241f4b5b10b002}{operator$\ast$}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) const
-\item 
-\mbox{\hyperlink{struct_t_point3}{Point3d}} \mbox{\hyperlink{class_matrix4x4_ac6841a5ea57578b284f391ea3566fc90}{operator$\ast$}} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&p) const
-\item 
-\mbox{\hyperlink{struct_normal3d}{Normal3d}} \mbox{\hyperlink{class_matrix4x4_a01ebdd81c95f3284f7c62b95b07517a6}{operator$\ast$}} (const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n) const
-\item 
-\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a07e1c9c5c7b91baa906bac11275b1599}{inverse}} ()
-\item 
-\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a3bd754aa1271700970c4f5555a43a842}{transpose}} ()
-\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_af69b181cf9a573e892d842661ec1440a}{translate}} (double x, double y, double z)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_ac4af62cddfdc1b4003dcc6c1632e3b32}{scale}} (double x, double y, double z)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_ab03b8f2ea0f1847999f250d66213acf3}{scale}} (double ratio)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a1e4f60637bf043746f1f0ad18cf98c7b}{rotate\+Euler}} (const \mbox{\hyperlink{class_angle}{Angle}} \&x, const \mbox{\hyperlink{class_angle}{Angle}} \&y, const \mbox{\hyperlink{class_angle}{Angle}} \&z, Euler\+Type type=Euler\+Type\+::\+EULER\+\_\+\+XYZ)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_acbf52b141fec55309ad0527b6423a57f}{rotate\+Quaternion}} (double w, double x, double y, double z)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a767983ea1a5f8a0f9121500944d5dee6}{rotate\+Axis}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&axis, const \mbox{\hyperlink{class_angle}{Angle}} \&angle)
-\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{look\+At}} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&vec\+Look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up)
+\mbox{\Hypertarget{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}\label{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}} 
+static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} {\bfseries look\+At} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&vec\+Look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up)
 \begin{DoxyCompactList}\small\item\em camera coord\+: x-\/\texorpdfstring{$>$}{>}right y-\/\texorpdfstring{$>$}{>}up z-\/\texorpdfstring{$>$}{>}in \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_a33fc3818bb4b8dae7776aef9b6d14d46}{orthographic}} (double left, double right, double up, double down, double near, double far)
-\item 
 static \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{perspective}} (const \mbox{\hyperlink{class_angle}{Angle}} \&fov, double aspect, double near, double far)
 \begin{DoxyCompactList}\small\item\em get persepctive projection matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_matrix4x4_a5b131d36d704589ce5a44c359b7c55b2}\label{class_matrix4x4_a5b131d36d704589ce5a44c359b7c55b2}} 
-void {\bfseries print\+Matrix} (const \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \&mat)
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 a simple wrap of Eigen Matrix 4x4. 
 
-Definition at line \mbox{\hyperlink{_matrix_8h_source_l00053}{53}} of file \mbox{\hyperlink{_matrix_8h_source}{Matrix.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_matrix4x4_a714a467ba7f85f88ebe3897b5e3580be}\label{class_matrix4x4_a714a467ba7f85f88ebe3897b5e3580be}} 
-\index{Matrix4x4@{Matrix4x4}!Matrix4x4@{Matrix4x4}}
-\index{Matrix4x4@{Matrix4x4}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{Matrix4x4()}{Matrix4x4()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4\+::\+Matrix4x4}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_matrix4x4_a07e1c9c5c7b91baa906bac11275b1599}\label{class_matrix4x4_a07e1c9c5c7b91baa906bac11275b1599}} 
-\index{Matrix4x4@{Matrix4x4}!inverse@{inverse}}
-\index{inverse@{inverse}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}\label{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}} 
-\index{Matrix4x4@{Matrix4x4}!lookAt@{lookAt}}
-\index{lookAt@{lookAt}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::look\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+From,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{vec\+Look\+At,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{up }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-camera coord\+: x-\/\texorpdfstring{$>$}{>}right y-\/\texorpdfstring{$>$}{>}up z-\/\texorpdfstring{$>$}{>}in 
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a579bbf73a9ecba308e260afdd83bd2cd}\label{class_matrix4x4_a579bbf73a9ecba308e260afdd83bd2cd}} 
-\index{Matrix4x4@{Matrix4x4}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \&}]{mat }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a01ebdd81c95f3284f7c62b95b07517a6}\label{class_matrix4x4_a01ebdd81c95f3284f7c62b95b07517a6}} 
-\index{Matrix4x4@{Matrix4x4}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_normal3d}{Normal3d}} Matrix4x4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&}]{n }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_ac6841a5ea57578b284f391ea3566fc90}\label{class_matrix4x4_ac6841a5ea57578b284f391ea3566fc90}} 
-\index{Matrix4x4@{Matrix4x4}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point3}{Point3d}} Matrix4x4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{p }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_acde38b75420f1a19cb241f4b5b10b002}\label{class_matrix4x4_acde38b75420f1a19cb241f4b5b10b002}} 
-\index{Matrix4x4@{Matrix4x4}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Matrix4x4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a33fc3818bb4b8dae7776aef9b6d14d46}\label{class_matrix4x4_a33fc3818bb4b8dae7776aef9b6d14d46}} 
-\index{Matrix4x4@{Matrix4x4}!orthographic@{orthographic}}
-\index{orthographic@{orthographic}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{orthographic()}{orthographic()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::orthographic (\begin{DoxyParamCaption}\item[{double}]{left,  }\item[{double}]{right,  }\item[{double}]{up,  }\item[{double}]{down,  }\item[{double}]{near,  }\item[{double}]{far }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00158}{158}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
 \mbox{\Hypertarget{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}\label{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}} 
 \index{Matrix4x4@{Matrix4x4}!perspective@{perspective}}
 \index{perspective@{perspective}!Matrix4x4@{Matrix4x4}}
@@ -169,80 +44,6 @@ get persepctive projection matrix.
 {\em far} & far plane. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00176}{176}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a767983ea1a5f8a0f9121500944d5dee6}\label{class_matrix4x4_a767983ea1a5f8a0f9121500944d5dee6}} 
-\index{Matrix4x4@{Matrix4x4}!rotateAxis@{rotateAxis}}
-\index{rotateAxis@{rotateAxis}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{rotateAxis()}{rotateAxis()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::rotate\+Axis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{axis,  }\item[{const \mbox{\hyperlink{class_angle}{Angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a1e4f60637bf043746f1f0ad18cf98c7b}\label{class_matrix4x4_a1e4f60637bf043746f1f0ad18cf98c7b}} 
-\index{Matrix4x4@{Matrix4x4}!rotateEuler@{rotateEuler}}
-\index{rotateEuler@{rotateEuler}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{rotateEuler()}{rotateEuler()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::rotate\+Euler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_angle}{Angle}} \&}]{x,  }\item[{const \mbox{\hyperlink{class_angle}{Angle}} \&}]{y,  }\item[{const \mbox{\hyperlink{class_angle}{Angle}} \&}]{z,  }\item[{Euler\+Type}]{type = {\ttfamily EulerType\+:\+:EULER\+\_\+XYZ} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_acbf52b141fec55309ad0527b6423a57f}\label{class_matrix4x4_acbf52b141fec55309ad0527b6423a57f}} 
-\index{Matrix4x4@{Matrix4x4}!rotateQuaternion@{rotateQuaternion}}
-\index{rotateQuaternion@{rotateQuaternion}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{rotateQuaternion()}{rotateQuaternion()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::rotate\+Quaternion (\begin{DoxyParamCaption}\item[{double}]{w,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_ab03b8f2ea0f1847999f250d66213acf3}\label{class_matrix4x4_ab03b8f2ea0f1847999f250d66213acf3}} 
-\index{Matrix4x4@{Matrix4x4}!scale@{scale}}
-\index{scale@{scale}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::scale (\begin{DoxyParamCaption}\item[{double}]{ratio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_ac4af62cddfdc1b4003dcc6c1632e3b32}\label{class_matrix4x4_ac4af62cddfdc1b4003dcc6c1632e3b32}} 
-\index{Matrix4x4@{Matrix4x4}!scale@{scale}}
-\index{scale@{scale}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::scale (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_af69b181cf9a573e892d842661ec1440a}\label{class_matrix4x4_af69b181cf9a573e892d842661ec1440a}} 
-\index{Matrix4x4@{Matrix4x4}!translate@{translate}}
-\index{translate@{translate}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::translate (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
-\mbox{\Hypertarget{class_matrix4x4_a3bd754aa1271700970c4f5555a43a842}\label{class_matrix4x4_a3bd754aa1271700970c4f5555a43a842}} 
-\index{Matrix4x4@{Matrix4x4}!transpose@{transpose}}
-\index{transpose@{transpose}!Matrix4x4@{Matrix4x4}}
-\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Matrix4x4\+::transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_matrix_8cpp_source_l00202}{202}} of file \mbox{\hyperlink{_matrix_8cpp_source}{Matrix.\+cpp}}.
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -2,25 +2,25 @@
 \label{_pinhole_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Camera/Pinhole.h@{/mnt/renderer/Zero/src/FunctionLayer/Camera/Pinhole.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_perspective_8h}{Perspective.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00004}00004 }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00009}\mbox{\hyperlink{class_pinhole_camera}{00009}} \textcolor{keyword}{class }\mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}} \{}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00010}00010 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00011}00011     \mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00012}00012     \mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}}(}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00013}00013         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookFrom, }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00014}00014         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookAt, }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00015}00015         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up,}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00016}00016         \textcolor{keywordtype}{double} xFov,}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00017}00017         \textcolor{keywordtype}{double} aspectRatio,}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00018}00018         \textcolor{keywordtype}{double} distToFilm}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00019}00019     ) : \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}}(lookFrom, lookAt, up, xFov, aspectRatio, distToFilm) \{ \}}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00028}00028     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}{generateRay}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&filmResolution, }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00029}00029                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition, }
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00030}00030                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_camera_sample}{CameraSample}} \&sample) \textcolor{keyword}{const override};}
-\DoxyCodeLine{\Hypertarget{_pinhole_8h_source_l00031}00031 \};}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_perspective_8h}{Perspective.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_pinhole_camera}{PinholeCamera}}(}
+\DoxyCodeLine{13         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookFrom, }
+\DoxyCodeLine{14         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookAt, }
+\DoxyCodeLine{15         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up,}
+\DoxyCodeLine{16         \textcolor{keywordtype}{double} xFov,}
+\DoxyCodeLine{17         \textcolor{keywordtype}{double} aspectRatio,}
+\DoxyCodeLine{18         \textcolor{keywordtype}{double} distToFilm}
+\DoxyCodeLine{19     ) : \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}}(lookFrom, lookAt, up, xFov, aspectRatio, distToFilm) \{ \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}{generateRay}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&filmResolution, }
+\DoxyCodeLine{29                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition, }
+\DoxyCodeLine{30                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_camera_sample}{CameraSample}} \&sample) \textcolor{keyword}{const override};}
+\DoxyCodeLine{31 \};}
 
 \end{DoxyCode}

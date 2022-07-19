@@ -2,107 +2,107 @@
 \label{_matrix_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Geometry/Matrix.h@{/mnt/renderer/Zero/src/CoreLayer/Geometry/Matrix.h}}
 \mbox{\hyperlink{_matrix_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}Eigen/Dense"{}}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00022}\mbox{\hyperlink{class_angle}{00022}} \textcolor{keyword}{class }\mbox{\hyperlink{class_angle}{Angle}}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00023}00023 \{}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00024}00024     \textcolor{keywordtype}{double} deg;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00025}00025     \textcolor{keywordtype}{double} rad;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00027}00027 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00028}00028     \textcolor{keyword}{enum class} AngleType}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00029}00029     \{}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00030}00030         ANGLE\_DEG,}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00031}00031         ANGLE\_RAD}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00032}00032     \};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00039}00039     \mbox{\hyperlink{class_angle}{Angle}}(\textcolor{keywordtype}{double} v, AngleType type);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00041}00041     \textcolor{keywordtype}{double} getDeg() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00043}00043     \textcolor{keywordtype}{double} getRad() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00044}00044 \};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00046}00046 \textcolor{keyword}{enum class} EulerType}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00047}00047 \{}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00048}00048     EULER\_XYZ,}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00049}00049     EULER\_ZYX}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00050}00050 \};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00053}\mbox{\hyperlink{class_matrix4x4}{00053}} \textcolor{keyword}{class }\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00054}00054 \{}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00055}00055 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00058}00058     Eigen::Matrix4d matrix=Eigen::Matrix4d::Identity();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00061}00061     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}(\textcolor{keyword}{const} Eigen::Matrix4d\& \_matrix);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00062}00062 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00063}00063 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00065}00065     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00067}00067     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}\& mat) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00069}00069     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& v) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00070}00070     \mbox{\hyperlink{struct_t_point3}{Point3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}}\& p) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00071}00071     \mbox{\hyperlink{struct_normal3d}{Normal3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}}\& n) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00072}00072 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00073}00073     \textcolor{comment}{// model}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00074}00074     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} translate(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00075}00075     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} scale(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00076}00076     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} scale(\textcolor{keywordtype}{double} ratio);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00077}00077     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateEuler(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& z, EulerType type = EulerType::EULER\_XYZ);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00078}00078     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateQuaternion(\textcolor{keywordtype}{double} w, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00079}00079     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateAxis(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& axis, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& angle);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00081}00081     \textcolor{comment}{// view \& projection}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00082}00082     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{lookAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}}\& lookFrom, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& vecLookAt, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& up);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00083}00083     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} orthographic(\textcolor{keywordtype}{double} left,\textcolor{keywordtype}{double} right,\textcolor{keywordtype}{double} up,\textcolor{keywordtype}{double} down,\textcolor{keywordtype}{double} near,\textcolor{keywordtype}{double} far);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00084}00084     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{perspective}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& fov,\textcolor{keywordtype}{double} aspect, \textcolor{keywordtype}{double} near, \textcolor{keywordtype}{double} far);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00085}00085 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00086}00086     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} inverse();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00087}00087     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} transpose();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00088}00088 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00089}00089     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} printMatrix(\textcolor{keyword}{const} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \&mat);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00090}00090 \};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00091}00091 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00095}\mbox{\hyperlink{class_transform_matrix3_d}{00095}} \textcolor{keyword}{class }\mbox{\hyperlink{class_transform_matrix3_d}{TransformMatrix3D}}}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00096}00096 \{}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00098}00098     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixAll;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00100}00100     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixRotate;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00101}00101     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixScale;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00102}00102     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixTranslate;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00105}00105     \textcolor{keywordtype}{bool} dirty;}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00106}00106 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00107}00107     \textcolor{keywordtype}{void} update();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00108}00108 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00109}00109 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00110}00110     \mbox{\hyperlink{class_transform_matrix3_d}{TransformMatrix3D}}();}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00111}00111 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00112}00112     \textcolor{keywordtype}{void} setTranslate(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00113}00113 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00114}00114     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00115}00115     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} ratio);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00116}00116 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00117}00117     \textcolor{keywordtype}{void} setRotateEuler(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& z, EulerType type = EulerType::EULER\_XYZ);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00118}00118 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00119}00119     \textcolor{keywordtype}{void} setRotateQuaternion(\textcolor{keywordtype}{double} w, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00122}00122     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transform_matrix3_d_a672e414c3163a2a15f0757c78cf8946c}{setRotateAxis}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& axis, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& angle);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00123}00123 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00124}00124     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00125}00125     \mbox{\hyperlink{struct_t_point3}{Point3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&p);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00126}00126     \mbox{\hyperlink{struct_normal3d}{Normal3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n);}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00127}00127 \};}
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00128}00128 }
-\DoxyCodeLine{\Hypertarget{_matrix_8h_source_l00129}00129 \textcolor{comment}{// TODO TransformMatrix2D}}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Eigen/Dense"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_angle}{Angle}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} deg;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} rad;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{enum class} AngleType}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         ANGLE\_DEG,}
+\DoxyCodeLine{31         ANGLE\_RAD}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_angle}{Angle}}(\textcolor{keywordtype}{double} v, AngleType type);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{double} getDeg() \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{double} getRad() \textcolor{keyword}{const};}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{enum class} EulerType}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     EULER\_XYZ,}
+\DoxyCodeLine{49     EULER\_ZYX}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55 \textcolor{keyword}{private}:}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{58     Eigen::Matrix4d matrix=Eigen::Matrix4d::Identity();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}(\textcolor{keyword}{const} Eigen::Matrix4d\& \_matrix);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{public}:}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}}\& mat) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& v) \textcolor{keyword}{const};}
+\DoxyCodeLine{70     \mbox{\hyperlink{struct_t_point3}{Point3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}}\& p) \textcolor{keyword}{const};}
+\DoxyCodeLine{71     \mbox{\hyperlink{struct_normal3d}{Normal3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}}\& n) \textcolor{keyword}{const};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// model}}
+\DoxyCodeLine{74     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} translate(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{75     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} scale(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{76     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} scale(\textcolor{keywordtype}{double} ratio);}
+\DoxyCodeLine{77     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateEuler(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& z, EulerType type = EulerType::EULER\_XYZ);}
+\DoxyCodeLine{78     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateQuaternion(\textcolor{keywordtype}{double} w, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{79     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} rotateAxis(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& axis, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& angle);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{// view \& projection}}
+\DoxyCodeLine{82     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{lookAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}}\& lookFrom, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& vecLookAt, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& up);}
+\DoxyCodeLine{83     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} orthographic(\textcolor{keywordtype}{double} left,\textcolor{keywordtype}{double} right,\textcolor{keywordtype}{double} up,\textcolor{keywordtype}{double} down,\textcolor{keywordtype}{double} near,\textcolor{keywordtype}{double} far);}
+\DoxyCodeLine{84     \textcolor{keyword}{static} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{perspective}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& fov,\textcolor{keywordtype}{double} aspect, \textcolor{keywordtype}{double} near, \textcolor{keywordtype}{double} far);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} inverse();}
+\DoxyCodeLine{87     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} transpose();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} printMatrix(\textcolor{keyword}{const} \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \&mat);}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95 \textcolor{keyword}{class }\mbox{\hyperlink{class_transform_matrix3_d}{TransformMatrix3D}}}
+\DoxyCodeLine{96 \{}
+\DoxyCodeLine{98     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixAll;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixRotate;}
+\DoxyCodeLine{101     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixScale;}
+\DoxyCodeLine{102     \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} matrixTranslate;}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} dirty;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} update();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{public}:}
+\DoxyCodeLine{110     \mbox{\hyperlink{class_transform_matrix3_d}{TransformMatrix3D}}();}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} setTranslate(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} setScale(\textcolor{keywordtype}{double} ratio);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} setRotateEuler(\textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& z, EulerType type = EulerType::EULER\_XYZ);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} setRotateQuaternion(\textcolor{keywordtype}{double} w, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transform_matrix3_d_a672e414c3163a2a15f0757c78cf8946c}{setRotateAxis}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}}\& axis, \textcolor{keyword}{const} \mbox{\hyperlink{class_angle}{Angle}}\& angle);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v);}
+\DoxyCodeLine{125     \mbox{\hyperlink{struct_t_point3}{Point3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&p);}
+\DoxyCodeLine{126     \mbox{\hyperlink{struct_normal3d}{Normal3d}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n);}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{comment}{// TODO TransformMatrix2D}}
 
 \end{DoxyCode}

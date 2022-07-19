@@ -65,7 +65,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_transform3_d-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Transform3D Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group___geometry.html">Geometry</a></div></div></div>
 </div><!--header-->
@@ -75,28 +74,18 @@ $(function() {
  <a href="class_transform3_d.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_transform3d_8h_source.html">Transform3d.h</a>&gt;</code></p>
-
-<p>Inherited by Entity, and PointLight.</p>
+<div class="dynheader">
+Inheritance diagram for Transform3D:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_transform3_d.png" usemap="#Transform3D_map" alt=""/>
+  <map id="Transform3D_map" name="Transform3D_map">
+<area href="class_point_light.html" title="Point light source." alt="PointLight" shape="rect" coords="0,56,85,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1e5d6fd1f144d1b6070c4574e119dff1"><td class="memItemLeft" align="right" valign="top"><a id="a1e5d6fd1f144d1b6070c4574e119dff1" name="a1e5d6fd1f144d1b6070c4574e119dff1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Transform3D</b> (std::shared_ptr&lt; <a class="el" href="class_transform3_d.html">Transform3D</a> &gt; _matrix)</td></tr>
-<tr class="separator:a1e5d6fd1f144d1b6070c4574e119dff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ae50fdcff74ecba07616b71af9e7bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform3_d.html#a85ae50fdcff74ecba07616b71af9e7bb">setTranslate</a> (double x, double y, double z)</td></tr>
-<tr class="separator:a85ae50fdcff74ecba07616b71af9e7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdd52f282de3ed62049c9cafa8444495"><td class="memItemLeft" align="right" valign="top"><a id="afdd52f282de3ed62049c9cafa8444495" name="afdd52f282de3ed62049c9cafa8444495"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (double x, double y, double z)</td></tr>
-<tr class="separator:afdd52f282de3ed62049c9cafa8444495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ac7a368f2f8a80a32f129db5a42e1d"><td class="memItemLeft" align="right" valign="top"><a id="a93ac7a368f2f8a80a32f129db5a42e1d" name="a93ac7a368f2f8a80a32f129db5a42e1d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (double ratio)</td></tr>
-<tr class="separator:a93ac7a368f2f8a80a32f129db5a42e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afe830db05ddddfbe06d2cd952dc965"><td class="memItemLeft" align="right" valign="top"><a id="a2afe830db05ddddfbe06d2cd952dc965" name="a2afe830db05ddddfbe06d2cd952dc965"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateEuler</b> (<a class="el" href="class_angle.html">Angle</a> x, <a class="el" href="class_angle.html">Angle</a> y, <a class="el" href="class_angle.html">Angle</a> z, EulerType type=EulerType::EULER_XYZ)</td></tr>
-<tr class="separator:a2afe830db05ddddfbe06d2cd952dc965"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36331a07de2ea0348d9a2a286478b595"><td class="memItemLeft" align="right" valign="top"><a id="a36331a07de2ea0348d9a2a286478b595" name="a36331a07de2ea0348d9a2a286478b595"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateQuaternion</b> (double w, double x, double y, double z)</td></tr>
-<tr class="separator:a36331a07de2ea0348d9a2a286478b595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56b97f42f25d90dee505fae9bf993524"><td class="memItemLeft" align="right" valign="top"><a id="a56b97f42f25d90dee505fae9bf993524" name="a56b97f42f25d90dee505fae9bf993524"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateAxis</b> (<a class="el" href="class_angle.html">Angle</a> angle, <a class="el" href="struct_t_vector3.html">Vec3d</a> axis)</td></tr>
 <tr class="memdesc:a56b97f42f25d90dee505fae9bf993524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate by axis. Counterclockwise rotate. <br /></td></tr>
@@ -105,98 +94,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateAxis</b> (<a
 void&#160;</td><td class="memItemRight" valign="bottom"><b>done</b> ()</td></tr>
 <tr class="memdesc:a44a5deb9c20936a2f67126322a6d38a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within. <br /></td></tr>
 <tr class="separator:a44a5deb9c20936a2f67126322a6d38a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4dd58dd9a92cacd0c8f7898f4e84d11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_point3.html">Point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transform3_d.html#ae4dd58dd9a92cacd0c8f7898f4e84d11">getTranslate</a> ()</td></tr>
-<tr class="separator:ae4dd58dd9a92cacd0c8f7898f4e84d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8696b8936f0d1c11348f5ef7155dd738"><td class="memItemLeft" align="right" valign="top"><a id="a8696b8936f0d1c11348f5ef7155dd738" name="a8696b8936f0d1c11348f5ef7155dd738"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> ()=0</td></tr>
-<tr class="separator:a8696b8936f0d1c11348f5ef7155dd738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >3d transformation representation </p>
-
-<p class="definition">Definition at line <a class="el" href="_transform3d_8h_source.html#l00021">21</a> of file <a class="el" href="_transform3d_8h_source.html">Transform3d.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a170fbec62fd35ed770694209da837b8a" name="a170fbec62fd35ed770694209da837b8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a170fbec62fd35ed770694209da837b8a">&#9670;&nbsp;</a></span>Transform3D()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_transform3_d.html">Transform3D::Transform3D</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_transform3d_8cpp_source.html#l00016">16</a> of file <a class="el" href="_transform3d_8cpp_source.html">Transform3d.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae4dd58dd9a92cacd0c8f7898f4e84d11" name="ae4dd58dd9a92cacd0c8f7898f4e84d11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4dd58dd9a92cacd0c8f7898f4e84d11">&#9670;&nbsp;</a></span>getTranslate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_t_point3.html">Point3d</a> Transform3D::getTranslate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_transform3d_8cpp_source.html#l00020">20</a> of file <a class="el" href="_transform3d_8cpp_source.html">Transform3d.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a85ae50fdcff74ecba07616b71af9e7bb" name="a85ae50fdcff74ecba07616b71af9e7bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ae50fdcff74ecba07616b71af9e7bb">&#9670;&nbsp;</a></span>setTranslate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Transform3D::setTranslate </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_transform3d_8cpp_source.html#l00026">26</a> of file <a class="el" href="_transform3d_8cpp_source.html">Transform3d.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_transform3d_8h_source.html">Transform3d.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_transform3d_8cpp_source.html">Transform3d.cpp</a></li>
+<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_transform3d_8cpp.html">Transform3d.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

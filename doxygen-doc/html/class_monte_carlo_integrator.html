@@ -90,16 +90,16 @@ Inheritance diagram for MonteCarloIntegrator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3d686f83a7f205340e018b54adffa71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#ac3d686f83a7f205340e018b54adffa71">MonteCarloIntegrator</a> (std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; _camera, std::unique_ptr&lt; Film &gt; _film, std::unique_ptr&lt; TileGenerator &gt; _tileGenerator, std::shared_ptr&lt; Sampler &gt; _sampler, int _spp, int _renderThreadNum=4)</td></tr>
-<tr class="separator:ac3d686f83a7f205340e018b54adffa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa36b5367a5af05914af0f8dc3e0581c7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7">render</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
 <tr class="memdesc:aa36b5367a5af05914af0f8dc3e0581c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start to render the scene.  <a href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7">More...</a><br /></td></tr>
 <tr class="separator:aa36b5367a5af05914af0f8dc3e0581c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2818801aa89f29892f391b79844d8e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e">Li</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)=0</td></tr>
-<tr class="memdesc:a0e2818801aa89f29892f391b79844d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray.  <a href="class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e">More...</a><br /></td></tr>
+<tr class="memitem:a0e2818801aa89f29892f391b79844d8e"><td class="memItemLeft" align="right" valign="top"><a id="a0e2818801aa89f29892f391b79844d8e" name="a0e2818801aa89f29892f391b79844d8e"></a>
+virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Li</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)=0</td></tr>
+<tr class="memdesc:a0e2818801aa89f29892f391b79844d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray. <br /></td></tr>
 <tr class="separator:a0e2818801aa89f29892f391b79844d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a873051e970b7ce5e4b432778bea15f35"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a873051e970b7ce5e4b432778bea15f35">randFloat</a> ()</td></tr>
-<tr class="memdesc:a873051e970b7ce5e4b432778bea15f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random number WITHOUT using MonteCarloIntegrator::sampler.  <a href="class_monte_carlo_integrator.html#a873051e970b7ce5e4b432778bea15f35">More...</a><br /></td></tr>
+<tr class="memitem:a873051e970b7ce5e4b432778bea15f35"><td class="memItemLeft" align="right" valign="top"><a id="a873051e970b7ce5e4b432778bea15f35" name="a873051e970b7ce5e4b432778bea15f35"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>randFloat</b> ()</td></tr>
+<tr class="memdesc:a873051e970b7ce5e4b432778bea15f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random number WITHOUT using MonteCarloIntegrator::sampler. <br /></td></tr>
 <tr class="separator:a873051e970b7ce5e4b432778bea15f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_integrator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_integrator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_integrator.html">Integrator</a></td></tr>
 <tr class="memitem:a542e74d4e2a070e6cb730aa400dd56fc inherit pub_methods_class_integrator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#a542e74d4e2a070e6cb730aa400dd56fc">Integrator</a> (std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; _camera, std::unique_ptr&lt; Film &gt; _film)</td></tr>
@@ -114,157 +114,25 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a7ad0d97f79ebbc49af3b3bbf1b98a77d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a7ad0d97f79ebbc49af3b3bbf1b98a77d">renderPerThread</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
-<tr class="memdesc:a7ad0d97f79ebbc49af3b3bbf1b98a77d"><td class="mdescLeft">&#160;</td><td class="mdescRight">: render process per thread. Should be called in <a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7" title="Start to render the scene.">render()</a>.  <a href="class_monte_carlo_integrator.html#a7ad0d97f79ebbc49af3b3bbf1b98a77d">More...</a><br /></td></tr>
+<tr class="memitem:a7ad0d97f79ebbc49af3b3bbf1b98a77d"><td class="memItemLeft" align="right" valign="top"><a id="a7ad0d97f79ebbc49af3b3bbf1b98a77d" name="a7ad0d97f79ebbc49af3b3bbf1b98a77d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
+<tr class="memdesc:a7ad0d97f79ebbc49af3b3bbf1b98a77d"><td class="mdescLeft">&#160;</td><td class="mdescRight">: render process per thread. Should be called in <a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7" title="Start to render the scene.">render()</a>. <br /></td></tr>
 <tr class="separator:a7ad0d97f79ebbc49af3b3bbf1b98a77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4bae74de1024b945fca1b8dcac091f9e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Sampler &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a4bae74de1024b945fca1b8dcac091f9e">sampler</a></td></tr>
-<tr class="separator:a4bae74de1024b945fca1b8dcac091f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a149ebd55e2dafda299c6e9bb31891b5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a149ebd55e2dafda299c6e9bb31891b5f">spp</a> = 4</td></tr>
-<tr class="memdesc:a149ebd55e2dafda299c6e9bb31891b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default sample per pixel = 4.  <a href="class_monte_carlo_integrator.html#a149ebd55e2dafda299c6e9bb31891b5f">More...</a><br /></td></tr>
+<tr class="memitem:a149ebd55e2dafda299c6e9bb31891b5f"><td class="memItemLeft" align="right" valign="top"><a id="a149ebd55e2dafda299c6e9bb31891b5f" name="a149ebd55e2dafda299c6e9bb31891b5f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>spp</b> = 4</td></tr>
+<tr class="memdesc:a149ebd55e2dafda299c6e9bb31891b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default sample per pixel = 4. <br /></td></tr>
 <tr class="separator:a149ebd55e2dafda299c6e9bb31891b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff8a8c6f516149293e1a310fd23dd90d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TileGenerator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#aff8a8c6f516149293e1a310fd23dd90d">tileGenerator</a></td></tr>
-<tr class="separator:aff8a8c6f516149293e1a310fd23dd90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98db47e38b3b9c1aa64db02b571db860"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a98db47e38b3b9c1aa64db02b571db860">renderThreadNum</a> =4</td></tr>
-<tr class="memdesc:a98db47e38b3b9c1aa64db02b571db860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default rendering threads = 4.  <a href="class_monte_carlo_integrator.html#a98db47e38b3b9c1aa64db02b571db860">More...</a><br /></td></tr>
+<tr class="memitem:a98db47e38b3b9c1aa64db02b571db860"><td class="memItemLeft" align="right" valign="top"><a id="a98db47e38b3b9c1aa64db02b571db860" name="a98db47e38b3b9c1aa64db02b571db860"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>renderThreadNum</b> =4</td></tr>
+<tr class="memdesc:a98db47e38b3b9c1aa64db02b571db860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default rendering threads = 4. <br /></td></tr>
 <tr class="separator:a98db47e38b3b9c1aa64db02b571db860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_integrator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_integrator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_integrator.html">Integrator</a></td></tr>
-<tr class="memitem:ad3b7c350dc419b21cf584a4717e32c87 inherit pro_attribs_class_integrator"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#ad3b7c350dc419b21cf584a4717e32c87">camera</a></td></tr>
-<tr class="separator:ad3b7c350dc419b21cf584a4717e32c87 inherit pro_attribs_class_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac482591f4fc9fe3a5c485bf0f72ba8e4 inherit pro_attribs_class_integrator"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Film &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#ac482591f4fc9fe3a5c485bf0f72ba8e4">film</a></td></tr>
-<tr class="separator:ac482591f4fc9fe3a5c485bf0f72ba8e4 inherit pro_attribs_class_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Base class for all integrators solving rendering equation using MonteCarlo methods. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8h_source.html#l00022">22</a> of file <a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac3d686f83a7f205340e018b54adffa71" name="ac3d686f83a7f205340e018b54adffa71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3d686f83a7f205340e018b54adffa71">&#9670;&nbsp;</a></span>MonteCarloIntegrator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_monte_carlo_integrator.html">MonteCarloIntegrator::MonteCarloIntegrator</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td>
-          <td class="paramname"><em>_camera</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::unique_ptr&lt; Film &gt;&#160;</td>
-          <td class="paramname"><em>_film</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::unique_ptr&lt; TileGenerator &gt;&#160;</td>
-          <td class="paramname"><em>_tileGenerator</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; Sampler &gt;&#160;</td>
-          <td class="paramname"><em>_sampler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_spp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_renderThreadNum</em> = <code>4</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8cpp_source.html#l00018">18</a> of file <a class="el" href="_monte_carlo_integrator_8cpp_source.html">MonteCarloIntegrator.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0e2818801aa89f29892f391b79844d8e" name="a0e2818801aa89f29892f391b79844d8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2818801aa89f29892f391b79844d8e">&#9670;&nbsp;</a></span>Li()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a> MonteCarloIntegrator::Li </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ray.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
-          <td class="paramname"><em>scene</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Estimate radiance along a given ray. </p>
-
-<p>Implemented in <a class="el" href="class_abstract_path_integrator.html#ab8cd8daf61a70ecc40b6586b4180db2b">AbstractPathIntegrator</a>.</p>
-
-</div>
-</div>
-<a id="a873051e970b7ce5e4b432778bea15f35" name="a873051e970b7ce5e4b432778bea15f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a873051e970b7ce5e4b432778bea15f35">&#9670;&nbsp;</a></span>randFloat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double MonteCarloIntegrator::randFloat </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a random number WITHOUT using MonteCarloIntegrator::sampler. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8cpp_source.html#l00077">77</a> of file <a class="el" href="_monte_carlo_integrator_8cpp_source.html">MonteCarloIntegrator.cpp</a>.</p>
-
-</div>
-</div>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa36b5367a5af05914af0f8dc3e0581c7" name="aa36b5367a5af05914af0f8dc3e0581c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa36b5367a5af05914af0f8dc3e0581c7">&#9670;&nbsp;</a></span>render()</h2>
 
@@ -299,144 +167,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_integrator.html#a3958bc05b83165d22165a8605b212e13">Integrator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8cpp_source.html#l00065">65</a> of file <a class="el" href="_monte_carlo_integrator_8cpp_source.html">MonteCarloIntegrator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a7ad0d97f79ebbc49af3b3bbf1b98a77d" name="a7ad0d97f79ebbc49af3b3bbf1b98a77d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ad0d97f79ebbc49af3b3bbf1b98a77d">&#9670;&nbsp;</a></span>renderPerThread()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MonteCarloIntegrator::renderPerThread </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
-          <td class="paramname"><em>scene</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>: render process per thread. Should be called in <a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7" title="Start to render the scene.">render()</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8cpp_source.html#l00034">34</a> of file <a class="el" href="_monte_carlo_integrator_8cpp_source.html">MonteCarloIntegrator.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a98db47e38b3b9c1aa64db02b571db860" name="a98db47e38b3b9c1aa64db02b571db860"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98db47e38b3b9c1aa64db02b571db860">&#9670;&nbsp;</a></span>renderThreadNum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int MonteCarloIntegrator::renderThreadNum =4</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default rendering threads = 4. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8h_source.html#l00033">33</a> of file <a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a>.</p>
-
-</div>
-</div>
-<a id="a4bae74de1024b945fca1b8dcac091f9e" name="a4bae74de1024b945fca1b8dcac091f9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bae74de1024b945fca1b8dcac091f9e">&#9670;&nbsp;</a></span>sampler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;Sampler&gt; MonteCarloIntegrator::sampler</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8h_source.html#l00025">25</a> of file <a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a>.</p>
-
-</div>
-</div>
-<a id="a149ebd55e2dafda299c6e9bb31891b5f" name="a149ebd55e2dafda299c6e9bb31891b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a149ebd55e2dafda299c6e9bb31891b5f">&#9670;&nbsp;</a></span>spp</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int MonteCarloIntegrator::spp = 4</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default sample per pixel = 4. </p>
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8h_source.html#l00026">26</a> of file <a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a>.</p>
-
-</div>
-</div>
-<a id="aff8a8c6f516149293e1a310fd23dd90d" name="aff8a8c6f516149293e1a310fd23dd90d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff8a8c6f516149293e1a310fd23dd90d">&#9670;&nbsp;</a></span>tileGenerator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;TileGenerator&gt; MonteCarloIntegrator::tileGenerator</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_monte_carlo_integrator_8h_source.html#l00028">28</a> of file <a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_monte_carlo_integrator_8h_source.html">MonteCarloIntegrator.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_monte_carlo_integrator_8cpp_source.html">MonteCarloIntegrator.cpp</a></li>
+<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/MonteCarloIntegrator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

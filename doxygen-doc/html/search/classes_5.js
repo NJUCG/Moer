@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['integrator_0',['Integrator',['../class_integrator.html',1,'']]]
+  ['filter_0',['Filter',['../class_filter.html',1,'']]],
+  ['frame_1',['Frame',['../struct_frame.html',1,'']]]
 ];

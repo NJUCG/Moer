@@ -1,35 +1,27 @@
 \hypertarget{class_sampler}{}\doxysection{Sampler Class Reference}
 \label{class_sampler}\index{Sampler@{Sampler}}
+
+
+Base class for all samplers.  
+
+
+
+
+{\ttfamily \#include $<$Sampler.\+h$>$}
+
 Inheritance diagram for Sampler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{class_sampler}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_sampler_a15043f61d1aa68d23d4a236d7a3b43f2}\label{class_sampler_a15043f61d1aa68d23d4a236d7a3b43f2}} 
-virtual void {\bfseries start\+Pixel} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position)=0
-\item 
-\mbox{\Hypertarget{class_sampler_a90333473f49b606be5dbfa8f1ce2d150}\label{class_sampler_a90333473f49b606be5dbfa8f1ce2d150}} 
-virtual void {\bfseries next\+Sample} ()=0
-\item 
-\mbox{\Hypertarget{class_sampler_a52b8b242ca399ee35f78486178bbd45c}\label{class_sampler_a52b8b242ca399ee35f78486178bbd45c}} 
-virtual double {\bfseries sample1D} ()=0
-\item 
-\mbox{\Hypertarget{class_sampler_aa2af90b8ee567328badc7abd5a2ea922}\label{class_sampler_aa2af90b8ee567328badc7abd5a2ea922}} 
-virtual \mbox{\hyperlink{struct_t_point2}{Point2d}} {\bfseries sample2D} ()=0
-\item 
-\mbox{\Hypertarget{class_sampler_a673791100b4626603867a86f5f6cae0b}\label{class_sampler_a673791100b4626603867a86f5f6cae0b}} 
-\mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} {\bfseries get\+Camera\+Sample} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_sampler_ac19b6137dcb5c9543bfb95068fb404cf}\label{class_sampler_ac19b6137dcb5c9543bfb95068fb404cf}} 
-\mbox{\hyperlink{class_random_number_generator}{Random\+Number\+Generator}} {\bfseries rng}
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all samplers. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000015}{Todo}}]Handle the multi-\/threads issue \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

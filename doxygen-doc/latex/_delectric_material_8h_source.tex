@@ -2,34 +2,34 @@
 \label{_delectric_material_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/DelectricMaterial.h@{/mnt/renderer/Zero/src/FunctionLayer/Material/DelectricMaterial.h}}
 \mbox{\hyperlink{_delectric_material_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma  once}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{Material.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_dielectric_8h}{FunctionLayer/Material/BxDF/Dielectric.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{FunctionLayer/Texture/Texture.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00019}00019 \textcolor{keyword}{class }DelectricMaterial : \textcolor{keyword}{public}  Material\{}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00021}00021 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00022}00022     \textcolor{keyword}{virtual} std::shared\_ptr<BxDF> getBxDF(Intersection intersect) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00024}00024     \textcolor{keyword}{virtual} std::shared\_ptr<BSSRDF> getBSSRDF(Intersection intersect) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00026}00026     DelectricMaterial(\textcolor{keyword}{const}  std::shared\_ptr<Texture<float>> \& m\_intIDR, \textcolor{keyword}{const}  std::shared\_ptr<Texture<float>> \& m\_extIDR) : m\_intIDR(m\_intIDR)}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00027}00027     \{}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00029}00029     \}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00031}00031     DelectricMaterial()\{}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00033}00033     \}}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00034}00034 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00035}00035     std::shared\_ptr<Texture<float>> m\_intIDR;}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00036}00036     std::shared\_ptr<Texture<float>> m\_extIDR;}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00038}00038 \};}
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{_delectric_material_8h_source_l00040}00040 }
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma  once}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_material_8h}{Material.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_dielectric_8h}{FunctionLayer/Material/BxDF/Dielectric.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{FunctionLayer/Texture/Texture.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }DelectricMaterial : \textcolor{keyword}{public}  Material\{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{keyword}{virtual} std::shared\_ptr<BxDF> getBxDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} std::shared\_ptr<BSSRDF> getBSSRDF(Intersection intersect) \textcolor{keyword}{const};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     DelectricMaterial(\textcolor{keyword}{const}  std::shared\_ptr<\mbox{\hyperlink{class_texture}{Texture<float>}}> \& m\_intIDR, \textcolor{keyword}{const}  std::shared\_ptr<\mbox{\hyperlink{class_texture}{Texture<float>}}> \& m\_extIDR) : m\_intIDR(m\_intIDR)}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     DelectricMaterial()\{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
+\DoxyCodeLine{35     std::shared\_ptr<Texture<float>> m\_intIDR;}
+\DoxyCodeLine{36     std::shared\_ptr<Texture<float>> m\_extIDR;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
 
 \end{DoxyCode}

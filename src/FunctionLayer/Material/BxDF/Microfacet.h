@@ -15,6 +15,8 @@
 #include "BxDF.h"
 #include "CoreLayer/Geometry/Frame.h"
 
+/// \brief Micro-facet reflection model
+/// \ingroup BxDF
 class Mircofacet : public  BxDF {
 
 

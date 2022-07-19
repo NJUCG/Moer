@@ -15,124 +15,28 @@ Inheritance diagram for Ray\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{struct_ray}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{struct_ray_a31ddb0b7b891164fa55c575aceb86635}\label{struct_ray_a31ddb0b7b891164fa55c575aceb86635}} 
-\mbox{\hyperlink{struct_t_point3}{Point3d}} {\bfseries at} (double t)
-\item 
-\mbox{\Hypertarget{struct_ray_a7548ff801be697065ed1a1818d752148}\label{struct_ray_a7548ff801be697065ed1a1818d752148}} 
-bool {\bfseries within\+Time} (double time)
-\item 
-\mbox{\hyperlink{struct_ray_ab7da09567ddff69365e29318eb181c03}{Ray}} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&\+\_\+origin, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&\+\_\+direction, double \+\_\+time\+Min=.\+0f, double \+\_\+time\+Max=DBL\+\_\+\+MAX)
-\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_t_point3}{Point3d}} \mbox{\hyperlink{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}{origin}}
+\mbox{\Hypertarget{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}\label{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}} 
+\mbox{\hyperlink{struct_t_point3}{Point3d}} {\bfseries origin}
 \begin{DoxyCompactList}\small\item\em The origin of the ray. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_ray_a317ee29d4f6213ede639f2f757f84784}{direction}}
+\mbox{\Hypertarget{struct_ray_a317ee29d4f6213ede639f2f757f84784}\label{struct_ray_a317ee29d4f6213ede639f2f757f84784}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries direction}
 \begin{DoxyCompactList}\small\item\em The direction of the ray. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}{time\+Min}}
+\mbox{\Hypertarget{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}\label{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}} 
+double {\bfseries time\+Min}
 \begin{DoxyCompactList}\small\item\em The time when the shutter open. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}{time\+Max}}
+\mbox{\Hypertarget{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}\label{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}} 
+double {\bfseries time\+Max}
 \begin{DoxyCompactList}\small\item\em The time when the shutter close. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ Medium $>$ \mbox{\hyperlink{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}{medium}}
+\mbox{\Hypertarget{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}\label{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}} 
+std\+::shared\+\_\+ptr$<$ Medium $>$ {\bfseries medium}
 \begin{DoxyCompactList}\small\item\em The medium. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 ray 
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00020}{20}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_ray_ab7da09567ddff69365e29318eb181c03}\label{struct_ray_ab7da09567ddff69365e29318eb181c03}} 
-\index{Ray@{Ray}!Ray@{Ray}}
-\index{Ray@{Ray}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_ray}{Ray\+::\+Ray}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{\+\_\+origin,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{\+\_\+direction,  }\item[{double}]{\+\_\+time\+Min = {\ttfamily .0f},  }\item[{double}]{\+\_\+time\+Max = {\ttfamily DBL\+\_\+MAX} }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_ray_8cpp_source}{Ray.\+cpp}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_ray_a317ee29d4f6213ede639f2f757f84784}\label{struct_ray_a317ee29d4f6213ede639f2f757f84784}} 
-\index{Ray@{Ray}!direction@{direction}}
-\index{direction@{direction}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{direction}{direction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Ray\+::direction}
-
-
-
-The direction of the ray. 
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00023}{23}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-\mbox{\Hypertarget{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}\label{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}} 
-\index{Ray@{Ray}!medium@{medium}}
-\index{medium@{medium}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{medium}{medium}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$Medium$>$ Ray\+::medium}
-
-
-
-The medium. 
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00028}{28}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-\mbox{\Hypertarget{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}\label{struct_ray_abbb355c9e163124a0b4f8ab0f73643bb}} 
-\index{Ray@{Ray}!origin@{origin}}
-\index{origin@{origin}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{origin}{origin}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point3}{Point3d}} Ray\+::origin}
-
-
-
-The origin of the ray. 
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00022}{22}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-\mbox{\Hypertarget{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}\label{struct_ray_a56348eb670822e71de6c3e8a9ef31fc4}} 
-\index{Ray@{Ray}!timeMax@{timeMax}}
-\index{timeMax@{timeMax}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{timeMax}{timeMax}}
-{\footnotesize\ttfamily double Ray\+::time\+Max}
-
-
-
-The time when the shutter close. 
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00026}{26}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-\mbox{\Hypertarget{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}\label{struct_ray_aec34a0f56e84c5ea8e843ea51232f70a}} 
-\index{Ray@{Ray}!timeMin@{timeMin}}
-\index{timeMin@{timeMin}!Ray@{Ray}}
-\doxysubsubsection{\texorpdfstring{timeMin}{timeMin}}
-{\footnotesize\ttfamily double Ray\+::time\+Min}
-
-
-
-The time when the shutter open. 
-
-
-
-Definition at line \mbox{\hyperlink{_ray_8h_source_l00025}{25}} of file \mbox{\hyperlink{_ray_8h_source}{Ray.\+h}}.
-
-
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

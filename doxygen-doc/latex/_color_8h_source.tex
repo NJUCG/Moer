@@ -2,353 +2,353 @@
 \label{_color_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/ColorSpace/Color.h@{/mnt/renderer/Zero/src/CoreLayer/ColorSpace/Color.h}}
 \mbox{\hyperlink{_color_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <cmath>}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <cfloat>}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00018}00018 \textcolor{keyword}{class }RGB3;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00019}00019 \textcolor{keyword}{class }XYZ3;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00020}00020 \textcolor{keyword}{class }\mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00022}00022 \textcolor{comment}{// TODO: should be defined by cmake marco.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00023}00023 \textcolor{keyword}{using }\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} = \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00025}00025 \textcolor{comment}{//using Spectrum = RGB3;}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00027}00027 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sampledLambdaStart = 400.0;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00028}00028 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sampledLambdaEnd = 700.0;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00031}\mbox{\hyperlink{_color_8h_aa517fb822956ff9568b0a9074eb68274}{00031}} \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{_color_8h_aa517fb822956ff9568b0a9074eb68274}{nSpectrumSamples}} = 60;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00034}00034 \textcolor{keywordtype}{double} \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{mathClamp}}(\textcolor{keywordtype}{double} source, \textcolor{keywordtype}{double} low=0.0, \textcolor{keywordtype}{double} high=DBL\_MAX);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00037}00037 \textcolor{keywordtype}{double} \mbox{\hyperlink{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}{mathLerp}}(\textcolor{keywordtype}{double} ratio, \textcolor{keywordtype}{double} source0, \textcolor{keywordtype}{double} source1);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00040}\mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{00040}} \textcolor{keyword}{enum class} \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{SpectrumType}} \{ REFLECTANCE, ILLUMINANT \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00042}00042 \textcolor{keyword}{class }RGB3}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00043}00043 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00044}00044     \textcolor{keywordtype}{double} rgbData[3];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00046}00046 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00047}00047     RGB3();}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00049}00049     RGB3(\textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} g, \textcolor{keywordtype}{double} b);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00051}00051     \textcolor{comment}{// @brief initialize all rgb value as val.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00052}00052     RGB3(\textcolor{keywordtype}{double} val);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00054}00054     \textcolor{keywordtype}{double} operator[](\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00055}00055     \textcolor{keywordtype}{double} \&operator[](\textcolor{keywordtype}{int} i);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00057}00057     RGB3 operator+(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00058}00058     RGB3 operator-\/(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00059}00059     RGB3 operator*(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00060}00060     RGB3 operator/(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00062}00062     RGB3 \&operator+=(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00063}00063     RGB3 \&operator-\/=(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00064}00064     RGB3 \&operator*=(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00065}00065     RGB3 \&operator/=(\textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00067}00067     RGB3 operator*(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00068}00068     RGB3 operator/(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00070}00070     RGB3 \&operator*=(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00071}00071     RGB3 \&operator/=(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00072}00072 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00073}00073     \textcolor{keyword}{friend} RGB3 operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00074}00074 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00075}00075     XYZ3 toXYZ3() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00076}00076 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00077}00077     \textcolor{comment}{// @brief convert RGB3 to SampledSpectrum.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00078}00078     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} toSpectrum(\mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{SpectrumType}} type=SpectrumType::REFLECTANCE) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00079}00079 \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00081}00081 \textcolor{keyword}{class }XYZ3}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00082}00082 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00083}00083     \textcolor{keywordtype}{double} xyzData[3];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00084}00084 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00085}00085 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00086}00086     XYZ3();}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00087}00087 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00088}00088     XYZ3(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00089}00089 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00090}00090     \textcolor{comment}{// @brief initialize all xyz value as val.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00091}00091     XYZ3(\textcolor{keywordtype}{double} val);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00092}00092 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00093}00093     \textcolor{keywordtype}{double} operator[](\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00094}00094     \textcolor{keywordtype}{double} \&operator[](\textcolor{keywordtype}{int} i);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00096}00096     XYZ3 operator+(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00097}00097     XYZ3 operator-\/(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00098}00098     XYZ3 operator*(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00099}00099     XYZ3 operator/(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00100}00100 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00101}00101     XYZ3 \&operator+=(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00102}00102     XYZ3 \&operator-\/=(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00103}00103     XYZ3 \&operator*=(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00104}00104     XYZ3 \&operator/=(\textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00106}00106     XYZ3 operator*(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00107}00107     XYZ3 operator/(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00108}00108 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00109}00109     XYZ3 \&operator*=(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00110}00110     XYZ3 \&operator/=(\textcolor{keywordtype}{double} v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00111}00111 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00112}00112     \textcolor{keyword}{friend} XYZ3 operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} XYZ3 \&xyz);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00113}00113 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00114}00114     RGB3 toRGB3() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00115}00115 \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00116}00116 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00118}00118 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} nSamples>}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00119}\mbox{\hyperlink{class_coefficient_spectrum}{00119}} \textcolor{keyword}{class }\mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00120}00120 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00121}00121 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00122}00122     \textcolor{keywordtype}{double} coefficients[nSamples];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00123}00123 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00124}00124 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00126}\mbox{\hyperlink{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}{00126}}     \mbox{\hyperlink{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}{CoefficientSpectrum}}() \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00127}00127         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00128}00128             coefficients[i] = 0.0;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00129}00129         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00130}00130     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00131}00131 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00133}\mbox{\hyperlink{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}{00133}}     \mbox{\hyperlink{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}{CoefficientSpectrum}}(\textcolor{keywordtype}{double} val) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00134}00134         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00135}00135             coefficients[i] = val;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00136}00136         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00137}00137     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00138}00138 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00140}\mbox{\hyperlink{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}{00140}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}{operator[]}}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00141}00141         \textcolor{keywordflow}{return} coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00142}00142     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00143}00143 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00145}\mbox{\hyperlink{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}{00145}}     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}{operator[]}}(\textcolor{keywordtype}{int} i) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00146}00146         \textcolor{keywordflow}{return} coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00147}00147     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00148}00148 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00149}00149     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator+(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00150}00150         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00151}00151         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00152}00152             retVal.coefficients[i] += s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00153}00153         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00154}00154         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00155}00155     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00156}00156 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00157}00157     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator-\/(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00158}00158         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00159}00159         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00160}00160             retVal.coefficients[i] -\/= s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00161}00161         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00162}00162         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00163}00163     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00164}00164 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00165}00165     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00166}00166         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00167}00167         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00168}00168             retVal.coefficients[i] *= s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00169}00169         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00170}00170         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00171}00171     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00172}00172 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00174}\mbox{\hyperlink{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}{00174}}     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}{operator/}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00175}00175         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00176}00176         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00177}00177             retVal.coefficients[i] /= s.coefficients[i];    \textcolor{comment}{// NaN}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00178}00178         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00179}00179         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00180}00180     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00181}00181 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00182}00182     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator+=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00183}00183         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00184}00184             this-\/>coefficients[i] += s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00185}00185         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00186}00186         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00187}00187     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00188}00188 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00189}00189     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator-\/=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00190}00190         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00191}00191             this-\/>coefficients[i] -\/= s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00192}00192         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00193}00193         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00194}00194     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00195}00195 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00196}00196     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator*=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00197}00197         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00198}00198             this-\/>coefficients[i] *= s.coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00199}00199         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00200}00200         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00201}00201     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00202}00202 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00204}\mbox{\hyperlink{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}{00204}}     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& \mbox{\hyperlink{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00205}00205         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00206}00206             this-\/>coefficients[i] /= s.coefficients[i]; \textcolor{comment}{// NaN}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00207}00207         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00208}00208         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00209}00209     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00210}00210 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00211}00211     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keywordtype}{double} v)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00212}00212         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00213}00213         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00214}00214             retVal.coefficients[i] *= v;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00215}00215         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00216}00216         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00217}00217     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00218}00218 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00220}\mbox{\hyperlink{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}{00220}}     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}{operator/}}(\textcolor{keywordtype}{double} v)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00221}00221         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00222}00222         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00223}00223             retVal.coefficients[i] /= v;    \textcolor{comment}{// NaN}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00224}00224         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00225}00225         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00226}00226     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00227}00227 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00228}00228     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator*=(\textcolor{keywordtype}{double} v) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00229}00229         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00230}00230             this-\/>coefficients[i] *= v;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00231}00231         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00232}00232         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00233}00233     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00234}00234 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00236}\mbox{\hyperlink{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}{00236}}     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& \mbox{\hyperlink{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}{operator/=}}(\textcolor{keywordtype}{double} v) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00237}00237         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00238}00238             this-\/>coefficients[i] /= v; \textcolor{comment}{// NaN}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00239}00239         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00240}00240         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00241}00241     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00242}00242 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00243}00243     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00244}00244         \textcolor{keywordflow}{return} s * v;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00245}00245     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00246}00246 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00248}\mbox{\hyperlink{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}{00248}}     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}{sqrt}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00249}00249         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00250}00250         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00251}00251             ret[i] = std::sqrt(s[i]);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00252}00252         \textcolor{keywordflow}{return} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00253}00253     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00254}00254 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00255}00255     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} pow(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s, \textcolor{keywordtype}{double} e) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00256}00256         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00257}00257         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00258}00258             ret[i] = std::pow(s[i], e);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00259}00259         \textcolor{keywordflow}{return} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00260}00260     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00261}00261 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00262}00262     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} exp(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00263}00263         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00264}00264         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00265}00265             ret[i] = std::exp(s[i]);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00266}00266         \textcolor{keywordflow}{return} ret;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00267}00267     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00268}00268 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00269}00269     \textcolor{keywordtype}{bool} isBlack()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00270}00270         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00271}00271             \textcolor{keywordflow}{if} (coefficients[i] != 0.0) }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00272}00272                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00273}00273         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00274}00274     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00275}00275 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00276}00276     \textcolor{keywordtype}{bool} hasNaN()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00277}00277         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <nSamples; i++)}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00278}00278             \textcolor{keywordflow}{if} (std::isnan(coefficients[i]))}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00279}00279                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00280}00280         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00281}00281     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00282}00282 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00283}00283     \textcolor{keyword}{inline} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} clamp(\textcolor{keywordtype}{double} low = 0.0, \textcolor{keywordtype}{double} high = DBL\_MAX)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00284}00284         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00285}00285         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00286}00286             retVal[i] = \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{mathClamp}}(coefficients[i], low, high);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00287}00287         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00288}00288         \textcolor{keywordflow}{return} retVal;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00289}00289     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00290}00290 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00291}00291     \textcolor{keywordtype}{double} sum()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00292}00292         \textcolor{keywordtype}{double} sum = 0;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00293}00293         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00294}00294             sum += coefficients[i];}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00295}00295         \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00296}00296         \textcolor{keywordflow}{return} sum;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00297}00297     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00298}00298 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00299}00299     \textcolor{keywordtype}{double} average()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00300}00300         \textcolor{keywordflow}{return} sum() / nSamples;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00301}00301     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00302}00302 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00304}\mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{00304}}     \textcolor{keyword}{virtual} XYZ3 \mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{toXYZ3}}()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00305}00305         \textcolor{comment}{//DEBUG this function should never be called.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00306}00306         \textcolor{keywordflow}{return} XYZ3(0.0);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00307}00307     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00308}00308 \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00309}00309 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00311}\mbox{\hyperlink{struct_spectrum_sample}{00311}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00312}00312 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00313}00313     \textcolor{keywordtype}{double} lambda;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00314}00314     \textcolor{keywordtype}{double} value;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00315}00315 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00316}00316     \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}(\textcolor{keywordtype}{double} \_lambda, \textcolor{keywordtype}{double} \_value) \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00317}00317         lambda = \_lambda;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00318}00318         value = \_value;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00319}00319     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00320}00320 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00322}\mbox{\hyperlink{struct_spectrum_sample_ab7164cb7aea2f509ef24f27f8d69739b}{00322}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_spectrum_sample_ab7164cb7aea2f509ef24f27f8d69739b}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}\& s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00323}00323         \textcolor{keywordflow}{return} lambda > s.lambda;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00324}00324     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00325}00325 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00327}\mbox{\hyperlink{struct_spectrum_sample_a6e3823c93064d2bce6998e108a40873b}{00327}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_spectrum_sample_a6e3823c93064d2bce6998e108a40873b}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}\& s)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00328}00328         \textcolor{keywordflow}{return} lambda < s.lambda;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00329}00329     \}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00330}00330 \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00331}00331 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00333}\mbox{\hyperlink{class_sampled_spectrum}{00333}} \textcolor{keyword}{class }\mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00334}00334     : \textcolor{keyword}{public} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}<nSpectrumSamples>}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00335}00335 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00336}00336     \textcolor{comment}{// these spectrums should be calculated at compile time.}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00337}00337     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} X;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00338}00338     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} Y;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00339}00339     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} Z;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00340}00340 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00341}00341     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectWhite;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00342}00342     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectCyan;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00343}00343     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectMagenta;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00344}00344     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectYellow;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00345}00345     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectRed;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00346}00346     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectGreen;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00347}00347     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectBlue;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00348}00348 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00349}00349     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectWhite;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00350}00350     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectCyan;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00351}00351     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectMagenta;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00352}00352     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectYellow;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00353}00353     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectRed;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00354}00354     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectGreen;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00355}00355     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectBlue;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00356}00356 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00357}00357 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00358}00358     \textcolor{keyword}{friend} \textcolor{keyword}{class }RGB3;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00359}00359     \textcolor{keyword}{friend} \textcolor{keyword}{class }XYZ3;}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00360}00360 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00362}00362     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}{init}}();}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00363}00363 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00364}00364     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}();}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00365}00365 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00366}00366     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}(\textcolor{keywordtype}{double} val);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00367}00367 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00368}00368     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00369}00369 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00371}00371     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} \mbox{\hyperlink{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}{fromSampled}}(std::vector<SpectrumSample> v);}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00372}00372 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00373}00373     \textcolor{keyword}{virtual} XYZ3 \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}{toXYZ3}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00374}00374 \};}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00375}00375 }
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00377}\mbox{\hyperlink{class_r_g_b_spectrum}{00377}} \textcolor{keyword}{class }\mbox{\hyperlink{class_r_g_b_spectrum}{RGBSpectrum}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}<3>}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00378}00378 \{}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00379}00379     \textcolor{comment}{// TODO RGBSpectrum}}
-\DoxyCodeLine{\Hypertarget{_color_8h_source_l00380}00380 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <cfloat>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }RGB3;}
+\DoxyCodeLine{19 \textcolor{keyword}{class }XYZ3;}
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// TODO: should be defined by cmake marco.}}
+\DoxyCodeLine{23 \textcolor{keyword}{using }\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} = \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{//using Spectrum = RGB3;}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sampledLambdaStart = 400.0;}
+\DoxyCodeLine{28 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sampledLambdaEnd = 700.0;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{_color_8h_aa517fb822956ff9568b0a9074eb68274}{nSpectrumSamples}} = 60;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{34 \textcolor{keywordtype}{double} \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{mathClamp}}(\textcolor{keywordtype}{double} source, \textcolor{keywordtype}{double} low=0.0, \textcolor{keywordtype}{double} high=DBL\_MAX);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37 \textcolor{keywordtype}{double} \mbox{\hyperlink{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}{mathLerp}}(\textcolor{keywordtype}{double} ratio, \textcolor{keywordtype}{double} source0, \textcolor{keywordtype}{double} source1);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40 \textcolor{keyword}{enum class} \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{SpectrumType}} \{ REFLECTANCE, ILLUMINANT \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }RGB3}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \textcolor{keywordtype}{double} rgbData[3];}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{public}:}
+\DoxyCodeLine{47     RGB3();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     RGB3(\textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} g, \textcolor{keywordtype}{double} b);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{// @brief initialize all rgb value as val.}}
+\DoxyCodeLine{52     RGB3(\textcolor{keywordtype}{double} val);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{double} operator[](\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{double} \&operator[](\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     RGB3 operator+(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{58     RGB3 operator-\/(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{59     RGB3 operator*(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{60     RGB3 operator/(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     RGB3 \&operator+=(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{63     RGB3 \&operator-\/=(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{64     RGB3 \&operator*=(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{65     RGB3 \&operator/=(\textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     RGB3 operator*(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{68     RGB3 operator/(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     RGB3 \&operator*=(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{71     RGB3 \&operator/=(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{friend} RGB3 operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} RGB3 \&rgb);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     XYZ3 toXYZ3() \textcolor{keyword}{const};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// @brief convert RGB3 to SampledSpectrum.}}
+\DoxyCodeLine{78     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} toSpectrum(\mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{SpectrumType}} type=SpectrumType::REFLECTANCE) \textcolor{keyword}{const};}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{class }XYZ3}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keywordtype}{double} xyzData[3];}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keyword}{public}:}
+\DoxyCodeLine{86     XYZ3();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     XYZ3(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{comment}{// @brief initialize all xyz value as val.}}
+\DoxyCodeLine{91     XYZ3(\textcolor{keywordtype}{double} val);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{double} operator[](\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{94     \textcolor{keywordtype}{double} \&operator[](\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     XYZ3 operator+(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{97     XYZ3 operator-\/(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{98     XYZ3 operator*(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{99     XYZ3 operator/(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     XYZ3 \&operator+=(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{102     XYZ3 \&operator-\/=(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{103     XYZ3 \&operator*=(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{104     XYZ3 \&operator/=(\textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     XYZ3 operator*(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{107     XYZ3 operator/(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     XYZ3 \&operator*=(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{110     XYZ3 \&operator/=(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keyword}{friend} XYZ3 operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} XYZ3 \&xyz);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     RGB3 toRGB3() \textcolor{keyword}{const};}
+\DoxyCodeLine{115 \};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} nSamples>}
+\DoxyCodeLine{119 \textcolor{keyword}{class }\mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{122     \textcolor{keywordtype}{double} coefficients[nSamples];}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{public}:}
+\DoxyCodeLine{126     \mbox{\hyperlink{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}{CoefficientSpectrum}}() \{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{128             coefficients[i] = 0.0;}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130     \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \mbox{\hyperlink{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}{CoefficientSpectrum}}(\textcolor{keywordtype}{double} val) \{}
+\DoxyCodeLine{134         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{135             coefficients[i] = val;}
+\DoxyCodeLine{136         \}}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{140     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}{operator[]}}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} coefficients[i];}
+\DoxyCodeLine{142     \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{145     \textcolor{keywordtype}{double} \&\mbox{\hyperlink{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}{operator[]}}(\textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{return} coefficients[i];}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator+(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{150         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{151         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{152             retVal.coefficients[i] += s.coefficients[i];}
+\DoxyCodeLine{153         \}}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator-\/(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{158         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{159         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{160             retVal.coefficients[i] -\/= s.coefficients[i];}
+\DoxyCodeLine{161         \}}
+\DoxyCodeLine{162         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{166         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{167         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{168             retVal.coefficients[i] *= s.coefficients[i];}
+\DoxyCodeLine{169         \}}
+\DoxyCodeLine{170         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{171     \}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{174     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}{operator/}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{175         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{176         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{177             retVal.coefficients[i] /= s.coefficients[i];    \textcolor{comment}{// NaN}}
+\DoxyCodeLine{178         \}}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator+=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
+\DoxyCodeLine{183         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{184             this-\/>coefficients[i] += s.coefficients[i];}
+\DoxyCodeLine{185         \}}
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator-\/=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
+\DoxyCodeLine{190         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{191             this-\/>coefficients[i] -\/= s.coefficients[i];}
+\DoxyCodeLine{192         \}}
+\DoxyCodeLine{193         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator*=(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
+\DoxyCodeLine{197         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{198             this-\/>coefficients[i] *= s.coefficients[i];}
+\DoxyCodeLine{199         \}}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{201     \}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& \mbox{\hyperlink{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
+\DoxyCodeLine{205         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{206             this-\/>coefficients[i] /= s.coefficients[i]; \textcolor{comment}{// NaN}}
+\DoxyCodeLine{207         \}}
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{209     \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keywordtype}{double} v)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{212         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{213         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{214             retVal.coefficients[i] *= v;}
+\DoxyCodeLine{215         \}}
+\DoxyCodeLine{216         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{220     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}{operator/}}(\textcolor{keywordtype}{double} v)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{221         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal = *\textcolor{keyword}{this};}
+\DoxyCodeLine{222         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{223             retVal.coefficients[i] /= v;    \textcolor{comment}{// NaN}}
+\DoxyCodeLine{224         \}}
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& operator*=(\textcolor{keywordtype}{double} v) \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{230             this-\/>coefficients[i] *= v;}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{236     \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& \mbox{\hyperlink{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}{operator/=}}(\textcolor{keywordtype}{double} v) \{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{238             this-\/>coefficients[i] /= v; \textcolor{comment}{// NaN}}
+\DoxyCodeLine{239         \}}
+\DoxyCodeLine{240         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{241     \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} operator*(\textcolor{keywordtype}{double} v, \textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s) \{}
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} s * v;}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{248     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}{sqrt}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s) \{}
+\DoxyCodeLine{249         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
+\DoxyCodeLine{250         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
+\DoxyCodeLine{251             ret[i] = std::sqrt(s[i]);}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} pow(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s, \textcolor{keywordtype}{double} e) \{}
+\DoxyCodeLine{256         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
+\DoxyCodeLine{257         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
+\DoxyCodeLine{258             ret[i] = std::pow(s[i], e);}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262     \textcolor{keyword}{friend} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} exp(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\&s) \{}
+\DoxyCodeLine{263         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} ret;}
+\DoxyCodeLine{264         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++)}
+\DoxyCodeLine{265             ret[i] = std::exp(s[i]);}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     \textcolor{keywordtype}{bool} isBlack()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{270         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{271             \textcolor{keywordflow}{if} (coefficients[i] != 0.0) }
+\DoxyCodeLine{272                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{273         \}}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276     \textcolor{keywordtype}{bool} hasNaN()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{277         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <nSamples; i++)}
+\DoxyCodeLine{278             \textcolor{keywordflow}{if} (std::isnan(coefficients[i]))}
+\DoxyCodeLine{279                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{280         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{281     \}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     \textcolor{keyword}{inline} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} clamp(\textcolor{keywordtype}{double} low = 0.0, \textcolor{keywordtype}{double} high = DBL\_MAX)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{284         \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}} retVal;}
+\DoxyCodeLine{285         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{286             retVal[i] = \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{mathClamp}}(coefficients[i], low, high);}
+\DoxyCodeLine{287         \}}
+\DoxyCodeLine{288         \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{289     \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     \textcolor{keywordtype}{double} sum()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{292         \textcolor{keywordtype}{double} sum = 0;}
+\DoxyCodeLine{293         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nSamples; i++) \{}
+\DoxyCodeLine{294             sum += coefficients[i];}
+\DoxyCodeLine{295         \}}
+\DoxyCodeLine{296         \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     \textcolor{keywordtype}{double} average()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{300         \textcolor{keywordflow}{return} sum() / nSamples;}
+\DoxyCodeLine{301     \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{304     \textcolor{keyword}{virtual} XYZ3 \mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{toXYZ3}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{305         \textcolor{comment}{//DEBUG this function should never be called.}}
+\DoxyCodeLine{306         \textcolor{keywordflow}{return} XYZ3(0.0);}
+\DoxyCodeLine{307     \}}
+\DoxyCodeLine{308 \};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{311 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}}
+\DoxyCodeLine{312 \{}
+\DoxyCodeLine{313     \textcolor{keywordtype}{double} lambda;}
+\DoxyCodeLine{314     \textcolor{keywordtype}{double} value;}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316     \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}(\textcolor{keywordtype}{double} \_lambda, \textcolor{keywordtype}{double} \_value) \{}
+\DoxyCodeLine{317         lambda = \_lambda;}
+\DoxyCodeLine{318         value = \_value;}
+\DoxyCodeLine{319     \}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{322     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_spectrum_sample_ab7164cb7aea2f509ef24f27f8d69739b}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{323         \textcolor{keywordflow}{return} lambda > s.lambda;}
+\DoxyCodeLine{324     \}}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{327     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_spectrum_sample_a6e3823c93064d2bce6998e108a40873b}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_spectrum_sample}{SpectrumSample}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{328         \textcolor{keywordflow}{return} lambda < s.lambda;}
+\DoxyCodeLine{329     \}}
+\DoxyCodeLine{330 \};}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{333 \textcolor{keyword}{class }\mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}}
+\DoxyCodeLine{334     : \textcolor{keyword}{public} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}<nSpectrumSamples>}
+\DoxyCodeLine{335 \{}
+\DoxyCodeLine{336     \textcolor{comment}{// these spectrums should be calculated at compile time.}}
+\DoxyCodeLine{337     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} X;}
+\DoxyCodeLine{338     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} Y;}
+\DoxyCodeLine{339     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} Z;}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectWhite;}
+\DoxyCodeLine{342     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectCyan;}
+\DoxyCodeLine{343     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectMagenta;}
+\DoxyCodeLine{344     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectYellow;}
+\DoxyCodeLine{345     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectRed;}
+\DoxyCodeLine{346     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectGreen;}
+\DoxyCodeLine{347     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbRefl2SpectBlue;}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectWhite;}
+\DoxyCodeLine{350     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectCyan;}
+\DoxyCodeLine{351     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectMagenta;}
+\DoxyCodeLine{352     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectYellow;}
+\DoxyCodeLine{353     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectRed;}
+\DoxyCodeLine{354     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectGreen;}
+\DoxyCodeLine{355     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} rgbIllum2SpectBlue;}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357 \textcolor{keyword}{public}:}
+\DoxyCodeLine{358     \textcolor{keyword}{friend} \textcolor{keyword}{class }RGB3;}
+\DoxyCodeLine{359     \textcolor{keyword}{friend} \textcolor{keyword}{class }XYZ3;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_sampled_spectrum_abfc99e04bd5637895ea1a165547ec579}{init}}();}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}();}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}(\textcolor{keywordtype}{double} val);}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368     \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}\& s);}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{371     \textcolor{keyword}{static} \mbox{\hyperlink{class_sampled_spectrum}{SampledSpectrum}} \mbox{\hyperlink{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}{fromSampled}}(std::vector<SpectrumSample> v);}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{keyword}{virtual} XYZ3 \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}{toXYZ3}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{374 \};}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{377 \textcolor{keyword}{class }\mbox{\hyperlink{class_r_g_b_spectrum}{RGBSpectrum}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_coefficient_spectrum}{CoefficientSpectrum}}<3>}
+\DoxyCodeLine{378 \{}
+\DoxyCodeLine{379     \textcolor{comment}{// TODO RGBSpectrum}}
+\DoxyCodeLine{380 \};}
 
 \end{DoxyCode}

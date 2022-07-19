@@ -2,41 +2,41 @@
 \label{_film_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.h@{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.h}}
 \mbox{\hyperlink{_film_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_filter_8h}{FunctionLayer/Filter/Filter.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resource_manager_8h}{ResourceLayer/ResourceManager.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00018}00018 \textcolor{keyword}{class }Film}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00019}00019 \{}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00020}00020 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00021}00021     std::unique\_ptr<Image> image;}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00022}00022     std::shared\_ptr<Filter> filter;}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00023}00023     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00024}00024     \textcolor{keywordtype}{int} channels;}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00025}00025     std::vector<double> sumWeights; \textcolor{comment}{// a temp impl}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00026}00026     std::vector<Spectrum> sumValues; \textcolor{comment}{// a temp impl}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00028}00028     \textcolor{keywordtype}{void} syncWithGui();}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00030}00030 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00031}00031     Film(\mbox{\hyperlink{struct_t_point2}{Point2i}} resolution, \textcolor{keywordtype}{int} channels);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00032}00032     Film(\mbox{\hyperlink{struct_t_point3}{Point3i}} shape);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00034}00034     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrum(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00035}00035     RGB3 getRGB(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00037}00037     \textcolor{keywordtype}{void} setGamma(\textcolor{keywordtype}{double} gamma = 2.2);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00038}00038     \textcolor{keywordtype}{void} setFilter(std::shared\_ptr<Filter> filter);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00039}00039     \mbox{\hyperlink{struct_t_point2}{Point2i}} getResolution() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00041}00041     \textcolor{comment}{// @brief: 'deposit' a spectrum at p. all deposit will be averaged when get(p).}}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00042}00042     \textcolor{keywordtype}{void} deposit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00043}00043     \textcolor{keywordtype}{void} save(\textcolor{keyword}{const} std::string \&path);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00045}00045     \textcolor{keywordtype}{int} getDepositeCount(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{\Hypertarget{_film_8h_source_l00046}00046 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_filter_8h}{FunctionLayer/Filter/Filter.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resource_manager_8h}{ResourceLayer/ResourceManager.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }Film}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21     std::unique\_ptr<Image> image;}
+\DoxyCodeLine{22     std::shared\_ptr<Filter> filter;}
+\DoxyCodeLine{23     \mbox{\hyperlink{struct_t_point2}{Point2i}} resolution;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} channels;}
+\DoxyCodeLine{25     std::vector<double> sumWeights; \textcolor{comment}{// a temp impl}}
+\DoxyCodeLine{26     std::vector<Spectrum> sumValues; \textcolor{comment}{// a temp impl}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} syncWithGui();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     Film(\mbox{\hyperlink{struct_t_point2}{Point2i}} resolution, \textcolor{keywordtype}{int} channels);}
+\DoxyCodeLine{32     Film(\mbox{\hyperlink{struct_t_point3}{Point3i}} shape);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrum(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{35     RGB3 getRGB(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} setGamma(\textcolor{keywordtype}{double} gamma = 2.2);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setFilter(std::shared\_ptr<Filter> filter);}
+\DoxyCodeLine{39     \mbox{\hyperlink{struct_t_point2}{Point2i}} getResolution() \textcolor{keyword}{const};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// @brief: 'deposit' a spectrum at p. all deposit will be averaged when get(p).}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} deposit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} save(\textcolor{keyword}{const} std::string \&path);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} getDepositeCount(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{46 \};}
 
 \end{DoxyCode}

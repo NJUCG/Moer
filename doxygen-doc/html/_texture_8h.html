@@ -68,12 +68,12 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle"><div class="title">Texture.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Texture of different types.  
+<p><a class="el" href="class_texture.html" title="Base class for all textures.">Texture</a> of different types.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &quot;<a class="el" href="_intersection_8h_source.html">FunctionLayer/Intersection.h</a>&quot;</code><br />
@@ -81,91 +81,25 @@ $(function() {
 </div>
 <p><a href="_texture_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a6c1f579a6cd185c86d3dbd17c2db1284"><td class="memItemLeft" align="right" valign="top">typedef TextureCoord&lt; <a class="el" href="struct_t_point2.html">Point2d</a>, <a class="el" href="struct_t_vector2.html">Vec2d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a6c1f579a6cd185c86d3dbd17c2db1284">TextureCoord2D</a></td></tr>
-<tr class="separator:a6c1f579a6cd185c86d3dbd17c2db1284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70c7399a16c8ded8bfbb8eba28a9f359"><td class="memItemLeft" align="right" valign="top">typedef TextureCoord&lt; <a class="el" href="struct_t_point3.html">Point3d</a>, <a class="el" href="struct_t_vector3.html">Vec3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a70c7399a16c8ded8bfbb8eba28a9f359">TextureCoord3D</a></td></tr>
-<tr class="separator:a70c7399a16c8ded8bfbb8eba28a9f359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a431c3b5fd1deda09a634f7f6cdcc2e84"><td class="memItemLeft" align="right" valign="top">typedef TextureMapping&lt; TextureCoord2D &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a431c3b5fd1deda09a634f7f6cdcc2e84">TextureMapping2D</a></td></tr>
-<tr class="separator:a431c3b5fd1deda09a634f7f6cdcc2e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9689b8431ef7a3a94890d24868a302d"><td class="memItemLeft" align="right" valign="top">typedef TextureMapping&lt; TextureCoord3D &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#ae9689b8431ef7a3a94890d24868a302d">TextureMapping3D</a></td></tr>
-<tr class="separator:ae9689b8431ef7a3a94890d24868a302d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html">Texture&lt; Tvalue &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all textures.  <a href="class_texture.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_mapping.html">TextureMapping&lt; Tcoord &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture_mapping.html" title="TextureMapping maps an intersection to texture coordinates of type Tcoord.">TextureMapping</a> maps an intersection to texture coordinates of type Tcoord.  <a href="class_texture_mapping.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_std_texture.html">StdTexture&lt; Tvalue, Tcoord &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_std_texture.html" title="StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection.">StdTexture</a> refers to textures that needs a texture mapping to generate Tcoord from Intersection.  <a href="class_std_texture.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Texture of different types. </p>
+<div class="textblock"><p ><a class="el" href="class_texture.html" title="Base class for all textures.">Texture</a> of different types. </p>
 <dl class="section author"><dt>Author</dt><dd>Zhimin Fan </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-05-03</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>NJUMeta (c) 2022 www.njumeta.com </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a6c1f579a6cd185c86d3dbd17c2db1284" name="a6c1f579a6cd185c86d3dbd17c2db1284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c1f579a6cd185c86d3dbd17c2db1284">&#9670;&nbsp;</a></span>TextureCoord2D</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef TextureCoord&lt;<a class="el" href="struct_t_point2.html">Point2d</a>, <a class="el" href="struct_t_vector2.html">Vec2d</a>&gt; TextureCoord2D</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00036">36</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
-
-</div>
-</div>
-<a id="a70c7399a16c8ded8bfbb8eba28a9f359" name="a70c7399a16c8ded8bfbb8eba28a9f359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70c7399a16c8ded8bfbb8eba28a9f359">&#9670;&nbsp;</a></span>TextureCoord3D</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef TextureCoord&lt;<a class="el" href="struct_t_point3.html">Point3d</a>, <a class="el" href="struct_t_vector3.html">Vec3d</a>&gt; TextureCoord3D</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00037">37</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
-
-</div>
-</div>
-<a id="a431c3b5fd1deda09a634f7f6cdcc2e84" name="a431c3b5fd1deda09a634f7f6cdcc2e84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a431c3b5fd1deda09a634f7f6cdcc2e84">&#9670;&nbsp;</a></span>TextureMapping2D</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef TextureMapping&lt;TextureCoord2D&gt; TextureMapping2D</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00048">48</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
-
-</div>
-</div>
-<a id="ae9689b8431ef7a3a94890d24868a302d" name="ae9689b8431ef7a3a94890d24868a302d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9689b8431ef7a3a94890d24868a302d">&#9670;&nbsp;</a></span>TextureMapping3D</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef TextureMapping&lt;TextureCoord3D&gt; TextureMapping3D</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00049">49</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5

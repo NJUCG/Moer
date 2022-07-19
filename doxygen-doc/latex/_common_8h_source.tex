@@ -2,110 +2,110 @@
 \label{_common_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h}}
 \mbox{\hyperlink{_common_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma  once}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <cmath>}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <limits>}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <utility>}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00017}00017 \textcolor{comment}{// some constant values}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00018}\mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{00018}} \textcolor{preprocessor}{\#define M\_PI         3.14159265358979323846f    }}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00019}00019 \textcolor{preprocessor}{\#define INV\_PI       0.31830988618379067154f}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00020}00020 \textcolor{preprocessor}{\#define INV\_TWOPI    0.15915494309189533577f}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00022}00022 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} ONEMINUSEPSILON = 1 -\/ std::numeric\_limits<double>::epsilon();}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00025}\mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{00025}} \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00026}00026     \textcolor{keywordflow}{if} (value < min)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00027}00027         \textcolor{keywordflow}{return} min;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00028}00028     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00029}00029         \textcolor{keywordflow}{return} max;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00030}00030     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00031}00031 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00034}\mbox{\hyperlink{_common_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}{00034}} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00035}00035     \textcolor{keywordflow}{if} (value < min)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00036}00036         \textcolor{keywordflow}{return} min;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00037}00037     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00038}00038         \textcolor{keywordflow}{return} max;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00039}00039     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00040}00040 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00043}\mbox{\hyperlink{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}{00043}} \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}{lerp}}(\textcolor{keywordtype}{float} t, \textcolor{keywordtype}{float} v1, \textcolor{keywordtype}{float} v2) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00044}00044     \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{float}) 1 -\/ t) * v1 + t * v2;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00045}00045 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00048}\mbox{\hyperlink{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}{00048}} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}{mod}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00049}00049     \textcolor{keywordtype}{int} r = a \% b;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00050}00050     \textcolor{keywordflow}{return} (r < 0) ? r+b : r;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00051}00051 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00055}\mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{00055}} \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{float} cosThetaI, \textcolor{keywordtype}{float} extIOR, \textcolor{keywordtype}{float} intIOR) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00056}00056     \textcolor{keywordtype}{float} etaI = extIOR, etaT = intIOR;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00058}00058     \textcolor{keywordflow}{if} (extIOR == intIOR)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00059}00059         \textcolor{keywordflow}{return} 0.0f;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00060}00060 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00061}00061     \textcolor{comment}{/* Swap the indices of refraction if the interaction starts}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00062}00062 \textcolor{comment}{       at the inside of the object */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00063}00063     \textcolor{keywordflow}{if} (cosThetaI < 0.0f) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00064}00064         std::swap(etaI, etaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00065}00065         cosThetaI = -\/cosThetaI;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00066}00066     \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00068}00068     \textcolor{comment}{/* Using Snell's law, calculate the squared sine of the}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00069}00069 \textcolor{comment}{       angle between the normal and the transmitted ray */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00070}00070     \textcolor{keywordtype}{float} eta = etaI / etaT,}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00071}00071             sinThetaTSqr = eta*eta * (1-\/cosThetaI*cosThetaI);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00072}00072 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00073}00073     \textcolor{keywordflow}{if} (sinThetaTSqr > 1.0f)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00074}00074         \textcolor{keywordflow}{return} 1.0f;  \textcolor{comment}{/* Total internal reflection! */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00075}00075 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00076}00076     \textcolor{keywordtype}{float} cosThetaT = std::sqrt(1.0f -\/ sinThetaTSqr);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00077}00077 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00078}00078     \textcolor{keywordtype}{float} Rs = (etaI * cosThetaI -\/ etaT * cosThetaT)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00079}00079                / (etaI * cosThetaI + etaT * cosThetaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00080}00080     \textcolor{keywordtype}{float} Rp = (etaT * cosThetaI -\/ etaI * cosThetaT)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00081}00081                / (etaT * cosThetaI + etaI * cosThetaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00082}00082 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00083}00083     \textcolor{keywordflow}{return} (Rs * Rs + Rp * Rp) / 2.0f;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00084}00084 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00085}00085 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00088}\mbox{\hyperlink{_common_8h_a2ad2c6c590e48dd021738bd29c0dbae8}{00088}} \textcolor{keyword}{inline}  \textcolor{keywordtype}{double} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{double} cosThetaI, \textcolor{keywordtype}{double} extIOR, \textcolor{keywordtype}{double} intIOR) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00089}00089     \textcolor{keywordtype}{double} etaI = extIOR, etaT = intIOR;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00090}00090 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00091}00091     \textcolor{keywordflow}{if} (extIOR == intIOR)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00092}00092         \textcolor{keywordflow}{return} 0.0;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00093}00093 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00094}00094     \textcolor{comment}{/* Swap the indices of refraction if the interaction starts}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00095}00095 \textcolor{comment}{       at the inside of the object */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00096}00096     \textcolor{keywordflow}{if} (cosThetaI < 0.0f) \{}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00097}00097         std::swap(etaI, etaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00098}00098         cosThetaI = -\/cosThetaI;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00099}00099     \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00100}00100 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00101}00101     \textcolor{comment}{/* Using Snell's law, calculate the squared sine of the}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00102}00102 \textcolor{comment}{       angle between the normal and the transmitted ray */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00103}00103     \textcolor{keywordtype}{double} eta = etaI / etaT,}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00104}00104             sinThetaTSqr = eta*eta * (1-\/cosThetaI*cosThetaI);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00106}00106     \textcolor{keywordflow}{if} (sinThetaTSqr > 1.0f)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00107}00107         \textcolor{keywordflow}{return} 1.0f;  \textcolor{comment}{/* Total internal reflection! */}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00108}00108 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00109}00109     \textcolor{keywordtype}{double} cosThetaT = std::sqrt(1.0f -\/ sinThetaTSqr);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00110}00110 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00111}00111     \textcolor{keywordtype}{double} Rs = (etaI * cosThetaI -\/ etaT * cosThetaT)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00112}00112                / (etaI * cosThetaI + etaT * cosThetaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00113}00113     \textcolor{keywordtype}{double} Rp = (etaT * cosThetaI -\/ etaI * cosThetaT)}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00114}00114                / (etaT * cosThetaI + etaI * cosThetaT);}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00116}00116     \textcolor{keywordflow}{return} (Rs * Rs + Rp * Rp) / 2.0;}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00117}00117 \}}
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00118}00118 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00119}00119 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00121}00121 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00122}00122 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00123}00123 }
-\DoxyCodeLine{\Hypertarget{_common_8h_source_l00124}00124 }
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma  once}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{17 \textcolor{comment}{// some constant values}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define M\_PI         3.14159265358979323846f    }}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define INV\_PI       0.31830988618379067154f}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define INV\_TWOPI    0.15915494309189533577f}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} ONEMINUSEPSILON = 1 -\/ std::numeric\_limits<double>::epsilon();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{25 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max) \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (value < min)}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} min;}
+\DoxyCodeLine{28     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} max;}
+\DoxyCodeLine{30     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{34 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max) \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (value < min)}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} min;}
+\DoxyCodeLine{37     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} max;}
+\DoxyCodeLine{39     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}{lerp}}(\textcolor{keywordtype}{float} t, \textcolor{keywordtype}{float} v1, \textcolor{keywordtype}{float} v2) \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{float}) 1 -\/ t) * v1 + t * v2;}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}{mod}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b) \{}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} r = a \% b;}
+\DoxyCodeLine{50     \textcolor{keywordflow}{return} (r < 0) ? r+b : r;}
+\DoxyCodeLine{51 \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{55 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{float} cosThetaI, \textcolor{keywordtype}{float} extIOR, \textcolor{keywordtype}{float} intIOR) \{}
+\DoxyCodeLine{56     \textcolor{keywordtype}{float} etaI = extIOR, etaT = intIOR;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} (extIOR == intIOR)}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} 0.0f;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{/* Swap the indices of refraction if the interaction starts}}
+\DoxyCodeLine{62 \textcolor{comment}{       at the inside of the object */}}
+\DoxyCodeLine{63     \textcolor{keywordflow}{if} (cosThetaI < 0.0f) \{}
+\DoxyCodeLine{64         std::swap(etaI, etaT);}
+\DoxyCodeLine{65         cosThetaI = -\/cosThetaI;}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{comment}{/* Using Snell's law, calculate the squared sine of the}}
+\DoxyCodeLine{69 \textcolor{comment}{       angle between the normal and the transmitted ray */}}
+\DoxyCodeLine{70     \textcolor{keywordtype}{float} eta = etaI / etaT,}
+\DoxyCodeLine{71             sinThetaTSqr = eta*eta * (1-\/cosThetaI*cosThetaI);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} (sinThetaTSqr > 1.0f)}
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} 1.0f;  \textcolor{comment}{/* Total internal reflection! */}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{float} cosThetaT = std::sqrt(1.0f -\/ sinThetaTSqr);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{float} Rs = (etaI * cosThetaI -\/ etaT * cosThetaT)}
+\DoxyCodeLine{79                / (etaI * cosThetaI + etaT * cosThetaT);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{float} Rp = (etaT * cosThetaI -\/ etaI * cosThetaT)}
+\DoxyCodeLine{81                / (etaT * cosThetaI + etaI * cosThetaT);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} (Rs * Rs + Rp * Rp) / 2.0f;}
+\DoxyCodeLine{84 \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{88 \textcolor{keyword}{inline}  \textcolor{keywordtype}{double} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{double} cosThetaI, \textcolor{keywordtype}{double} extIOR, \textcolor{keywordtype}{double} intIOR) \{}
+\DoxyCodeLine{89     \textcolor{keywordtype}{double} etaI = extIOR, etaT = intIOR;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordflow}{if} (extIOR == intIOR)}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} 0.0;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{/* Swap the indices of refraction if the interaction starts}}
+\DoxyCodeLine{95 \textcolor{comment}{       at the inside of the object */}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} (cosThetaI < 0.0f) \{}
+\DoxyCodeLine{97         std::swap(etaI, etaT);}
+\DoxyCodeLine{98         cosThetaI = -\/cosThetaI;}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{comment}{/* Using Snell's law, calculate the squared sine of the}}
+\DoxyCodeLine{102 \textcolor{comment}{       angle between the normal and the transmitted ray */}}
+\DoxyCodeLine{103     \textcolor{keywordtype}{double} eta = etaI / etaT,}
+\DoxyCodeLine{104             sinThetaTSqr = eta*eta * (1-\/cosThetaI*cosThetaI);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (sinThetaTSqr > 1.0f)}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} 1.0f;  \textcolor{comment}{/* Total internal reflection! */}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{double} cosThetaT = std::sqrt(1.0f -\/ sinThetaTSqr);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{double} Rs = (etaI * cosThetaI -\/ etaT * cosThetaT)}
+\DoxyCodeLine{112                / (etaI * cosThetaI + etaT * cosThetaT);}
+\DoxyCodeLine{113     \textcolor{keywordtype}{double} Rp = (etaT * cosThetaI -\/ etaI * cosThetaT)}
+\DoxyCodeLine{114                / (etaT * cosThetaI + etaI * cosThetaT);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} (Rs * Rs + Rp * Rp) / 2.0;}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
 
 \end{DoxyCode}

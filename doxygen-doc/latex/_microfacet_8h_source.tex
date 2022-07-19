@@ -2,33 +2,33 @@
 \label{_microfacet_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/Microfacet.h@{/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/Microfacet.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma  once}}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bx_d_f_8h}{BxDF.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_8h}{CoreLayer/Geometry/Frame.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00018}00018 \textcolor{keyword}{class }Mircofacet : \textcolor{keyword}{public}  BxDF \{}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00021}00021 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00022}00022     Mircofacet(\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} kd, \textcolor{keywordtype}{double} intIOR, \textcolor{keywordtype}{double} extIOR,\textcolor{keywordtype}{double} alpha);}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00024}00024     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} f(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00026}00026     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} sampleWi(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00028}00028     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} pdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00030}00030     \textcolor{keyword}{virtual} BxDFSampleResult sample(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00032}00032     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} isSpecular() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00033}00033 \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00034}00034     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} kd;}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00035}00035     \textcolor{keywordtype}{double} ks;}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00036}00036     \textcolor{keywordtype}{double} intIOR,extIOR,alpha;}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00037}00037 \};}
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_microfacet_8h_source_l00039}00039 }
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma  once}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bx_d_f_8h}{BxDF.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_8h}{CoreLayer/Geometry/Frame.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_mircofacet}{Mircofacet}} : \textcolor{keyword}{public}  \mbox{\hyperlink{class_bx_d_f}{BxDF}} \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_mircofacet}{Mircofacet}}(\mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} kd, \textcolor{keywordtype}{double} intIOR, \textcolor{keywordtype}{double} extIOR,\textcolor{keywordtype}{double} alpha);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} f(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_mircofacet_adc1b791e6539c2e8b4204505e447d4a2}{sampleWi}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} pdf(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} BxDFSampleResult sample(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \textcolor{keyword}{const};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} isSpecular() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 \textcolor{keyword}{private}:}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} kd;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{double} ks;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{double} intIOR,extIOR,alpha;}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
 
 \end{DoxyCode}

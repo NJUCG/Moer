@@ -17,34 +17,37 @@
 
 struct LightSampleResult
 {
-	// @brief Spectrum from light.
+	/// @brief Spectrum from light.
 	Spectrum s;
 
-	// @brief Point on an object where receives light if exists.
+	/// @brief Point on an object where receives light if exists.
 	Point3d src;
 
-	// @brief Point on a light where emits light if exists.
+	/// @brief Point on a light where emits light if exists.
 	Point3d dst;
 
-	// @brief Direction from src to dst.
+	/// @brief Direction from src to dst.
 	Vec3d wi;
 
 	Normal3d dstNormal;
 	Point2d uv;
 
-	// @brief PDF of direct light sampling.
+	/// @brief PDF of direct light sampling.
 	double pdfDirect;
-	// @brief Positional emission PDF if exists.
+	/// @brief Positional emission PDF if exists.
 	double pdfEmitPos;
-	// @brief Directional emission PDF if exists.
+	/// @brief Directional emission PDF if exists.
 	double pdfEmitDir;
 
-	// @brief FALSE for area and volume light, TRUE for point and etc
+	/// @brief FALSE for area and volume light, TRUE for point and etc
 	bool isDeltaPos;
-	// @brief TRUE for distant light
+	/// @brief TRUE for distant light
 	bool isDeltaDir;
 };
 
+/// \defgroup Light
+
+/// \brief The base class for all light source
 class Light
 {
 public:

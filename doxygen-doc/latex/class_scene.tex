@@ -9,96 +9,10 @@ Store the primitives in scene.
 
 {\ttfamily \#include $<$Scene.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{class_scene_a4b6ab4aab60de59ac8e33d36d6fa56e3}{add\+Entity}} (std\+::shared\+\_\+ptr$<$ Entity $>$ object)
-\item 
-void \mbox{\hyperlink{class_scene_acfa0a1e846f5e8e852749ad773d112c7}{add\+Light}} (std\+::shared\+\_\+ptr$<$ Light $>$ light)
-\item 
-void \mbox{\hyperlink{class_scene_a6e33abfb4027a9bc2a5bb944fe4c4c9a}{build}} ()
-\item 
-std\+::optional$<$ Intersection $>$ \mbox{\hyperlink{class_scene_af94142ca49f3495ad832c0b446ee1377}{intersect}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r) const
-\item 
-\mbox{\Hypertarget{class_scene_a8b59eb8acd781df8c2673831dda7b43a}\label{class_scene_a8b59eb8acd781df8c2673831dda7b43a}} 
-bool {\bfseries intersection\+Test} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r, std\+::shared\+\_\+ptr$<$ Entity $>$ object) const
-\item 
-std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ Light $>$ $>$ $>$ \mbox{\hyperlink{class_scene_a3a7048134caa1918d2ca324f082f8824}{get\+Lights}} () const
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Store the primitives in scene. 
-
-Definition at line \mbox{\hyperlink{_scene_8h_source_l00023}{23}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507}} 
-\index{Scene@{Scene}!Scene@{Scene}}
-\index{Scene@{Scene}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_scene}{Scene\+::\+Scene}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_scene_a4b6ab4aab60de59ac8e33d36d6fa56e3}\label{class_scene_a4b6ab4aab60de59ac8e33d36d6fa56e3}} 
-\index{Scene@{Scene}!addEntity@{addEntity}}
-\index{addEntity@{addEntity}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{addEntity()}{addEntity()}}
-{\footnotesize\ttfamily void Scene\+::add\+Entity (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Entity $>$}]{object }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-\mbox{\Hypertarget{class_scene_acfa0a1e846f5e8e852749ad773d112c7}\label{class_scene_acfa0a1e846f5e8e852749ad773d112c7}} 
-\index{Scene@{Scene}!addLight@{addLight}}
-\index{addLight@{addLight}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{addLight()}{addLight()}}
-{\footnotesize\ttfamily void Scene\+::add\+Light (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Light $>$}]{light }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-\mbox{\Hypertarget{class_scene_a6e33abfb4027a9bc2a5bb944fe4c4c9a}\label{class_scene_a6e33abfb4027a9bc2a5bb944fe4c4c9a}} 
-\index{Scene@{Scene}!build@{build}}
-\index{build@{build}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{build()}{build()}}
-{\footnotesize\ttfamily void Scene\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-\mbox{\Hypertarget{class_scene_a3a7048134caa1918d2ca324f082f8824}\label{class_scene_a3a7048134caa1918d2ca324f082f8824}} 
-\index{Scene@{Scene}!getLights@{getLights}}
-\index{getLights@{getLights}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{getLights()}{getLights()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ Light $>$ $>$ $>$ Scene\+::get\+Lights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-\mbox{\Hypertarget{class_scene_af94142ca49f3495ad832c0b446ee1377}\label{class_scene_af94142ca49f3495ad832c0b446ee1377}} 
-\index{Scene@{Scene}!intersect@{intersect}}
-\index{intersect@{intersect}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{intersect()}{intersect()}}
-{\footnotesize\ttfamily std\+::optional$<$ Intersection $>$ Scene\+::intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{r }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

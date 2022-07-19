@@ -2,48 +2,48 @@
 \label{_resource_manager_8h_source}\index{/mnt/renderer/Zero/src/ResourceLayer/ResourceManager.h@{/mnt/renderer/Zero/src/ResourceLayer/ResourceManager.h}}
 \mbox{\hyperlink{_resource_manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00012}00012 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_image_8h}{ResourceLayer/File/Image.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_data_8h}{ResourceLayer/File/MeshData.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <map>}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00021}00021 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00022}00022 \textcolor{keyword}{class }ResourceManager}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00023}00023 \{}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00024}00024 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00025}00025     std::map<std::string, std::shared\_ptr<BaseType>> hash;}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00027}00027 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00028}00028     ResourceManager();}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00029}00029 \};}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00031}00031 \textcolor{keyword}{class }ImageManager : \textcolor{keyword}{public} ResourceManager<Image>}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00032}00032 \{}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00033}00033     ImageManager();}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00034}00034     std::shared\_ptr<ImageManager> instance;}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00036}00036 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00037}00037     \textcolor{comment}{// @brief singleton pattern get.}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00038}00038     \textcolor{keyword}{static} std::shared\_ptr<ImageManager> getInstance();}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00040}00040     std::shared\_ptr<Image> getImage(\textcolor{keyword}{const} std::string \&path, Image::ImageLoadMode mode);}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00041}00041 \};}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00043}00043 \textcolor{keyword}{class }MeshDataManager : \textcolor{keyword}{public} ResourceManager<MeshData>}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00044}00044 \{}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00045}00045     MeshDataManager();}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00046}00046     std::shared\_ptr<MeshDataManager> instance;}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00048}00048 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00049}00049     \textcolor{comment}{// @brief singleton pattern get.}}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00050}00050     \textcolor{keyword}{static} std::shared\_ptr<MeshDataManager> getInstance();}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00052}00052     std::vector<std::shared\_ptr<MeshData>> getMeshData(\textcolor{keyword}{const} std::string \&path);}
-\DoxyCodeLine{\Hypertarget{_resource_manager_8h_source_l00053}00053 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_image_8h}{ResourceLayer/File/Image.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_data_8h}{ResourceLayer/File/MeshData.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BaseType>}
+\DoxyCodeLine{22 \textcolor{keyword}{class }ResourceManager}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{25     std::map<std::string, std::shared\_ptr<BaseType>> hash;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     ResourceManager();}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }ImageManager : \textcolor{keyword}{public} ResourceManager<Image>}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     ImageManager();}
+\DoxyCodeLine{34     std::shared\_ptr<ImageManager> instance;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \textcolor{comment}{// @brief singleton pattern get.}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} std::shared\_ptr<ImageManager> getInstance();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     std::shared\_ptr<Image> getImage(\textcolor{keyword}{const} std::string \&path, Image::ImageLoadMode mode);}
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{class }MeshDataManager : \textcolor{keyword}{public} ResourceManager<MeshData>}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     MeshDataManager();}
+\DoxyCodeLine{46     std::shared\_ptr<MeshDataManager> instance;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \textcolor{comment}{// @brief singleton pattern get.}}
+\DoxyCodeLine{50     \textcolor{keyword}{static} std::shared\_ptr<MeshDataManager> getInstance();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     std::vector<std::shared\_ptr<MeshData>> getMeshData(\textcolor{keyword}{const} std::string \&path);}
+\DoxyCodeLine{53 \};}
 
 \end{DoxyCode}

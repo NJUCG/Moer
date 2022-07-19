@@ -13,8 +13,8 @@
 #include "CoreLayer/Geometry/Frame.h"
 #include "BxDF.h"
 
-
-
+/// \brief Lambertian reflection model
+/// \ingroup BxDF
 class Diffuse : public  BxDF{
 private:
 

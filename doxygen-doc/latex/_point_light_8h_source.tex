@@ -2,26 +2,26 @@
 \label{_point_light_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Light/PointLight.h@{/mnt/renderer/Zero/src/FunctionLayer/Light/PointLight.h}}
 \mbox{\hyperlink{_point_light_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00013}00013 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}Light.h"{}}}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_transform3d_8h}{CoreLayer/Geometry/Transform3d.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00018}00018 \textcolor{preprocessor}{\#pragma  once}}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00020}00020 \textcolor{keyword}{class }PointLight : \textcolor{keyword}{public} Light, \textcolor{keyword}{public} \mbox{\hyperlink{class_transform3_d}{Transform3D}}}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00021}00021 \{}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00022}00022 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00023}00023     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} intensity;}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00025}00025 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00026}00026     PointLight(\textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&intensity, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&center);}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00027}00027     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} apply() \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00028}00028     \textcolor{keyword}{virtual} LightSampleResult evalEnvironment(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00029}00029     \textcolor{keyword}{virtual} LightSampleResult eval(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray, \textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00030}00030     \textcolor{keyword}{virtual} LightSampleResult sampleEmit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&positionSample, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&directionSample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00031}00031     \textcolor{keyword}{virtual} LightSampleResult sampleDirect(\textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_8h_source_l00032}00032 \};}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}Light.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_transform3d_8h}{CoreLayer/Geometry/Transform3d.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#pragma  once}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_point_light}{PointLight}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_light}{Light}}, \textcolor{keyword}{public} \mbox{\hyperlink{class_transform3_d}{Transform3D}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} intensity;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_point_light}{PointLight}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&intensity, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&center);}
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} apply() \textcolor{keyword}{override};}
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} LightSampleResult evalEnvironment(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray) \textcolor{keyword}{override};}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} LightSampleResult eval(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}} \&ray, \textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) \textcolor{keyword}{override};}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} LightSampleResult sampleEmit(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&positionSample, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&directionSample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} LightSampleResult sampleDirect(\textcolor{keyword}{const} Intersection \&its, \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, \textcolor{keywordtype}{float} time) \textcolor{keyword}{override};}
+\DoxyCodeLine{34 \};}
 
 \end{DoxyCode}

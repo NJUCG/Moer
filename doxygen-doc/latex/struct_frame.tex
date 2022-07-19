@@ -13,322 +13,62 @@ Convert the vector between world coordinate and local coordinate ~\newline
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_frame_ad2e5946cf41d4817e750500acf05d02b}{Frame}} ()
+\mbox{\Hypertarget{struct_frame_ad2e5946cf41d4817e750500acf05d02b}\label{struct_frame_ad2e5946cf41d4817e750500acf05d02b}} 
+{\bfseries Frame} ()
 \begin{DoxyCompactList}\small\item\em Default constructor -- performs no initialization! \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_frame_a7749295b5d75079e15d19946acb5254a}{Frame}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&s, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n)
+\mbox{\Hypertarget{struct_frame_a7749295b5d75079e15d19946acb5254a}\label{struct_frame_a7749295b5d75079e15d19946acb5254a}} 
+{\bfseries Frame} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&s, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n)
 \begin{DoxyCompactList}\small\item\em Given a normal and tangent vectors, construct a new coordinate frame. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_frame_a3812db625a40925378672674ea5992a3}{Frame}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&x, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&y, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&z)
+\mbox{\Hypertarget{struct_frame_a3812db625a40925378672674ea5992a3}\label{struct_frame_a3812db625a40925378672674ea5992a3}} 
+{\bfseries Frame} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&x, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&y, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&z)
 \begin{DoxyCompactList}\small\item\em Construct a frame from the given orthonormal vectors. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}{Frame}} (const \mbox{\hyperlink{struct_normal3d}{Normal3d}} n)
+\mbox{\Hypertarget{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}\label{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}} 
+{\bfseries Frame} (const \mbox{\hyperlink{struct_normal3d}{Normal3d}} n)
 \begin{DoxyCompactList}\small\item\em Construct a new coordinate frame from a single vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_afe55aa248e8cf1792d80f985352166d9}{to\+Local}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) const
+\mbox{\Hypertarget{struct_frame_afe55aa248e8cf1792d80f985352166d9}\label{struct_frame_afe55aa248e8cf1792d80f985352166d9}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries to\+Local} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) const
 \begin{DoxyCompactList}\small\item\em Convert from world coordinates to local coordinates. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}{to\+World}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) const
+\mbox{\Hypertarget{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}\label{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries to\+World} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) const
 \begin{DoxyCompactList}\small\item\em Convert from local coordinates to world coordinates. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}{operator==}} (const \mbox{\hyperlink{struct_frame}{Frame}} \&frame) const
+\mbox{\Hypertarget{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}\label{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{struct_frame}{Frame}} \&frame) const
 \begin{DoxyCompactList}\small\item\em Equality test. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}{operator!=}} (const \mbox{\hyperlink{struct_frame}{Frame}} \&frame) const
+\mbox{\Hypertarget{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}\label{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{struct_frame}{Frame}} \&frame) const
 \begin{DoxyCompactList}\small\item\em Inequality test. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static float \mbox{\hyperlink{struct_frame_acc3afa4f7865320db0a81a946cd73497}{cos\+Theta}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_acc3afa4f7865320db0a81a946cd73497}\label{struct_frame_acc3afa4f7865320db0a81a946cd73497}} 
+static float {\bfseries cos\+Theta} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the cosine of the angle between the normal and v. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sin\+Theta}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_a57073384606ae0b0f53a5c636c95cd08}\label{struct_frame_a57073384606ae0b0f53a5c636c95cd08}} 
+static float {\bfseries sin\+Theta} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the sine of the angle between the normal and v. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_a6de539bfd929d602c3a57ee049e6331e}{tan\+Theta}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_a6de539bfd929d602c3a57ee049e6331e}\label{struct_frame_a6de539bfd929d602c3a57ee049e6331e}} 
+static float {\bfseries tan\+Theta} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the tangent of the angle between the normal and v. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sin\+Theta2}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}\label{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}} 
+static float {\bfseries sin\+Theta2} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the Squared sine of the angle between the normal and v. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_a1340ec99788fefde702f043a4ffc93c3}{sin\+Phi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_a1340ec99788fefde702f043a4ffc93c3}\label{struct_frame_a1340ec99788fefde702f043a4ffc93c3}} 
+static float {\bfseries sin\+Phi} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the sine of the phi parameter in spherical coordinates. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_a9516d7ef17c182b1192c179c861906b7}{cos\+Phi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_a9516d7ef17c182b1192c179c861906b7}\label{struct_frame_a9516d7ef17c182b1192c179c861906b7}} 
+static float {\bfseries cos\+Phi} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the cosine of the phi parameter in spherical coordinates. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_ac5a798094759b36a5650699b8d1bcad9}{sin\+Phi2}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_ac5a798094759b36a5650699b8d1bcad9}\label{struct_frame_ac5a798094759b36a5650699b8d1bcad9}} 
+static float {\bfseries sin\+Phi2} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the Squared sine of the phi parameter in spherical coordinates. \end{DoxyCompactList}\item 
-static float \mbox{\hyperlink{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}{cos\+Phi2}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\mbox{\Hypertarget{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}\label{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}} 
+static float {\bfseries cos\+Phi2} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \begin{DoxyCompactList}\small\item\em Assuming that the given direction is in the local coordinate system, return the Squared cosine of the phi parameter in spherical coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_a08faabdebdbe55d659f76269d52b551c}{s}}
-\item 
-\mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{struct_frame_a2fd529087e13205ea04c5bd315e94b12}{t}}
-\item 
-\mbox{\hyperlink{struct_normal3d}{Normal3d}} \mbox{\hyperlink{struct_frame_a711abc06f9b6d36457023821d35f9e55}{n}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Convert the vector between world coordinate and local coordinate ~\newline
  
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00036}{36}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_frame_ad2e5946cf41d4817e750500acf05d02b}\label{struct_frame_ad2e5946cf41d4817e750500acf05d02b}} 
-\index{Frame@{Frame}!Frame@{Frame}}
-\index{Frame@{Frame}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_frame}{Frame\+::\+Frame}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Default constructor -- performs no initialization! 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00041}{41}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a7749295b5d75079e15d19946acb5254a}\label{struct_frame_a7749295b5d75079e15d19946acb5254a}} 
-\index{Frame@{Frame}!Frame@{Frame}}
-\index{Frame@{Frame}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_frame}{Frame\+::\+Frame}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{s,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{t,  }\item[{const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Given a normal and tangent vectors, construct a new coordinate frame. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00044}{44}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a3812db625a40925378672674ea5992a3}\label{struct_frame_a3812db625a40925378672674ea5992a3}} 
-\index{Frame@{Frame}!Frame@{Frame}}
-\index{Frame@{Frame}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_frame}{Frame\+::\+Frame}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{x,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{y,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Construct a frame from the given orthonormal vectors. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00048}{48}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}\label{struct_frame_a05825e3ae8908e5bdb89ee6631e2e7ca}} 
-\index{Frame@{Frame}!Frame@{Frame}}
-\index{Frame@{Frame}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_frame}{Frame\+::\+Frame}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_normal3d}{Normal3d}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Construct a new coordinate frame from a single vector. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00052}{52}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{struct_frame_a9516d7ef17c182b1192c179c861906b7}\label{struct_frame_a9516d7ef17c182b1192c179c861906b7}} 
-\index{Frame@{Frame}!cosPhi@{cosPhi}}
-\index{cosPhi@{cosPhi}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{cosPhi()}{cosPhi()}}
-{\footnotesize\ttfamily static float Frame\+::cos\+Phi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the cosine of the phi parameter in spherical coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00109}{109}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}\label{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}} 
-\index{Frame@{Frame}!cosPhi2@{cosPhi2}}
-\index{cosPhi2@{cosPhi2}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{cosPhi2()}{cosPhi2()}}
-{\footnotesize\ttfamily static float Frame\+::cos\+Phi2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the Squared cosine of the phi parameter in spherical coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00126}{126}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_acc3afa4f7865320db0a81a946cd73497}\label{struct_frame_acc3afa4f7865320db0a81a946cd73497}} 
-\index{Frame@{Frame}!cosTheta@{cosTheta}}
-\index{cosTheta@{cosTheta}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{cosTheta()}{cosTheta()}}
-{\footnotesize\ttfamily static float Frame\+::cos\+Theta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the cosine of the angle between the normal and v. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00070}{70}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}\label{struct_frame_aefc1e8a4b90f06c0b45f7fcea3ec9c01}} 
-\index{Frame@{Frame}!operator"!=@{operator"!=}}
-\index{operator"!=@{operator"!=}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
-{\footnotesize\ttfamily bool Frame\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_frame}{Frame}} \&}]{frame }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Inequality test. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00136}{136}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}\label{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}} 
-\index{Frame@{Frame}!operator==@{operator==}}
-\index{operator==@{operator==}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily bool Frame\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_frame}{Frame}} \&}]{frame }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Equality test. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00131}{131}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a1340ec99788fefde702f043a4ffc93c3}\label{struct_frame_a1340ec99788fefde702f043a4ffc93c3}} 
-\index{Frame@{Frame}!sinPhi@{sinPhi}}
-\index{sinPhi@{sinPhi}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{sinPhi()}{sinPhi()}}
-{\footnotesize\ttfamily static float Frame\+::sin\+Phi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the sine of the phi parameter in spherical coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00100}{100}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_ac5a798094759b36a5650699b8d1bcad9}\label{struct_frame_ac5a798094759b36a5650699b8d1bcad9}} 
-\index{Frame@{Frame}!sinPhi2@{sinPhi2}}
-\index{sinPhi2@{sinPhi2}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{sinPhi2()}{sinPhi2()}}
-{\footnotesize\ttfamily static float Frame\+::sin\+Phi2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the Squared sine of the phi parameter in spherical coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00119}{119}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a57073384606ae0b0f53a5c636c95cd08}\label{struct_frame_a57073384606ae0b0f53a5c636c95cd08}} 
-\index{Frame@{Frame}!sinTheta@{sinTheta}}
-\index{sinTheta@{sinTheta}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{sinTheta()}{sinTheta()}}
-{\footnotesize\ttfamily static float Frame\+::sin\+Theta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the sine of the angle between the normal and v. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00076}{76}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}\label{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}} 
-\index{Frame@{Frame}!sinTheta2@{sinTheta2}}
-\index{sinTheta2@{sinTheta2}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{sinTheta2()}{sinTheta2()}}
-{\footnotesize\ttfamily static float Frame\+::sin\+Theta2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the Squared sine of the angle between the normal and v. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00094}{94}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a6de539bfd929d602c3a57ee049e6331e}\label{struct_frame_a6de539bfd929d602c3a57ee049e6331e}} 
-\index{Frame@{Frame}!tanTheta@{tanTheta}}
-\index{tanTheta@{tanTheta}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{tanTheta()}{tanTheta()}}
-{\footnotesize\ttfamily static float Frame\+::tan\+Theta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Assuming that the given direction is in the local coordinate system, return the tangent of the angle between the normal and v. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00085}{85}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_afe55aa248e8cf1792d80f985352166d9}\label{struct_frame_afe55aa248e8cf1792d80f985352166d9}} 
-\index{Frame@{Frame}!toLocal@{toLocal}}
-\index{toLocal@{toLocal}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{toLocal()}{toLocal()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Frame\+::to\+Local (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Convert from world coordinates to local coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00057}{57}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}\label{struct_frame_a079d02ee6fa1c9dfbc09b9d53d3fee78}} 
-\index{Frame@{Frame}!toWorld@{toWorld}}
-\index{toWorld@{toWorld}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{toWorld()}{toWorld()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Frame\+::to\+World (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Convert from local coordinates to world coordinates. 
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00064}{64}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_frame_a711abc06f9b6d36457023821d35f9e55}\label{struct_frame_a711abc06f9b6d36457023821d35f9e55}} 
-\index{Frame@{Frame}!n@{n}}
-\index{n@{n}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{n}{n}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_normal3d}{Normal3d}} Frame\+::n}
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00038}{38}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a08faabdebdbe55d659f76269d52b551c}\label{struct_frame_a08faabdebdbe55d659f76269d52b551c}} 
-\index{Frame@{Frame}!s@{s}}
-\index{s@{s}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{s}{s}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Frame\+::s}
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00037}{37}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-\mbox{\Hypertarget{struct_frame_a2fd529087e13205ea04c5bd315e94b12}\label{struct_frame_a2fd529087e13205ea04c5bd315e94b12}} 
-\index{Frame@{Frame}!t@{t}}
-\index{t@{t}!Frame@{Frame}}
-\doxysubsubsection{\texorpdfstring{t}{t}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Frame\+::t}
-
-
-
-Definition at line \mbox{\hyperlink{_frame_8h_source_l00037}{37}} of file \mbox{\hyperlink{_frame_8h_source}{Frame.\+h}}.
-
-
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

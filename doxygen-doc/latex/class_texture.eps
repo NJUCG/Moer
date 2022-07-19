@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 40.485828
+%%BoundingBox: 0 0 500 60.728745
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 12.350000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 8.233334 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
 /rows 3 def
-/cols 6 def
+/cols 4 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -177,8 +177,6 @@ boxfont setfont
 (StdTexture< double, TextureCoord2D >) cw
 (StdTexture< double, TextureCoord3D >) cw
 (StdTexture< Treturn, TextureCoord2D >) cw
-(ConstantTexture< Tvalue >) cw
-(MixTexture< Tvalue >) cw
 (StdTexture< Tvalue, Tcoord >) cw
 (Checkerboard2D) cw
 (Checkerboard3D) cw
@@ -194,13 +192,11 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (Texture< Tvalue >) 2.500000 2.000000 box
+ (Texture< Tvalue >) 1.500000 2.000000 box
  (StdTexture< double, TextureCoord2D >) 0.000000 1.000000 box
  (StdTexture< double, TextureCoord3D >) 1.000000 1.000000 box
  (StdTexture< Treturn, TextureCoord2D >) 2.000000 1.000000 box
- (ConstantTexture< Tvalue >) 3.000000 1.000000 box
- (MixTexture< Tvalue >) 4.000000 1.000000 box
- (StdTexture< Tvalue, Tcoord >) 5.000000 1.000000 box
+ (StdTexture< Tvalue, Tcoord >) 3.000000 1.000000 box
  (Checkerboard2D) 0.000000 0.000000 box
  (Checkerboard3D) 1.000000 0.000000 box
  (ImageTexture< Treturn, Tmemory >) 2.000000 0.000000 box
@@ -208,9 +204,9 @@ boundx scalefactor div boundy scalefactor div scale
 % ----- relations -----
 
 solid
-1 2.500000 1.250000 out
+1 1.500000 1.250000 out
 solid
-0.000000 5.000000 2.000000 conn
+0.000000 3.000000 2.000000 conn
 solid
 0 0.000000 1.750000 in
 solid
@@ -225,10 +221,6 @@ solid
 1 2.000000 0.250000 out
 solid
 0 3.000000 1.750000 in
-solid
-0 4.000000 1.750000 in
-solid
-0 5.000000 1.750000 in
 solid
 0 0.000000 0.750000 in
 solid

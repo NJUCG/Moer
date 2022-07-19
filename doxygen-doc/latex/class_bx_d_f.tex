@@ -1,41 +1,27 @@
 \hypertarget{class_bx_d_f}{}\doxysection{Bx\+DF Class Reference}
 \label{class_bx_d_f}\index{BxDF@{BxDF}}
+
+
+\mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}. out == rays from/to camera, in == rays from/to objects/lights.  
+
+
+
+
+{\ttfamily \#include $<$Bx\+DF.\+h$>$}
+
 Inheritance diagram for Bx\+DF\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_bx_d_f}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_bx_d_f_a54e38ea9387160d54c1393a664a3118c}\label{class_bx_d_f_a54e38ea9387160d54c1393a664a3118c}} 
-virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} {\bfseries f} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&out, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&in) const =0
-\item 
-virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_bx_d_f_a6d116e406a8aa819ab2c40ebb04d33f1}{sample\+Wi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&out, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const =0
-\item 
-\mbox{\Hypertarget{class_bx_d_f_a5da96c45f63e8ea96f7c1e8527216c78}\label{class_bx_d_f_a5da96c45f63e8ea96f7c1e8527216c78}} 
-virtual double {\bfseries pdf} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&out, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&in) const =0
-\item 
-\mbox{\Hypertarget{class_bx_d_f_a91816792b34433274c8c02ab75425282}\label{class_bx_d_f_a91816792b34433274c8c02ab75425282}} 
-virtual \mbox{\hyperlink{struct_bx_d_f_sample_result}{Bx\+DFSample\+Result}} {\bfseries sample} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&out, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const =0
-\item 
-\mbox{\Hypertarget{class_bx_d_f_adfcb853695e4f708df98615efd95f990}\label{class_bx_d_f_adfcb853695e4f708df98615efd95f990}} 
-virtual bool {\bfseries is\+Specular} () const =0
-\end{DoxyCompactItemize}
 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_bx_d_f_a6d116e406a8aa819ab2c40ebb04d33f1}\label{class_bx_d_f_a6d116e406a8aa819ab2c40ebb04d33f1}} 
-\index{BxDF@{BxDF}!sampleWi@{sampleWi}}
-\index{sampleWi@{sampleWi}!BxDF@{BxDF}}
-\doxysubsubsection{\texorpdfstring{sampleWi()}{sampleWi()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Bx\+DF\+::sample\+Wi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{out,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}. out == rays from/to camera, in == rays from/to objects/lights. 
 
-
-
-Implemented in \mbox{\hyperlink{class_mircofacet_adc1b791e6539c2e8b4204505e447d4a2}{Mircofacet}}.
-
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000014}{Todo}}]Use a structure warp the \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}} query information \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

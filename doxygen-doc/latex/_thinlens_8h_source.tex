@@ -2,50 +2,50 @@
 \label{_thinlens_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Camera/Thinlens.h@{/mnt/renderer/Zero/src/FunctionLayer/Camera/Thinlens.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_perspective_8h}{Perspective.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00004}00004 }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00009}\mbox{\hyperlink{class_thinlens_camera}{00009}} \textcolor{keyword}{class }\mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}} \{}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00010}00010 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00011}00011     \textcolor{keywordtype}{double} apertureRadius, focalLen, focalDistance;}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00012}00012 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00013}00013     \mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00014}00014     \mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}}(}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00015}00015         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookFrom, }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00016}00016         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookAt, }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00017}00017         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00018}00018         \textcolor{keywordtype}{double} xFov,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00019}00019         \textcolor{keywordtype}{double} aspectRatio,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00020}00020         \textcolor{keywordtype}{double} \_focaDistance,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00021}00021         \textcolor{keywordtype}{double} \_apertureRadius = 0.1,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00022}00022         \textcolor{keywordtype}{double} \_focalLen = 0.05}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00023}00023     ):apertureRadius(\_apertureRadius), focalLen(\_focalLen), focalDistance(\_focaDistance) \{}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00024}00024         \textcolor{keywordtype}{double} distToFilm = }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00025}00025             (\_focalLen * \_focaDistance) / (\_focaDistance -\/ \_focalLen);}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00026}00026         }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00027}00027         \mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{cameraToWorld}} = }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00028}00028             \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{Matrix4x4::lookAt}}(lookFrom, lookAt -\/ lookFrom, up).inverse();}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00029}00029         \textcolor{comment}{// ! near is the distToFilm and far set to MAX\_FLOAT }}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00030}00030         \textcolor{comment}{// ! if far set to MAX\_DOUBLE, it will crash when computing the matrix }}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00031}00031         \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} filmToSample = \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{Matrix4x4::perspective}}(}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00032}00032             \mbox{\hyperlink{class_angle}{Angle}}(xFov, Angle::AngleType::ANGLE\_DEG), }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00033}00033             aspectRatio, }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00034}00034             distToFilm, }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00035}00035             std::numeric\_limits<float>::max()}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00036}00036         );}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00037}00037         sampleToFilm =}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00038}00038             Matrix4x4::scale(0.5, -\/0.5, 1.0)}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00039}00039             * Matrix4x4::translate(1, -\/1, 0) }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00040}00040             * filmToSample;}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00041}00041         sampleToFilm = sampleToFilm.inverse();}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00043}00043     \}}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00046}00046     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}{generateRay}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&filmResolution ,}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00047}00047                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition, }
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00048}00048                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_camera_sample}{CameraSample}} \&sample) \textcolor{keyword}{const override};}
-\DoxyCodeLine{\Hypertarget{_thinlens_8h_source_l00049}00049 \};}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_perspective_8h}{Perspective.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_perspective_camera}{PerspectiveCamera}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} apertureRadius, focalLen, focalDistance;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_thinlens_camera}{ThinlensCamera}}(}
+\DoxyCodeLine{15         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookFrom, }
+\DoxyCodeLine{16         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point3}{Point3d}} \&lookAt, }
+\DoxyCodeLine{17         \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up,}
+\DoxyCodeLine{18         \textcolor{keywordtype}{double} xFov,}
+\DoxyCodeLine{19         \textcolor{keywordtype}{double} aspectRatio,}
+\DoxyCodeLine{20         \textcolor{keywordtype}{double} \_focaDistance,}
+\DoxyCodeLine{21         \textcolor{keywordtype}{double} \_apertureRadius = 0.1,}
+\DoxyCodeLine{22         \textcolor{keywordtype}{double} \_focalLen = 0.05}
+\DoxyCodeLine{23     ):apertureRadius(\_apertureRadius), focalLen(\_focalLen), focalDistance(\_focaDistance) \{}
+\DoxyCodeLine{24         \textcolor{keywordtype}{double} distToFilm = }
+\DoxyCodeLine{25             (\_focalLen * \_focaDistance) / (\_focaDistance -\/ \_focalLen);}
+\DoxyCodeLine{26         }
+\DoxyCodeLine{27         \mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{cameraToWorld}} = }
+\DoxyCodeLine{28             \mbox{\hyperlink{class_matrix4x4_ad18057d75b56aa01673f11ec854349a6}{Matrix4x4::lookAt}}(lookFrom, lookAt -\/ lookFrom, up).inverse();}
+\DoxyCodeLine{29         \textcolor{comment}{// ! near is the distToFilm and far set to MAX\_FLOAT }}
+\DoxyCodeLine{30         \textcolor{comment}{// ! if far set to MAX\_DOUBLE, it will crash when computing the matrix }}
+\DoxyCodeLine{31         \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} filmToSample = \mbox{\hyperlink{class_matrix4x4_afcacaea39d63478d5bb1cf9fbeb91499}{Matrix4x4::perspective}}(}
+\DoxyCodeLine{32             \mbox{\hyperlink{class_angle}{Angle}}(xFov, Angle::AngleType::ANGLE\_DEG), }
+\DoxyCodeLine{33             aspectRatio, }
+\DoxyCodeLine{34             distToFilm, }
+\DoxyCodeLine{35             std::numeric\_limits<float>::max()}
+\DoxyCodeLine{36         );}
+\DoxyCodeLine{37         sampleToFilm =}
+\DoxyCodeLine{38             Matrix4x4::scale(0.5, -\/0.5, 1.0)}
+\DoxyCodeLine{39             * Matrix4x4::translate(1, -\/1, 0) }
+\DoxyCodeLine{40             * filmToSample;}
+\DoxyCodeLine{41         sampleToFilm = sampleToFilm.inverse();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}{generateRay}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&filmResolution ,}
+\DoxyCodeLine{47                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixelPosition, }
+\DoxyCodeLine{48                             \textcolor{keyword}{const} \mbox{\hyperlink{struct_camera_sample}{CameraSample}} \&sample) \textcolor{keyword}{const override};}
+\DoxyCodeLine{49 \};}
 
 \end{DoxyCode}

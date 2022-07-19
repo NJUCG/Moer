@@ -24,21 +24,10 @@ virtual void \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13
 \begin{DoxyCompactList}\small\item\em Start to render the scene. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{save}} (const std\+::string \&path)
 \begin{DoxyCompactList}\small\item\em Save the rendering result. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}{camera}}
-\item 
-std\+::unique\+\_\+ptr$<$ Film $>$ \mbox{\hyperlink{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}{film}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Base class for all integrators solving the rendering equation. 
-
-Definition at line \mbox{\hyperlink{_integrator_8h_source_l00027}{27}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
-
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}\label{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}} 
@@ -58,10 +47,6 @@ Construct a new \mbox{\hyperlink{class_integrator}{Integrator}} object.
 {\em \+\_\+film} & \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{_integrator_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_integrator_8cpp_source}{Integrator.\+cpp}}.
-
 
 
 \doxysubsection{Member Function Documentation}
@@ -99,33 +84,6 @@ Save the rendering result.
 {\em path} & The path to save the result \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{_integrator_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_integrator_8cpp_source}{Integrator.\+cpp}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}\label{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}} 
-\index{Integrator@{Integrator}!camera@{camera}}
-\index{camera@{camera}!Integrator@{Integrator}}
-\doxysubsubsection{\texorpdfstring{camera}{camera}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_camera}{Camera}}$>$ Integrator\+::camera\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_integrator_8h_source_l00030}{30}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
-
-\mbox{\Hypertarget{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}\label{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}} 
-\index{Integrator@{Integrator}!film@{film}}
-\index{film@{film}!Integrator@{Integrator}}
-\doxysubsubsection{\texorpdfstring{film}{film}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$Film$>$ Integrator\+::film\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_integrator_8h_source_l00031}{31}} of file \mbox{\hyperlink{_integrator_8h_source}{Integrator.\+h}}.
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

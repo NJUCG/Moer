@@ -12,65 +12,30 @@ Spectrum of n\+Samples sample points.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}{Coefficient\+Spectrum}} ()
+\mbox{\Hypertarget{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}\label{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}} 
+{\bfseries Coefficient\+Spectrum} ()
 \begin{DoxyCompactList}\small\item\em All coefficients initialized as 0.\+0f. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}{Coefficient\+Spectrum}} (double val)
+\mbox{\Hypertarget{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}\label{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}} 
+{\bfseries Coefficient\+Spectrum} (double val)
 \begin{DoxyCompactList}\small\item\em All coefficients initialized as val. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
 \item 
 double \& \mbox{\hyperlink{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}{operator\mbox{[}$\,$\mbox{]}}} (int i)
 \item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a4fc6bd7bcf7e64783d273f6148ed18c9}{operator+}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s) const
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a923e34b52693fb9d700c04fb81431f0d}{operator-\/}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s) const
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_abda759e594652ee20f2590e4d43f7709}{operator$\ast$}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s) const
-\item 
 \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}{operator/}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s) const
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_a726079e7268e35438377bc35cabcda35}{operator+=}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_a1a8be0cb1a98ea67cf0f28fe6280ad5a}{operator-\/=}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_af2baf6ee69d4365e9ac59aeb3486f6be}{operator$\ast$=}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
 \item 
 \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}{operator/=}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
 \item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_aa35c94711578d63e5fbced67f4ac6a23}{operator$\ast$}} (double v) const
-\item 
 \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}{operator/}} (double v) const
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_a817f01a1d4db0195c352822f9c445055}{operator$\ast$=}} (double v)
 \item 
 \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}{operator/=}} (double v)
 \item 
-bool \mbox{\hyperlink{class_coefficient_spectrum_aa4021c592daf6debb4e5b81dbed00da0}{is\+Black}} () const
-\item 
-bool \mbox{\hyperlink{class_coefficient_spectrum_a8a2325bdba3dfe15dc83818dbf5731c7}{has\+NaN}} () const
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a7e823e20263122db7f1856c66b82432e}{clamp}} (double low=0.\+0, double high=DBL\+\_\+\+MAX) const
-\item 
-double \mbox{\hyperlink{class_coefficient_spectrum_a8fa24127949efc933d5edb876b5444f6}{sum}} () const
-\item 
-double \mbox{\hyperlink{class_coefficient_spectrum_a34059f5d9dc15c3f59f26493c4855098}{average}} () const
-\item 
 virtual XYZ3 \mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{to\+XYZ3}} () const
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-double \mbox{\hyperlink{class_coefficient_spectrum_a22a5970fb2a8b3f943ba4e748924b7c2}{coefficients}} \mbox{[}n\+Samples\mbox{]}
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_ac2e2b4b3599db3442713c0745a44fb87}{operator$\ast$}} (double v, const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
-\item 
 \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}{sqrt}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_a4c2f27cecd7b87cbec312ad5ee552fef}{pow}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s, double e)
-\item 
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum_ae2396e6ba603b21f3156da078d9cbdff}{exp}} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
 \end{DoxyCompactItemize}
 
 
@@ -79,176 +44,7 @@ double \mbox{\hyperlink{class_coefficient_spectrum_a22a5970fb2a8b3f943ba4e748924
 class Coefficient\+Spectrum$<$ n\+Samples $>$}
 Spectrum of n\+Samples sample points. 
 
-Definition at line \mbox{\hyperlink{_color_8h_source_l00119}{119}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}\label{class_coefficient_spectrum_a03ea6e41299ec48199423829125a3c12}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!CoefficientSpectrum@{CoefficientSpectrum}}
-\index{CoefficientSpectrum@{CoefficientSpectrum}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{CoefficientSpectrum()}{CoefficientSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\mbox{\hyperlink{class_coefficient_spectrum}{\+::\+Coefficient\+Spectrum}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-All coefficients initialized as 0.\+0f. 
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00126}{126}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}\label{class_coefficient_spectrum_a9c525e177c8868575668fe89dd2df034}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!CoefficientSpectrum@{CoefficientSpectrum}}
-\index{CoefficientSpectrum@{CoefficientSpectrum}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{CoefficientSpectrum()}{CoefficientSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\mbox{\hyperlink{class_coefficient_spectrum}{\+::\+Coefficient\+Spectrum}} (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-All coefficients initialized as val. 
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00133}{133}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_coefficient_spectrum_a34059f5d9dc15c3f59f26493c4855098}\label{class_coefficient_spectrum_a34059f5d9dc15c3f59f26493c4855098}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!average@{average}}
-\index{average@{average}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{average()}{average()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-double \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::average (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00299}{299}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a7e823e20263122db7f1856c66b82432e}\label{class_coefficient_spectrum_a7e823e20263122db7f1856c66b82432e}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!clamp@{clamp}}
-\index{clamp@{clamp}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::clamp (\begin{DoxyParamCaption}\item[{double}]{low = {\ttfamily 0.0},  }\item[{double}]{high = {\ttfamily DBL\+\_\+MAX} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00283}{283}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a8a2325bdba3dfe15dc83818dbf5731c7}\label{class_coefficient_spectrum_a8a2325bdba3dfe15dc83818dbf5731c7}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!hasNaN@{hasNaN}}
-\index{hasNaN@{hasNaN}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{hasNaN()}{hasNaN()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-bool \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::has\+NaN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00276}{276}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_aa4021c592daf6debb4e5b81dbed00da0}\label{class_coefficient_spectrum_aa4021c592daf6debb4e5b81dbed00da0}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!isBlack@{isBlack}}
-\index{isBlack@{isBlack}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{isBlack()}{isBlack()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-bool \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::is\+Black (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00269}{269}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_abda759e594652ee20f2590e4d43f7709}\label{class_coefficient_spectrum_abda759e594652ee20f2590e4d43f7709}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00165}{165}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_aa35c94711578d63e5fbced67f4ac6a23}\label{class_coefficient_spectrum_aa35c94711578d63e5fbced67f4ac6a23}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00211}{211}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_af2baf6ee69d4365e9ac59aeb3486f6be}\label{class_coefficient_spectrum_af2baf6ee69d4365e9ac59aeb3486f6be}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator$\ast$=@{operator$\ast$=}}
-\index{operator$\ast$=@{operator$\ast$=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00196}{196}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a817f01a1d4db0195c352822f9c445055}\label{class_coefficient_spectrum_a817f01a1d4db0195c352822f9c445055}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator$\ast$=@{operator$\ast$=}}
-\index{operator$\ast$=@{operator$\ast$=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{double}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00228}{228}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a4fc6bd7bcf7e64783d273f6148ed18c9}\label{class_coefficient_spectrum_a4fc6bd7bcf7e64783d273f6148ed18c9}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator+@{operator+}}
-\index{operator+@{operator+}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00149}{149}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a726079e7268e35438377bc35cabcda35}\label{class_coefficient_spectrum_a726079e7268e35438377bc35cabcda35}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator+=@{operator+=}}
-\index{operator+=@{operator+=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00182}{182}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a923e34b52693fb9d700c04fb81431f0d}\label{class_coefficient_spectrum_a923e34b52693fb9d700c04fb81431f0d}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00157}{157}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a1a8be0cb1a98ea67cf0f28fe6280ad5a}\label{class_coefficient_spectrum_a1a8be0cb1a98ea67cf0f28fe6280ad5a}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator-\/=@{operator-\/=}}
-\index{operator-\/=@{operator-\/=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \& \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00189}{189}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}\label{class_coefficient_spectrum_af71f60c82af7d7ac3a491d42ab898759}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator/@{operator/}}
 \index{operator/@{operator/}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -259,10 +55,6 @@ Definition at line \mbox{\hyperlink{_color_8h_source_l00189}{189}} of file \mbox
 \begin{DoxyAttention}{Attention}
 There may be Na\+Ns in result 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00174}{174}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}\label{class_coefficient_spectrum_a9c2f2a0ba2465473a75fd5b5181317e8}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator/@{operator/}}
 \index{operator/@{operator/}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -273,10 +65,6 @@ Definition at line \mbox{\hyperlink{_color_8h_source_l00174}{174}} of file \mbox
 \begin{DoxyAttention}{Attention}
 There may be Na\+Ns in result 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00220}{220}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}\label{class_coefficient_spectrum_a82ee5aebe8371ebde325117e31df4201}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator/=@{operator/=}}
 \index{operator/=@{operator/=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -287,10 +75,6 @@ Definition at line \mbox{\hyperlink{_color_8h_source_l00220}{220}} of file \mbox
 \begin{DoxyAttention}{Attention}
 There may be Na\+Ns in result 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00204}{204}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}\label{class_coefficient_spectrum_affa076009617f8866c4763c23eaae7df}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator/=@{operator/=}}
 \index{operator/=@{operator/=}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -301,10 +85,6 @@ Definition at line \mbox{\hyperlink{_color_8h_source_l00204}{204}} of file \mbox
 \begin{DoxyAttention}{Attention}
 There may be Na\+Ns in result 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00236}{236}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}\label{class_coefficient_spectrum_a269ff68889b6d772ac69836e287e3b34}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -315,10 +95,6 @@ double \& \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<
 \begin{DoxyAttention}{Attention}
 No bounding check 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00145}{145}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}\label{class_coefficient_spectrum_a699b2459d737ac04268a8d9a02921bb7}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -329,21 +105,6 @@ double \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n
 \begin{DoxyAttention}{Attention}
 No bounding check 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00140}{140}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a8fa24127949efc933d5edb876b5444f6}\label{class_coefficient_spectrum_a8fa24127949efc933d5edb876b5444f6}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!sum@{sum}}
-\index{sum@{sum}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-double \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00291}{291}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}\label{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!toXYZ3@{toXYZ3}}
 \index{toXYZ3@{toXYZ3}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -360,44 +121,7 @@ Reimplemented in \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359
 
 
 
-Definition at line \mbox{\hyperlink{_color_8h_source_l00304}{304}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
 \doxysubsection{Friends And Related Function Documentation}
-\mbox{\Hypertarget{class_coefficient_spectrum_ae2396e6ba603b21f3156da078d9cbdff}\label{class_coefficient_spectrum_ae2396e6ba603b21f3156da078d9cbdff}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!exp@{exp}}
-\index{exp@{exp}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{exp}{exp}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} exp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00262}{262}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_ac2e2b4b3599db3442713c0745a44fb87}\label{class_coefficient_spectrum_ac2e2b4b3599db3442713c0745a44fb87}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00243}{243}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-\mbox{\Hypertarget{class_coefficient_spectrum_a4c2f27cecd7b87cbec312ad5ee552fef}\label{class_coefficient_spectrum_a4c2f27cecd7b87cbec312ad5ee552fef}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!pow@{pow}}
-\index{pow@{pow}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{pow}{pow}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-\mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$ \&}]{s,  }\item[{double}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00255}{255}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 \mbox{\Hypertarget{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}\label{class_coefficient_spectrum_a7c04b57e52ce73071e3b10f958fd22f4}} 
 \index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!sqrt@{sqrt}}
 \index{sqrt@{sqrt}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
@@ -408,24 +132,6 @@ Definition at line \mbox{\hyperlink{_color_8h_source_l00255}{255}} of file \mbox
 \begin{DoxyAttention}{Attention}
 Does not check if each component is greater than 0 
 \end{DoxyAttention}
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00248}{248}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_coefficient_spectrum_a22a5970fb2a8b3f943ba4e748924b7c2}\label{class_coefficient_spectrum_a22a5970fb2a8b3f943ba4e748924b7c2}} 
-\index{CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}!coefficients@{coefficients}}
-\index{coefficients@{coefficients}!CoefficientSpectrum$<$ nSamples $>$@{CoefficientSpectrum$<$ nSamples $>$}}
-\doxysubsubsection{\texorpdfstring{coefficients}{coefficients}}
-{\footnotesize\ttfamily template$<$int n\+Samples$>$ \\
-double \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}}$<$ n\+Samples $>$\+::coefficients\mbox{[}n\+Samples\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Definition at line \mbox{\hyperlink{_color_8h_source_l00122}{122}} of file \mbox{\hyperlink{_color_8h_source}{Color.\+h}}.
-
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

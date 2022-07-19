@@ -64,39 +64,29 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_light-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Light Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The base class for all light source.  
+ <a href="class_light.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_light_8h_source.html">Light.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Light:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_light.png" usemap="#Light_map" alt=""/>
   <map id="Light_map" name="Light_map">
-<area href="class_area_light.html" alt="AreaLight" shape="rect" coords="0,56,107,80"/>
-<area href="class_point_light.html" alt="PointLight" shape="rect" coords="117,56,224,80"/>
-<area href="class_diffuse_area_light.html" alt="DiffuseAreaLight" shape="rect" coords="0,112,107,136"/>
+<area href="class_area_light.html" title="Base class for all area light source." alt="AreaLight" shape="rect" coords="0,56,107,80"/>
+<area href="class_point_light.html" title="Point light source." alt="PointLight" shape="rect" coords="117,56,224,80"/>
+<area href="class_diffuse_area_light.html" title="Diffuse area light source." alt="DiffuseAreaLight" shape="rect" coords="0,112,107,136"/>
   </map>
 </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:af031c0b8a4fa97a6e9384cb8ddd88c5c"><td class="memItemLeft" align="right" valign="top"><a id="af031c0b8a4fa97a6e9384cb8ddd88c5c" name="af031c0b8a4fa97a6e9384cb8ddd88c5c"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>evalEnvironment</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray)=0</td></tr>
-<tr class="separator:af031c0b8a4fa97a6e9384cb8ddd88c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fc405d6a5bfda84e10d4b03a60b025f"><td class="memItemLeft" align="right" valign="top"><a id="a6fc405d6a5bfda84e10d4b03a60b025f" name="a6fc405d6a5bfda84e10d4b03a60b025f"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;d)=0</td></tr>
-<tr class="separator:a6fc405d6a5bfda84e10d4b03a60b025f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade04196bcb5b1a6637a5e1fa4942e0fa"><td class="memItemLeft" align="right" valign="top"><a id="ade04196bcb5b1a6637a5e1fa4942e0fa" name="ade04196bcb5b1a6637a5e1fa4942e0fa"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleEmit</b> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;positionSample, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;directionSample, float time)=0</td></tr>
-<tr class="separator:ade04196bcb5b1a6637a5e1fa4942e0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eaf106886214705c1349b6564b4bfd2"><td class="memItemLeft" align="right" valign="top"><a id="a2eaf106886214705c1349b6564b4bfd2" name="a2eaf106886214705c1349b6564b4bfd2"></a>
-virtual <a class="el" href="struct_light_sample_result.html">LightSampleResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleDirect</b> (const <a class="el" href="struct_intersection.html">Intersection</a> &amp;its, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample, float time)=0</td></tr>
-<tr class="separator:a2eaf106886214705c1349b6564b4bfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The base class for all light source. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/mnt/renderer/Zero/src/FunctionLayer/Light/<a class="el" href="_light_8h_source.html">Light.h</a></li>
 </ul>
 </div><!-- contents -->

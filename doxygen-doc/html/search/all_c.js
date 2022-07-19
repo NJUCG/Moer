@@ -10,9 +10,10 @@ var searchData=
   ['pinholecamera_7',['PinholeCamera',['../class_pinhole_camera.html',1,'']]],
   ['pixelsampler_8',['PixelSampler',['../class_pixel_sampler.html',1,'']]],
   ['point_2eh_9',['point.h',['../point_8h.html',1,'']]],
-  ['pointlight_2ecpp_10',['PointLight.cpp',['../_point_light_8cpp.html',1,'']]],
-  ['pointlight_2eh_11',['PointLight.h',['../_point_light_8h.html',1,'']]],
-  ['proceduraltexture_2ecpp_12',['ProceduralTexture.cpp',['../_procedural_texture_8cpp.html',1,'']]],
-  ['proceduraltexture_2eh_13',['ProceduralTexture.h',['../_procedural_texture_8h.html',1,'']]],
-  ['prussianroulette_14',['pRussianRoulette',['../class_path_integrator.html#a074f8ff5ca559d52fe73158d73dc9c0c',1,'PathIntegrator']]]
+  ['pointlight_10',['PointLight',['../class_point_light.html',1,'']]],
+  ['pointlight_2ecpp_11',['PointLight.cpp',['../_point_light_8cpp.html',1,'']]],
+  ['pointlight_2eh_12',['PointLight.h',['../_point_light_8h.html',1,'']]],
+  ['proceduraltexture_2ecpp_13',['ProceduralTexture.cpp',['../_procedural_texture_8cpp.html',1,'']]],
+  ['proceduraltexture_2eh_14',['ProceduralTexture.h',['../_procedural_texture_8h.html',1,'']]],
+  ['prussianroulette_15',['pRussianRoulette',['../class_path_integrator.html#a074f8ff5ca559d52fe73158d73dc9c0c',1,'PathIntegrator']]]
 ];
