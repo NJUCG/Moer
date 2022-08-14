@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Camera/Camera.h Source File</title>
+<title>Zero-Renderer: Camera.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,11 +70,11 @@ $(function() {
   <div class="headertitle"><div class="title">Camera.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_camera_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">CoreLayer/Geometry/Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">CoreLayer/Ray/Ray.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Ray/Ray.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_camera_sample.html">   18</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_camera_sample.html">CameraSample</a> {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="struct_t_point2.html">Point2d</a> xy;</div>
@@ -91,8 +91,6 @@ $(function() {
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                            <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;pixelPosition, </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                            <span class="keyword">const</span> <a class="code hl_struct" href="struct_camera_sample.html">CameraSample</a> &amp;sample) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div><div class="ttdoc">Ray representation.</div></div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">Base class for all camera.</div><div class="ttdef"><b>Definition:</b> Camera.h:31</div></div>
 <div class="ttc" id="aclass_camera_html_ab6686c5ad9438868f19229340448c089"><div class="ttname"><a href="class_camera.html#ab6686c5ad9438868f19229340448c089">Camera::generateRay</a></div><div class="ttdeci">virtual Ray generateRay(const Point2i &amp;filmResolution, const Point2i &amp;pixelPosition, const CameraSample &amp;sample) const =0</div><div class="ttdoc">Generate a ray from camera.</div></div>
 <div class="ttc" id="astruct_camera_sample_html"><div class="ttname"><a href="struct_camera_sample.html">CameraSample</a></div><div class="ttdoc">This is used by camera to generate a ray.</div><div class="ttdef"><b>Definition:</b> Camera.h:18</div></div>

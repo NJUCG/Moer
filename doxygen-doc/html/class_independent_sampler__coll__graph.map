@@ -1,0 +1,5 @@
+<map id="IndependentSampler" name="IndependentSampler">
+<area shape="rect" id="node1" title="Generate unifromly distributed sample in [0, 1)" alt="" coords="23,168,181,193"/>
+<area shape="rect" id="node2" href="$class_sampler.html" title="Base class for all samplers." alt="" coords="64,93,140,119"/>
+<area shape="rect" id="node3" href="$class_random_number_generator.html" title="RandomNumberGenerator, using pcg &#160;to generate random number." alt="" coords="5,5,199,31"/>
+</map>

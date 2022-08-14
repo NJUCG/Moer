@@ -1,0 +1,4 @@
+<map id="IndependentSampler" name="IndependentSampler">
+<area shape="rect" id="node1" title="Generate unifromly distributed sample in [0, 1)" alt="" coords="5,79,163,104"/>
+<area shape="rect" id="node2" href="$class_sampler.html" title="Base class for all samplers." alt="" coords="46,5,122,31"/>
+</map>

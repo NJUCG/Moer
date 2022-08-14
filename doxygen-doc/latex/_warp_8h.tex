@@ -7,6 +7,42 @@ The warp function to transform from unifrom sample to specific sample.
 
 {\ttfamily \#include \char`\"{}Core\+Layer/\+Geometry/\+Geometry.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Common.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_warp_8h_a54f577562cb9f63ca88b5d9d043ad4ac}\label{_warp_8h_a54f577562cb9f63ca88b5d9d043ad4ac}} 
+static double {\bfseries Tent\+Inverse} (double x)
+\item 
+\mbox{\Hypertarget{_warp_8h_aade369a68545ecb4a63f4fee6a90fe10}\label{_warp_8h_aade369a68545ecb4a63f4fee6a90fe10}} 
+\mbox{\hyperlink{struct_t_point2}{Point2d}} {\bfseries Square\+To\+Tent} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+\mbox{\Hypertarget{_warp_8h_a883a63b992df5acadbe365635e0c0d71}\label{_warp_8h_a883a63b992df5acadbe365635e0c0d71}} 
+double {\bfseries Square\+To\+Tent\+Pdf} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
+\item 
+\mbox{\Hypertarget{_warp_8h_a062bfdb79575375604fd64943c4723b7}\label{_warp_8h_a062bfdb79575375604fd64943c4723b7}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries Square\+To\+Uniform\+Sphere} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+\mbox{\Hypertarget{_warp_8h_ac1f783709c5bbe664c5df76069045c4a}\label{_warp_8h_ac1f783709c5bbe664c5df76069045c4a}} 
+float {\bfseries Square\+To\+Uniform\+Sphere\+Pdf} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\Hypertarget{_warp_8h_ab42d663a37cd47b992525b352acab9df}\label{_warp_8h_ab42d663a37cd47b992525b352acab9df}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries Square\+To\+Uniform\+Hemisphere} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+\mbox{\Hypertarget{_warp_8h_af2d217bf4e9106124d6e1fd41e4e9d07}\label{_warp_8h_af2d217bf4e9106124d6e1fd41e4e9d07}} 
+float {\bfseries Square\+To\+Uniform\+Hemisphere\+Pdf} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\Hypertarget{_warp_8h_a44c44160670d60bd1ff1cccd0aa45b8a}\label{_warp_8h_a44c44160670d60bd1ff1cccd0aa45b8a}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries Square\+To\+Cosine\+Hemisphere} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample)
+\item 
+\mbox{\Hypertarget{_warp_8h_afa82a00dd5d4e5bd6b026855d7662d00}\label{_warp_8h_afa82a00dd5d4e5bd6b026855d7662d00}} 
+float {\bfseries Square\+To\+Cosine\+Hemisphere\+Pdf} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
+\item 
+\mbox{\Hypertarget{_warp_8h_a106eb5d214471486946fdd4fac9726c9}\label{_warp_8h_a106eb5d214471486946fdd4fac9726c9}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries Square\+To\+Beckmann} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, double alpha)
+\item 
+\mbox{\Hypertarget{_warp_8h_a197e1b9c0021a00c9f08dca796056632}\label{_warp_8h_a197e1b9c0021a00c9f08dca796056632}} 
+float {\bfseries Square\+To\+Beckmann\+Pdf} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&m, double alpha)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -22,7 +58,7 @@ Chenxi Zhou
 2022-\/07-\/18 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]The up direction is (0, 1, 0) or (0, 0, 1) ?? \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]The up direction is (0, 1, 0) or (0, 0, 1) ?? \end{DoxyRefDesc}
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2022 
 \end{DoxyCopyright}

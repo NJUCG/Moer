@@ -1,0 +1,6 @@
+<map id="RayDifferential" name="RayDifferential">
+<area shape="rect" id="node1" title="ray differential" alt="" coords="117,172,237,197"/>
+<area shape="rect" id="node2" href="$struct_ray.html" title="ray" alt="" coords="153,95,200,121"/>
+<area shape="rect" id="node3" href="$struct_t_point3.html" title=" " alt="" coords="5,5,151,31"/>
+<area shape="rect" id="node4" href="$struct_t_vector3.html" title=" " alt="" coords="180,5,333,31"/>
+</map>

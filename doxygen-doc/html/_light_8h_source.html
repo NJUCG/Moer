@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Light/Light.h Source File</title>
+<title>Zero-Renderer: Light.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,10 +72,10 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">CoreLayer/Geometry/Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">CoreLayer/ColorSpace/Color.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">CoreLayer/Ray/Ray.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/ColorSpace/Color.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Ray/Ray.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">struct </span>LightSampleResult</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
@@ -112,12 +112,8 @@ $(function() {
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">virtual</span> LightSampleResult sampleEmit(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;positionSample, <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;directionSample, <span class="keywordtype">float</span> time) = 0;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">virtual</span> LightSampleResult sampleDirect(<span class="keyword">const</span> Intersection &amp;its, <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;sample, <span class="keywordtype">float</span> time) = 0;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
-<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
-<div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div><div class="ttdoc">Ray representation.</div></div>
 <div class="ttc" id="aclass_light_html"><div class="ttname"><a href="class_light.html">Light</a></div><div class="ttdoc">The base class for all light source.</div><div class="ttdef"><b>Definition:</b> Light.h:52</div></div>
-<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:335</div></div>
+<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:387</div></div>
 <div class="ttc" id="astruct_normal3d_html"><div class="ttname"><a href="struct_normal3d.html">Normal3d</a></div><div class="ttdoc">Normal.</div><div class="ttdef"><b>Definition:</b> normal.h:18</div></div>
 <div class="ttc" id="astruct_ray_html"><div class="ttname"><a href="struct_ray.html">Ray</a></div><div class="ttdoc">ray</div><div class="ttdef"><b>Definition:</b> Ray.h:21</div></div>
 <div class="ttc" id="astruct_t_point2_html"><div class="ttname"><a href="struct_t_point2.html">TPoint2&lt; double &gt;</a></div></div>

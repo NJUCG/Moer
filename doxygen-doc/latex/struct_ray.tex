@@ -5,16 +5,24 @@
 ray  
 
 
-
-
-{\ttfamily \#include $<$Ray.\+h$>$}
-
 Inheritance diagram for Ray\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{struct_ray}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_ray_a31ddb0b7b891164fa55c575aceb86635}\label{struct_ray_a31ddb0b7b891164fa55c575aceb86635}} 
+\mbox{\hyperlink{struct_t_point3}{Point3d}} {\bfseries at} (double t)
+\item 
+\mbox{\Hypertarget{struct_ray_a7548ff801be697065ed1a1818d752148}\label{struct_ray_a7548ff801be697065ed1a1818d752148}} 
+bool {\bfseries within\+Time} (double time)
+\item 
+\mbox{\Hypertarget{struct_ray_ab7da09567ddff69365e29318eb181c03}\label{struct_ray_ab7da09567ddff69365e29318eb181c03}} 
+{\bfseries Ray} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&\+\_\+origin, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&\+\_\+direction, double \+\_\+time\+Min=.\+0f, double \+\_\+time\+Max=DBL\+\_\+\+MAX)
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,12 +41,3 @@ double {\bfseries time\+Max}
 \mbox{\Hypertarget{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}\label{struct_ray_a3c8bd761094ee088aa7bc71485b0736d}} 
 std\+::shared\+\_\+ptr$<$ Medium $>$ {\bfseries medium}
 \begin{DoxyCompactList}\small\item\em The medium. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-ray 
-
-The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Ray/\mbox{\hyperlink{_ray_8h}{Ray.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Ray/\mbox{\hyperlink{_ray_8cpp}{Ray.\+cpp}}\end{DoxyCompactItemize}

@@ -72,18 +72,24 @@ $(function() {
 
 <p>Provides transformations between different coordinate systems.  
  <a href="class_coord_convertor.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_coord_convertor_8h_source.html">CoordConvertor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_t_point3.html">Point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coord_convertor.html#a6f5154f84a5ed35b8602d27f4b7d3450">cartesian2Spherical</a> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;p)</td></tr>
 <tr class="memdesc:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a spherical coordinate <img class="formulaInl" alt="$ (\phi, \theta) $" src="form_1.png" width="28" height="14"/> to cartesian coordinate.  <a href="class_coord_convertor.html#a6f5154f84a5ed35b8602d27f4b7d3450">More...</a><br /></td></tr>
 <tr class="separator:a6f5154f84a5ed35b8602d27f4b7d3450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35900e1deaafa324234d5ad53c12b7f4"><td class="memItemLeft" align="right" valign="top"><a id="a35900e1deaafa324234d5ad53c12b7f4" name="a35900e1deaafa324234d5ad53c12b7f4"></a>
+static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cartesian2SphericalVec</b> (const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;p)</td></tr>
+<tr class="separator:a35900e1deaafa324234d5ad53c12b7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187b04a42d83b5df8cd536b54617b452"><td class="memItemLeft" align="right" valign="top"><a id="a187b04a42d83b5df8cd536b54617b452" name="a187b04a42d83b5df8cd536b54617b452"></a>
+static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>world2TBN</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;t, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;b, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;n)</td></tr>
+<tr class="separator:a187b04a42d83b5df8cd536b54617b452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3137d0296f862b95cbe342be370af02"><td class="memItemLeft" align="right" valign="top"><a id="ae3137d0296f862b95cbe342be370af02" name="ae3137d0296f862b95cbe342be370af02"></a>
+static <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>TBN2World</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;t, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;b, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;n)</td></tr>
+<tr class="separator:ae3137d0296f862b95cbe342be370af02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Provides transformations between different coordinate systems. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>A namespace contains function might better? </dd></dl>
+<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>A namespace contains function might better? </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6f5154f84a5ed35b8602d27f4b7d3450" name="a6f5154f84a5ed35b8602d27f4b7d3450"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f5154f84a5ed35b8602d27f4b7d3450">&#9670;&nbsp;</a></span>cartesian2Spherical()</h2>
@@ -108,9 +114,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Convert a spherical coordinate <img class="formulaInl" alt="$ (\phi, \theta) $" src="form_1.png" width="28" height="14"/> to cartesian coordinate. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Sperical2cartesian? The function name doesn't match </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Sperical2cartesian? The function name doesn't match </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td><img class="formulaInl" alt="$ (\phi, \theta) $" src="form_1.png" width="28" height="14"/> </td></tr>
@@ -121,10 +125,6 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_coord_convertor_8h_source.html">CoordConvertor.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_coord_convertor_8cpp.html">CoordConvertor.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

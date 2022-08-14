@@ -72,9 +72,7 @@ $(function() {
 <div class="contents">
 
 <p>Unidirectional path-tracing integrator.  
- <a href="class_path_integrator.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_path_integrator_8h_source.html">PathIntegrator.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for PathIntegrator:</div>
 <div class="dyncontent">
@@ -89,6 +87,9 @@ Inheritance diagram for PathIntegrator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af486c63558fa70b4fe0bc10cfc3e4694"><td class="memItemLeft" align="right" valign="top"><a id="af486c63558fa70b4fe0bc10cfc3e4694" name="af486c63558fa70b4fe0bc10cfc3e4694"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PathIntegrator</b> (std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; _camera, std::unique_ptr&lt; Film &gt; _film, std::unique_ptr&lt; TileGenerator &gt; _tileGenerator, std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt; _sampler, int _spp, int _renderThreadNum=4)</td></tr>
+<tr class="separator:af486c63558fa70b4fe0bc10cfc3e4694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed2feeee5709bc0ba5bf4198486f0392"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_integrator.html#aed2feeee5709bc0ba5bf4198486f0392">evalEmittance</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, std::optional&lt; Intersection &gt; its, const <a class="el" href="struct_ray.html">Ray</a> &amp;ray) override</td></tr>
 <tr class="memdesc:aed2feeee5709bc0ba5bf4198486f0392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the radiance along given ray, emitted from given intersection.  <a href="class_path_integrator.html#aed2feeee5709bc0ba5bf4198486f0392">More...</a><br /></td></tr>
 <tr class="separator:aed2feeee5709bc0ba5bf4198486f0392"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,9 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70b02a3b0c88a62a49ab6947aedcf2ec"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_integrator.html#a70b02a3b0c88a62a49ab6947aedcf2ec">sampleScatter</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="struct_ray.html">Ray</a> &amp;ray)</td></tr>
 <tr class="memdesc:a70b02a3b0c88a62a49ab6947aedcf2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample incident direction by scatter value of BSDF or phase function.  <a href="class_path_integrator.html#a70b02a3b0c88a62a49ab6947aedcf2ec">More...</a><br /></td></tr>
 <tr class="separator:a70b02a3b0c88a62a49ab6947aedcf2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab8f02d77ad68804cc73f26414e69116"><td class="memItemLeft" align="right" valign="top"><a id="aab8f02d77ad68804cc73f26414e69116" name="aab8f02d77ad68804cc73f26414e69116"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>russianRoulette</b> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="class_sampled_spectrum.html">Spectrum</a> &amp;T, int nBounce) override</td></tr>
-<tr class="memdesc:aab8f02d77ad68804cc73f26414e69116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return survive probability of Russian roulette. <br /></td></tr>
+<tr class="memitem:aab8f02d77ad68804cc73f26414e69116"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_integrator.html#aab8f02d77ad68804cc73f26414e69116">russianRoulette</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="class_sampled_spectrum.html">Spectrum</a> &amp;T, int nBounce) override</td></tr>
+<tr class="memdesc:aab8f02d77ad68804cc73f26414e69116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return survive probability of Russian roulette.  <a href="class_path_integrator.html#aab8f02d77ad68804cc73f26414e69116">More...</a><br /></td></tr>
 <tr class="separator:aab8f02d77ad68804cc73f26414e69116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4d7071e1c8e56d42a51a64f624bcaf6"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; std::shared_ptr&lt; <a class="el" href="class_light.html">Light</a> &gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_integrator.html#ab4d7071e1c8e56d42a51a64f624bcaf6">chooseOneLight</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, double lightSample)</td></tr>
 <tr class="memdesc:ab4d7071e1c8e56d42a51a64f624bcaf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample a light, by some weight distribution.  <a href="class_path_integrator.html#ab4d7071e1c8e56d42a51a64f624bcaf6">More...</a><br /></td></tr>
@@ -117,10 +117,15 @@ virtual <a class="el" href="struct_path_integrator_local_record.html">PathIntegr
 <tr class="memdesc:a90dad5b76dec090103b6d34ee0cf2e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate radiance of env lights. <br /></td></tr>
 <tr class="separator:a90dad5b76dec090103b6d34ee0cf2e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_abstract_path_integrator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_abstract_path_integrator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_abstract_path_integrator.html">AbstractPathIntegrator</a></td></tr>
-<tr class="memitem:ab8cd8daf61a70ecc40b6586b4180db2b inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ab8cd8daf61a70ecc40b6586b4180db2b" name="ab8cd8daf61a70ecc40b6586b4180db2b"></a>
-virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Li</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
-<tr class="memdesc:ab8cd8daf61a70ecc40b6586b4180db2b inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray. <br /></td></tr>
+<tr class="memitem:a3f4c5a5a797748ccbdd82de4b8d2d534 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a3f4c5a5a797748ccbdd82de4b8d2d534" name="a3f4c5a5a797748ccbdd82de4b8d2d534"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AbstractPathIntegrator</b> (std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; _camera, std::unique_ptr&lt; Film &gt; _film, std::unique_ptr&lt; TileGenerator &gt; _tileGenerator, std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt; _sampler, int _spp, int _renderThreadNum=4)</td></tr>
+<tr class="separator:a3f4c5a5a797748ccbdd82de4b8d2d534 inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8cd8daf61a70ecc40b6586b4180db2b inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_path_integrator.html#ab8cd8daf61a70ecc40b6586b4180db2b">Li</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
+<tr class="memdesc:ab8cd8daf61a70ecc40b6586b4180db2b inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray.  <a href="class_abstract_path_integrator.html#ab8cd8daf61a70ecc40b6586b4180db2b">More...</a><br /></td></tr>
 <tr class="separator:ab8cd8daf61a70ecc40b6586b4180db2b inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db595c4fd330da3f02ecbef69b5c1b1 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a1db595c4fd330da3f02ecbef69b5c1b1" name="a1db595c4fd330da3f02ecbef69b5c1b1"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>MISWeight</b> (double x, double y)</td></tr>
+<tr class="separator:a1db595c4fd330da3f02ecbef69b5c1b1 inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0319b02e06f722f2715ec5e6c583061 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_path_integrator.html#ae0319b02e06f722f2715ec5e6c583061">evalEmittance</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, std::optional&lt; Intersection &gt; its, const <a class="el" href="struct_ray.html">Ray</a> &amp;ray)=0</td></tr>
 <tr class="memdesc:ae0319b02e06f722f2715ec5e6c583061 inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the radiance along given ray, emitted from given intersection.  <a href="class_abstract_path_integrator.html#ae0319b02e06f722f2715ec5e6c583061">More...</a><br /></td></tr>
 <tr class="separator:ae0319b02e06f722f2715ec5e6c583061 inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,17 +138,18 @@ virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td>
 <tr class="memitem:afd751de0df4b208a7165fadf74bd0c98 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_path_integrator.html#afd751de0df4b208a7165fadf74bd0c98">sampleScatter</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="struct_ray.html">Ray</a> &amp;ray)=0</td></tr>
 <tr class="memdesc:afd751de0df4b208a7165fadf74bd0c98 inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample incident direction by scatter value of BSDF or phase function.  <a href="class_abstract_path_integrator.html#afd751de0df4b208a7165fadf74bd0c98">More...</a><br /></td></tr>
 <tr class="separator:afd751de0df4b208a7165fadf74bd0c98 inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b6bda664ef6b9129aae6dc14bfe9f2 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ab4b6bda664ef6b9129aae6dc14bfe9f2" name="ab4b6bda664ef6b9129aae6dc14bfe9f2"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>russianRoulette</b> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="class_sampled_spectrum.html">Spectrum</a> &amp;T, int nBounce)=0</td></tr>
-<tr class="memdesc:ab4b6bda664ef6b9129aae6dc14bfe9f2 inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return probability of Russian roulette. <br /></td></tr>
+<tr class="memitem:ab4b6bda664ef6b9129aae6dc14bfe9f2 inherit pub_methods_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_path_integrator.html#ab4b6bda664ef6b9129aae6dc14bfe9f2">russianRoulette</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene, const Intersection &amp;its, const <a class="el" href="class_sampled_spectrum.html">Spectrum</a> &amp;T, int nBounce)=0</td></tr>
+<tr class="memdesc:ab4b6bda664ef6b9129aae6dc14bfe9f2 inherit pub_methods_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return probability of Russian roulette.  <a href="class_abstract_path_integrator.html#ab4b6bda664ef6b9129aae6dc14bfe9f2">More...</a><br /></td></tr>
 <tr class="separator:ab4b6bda664ef6b9129aae6dc14bfe9f2 inherit pub_methods_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_monte_carlo_integrator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_monte_carlo_integrator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_monte_carlo_integrator.html">MonteCarloIntegrator</a></td></tr>
+<tr class="memitem:ac3d686f83a7f205340e018b54adffa71 inherit pub_methods_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ac3d686f83a7f205340e018b54adffa71" name="ac3d686f83a7f205340e018b54adffa71"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MonteCarloIntegrator</b> (std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; _camera, std::unique_ptr&lt; Film &gt; _film, std::unique_ptr&lt; TileGenerator &gt; _tileGenerator, std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt; _sampler, int _spp, int _renderThreadNum=4)</td></tr>
+<tr class="separator:ac3d686f83a7f205340e018b54adffa71 inherit pub_methods_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa36b5367a5af05914af0f8dc3e0581c7 inherit pub_methods_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7">render</a> (std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)</td></tr>
 <tr class="memdesc:aa36b5367a5af05914af0f8dc3e0581c7 inherit pub_methods_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start to render the scene.  <a href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7">More...</a><br /></td></tr>
 <tr class="separator:aa36b5367a5af05914af0f8dc3e0581c7 inherit pub_methods_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2818801aa89f29892f391b79844d8e inherit pub_methods_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a0e2818801aa89f29892f391b79844d8e" name="a0e2818801aa89f29892f391b79844d8e"></a>
-virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Li</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)=0</td></tr>
-<tr class="memdesc:a0e2818801aa89f29892f391b79844d8e inherit pub_methods_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray. <br /></td></tr>
+<tr class="memitem:a0e2818801aa89f29892f391b79844d8e inherit pub_methods_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e">Li</a> (const <a class="el" href="struct_ray.html">Ray</a> &amp;ray, std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; scene)=0</td></tr>
+<tr class="memdesc:a0e2818801aa89f29892f391b79844d8e inherit pub_methods_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate radiance along a given ray.  <a href="class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e">More...</a><br /></td></tr>
 <tr class="separator:a0e2818801aa89f29892f391b79844d8e inherit pub_methods_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873051e970b7ce5e4b432778bea15f35 inherit pub_methods_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a873051e970b7ce5e4b432778bea15f35" name="a873051e970b7ce5e4b432778bea15f35"></a>
 virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>randFloat</b> ()</td></tr>
@@ -175,15 +181,31 @@ const double&#160;</td><td class="memItemRight" valign="bottom"><b>pRussianRoule
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>nDirectLightSamples</b> = 1</td></tr>
 <tr class="memdesc:a2efce2d9a16b71a83b05c6bab3d38133 inherit pro_attribs_class_abstract_path_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default, sample the direct illumination at each hitpoint once. <br /></td></tr>
 <tr class="separator:a2efce2d9a16b71a83b05c6bab3d38133 inherit pro_attribs_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87961f597e0cb852db90608a7968420 inherit pro_attribs_class_abstract_path_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ad87961f597e0cb852db90608a7968420" name="ad87961f597e0cb852db90608a7968420"></a>
+const double&#160;</td><td class="memItemRight" valign="bottom"><b>misWeightPower</b> = 1.0f</td></tr>
+<tr class="separator:ad87961f597e0cb852db90608a7968420 inherit pro_attribs_class_abstract_path_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_monte_carlo_integrator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_monte_carlo_integrator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_monte_carlo_integrator.html">MonteCarloIntegrator</a></td></tr>
+<tr class="memitem:a4bae74de1024b945fca1b8dcac091f9e inherit pro_attribs_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a4bae74de1024b945fca1b8dcac091f9e" name="a4bae74de1024b945fca1b8dcac091f9e"></a>
+std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sampler</b></td></tr>
+<tr class="separator:a4bae74de1024b945fca1b8dcac091f9e inherit pro_attribs_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a149ebd55e2dafda299c6e9bb31891b5f inherit pro_attribs_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a149ebd55e2dafda299c6e9bb31891b5f" name="a149ebd55e2dafda299c6e9bb31891b5f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>spp</b> = 4</td></tr>
 <tr class="memdesc:a149ebd55e2dafda299c6e9bb31891b5f inherit pro_attribs_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default sample per pixel = 4. <br /></td></tr>
 <tr class="separator:a149ebd55e2dafda299c6e9bb31891b5f inherit pro_attribs_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8a8c6f516149293e1a310fd23dd90d inherit pro_attribs_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="aff8a8c6f516149293e1a310fd23dd90d" name="aff8a8c6f516149293e1a310fd23dd90d"></a>
+std::shared_ptr&lt; TileGenerator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tileGenerator</b></td></tr>
+<tr class="separator:aff8a8c6f516149293e1a310fd23dd90d inherit pro_attribs_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98db47e38b3b9c1aa64db02b571db860 inherit pro_attribs_class_monte_carlo_integrator"><td class="memItemLeft" align="right" valign="top"><a id="a98db47e38b3b9c1aa64db02b571db860" name="a98db47e38b3b9c1aa64db02b571db860"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>renderThreadNum</b> =4</td></tr>
 <tr class="memdesc:a98db47e38b3b9c1aa64db02b571db860 inherit pro_attribs_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default rendering threads = 4. <br /></td></tr>
 <tr class="separator:a98db47e38b3b9c1aa64db02b571db860 inherit pro_attribs_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_integrator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_integrator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_integrator.html">Integrator</a></td></tr>
+<tr class="memitem:ad3b7c350dc419b21cf584a4717e32c87 inherit pro_attribs_class_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ad3b7c350dc419b21cf584a4717e32c87" name="ad3b7c350dc419b21cf584a4717e32c87"></a>
+std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
+<tr class="separator:ad3b7c350dc419b21cf584a4717e32c87 inherit pro_attribs_class_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac482591f4fc9fe3a5c485bf0f72ba8e4 inherit pro_attribs_class_integrator"><td class="memItemLeft" align="right" valign="top"><a id="ac482591f4fc9fe3a5c485bf0f72ba8e4" name="ac482591f4fc9fe3a5c485bf0f72ba8e4"></a>
+std::unique_ptr&lt; Film &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>film</b></td></tr>
+<tr class="separator:ac482591f4fc9fe3a5c485bf0f72ba8e4 inherit pro_attribs_class_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -193,9 +215,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
 <tr class="memdesc:a7ad0d97f79ebbc49af3b3bbf1b98a77d inherit pro_methods_class_monte_carlo_integrator"><td class="mdescLeft">&#160;</td><td class="mdescRight">: render process per thread. Should be called in <a class="el" href="class_monte_carlo_integrator.html#aa36b5367a5af05914af0f8dc3e0581c7" title="Start to render the scene.">render()</a>. <br /></td></tr>
 <tr class="separator:a7ad0d97f79ebbc49af3b3bbf1b98a77d inherit pro_methods_class_monte_carlo_integrator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Unidirectional path-tracing integrator. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab4d7071e1c8e56d42a51a64f624bcaf6" name="ab4d7071e1c8e56d42a51a64f624bcaf6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4d7071e1c8e56d42a51a64f624bcaf6">&#9670;&nbsp;</a></span>chooseOneLight()</h2>
 
@@ -241,9 +261,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Sample a light, by some weight distribution. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>move light sampling into a new class (called LightDistribution?) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>move light sampling into a new class (called LightDistribution?) </dd></dl>
 
 </div>
 </div>
@@ -286,8 +304,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Return the radiance along given ray, emitted from given intersection. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>Ptr to scene. </td></tr>
@@ -347,8 +363,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Return scatter value of BSDF or phase function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>Ptr to scene. </td></tr>
@@ -361,6 +375,56 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
 <dl class="section return"><dt>Returns</dt><dd>Incident direction, scatter throughput f, pdf per solid angle. For surface, f is the product of BSDF value and cosine term. For medium, f is the value of phase function. </dd></dl>
 
 <p>Implements <a class="el" href="class_abstract_path_integrator.html#aee510e134c59cdd95e1138f9033be81b">AbstractPathIntegrator</a>.</p>
+
+</div>
+</div>
+<a id="aab8f02d77ad68804cc73f26414e69116" name="aab8f02d77ad68804cc73f26414e69116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab8f02d77ad68804cc73f26414e69116">&#9670;&nbsp;</a></span>russianRoulette()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PathIntegrator::russianRoulette </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Intersection &amp;&#160;</td>
+          <td class="paramname"><em>its</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_sampled_spectrum.html">Spectrum</a> &amp;&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nBounce</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_abstract_path_integrator.html#ab4b6bda664ef6b9129aae6dc14bfe9f2">AbstractPathIntegrator</a>.</p>
 
 </div>
 </div>
@@ -403,8 +467,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Sample incident direction of direct lighting. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>Ptr to scene. </td></tr>
@@ -458,8 +520,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Sample incident direction by scatter value of BSDF or phase function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>Ptr to scene. </td></tr>
@@ -474,10 +534,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderPerThread</b> (
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_path_integrator_8h_source.html">PathIntegrator.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_path_integrator_8cpp.html">PathIntegrator.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

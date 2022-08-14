@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['lerp_0',['lerp',['../_common_8h.html#a4fd25f7b1bae1987e401066bb9cf06ef',1,'Common.h']]],
-  ['li_1',['Li',['../class_abstract_path_integrator.html#ab8cd8daf61a70ecc40b6586b4180db2b',1,'AbstractPathIntegrator::Li()'],['../class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e',1,'MonteCarloIntegrator::Li()']]],
-  ['light_2',['Light',['../class_light.html',1,'Light'],['../group___light.html',1,'(Global Namespace)']]],
-  ['linearbvhnode_3',['LinearBvhNode',['../struct_linear_bvh_node.html',1,'']]],
-  ['lookat_4',['lookAt',['../class_matrix4x4.html#ad18057d75b56aa01673f11ec854349a6',1,'Matrix4x4']]]
+  ['imagetexture_0',['ImageTexture',['../class_image_texture.html',1,'']]],
+  ['independentsampler_1',['IndependentSampler',['../class_independent_sampler.html',1,'']]],
+  ['init_2',['init',['../class_sampled_spectrum.html#abfc99e04bd5637895ea1a165547ec579',1,'SampledSpectrum']]],
+  ['integrator_3',['Integrator',['../class_integrator.html',1,'Integrator'],['../class_integrator.html#a542e74d4e2a070e6cb730aa400dd56fc',1,'Integrator::Integrator()'],['../group___integrator.html',1,'(Global Namespace)']]],
+  ['intersection_4',['Intersection',['../class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6',1,'BoundingBox3']]],
+  ['isblack_5',['isBlack',['../class_coefficient_spectrum.html#aa4021c592daf6debb4e5b81dbed00da0',1,'CoefficientSpectrum']]]
 ];

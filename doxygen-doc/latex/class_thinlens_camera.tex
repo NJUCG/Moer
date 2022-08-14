@@ -5,10 +5,6 @@
 Thinlens camera.  
 
 
-
-
-{\ttfamily \#include $<$Thinlens.\+h$>$}
-
 Inheritance diagram for Thinlens\+Camera\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,13 +14,25 @@ Inheritance diagram for Thinlens\+Camera\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_thinlens_camera_aca5fb8ccdc27da38686ad9b40d9e7bbb}\label{class_thinlens_camera_aca5fb8ccdc27da38686ad9b40d9e7bbb}} 
+{\bfseries Thinlens\+Camera} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up, double x\+Fov, double aspect\+Ratio, double \+\_\+foca\+Distance, double \+\_\+aperture\+Radius=0.\+1, double \+\_\+focal\+Len=0.\+05)
+\item 
 virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}{generate\+Ray}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&film\+Resolution, const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position, const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&sample) const override
 \begin{DoxyCompactList}\small\item\em Generate a ray from camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_thinlens_camera_ac6d7795c14252806c440520a83aa359e}\label{class_thinlens_camera_ac6d7795c14252806c440520a83aa359e}} 
+double {\bfseries aperture\+Radius}
+\item 
+\mbox{\Hypertarget{class_thinlens_camera_abc31540f08cd9d9f69d6fecb0e1c326b}\label{class_thinlens_camera_abc31540f08cd9d9f69d6fecb0e1c326b}} 
+double {\bfseries focal\+Len}
+\item 
+\mbox{\Hypertarget{class_thinlens_camera_ae5bc4eb88b34004929046e0c5f14fb61}\label{class_thinlens_camera_ae5bc4eb88b34004929046e0c5f14fb61}} 
+double {\bfseries focal\+Distance}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
-
-\doxysubsection{Detailed Description}
-Thinlens camera. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}\label{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}} 
@@ -32,10 +40,6 @@ Thinlens camera.
 \index{generateRay@{generateRay}!ThinlensCamera@{ThinlensCamera}}
 \doxysubsubsection{\texorpdfstring{generateRay()}{generateRay()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_ray}{Ray}} Thinlens\+Camera\+::generate\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{film\+Resolution,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{pixel\+Position,  }\item[{const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Generate a ray from camera. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -53,9 +57,3 @@ Generate a ray from camera.
 
 Implements \mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{Camera}}.
 
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/Thinlens.\+h\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/Thinlens.\+cpp\end{DoxyCompactItemize}

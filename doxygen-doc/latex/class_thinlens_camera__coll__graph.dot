@@ -1,0 +1,13 @@
+digraph "ThinlensCamera"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape="box"];
+  Node1 [label="ThinlensCamera",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Thinlens camera."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="PerspectiveCamera",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_perspective_camera.html",tooltip="Base class for all perspective camera."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Camera",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_camera.html",tooltip="Base class for all camera."];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cameraToWorld\nsampleToFilm" ];
+  Node4 [label="Matrix4x4",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix4x4.html",tooltip="a simple wrap of Eigen Matrix 4x4."];
+}

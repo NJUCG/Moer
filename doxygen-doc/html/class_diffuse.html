@@ -64,15 +64,14 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_diffuse-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Diffuse Class Reference<div class="ingroups"><a class="el" href="group___bx_d_f.html">BxDF</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Lambertian reflection model.  
- <a href="class_diffuse.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_diffuse_8h_source.html">Diffuse.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for Diffuse:</div>
 <div class="dyncontent">
@@ -82,12 +81,217 @@ Inheritance diagram for Diffuse:</div>
 <area href="class_bx_d_f.html" title="BxDF. out == rays from/to camera, in == rays from/to objects/lights." alt="BxDF" shape="rect" coords="0,0,52,24"/>
   </map>
 </div></div>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Lambertian reflection model. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/<a class="el" href="_diffuse_8h_source.html">Diffuse.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/<a class="el" href="_diffuse_8cpp.html">Diffuse.cpp</a></li>
-</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a20a4304d698249bda07fbefa737487a4"><td class="memItemLeft" align="right" valign="top"><a id="a20a4304d698249bda07fbefa737487a4" name="a20a4304d698249bda07fbefa737487a4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Diffuse</b> (<a class="el" href="class_sampled_spectrum.html">Spectrum</a> albedo)</td></tr>
+<tr class="separator:a20a4304d698249bda07fbefa737487a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b48ad2e224c4d06e6cc22781c7025b1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse.html#a8b48ad2e224c4d06e6cc22781c7025b1">f</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
+<tr class="separator:a8b48ad2e224c4d06e6cc22781c7025b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb0affbeb0e1fc7708ccabfb77c65c9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse.html#a8bb0affbeb0e1fc7708ccabfb77c65c9">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
+<tr class="separator:a8bb0affbeb0e1fc7708ccabfb77c65c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2369afbf866f64477fe27958b94bee2"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse.html#ae2369afbf866f64477fe27958b94bee2">pdf</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
+<tr class="separator:ae2369afbf866f64477fe27958b94bee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c15bd4bb8100ace0b464353ee01377"><td class="memItemLeft" align="right" valign="top">virtual BxDFSampleResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse.html#a39c15bd4bb8100ace0b464353ee01377">sample</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
+<tr class="separator:a39c15bd4bb8100ace0b464353ee01377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4316d1310c026fc0903ba8320b8f4a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diffuse.html#abf4316d1310c026fc0903ba8320b8f4a">isSpecular</a> () const</td></tr>
+<tr class="separator:abf4316d1310c026fc0903ba8320b8f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e38ea9387160d54c1393a664a3118c"><td class="memItemLeft" align="right" valign="top"><a id="a54e38ea9387160d54c1393a664a3118c" name="a54e38ea9387160d54c1393a664a3118c"></a>
+virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>f</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
+<tr class="separator:a54e38ea9387160d54c1393a664a3118c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bx_d_f.html#a6d116e406a8aa819ab2c40ebb04d33f1">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
+<tr class="separator:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memItemLeft" align="right" valign="top"><a id="a5da96c45f63e8ea96f7c1e8527216c78" name="a5da96c45f63e8ea96f7c1e8527216c78"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>pdf</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
+<tr class="separator:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91816792b34433274c8c02ab75425282"><td class="memItemLeft" align="right" valign="top"><a id="a91816792b34433274c8c02ab75425282" name="a91816792b34433274c8c02ab75425282"></a>
+virtual BxDFSampleResult&#160;</td><td class="memItemRight" valign="bottom"><b>sample</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
+<tr class="separator:a91816792b34433274c8c02ab75425282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcb853695e4f708df98615efd95f990"><td class="memItemLeft" align="right" valign="top"><a id="adfcb853695e4f708df98615efd95f990" name="adfcb853695e4f708df98615efd95f990"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSpecular</b> () const =0</td></tr>
+<tr class="separator:adfcb853695e4f708df98615efd95f990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8b48ad2e224c4d06e6cc22781c7025b1" name="a8b48ad2e224c4d06e6cc22781c7025b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b48ad2e224c4d06e6cc22781c7025b1">&#9670;&nbsp;</a></span>f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sampled_spectrum.html">Spectrum</a> Diffuse::f </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="abf4316d1310c026fc0903ba8320b8f4a" name="abf4316d1310c026fc0903ba8320b8f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4316d1310c026fc0903ba8320b8f4a">&#9670;&nbsp;</a></span>isSpecular()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Diffuse::isSpecular </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="ae2369afbf866f64477fe27958b94bee2" name="ae2369afbf866f64477fe27958b94bee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2369afbf866f64477fe27958b94bee2">&#9670;&nbsp;</a></span>pdf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Diffuse::pdf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="a39c15bd4bb8100ace0b464353ee01377" name="a39c15bd4bb8100ace0b464353ee01377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c15bd4bb8100ace0b464353ee01377">&#9670;&nbsp;</a></span>sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BxDFSampleResult Diffuse::sample </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>sample</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="a8bb0affbeb0e1fc7708ccabfb77c65c9" name="a8bb0affbeb0e1fc7708ccabfb77c65c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb0affbeb0e1fc7708ccabfb77c65c9">&#9670;&nbsp;</a></span>sampleWi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t_vector3.html">Vec3d</a> Diffuse::sampleWi </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>sample</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

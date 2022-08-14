@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_light.html" title="The base class for all light source." alt="" coords="31,5,85,31"/>
+<area shape="rect" id="node2" href="$class_area_light.html" title="Base class for all area light source." alt="" coords="160,5,244,31"/>
+<area shape="rect" id="node4" href="$class_point_light.html" title="Point light source." alt="" coords="159,55,245,80"/>
+<area shape="rect" id="node3" href="$class_diffuse_area_light.html" title="Diffuse area light source." alt="" coords="293,5,424,31"/>
+<area shape="rect" id="node5" href="$class_transform3_d.html" title="3d transformation representation" alt="" coords="5,55,111,80"/>
+</map>

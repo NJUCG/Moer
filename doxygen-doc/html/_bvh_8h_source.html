@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Aggregate/Bvh.h Source File</title>
+<title>Zero-Renderer: Bvh.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,12 +70,12 @@ $(function() {
   <div class="headertitle"><div class="title">Bvh.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_bvh_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_bounding_box_8h.html">CoreLayer/Geometry/BoundingBox.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">FunctionLayer/Shape/Entity.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/BoundingBox.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;FunctionLayer/Shape/Entity.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_entity_info.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_entity_info.html">EntityInfo</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="struct_entity_info.html">EntityInfo</a>(){}</div>
@@ -117,15 +117,14 @@ $(function() {
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    Bvh(std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;&amp; _entites, SplitMethod _splitMethod = SplitMethod::SAH);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::shared_ptr&lt;BvhTreeNode&gt; RecursiveBuild(std::vector&lt;EntityInfo&gt;&amp; entityInfo, <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end, <span class="keywordtype">int</span>&amp; nodeNumber, std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;&amp; orderedEntites);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> Flatten(std::shared_ptr&lt;BvhTreeNode&gt; node, <span class="keywordtype">int</span>&amp; dfsOrder);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::optional&lt;Intersection&gt; Intersect(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ray.html">Ray</a>&amp; r);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
-<div class="ttc" id="a_bounding_box_8h_html"><div class="ttname"><a href="_bounding_box_8h.html">BoundingBox.h</a></div><div class="ttdoc">Bounding box declaration.</div></div>
-<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Objects that can be intersected with ray.</div></div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::shared_ptr&lt;BvhTreeNode&gt; RecursiveBuild(std::vector&lt;EntityInfo&gt;&amp; entityInfo, </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                                <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end, <span class="keywordtype">int</span>&amp; nodeNumber, </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                                                std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt;&amp; orderedEntites);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> Flatten(std::shared_ptr&lt;BvhTreeNode&gt; node, <span class="keywordtype">int</span>&amp; dfsOrder);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::optional&lt;Intersection&gt; Intersect(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ray.html">Ray</a>&amp; r);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
 <div class="ttc" id="aclass_bounding_box3_html"><div class="ttname"><a href="class_bounding_box3.html">BoundingBox3&lt; double &gt;</a></div></div>
 <div class="ttc" id="astruct_entity_info_html"><div class="ttname"><a href="struct_entity_info.html">EntityInfo</a></div><div class="ttdoc">Entity information declaration for building BVH.</div><div class="ttdef"><b>Definition:</b> Bvh.h:19</div></div>
 <div class="ttc" id="astruct_linear_bvh_node_html"><div class="ttname"><a href="struct_linear_bvh_node.html">LinearBvhNode</a></div><div class="ttdoc">Bvh Nodes in Dfs-Order.</div><div class="ttdef"><b>Definition:</b> Bvh.h:36</div></div>

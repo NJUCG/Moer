@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Light/DiffuseAreaLight.h Source File</title>
+<title>Zero-Renderer: DiffuseAreaLight.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,10 +70,10 @@ $(function() {
   <div class="headertitle"><div class="title">DiffuseAreaLight.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_diffuse_area_light_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_area_light_8h.html">AreaLight.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_transform3d_8h.html">CoreLayer/Geometry/Transform3d.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">FunctionLayer/Shape/Entity.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;AreaLight.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Transform3d.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;FunctionLayer/Shape/Entity.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_diffuse_area_light.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="class_diffuse_area_light.html">DiffuseAreaLight</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_area_light.html">AreaLight</a></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
@@ -88,12 +88,9 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">virtual</span> LightSampleResult sampleEmit(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;positionSample, <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;directionSample, <span class="keywordtype">float</span> time) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> LightSampleResult sampleDirect(<span class="keyword">const</span> Intersection &amp;its, <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2d</a> &amp;sample, <span class="keywordtype">float</span> time) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="ttc" id="a_area_light_8h_html"><div class="ttname"><a href="_area_light_8h.html">AreaLight.h</a></div><div class="ttdoc">Area light (abstract).</div></div>
-<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Objects that can be intersected with ray.</div></div>
-<div class="ttc" id="a_transform3d_8h_html"><div class="ttname"><a href="_transform3d_8h.html">Transform3d.h</a></div><div class="ttdoc">3d transformation representation. More like an interface: be inherited means that the inheriting clas...</div></div>
 <div class="ttc" id="aclass_area_light_html"><div class="ttname"><a href="class_area_light.html">AreaLight</a></div><div class="ttdoc">Base class for all area light source.</div><div class="ttdef"><b>Definition:</b> AreaLight.h:19</div></div>
 <div class="ttc" id="aclass_diffuse_area_light_html"><div class="ttname"><a href="class_diffuse_area_light.html">DiffuseAreaLight</a></div><div class="ttdoc">Diffuse area light source.</div><div class="ttdef"><b>Definition:</b> DiffuseAreaLight.h:20</div></div>
-<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:335</div></div>
+<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:387</div></div>
 <div class="ttc" id="astruct_ray_html"><div class="ttname"><a href="struct_ray.html">Ray</a></div><div class="ttdoc">ray</div><div class="ttdef"><b>Definition:</b> Ray.h:21</div></div>
 <div class="ttc" id="astruct_t_point2_html"><div class="ttname"><a href="struct_t_point2.html">TPoint2&lt; double &gt;</a></div></div>
 <div class="ttc" id="astruct_t_vector3_html"><div class="ttname"><a href="struct_t_vector3.html">TVector3&lt; double &gt;</a></div></div>

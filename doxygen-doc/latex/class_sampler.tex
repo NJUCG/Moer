@@ -5,26 +5,77 @@
 Base class for all samplers.  
 
 
-
-
-{\ttfamily \#include $<$Sampler.\+h$>$}
-
 Inheritance diagram for Sampler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{class_sampler}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_sampler_a15043f61d1aa68d23d4a236d7a3b43f2}{start\+Pixel}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position)=0
+\item 
+virtual void \mbox{\hyperlink{class_sampler_a90333473f49b606be5dbfa8f1ce2d150}{next\+Sample}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_sampler_a52b8b242ca399ee35f78486178bbd45c}{sample1D}} ()=0
+\item 
+virtual \mbox{\hyperlink{struct_t_point2}{Point2d}} \mbox{\hyperlink{class_sampler_aa2af90b8ee567328badc7abd5a2ea922}{sample2D}} ()=0
+\item 
+\mbox{\Hypertarget{class_sampler_a673791100b4626603867a86f5f6cae0b}\label{class_sampler_a673791100b4626603867a86f5f6cae0b}} 
+\mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} {\bfseries get\+Camera\+Sample} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sampler_ac19b6137dcb5c9543bfb95068fb404cf}\label{class_sampler_ac19b6137dcb5c9543bfb95068fb404cf}} 
+\mbox{\hyperlink{class_random_number_generator}{Random\+Number\+Generator}} {\bfseries rng}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Base class for all samplers. 
-
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000015}{Todo}}]Handle the multi-\/threads issue \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000016}{Todo}}]Handle the multi-\/threads issue \end{DoxyRefDesc}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Sampler/\mbox{\hyperlink{_sampler_8h}{Sampler.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Sampler/Sampler.\+cpp\end{DoxyCompactItemize}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sampler_a90333473f49b606be5dbfa8f1ce2d150}\label{class_sampler_a90333473f49b606be5dbfa8f1ce2d150}} 
+\index{Sampler@{Sampler}!nextSample@{nextSample}}
+\index{nextSample@{nextSample}!Sampler@{Sampler}}
+\doxysubsubsection{\texorpdfstring{nextSample()}{nextSample()}}
+{\footnotesize\ttfamily virtual void Sampler\+::next\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_pixel_sampler_a312e010bd1ee5fe1ba1ac238241bc5b2}{Pixel\+Sampler}}.
+
+\mbox{\Hypertarget{class_sampler_a52b8b242ca399ee35f78486178bbd45c}\label{class_sampler_a52b8b242ca399ee35f78486178bbd45c}} 
+\index{Sampler@{Sampler}!sample1D@{sample1D}}
+\index{sample1D@{sample1D}!Sampler@{Sampler}}
+\doxysubsubsection{\texorpdfstring{sample1D()}{sample1D()}}
+{\footnotesize\ttfamily virtual double Sampler\+::sample1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_pixel_sampler_adab6672d229cc574a0d38354b9a487c0}{Pixel\+Sampler}}.
+
+\mbox{\Hypertarget{class_sampler_aa2af90b8ee567328badc7abd5a2ea922}\label{class_sampler_aa2af90b8ee567328badc7abd5a2ea922}} 
+\index{Sampler@{Sampler}!sample2D@{sample2D}}
+\index{sample2D@{sample2D}!Sampler@{Sampler}}
+\doxysubsubsection{\texorpdfstring{sample2D()}{sample2D()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_t_point2}{Point2d}} Sampler\+::sample2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_pixel_sampler_ae4ec1ed716791e4e1f58f1330fec4090}{Pixel\+Sampler}}.
+
+\mbox{\Hypertarget{class_sampler_a15043f61d1aa68d23d4a236d7a3b43f2}\label{class_sampler_a15043f61d1aa68d23d4a236d7a3b43f2}} 
+\index{Sampler@{Sampler}!startPixel@{startPixel}}
+\index{startPixel@{startPixel}!Sampler@{Sampler}}
+\doxysubsubsection{\texorpdfstring{startPixel()}{startPixel()}}
+{\footnotesize\ttfamily virtual void Sampler\+::start\+Pixel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{pixel\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_pixel_sampler_aeaef002137c4664db461acdd696fb2e5}{Pixel\+Sampler}}.
+

@@ -11,6 +11,10 @@ Color representation, including rgb, xyz and spectrum.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \mbox{\hyperlink{class_r_g_b3}{RGB3}}
+\begin{DoxyCompactList}\small\item\em Classical rgb color space. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_x_y_z3}{XYZ3}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_x_y_z3}{XYZ3}} color space. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum$<$ n\+Samples $>$}}
 \begin{DoxyCompactList}\small\item\em Spectrum of n\+Samples sample points. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}}
@@ -19,37 +23,49 @@ class \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}
 \begin{DoxyCompactList}\small\item\em The specturm samples uniformly. Actually used in program. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_r_g_b_spectrum}{RGBSpectrum}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_color_8h_a210d564251453aa1f6f1615388cdbaa4}\label{_color_8h_a210d564251453aa1f6f1615388cdbaa4}} 
+using {\bfseries Spectrum} = \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{_color_8h_ab7b974cef152e339967fce62f49de0d9}\label{_color_8h_ab7b974cef152e339967fce62f49de0d9}} 
-enum class \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{Spectrum\+Type}} 
+enum class \mbox{\hyperlink{_color_8h_ab7b974cef152e339967fce62f49de0d9}{Spectrum\+Type}} \{ {\bfseries REFLECTANCE}
+, {\bfseries ILLUMINANT}
+ \}
 \begin{DoxyCompactList}\small\item\em types of spectrum. different strategies will be applied. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}\label{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}} 
-double {\bfseries math\+Clamp} (double source, double low=0.\+0, double high=DBL\+\_\+\+MAX)
+double \mbox{\hyperlink{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}{math\+Clamp}} (double source, double low=0.\+0, double high=DBL\+\_\+\+MAX)
 \begin{DoxyCompactList}\small\item\em Mathematical clamp. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}\label{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}} 
-double {\bfseries math\+Lerp} (double ratio, double source0, double source1)
+double \mbox{\hyperlink{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}{math\+Lerp}} (double ratio, double source0, double source1)
 \begin{DoxyCompactList}\small\item\em Mathematical lerp. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{_color_8h_a7294288dac91b2f0629c88935c3a3db4}\label{_color_8h_a7294288dac91b2f0629c88935c3a3db4}} 
+static const double {\bfseries sampled\+Lambda\+Start} = 400.\+0
+\item 
+\mbox{\Hypertarget{_color_8h_aa658e6acb4c63af4875024311f38cdaa}\label{_color_8h_aa658e6acb4c63af4875024311f38cdaa}} 
+static const double {\bfseries sampled\+Lambda\+End} = 700.\+0
+\item 
 \mbox{\Hypertarget{_color_8h_aa517fb822956ff9568b0a9074eb68274}\label{_color_8h_aa517fb822956ff9568b0a9074eb68274}} 
 static const int {\bfseries n\+Spectrum\+Samples} = 60
-\begin{DoxyCompactList}\small\item\em The number of uniform samples for \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Color representation, including rgb, xyz and spectrum. 
 
-XYZ3 implemention.
+\mbox{\hyperlink{class_x_y_z3}{XYZ3}} implemention.
 
 Spectrum implemention and preset Spectrums.
 
-RGB3 implemention.
+\mbox{\hyperlink{class_r_g_b3}{RGB3}} implemention.
 
 \begin{DoxyAuthor}{Author}
 orbitchen 
@@ -63,3 +79,51 @@ orbitchen
 \begin{DoxyCopyright}{Copyright}
 NJUMeta (c) 2022 www.\+njumeta.\+com 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}\label{_color_8h_a61b67e83aafccc2f834372c9efeaddbd}} 
+\index{Color.h@{Color.h}!mathClamp@{mathClamp}}
+\index{mathClamp@{mathClamp}!Color.h@{Color.h}}
+\doxysubsubsection{\texorpdfstring{mathClamp()}{mathClamp()}}
+{\footnotesize\ttfamily double math\+Clamp (\begin{DoxyParamCaption}\item[{double}]{source,  }\item[{double}]{low = {\ttfamily 0.0},  }\item[{double}]{high = {\ttfamily DBL\+\_\+MAX} }\end{DoxyParamCaption})}
+
+
+
+Mathematical clamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The double to be clamped \\
+\hline
+{\em low} & Lower bound of the range \\
+\hline
+{\em high} & Upper bound of the range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}\label{_color_8h_ad7c41fb05dfc8cf5c4a8722c7ac0761d}} 
+\index{Color.h@{Color.h}!mathLerp@{mathLerp}}
+\index{mathLerp@{mathLerp}!Color.h@{Color.h}}
+\doxysubsubsection{\texorpdfstring{mathLerp()}{mathLerp()}}
+{\footnotesize\ttfamily double math\+Lerp (\begin{DoxyParamCaption}\item[{double}]{ratio,  }\item[{double}]{source0,  }\item[{double}]{source1 }\end{DoxyParamCaption})}
+
+
+
+Mathematical lerp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ratio} & The weight of the source1 \\
+\hline
+{\em source0} & ~\newline
+ \\
+\hline
+{\em source1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double = (1 -\/ ratio) $\ast$ source0 + ratio $\ast$ source1 
+\end{DoxyReturn}

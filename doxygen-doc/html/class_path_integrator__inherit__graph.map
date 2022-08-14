@@ -1,0 +1,6 @@
+<map id="PathIntegrator" name="PathIntegrator">
+<area shape="rect" id="node1" title="Unidirectional path&#45;tracing integrator." alt="" coords="32,225,147,251"/>
+<area shape="rect" id="node2" href="$class_abstract_path_integrator.html" title="Base class for all path_tracing&#45;like integrators." alt="" coords="5,152,173,177"/>
+<area shape="rect" id="node3" href="$class_monte_carlo_integrator.html" title="Base class for all integrators solving rendering equation using MonteCarlo methods." alt="" coords="9,79,170,104"/>
+<area shape="rect" id="node4" href="$class_integrator.html" title="Base class for all integrators solving the rendering equation." alt="" coords="46,5,133,31"/>
+</map>

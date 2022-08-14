@@ -5,23 +5,28 @@
 Base class for all textures.  
 
 
-
-
-{\ttfamily \#include $<$Texture.\+h$>$}
-
 Inheritance diagram for Texture\texorpdfstring{$<$}{<} Tvalue \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=1.700405cm]{class_texture}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Detailed Description}
-\subsubsection*{template$<$typename Tvalue$>$\newline
-class Texture$<$ Tvalue $>$}
-Base class for all textures. 
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Texture/\mbox{\hyperlink{_texture_8h}{Texture.\+h}}\end{DoxyCompactItemize}
+virtual Tvalue \mbox{\hyperlink{class_texture_ab535d159cf0862b9cf4f29feb225f908}{eval}} (const Intersection \&intersection) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_ab535d159cf0862b9cf4f29feb225f908}\label{class_texture_ab535d159cf0862b9cf4f29feb225f908}} 
+\index{Texture$<$ Tvalue $>$@{Texture$<$ Tvalue $>$}!eval@{eval}}
+\index{eval@{eval}!Texture$<$ Tvalue $>$@{Texture$<$ Tvalue $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily template$<$typename Tvalue $>$ \\
+virtual Tvalue \mbox{\hyperlink{class_texture}{Texture}}$<$ Tvalue $>$\+::eval (\begin{DoxyParamCaption}\item[{const Intersection \&}]{intersection }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_checkerboard2_d_afe2060ef6aa48e73021144b53c0c5e08}{Checkerboard2D}}, \mbox{\hyperlink{class_checkerboard3_d_afe2060ef6aa48e73021144b53c0c5e08}{Checkerboard3D}}, \mbox{\hyperlink{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}{Std\+Texture$<$ Tvalue, Tcoord $>$}}, \mbox{\hyperlink{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}{Std\+Texture$<$ double, Texture\+Coord2\+D $>$}}, \mbox{\hyperlink{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}{Std\+Texture$<$ double, Texture\+Coord3\+D $>$}}, and \mbox{\hyperlink{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}{Std\+Texture$<$ Treturn, Texture\+Coord2\+D $>$}}.
+

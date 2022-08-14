@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Material/MirrorMaterial.h Source File</title>
+<title>Zero-Renderer: MirrorMaterial.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,10 +70,10 @@ $(function() {
   <div class="headertitle"><div class="title">MirrorMaterial.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_mirror_material_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_material_8h.html">Material.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_mirror_8h.html">FunctionLayer/Material/BxDF/Mirror.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;Material.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;FunctionLayer/Material/BxDF/Mirror.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma  once</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span>MirrorMaterial  : <span class="keyword">public</span>  Material{</div>
@@ -83,9 +83,6 @@ $(function() {
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;BxDF&gt; getBxDF(Intersection intersect) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;BSSRDF&gt; getBSSRDF(Intersection intersect) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
-<div class="ttc" id="a_material_8h_html"><div class="ttname"><a href="_material_8h.html">Material.h</a></div><div class="ttdoc">Material of an object. Generate BxDF and/or BSSRDF.</div></div>
-<div class="ttc" id="a_mirror_8h_html"><div class="ttname"><a href="_mirror_8h.html">Mirror.h</a></div><div class="ttdoc">Mirror Material.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

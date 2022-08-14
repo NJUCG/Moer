@@ -1,0 +1,5 @@
+<map id="Checkerboard3D" name="Checkerboard3D">
+<area shape="rect" id="node1" title="3D checkboard texture" alt="" coords="18,167,147,192"/>
+<area shape="rect" id="node2" href="$class_std_texture.html" title=" " alt="" coords="5,79,160,119"/>
+<area shape="rect" id="node3" href="$class_texture.html" title="Base class for all textures." alt="" coords="11,5,155,31"/>
+</map>

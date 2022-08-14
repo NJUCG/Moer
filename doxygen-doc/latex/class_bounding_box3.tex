@@ -5,29 +5,41 @@
 Axis-\/aligned bounding box 3D base type, the box edges are mutually perpendicular and aligned to axes.  
 
 
-
-
-{\ttfamily \#include $<$Bounding\+Box.\+h$>$}
-
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_bounding_box3_a030d87867c2fee993f95b1929a97c213}\label{class_bounding_box3_a030d87867c2fee993f95b1929a97c213}} 
+{\bfseries Bounding\+Box3} (\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p)
+\item 
+\mbox{\Hypertarget{class_bounding_box3_a89a4f33ad89ae456c2805138c3d9f1fd}\label{class_bounding_box3_a89a4f33ad89ae456c2805138c3d9f1fd}} 
+{\bfseries Bounding\+Box3} (\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p\+Min, \mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ \+\_\+p\+Max)
+\item 
 std\+::optional$<$ \mbox{\hyperlink{struct_t_point2}{Point2d}} $>$ \mbox{\hyperlink{class_bounding_box3_aafe501d9cb9f76a7bd1e6d97a031dba6}{Intersection}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&r)
 \begin{DoxyCompactList}\small\item\em Intersect of ray and bounding box. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}{Surface\+Area}} ()
-\begin{DoxyCompactList}\small\item\em The surface area of the bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}\label{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}} 
+double {\bfseries Surface\+Area} ()
+\begin{DoxyCompactList}\small\item\em Returns the surface area of the bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bounding_box3_a084cff00422304537d71bdd3d674dbf0}\label{class_bounding_box3_a084cff00422304537d71bdd3d674dbf0}} 
+\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ {\bfseries p\+Min}
+\item 
+\mbox{\Hypertarget{class_bounding_box3_aea417abafea3385d6a582341e2ba3592}\label{class_bounding_box3_aea417abafea3385d6a582341e2ba3592}} 
+\mbox{\hyperlink{struct_t_point3}{TPoint3}}$<$ Base\+Type $>$ {\bfseries p\+Max}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Base\+Type$>$\newline
 class Bounding\+Box3$<$ Base\+Type $>$}
-Axis-\/aligned bounding box 3D base type, the box edges are mutually perpendicular and aligned to axes. 
-
 
 \begin{DoxyParams}{Parameters}
 {\em Base\+Type} & the type of the bounding box, int/float/double. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Name \char`\"{}\+AABB3\char`\"{} might better \end{DoxyRefDesc}
 
 
 \doxysubsection{Member Function Documentation}
@@ -38,29 +50,6 @@ Axis-\/aligned bounding box 3D base type, the box edges are mutually perpendicul
 {\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
 std\+::optional$<$ \mbox{\hyperlink{struct_t_point2}{Point2d}} $>$ \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\+::\+Intersection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Intersect of ray and bounding box. 
-
 \begin{DoxyReturn}{Returns}
 A pointer to the pair (t0, t1) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}\label{class_bounding_box3_af4981b8f6cf5f772168080fd8c3fea59}} 
-\index{BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}!SurfaceArea@{SurfaceArea}}
-\index{SurfaceArea@{SurfaceArea}!BoundingBox3$<$ BaseType $>$@{BoundingBox3$<$ BaseType $>$}}
-\doxysubsubsection{\texorpdfstring{SurfaceArea()}{SurfaceArea()}}
-{\footnotesize\ttfamily template$<$typename Base\+Type $>$ \\
-double \mbox{\hyperlink{class_bounding_box3}{Bounding\+Box3}}$<$ Base\+Type $>$\+::\+Surface\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-The surface area of the bounding box. 
-
-\begin{DoxyReturn}{Returns}
-A double represents the bounding box\textquotesingle{}s surface area 
-\end{DoxyReturn}
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_bounding_box_8h}{Bounding\+Box.\+h}}\end{DoxyCompactItemize}

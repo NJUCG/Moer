@@ -5,10 +5,6 @@
 Pinhole camera.  
 
 
-
-
-{\ttfamily \#include $<$Pinhole.\+h$>$}
-
 Inheritance diagram for Pinhole\+Camera\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,13 +14,13 @@ Inheritance diagram for Pinhole\+Camera\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_pinhole_camera_acd85d4d2fc3227f4c5f4ca3e0b7bc212}\label{class_pinhole_camera_acd85d4d2fc3227f4c5f4ca3e0b7bc212}} 
+{\bfseries Pinhole\+Camera} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+From, const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&look\+At, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&up, double x\+Fov, double aspect\+Ratio, double dist\+To\+Film)
+\item 
 virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}{generate\+Ray}} (const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&film\+Resolution, const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&pixel\+Position, const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&sample) const override
 \begin{DoxyCompactList}\small\item\em ! Notice, NDC is the sample in unit square \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
-
-\doxysubsection{Detailed Description}
-Pinhole camera. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}\label{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}} 
@@ -32,10 +28,6 @@ Pinhole camera.
 \index{generateRay@{generateRay}!PinholeCamera@{PinholeCamera}}
 \doxysubsubsection{\texorpdfstring{generateRay()}{generateRay()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_ray}{Ray}} Pinhole\+Camera\+::generate\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{film\+Resolution,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{pixel\+Position,  }\item[{const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-! Notice, NDC is the sample in unit square 
 
 
 \begin{DoxyParams}{Parameters}
@@ -49,9 +41,3 @@ Pinhole camera.
 
 Implements \mbox{\hyperlink{class_camera_ab6686c5ad9438868f19229340448c089}{Camera}}.
 
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/Pinhole.\+h\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/Pinhole.\+cpp\end{DoxyCompactItemize}

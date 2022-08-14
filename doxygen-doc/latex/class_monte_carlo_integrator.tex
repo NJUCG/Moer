@@ -5,10 +5,6 @@
 Base class for all integrators solving rendering equation using Monte\+Carlo methods.  
 
 
-
-
-{\ttfamily \#include $<$Monte\+Carlo\+Integrator.\+h$>$}
-
 Inheritance diagram for Monte\+Carlo\+Integrator\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,10 +14,12 @@ Inheritance diagram for Monte\+Carlo\+Integrator\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_monte_carlo_integrator_ac3d686f83a7f205340e018b54adffa71}\label{class_monte_carlo_integrator_ac3d686f83a7f205340e018b54adffa71}} 
+{\bfseries Monte\+Carlo\+Integrator} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \+\_\+camera, std\+::unique\+\_\+ptr$<$ Film $>$ \+\_\+film, std\+::unique\+\_\+ptr$<$ Tile\+Generator $>$ \+\_\+tile\+Generator, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_sampler}{Sampler}} $>$ \+\_\+sampler, int \+\_\+spp, int \+\_\+render\+Thread\+Num=4)
+\item 
 virtual void \mbox{\hyperlink{class_monte_carlo_integrator_aa36b5367a5af05914af0f8dc3e0581c7}{render}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)
 \begin{DoxyCompactList}\small\item\em Start to render the scene. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}\label{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}} 
-virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} {\bfseries Li} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)=0
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}{Li}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)=0
 \begin{DoxyCompactList}\small\item\em Estimate radiance along a given ray. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_monte_carlo_integrator_a873051e970b7ce5e4b432778bea15f35}\label{class_monte_carlo_integrator_a873051e970b7ce5e4b432778bea15f35}} 
 virtual double {\bfseries rand\+Float} ()
@@ -35,27 +33,36 @@ void {\bfseries render\+Per\+Thread} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_monte_carlo_integrator_a4bae74de1024b945fca1b8dcac091f9e}\label{class_monte_carlo_integrator_a4bae74de1024b945fca1b8dcac091f9e}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_sampler}{Sampler}} $>$ {\bfseries sampler}
+\item 
 \mbox{\Hypertarget{class_monte_carlo_integrator_a149ebd55e2dafda299c6e9bb31891b5f}\label{class_monte_carlo_integrator_a149ebd55e2dafda299c6e9bb31891b5f}} 
 int {\bfseries spp} = 4
 \begin{DoxyCompactList}\small\item\em Default sample per pixel = 4. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_monte_carlo_integrator_aff8a8c6f516149293e1a310fd23dd90d}\label{class_monte_carlo_integrator_aff8a8c6f516149293e1a310fd23dd90d}} 
+std\+::shared\+\_\+ptr$<$ Tile\+Generator $>$ {\bfseries tile\+Generator}
+\item 
 \mbox{\Hypertarget{class_monte_carlo_integrator_a98db47e38b3b9c1aa64db02b571db860}\label{class_monte_carlo_integrator_a98db47e38b3b9c1aa64db02b571db860}} 
 int {\bfseries render\+Thread\+Num} =4
 \begin{DoxyCompactList}\small\item\em Default rendering threads = 4. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-Base class for all integrators solving rendering equation using Monte\+Carlo methods. 
-
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}\label{class_monte_carlo_integrator_a0e2818801aa89f29892f391b79844d8e}} 
+\index{MonteCarloIntegrator@{MonteCarloIntegrator}!Li@{Li}}
+\index{Li@{Li}!MonteCarloIntegrator@{MonteCarloIntegrator}}
+\doxysubsubsection{\texorpdfstring{Li()}{Li()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Monte\+Carlo\+Integrator\+::\+Li (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_abstract_path_integrator_ab8cd8daf61a70ecc40b6586b4180db2b}{Abstract\+Path\+Integrator}}.
+
 \mbox{\Hypertarget{class_monte_carlo_integrator_aa36b5367a5af05914af0f8dc3e0581c7}\label{class_monte_carlo_integrator_aa36b5367a5af05914af0f8dc3e0581c7}} 
 \index{MonteCarloIntegrator@{MonteCarloIntegrator}!render@{render}}
 \index{render@{render}!MonteCarloIntegrator@{MonteCarloIntegrator}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
 {\footnotesize\ttfamily void Monte\+Carlo\+Integrator\+::render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Start to render the scene. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -66,9 +73,3 @@ Start to render the scene.
 
 Implements \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13}{Integrator}}.
 
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_monte_carlo_integrator_8h}{Monte\+Carlo\+Integrator.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/Monte\+Carlo\+Integrator.\+cpp\end{DoxyCompactItemize}

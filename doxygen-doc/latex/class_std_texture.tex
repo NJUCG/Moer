@@ -5,10 +5,6 @@
 \mbox{\hyperlink{class_std_texture}{Std\+Texture}} refers to textures that needs a texture mapping to generate Tcoord from Intersection.  
 
 
-
-
-{\ttfamily \#include $<$Texture.\+h$>$}
-
 Inheritance diagram for Std\+Texture\texorpdfstring{$<$}{<} Tvalue, Tcoord \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,19 +14,45 @@ Inheritance diagram for Std\+Texture\texorpdfstring{$<$}{<} Tvalue, Tcoord \texo
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}\label{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}} 
-virtual Tvalue {\bfseries eval} (const Intersection \&intersection) const final
-\begin{DoxyCompactList}\small\item\em This function just redirects the query to eval(coord) using member \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping}}. Derived should NOT overwrite this. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_std_texture_a5bda5ca78851e5818db1b8ef4ba6baac}\label{class_std_texture_a5bda5ca78851e5818db1b8ef4ba6baac}} 
-virtual Tvalue {\bfseries eval} (const Tcoord \&coord) const =0
-\begin{DoxyCompactList}\small\item\em Eval texture value at given texture coord. (Derived needs to implement this) \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-\subsubsection*{template$<$typename Tvalue, typename Tcoord$>$\newline
-class Std\+Texture$<$ Tvalue, Tcoord $>$}
-\mbox{\hyperlink{class_std_texture}{Std\+Texture}} refers to textures that needs a texture mapping to generate Tcoord from Intersection. 
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\mbox{\Hypertarget{class_std_texture_ae7a95eeef92af7578d9f7d6a8eb57f63}\label{class_std_texture_ae7a95eeef92af7578d9f7d6a8eb57f63}} 
+{\bfseries Std\+Texture} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping}}$<$ Tcoord $>$ $>$ mapping)
 \item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Texture/\mbox{\hyperlink{_texture_8h}{Texture.\+h}}\end{DoxyCompactItemize}
+virtual Tvalue \mbox{\hyperlink{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}{eval}} (const Intersection \&intersection) const final
+\begin{DoxyCompactList}\small\item\em This function just redirects the query to eval(coord) using member \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping}}. Derived should NOT overwrite this. \end{DoxyCompactList}\item 
+virtual Tvalue \mbox{\hyperlink{class_std_texture_a5bda5ca78851e5818db1b8ef4ba6baac}{eval}} (const Tcoord \&coord) const =0
+\begin{DoxyCompactList}\small\item\em Eval texture value at given texture coord. (Derived needs to implement this) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_std_texture_a786a081d8b78a960dbe9d5c7610e90de}\label{class_std_texture_a786a081d8b78a960dbe9d5c7610e90de}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_mapping}{Texture\+Mapping}}$<$ Tcoord $>$ $>$ {\bfseries mapping}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}\label{class_std_texture_afe2060ef6aa48e73021144b53c0c5e08}} 
+\index{StdTexture$<$ Tvalue, Tcoord $>$@{StdTexture$<$ Tvalue, Tcoord $>$}!eval@{eval}}
+\index{eval@{eval}!StdTexture$<$ Tvalue, Tcoord $>$@{StdTexture$<$ Tvalue, Tcoord $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tvalue , typename Tcoord $>$ \\
+Tvalue \mbox{\hyperlink{class_std_texture}{Std\+Texture}}$<$ Tvalue, Tcoord $>$\+::eval (\begin{DoxyParamCaption}\item[{const Intersection \&}]{intersection }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture}{Texture$<$ Tvalue $>$}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_checkerboard2_d_afe2060ef6aa48e73021144b53c0c5e08}{Checkerboard2D}}, and \mbox{\hyperlink{class_checkerboard3_d_afe2060ef6aa48e73021144b53c0c5e08}{Checkerboard3D}}.
+
+\mbox{\Hypertarget{class_std_texture_a5bda5ca78851e5818db1b8ef4ba6baac}\label{class_std_texture_a5bda5ca78851e5818db1b8ef4ba6baac}} 
+\index{StdTexture$<$ Tvalue, Tcoord $>$@{StdTexture$<$ Tvalue, Tcoord $>$}!eval@{eval}}
+\index{eval@{eval}!StdTexture$<$ Tvalue, Tcoord $>$@{StdTexture$<$ Tvalue, Tcoord $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tvalue , typename Tcoord $>$ \\
+virtual Tvalue \mbox{\hyperlink{class_std_texture}{Std\+Texture}}$<$ Tvalue, Tcoord $>$\+::eval (\begin{DoxyParamCaption}\item[{const Tcoord \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_image_texture_a94fbbd597579204e77d7fd2291655d98}{Image\+Texture$<$ Treturn, Tmemory $>$}}, \mbox{\hyperlink{class_image_texture_a5cfb49f9683d6bcd63e5a666aa8c89ec}{Image\+Texture$<$ Treturn, Tmemory $>$}}, \mbox{\hyperlink{class_checkerboard2_d_a70d58951f4df5e3379ae9564320b9eb0}{Checkerboard2D}}, and \mbox{\hyperlink{class_checkerboard3_d_a263df2019d1178db5d07ab8b6bf165b4}{Checkerboard3D}}.
+

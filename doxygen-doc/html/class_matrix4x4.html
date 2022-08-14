@@ -64,30 +64,76 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_matrix4x4-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Matrix4x4 Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>a simple wrap of Eigen Matrix 4x4.  
- <a href="class_matrix4x4.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_matrix_8h_source.html">Matrix.h</a>&gt;</code></p>
+</p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a579bbf73a9ecba308e260afdd83bd2cd"><td class="memItemLeft" align="right" valign="top"><a id="a579bbf73a9ecba308e260afdd83bd2cd" name="a579bbf73a9ecba308e260afdd83bd2cd"></a>
+<a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="class_matrix4x4.html">Matrix4x4</a> &amp;mat) const</td></tr>
+<tr class="separator:a579bbf73a9ecba308e260afdd83bd2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde38b75420f1a19cb241f4b5b10b002"><td class="memItemLeft" align="right" valign="top"><a id="acde38b75420f1a19cb241f4b5b10b002" name="acde38b75420f1a19cb241f4b5b10b002"></a>
+<a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v) const</td></tr>
+<tr class="separator:acde38b75420f1a19cb241f4b5b10b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6841a5ea57578b284f391ea3566fc90"><td class="memItemLeft" align="right" valign="top"><a id="ac6841a5ea57578b284f391ea3566fc90" name="ac6841a5ea57578b284f391ea3566fc90"></a>
+<a class="el" href="struct_t_point3.html">Point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_t_point3.html">Point3d</a> &amp;p) const</td></tr>
+<tr class="separator:ac6841a5ea57578b284f391ea3566fc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ebdd81c95f3284f7c62b95b07517a6"><td class="memItemLeft" align="right" valign="top"><a id="a01ebdd81c95f3284f7c62b95b07517a6" name="a01ebdd81c95f3284f7c62b95b07517a6"></a>
+<a class="el" href="struct_normal3d.html">Normal3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_normal3d.html">Normal3d</a> &amp;n) const</td></tr>
+<tr class="separator:a01ebdd81c95f3284f7c62b95b07517a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e1c9c5c7b91baa906bac11275b1599"><td class="memItemLeft" align="right" valign="top"><a id="a07e1c9c5c7b91baa906bac11275b1599" name="a07e1c9c5c7b91baa906bac11275b1599"></a>
+<a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inverse</b> ()</td></tr>
+<tr class="separator:a07e1c9c5c7b91baa906bac11275b1599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd754aa1271700970c4f5555a43a842"><td class="memItemLeft" align="right" valign="top"><a id="a3bd754aa1271700970c4f5555a43a842" name="a3bd754aa1271700970c4f5555a43a842"></a>
+<a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> ()</td></tr>
+<tr class="separator:a3bd754aa1271700970c4f5555a43a842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af69b181cf9a573e892d842661ec1440a"><td class="memItemLeft" align="right" valign="top"><a id="af69b181cf9a573e892d842661ec1440a" name="af69b181cf9a573e892d842661ec1440a"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>translate</b> (double x, double y, double z)</td></tr>
+<tr class="separator:af69b181cf9a573e892d842661ec1440a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4af62cddfdc1b4003dcc6c1632e3b32"><td class="memItemLeft" align="right" valign="top"><a id="ac4af62cddfdc1b4003dcc6c1632e3b32" name="ac4af62cddfdc1b4003dcc6c1632e3b32"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b> (double x, double y, double z)</td></tr>
+<tr class="separator:ac4af62cddfdc1b4003dcc6c1632e3b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03b8f2ea0f1847999f250d66213acf3"><td class="memItemLeft" align="right" valign="top"><a id="ab03b8f2ea0f1847999f250d66213acf3" name="ab03b8f2ea0f1847999f250d66213acf3"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b> (double ratio)</td></tr>
+<tr class="separator:ab03b8f2ea0f1847999f250d66213acf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4f60637bf043746f1f0ad18cf98c7b"><td class="memItemLeft" align="right" valign="top"><a id="a1e4f60637bf043746f1f0ad18cf98c7b" name="a1e4f60637bf043746f1f0ad18cf98c7b"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotateEuler</b> (const <a class="el" href="class_angle.html">Angle</a> &amp;x, const <a class="el" href="class_angle.html">Angle</a> &amp;y, const <a class="el" href="class_angle.html">Angle</a> &amp;z, EulerType type=EulerType::EULER_XYZ)</td></tr>
+<tr class="separator:a1e4f60637bf043746f1f0ad18cf98c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf52b141fec55309ad0527b6423a57f"><td class="memItemLeft" align="right" valign="top"><a id="acbf52b141fec55309ad0527b6423a57f" name="acbf52b141fec55309ad0527b6423a57f"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotateQuaternion</b> (double w, double x, double y, double z)</td></tr>
+<tr class="separator:acbf52b141fec55309ad0527b6423a57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a767983ea1a5f8a0f9121500944d5dee6"><td class="memItemLeft" align="right" valign="top"><a id="a767983ea1a5f8a0f9121500944d5dee6" name="a767983ea1a5f8a0f9121500944d5dee6"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotateAxis</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;axis, const <a class="el" href="class_angle.html">Angle</a> &amp;angle)</td></tr>
+<tr class="separator:a767983ea1a5f8a0f9121500944d5dee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18057d75b56aa01673f11ec854349a6"><td class="memItemLeft" align="right" valign="top"><a id="ad18057d75b56aa01673f11ec854349a6" name="ad18057d75b56aa01673f11ec854349a6"></a>
 static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lookAt</b> (const <a class="el" href="struct_t_point3.html">Point3d</a> &amp;lookFrom, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;vecLookAt, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;up)</td></tr>
 <tr class="memdesc:ad18057d75b56aa01673f11ec854349a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera coord: x-&gt;right y-&gt;up z-&gt;in <br /></td></tr>
 <tr class="separator:ad18057d75b56aa01673f11ec854349a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fc3818bb4b8dae7776aef9b6d14d46"><td class="memItemLeft" align="right" valign="top"><a id="a33fc3818bb4b8dae7776aef9b6d14d46" name="a33fc3818bb4b8dae7776aef9b6d14d46"></a>
+static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>orthographic</b> (double left, double right, double up, double down, double near, double far)</td></tr>
+<tr class="separator:a33fc3818bb4b8dae7776aef9b6d14d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcacaea39d63478d5bb1cf9fbeb91499"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4x4.html#afcacaea39d63478d5bb1cf9fbeb91499">perspective</a> (const <a class="el" href="class_angle.html">Angle</a> &amp;fov, double aspect, double near, double far)</td></tr>
 <tr class="memdesc:afcacaea39d63478d5bb1cf9fbeb91499"><td class="mdescLeft">&#160;</td><td class="mdescRight">get persepctive projection matrix.  <a href="class_matrix4x4.html#afcacaea39d63478d5bb1cf9fbeb91499">More...</a><br /></td></tr>
 <tr class="separator:afcacaea39d63478d5bb1cf9fbeb91499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a5b131d36d704589ce5a44c359b7c55b2"><td class="memItemLeft" align="right" valign="top"><a id="a5b131d36d704589ce5a44c359b7c55b2" name="a5b131d36d704589ce5a44c359b7c55b2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printMatrix</b> (const <a class="el" href="class_matrix4x4.html">Matrix4x4</a> &amp;mat)</td></tr>
+<tr class="separator:a5b131d36d704589ce5a44c359b7c55b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >a simple wrap of Eigen Matrix 4x4. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="afcacaea39d63478d5bb1cf9fbeb91499" name="afcacaea39d63478d5bb1cf9fbeb91499"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afcacaea39d63478d5bb1cf9fbeb91499">&#9670;&nbsp;</a></span>perspective()</h2>
 
@@ -133,8 +179,6 @@ static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td cla
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>get persepctive projection matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fov</td><td>fov on x (left-right) </td></tr>
@@ -147,10 +191,6 @@ static <a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td cla
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_matrix_8h_source.html">Matrix.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

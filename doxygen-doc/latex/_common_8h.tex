@@ -12,6 +12,12 @@ some common but useful functions
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846f
+\item 
+\mbox{\Hypertarget{_common_8h_aebad45bfa06a5d66805c5813fbc59f4b}\label{_common_8h_aebad45bfa06a5d66805c5813fbc59f4b}} 
+\#define {\bfseries INV\+\_\+\+PI}~0.\+31830988618379067154f
+\item 
+\mbox{\Hypertarget{_common_8h_a42177ad937b6de334f376c039189e067}\label{_common_8h_a42177ad937b6de334f376c039189e067}} 
+\#define {\bfseries INV\+\_\+\+TWOPI}~0.\+15915494309189533577f
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -32,6 +38,12 @@ float \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}} (
 \begin{DoxyCompactList}\small\item\em Compute fresnel term in reflection. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{_common_8h_a2ad2c6c590e48dd021738bd29c0dbae8}{fresnel}} (double cos\+ThetaI, double ext\+IOR, double int\+IOR)
 \begin{DoxyCompactList}\small\item\em Compute fresnel term in reflection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_common_8h_a88945c2b061fef56019f5c800f210c5d}\label{_common_8h_a88945c2b061fef56019f5c800f210c5d}} 
+constexpr double {\bfseries ONEMINUSEPSILON} = 1 -\/ std\+::numeric\+\_\+limits$<$double$>$\+::epsilon()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -59,7 +71,7 @@ NJUMeta (c) 2022 www.\+njumeta.\+com
 {\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265358979323846f}
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]multiple defination M\+\_\+\+PI \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]multiple defination M\+\_\+\+PI \end{DoxyRefDesc}
 
 
 \doxysubsection{Function Documentation}
@@ -74,7 +86,7 @@ NJUMeta (c) 2022 www.\+njumeta.\+com
 Compute fresnel term in reflection. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Where should this function be placed \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]Where should this function be placed \end{DoxyRefDesc}
 \mbox{\Hypertarget{_common_8h_aa4bc628102111f721c678c58c1d81aa1}\label{_common_8h_aa4bc628102111f721c678c58c1d81aa1}} 
 \index{Common.h@{Common.h}!fresnel@{fresnel}}
 \index{fresnel@{fresnel}!Common.h@{Common.h}}
@@ -86,4 +98,4 @@ Compute fresnel term in reflection.
 Compute fresnel term in reflection. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]delete this float version \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]delete this float version \end{DoxyRefDesc}

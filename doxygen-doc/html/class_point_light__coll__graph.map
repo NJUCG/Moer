@@ -1,0 +1,7 @@
+<map id="PointLight" name="PointLight">
+<area shape="rect" id="node1" title="Point light source." alt="" coords="93,183,180,208"/>
+<area shape="rect" id="node2" href="$class_light.html" title="The base class for all light source." alt="" coords="5,95,60,120"/>
+<area shape="rect" id="node3" href="$class_transform3_d.html" title="3d transformation representation" alt="" coords="84,95,189,120"/>
+<area shape="rect" id="node4" href="$class_sampled_spectrum.html" title="The specturm samples uniformly. Actually used in program." alt="" coords="213,95,354,120"/>
+<area shape="rect" id="node5" href="$class_coefficient_spectrum.html" title=" " alt="" coords="194,5,373,45"/>
+</map>

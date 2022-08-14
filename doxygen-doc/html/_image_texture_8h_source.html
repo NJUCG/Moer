@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Texture/ImageTexture.h Source File</title>
+<title>Zero-Renderer: ImageTexture.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,15 +70,15 @@ $(function() {
   <div class="headertitle"><div class="title">ImageTexture.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_image_texture_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">CoreLayer/ColorSpace/Color.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_image_8h.html">ResourceLayer/File/Image.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_texture_mapping_8h.html">TextureMapping.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/ColorSpace/Color.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;ResourceLayer/File/Image.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;Texture.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;TextureMapping.h&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">enum class</span> WrapMode</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
@@ -192,11 +192,6 @@ $(function() {
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>{</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    this-&gt;imageSampler-&gt;loadImage(filename);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
-<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
-<div class="ttc" id="a_image_8h_html"><div class="ttname"><a href="_image_8h.html">Image.h</a></div><div class="ttdoc">Simple Image representation.</div></div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
-<div class="ttc" id="a_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div><div class="ttdoc">Texture of different types.</div></div>
-<div class="ttc" id="a_texture_mapping_8h_html"><div class="ttname"><a href="_texture_mapping_8h.html">TextureMapping.h</a></div><div class="ttdoc">Texture mapping.</div></div>
 <div class="ttc" id="aclass_image_texture_html"><div class="ttname"><a href="class_image_texture.html">ImageTexture</a></div><div class="ttdoc">Image-based texture.</div><div class="ttdef"><b>Definition:</b> ImageTexture.h:70</div></div>
 <div class="ttc" id="aclass_image_texture_html_a5cfb49f9683d6bcd63e5a666aa8c89ec"><div class="ttname"><a href="class_image_texture.html#a5cfb49f9683d6bcd63e5a666aa8c89ec">ImageTexture::eval</a></div><div class="ttdeci">virtual Treturn eval(const TextureCoord2D &amp;coord) const override</div><div class="ttdoc">Eval texture value at given texture coord. (Derived needs to implement this)</div></div>
 <div class="ttc" id="aclass_std_texture_html"><div class="ttname"><a href="class_std_texture.html">StdTexture</a></div><div class="ttdoc">StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection.</div><div class="ttdef"><b>Definition:</b> Texture.h:86</div></div>

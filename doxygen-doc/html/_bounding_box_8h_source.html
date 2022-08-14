@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/CoreLayer/Geometry/BoundingBox.h Source File</title>
+<title>Zero-Renderer: BoundingBox.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,51 +70,51 @@ $(function() {
   <div class="headertitle"><div class="title">BoundingBox.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_bounding_box_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">CoreLayer/Ray/Ray.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;Geometry.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Ray/Ray.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseType&gt;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_bounding_box3.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> pMin;         </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> pMax;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>() {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        pMin[0] = pMin[1] = pMin[2] = std::numeric_limits&lt;BaseType&gt;::max();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        pMax[0] = pMax[1] = pMax[2] = std::numeric_limits&lt;BaseType&gt;::min();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>(<a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _p)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        pMin = pMax = _p;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>(<a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMin, <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMax)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        pMin = _pMin;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        pMax = _pMax;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">   51</a></span>    std::optional&lt;Point2d&gt; <a class="code hl_function" href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">Intersection</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ray.html">Ray</a>&amp; r) {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">double</span> t0 = 0, t1 = DBL_MAX;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">double</span> inv = 1.0 / r.<a class="code hl_variable" href="struct_ray.html#a317ee29d4f6213ede639f2f757f84784">direction</a>[i];</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordtype">double</span> tNear = (pMin[i] - r.<a class="code hl_variable" href="struct_ray.html#abbb355c9e163124a0b4f8ab0f73643bb">origin</a>[i]) * inv;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordtype">double</span> tFar = (pMax[i] - r.<a class="code hl_variable" href="struct_ray.html#abbb355c9e163124a0b4f8ab0f73643bb">origin</a>[i]) * inv;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">if</span> (tNear &gt; tFar) std::swap(tNear, tFar);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">if</span> (t0 &lt; tNear) t0 = tNear;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">if</span> (t1 &gt; tFar) t1 = tFar;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">if</span> (t0 &gt; t1) <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> std::make_optional(<a class="code hl_class" href="struct_t_point2.html">Point2d</a>(t0, t1));</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseType&gt;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_bounding_box3.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> pMin;         </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> pMax;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>() {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        pMin[0] = pMin[1] = pMin[2] = std::numeric_limits&lt;BaseType&gt;::max();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        pMax[0] = pMax[1] = pMax[2] = std::numeric_limits&lt;BaseType&gt;::min();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>(<a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _p)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        pMin = pMax = _p;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>(<a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMin, <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMax)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        pMin = _pMin;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        pMax = _pMax;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">   52</a></span>    std::optional&lt;Point2d&gt; <a class="code hl_function" href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">Intersection</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ray.html">Ray</a>&amp; r) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">double</span> t0 = 0, t1 = DBL_MAX;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordtype">double</span> inv = 1.0 / r.<a class="code hl_variable" href="struct_ray.html#a317ee29d4f6213ede639f2f757f84784">direction</a>[i];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordtype">double</span> tNear = (pMin[i] - r.<a class="code hl_variable" href="struct_ray.html#abbb355c9e163124a0b4f8ab0f73643bb">origin</a>[i]) * inv;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordtype">double</span> tFar = (pMax[i] - r.<a class="code hl_variable" href="struct_ray.html#abbb355c9e163124a0b4f8ab0f73643bb">origin</a>[i]) * inv;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">if</span> (tNear &gt; tFar) std::swap(tNear, tFar);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">if</span> (t0 &lt; tNear) t0 = tNear;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">if</span> (t1 &gt; tFar) t1 = tFar;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (t0 &gt; t1) <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> std::make_optional(<a class="code hl_class" href="struct_t_point2.html">Point2d</a>(t0, t1));</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_bounding_box3.html#af4981b8f6cf5f772168080fd8c3fea59">   69</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_bounding_box3.html#af4981b8f6cf5f772168080fd8c3fea59">SurfaceArea</a>() {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">double</span> x = pMax[0] - pMin[0];</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">double</span> y = pMax[1] - pMin[1];</div>
@@ -124,7 +124,7 @@ $(function() {
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseType&gt;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="_bounding_box_8h.html#a70e5ea0119706a75a45a00bfeeeaa9f5">   82</a></span><span class="keyword">static</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a> <a class="code hl_function" href="_bounding_box_8h.html#a70e5ea0119706a75a45a00bfeeeaa9f5">BoundingBoxUnion</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b1, </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">static</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a> BoundingBoxUnion(<span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b1, </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                               <span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b2)</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMin(std::min(b1.pMin[0], b2.pMin[0]), std::min(b1.pMin[1], b2.pMin[1]), std::min(b1.pMin[2], b2.pMin[2]));</div>
@@ -132,7 +132,7 @@ $(function() {
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3</a>(_pMin, _pMax);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseType&gt;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="_bounding_box_8h.html#aa8342387fe8fb82925e302ba0342a632">   95</a></span><span class="keyword">static</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a> <a class="code hl_function" href="_bounding_box_8h.html#aa8342387fe8fb82925e302ba0342a632">BoundingBoxUnionIntersect</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b1, </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">static</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a> BoundingBoxUnionIntersect(<span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b1, </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                                                        <span class="keyword">const</span> <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;BaseType&gt;</a>&amp; b2)</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_struct" href="struct_t_point3.html">TPoint3&lt;BaseType&gt;</a> _pMin(std::max(b1.pMin[0], b2.pMin[0]), std::max(b1.pMin[1], b2.pMin[1]), std::max(b1.pMin[2], b2.pMin[2]));</div>
@@ -141,13 +141,9 @@ $(function() {
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">using </span><a class="code hl_class" href="class_bounding_box3.html">BoundingBox3f</a> = <a class="code hl_class" href="class_bounding_box3.html">BoundingBox3&lt;double&gt;</a>;</div>
-<div class="ttc" id="a_bounding_box_8h_html_a70e5ea0119706a75a45a00bfeeeaa9f5"><div class="ttname"><a href="_bounding_box_8h.html#a70e5ea0119706a75a45a00bfeeeaa9f5">BoundingBoxUnion</a></div><div class="ttdeci">static BoundingBox3&lt; BaseType &gt; BoundingBoxUnion(const BoundingBox3&lt; BaseType &gt; &amp;b1, const BoundingBox3&lt; BaseType &gt; &amp;b2)</div><div class="ttdoc">Union of two bounding boxes.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:82</div></div>
-<div class="ttc" id="a_bounding_box_8h_html_aa8342387fe8fb82925e302ba0342a632"><div class="ttname"><a href="_bounding_box_8h.html#aa8342387fe8fb82925e302ba0342a632">BoundingBoxUnionIntersect</a></div><div class="ttdeci">static BoundingBox3&lt; BaseType &gt; BoundingBoxUnionIntersect(const BoundingBox3&lt; BaseType &gt; &amp;b1, const BoundingBox3&lt; BaseType &gt; &amp;b2)</div><div class="ttdoc">Overlap of two bounding boxes.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:95</div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div><div class="ttdoc">Ray representation.</div></div>
-<div class="ttc" id="aclass_bounding_box3_html"><div class="ttname"><a href="class_bounding_box3.html">BoundingBox3</a></div><div class="ttdoc">Axis-aligned bounding box 3D base type, the box edges are mutually perpendicular and aligned to axes.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:27</div></div>
-<div class="ttc" id="aclass_bounding_box3_html_aafe501d9cb9f76a7bd1e6d97a031dba6"><div class="ttname"><a href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">BoundingBox3::Intersection</a></div><div class="ttdeci">std::optional&lt; Point2d &gt; Intersection(const Ray &amp;r)</div><div class="ttdoc">Intersect of ray and bounding box.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:51</div></div>
-<div class="ttc" id="aclass_bounding_box3_html_af4981b8f6cf5f772168080fd8c3fea59"><div class="ttname"><a href="class_bounding_box3.html#af4981b8f6cf5f772168080fd8c3fea59">BoundingBox3::SurfaceArea</a></div><div class="ttdeci">double SurfaceArea()</div><div class="ttdoc">The surface area of the bounding box.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:69</div></div>
+<div class="ttc" id="aclass_bounding_box3_html"><div class="ttname"><a href="class_bounding_box3.html">BoundingBox3</a></div><div class="ttdoc">Axis-aligned bounding box 3D base type, the box edges are mutually perpendicular and aligned to axes.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:28</div></div>
+<div class="ttc" id="aclass_bounding_box3_html_aafe501d9cb9f76a7bd1e6d97a031dba6"><div class="ttname"><a href="class_bounding_box3.html#aafe501d9cb9f76a7bd1e6d97a031dba6">BoundingBox3::Intersection</a></div><div class="ttdeci">std::optional&lt; Point2d &gt; Intersection(const Ray &amp;r)</div><div class="ttdoc">Intersect of ray and bounding box.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:52</div></div>
+<div class="ttc" id="aclass_bounding_box3_html_af4981b8f6cf5f772168080fd8c3fea59"><div class="ttname"><a href="class_bounding_box3.html#af4981b8f6cf5f772168080fd8c3fea59">BoundingBox3::SurfaceArea</a></div><div class="ttdeci">double SurfaceArea()</div><div class="ttdoc">Returns the surface area of the bounding box.</div><div class="ttdef"><b>Definition:</b> BoundingBox.h:69</div></div>
 <div class="ttc" id="astruct_ray_html"><div class="ttname"><a href="struct_ray.html">Ray</a></div><div class="ttdoc">ray</div><div class="ttdef"><b>Definition:</b> Ray.h:21</div></div>
 <div class="ttc" id="astruct_ray_html_a317ee29d4f6213ede639f2f757f84784"><div class="ttname"><a href="struct_ray.html#a317ee29d4f6213ede639f2f757f84784">Ray::direction</a></div><div class="ttdeci">Vec3d direction</div><div class="ttdoc">The direction of the ray.</div><div class="ttdef"><b>Definition:</b> Ray.h:23</div></div>
 <div class="ttc" id="astruct_ray_html_abbb355c9e163124a0b4f8ab0f73643bb"><div class="ttname"><a href="struct_ray.html#abbb355c9e163124a0b4f8ab0f73643bb">Ray::origin</a></div><div class="ttdeci">Point3d origin</div><div class="ttdoc">The origin of the ray.</div><div class="ttdef"><b>Definition:</b> Ray.h:22</div></div>

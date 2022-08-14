@@ -64,21 +64,36 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_scene-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Scene Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Store the primitives in scene.  
- <a href="class_scene.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_scene_8h_source.html">Scene.h</a>&gt;</code></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Store the primitives in scene. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/CoreLayer/Scene/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Scene/<a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
-</ul>
+</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4b6ab4aab60de59ac8e33d36d6fa56e3"><td class="memItemLeft" align="right" valign="top"><a id="a4b6ab4aab60de59ac8e33d36d6fa56e3" name="a4b6ab4aab60de59ac8e33d36d6fa56e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addEntity</b> (std::shared_ptr&lt; Entity &gt; object)</td></tr>
+<tr class="separator:a4b6ab4aab60de59ac8e33d36d6fa56e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa0a1e846f5e8e852749ad773d112c7"><td class="memItemLeft" align="right" valign="top"><a id="acfa0a1e846f5e8e852749ad773d112c7" name="acfa0a1e846f5e8e852749ad773d112c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addLight</b> (std::shared_ptr&lt; <a class="el" href="class_light.html">Light</a> &gt; light)</td></tr>
+<tr class="separator:acfa0a1e846f5e8e852749ad773d112c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e33abfb4027a9bc2a5bb944fe4c4c9a"><td class="memItemLeft" align="right" valign="top"><a id="a6e33abfb4027a9bc2a5bb944fe4c4c9a" name="a6e33abfb4027a9bc2a5bb944fe4c4c9a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> ()</td></tr>
+<tr class="separator:a6e33abfb4027a9bc2a5bb944fe4c4c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94142ca49f3495ad832c0b446ee1377"><td class="memItemLeft" align="right" valign="top"><a id="af94142ca49f3495ad832c0b446ee1377" name="af94142ca49f3495ad832c0b446ee1377"></a>
+std::optional&lt; Intersection &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>intersect</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;r) const</td></tr>
+<tr class="separator:af94142ca49f3495ad832c0b446ee1377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b59eb8acd781df8c2673831dda7b43a"><td class="memItemLeft" align="right" valign="top"><a id="a8b59eb8acd781df8c2673831dda7b43a" name="a8b59eb8acd781df8c2673831dda7b43a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>intersectionTest</b> (const <a class="el" href="struct_ray.html">Ray</a> &amp;r, std::shared_ptr&lt; Entity &gt; object) const</td></tr>
+<tr class="separator:a8b59eb8acd781df8c2673831dda7b43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7048134caa1918d2ca324f082f8824"><td class="memItemLeft" align="right" valign="top"><a id="a3a7048134caa1918d2ca324f082f8824" name="a3a7048134caa1918d2ca324f082f8824"></a>
+std::shared_ptr&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_light.html">Light</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLights</b> () const</td></tr>
+<tr class="separator:a3a7048134caa1918d2ca324f082f8824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

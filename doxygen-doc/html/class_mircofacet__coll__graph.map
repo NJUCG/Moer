@@ -1,0 +1,4 @@
+<map id="Mircofacet" name="Mircofacet">
+<area shape="rect" id="node1" title="Micro&#45;facet reflection model." alt="" coords="5,79,96,104"/>
+<area shape="rect" id="node2" href="$class_bx_d_f.html" title="BxDF. out == rays from/to camera, in == rays from/to objects/lights." alt="" coords="22,5,79,31"/>
+</map>

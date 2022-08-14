@@ -5,10 +5,6 @@
 Base class for all perspective camera.  
 
 
-
-
-{\ttfamily \#include $<$Perspective.\+h$>$}
-
 Inheritance diagram for Perspective\+Camera\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,11 +20,11 @@ Inheritance diagram for Perspective\+Camera\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} \mbox{\hyperlink{class_perspective_camera_a105de3c844d5e522a432e0aa85c57dc5}{camera\+To\+World}}
+\item 
+\mbox{\Hypertarget{class_perspective_camera_af704c493a6cfabb3f12dba26a62a6717}\label{class_perspective_camera_af704c493a6cfabb3f12dba26a62a6717}} 
+\mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} {\bfseries sample\+To\+Film}
 \end{DoxyCompactItemize}
 
-
-\doxysubsection{Detailed Description}
-Base class for all perspective camera. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_perspective_camera_a2067e13621a56fa40625ac1fae20d7de}\label{class_perspective_camera_a2067e13621a56fa40625ac1fae20d7de}} 
@@ -36,10 +32,6 @@ Base class for all perspective camera.
 \index{PerspectiveCamera@{PerspectiveCamera}!PerspectiveCamera@{PerspectiveCamera}}
 \doxysubsubsection{\texorpdfstring{PerspectiveCamera()}{PerspectiveCamera()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_perspective_camera}{Perspective\+Camera\+::\+Perspective\+Camera}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+From,  }\item[{const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&}]{look\+At,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{up,  }\item[{double}]{x\+Fov,  }\item[{double}]{aspect\+Ratio,  }\item[{double}]{dist\+To\+Film }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Construct a new Perspective \mbox{\hyperlink{class_camera}{Camera}} object. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -67,7 +59,3 @@ Construct a new Perspective \mbox{\hyperlink{class_camera}{Camera}} object.
 {\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4x4}{Matrix4x4}} Perspective\+Camera\+::camera\+To\+World}
 
 camera\+To\+World \+: Turn a vector in camera coordinate to world coordinate sample\+To\+Film \+: Turn a point \mbox{[}x, y, 0\mbox{]} to the corresponding point on film 
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/\mbox{\hyperlink{_perspective_8h}{Perspective.\+h}}\end{DoxyCompactItemize}

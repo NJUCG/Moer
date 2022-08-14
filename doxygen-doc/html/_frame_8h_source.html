@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/CoreLayer/Geometry/Frame.h Source File</title>
+<title>Zero-Renderer: Frame.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,14 +70,14 @@ $(function() {
   <div class="headertitle"><div class="title">Frame.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_frame_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by yjp on 2022/6/6.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_common_8h.html">CoreLayer/Math/Common.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;Geometry.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;CoreLayer/Math/Common.h&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">static</span> <span class="keywordtype">void</span> coordinateSystem(<span class="keyword">const</span> <a class="code hl_struct" href="struct_normal3d.html">Normal3d</a> &amp;a, <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a>  &amp;b, <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a>  &amp;c) {</div>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        c = <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a>(0.0f, a.z * invLen, -a.y * invLen);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a>  _a(a.x,a.y,a.z);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    b = <a class="code hl_function" href="vector_8h.html#ab82aa209c23c60f76558d0d672e5cd8e">cross</a>(_a,c);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    b = cross(_a,c);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_frame.html">   36</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_frame.html">Frame</a> {</div>
@@ -144,22 +144,22 @@ $(function() {
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a> = <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">Frame::sinTheta</a>(v);</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a> == 0.0f)</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">return</span> 1.0f;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="_common_8h.html#a5db81d5a7a3dcf2ea181f62790dc13a0">clamp</a>(v.y / <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a>, -1.0f, 1.0f);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> clamp(v.y / <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a>, -1.0f, 1.0f);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="struct_frame.html#a9516d7ef17c182b1192c179c861906b7">  109</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="struct_frame.html#a9516d7ef17c182b1192c179c861906b7">cosPhi</a>(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a> &amp;v) {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a> = <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">Frame::sinTheta</a>(v);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a> == 0.0f)</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">return</span> 1.0f;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="_common_8h.html#a5db81d5a7a3dcf2ea181f62790dc13a0">clamp</a>(v.x / <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a>, -1.0f, 1.0f);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">return</span> clamp(v.x / <a class="code hl_function" href="struct_frame.html#a57073384606ae0b0f53a5c636c95cd08">sinTheta</a>, -1.0f, 1.0f);</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="struct_frame.html#ac5a798094759b36a5650699b8d1bcad9">  119</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="struct_frame.html#ac5a798094759b36a5650699b8d1bcad9">sinPhi2</a>(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a> &amp;v) {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="_common_8h.html#a5db81d5a7a3dcf2ea181f62790dc13a0">clamp</a>(v.y * v.y / <a class="code hl_function" href="struct_frame.html#ad83e0e53746cceb5fe30a5edb4e1b490">sinTheta2</a>(v), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> clamp(v.y * v.y / <a class="code hl_function" href="struct_frame.html#ad83e0e53746cceb5fe30a5edb4e1b490">sinTheta2</a>(v), 0.0f, 1.0f);</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="struct_frame.html#a60f5fc5850e7ca23f211053ace0b7b17">  126</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="struct_frame.html#a60f5fc5850e7ca23f211053ace0b7b17">cosPhi2</a>(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_vector3.html">Vec3d</a> &amp;v) {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="_common_8h.html#a5db81d5a7a3dcf2ea181f62790dc13a0">clamp</a>(v.x * v.x / <a class="code hl_function" href="struct_frame.html#ad83e0e53746cceb5fe30a5edb4e1b490">sinTheta2</a>(v), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> clamp(v.x * v.x / <a class="code hl_function" href="struct_frame.html#ad83e0e53746cceb5fe30a5edb4e1b490">sinTheta2</a>(v), 0.0f, 1.0f);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="struct_frame.html#ac8147d1881c28bd0a96cc9ad5a0f361d">  131</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_frame.html#ac8147d1881c28bd0a96cc9ad5a0f361d">operator==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_frame.html">Frame</a> &amp;frame)<span class="keyword"> const </span>{</div>
@@ -172,9 +172,6 @@ $(function() {
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>};</div>
-<div class="ttc" id="a_common_8h_html"><div class="ttname"><a href="_common_8h.html">Common.h</a></div><div class="ttdoc">some common but useful functions</div></div>
-<div class="ttc" id="a_common_8h_html_a5db81d5a7a3dcf2ea181f62790dc13a0"><div class="ttname"><a href="_common_8h.html#a5db81d5a7a3dcf2ea181f62790dc13a0">clamp</a></div><div class="ttdeci">float clamp(float value, float min, float max)</div><div class="ttdoc">Simple floating point clamping function.</div><div class="ttdef"><b>Definition:</b> Common.h:25</div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
 <div class="ttc" id="astruct_frame_html"><div class="ttname"><a href="struct_frame.html">Frame</a></div><div class="ttdoc">Convert the vector between world coordinate and local coordinate</div><div class="ttdef"><b>Definition:</b> Frame.h:36</div></div>
 <div class="ttc" id="astruct_frame_html_a05825e3ae8908e5bdb89ee6631e2e7ca"><div class="ttname"><a href="struct_frame.html#a05825e3ae8908e5bdb89ee6631e2e7ca">Frame::Frame</a></div><div class="ttdeci">Frame(const Normal3d n)</div><div class="ttdoc">Construct a new coordinate frame from a single vector.</div><div class="ttdef"><b>Definition:</b> Frame.h:52</div></div>
 <div class="ttc" id="astruct_frame_html_a079d02ee6fa1c9dfbc09b9d53d3fee78"><div class="ttname"><a href="struct_frame.html#a079d02ee6fa1c9dfbc09b9d53d3fee78">Frame::toWorld</a></div><div class="ttdeci">Vec3d toWorld(const Vec3d &amp;v) const</div><div class="ttdoc">Convert from local coordinates to world coordinates.</div><div class="ttdef"><b>Definition:</b> Frame.h:64</div></div>
@@ -194,7 +191,6 @@ $(function() {
 <div class="ttc" id="astruct_frame_html_afe55aa248e8cf1792d80f985352166d9"><div class="ttname"><a href="struct_frame.html#afe55aa248e8cf1792d80f985352166d9">Frame::toLocal</a></div><div class="ttdeci">Vec3d toLocal(const Vec3d &amp;v) const</div><div class="ttdoc">Convert from world coordinates to local coordinates.</div><div class="ttdef"><b>Definition:</b> Frame.h:57</div></div>
 <div class="ttc" id="astruct_normal3d_html"><div class="ttname"><a href="struct_normal3d.html">Normal3d</a></div><div class="ttdoc">Normal.</div><div class="ttdef"><b>Definition:</b> normal.h:18</div></div>
 <div class="ttc" id="astruct_t_vector3_html"><div class="ttname"><a href="struct_t_vector3.html">TVector3&lt; double &gt;</a></div></div>
-<div class="ttc" id="avector_8h_html_ab82aa209c23c60f76558d0d672e5cd8e"><div class="ttname"><a href="vector_8h.html#ab82aa209c23c60f76558d0d672e5cd8e">cross</a></div><div class="ttdeci">TVector3&lt; T &gt; cross(const TVector3&lt; T &gt; &amp;v1, const TVector3&lt; T &gt; &amp;v2)</div><div class="ttdoc">Only 3 deminsion vector can do this operation.</div><div class="ttdef"><b>Definition:</b> vector.h:269</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,22 +5,33 @@
 Encapsulated transform matrix. By default, it will be initialized as identity matrix.  
 
 
-
-
-{\ttfamily \#include $<$Matrix.\+h$>$}
-
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_transform_matrix3_d_a0055c53c8dd9c7e78af6017252e7e7e0}\label{class_transform_matrix3_d_a0055c53c8dd9c7e78af6017252e7e7e0}} 
+void {\bfseries set\+Translate} (double x, double y, double z)
+\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_abfee81c1ceb68f977074317d301066bb}\label{class_transform_matrix3_d_abfee81c1ceb68f977074317d301066bb}} 
+void {\bfseries set\+Scale} (double x, double y, double z)
+\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_a0c8a71614e6eccdc4cc7e4545f016dce}\label{class_transform_matrix3_d_a0c8a71614e6eccdc4cc7e4545f016dce}} 
+void {\bfseries set\+Scale} (double ratio)
+\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_ae7c4bc88d5b060b4e9a3eba954e14343}\label{class_transform_matrix3_d_ae7c4bc88d5b060b4e9a3eba954e14343}} 
+void {\bfseries set\+Rotate\+Euler} (const \mbox{\hyperlink{class_angle}{Angle}} \&x, const \mbox{\hyperlink{class_angle}{Angle}} \&y, const \mbox{\hyperlink{class_angle}{Angle}} \&z, Euler\+Type type=Euler\+Type\+::\+EULER\+\_\+\+XYZ)
+\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_a6692ebadc7cc864fa052e70309f43af2}\label{class_transform_matrix3_d_a6692ebadc7cc864fa052e70309f43af2}} 
+void {\bfseries set\+Rotate\+Quaternion} (double w, double x, double y, double z)
+\item 
 \mbox{\Hypertarget{class_transform_matrix3_d_a672e414c3163a2a15f0757c78cf8946c}\label{class_transform_matrix3_d_a672e414c3163a2a15f0757c78cf8946c}} 
 void {\bfseries set\+Rotate\+Axis} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&axis, const \mbox{\hyperlink{class_angle}{Angle}} \&angle)
-\begin{DoxyCompactList}\small\item\em Rotate by axis. Counterclockwise rotate. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-Encapsulated transform matrix. By default, it will be initialized as identity matrix. 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Rotate by axis. Counterclockwise rotate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_a43c80dbaa68ec855a3e2772a29895e38}\label{class_transform_matrix3_d_a43c80dbaa68ec855a3e2772a29895e38}} 
+\mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v)
 \item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_matrix_8h}{Matrix.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_matrix_8cpp}{Matrix.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_transform_matrix3_d_aa4412e33591d422774102946ff46a5f6}\label{class_transform_matrix3_d_aa4412e33591d422774102946ff46a5f6}} 
+\mbox{\hyperlink{struct_t_point3}{Point3d}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_t_point3}{Point3d}} \&p)
+\item 
+\mbox{\Hypertarget{class_transform_matrix3_d_afa1386cc2ee85866daba33fe91940c72}\label{class_transform_matrix3_d_afa1386cc2ee85866daba33fe91940c72}} 
+\mbox{\hyperlink{struct_normal3d}{Normal3d}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&n)
+\end{DoxyCompactItemize}

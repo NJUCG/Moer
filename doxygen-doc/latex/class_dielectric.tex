@@ -5,22 +5,78 @@
 \mbox{\hyperlink{class_dielectric}{Dielectric}} reflection model.  
 
 
-
-
-{\ttfamily \#include $<$Dielectric.\+h$>$}
-
 Inheritance diagram for Dielectric\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_dielectric}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Detailed Description}
-\mbox{\hyperlink{class_dielectric}{Dielectric}} reflection model. 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/\mbox{\hyperlink{_dielectric_8h}{Dielectric.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Material/\+Bx\+DF/Dielectric.\+cpp\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_dielectric_a5af59eed6b47780dab30ac4cfe20d7da}\label{class_dielectric_a5af59eed6b47780dab30ac4cfe20d7da}} 
+{\bfseries Dielectric} (float m\+\_\+int\+IOR=1.\+5046f, float m\+\_\+ext\+IOR=1.\+00277f)
+\item 
+virtual \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \mbox{\hyperlink{class_dielectric_a96153734e13a4af84c0e078fad6f5410}{f}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \mbox{\hyperlink{class_dielectric_a1480d55d367cc43852dd4e24e938be97}{sample\+Wi}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual double \mbox{\hyperlink{class_dielectric_af3eb7d68874fedbb300e8d7bade8f9bd}{pdf}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wi) const
+\item 
+virtual Bx\+DFSample\+Result \mbox{\hyperlink{class_dielectric_a788ddcef7628d92789e50d6ee6dff658}{sample}} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&wo, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) const
+\item 
+virtual bool \mbox{\hyperlink{class_dielectric_a2d9e9a3e68612af6a56e7f7bc792afec}{is\+Specular}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dielectric_a96153734e13a4af84c0e078fad6f5410}\label{class_dielectric_a96153734e13a4af84c0e078fad6f5410}} 
+\index{Dielectric@{Dielectric}!f@{f}}
+\index{f@{f}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} Dielectric\+::f (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_dielectric_a2d9e9a3e68612af6a56e7f7bc792afec}\label{class_dielectric_a2d9e9a3e68612af6a56e7f7bc792afec}} 
+\index{Dielectric@{Dielectric}!isSpecular@{isSpecular}}
+\index{isSpecular@{isSpecular}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{isSpecular()}{isSpecular()}}
+{\footnotesize\ttfamily bool Dielectric\+::is\+Specular (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_dielectric_af3eb7d68874fedbb300e8d7bade8f9bd}\label{class_dielectric_af3eb7d68874fedbb300e8d7bade8f9bd}} 
+\index{Dielectric@{Dielectric}!pdf@{pdf}}
+\index{pdf@{pdf}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{pdf()}{pdf()}}
+{\footnotesize\ttfamily double Dielectric\+::pdf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wi }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_dielectric_a788ddcef7628d92789e50d6ee6dff658}\label{class_dielectric_a788ddcef7628d92789e50d6ee6dff658}} 
+\index{Dielectric@{Dielectric}!sample@{sample}}
+\index{sample@{sample}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily Bx\+DFSample\+Result Dielectric\+::sample (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+
+\mbox{\Hypertarget{class_dielectric_a1480d55d367cc43852dd4e24e938be97}\label{class_dielectric_a1480d55d367cc43852dd4e24e938be97}} 
+\index{Dielectric@{Dielectric}!sampleWi@{sampleWi}}
+\index{sampleWi@{sampleWi}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{sampleWi()}{sampleWi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_vector3}{Vec3d}} Dielectric\+::sample\+Wi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{wo,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_bx_d_f}{Bx\+DF}}.
+

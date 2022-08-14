@@ -18,9 +18,10 @@
 #include <limits>
 
 /**
- * \ingroup Geometry
+ * @ingroup Geometry
  * @brief Axis-aligned bounding box 3D base type, the box edges are mutually perpendicular and aligned to axes. 
  * @param BaseType the type of the bounding box, int/float/double.
+ * @todo Name "AABB3" might better 
  */
 template <typename BaseType>
 class BoundingBox3
@@ -63,8 +64,7 @@ public:
 	}
 
 	/**
-	 * \brief The surface area of the bounding box
-	 * \return A double represents the bounding box's surface area
+	 * \brief Returns the surface area of the bounding box
 	 */
 	double SurfaceArea() {
 		double x = pMax[0] - pMin[0];

@@ -65,15 +65,14 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_std_texture-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">StdTexture&lt; Tvalue, Tcoord &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group___texture.html">Texture</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><a class="el" href="class_std_texture.html" title="StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection.">StdTexture</a> refers to textures that needs a texture mapping to generate Tcoord from Intersection.  
- <a href="class_std_texture.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_texture_8h_source.html">Texture.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for StdTexture&lt; Tvalue, Tcoord &gt;:</div>
 <div class="dyncontent">
@@ -86,21 +85,87 @@ Inheritance diagram for StdTexture&lt; Tvalue, Tcoord &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afe2060ef6aa48e73021144b53c0c5e08"><td class="memItemLeft" align="right" valign="top"><a id="afe2060ef6aa48e73021144b53c0c5e08" name="afe2060ef6aa48e73021144b53c0c5e08"></a>
-virtual Tvalue&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (const Intersection &amp;intersection) const final</td></tr>
-<tr class="memdesc:afe2060ef6aa48e73021144b53c0c5e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function just redirects the query to eval(coord) using member <a class="el" href="class_texture_mapping.html" title="TextureMapping maps an intersection to texture coordinates of type Tcoord.">TextureMapping</a>. Derived should NOT overwrite this. <br /></td></tr>
+<tr class="memitem:ae7a95eeef92af7578d9f7d6a8eb57f63"><td class="memItemLeft" align="right" valign="top"><a id="ae7a95eeef92af7578d9f7d6a8eb57f63" name="ae7a95eeef92af7578d9f7d6a8eb57f63"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StdTexture</b> (std::shared_ptr&lt; <a class="el" href="class_texture_mapping.html">TextureMapping</a>&lt; Tcoord &gt; &gt; mapping)</td></tr>
+<tr class="separator:ae7a95eeef92af7578d9f7d6a8eb57f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2060ef6aa48e73021144b53c0c5e08"><td class="memItemLeft" align="right" valign="top">virtual Tvalue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_std_texture.html#afe2060ef6aa48e73021144b53c0c5e08">eval</a> (const Intersection &amp;intersection) const final</td></tr>
+<tr class="memdesc:afe2060ef6aa48e73021144b53c0c5e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function just redirects the query to eval(coord) using member <a class="el" href="class_texture_mapping.html" title="TextureMapping maps an intersection to texture coordinates of type Tcoord.">TextureMapping</a>. Derived should NOT overwrite this.  <a href="class_std_texture.html#afe2060ef6aa48e73021144b53c0c5e08">More...</a><br /></td></tr>
 <tr class="separator:afe2060ef6aa48e73021144b53c0c5e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bda5ca78851e5818db1b8ef4ba6baac"><td class="memItemLeft" align="right" valign="top"><a id="a5bda5ca78851e5818db1b8ef4ba6baac" name="a5bda5ca78851e5818db1b8ef4ba6baac"></a>
-virtual Tvalue&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (const Tcoord &amp;coord) const =0</td></tr>
-<tr class="memdesc:a5bda5ca78851e5818db1b8ef4ba6baac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eval texture value at given texture coord. (Derived needs to implement this) <br /></td></tr>
+<tr class="memitem:a5bda5ca78851e5818db1b8ef4ba6baac"><td class="memItemLeft" align="right" valign="top">virtual Tvalue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_std_texture.html#a5bda5ca78851e5818db1b8ef4ba6baac">eval</a> (const Tcoord &amp;coord) const =0</td></tr>
+<tr class="memdesc:a5bda5ca78851e5818db1b8ef4ba6baac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eval texture value at given texture coord. (Derived needs to implement this)  <a href="class_std_texture.html#a5bda5ca78851e5818db1b8ef4ba6baac">More...</a><br /></td></tr>
 <tr class="separator:a5bda5ca78851e5818db1b8ef4ba6baac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab535d159cf0862b9cf4f29feb225f908"><td class="memItemLeft" align="right" valign="top">virtual Tvalue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ab535d159cf0862b9cf4f29feb225f908">eval</a> (const Intersection &amp;intersection) const =0</td></tr>
+<tr class="separator:ab535d159cf0862b9cf4f29feb225f908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a786a081d8b78a960dbe9d5c7610e90de"><td class="memItemLeft" align="right" valign="top"><a id="a786a081d8b78a960dbe9d5c7610e90de" name="a786a081d8b78a960dbe9d5c7610e90de"></a>
+std::shared_ptr&lt; <a class="el" href="class_texture_mapping.html">TextureMapping</a>&lt; Tcoord &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mapping</b></td></tr>
+<tr class="separator:a786a081d8b78a960dbe9d5c7610e90de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Tvalue, typename Tcoord&gt;<br />
-class StdTexture&lt; Tvalue, Tcoord &gt;</div><p ><a class="el" href="class_std_texture.html" title="StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection.">StdTexture</a> refers to textures that needs a texture mapping to generate Tcoord from Intersection. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Texture/<a class="el" href="_texture_8h_source.html">Texture.h</a></li>
-</ul>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afe2060ef6aa48e73021144b53c0c5e08" name="afe2060ef6aa48e73021144b53c0c5e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe2060ef6aa48e73021144b53c0c5e08">&#9670;&nbsp;</a></span>eval() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tvalue , typename Tcoord &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tvalue <a class="el" href="class_std_texture.html">StdTexture</a>&lt; Tvalue, Tcoord &gt;::eval </td>
+          <td>(</td>
+          <td class="paramtype">const Intersection &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_texture.html">Texture&lt; Tvalue &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_checkerboard2_d.html#afe2060ef6aa48e73021144b53c0c5e08">Checkerboard2D</a>, and <a class="el" href="class_checkerboard3_d.html#afe2060ef6aa48e73021144b53c0c5e08">Checkerboard3D</a>.</p>
+
+</div>
+</div>
+<a id="a5bda5ca78851e5818db1b8ef4ba6baac" name="a5bda5ca78851e5818db1b8ef4ba6baac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bda5ca78851e5818db1b8ef4ba6baac">&#9670;&nbsp;</a></span>eval() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tvalue , typename Tcoord &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Tvalue <a class="el" href="class_std_texture.html">StdTexture</a>&lt; Tvalue, Tcoord &gt;::eval </td>
+          <td>(</td>
+          <td class="paramtype">const Tcoord &amp;&#160;</td>
+          <td class="paramname"><em>coord</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_image_texture.html#a94fbbd597579204e77d7fd2291655d98">ImageTexture&lt; Treturn, Tmemory &gt;</a>, <a class="el" href="class_image_texture.html#a5cfb49f9683d6bcd63e5a666aa8c89ec">ImageTexture&lt; Treturn, Tmemory &gt;</a>, <a class="el" href="class_checkerboard2_d.html#a70d58951f4df5e3379ae9564320b9eb0">Checkerboard2D</a>, and <a class="el" href="class_checkerboard3_d.html#a263df2019d1178db5d07ab8b6bf165b4">Checkerboard3D</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

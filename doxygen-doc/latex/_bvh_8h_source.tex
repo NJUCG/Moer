@@ -1,13 +1,13 @@
 \hypertarget{_bvh_8h_source}{}\doxysection{Bvh.\+h}
-\label{_bvh_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Aggregate/Bvh.h@{/mnt/renderer/Zero/src/FunctionLayer/Aggregate/Bvh.h}}
-\mbox{\hyperlink{_bvh_8h}{Go to the documentation of this file.}}
+\label{_bvh_8h_source}\index{Bvh.h@{Bvh.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bounding_box_8h}{CoreLayer/Geometry/BoundingBox.h}}"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{FunctionLayer/Shape/Entity.h}}"{}}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_intersection_8h}{FunctionLayer/Intersection.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}CoreLayer/Geometry/BoundingBox.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}FunctionLayer/Shape/Entity.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}FunctionLayer/Intersection.h"{}}}
 \DoxyCodeLine{17 }
 \DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_entity_info}{EntityInfo}} \{}
 \DoxyCodeLine{20     \mbox{\hyperlink{struct_entity_info}{EntityInfo}}()\{\}}
@@ -49,11 +49,13 @@
 \DoxyCodeLine{57 }
 \DoxyCodeLine{63     Bvh(std::vector<std::shared\_ptr<Entity>>\& \_entites, SplitMethod \_splitMethod = SplitMethod::SAH);}
 \DoxyCodeLine{64 }
-\DoxyCodeLine{69     std::shared\_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>\& entityInfo, \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} end, \textcolor{keywordtype}{int}\& nodeNumber, std::vector<std::shared\_ptr<Entity>>\& orderedEntites);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{72     \textcolor{keywordtype}{void} Flatten(std::shared\_ptr<BvhTreeNode> node, \textcolor{keywordtype}{int}\& dfsOrder);}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{75     std::optional<Intersection> Intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r);}
-\DoxyCodeLine{76 \};}
+\DoxyCodeLine{69     std::shared\_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>\& entityInfo, }
+\DoxyCodeLine{70                                                 \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} end, \textcolor{keywordtype}{int}\& nodeNumber, }
+\DoxyCodeLine{71                                                 std::vector<std::shared\_ptr<Entity>>\& orderedEntites);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} Flatten(std::shared\_ptr<BvhTreeNode> node, \textcolor{keywordtype}{int}\& dfsOrder);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{77     std::optional<Intersection> Intersect(\textcolor{keyword}{const} \mbox{\hyperlink{struct_ray}{Ray}}\& r);}
+\DoxyCodeLine{78 \};}
 
 \end{DoxyCode}

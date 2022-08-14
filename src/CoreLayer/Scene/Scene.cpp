@@ -21,7 +21,8 @@ void Scene::build() {
 }
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
-	return BVH->Intersect(r);
+    if (BVH)
+	    return BVH->Intersect(r);
     std::optional<Intersection> minIntersection;
     for (auto i : *entities)
     {

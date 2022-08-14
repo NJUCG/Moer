@@ -1,12 +1,12 @@
 \hypertarget{_film_8h_source}{}\doxysection{Film.\+h}
-\label{_film_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.h@{/mnt/renderer/Zero/src/FunctionLayer/Film/Film.h}}
-\mbox{\hyperlink{_film_8h}{Go to the documentation of this file.}}
+\label{_film_8h_source}\index{Film.h@{Film.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_filter_8h}{FunctionLayer/Filter/Filter.h}}"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resource_manager_8h}{ResourceLayer/ResourceManager.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}FunctionLayer/Filter/Filter.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}ResourceLayer/ResourceManager.h"{}}}
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#include <memory>}}
 \DoxyCodeLine{17 }
 \DoxyCodeLine{18 \textcolor{keyword}{class }Film}
@@ -26,7 +26,7 @@
 \DoxyCodeLine{32     Film(\mbox{\hyperlink{struct_t_point3}{Point3i}} shape);}
 \DoxyCodeLine{33 }
 \DoxyCodeLine{34     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrum(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
-\DoxyCodeLine{35     RGB3 getRGB(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_r_g_b3}{RGB3}} getRGB(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
 \DoxyCodeLine{36 }
 \DoxyCodeLine{37     \textcolor{keywordtype}{void} setGamma(\textcolor{keywordtype}{double} gamma = 2.2);}
 \DoxyCodeLine{38     \textcolor{keywordtype}{void} setFilter(std::shared\_ptr<Filter> filter);}

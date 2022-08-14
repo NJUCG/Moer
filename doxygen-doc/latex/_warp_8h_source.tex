@@ -1,10 +1,10 @@
 \hypertarget{_warp_8h_source}{}\doxysection{Warp.\+h}
-\label{_warp_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Warp.h}}
-\mbox{\hyperlink{_warp_8h}{Go to the documentation of this file.}}
+\label{_warp_8h_source}\index{Warp.h@{Warp.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{Common.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}CoreLayer/Geometry/Geometry.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}Common.h"{}}}
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14 \textcolor{keyword}{static}  \textcolor{keywordtype}{double} TentInverse(\textcolor{keywordtype}{double} x)\{}
 \DoxyCodeLine{15     \textcolor{keywordflow}{if}(x<=.5f)}
@@ -24,7 +24,7 @@
 \DoxyCodeLine{29 \textcolor{keyword}{inline} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToUniformSphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
 \DoxyCodeLine{30     \textcolor{keywordtype}{float} z = 1 -\/ 2 * sample[0];}
 \DoxyCodeLine{31     \textcolor{keywordtype}{float} r = std::sqrt(std::max((\textcolor{keywordtype}{float} )0, (\textcolor{keywordtype}{float})1 -\/ z * z));}
-\DoxyCodeLine{32     \textcolor{keywordtype}{float} phi = 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} * sample[1];}
+\DoxyCodeLine{32     \textcolor{keywordtype}{float} phi = 2 * M\_PI * sample[1];}
 \DoxyCodeLine{33     \textcolor{keywordflow}{return} \{r * std::cos(phi), r * std::sin(phi), z\};}
 \DoxyCodeLine{34 \}}
 \DoxyCodeLine{35 }
@@ -35,7 +35,7 @@
 \DoxyCodeLine{40 \textcolor{keyword}{inline}  \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToUniformHemisphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
 \DoxyCodeLine{41     \textcolor{keywordtype}{float} z = 1 -\/ 2 * sample[0];}
 \DoxyCodeLine{42     \textcolor{keywordtype}{float} r = std::sqrt(std::max((\textcolor{keywordtype}{float} )0, (\textcolor{keywordtype}{float})1 -\/ z * z));}
-\DoxyCodeLine{43     \textcolor{keywordtype}{float} phi = 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}} * sample[1];}
+\DoxyCodeLine{43     \textcolor{keywordtype}{float} phi = 2 * M\_PI * sample[1];}
 \DoxyCodeLine{44     \textcolor{keywordflow}{return} \{r * std::cos(phi), r * std::sin(phi), std::abs(z)\};}
 \DoxyCodeLine{45 \}}
 \DoxyCodeLine{46 }
@@ -45,7 +45,7 @@
 \DoxyCodeLine{50 }
 \DoxyCodeLine{51 \textcolor{keyword}{inline}  \mbox{\hyperlink{struct_t_vector3}{Vec3d}} SquareToCosineHemisphere(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample) \{}
 \DoxyCodeLine{52     \textcolor{keywordtype}{float} z=sqrt(1-\/sample.x);}
-\DoxyCodeLine{53     \textcolor{keywordtype}{float} phi=sample.y*2*\mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{53     \textcolor{keywordtype}{float} phi=sample.y*2*M\_PI;}
 \DoxyCodeLine{54 }
 \DoxyCodeLine{55     \textcolor{keywordflow}{return} \{sqrt(sample.x)* cos(phi),sqrt(sample.x)*sin(phi),z\};}
 \DoxyCodeLine{56 \}}
@@ -58,7 +58,7 @@
 \DoxyCodeLine{63     \textcolor{keyword}{auto} tan2theta= -\/alpha*alpha*log( sample.x );}
 \DoxyCodeLine{64     \textcolor{keyword}{auto} cosTheta=sqrt(1/(1+tan2theta));}
 \DoxyCodeLine{65     \textcolor{keyword}{auto} sinTheta= sqrt(1-\/cosTheta*cosTheta);}
-\DoxyCodeLine{66     \textcolor{keyword}{auto} phi=sample.y * 2 * \mbox{\hyperlink{_common_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};}
+\DoxyCodeLine{66     \textcolor{keyword}{auto} phi=sample.y * 2 * M\_PI;}
 \DoxyCodeLine{67     \mbox{\hyperlink{struct_t_vector3}{Vec3d}} t1= \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(sinTheta*cos(phi), sinTheta*sin(phi),cosTheta);}
 \DoxyCodeLine{68     \textcolor{keywordflow}{return} t1;}
 \DoxyCodeLine{69 \}}

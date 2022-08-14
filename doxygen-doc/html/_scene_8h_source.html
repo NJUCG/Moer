@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/CoreLayer/Scene/Scene.h Source File</title>
+<title>Zero-Renderer: Scene.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,13 +70,13 @@ $(function() {
   <div class="headertitle"><div class="title">Scene.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_scene_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">CoreLayer/Ray/Ray.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">FunctionLayer/Shape/Entity.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_bvh_8h.html">FunctionLayer/Aggregate/Bvh.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Ray/Ray.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;FunctionLayer/Shape/Entity.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;FunctionLayer/Aggregate/Bvh.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;FunctionLayer/Light/Light.h&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
@@ -100,10 +100,6 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::shared_ptr&lt;std::vector&lt;std::shared_ptr&lt;Light&gt;&gt;&gt; getLights() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
-<div class="ttc" id="a_bvh_8h_html"><div class="ttname"><a href="_bvh_8h.html">Bvh.h</a></div><div class="ttdoc">BVH implementation.</div></div>
-<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Objects that can be intersected with ray.</div></div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
-<div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div><div class="ttdoc">Ray representation.</div></div>
 <div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Store the primitives in scene.</div><div class="ttdef"><b>Definition:</b> Scene.h:24</div></div>
 <div class="ttc" id="astruct_ray_html"><div class="ttname"><a href="struct_ray.html">Ray</a></div><div class="ttdoc">ray</div><div class="ttdef"><b>Definition:</b> Ray.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->

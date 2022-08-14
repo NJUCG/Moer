@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/BxDF.h Source File</title>
+<title>Zero-Renderer: BxDF.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,12 +70,12 @@ $(function() {
   <div class="headertitle"><div class="title">BxDF.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_bx_d_f_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">CoreLayer/ColorSpace/Color.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">CoreLayer/Geometry/Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_warp_8h.html">CoreLayer/Math/Warp.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/ColorSpace/Color.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;CoreLayer/Math/Warp.h&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">struct </span>BxDFSampleResult</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_sampled_spectrum.html">Spectrum</a> s;</div>
@@ -99,11 +99,8 @@ $(function() {
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isSpecular() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
-<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="a_warp_8h_html"><div class="ttname"><a href="_warp_8h.html">Warp.h</a></div><div class="ttdoc">The warp function to transform from unifrom sample to specific sample.</div></div>
 <div class="ttc" id="aclass_bx_d_f_html"><div class="ttname"><a href="class_bx_d_f.html">BxDF</a></div><div class="ttdoc">BxDF. out == rays from/to camera, in == rays from/to objects/lights.</div><div class="ttdef"><b>Definition:</b> BxDF.h:31</div></div>
-<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:335</div></div>
+<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:387</div></div>
 <div class="ttc" id="astruct_t_point2_html"><div class="ttname"><a href="struct_t_point2.html">TPoint2&lt; double &gt;</a></div></div>
 <div class="ttc" id="astruct_t_vector3_html"><div class="ttname"><a href="struct_t_vector3.html">TVector3&lt; double &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

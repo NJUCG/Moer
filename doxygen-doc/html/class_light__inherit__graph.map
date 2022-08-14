@@ -1,0 +1,6 @@
+<map id="Light" name="Light">
+<area shape="rect" id="node1" title="The base class for all light source." alt="" coords="98,5,153,31"/>
+<area shape="rect" id="node2" href="$class_area_light.html" title="Base class for all area light source." alt="" coords="29,79,113,104"/>
+<area shape="rect" id="node4" href="$class_point_light.html" title="Point light source." alt="" coords="137,79,223,104"/>
+<area shape="rect" id="node3" href="$class_diffuse_area_light.html" title="Diffuse area light source." alt="" coords="5,152,136,177"/>
+</map>

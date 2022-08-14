@@ -1,0 +1,6 @@
+<map id="Camera" name="Camera">
+<area shape="rect" id="node1" title="Base class for all camera." alt="" coords="104,5,177,31"/>
+<area shape="rect" id="node2" href="$class_perspective_camera.html" title="Base class for all perspective camera." alt="" coords="66,79,215,104"/>
+<area shape="rect" id="node3" href="$class_pinhole_camera.html" title="Pinhole camera." alt="" coords="5,152,127,177"/>
+<area shape="rect" id="node4" href="$class_thinlens_camera.html" title="Thinlens camera." alt="" coords="151,152,279,177"/>
+</map>

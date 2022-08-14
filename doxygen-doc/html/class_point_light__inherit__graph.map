@@ -1,0 +1,5 @@
+<map id="PointLight" name="PointLight">
+<area shape="rect" id="node1" title="Point light source." alt="" coords="41,79,128,104"/>
+<area shape="rect" id="node2" href="$class_light.html" title="The base class for all light source." alt="" coords="5,5,60,31"/>
+<area shape="rect" id="node3" href="$class_transform3_d.html" title="3d transformation representation" alt="" coords="84,5,189,31"/>
+</map>

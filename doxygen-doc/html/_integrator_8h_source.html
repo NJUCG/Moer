@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Integrator/Integrator.h Source File</title>
+<title>Zero-Renderer: Integrator.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,14 +70,14 @@ $(function() {
   <div class="headertitle"><div class="title">Integrator.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_integrator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_8h.html">CoreLayer/Scene/Scene.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_camera_8h.html">FunctionLayer/Camera/Camera.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_film_8h.html">FunctionLayer/Film/Film.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_sampler_8h.html">FunctionLayer/Sampler/Sampler.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_tile_generator_8h.html">FunctionLayer/TileGenerator/TileGenerator.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Scene/Scene.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;FunctionLayer/Camera/Camera.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;FunctionLayer/Film/Film.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;FunctionLayer/Sampler/Sampler.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;FunctionLayer/TileGenerator/TileGenerator.h&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
@@ -93,11 +93,6 @@ $(function() {
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">save</a>(<span class="keyword">const</span> std::string&amp; path);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
-<div class="ttc" id="a_camera_8h_html"><div class="ttname"><a href="_camera_8h.html">Camera.h</a></div><div class="ttdoc">Different cameras. Need to be investigated.</div></div>
-<div class="ttc" id="a_film_8h_html"><div class="ttname"><a href="_film_8h.html">Film.h</a></div><div class="ttdoc">The class that records ray sampling results. Just like old camera exposures!</div></div>
-<div class="ttc" id="a_sampler_8h_html"><div class="ttname"><a href="_sampler_8h.html">Sampler.h</a></div><div class="ttdoc">generate random numbers between (0,1).</div></div>
-<div class="ttc" id="a_scene_8h_html"><div class="ttname"><a href="_scene_8h.html">Scene.h</a></div><div class="ttdoc">Scene representation. Handle ray intersection.</div></div>
-<div class="ttc" id="a_tile_generator_8h_html"><div class="ttname"><a href="_tile_generator_8h.html">TileGenerator.h</a></div><div class="ttdoc">Generate tiles for different threads in renderer.</div></div>
 <div class="ttc" id="aclass_integrator_html"><div class="ttname"><a href="class_integrator.html">Integrator</a></div><div class="ttdoc">Base class for all integrators solving the rendering equation.</div><div class="ttdef"><b>Definition:</b> Integrator.h:28</div></div>
 <div class="ttc" id="aclass_integrator_html_a3958bc05b83165d22165a8605b212e13"><div class="ttname"><a href="class_integrator.html#a3958bc05b83165d22165a8605b212e13">Integrator::render</a></div><div class="ttdeci">virtual void render(std::shared_ptr&lt; Scene &gt; scene)=0</div><div class="ttdoc">Start to render the scene.</div></div>
 <div class="ttc" id="aclass_integrator_html_a7c0740135cc5089095dbaffa5c6990bc"><div class="ttname"><a href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">Integrator::save</a></div><div class="ttdeci">virtual void save(const std::string &amp;path)</div><div class="ttdoc">Save the rendering result.</div><div class="ttdef"><b>Definition:</b> Integrator.cpp:23</div></div>

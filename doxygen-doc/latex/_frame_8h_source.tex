@@ -1,6 +1,6 @@
 \hypertarget{_frame_8h_source}{}\doxysection{Frame.\+h}
-\label{_frame_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Geometry/Frame.h@{/mnt/renderer/Zero/src/CoreLayer/Geometry/Frame.h}}
-\mbox{\hyperlink{_frame_8h}{Go to the documentation of this file.}}
+\label{_frame_8h_source}\index{Frame.h@{Frame.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
 \DoxyCodeLine{2 \textcolor{comment}{// Created by yjp on 2022/6/6.}}
@@ -8,8 +8,8 @@
 \DoxyCodeLine{4 }
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{Geometry.h}}"{}}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{CoreLayer/Math/Common.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}Geometry.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}CoreLayer/Math/Common.h"{}}}
 \DoxyCodeLine{20 }
 \DoxyCodeLine{21 }
 \DoxyCodeLine{22 \textcolor{keyword}{static} \textcolor{keywordtype}{void} coordinateSystem(\textcolor{keyword}{const} \mbox{\hyperlink{struct_normal3d}{Normal3d}} \&a, \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \&b, \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \&c) \{}
@@ -21,7 +21,7 @@
 \DoxyCodeLine{28         c = \mbox{\hyperlink{struct_t_vector3}{Vec3d}}(0.0f, a.z * invLen, -\/a.y * invLen);}
 \DoxyCodeLine{29     \}}
 \DoxyCodeLine{30     \mbox{\hyperlink{struct_t_vector3}{Vec3d}}  \_a(a.x,a.y,a.z);}
-\DoxyCodeLine{31     b = \mbox{\hyperlink{vector_8h_ab82aa209c23c60f76558d0d672e5cd8e}{cross}}(\_a,c);}
+\DoxyCodeLine{31     b = cross(\_a,c);}
 \DoxyCodeLine{32 \}}
 \DoxyCodeLine{33 }
 \DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_frame}{Frame}} \{}
@@ -76,22 +76,22 @@
 \DoxyCodeLine{101         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} = \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{Frame::sinTheta}}(v);}
 \DoxyCodeLine{102         \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} == 0.0f)}
 \DoxyCodeLine{103             \textcolor{keywordflow}{return} 1.0f;}
-\DoxyCodeLine{104         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.y / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} clamp(v.y / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
 \DoxyCodeLine{105     \}}
 \DoxyCodeLine{106 }
 \DoxyCodeLine{109     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a9516d7ef17c182b1192c179c861906b7}{cosPhi}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
 \DoxyCodeLine{110         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} = \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{Frame::sinTheta}}(v);}
 \DoxyCodeLine{111         \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}} == 0.0f)}
 \DoxyCodeLine{112             \textcolor{keywordflow}{return} 1.0f;}
-\DoxyCodeLine{113         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.x / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} clamp(v.x / \mbox{\hyperlink{struct_frame_a57073384606ae0b0f53a5c636c95cd08}{sinTheta}}, -\/1.0f, 1.0f);}
 \DoxyCodeLine{114     \}}
 \DoxyCodeLine{115 }
 \DoxyCodeLine{119     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_ac5a798094759b36a5650699b8d1bcad9}{sinPhi2}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
-\DoxyCodeLine{120         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.y * v.y / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} clamp(v.y * v.y / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
 \DoxyCodeLine{121     \}}
 \DoxyCodeLine{122 }
 \DoxyCodeLine{126     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_frame_a60f5fc5850e7ca23f211053ace0b7b17}{cosPhi2}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v) \{}
-\DoxyCodeLine{127         \textcolor{keywordflow}{return} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(v.x * v.x / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} clamp(v.x * v.x / \mbox{\hyperlink{struct_frame_ad83e0e53746cceb5fe30a5edb4e1b490}{sinTheta2}}(v), 0.0f, 1.0f);}
 \DoxyCodeLine{128     \}}
 \DoxyCodeLine{129 }
 \DoxyCodeLine{131     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_frame_ac8147d1881c28bd0a96cc9ad5a0f361d}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_frame}{Frame}} \&frame)\textcolor{keyword}{ const }\{}

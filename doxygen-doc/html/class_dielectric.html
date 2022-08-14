@@ -64,15 +64,14 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_dielectric-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Dielectric Class Reference<div class="ingroups"><a class="el" href="group___bx_d_f.html">BxDF</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><a class="el" href="class_dielectric.html" title="Dielectric reflection model.">Dielectric</a> reflection model.  
- <a href="class_dielectric.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_dielectric_8h_source.html">Dielectric.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for Dielectric:</div>
 <div class="dyncontent">
@@ -82,12 +81,217 @@ Inheritance diagram for Dielectric:</div>
 <area href="class_bx_d_f.html" title="BxDF. out == rays from/to camera, in == rays from/to objects/lights." alt="BxDF" shape="rect" coords="0,0,66,24"/>
   </map>
 </div></div>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="class_dielectric.html" title="Dielectric reflection model.">Dielectric</a> reflection model. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/<a class="el" href="_dielectric_8h_source.html">Dielectric.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Material/BxDF/Dielectric.cpp</li>
-</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5af59eed6b47780dab30ac4cfe20d7da"><td class="memItemLeft" align="right" valign="top"><a id="a5af59eed6b47780dab30ac4cfe20d7da" name="a5af59eed6b47780dab30ac4cfe20d7da"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Dielectric</b> (float m_intIOR=1.5046f, float m_extIOR=1.00277f)</td></tr>
+<tr class="separator:a5af59eed6b47780dab30ac4cfe20d7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96153734e13a4af84c0e078fad6f5410"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dielectric.html#a96153734e13a4af84c0e078fad6f5410">f</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
+<tr class="separator:a96153734e13a4af84c0e078fad6f5410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1480d55d367cc43852dd4e24e938be97"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dielectric.html#a1480d55d367cc43852dd4e24e938be97">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
+<tr class="separator:a1480d55d367cc43852dd4e24e938be97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3eb7d68874fedbb300e8d7bade8f9bd"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dielectric.html#af3eb7d68874fedbb300e8d7bade8f9bd">pdf</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wi) const</td></tr>
+<tr class="separator:af3eb7d68874fedbb300e8d7bade8f9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a788ddcef7628d92789e50d6ee6dff658"><td class="memItemLeft" align="right" valign="top">virtual BxDFSampleResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dielectric.html#a788ddcef7628d92789e50d6ee6dff658">sample</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;wo, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const</td></tr>
+<tr class="separator:a788ddcef7628d92789e50d6ee6dff658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d9e9a3e68612af6a56e7f7bc792afec"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dielectric.html#a2d9e9a3e68612af6a56e7f7bc792afec">isSpecular</a> () const</td></tr>
+<tr class="separator:a2d9e9a3e68612af6a56e7f7bc792afec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e38ea9387160d54c1393a664a3118c"><td class="memItemLeft" align="right" valign="top"><a id="a54e38ea9387160d54c1393a664a3118c" name="a54e38ea9387160d54c1393a664a3118c"></a>
+virtual <a class="el" href="class_sampled_spectrum.html">Spectrum</a>&#160;</td><td class="memItemRight" valign="bottom"><b>f</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
+<tr class="separator:a54e38ea9387160d54c1393a664a3118c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bx_d_f.html#a6d116e406a8aa819ab2c40ebb04d33f1">sampleWi</a> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
+<tr class="separator:a6d116e406a8aa819ab2c40ebb04d33f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memItemLeft" align="right" valign="top"><a id="a5da96c45f63e8ea96f7c1e8527216c78" name="a5da96c45f63e8ea96f7c1e8527216c78"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>pdf</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;in) const =0</td></tr>
+<tr class="separator:a5da96c45f63e8ea96f7c1e8527216c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91816792b34433274c8c02ab75425282"><td class="memItemLeft" align="right" valign="top"><a id="a91816792b34433274c8c02ab75425282" name="a91816792b34433274c8c02ab75425282"></a>
+virtual BxDFSampleResult&#160;</td><td class="memItemRight" valign="bottom"><b>sample</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;out, const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;sample) const =0</td></tr>
+<tr class="separator:a91816792b34433274c8c02ab75425282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcb853695e4f708df98615efd95f990"><td class="memItemLeft" align="right" valign="top"><a id="adfcb853695e4f708df98615efd95f990" name="adfcb853695e4f708df98615efd95f990"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSpecular</b> () const =0</td></tr>
+<tr class="separator:adfcb853695e4f708df98615efd95f990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a96153734e13a4af84c0e078fad6f5410" name="a96153734e13a4af84c0e078fad6f5410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96153734e13a4af84c0e078fad6f5410">&#9670;&nbsp;</a></span>f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sampled_spectrum.html">Spectrum</a> Dielectric::f </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="a2d9e9a3e68612af6a56e7f7bc792afec" name="a2d9e9a3e68612af6a56e7f7bc792afec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9e9a3e68612af6a56e7f7bc792afec">&#9670;&nbsp;</a></span>isSpecular()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Dielectric::isSpecular </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="af3eb7d68874fedbb300e8d7bade8f9bd" name="af3eb7d68874fedbb300e8d7bade8f9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3eb7d68874fedbb300e8d7bade8f9bd">&#9670;&nbsp;</a></span>pdf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Dielectric::pdf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="a788ddcef7628d92789e50d6ee6dff658" name="a788ddcef7628d92789e50d6ee6dff658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a788ddcef7628d92789e50d6ee6dff658">&#9670;&nbsp;</a></span>sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BxDFSampleResult Dielectric::sample </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>sample</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
+<a id="a1480d55d367cc43852dd4e24e938be97" name="a1480d55d367cc43852dd4e24e938be97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1480d55d367cc43852dd4e24e938be97">&#9670;&nbsp;</a></span>sampleWi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t_vector3.html">Vec3d</a> Dielectric::sampleWi </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>wo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_t_point2.html">Point2d</a> &amp;&#160;</td>
+          <td class="paramname"><em>sample</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_bx_d_f.html">BxDF</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

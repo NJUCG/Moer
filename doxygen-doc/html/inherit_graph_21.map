@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_sampler.html" title="Base class for all samplers." alt="" coords="5,31,81,56"/>
+<area shape="rect" id="node2" href="$class_independent_sampler.html" title="Generate unifromly distributed sample in [0, 1)" alt="" coords="129,5,287,31"/>
+<area shape="rect" id="node3" href="$class_pixel_sampler.html" title="Base class for pixel sampler, which generate specific samples before rendering each pixel need the di..." alt="" coords="155,55,261,80"/>
+<area shape="rect" id="node4" href="$class_stratified_sampler.html" title="Stratified generate sample." alt="" coords="335,55,469,80"/>
+</map>

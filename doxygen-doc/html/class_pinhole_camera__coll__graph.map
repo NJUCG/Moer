@@ -1,0 +1,6 @@
+<map id="PinholeCamera" name="PinholeCamera">
+<area shape="rect" id="node1" title="Pinhole camera." alt="" coords="33,183,155,208"/>
+<area shape="rect" id="node2" href="$class_perspective_camera.html" title="Base class for all perspective camera." alt="" coords="19,108,169,133"/>
+<area shape="rect" id="node3" href="$class_camera.html" title="Base class for all camera." alt="" coords="5,5,79,31"/>
+<area shape="rect" id="node4" href="$class_matrix4x4.html" title="a simple wrap of Eigen Matrix 4x4." alt="" coords="103,5,191,31"/>
+</map>

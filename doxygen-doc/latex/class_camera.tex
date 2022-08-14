@@ -5,10 +5,6 @@
 Base class for all camera.  
 
 
-
-
-{\ttfamily \#include $<$Camera.\+h$>$}
-
 Inheritance diagram for Camera\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,19 +18,12 @@ virtual \mbox{\hyperlink{struct_ray}{Ray}} \mbox{\hyperlink{class_camera_ab6686c
 \begin{DoxyCompactList}\small\item\em Generate a ray from camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-Base class for all camera. 
-
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_camera_ab6686c5ad9438868f19229340448c089}\label{class_camera_ab6686c5ad9438868f19229340448c089}} 
 \index{Camera@{Camera}!generateRay@{generateRay}}
 \index{generateRay@{generateRay}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{generateRay()}{generateRay()}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{struct_ray}{Ray}} Camera\+::generate\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{film\+Resolution,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2i}} \&}]{pixel\+Position,  }\item[{const \mbox{\hyperlink{struct_camera_sample}{Camera\+Sample}} \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Generate a ray from camera. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -52,8 +41,3 @@ Generate a ray from camera.
 
 Implemented in \mbox{\hyperlink{class_pinhole_camera_abab415cdc67e1c1ff2ebeda7f3c806e6}{Pinhole\+Camera}}, and \mbox{\hyperlink{class_thinlens_camera_aeea976e36d6057ed11677d93bf2ec6d6}{Thinlens\+Camera}}.
 
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Camera/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\end{DoxyCompactItemize}

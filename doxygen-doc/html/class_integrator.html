@@ -65,15 +65,14 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_integrator-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Integrator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group___integrator.html">Integrator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Base class for all integrators solving the rendering equation.  
- <a href="class_integrator.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_integrator_8h_source.html">Integrator.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for Integrator:</div>
 <div class="dyncontent">
@@ -97,10 +96,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c0740135cc5089095dbaffa5c6990bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">save</a> (const std::string &amp;path)</td></tr>
 <tr class="memdesc:a7c0740135cc5089095dbaffa5c6990bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the rendering result.  <a href="class_integrator.html#a7c0740135cc5089095dbaffa5c6990bc">More...</a><br /></td></tr>
 <tr class="separator:a7c0740135cc5089095dbaffa5c6990bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ad3b7c350dc419b21cf584a4717e32c87"><td class="memItemLeft" align="right" valign="top"><a id="ad3b7c350dc419b21cf584a4717e32c87" name="ad3b7c350dc419b21cf584a4717e32c87"></a>
+std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
+<tr class="separator:ad3b7c350dc419b21cf584a4717e32c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac482591f4fc9fe3a5c485bf0f72ba8e4"><td class="memItemLeft" align="right" valign="top"><a id="ac482591f4fc9fe3a5c485bf0f72ba8e4" name="ac482591f4fc9fe3a5c485bf0f72ba8e4"></a>
+std::unique_ptr&lt; Film &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>film</b></td></tr>
+<tr class="separator:ac482591f4fc9fe3a5c485bf0f72ba8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Base class for all integrators solving the rendering equation. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a542e74d4e2a070e6cb730aa400dd56fc" name="a542e74d4e2a070e6cb730aa400dd56fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a542e74d4e2a070e6cb730aa400dd56fc">&#9670;&nbsp;</a></span>Integrator()</h2>
 
@@ -126,8 +132,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Construct a new <a class="el" href="class_integrator.html" title="Base class for all integrators solving the rendering equation.">Integrator</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_camera</td><td></td></tr>
@@ -162,8 +166,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Start to render the scene. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scene</td><td>The scene to be rendered </td></tr>
@@ -198,8 +200,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Save the rendering result. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path to save the result </td></tr>
@@ -209,10 +209,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_integrator_8h_source.html">Integrator.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Integrator/<a class="el" href="_integrator_8cpp.html">Integrator.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

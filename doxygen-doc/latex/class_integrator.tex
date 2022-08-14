@@ -5,10 +5,6 @@
 Base class for all integrators solving the rendering equation.  
 
 
-
-
-{\ttfamily \#include $<$Integrator.\+h$>$}
-
 Inheritance diagram for Integrator\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,10 +20,16 @@ virtual void \mbox{\hyperlink{class_integrator_a3958bc05b83165d22165a8605b212e13
 \begin{DoxyCompactList}\small\item\em Start to render the scene. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_integrator_a7c0740135cc5089095dbaffa5c6990bc}{save}} (const std\+::string \&path)
 \begin{DoxyCompactList}\small\item\em Save the rendering result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}\label{class_integrator_ad3b7c350dc419b21cf584a4717e32c87}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ {\bfseries camera}
+\item 
+\mbox{\Hypertarget{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}\label{class_integrator_ac482591f4fc9fe3a5c485bf0f72ba8e4}} 
+std\+::unique\+\_\+ptr$<$ Film $>$ {\bfseries film}
+\end{DoxyCompactItemize}
 
-
-\doxysubsection{Detailed Description}
-Base class for all integrators solving the rendering equation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}\label{class_integrator_a542e74d4e2a070e6cb730aa400dd56fc}} 
@@ -35,10 +37,6 @@ Base class for all integrators solving the rendering equation.
 \index{Integrator@{Integrator}!Integrator@{Integrator}}
 \doxysubsubsection{\texorpdfstring{Integrator()}{Integrator()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_integrator}{Integrator\+::\+Integrator}} (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{\+\_\+camera,  }\item[{std\+::unique\+\_\+ptr$<$ Film $>$}]{\+\_\+film }\end{DoxyParamCaption})}
-
-
-
-Construct a new \mbox{\hyperlink{class_integrator}{Integrator}} object. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -57,10 +55,6 @@ Construct a new \mbox{\hyperlink{class_integrator}{Integrator}} object.
 {\footnotesize\ttfamily virtual void Integrator\+::render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
-
-Start to render the scene. 
-
-
 \begin{DoxyParams}{Parameters}
 {\em scene} & The scene to be rendered \\
 \hline
@@ -76,17 +70,7 @@ Implemented in \mbox{\hyperlink{class_monte_carlo_integrator_aa36b5367a5af05914a
 {\footnotesize\ttfamily void Integrator\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
-
-Save the rendering result. 
-
-
 \begin{DoxyParams}{Parameters}
 {\em path} & The path to save the result \\
 \hline
 \end{DoxyParams}
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_integrator_8h}{Integrator.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Integrator/\mbox{\hyperlink{_integrator_8cpp}{Integrator.\+cpp}}\end{DoxyCompactItemize}

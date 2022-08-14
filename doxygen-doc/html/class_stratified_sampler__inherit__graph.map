@@ -1,0 +1,5 @@
+<map id="StratifiedSampler" name="StratifiedSampler">
+<area shape="rect" id="node1" title="Stratified generate sample." alt="" coords="5,152,140,177"/>
+<area shape="rect" id="node2" href="$class_pixel_sampler.html" title="Base class for pixel sampler, which generate specific samples before rendering each pixel need the di..." alt="" coords="19,79,126,104"/>
+<area shape="rect" id="node3" href="$class_sampler.html" title="Base class for all samplers." alt="" coords="35,5,111,31"/>
+</map>

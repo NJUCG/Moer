@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Camera/Pinhole.h Source File</title>
+<title>Zero-Renderer: Pinhole.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_perspective_8h.html">Perspective.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Perspective.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_pinhole_camera.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pinhole_camera.html">PinholeCamera</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_perspective_camera.html">PerspectiveCamera</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
@@ -90,7 +90,6 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                            <span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;pixelPosition, </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                            <span class="keyword">const</span> <a class="code hl_struct" href="struct_camera_sample.html">CameraSample</a> &amp;sample) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="ttc" id="a_perspective_8h_html"><div class="ttname"><a href="_perspective_8h.html">Perspective.h</a></div><div class="ttdoc">Abstract base class for all perspective camera.</div></div>
 <div class="ttc" id="aclass_perspective_camera_html"><div class="ttname"><a href="class_perspective_camera.html">PerspectiveCamera</a></div><div class="ttdoc">Base class for all perspective camera.</div><div class="ttdef"><b>Definition:</b> Perspective.h:20</div></div>
 <div class="ttc" id="aclass_pinhole_camera_html"><div class="ttname"><a href="class_pinhole_camera.html">PinholeCamera</a></div><div class="ttdoc">Pinhole camera.</div><div class="ttdef"><b>Definition:</b> Pinhole.h:9</div></div>
 <div class="ttc" id="aclass_pinhole_camera_html_abab415cdc67e1c1ff2ebeda7f3c806e6"><div class="ttname"><a href="class_pinhole_camera.html#abab415cdc67e1c1ff2ebeda7f3c806e6">PinholeCamera::generateRay</a></div><div class="ttdeci">virtual Ray generateRay(const Point2i &amp;filmResolution, const Point2i &amp;pixelPosition, const CameraSample &amp;sample) const override</div><div class="ttdoc">! Notice, NDC is the sample in unit square</div><div class="ttdef"><b>Definition:</b> Pinhole.cpp:3</div></div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/ResourceLayer/File/Image.h Source File</title>
+<title>Zero-Renderer: Image.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,11 +70,11 @@ $(function() {
   <div class="headertitle"><div class="title">Image.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_image_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">CoreLayer/Geometry/Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">CoreLayer/ColorSpace/Color.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/ColorSpace/Color.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
@@ -111,15 +111,14 @@ $(function() {
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span> getHeight() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> setColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p, <span class="keyword">const</span> <a class="code hl_class" href="class_sampled_spectrum.html">Spectrum</a> &amp;s);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> setColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p, <span class="keyword">const</span> RGB3 &amp;rgb);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    RGB3 getRGBColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> setColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p, <span class="keyword">const</span> <a class="code hl_class" href="class_r_g_b3.html">RGB3</a> &amp;rgb);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="class_r_g_b3.html">RGB3</a> getRGBColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="class_sampled_spectrum.html">Spectrum</a> getSpectrumColorAt(<span class="keyword">const</span> <a class="code hl_class" href="struct_t_point2.html">Point2i</a> &amp;p);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">bool</span> saveTo(<span class="keyword">const</span> std::string &amp;path);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
-<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:335</div></div>
+<div class="ttc" id="aclass_r_g_b3_html"><div class="ttname"><a href="class_r_g_b3.html">RGB3</a></div><div class="ttdoc">Classical rgb color space.</div><div class="ttdef"><b>Definition:</b> Color.h:62</div></div>
+<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:387</div></div>
 <div class="ttc" id="astruct_t_point2_html"><div class="ttname"><a href="struct_t_point2.html">TPoint2&lt; int &gt;</a></div></div>
 <div class="ttc" id="astruct_t_point3_html"><div class="ttname"><a href="struct_t_point3.html">TPoint3</a></div><div class="ttdoc">Point3.</div><div class="ttdef"><b>Definition:</b> point.h:130</div></div>
 </div><!-- fragment --></div><!-- contents -->

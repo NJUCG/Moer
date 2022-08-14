@@ -5,10 +5,6 @@
 The specturm samples uniformly. Actually used in program.  
 
 
-
-
-{\ttfamily \#include $<$Color.\+h$>$}
-
 Inheritance diagram for Sampled\+Spectrum\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,7 +14,13 @@ Inheritance diagram for Sampled\+Spectrum\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual XYZ3 \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}{to\+XYZ3}} () const override
+\mbox{\Hypertarget{class_sampled_spectrum_ab3c6b1672a8e51eff217571990aba5d4}\label{class_sampled_spectrum_ab3c6b1672a8e51eff217571990aba5d4}} 
+{\bfseries Sampled\+Spectrum} (double val)
+\item 
+\mbox{\Hypertarget{class_sampled_spectrum_a667655643aa969eee124c8ee34a3f2d0}\label{class_sampled_spectrum_a667655643aa969eee124c8ee34a3f2d0}} 
+{\bfseries Sampled\+Spectrum} (const \mbox{\hyperlink{class_coefficient_spectrum}{Coefficient\+Spectrum}} \&s)
+\item 
+virtual \mbox{\hyperlink{class_x_y_z3}{XYZ3}} \mbox{\hyperlink{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}{to\+XYZ3}} () const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -29,17 +31,24 @@ static void {\bfseries init} ()
 \mbox{\Hypertarget{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}\label{class_sampled_spectrum_a3a9f82d1330bf96d4ba2828ce487a77d}} 
 static \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} {\bfseries from\+Sampled} (std\+::vector$<$ \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}} $>$ v)
 \begin{DoxyCompactList}\small\item\em generate \mbox{\hyperlink{class_sampled_spectrum}{Sampled\+Spectrum}} from a set of \mbox{\hyperlink{struct_spectrum_sample}{Spectrum\+Sample}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sampled_spectrum_aae89217b9afcd66ec32a3bd549ed830f}\label{class_sampled_spectrum_aae89217b9afcd66ec32a3bd549ed830f}} 
+class {\bfseries RGB3}
+\item 
+\mbox{\Hypertarget{class_sampled_spectrum_ac0c19d3a534d53a7706366dcc50db84c}\label{class_sampled_spectrum_ac0c19d3a534d53a7706366dcc50db84c}} 
+class {\bfseries XYZ3}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
-
-\doxysubsection{Detailed Description}
-The specturm samples uniformly. Actually used in program. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}\label{class_sampled_spectrum_a2eea2db7cbf04dccabd359d56bfa47e2}} 
 \index{SampledSpectrum@{SampledSpectrum}!toXYZ3@{toXYZ3}}
 \index{toXYZ3@{toXYZ3}!SampledSpectrum@{SampledSpectrum}}
 \doxysubsubsection{\texorpdfstring{toXYZ3()}{toXYZ3()}}
-{\footnotesize\ttfamily XYZ3 Sampled\+Spectrum\+::to\+XYZ3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_x_y_z3}{XYZ3}} Sampled\+Spectrum\+::to\+XYZ3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 \begin{DoxyAttention}{Attention}
 This function is just used for debugging 
@@ -48,9 +57,3 @@ This function is just used for debugging
 
 Reimplemented from \mbox{\hyperlink{class_coefficient_spectrum_a1030448ede9e3fe3d9991890a732a05a}{Coefficient\+Spectrum$<$ n\+Spectrum\+Samples $>$}}.
 
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Color\+Space/\mbox{\hyperlink{_color_8h}{Color.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Color\+Space/Spectrum.\+cpp\end{DoxyCompactItemize}

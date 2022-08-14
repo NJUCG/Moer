@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Integrator/AbstractPathIntegrator.h Source File</title>
+<title>Zero-Renderer: AbstractPathIntegrator.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,12 +70,12 @@ $(function() {
   <div class="headertitle"><div class="title">AbstractPathIntegrator.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_abstract_path_integrator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">CoreLayer/Ray/Ray.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_monte_carlo_integrator_8h.html">MonteCarloIntegrator.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Ray/Ray.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;MonteCarloIntegrator.h&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_path_integrator_local_record.html">   22</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
@@ -129,8 +129,6 @@ $(function() {
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                                   <span class="keyword">const</span> <a class="code hl_class" href="class_sampled_spectrum.html">Spectrum</a> &amp;T,</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                                   <span class="keywordtype">int</span> nBounce) = 0;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
-<div class="ttc" id="a_monte_carlo_integrator_8h_html"><div class="ttname"><a href="_monte_carlo_integrator_8h.html">MonteCarloIntegrator.h</a></div><div class="ttdoc">Integrators.</div></div>
-<div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div><div class="ttdoc">Ray representation.</div></div>
 <div class="ttc" id="aclass_abstract_path_integrator_html"><div class="ttname"><a href="class_abstract_path_integrator.html">AbstractPathIntegrator</a></div><div class="ttdoc">Base class for all path_tracing-like integrators.</div><div class="ttdef"><b>Definition:</b> AbstractPathIntegrator.h:35</div></div>
 <div class="ttc" id="aclass_abstract_path_integrator_html_a0abd0f1493fd7881508006e3cccc0475"><div class="ttname"><a href="class_abstract_path_integrator.html#a0abd0f1493fd7881508006e3cccc0475">AbstractPathIntegrator::sampleDirectLighting</a></div><div class="ttdeci">virtual PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr&lt; Scene &gt; scene, const Intersection &amp;its, const Ray &amp;ray)=0</div><div class="ttdoc">Sample incident direction of direct lighting.</div></div>
 <div class="ttc" id="aclass_abstract_path_integrator_html_a2efce2d9a16b71a83b05c6bab3d38133"><div class="ttname"><a href="class_abstract_path_integrator.html#a2efce2d9a16b71a83b05c6bab3d38133">AbstractPathIntegrator::nDirectLightSamples</a></div><div class="ttdeci">const int nDirectLightSamples</div><div class="ttdoc">Default, sample the direct illumination at each hitpoint once.</div><div class="ttdef"><b>Definition:</b> AbstractPathIntegrator.h:37</div></div>
@@ -140,7 +138,7 @@ $(function() {
 <div class="ttc" id="aclass_abstract_path_integrator_html_aee510e134c59cdd95e1138f9033be81b"><div class="ttname"><a href="class_abstract_path_integrator.html#aee510e134c59cdd95e1138f9033be81b">AbstractPathIntegrator::evalScatter</a></div><div class="ttdeci">virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr&lt; Scene &gt; scene, const Intersection &amp;its, const Ray &amp;ray, const Vec3d &amp;wi)=0</div><div class="ttdoc">Return scatter value of BSDF or phase function.</div></div>
 <div class="ttc" id="aclass_abstract_path_integrator_html_afd751de0df4b208a7165fadf74bd0c98"><div class="ttname"><a href="class_abstract_path_integrator.html#afd751de0df4b208a7165fadf74bd0c98">AbstractPathIntegrator::sampleScatter</a></div><div class="ttdeci">virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr&lt; Scene &gt; scene, const Intersection &amp;its, const Ray &amp;ray)=0</div><div class="ttdoc">Sample incident direction by scatter value of BSDF or phase function.</div></div>
 <div class="ttc" id="aclass_monte_carlo_integrator_html"><div class="ttname"><a href="class_monte_carlo_integrator.html">MonteCarloIntegrator</a></div><div class="ttdoc">Base class for all integrators solving rendering equation using MonteCarlo methods.</div><div class="ttdef"><b>Definition:</b> MonteCarloIntegrator.h:23</div></div>
-<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:335</div></div>
+<div class="ttc" id="aclass_sampled_spectrum_html"><div class="ttname"><a href="class_sampled_spectrum.html">SampledSpectrum</a></div><div class="ttdoc">The specturm samples uniformly. Actually used in program.</div><div class="ttdef"><b>Definition:</b> Color.h:387</div></div>
 <div class="ttc" id="astruct_path_integrator_local_record_html"><div class="ttname"><a href="struct_path_integrator_local_record.html">PathIntegratorLocalRecord</a></div><div class="ttdef"><b>Definition:</b> AbstractPathIntegrator.h:23</div></div>
 <div class="ttc" id="astruct_ray_html"><div class="ttname"><a href="struct_ray.html">Ray</a></div><div class="ttdoc">ray</div><div class="ttdef"><b>Definition:</b> Ray.h:21</div></div>
 <div class="ttc" id="astruct_t_vector3_html"><div class="ttname"><a href="struct_t_vector3.html">TVector3&lt; double &gt;</a></div></div>

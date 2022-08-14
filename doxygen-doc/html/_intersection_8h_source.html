@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Intersection.h Source File</title>
+<title>Zero-Renderer: Intersection.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,14 +70,14 @@ $(function() {
   <div class="headertitle"><div class="title">Intersection.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_intersection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_geometry_8h.html">CoreLayer/Geometry/Geometry.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_frame_8h.html">CoreLayer/Geometry/Frame.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_material_8h.html">FunctionLayer/Material/Material.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_medium_8h.html">FunctionLayer/Medium/Medium.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">FunctionLayer/Shape/Entity.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/Geometry/Frame.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;FunctionLayer/Material/Material.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;FunctionLayer/Medium/Medium.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;FunctionLayer/Shape/Entity.h&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
@@ -112,11 +112,6 @@ $(function() {
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">return</span> shFrame.<a class="code hl_function" href="struct_frame.html#a079d02ee6fa1c9dfbc09b9d53d3fee78">toWorld</a>(d);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
-<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Objects that can be intersected with ray.</div></div>
-<div class="ttc" id="a_frame_8h_html"><div class="ttname"><a href="_frame_8h.html">Frame.h</a></div></div>
-<div class="ttc" id="a_geometry_8h_html"><div class="ttname"><a href="_geometry_8h.html">Geometry.h</a></div><div class="ttdoc">All the forward declarations of geometry part.</div></div>
-<div class="ttc" id="a_material_8h_html"><div class="ttname"><a href="_material_8h.html">Material.h</a></div><div class="ttdoc">Material of an object. Generate BxDF and/or BSSRDF.</div></div>
-<div class="ttc" id="a_medium_8h_html"><div class="ttname"><a href="_medium_8h.html">Medium.h</a></div><div class="ttdoc">Medium.</div></div>
 <div class="ttc" id="astruct_frame_html"><div class="ttname"><a href="struct_frame.html">Frame</a></div><div class="ttdoc">Convert the vector between world coordinate and local coordinate</div><div class="ttdef"><b>Definition:</b> Frame.h:36</div></div>
 <div class="ttc" id="astruct_frame_html_a079d02ee6fa1c9dfbc09b9d53d3fee78"><div class="ttname"><a href="struct_frame.html#a079d02ee6fa1c9dfbc09b9d53d3fee78">Frame::toWorld</a></div><div class="ttdeci">Vec3d toWorld(const Vec3d &amp;v) const</div><div class="ttdoc">Convert from local coordinates to world coordinates.</div><div class="ttdef"><b>Definition:</b> Frame.h:64</div></div>
 <div class="ttc" id="astruct_frame_html_afe55aa248e8cf1792d80f985352166d9"><div class="ttname"><a href="struct_frame.html#afe55aa248e8cf1792d80f985352166d9">Frame::toLocal</a></div><div class="ttdeci">Vec3d toLocal(const Vec3d &amp;v) const</div><div class="ttdoc">Convert from world coordinates to local coordinates.</div><div class="ttdef"><b>Definition:</b> Frame.h:57</div></div>

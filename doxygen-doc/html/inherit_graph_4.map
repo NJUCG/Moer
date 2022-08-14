@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_camera.html" title="Base class for all camera." alt="" coords="5,31,79,56"/>
+<area shape="rect" id="node2" href="$class_perspective_camera.html" title="Base class for all perspective camera." alt="" coords="127,31,276,56"/>
+<area shape="rect" id="node3" href="$class_pinhole_camera.html" title="Pinhole camera." alt="" coords="327,5,449,31"/>
+<area shape="rect" id="node4" href="$class_thinlens_camera.html" title="Thinlens camera." alt="" coords="324,55,452,80"/>
+</map>

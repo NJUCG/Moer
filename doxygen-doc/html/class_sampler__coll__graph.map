@@ -1,0 +1,4 @@
+<map id="Sampler" name="Sampler">
+<area shape="rect" id="node1" title="Base class for all samplers." alt="" coords="64,93,140,119"/>
+<area shape="rect" id="node2" href="$class_random_number_generator.html" title="RandomNumberGenerator, using pcg &#160;to generate random number." alt="" coords="5,5,199,31"/>
+</map>

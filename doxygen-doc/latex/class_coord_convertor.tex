@@ -5,22 +5,25 @@
 Provides transformations between different coordinate systems.  
 
 
-
-
-{\ttfamily \#include $<$Coord\+Convertor.\+h$>$}
-
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{struct_t_point3}{Point3d}} \mbox{\hyperlink{class_coord_convertor_a6f5154f84a5ed35b8602d27f4b7d3450}{cartesian2\+Spherical}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
-\begin{DoxyCompactList}\small\item\em Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_coord_convertor_a35900e1deaafa324234d5ad53c12b7f4}\label{class_coord_convertor_a35900e1deaafa324234d5ad53c12b7f4}} 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries cartesian2\+Spherical\+Vec} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&p)
+\item 
+\mbox{\Hypertarget{class_coord_convertor_a187b04a42d83b5df8cd536b54617b452}\label{class_coord_convertor_a187b04a42d83b5df8cd536b54617b452}} 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries world2\+TBN} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&b, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&n)
+\item 
+\mbox{\Hypertarget{class_coord_convertor_ae3137d0296f862b95cbe342be370af02}\label{class_coord_convertor_ae3137d0296f862b95cbe342be370af02}} 
+static \mbox{\hyperlink{struct_t_vector3}{Vec3d}} {\bfseries TBN2\+World} (const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&v, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&t, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&b, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&n)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Provides transformations between different coordinate systems. 
-
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]A namespace contains function might better? \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]A namespace contains function might better? \end{DoxyRefDesc}
 
 
 \doxysubsection{Member Function Documentation}
@@ -30,12 +33,8 @@ Provides transformations between different coordinate systems.
 \doxysubsubsection{\texorpdfstring{cartesian2Spherical()}{cartesian2Spherical()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_t_point3}{Point3d}} Coord\+Convertor\+::cartesian2\+Spherical (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-
-
-Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate. 
-
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Sperical2cartesian? The function name doesn\textquotesingle{}t match \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Sperical2cartesian? The function name doesn\textquotesingle{}t match \end{DoxyRefDesc}
 
 \begin{DoxyParams}{Parameters}
 {\em p} & $ (\phi, \theta) $ \\
@@ -44,9 +43,3 @@ Convert a spherical coordinate $ (\phi, \theta) $ to cartesian coordinate.
 \begin{DoxyReturn}{Returns}
 The correspoding coordinate in cartesian 
 \end{DoxyReturn}
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_coord_convertor_8h}{Coord\+Convertor.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Core\+Layer/\+Geometry/\mbox{\hyperlink{_coord_convertor_8cpp}{Coord\+Convertor.\+cpp}}\end{DoxyCompactItemize}

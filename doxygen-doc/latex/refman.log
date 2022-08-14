@@ -1,41 +1,45 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.17)  17 JUL 2022 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.6.17)  25 JUL 2022 14:50
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **refman
 (./refman.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2022-04-10>
+(/usr/share/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count181
-\c@chapter=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-) (/usr/share/texmf-dist/tex/latex/tools/array.sty
+)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
 Rollback for package 'array' requested -> date 2016-10-06.
          Best approximation is the release introduced on 2016-10-06.
- (/usr/share/texmf-dist/tex/latex/tools/array-2016-10-06.sty
+
+(/usr/share/texmf-dist/tex/latex/tools/array-2016-10-06.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen139
 \extrarowheight=\dimen140
 \NC@list=\toks16
 \extratabsurround=\skip49
 \backup@length=\skip50
-)) (/usr/share/texmf-dist/tex/latex/base/fixltx2e.sty
+))
+(/usr/share/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
 Applying: [2015/01/01] Old fixltx2e package on input line 46.
 
@@ -49,45 +53,53 @@ Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 Package: doxygen 
  (/usr/share/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 2021/01/29 v2.0g defines alltt environment
-) (/usr/share/texmf-dist/tex/latex/tools/calc.sty
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count190
-\calc@Bcount=\count191
+\calc@Acount=\count194
+\calc@Bcount=\count195
 \calc@Adimen=\dimen141
 \calc@Bdimen=\dimen142
 \calc@Askip=\skip51
 \calc@Bskip=\skip52
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count192
+\calc@Ccount=\count196
 \calc@Cskip=\skip53
-) (/usr/share/texmf-dist/tex/latex/float/float.sty
+)
+(/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count193
+\c@float@type=\count197
 \float@exts=\toks17
 \float@box=\box50
 \@float@everytoks=\toks18
 \@floatcapt=\box51
-) (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+)
+(/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks19
 \verbatim@line=\toks20
 \verbatim@in@stream=\read2
-) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+)
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
- (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 227.
- (/usr/share/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2022/04/12 v5.0l Graphics/color driver for xetex
-) (/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+(/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 \everycr=\toks21
 \minrowclearance=\skip54
 )
-\rownum=\count194
+\rownum=\count198
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
 Package xcolor Info: Model `RGB' extended on input line 1368.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
@@ -95,38 +107,42 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (./longtable_doxygen.sty
-Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - frozen version for doxygen
+)
+(./longtable_doxygen.sty
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
 \LTleft=\skip55
 \LTright=\skip56
 \LTpre=\skip57
 \LTpost=\skip58
-\LTchunksize=\count195
+\LTchunksize=\count199
 \LTcapwidth=\dimen143
 \LT@head=\box52
 \LT@firsthead=\box53
 \LT@foot=\box54
 \LT@lastfoot=\box55
-\LT@cols=\count196
-\LT@rows=\count197
-\c@LT@tables=\count198
-\c@LT@chunks=\count199
+\LT@cols=\count266
+\LT@rows=\count267
+\c@LT@tables=\count268
+\c@LT@chunks=\count269
 \LT@p@ftn=\toks22
 ) (./tabu_doxygen.sty
-Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen version for doxygen
- (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen ve
+rsion for doxygen
+
+(/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box56
-\sift@deathcycles=\count266
+\sift@deathcycles=\count270
 \@vwid@loff=\dimen144
 \@vwid@roff=\dimen145
 )
-\c@taburow=\count267
-\tabu@nbcols=\count268
-\tabu@cnt=\count269
-\tabu@Xcol=\count270
-\tabu@alloc=\count271
-\tabu@nested=\count272
+\c@taburow=\count271
+\tabu@nbcols=\count272
+\tabu@cnt=\count273
+\tabu@Xcol=\count274
+\tabu@alloc=\count275
+\tabu@nested=\count276
 \tabu@target=\dimen146
 \tabu@spreadtarget=\dimen147
 \tabu@naturalX=\dimen148
@@ -143,37 +159,41 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@hleads=\box59
 \tabu@vleads=\box60
 \tabu@cellskip=\skip59
-) (/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+)
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2022/04/12 4.2 verbatim text (tvz,hv)
- (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-\FV@CodeLineNo=\count273
+\FV@CodeLineNo=\count277
 \FV@InFile=\read3
 \FV@TabBox=\box61
-\c@FancyVerbLine=\count274
-\FV@StepNumber=\count275
+\c@FancyVerbLine=\count278
+\FV@StepNumber=\count279
 \FV@OutFile=\write3
-) (/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@col@width=\dimen155
 \TX@old@table=\dimen156
 \TX@old@col=\dimen157
 \TX@target=\dimen158
 \TX@delta=\dimen159
-\TX@cols=\count276
+\TX@cols=\count280
 \TX@ftn=\toks26
-) (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+)
+(/usr/share/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
-\c@tracingmulticols=\count277
+\c@tracingmulticols=\count281
 \mult@box=\box62
 \multicol@leftmargin=\dimen160
-\c@unbalance=\count278
-\c@collectmore=\count279
-\doublecol@number=\count280
-\multicoltolerance=\count281
-\multicolpretolerance=\count282
+\c@unbalance=\count282
+\c@collectmore=\count283
+\doublecol@number=\count284
+\multicoltolerance=\count285
+\multicolpretolerance=\count286
 \full@width=\dimen161
 \page@free=\dimen162
 \premulticols=\dimen163
@@ -223,22 +243,24 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \@tempa=\box102
 \@tempa=\box103
 \@tempa=\box104
-\c@minrows=\count283
-\c@columnbadness=\count284
-\c@finalcolumnbadness=\count285
+\c@minrows=\count287
+\c@columnbadness=\count288
+\c@finalcolumnbadness=\count289
 \last@try=\dimen166
 \multicolovershoot=\dimen167
 \multicolundershoot=\dimen168
 \mult@nat@firstbox=\box105
 \colbreak@box=\box106
-\mc@col@check@num=\count286
-) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+\mc@col@check@num=\count290
+)
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip62
-\multirow@cntb=\count287
+\multirow@cntb=\count291
 \multirow@dima=\skip63
 \bigstrutjot=\dimen169
-) (/usr/share/texmf-dist/tex/latex/hanging/hanging.sty
+)
+(/usr/share/texmf-dist/tex/latex/hanging/hanging.sty
 Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
 \h@ngcommawd=\skip64
 \h@ngfstopwd=\skip65
@@ -248,38 +270,52 @@ Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
 \h@ngexclwd=\skip69
 \h@ngcolonwd=\skip70
 \h@ngscolonwd=\skip71
-) (/usr/share/texmf-dist/tex/generic/iftex/ifpdf.sty
+)
+(/usr/share/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
- (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-)) (/usr/share/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+))
+(/usr/share/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
- (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+
+(/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
- (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks27
 \XKV@tempa@toks=\toks28
 )
-\XKV@depth=\count288
+\XKV@depth=\count292
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/share/texmf-dist/tex/latex/adjustbox/adjcalc.sty
-Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
-) (/usr/share/texmf-dist/tex/latex/adjustbox/trimclip.sty
+))
+(/usr/share/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texmf-dist/tex/latex/adjustbox/trimclip.sty
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
- (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 )
 \Gin@req@height=\dimen170
 \Gin@req@width=\dimen171
-) (/usr/share/texmf-dist/tex/latex/collectbox/collectbox.sty
+)
+(/usr/share/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box107
 )
@@ -287,9 +323,10 @@ Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \tc@lly=\dimen173
 \tc@urx=\dimen174
 \tc@ury=\dimen175
-Package trimclip Info: Using driver 'tc-xetex.def'.
- (/usr/share/texmf-dist/tex/latex/adjustbox/tc-xetex.def
-File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen176
 \adjbox@Height=\dimen177
@@ -299,12 +336,15 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 \adjbox@pheight=\dimen181
 \adjbox@pdepth=\dimen182
 \adjbox@ptotalheight=\dimen183
- (/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+
+(/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count289
-)) (/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+\c@checkoddpage=\count293
+))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks29
 \symAMSa=\mathgroup4
@@ -312,116 +352,24 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/share/texmf-dist/tex/latex/stackengine/stackengine.sty
-Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient ways
- (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+))
+(/usr/share/texmf-dist/tex/latex/stackengine/stackengine.sty
+Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient 
+ways
+
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count290
-) (/usr/share/texmf-dist/tex/generic/listofitems/listofitems.sty (/usr/share/texmf-dist/tex/generic/listofitems/listofitems.tex
-Invalid UTF-8 byte or sequence at line 50 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 50 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 104 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 105 replaced by U+FFFD.
-\loi_cnt_foreach_nest=\count291
-Invalid UTF-8 byte or sequence at line 139 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 146 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 192 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 209 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 209 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 222 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 222 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 223 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 223 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 224 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 226 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 226 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 238 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 243 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 243 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 260 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 284 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 310 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 310 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 324 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 337 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 337 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 339 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 354 replaced by U+FFFD.
-\loi_nestcnt=\count292
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 377 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 378 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 398 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 398 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 409 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 414 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 422 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 422 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 426 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 428 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 433 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 433 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 441 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 441 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 442 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 451 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 455 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 455 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 458 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 458 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 472 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 475 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 492 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 508 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 508 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 509 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 509 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 519 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
+\etb@tempcnta=\count294
 )
-Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified sep char (CT)
+(/usr/share/texmf-dist/tex/generic/listofitems/listofitems.sty
+(/usr/share/texmf-dist/tex/generic/listofitems/listofitems.tex
+\loi_cnt_foreach_nest=\count295
+\loi_nestcnt=\count296
 )
-\c@@stackindex=\count293
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
+sep char (CT)
+)
+\c@@stackindex=\count297
 \@boxshift=\skip72
 \stack@tmplength=\skip73
 \temp@stkl=\skip74
@@ -432,28 +380,33 @@ Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified s
 \se@backgroundbox=\box111
 \stackedbox=\box112
 \@centerbox=\box113
-\c@ROWcellindex@=\count294
-) (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+\c@ROWcellindex@=\count298
+)
+(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip76
 \enit@outerparindent=\dimen184
 \enit@toks=\toks30
 \enit@inbox=\box114
-\enit@count@id=\count295
-\enitdp@description=\count296
-) (/usr/share/texmf-dist/tex/generic/alphalph/alphalph.sty
+\enit@count@id=\count299
+\enitdp@description=\count300
+)
+(/usr/share/texmf-dist/tex/generic/alphalph/alphalph.sty
 Package: alphalph 2019/12/09 v2.6 Convert numbers to letters (HO)
- (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-)) (/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
+))
+(/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box115
 \UL@hyphenbox=\box116
 \UL@skip=\skip77
 \UL@hook=\toks31
 \UL@height=\dimen185
-\UL@pe=\count297
+\UL@pe=\count301
 \UL@pixel=\dimen186
 \ULC@box=\box117
 Package: ulem 2019/11/18
@@ -464,50 +417,53 @@ Package: ulem 2019/11/18
 \CodeWidthChar=\skip79
 \CodeHeightChar=\skip80
 \DoxyCodeWidth=\skip81
-\c@DoxyEnumeratei=\count298
-\c@DoxyEnumerateii=\count299
-\c@DoxyEnumerateiii=\count300
-\c@DoxyEnumerateiv=\count301
-\c@DoxyEnumeratev=\count302
-\c@DoxyEnumeratevi=\count303
-\c@DoxyEnumeratevii=\count304
-\c@DoxyEnumerateviii=\count305
-\c@DoxyEnumerateix=\count306
-\c@DoxyEnumeratex=\count307
-\c@DoxyEnumeratexi=\count308
-\c@DoxyEnumeratexii=\count309
-\enitdp@DoxyEnumerate=\count310
-\enitdp@DoxyItemize=\count311
-) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+\c@DoxyEnumeratei=\count302
+\c@DoxyEnumerateii=\count303
+\c@DoxyEnumerateiii=\count304
+\c@DoxyEnumerateiv=\count305
+\c@DoxyEnumeratev=\count306
+\c@DoxyEnumeratevi=\count307
+\c@DoxyEnumeratevii=\count308
+\c@DoxyEnumerateviii=\count309
+\c@DoxyEnumerateix=\count310
+\c@DoxyEnumeratex=\count311
+\c@DoxyEnumeratexi=\count312
+\c@DoxyEnumeratexii=\count313
+\enitdp@DoxyEnumerate=\count314
+\enitdp@DoxyItemize=\count315
+)
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks32
 \inpenc@posthook=\toks33
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (/usr/share/texmf-dist/tex/latex/base/makeidx.sty
+)
+(/usr/share/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
-) (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
+)
+(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/usr/share/texmf-dist/tex/latex/wasysym/wasysym.sty
+)
+(/usr/share/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 \symwasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
-) (/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
+)
+(/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 112.
- (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (/usr/share/texmf-dist/tex/latex/psnfss/helvet.sty
+)
+(/usr/share/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
-) (/usr/share/texmf-dist/tex/latex/psnfss/courier.sty
+)
+(/usr/share/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
-) (/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
-Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
+)
+(/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
 
 
 LaTeX Warning: Command \underbar  has changed.
@@ -519,12 +475,13 @@ LaTeX Warning: Command \underline  has changed.
 
 ) (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+
+(/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count312
-\Gm@cntv=\count313
-\c@Gm@tempcnt=\count314
+\Gm@cnth=\count316
+\Gm@cntv=\count317
+\c@Gm@tempcnt=\count318
 \Gm@bindingoffset=\dimen188
 \Gm@wd@mp=\dimen189
 \Gm@odd@mp=\dimen190
@@ -534,8 +491,10 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen194
 \Gm@layoutvoffset=\dimen195
 \Gm@dimlist=\toks34
-) (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+)
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
 \f@nch@headwidth=\skip82
 \f@nch@O@elh=\skip83
 \f@nch@O@erh=\skip84
@@ -545,13 +504,15 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@erf=\skip88
 \f@nch@O@olf=\skip89
 \f@nch@O@orf=\skip90
-) (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
+)
+(/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip91
 \bibsep=\skip92
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count315
-) (/usr/share/texmf-dist/tex/latex/tocloft/tocloft.sty
+\c@NAT@ctr=\count319
+)
+(/usr/share/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 51.
 \cftparskip=\skip93
@@ -583,8 +544,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip119
 \cftfigindent=\skip120
 \cftfignumwidth=\skip121
-\c@lofdepth=\count316
-\c@lotdepth=\count317
+\c@lofdepth=\count320
+\c@lotdepth=\count321
 \cftbeforelottitleskip=\skip122
 \cftafterlottitleskip=\skip123
 \cftbeforetabskip=\skip124
@@ -598,41 +559,67 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 Writing index file refman.idx
 (/usr/share/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
-) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+)
+
+Package newunicodechar Warning: Redefining Unicode character on input line 116.
+
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 117.
+
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-02-21 v7.00n Hypertext links for LaTeX
- (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
-) (/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) (/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
+)
+(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+)
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen196
-\Hy@linkcounter=\count318
-\Hy@pagecounter=\count319
- (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+\Hy@linkcounter=\count322
+\Hy@pagecounter=\count323
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
-) (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count320
- (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
+\Hy@SavedSpaceFactor=\count324
+
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Hyper figures OFF on input line 4137.
 Package hyperref Info: Link nesting OFF on input line 4142.
@@ -641,31 +628,41 @@ Package hyperref Info: Plain pages OFF on input line 4152.
 Package hyperref Info: Backreferencing ON on input line 4155.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4390.
- (/usr/share/texmf-dist/tex/latex/hyperref/backref.sty
+
+(/usr/share/texmf-dist/tex/latex/hyperref/backref.sty
 Package: backref 2021/02/04 v1.41 Bibliographical back referencing
- (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
- (/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
 with kernel methods
-) (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
- (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
 ))
-\c@Hy@tempcnt=\count321
- (/usr/share/texmf-dist/tex/latex/url/url.sty
+\c@Hy@tempcnt=\count325
+
+(/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4749.
 \XeTeXLinkMargin=\dimen197
- (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 )
-\Fld@menulength=\count322
+\Fld@menulength=\count326
 \Field@Width=\dimen198
 \Fld@charsize=\dimen199
 Package hyperref Info: Hyper figures OFF on input line 6027.
@@ -677,37 +674,34 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6052.
 Package hyperref Info: PDF/A mode OFF on input line 6057.
 LaTeX Info: Redefining \ref on input line 6097.
 LaTeX Info: Redefining \pageref on input line 6101.
- (/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count323
-\c@Item=\count324
-\c@Hfootnote=\count325
+\Hy@abspage=\count327
+\c@Item=\count328
+\c@Hfootnote=\count329
 
 
 LaTeX Warning: Command \LT@p@ftntext  has changed.
                Check if current package is valid.
 
 )
-Package hyperref Info: Driver (autodetected): hxetex.
- (/usr/share/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2022-02-21 v7.00n Hyperref driver for XeTeX
- (/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-)
-\pdfm@box=\box119
-\c@Hy@AnnotLevel=\count326
-\HyField@AnnotCount=\count327
-\Fld@listcount=\count328
-\c@bookmark@seq@number=\count329
+Package hyperref Info: Driver: hpdftex.
+ (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2022-02-21 v7.00n Hyperref driver for pdfTeX
+\Fld@listcount=\count330
+\c@bookmark@seq@number=\count331
 \Hy@SectionHShift=\skip127
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 136.
 Package hyperref Info: Option `unicode' set `true' on input line 136.
- (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
- (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@tempdima=\dimen256
 \captionmargin=\dimen257
@@ -719,36 +713,36 @@ Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@hangindent=\dimen263
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count330
-\c@continuedfloat=\count331
+\c@caption@flags=\count332
+\c@continuedfloat=\count333
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
- (/usr/share/texmf-dist/tex/latex/caption/ltcaption.sty
+
+(/usr/share/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-)) (/usr/share/texmf-dist/tex/latex/etoc/etoc.sty
+))
+(/usr/share/texmf-dist/tex/latex/etoc/etoc.sty
 Package: etoc 2021/09/23 v1.09e Completely customisable TOCs (JFB)
 \Etoc@toctoks=\toks35
-\c@etoc@tocid=\count332
-\c@etoc@tocdepth=\count333
-\etoc@framed@titlebox=\box120
-\etoc@framed@contentsbox=\box121
+\c@etoc@tocid=\count334
+\c@etoc@tocdepth=\count335
+\etoc@framed@titlebox=\box119
+\etoc@framed@contentsbox=\box120
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 152.
- (/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 15
+2.
+
+(/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 152.
- (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2022-04-14 L3 backend support: XeTeX
-\l__color_backend_stack_int=\count334
-\g__color_backend_stack_int=\count335
-\g__graphics_track_int=\count336
-\l__pdf_internal_box=\box122
-\g__pdf_backend_object_int=\count337
-\g__pdf_backend_annotation_int=\count338
-\g__pdf_backend_link_int=\count339
+
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count336
+\l__pdf_internal_box=\box121
 ) (./refman.aux)
 \openout1 = `refman.aux'.
 
@@ -761,12 +755,6 @@ LaTeX Font Info:    ... okay on input line 152.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
 LaTeX Font Info:    ... okay on input line 152.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 152.
- (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 152.
 LaTeX Font Info:    ... okay on input line 152.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
 LaTeX Font Info:    ... okay on input line 152.
@@ -776,11 +764,32 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
 LaTeX Font Info:    ... okay on input line 152.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 152.
 LaTeX Font Info:    ... okay on input line 152.
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count337
+\scratchdimen=\dimen264
+\scratchbox=\box122
+\nofMPsegments=\count338
+\nofMParguments=\count339
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count340
+\MPscratchDim=\dimen265
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
+\everyMPtoPDFconversion=\toks37
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
-*geometry* detected driver: xetex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: xetex
+* driver: pdftex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -815,17 +824,20 @@ Package backref Info: ** backref set up for natbib ** on input line 152.
 Package hyperref Info: Link coloring ON on input line 152.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
- (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
+
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count340
+\c@section@level=\count343
 )
 LaTeX Info: Redefining \ref on input line 152.
 LaTeX Info: Redefining \pageref on input line 152.
 LaTeX Info: Redefining \nameref on input line 152.
- (./refman.out) (./refman.out)
+
+(./refman.out) (./refman.out)
 \@outlinefile=\write5
 \openout5 = `refman.out'.
 
@@ -834,20 +846,26 @@ Package caption Info: End \AtBeginDocument code.
 \Etoc@tf=\read4
 Package hyperref Info: Option `pageanchor' set `false' on input line 160.
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 160.
+
+Package hyperref Info: Option `unicode' set `true' on input line 160.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 12.9599pt on input line 165.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 165.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 165.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 165
+.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 165.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 165
+.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 165.
- (/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
+5.
+
+(/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -855,7 +873,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
  [1
 
 
-] [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
 \tf@toc=\write6
@@ -863,15 +881,17 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 174.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 174.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 174.
- (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 174.
- [1] [2] [3] [4] [5] [6] [7] [8
+ [1]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 174.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 17
+4.
+
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [2] [3] [4] [5] [6
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 177.
@@ -889,2078 +909,512 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 179.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 22.39185pt on input line 179.
-(./md__mnt_renderer__zero_src__resource_layer__file__r_e_a_d_m_e.tex
-Missing character: There is no 渲 ("6E32) in font phvr8t!
-Missing character: There is no 染 ("67D3) in font phvr8t!
-Missing character: There is no 器 ("5668) in font phvr8t!
-Missing character: There is no 对 ("5BF9) in font phvr8t!
-Missing character: There is no 各 ("5404) in font phvr8t!
-Missing character: There is no 种 ("79CD) in font phvr8t!
-Missing character: There is no 文 ("6587) in font phvr8t!
-Missing character: There is no 件 ("4EF6) in font phvr8t!
-Missing character: There is no 进 ("8FDB) in font phvr8t!
-Missing character: There is no 行 ("884C) in font phvr8t!
-Missing character: There is no 读 ("8BFB) in font phvr8t!
-Missing character: There is no 取 ("53D6) in font phvr8t!
-Missing character: There is no 时 ("65F6) in font phvr8t!
-Missing character: There is no 会 ("4F1A) in font phvr8t!
-Missing character: There is no 使 ("4F7F) in font phvr8t!
-Missing character: There is no 用 ("7528) in font phvr8t!
-Missing character: There is no 第 ("7B2C) in font phvr8t!
-Missing character: There is no 三 ("4E09) in font phvr8t!
-Missing character: There is no 方 ("65B9) in font phvr8t!
-Missing character: There is no 库 ("5E93) in font phvr8t!
-Missing character: There is no ， ("FF0C) in font phvr8t!
-Missing character: There is no 该 ("8BE5) in font phvr8t!
-Missing character: There is no 文 ("6587) in font phvr8t!
-Missing character: There is no 件 ("4EF6) in font phvr8t!
-Missing character: There is no 夹 ("5939) in font phvr8t!
-Missing character: There is no 中 ("4E2D) in font phvr8t!
-Missing character: There is no 包 ("5305) in font phvr8t!
-Missing character: There is no 含 ("542B) in font phvr8t!
-Missing character: There is no 各 ("5404) in font phvr8t!
-Missing character: There is no 种 ("79CD) in font phvr8t!
-Missing character: There is no 适 ("9002) in font phvr8t!
-Missing character: There is no 配 ("914D) in font phvr8t!
-Missing character: There is no 器 ("5668) in font phvr8t!
-Missing character: There is no 封 ("5C01) in font phvr8t!
-Missing character: There is no 装 ("88C5) in font phvr8t!
-Missing character: There is no 第 ("7B2C) in font phvr8t!
-Missing character: There is no 三 ("4E09) in font phvr8t!
-Missing character: There is no 方 ("65B9) in font phvr8t!
-Missing character: There is no 库 ("5E93) in font phvr8t!
-Missing character: There is no 读 ("8BFB) in font phvr8t!
-Missing character: There is no 取 ("53D6) in font phvr8t!
-Missing character: There is no 文 ("6587) in font phvr8t!
-Missing character: There is no 件 ("4EF6) in font phvr8t!
-Missing character: There is no 后 ("540E) in font phvr8t!
-Missing character: There is no 的 ("7684) in font phvr8t!
-Missing character: There is no 数 ("6570) in font phvr8t!
-Missing character: There is no 据 ("636E) in font phvr8t!
-Missing character: There is no 结 ("7ED3) in font phvr8t!
-Missing character: There is no 构 ("6784) in font phvr8t!
-Missing character: There is no ， ("FF0C) in font phvr8t!
-Missing character: There is no 渲 ("6E32) in font phvr8t!
-Missing character: There is no 染 ("67D3) in font phvr8t!
-Missing character: There is no 器 ("5668) in font phvr8t!
-Missing character: There is no 使 ("4F7F) in font phvr8t!
-Missing character: There is no 用 ("7528) in font phvr8t!
-Missing character: There is no 这 ("8FD9) in font phvr8t!
-Missing character: There is no 些 ("4E9B) in font phvr8t!
-Missing character: There is no 适 ("9002) in font phvr8t!
-Missing character: There is no 配 ("914D) in font phvr8t!
-Missing character: There is no 器 ("5668) in font phvr8t!
-Missing character: There is no 的 ("7684) in font phvr8t!
-Missing character: There is no 接 ("63A5) in font phvr8t!
-Missing character: There is no 口 ("53E3) in font phvr8t!
-Missing character: There is no ， ("FF0C) in font phvr8t!
-Missing character: There is no 更 ("66F4) in font phvr8t!
-Missing character: There is no 换 ("6362) in font phvr8t!
-Missing character: There is no 第 ("7B2C) in font phvr8t!
-Missing character: There is no 三 ("4E09) in font phvr8t!
-Missing character: There is no 方 ("65B9) in font phvr8t!
-Missing character: There is no 库 ("5E93) in font phvr8t!
-Missing character: There is no 也 ("4E5F) in font phvr8t!
-Missing character: There is no 更 ("66F4) in font phvr8t!
-Missing character: There is no 方 ("65B9) in font phvr8t!
-Missing character: There is no 便 ("4FBF) in font phvr8t!
+(./todo.tex
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+7.
+ (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
 ) [1
 
 ] [2
 
 ]
 Chapter 2.
-(./todo.tex) [3] [4
-
-]
-Chapter 3.
 (./modules.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-) [5] [6
+) [3] [4
 
 ]
+Chapter 3.
+(./hierarchy.tex [5]) [6]
 Chapter 4.
-(./hierarchy.tex) [7] [8
+(./annotated.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+ []  
+ []
+
+[7
 
 ]
-Chapter 5.
-(./annotated.tex
 
-Package hyperref Warning: Suppressing link with empty target on input line 7.
+Package hyperref Warning: Suppressing link with empty target on input line 37.
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+ []  
+ []
 
 ) [9] [10
 
 ]
-Chapter 6.
-(./files.tex [11] [12]) [13] [14
-
-]
-Chapter 7.
+Chapter 5.
 (./group___geometry.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 3.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6.
- (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
-File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 6.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 7.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 7.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 7.
-) [15] [16
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+) (./group___camera.tex [11]) (./group___integrator.tex
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 7.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 7.
+) (./group___light.tex)
+(./group___bx_d_f.tex [12]) (./group___sampler.tex) (./group___texture.tex)
+[13] [14
 
 ]
-Chapter 8.
-(./class_bounding_box3.tex
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 23.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 6.29996pt on input line 23.
+Chapter 6.
+(./class_abstract_path_integrator.tex <./class_abstract_path_integrator.pdf>
+<class_abstract_path_integrator.pdf, id=1438, 501.875pt x 550.00482pt>
+File: class_abstract_path_integrator.pdf Graphic file (type pdf)
+<use class_abstract_path_integrator.pdf>
+Package pdftex.def Info: class_abstract_path_integrator.pdf  used on input line
+ 11.
+(pdftex.def)             Requested size: 103.84995pt x 113.81102pt.
+
+[15]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 39.
- [17]
-Underfull \hbox (badness 10000) detected at line 45
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 59
-[][][]
- []
-
-) (./class_coefficient_spectrum.tex [18]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 51.
-
-Underfull \hbox (badness 10000) detected at line 55
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 65
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 75
-[][][]
- []
-
-[19]
-Underfull \hbox (badness 10000) detected at line 85
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 95
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 115
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 132
-[][][]
- []
-
-[20]) (./class_coord_convertor.tex
-Underfull \hbox (badness 10000) detected at line 40
-[][][]
- []
-
-[21]
-Underfull \hbox (badness 10000) detected at line 48
-[][][]
- []
-
-) (./class_pixel_sampler.tex) (./class_random_number_generator.tex
-
-Package hyperref Warning: Suppressing link with empty target on input line 5.
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 24.
-
-) (./class_r_g_b_spectrum.tex
-File: class_r_g_b_spectrum.pdf Graphic file (type pdf)
-<use class_r_g_b_spectrum.pdf>
- [22]) (./class_sampled_spectrum.tex
-File: class_sampled_spectrum.pdf Graphic file (type pdf)
-<use class_sampled_spectrum.pdf>
- [23]
-Underfull \hbox (badness 10000) detected at line 44
-[][][]
- []
-
-) (./struct_spectrum_sample.tex) [24]
-Chapter 9.
-(./_attribute_8h_source.tex [25
-
-] [26] [27] [28]) (./_random_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 15.
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-) (./_random_8h_source.tex [29]) (./_color_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-[30]
-Underfull \hbox (badness 10000) detected at line 54
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 57
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 60
-[][][]
- []
-
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 52.
 
 Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
 
-) (./_color_8h_source.tex [31] [32] [33] [34]) (./_bounding_box_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
+[16]
+Underfull \hbox (badness 10000) detected at line 87
 [][][]
  []
 
-[35]
-Underfull \hbox (badness 10000) detected at line 17
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 108.
+
+Underfull \hbox (badness 10000) detected at line 129
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 20
+[17]
+Underfull \hbox (badness 10000) detected at line 151
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 23
+) (./class_angle.tex [18]) (./class_area_light.tex <./class_area_light.pdf>
+<class_area_light.pdf, id=1560, 501.875pt x 523.69652pt>
+File: class_area_light.pdf Graphic file (type pdf)
+<use class_area_light.pdf>
+Package pdftex.def Info: class_area_light.pdf  used on input line 11.
+(pdftex.def)             Requested size: 81.8026pt x 85.35826pt.
+)
+(./class_bounding_box3.tex
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 6.29996pt on input line 35.
+ [19]
+Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
 
-) (./_bounding_box_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--13
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 33
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 36
-[][][]
- []
-
-[36]
-Underfull \hbox (badness 10000) detected at line 39
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 56
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 70
-[][][]
- []
-
-) (./_bounding_box_8h_source.tex [37]) (./_coord_convertor_8cpp.tex [38]
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_coord_convertor_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-[39]
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_coord_convertor_8h_source.tex) (./_frame_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--5
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 8
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 11
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-) (./_frame_8h_source.tex [40] [41]) (./_geometry_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_geometry_8h_source.tex [42]) (./_matrix_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_matrix_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[43]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_matrix_8h_source.tex [44] [45]) (./normal_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 7
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 10
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-) (./normal_8h_source.tex) (./point_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 7
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 10
-[][][]
- []
-
-[46]
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-) (./point_8h_source.tex [47] [48]) (./_transform3d_8cpp.tex [49]
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_transform3d_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-[50]
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_transform3d_8h_source.tex) (./vector_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-[51]
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-[52]
-Underfull \hbox (badness 10000) detected at line 59
-[][][]
- []
-
-) (./vector_8h_source.tex [53] [54] [55]) (./_common_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 31
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 34
-[][][]
- []
-
-
+) (./class_bx_d_f.tex <./class_bx_d_f.pdf>
+<class_bx_d_f.pdf, id=1600, 501.875pt x 123.92297pt>
+File: class_bx_d_f.pdf Graphic file (type pdf)
+<use class_bx_d_f.pdf>
+Package pdftex.def Info: class_bx_d_f.pdf  used on input line 11.
+(pdftex.def)             Requested size: 230.45943pt x 56.9055pt.
+) (./class_camera.tex [20] <./class_camera.pdf>
+<class_camera.pdf, id=1635, 501.875pt x 229.86877pt>
+File: class_camera.pdf Graphic file (type pdf)
+<use class_camera.pdf>
+Package pdftex.def Info: class_camera.pdf  used on input line 11.
+(pdftex.def)             Requested size: 186.35709pt x 85.35826pt.
+
+Overfull \vbox (29.12294pt too high) has occurred while \output is active []
+
+
+[21]
 Underfull \hbox (badness 10000) detected at line 37
 [][][]
  []
 
-[56]
-Underfull \hbox (badness 10000) detected at line 40
-[][][]
- []
-
-) (./_common_8h_source.tex [57]) (./_warp_8h_source.tex [58]) (./_ray_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_ray_8h.tex [59]
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 26
-[][][]
- []
-
-) (./_ray_8h_source.tex) (./_scene_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-[60]
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_scene_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_scene_8h_source.tex [61]) (./_bvh_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-) (./_bvh_8h_source.tex [62]) (./_camera_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[63]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_camera_8h_source.tex) (./_perspective_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[64]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_perspective_8h_source.tex) (./_pinhole_8h_source.tex [65]) (./_thinlens_8h_source.tex) (./_film_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[66]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_film_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_film_8h_source.tex [67]) (./_filter_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_filter_8h_source.tex [68]) (./_abstract_path_integrator_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_abstract_path_integrator_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-[69]
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_abstract_path_integrator_8h_source.tex [70]) (./_integrator_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_integrator_8h.tex [71]
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_integrator_8h_source.tex) (./_monte_carlo_integrator_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[72]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_monte_carlo_integrator_8h_source.tex) (./_path_integrator_8cpp.tex [73]
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_path_integrator_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_path_integrator_8h_source.tex [74] [75]) (./_intersection_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_intersection_8h_source.tex [76]) (./_shape_2_intersection_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_shape_2_intersection_8h_source.tex [77]) (./_area_light_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-[78]
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_area_light_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_area_light_8h_source.tex) (./_diffuse_area_light_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[79]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_diffuse_area_light_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_diffuse_area_light_8h_source.tex [80]) (./_light_8h_source.tex) (./_point_light_8cpp.tex [81]
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_point_light_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_point_light_8h_source.tex [82]) (./_b_s_s_r_d_f_8h.tex
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-) (./_b_s_s_r_d_f_8h_source.tex) (./_bx_d_f_8h.tex [83]
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_bx_d_f_8h_source.tex) (./_dielectric_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[84]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_dielectric_8h_source.tex [85]) (./_diffuse_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 7
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 10
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-) (./_diffuse_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-[86]
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_diffuse_8h_source.tex) (./_microfacet_8h_source.tex [87]) (./_mirror_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_mirror_8h_source.tex [88]) (./_test_mirror_bxdf_8h_source.tex) (./_delectric_material_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--7
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 10
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-[89]
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-) (./_delectric_material_8h_source.tex) (./_material_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-[90]
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_material_8h_source.tex) (./_matte_material_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 9
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (./_matte_material_8h_source.tex [91]) (./_mirror_material_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 9
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (./_mirror_material_8h_source.tex) (./_test_mirror_8h_source.tex [92]) (./_medium_8h.tex
-Underfull \hbox (badness 10000) detected at line 13
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-) (./_medium_8h_source.tex) (./_direct_sampler_8h_source.tex) (./_independent_8h_source.tex [93]) (./_sampler_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
-
- []
-
-[94]
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 33
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 36
-[][][]
- []
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 9.4 on input line 62.
-
-) (./_sampler_8h_source.tex [95] [96]) (./_stratified_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_stratified_8h_source.tex [97]) (./_entity_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_entity_8h_source.tex [98]) (./_sphere_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_sphere_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-[99]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_sphere_8h_source.tex) (./_triangle_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
+) (./struct_camera_sample.tex) (./class_checkerboard2_d.tex <./class_checkerboa
+rd2_d.pdf>
+<class_checkerboard2_d.pdf, id=1666, 501.875pt x 246.82211pt>
+File: class_checkerboard2_d.pdf Graphic file (type pdf)
+<use class_checkerboard2_d.pdf>
+Package pdftex.def Info: class_checkerboard2_d.pdf  used on input line 11.
+(pdftex.def)             Requested size: 173.56058pt x 85.35826pt.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 31.
+ [22]) (./class_checkerboard3_d.tex <./class_checkerboard3_d.pdf>
+<class_checkerboard3_d.pdf, id=1693, 501.875pt x 246.82211pt>
+File: class_checkerboard3_d.pdf Graphic file (type pdf)
+<use class_checkerboard3_d.pdf>
+Package pdftex.def Info: class_checkerboard3_d.pdf  used on input line 11.
+(pdftex.def)             Requested size: 173.56058pt x 85.35826pt.
 
-[100]
-Underfull \hbox (badness 10000) detected at line 15
+[23]) (./class_coefficient_spectrum.tex [24] [25]
+Underfull \hbox (badness 10000) detected at line 123
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 18
+Underfull \hbox (badness 10000) detected at line 133
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 21
+Underfull \hbox (badness 10000) detected at line 143
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 24
+Underfull \hbox (badness 10000) detected at line 153
 [][][]
  []
 
-) (./_triangle_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_triangle_8h_source.tex [101]) (./_image_texture_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-[102]
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_image_texture_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-) (./_image_texture_8h_source.tex [103] [104]) (./_procedural_texture_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-[105]
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-) (./_procedural_texture_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_procedural_texture_8h_source.tex) (./_texture_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-[106]
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_texture_8h_source.tex [107] [108]) (./_texture_mapping_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_texture_mapping_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-[109]
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 26
-[][][]
- []
-
-) (./_texture_mapping_8h_source.tex) (./_sequence_tile_generator_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-[110]
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_sequence_tile_generator_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_sequence_tile_generator_8h_source.tex [111]) (./_tile_generator_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./_tile_generator_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
-
- []
-
-[112]
-Underfull \hbox (badness 10000) detected at line 17
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 26
-[][][]
- []
-
-) (./_tile_generator_8h_source.tex [113]) (./_image_8h.tex [114]
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 16
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-) (./_image_8h_source.tex [115]) (./_mesh_data_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
+[26]
+Underfull \hbox (badness 10000) detected at line 163
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 21
+Underfull \hbox (badness 10000) detected at line 173
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 24
+Underfull \hbox (badness 10000) detected at line 183
 [][][]
- []
-
-) (./_mesh_data_8h_source.tex [116]) (./_resource_manager_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--13
-
  []
 
 
-Underfull \hbox (badness 10000) detected at line 18
+Underfull \hbox (badness 10000) detected at line 200
 [][][]
  []
 
+) (./class_coord_convertor.tex [27]
+Overfull \vbox (7.76813pt too high) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
 
-
-Underfull \hbox (badness 10000) detected at line 24
+[28]
+Underfull \hbox (badness 10000) detected at line 43
 [][][]
  []
 
+) (./class_dielectric.tex <./class_dielectric.pdf>
+<class_dielectric.pdf, id=1861, 501.875pt x 542.567pt>
+File: class_dielectric.pdf Graphic file (type pdf)
+<use class_dielectric.pdf>
+Package pdftex.def Info: class_dielectric.pdf  used on input line 11.
+(pdftex.def)             Requested size: 52.63333pt x 56.9055pt.
+ [29]) (./class_diffuse.tex <./class_diffuse.pdf>
+<class_diffuse.pdf, id=1910, 501.875pt x 669.17pt>
+File: class_diffuse.pdf Graphic file (type pdf)
+<use class_diffuse.pdf>
+Package pdftex.def Info: class_diffuse.pdf  used on input line 11.
+(pdftex.def)             Requested size: 42.67795pt x 56.9055pt.
+ [30]) (./class_diffuse_area_light.tex <./class_diffuse_area_light.pdf>
+<class_diffuse_area_light.pdf, id=1959, 501.875pt x 523.69652pt>
+File: class_diffuse_area_light.pdf Graphic file (type pdf)
+<use class_diffuse_area_light.pdf>
+Package pdftex.def Info: class_diffuse_area_light.pdf  used on input line 11.
+(pdftex.def)             Requested size: 81.8026pt x 85.35826pt.
+ [31] [32]) (./struct_entity_info.tex) (./class_filter.tex)
+(./struct_frame.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
  []
-
-) (./_resource_manager_8h_source.tex [117]) [118]
-No file refman.ind.
 
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
+[33]) (./class_image_texture.tex [34] <./class_image_texture.pdf>
+<class_image_texture.pdf, id=2066, 501.875pt x 243.82092pt>
+File: class_image_texture.pdf Graphic file (type pdf)
+<use class_image_texture.pdf>
+Package pdftex.def Info: class_image_texture.pdf  used on input line 11.
+(pdftex.def)             Requested size: 175.69716pt x 85.35826pt.
+)
+(./class_independent_sampler.tex [35] <./class_independent_sampler.pdf>
+<class_independent_sampler.pdf, id=2101, 501.875pt x 297.41112pt>
+File: class_independent_sampler.pdf Graphic file (type pdf)
+<use class_independent_sampler.pdf>
+Package pdftex.def Info: class_independent_sampler.pdf  used on input line 11.
+(pdftex.def)             Requested size: 96.02348pt x 56.9055pt.
+
+[36]) (./class_integrator.tex <./class_integrator.pdf>
+<class_integrator.pdf, id=2129, 501.875pt x 550.00482pt>
+File: class_integrator.pdf Graphic file (type pdf)
+<use class_integrator.pdf>
+Package pdftex.def Info: class_integrator.pdf  used on input line 11.
+(pdftex.def)             Requested size: 103.84995pt x 113.81102pt.
+ [37]) (./class_light.tex <./class_light.pdf>
+<class_light.pdf, id=2157, 501.875pt x 261.84825pt>
+File: class_light.pdf Graphic file (type pdf)
+<use class_light.pdf>
+Package pdftex.def Info: class_light.pdf  used on input line 11.
+(pdftex.def)             Requested size: 163.60521pt x 85.35826pt.
+ [38]) (./struct_linear_bvh_node.tex)
+(./class_matrix4x4.tex [39]) (./class_mircofacet.tex <./class_mircofacet.pdf>
+<class_mircofacet.pdf, id=2242, 501.875pt x 495.68185pt>
+File: class_mircofacet.pdf Graphic file (type pdf)
+<use class_mircofacet.pdf>
+Package pdftex.def Info: class_mircofacet.pdf  used on input line 11.
+(pdftex.def)             Requested size: 57.61102pt x 56.9055pt.
 
-(./refman.aux)
+[40]) (./class_mirror.tex <./class_mirror.pdf>
+<class_mirror.pdf, id=2293, 501.875pt x 716.96857pt>
+File: class_mirror.pdf Graphic file (type pdf)
+<use class_mirror.pdf>
+Package pdftex.def Info: class_mirror.pdf  used on input line 11.
+(pdftex.def)             Requested size: 39.82918pt x 56.9055pt.
+)
+(./class_monte_carlo_integrator.tex [41] <./class_monte_carlo_integrator.pdf>
+<class_monte_carlo_integrator.pdf, id=2303, 501.875pt x 550.00482pt>
+File: class_monte_carlo_integrator.pdf Graphic file (type pdf)
+<use class_monte_carlo_integrator.pdf>
+Package pdftex.def Info: class_monte_carlo_integrator.pdf  used on input line 1
+1.
+(pdftex.def)             Requested size: 103.84995pt x 113.81102pt.
+
+[42]) (./struct_normal3d.tex <./struct_normal3d.pdf>
+<struct_normal3d.pdf, id=2337, 501.875pt x 299.62943pt>
+File: struct_normal3d.pdf Graphic file (type pdf)
+<use struct_normal3d.pdf>
+Package pdftex.def Info: struct_normal3d.pdf  used on input line 11.
+(pdftex.def)             Requested size: 95.31128pt x 56.9055pt.
+ [43])
+(./class_path_integrator.tex <./class_path_integrator.pdf>
+<class_path_integrator.pdf, id=2354, 501.875pt x 550.00482pt>
+File: class_path_integrator.pdf Graphic file (type pdf)
+<use class_path_integrator.pdf>
+Package pdftex.def Info: class_path_integrator.pdf  used on input line 11.
+(pdftex.def)             Requested size: 103.84995pt x 113.81102pt.
+ [44]
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+[45]
+Underfull \hbox (badness 10000) detected at line 98
+[][][]
+ []
+
+[46]
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 152
+[][][]
+ []
+
+) (./struct_path_integrator_local_record.tex) (./class_perspective_camera.tex <
+./class_perspective_camera.pdf>
+<class_perspective_camera.pdf, id=2460, 501.875pt x 229.86877pt>
+File: class_perspective_camera.pdf Graphic file (type pdf)
+<use class_perspective_camera.pdf>
+Package pdftex.def Info: class_perspective_camera.pdf  used on input line 11.
+(pdftex.def)             Requested size: 186.35709pt x 85.35826pt.
+ [47] [48]) (./class_pinhole_camera.tex <./class_pinhole_camera.pdf>
+<class_pinhole_camera.pdf, id=2501, 501.875pt x 459.73756pt>
+File: class_pinhole_camera.pdf Graphic file (type pdf)
+<use class_pinhole_camera.pdf>
+Package pdftex.def Info: class_pinhole_camera.pdf  used on input line 11.
+(pdftex.def)             Requested size: 93.17471pt x 85.35826pt.
+ [49]
+Underfull \hbox (badness 10000) detected at line 37
+[][][]
+ []
+
+) (./class_pixel_sampler.tex <./class_pixel_sampler.pdf>
+<class_pixel_sampler.pdf, id=2528, 501.875pt x 519.17964pt>
+File: class_pixel_sampler.pdf Graphic file (type pdf)
+<use class_pixel_sampler.pdf>
+Package pdftex.def Info: class_pixel_sampler.pdf  used on input line 11.
+(pdftex.def)             Requested size: 82.50713pt x 85.35826pt.
+ [50]
+Underfull \hbox (badness 10000) detected at line 89
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+
+ []
+
+[51]) (./class_point_light.tex <./class_point_light.pdf>
+<class_point_light.pdf, id=2580, 501.875pt x 215.85645pt>
+File: class_point_light.pdf Graphic file (type pdf)
+<use class_point_light.pdf>
+Package pdftex.def Info: class_point_light.pdf  used on input line 11.
+(pdftex.def)             Requested size: 132.30702pt x 56.9055pt.
+ [52])
+(./class_random_number_generator.tex
+
+Package hyperref Warning: Suppressing link with empty target on input line 5.
+
+) (./struct_ray.tex <./struct_ray.pdf>
+<struct_ray.pdf, id=2627, 501.875pt x 386.06232pt>
+File: struct_ray.pdf Graphic file (type pdf)
+<use struct_ray.pdf>
+Package pdftex.def Info: struct_ray.pdf  used on input line 11.
+(pdftex.def)             Requested size: 73.97614pt x 56.9055pt.
+ [53]) (./struct_ray_differential.tex <./struct_ray_differential.pdf>
+<struct_ray_differential.pdf, id=2645, 501.875pt x 386.06232pt>
+File: struct_ray_differential.pdf Graphic file (type pdf)
+<use struct_ray_differential.pdf>
+Package pdftex.def Info: struct_ray_differential.pdf  used on input line 11.
+(pdftex.def)             Requested size: 73.97614pt x 56.9055pt.
+) (./class_r_g_b3.tex [54])
+(./class_r_g_b_spectrum.tex <./class_r_g_b_spectrum.pdf>
+<class_r_g_b_spectrum.pdf, id=2702, 501.875pt x 243.32907pt>
+File: class_r_g_b_spectrum.pdf Graphic file (type pdf)
+<use class_r_g_b_spectrum.pdf>
+Package pdftex.def Info: class_r_g_b_spectrum.pdf  used on input line 6.
+(pdftex.def)             Requested size: 117.36629pt x 56.9055pt.
+)
+(./class_sampled_spectrum.tex <./class_sampled_spectrum.pdf>
+<class_sampled_spectrum.pdf, id=2708, 501.875pt x 151.50603pt>
+File: class_sampled_spectrum.pdf Graphic file (type pdf)
+<use class_sampled_spectrum.pdf>
+Package pdftex.def Info: class_sampled_spectrum.pdf  used on input line 11.
+(pdftex.def)             Requested size: 188.50131pt x 56.9055pt.
+ [55]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+) (./class_sampler.tex <./class_sampler.pdf>
+<class_sampler.pdf, id=2751, 501.875pt x 223.05333pt>
+File: class_sampler.pdf Graphic file (type pdf)
+<use class_sampler.pdf>
+Package pdftex.def Info: class_sampler.pdf  used on input line 11.
+(pdftex.def)             Requested size: 192.06229pt x 85.35826pt.
+ [56] [57]) (./class_scene.tex)
+(./struct_spectrum_sample.tex) (./class_std_texture.tex <./class_std_texture.pd
+f>
+<class_std_texture.pdf, id=2807, 501.875pt x 210.20532pt>
+File: class_std_texture.pdf Graphic file (type pdf)
+<use class_std_texture.pdf>
+Package pdftex.def Info: class_std_texture.pdf  used on input line 11.
+(pdftex.def)             Requested size: 135.86032pt x 56.9055pt.
+ [58]) (./class_stratified_sampler.tex <./class_stratified_sampler.pdf>
+<class_stratified_sampler.pdf, id=2844, 501.875pt x 519.17964pt>
+File: class_stratified_sampler.pdf Graphic file (type pdf)
+<use class_stratified_sampler.pdf>
+Package pdftex.def Info: class_stratified_sampler.pdf  used on input line 11.
+(pdftex.def)             Requested size: 82.50713pt x 85.35826pt.
+
+[59]) (./class_texture.tex <./class_texture.pdf>
+<class_texture.pdf, id=2860, 501.875pt x 60.95773pt>
+File: class_texture.pdf Graphic file (type pdf)
+<use class_texture.pdf>
+Package pdftex.def Info: class_texture.pdf  used on input line 11.
+(pdftex.def)             Requested size: 398.33012pt x 48.38132pt.
+
+Overfull \hbox (41.99214pt too wide) in paragraph at lines 31--32
+[]\T1/phv/m/n/10 Implemented in [], [], [], [],
+ []
+
+) (./class_texture_mapping.tex [60]) (./class_thinlens_camera.tex <./class_thin
+lens_camera.pdf>
+<class_thinlens_camera.pdf, id=2886, 501.875pt x 459.73756pt>
+File: class_thinlens_camera.pdf Graphic file (type pdf)
+<use class_thinlens_camera.pdf>
+Package pdftex.def Info: class_thinlens_camera.pdf  used on input line 11.
+(pdftex.def)             Requested size: 93.17471pt x 85.35826pt.
+ [61]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+) (./struct_t_point2.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+) (./struct_t_point3.tex [62]) (./class_transform3_d.tex <./class_transform3_d.
+pdf>
+<class_transform3_d.pdf, id=2990, 501.875pt x 431.7229pt>
+File: class_transform3_d.pdf Graphic file (type pdf)
+<use class_transform3_d.pdf>
+Package pdftex.def Info: class_transform3_d.pdf  used on input line 11.
+(pdftex.def)             Requested size: 66.14967pt x 56.9055pt.
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 40.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 40.
+ [63]) (./class_transform_matrix3_d.tex) (./struct_t_vector2.tex)
+(./struct_t_vector3.tex [64]) (./class_x_y_z3.tex [65]) [66] (./refman.ind
+[67
+
+
+
+] [68] [69
+
+]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: E5DD1E139E67F23F9B7FF6D891B3DE7E;67745.
+(rerunfilecheck)             Checksum: BA782F9AFF61F7345F1724F729640DA2;41378.
  ) 
 Here is how much of TeX's memory you used:
- 18750 strings out of 476156
- 310369 string characters out of 5814963
- 775126 words of memory out of 5000000
- 38765 multiletter control sequences out of 15000+600000
- 521374 words of font info for 99 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 99i,16n,117p,716b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 19884 strings out of 478238
+ 352007 string characters out of 5850456
+ 664990 words of memory out of 5000000
+ 36743 multiletter control sequences out of 15000+600000
+ 533718 words of font info for 113 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,16n,117p,721b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on refman.pdf (128 pages).
+pdfTeX warning (dest): name{_warp_8h} has been referenced but does not exist, r
+eplaced by a fixed one
+
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-
+dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/
+courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><
+/usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dis
+t/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/h
+elvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (77 pages, 447950 bytes).
+PDF statistics:
+ 3697 PDF objects out of 4296 (max. 8388607)
+ 3453 compressed objects within 35 object streams
+ 910 named destinations out of 1000 (max. 500000)
+ 1745 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,21 +1,7 @@
 var searchData=
 [
-  ['m_5fpi_0',['M_PI',['../_common_8h.html#ae71449b1cc6e6250b91f539153a7a0d3',1,'Common.h']]],
-  ['material_2eh_1',['Material.h',['../_material_8h.html',1,'']]],
-  ['mathclamp_2',['mathClamp',['../_color_8h.html#a61b67e83aafccc2f834372c9efeaddbd',1,'Spectrum.cpp']]],
-  ['mathlerp_3',['mathLerp',['../_color_8h.html#ad7c41fb05dfc8cf5c4a8722c7ac0761d',1,'Spectrum.cpp']]],
-  ['matrix_2ecpp_4',['Matrix.cpp',['../_matrix_8cpp.html',1,'']]],
-  ['matrix_2eh_5',['Matrix.h',['../_matrix_8h.html',1,'']]],
-  ['matrix4x4_6',['Matrix4x4',['../class_matrix4x4.html',1,'']]],
-  ['mattematerial_2eh_7',['MatteMaterial.h',['../_matte_material_8h.html',1,'']]],
-  ['medium_8',['medium',['../struct_ray.html#a3c8bd761094ee088aa7bc71485b0736d',1,'Ray']]],
-  ['medium_2eh_9',['Medium.h',['../_medium_8h.html',1,'']]],
-  ['meshdata_2eh_10',['MeshData.h',['../_mesh_data_8h.html',1,'']]],
-  ['mircofacet_11',['Mircofacet',['../class_mircofacet.html',1,'']]],
-  ['mirror_12',['Mirror',['../class_mirror.html',1,'']]],
-  ['mirror_2eh_13',['Mirror.h',['../_mirror_8h.html',1,'']]],
-  ['mirrormaterial_2eh_14',['MirrorMaterial.h',['../_mirror_material_8h.html',1,'']]],
-  ['mod_15',['mod',['../_common_8h.html#a69c18c9507ef22a89f1f437bcc75baaf',1,'Common.h']]],
-  ['montecarlointegrator_16',['MonteCarloIntegrator',['../class_monte_carlo_integrator.html',1,'']]],
-  ['montecarlointegrator_2eh_17',['MonteCarloIntegrator.h',['../_monte_carlo_integrator_8h.html',1,'']]]
+  ['li_0',['Li',['../class_abstract_path_integrator.html#ab8cd8daf61a70ecc40b6586b4180db2b',1,'AbstractPathIntegrator::Li()'],['../class_monte_carlo_integrator.html#a0e2818801aa89f29892f391b79844d8e',1,'MonteCarloIntegrator::Li()']]],
+  ['light_1',['Light',['../class_light.html',1,'Light'],['../group___light.html',1,'(Global Namespace)']]],
+  ['linearbvhnode_2',['LinearBvhNode',['../struct_linear_bvh_node.html',1,'']]],
+  ['lookat_3',['lookAt',['../class_matrix4x4.html#ad18057d75b56aa01673f11ec854349a6',1,'Matrix4x4']]]
 ];

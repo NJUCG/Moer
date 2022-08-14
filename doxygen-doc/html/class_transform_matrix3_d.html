@@ -71,23 +71,39 @@ $(function() {
 <div class="contents">
 
 <p>Encapsulated transform matrix. By default, it will be initialized as identity matrix.  
- <a href="class_transform_matrix3_d.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_matrix_8h_source.html">Matrix.h</a>&gt;</code></p>
+</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a0055c53c8dd9c7e78af6017252e7e7e0"><td class="memItemLeft" align="right" valign="top"><a id="a0055c53c8dd9c7e78af6017252e7e7e0" name="a0055c53c8dd9c7e78af6017252e7e7e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTranslate</b> (double x, double y, double z)</td></tr>
+<tr class="separator:a0055c53c8dd9c7e78af6017252e7e7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfee81c1ceb68f977074317d301066bb"><td class="memItemLeft" align="right" valign="top"><a id="abfee81c1ceb68f977074317d301066bb" name="abfee81c1ceb68f977074317d301066bb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (double x, double y, double z)</td></tr>
+<tr class="separator:abfee81c1ceb68f977074317d301066bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8a71614e6eccdc4cc7e4545f016dce"><td class="memItemLeft" align="right" valign="top"><a id="a0c8a71614e6eccdc4cc7e4545f016dce" name="a0c8a71614e6eccdc4cc7e4545f016dce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (double ratio)</td></tr>
+<tr class="separator:a0c8a71614e6eccdc4cc7e4545f016dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7c4bc88d5b060b4e9a3eba954e14343"><td class="memItemLeft" align="right" valign="top"><a id="ae7c4bc88d5b060b4e9a3eba954e14343" name="ae7c4bc88d5b060b4e9a3eba954e14343"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateEuler</b> (const <a class="el" href="class_angle.html">Angle</a> &amp;x, const <a class="el" href="class_angle.html">Angle</a> &amp;y, const <a class="el" href="class_angle.html">Angle</a> &amp;z, EulerType type=EulerType::EULER_XYZ)</td></tr>
+<tr class="separator:ae7c4bc88d5b060b4e9a3eba954e14343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6692ebadc7cc864fa052e70309f43af2"><td class="memItemLeft" align="right" valign="top"><a id="a6692ebadc7cc864fa052e70309f43af2" name="a6692ebadc7cc864fa052e70309f43af2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateQuaternion</b> (double w, double x, double y, double z)</td></tr>
+<tr class="separator:a6692ebadc7cc864fa052e70309f43af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a672e414c3163a2a15f0757c78cf8946c"><td class="memItemLeft" align="right" valign="top"><a id="a672e414c3163a2a15f0757c78cf8946c" name="a672e414c3163a2a15f0757c78cf8946c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotateAxis</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;axis, const <a class="el" href="class_angle.html">Angle</a> &amp;angle)</td></tr>
 <tr class="memdesc:a672e414c3163a2a15f0757c78cf8946c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate by axis. Counterclockwise rotate. <br /></td></tr>
 <tr class="separator:a672e414c3163a2a15f0757c78cf8946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c80dbaa68ec855a3e2772a29895e38"><td class="memItemLeft" align="right" valign="top"><a id="a43c80dbaa68ec855a3e2772a29895e38" name="a43c80dbaa68ec855a3e2772a29895e38"></a>
+<a class="el" href="struct_t_vector3.html">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;v)</td></tr>
+<tr class="separator:a43c80dbaa68ec855a3e2772a29895e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4412e33591d422774102946ff46a5f6"><td class="memItemLeft" align="right" valign="top"><a id="aa4412e33591d422774102946ff46a5f6" name="aa4412e33591d422774102946ff46a5f6"></a>
+<a class="el" href="struct_t_point3.html">Point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_t_point3.html">Point3d</a> &amp;p)</td></tr>
+<tr class="separator:aa4412e33591d422774102946ff46a5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1386cc2ee85866daba33fe91940c72"><td class="memItemLeft" align="right" valign="top"><a id="afa1386cc2ee85866daba33fe91940c72" name="afa1386cc2ee85866daba33fe91940c72"></a>
+<a class="el" href="struct_normal3d.html">Normal3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="struct_normal3d.html">Normal3d</a> &amp;n)</td></tr>
+<tr class="separator:afa1386cc2ee85866daba33fe91940c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Encapsulated transform matrix. By default, it will be initialized as identity matrix. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_matrix_8h_source.html">Matrix.h</a></li>
-<li>/mnt/renderer/Zero/src/CoreLayer/Geometry/<a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

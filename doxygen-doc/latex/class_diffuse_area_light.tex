@@ -5,22 +5,67 @@
 \mbox{\hyperlink{class_diffuse}{Diffuse}} area light source.  
 
 
-
-
-{\ttfamily \#include $<$Diffuse\+Area\+Light.\+h$>$}
-
 Inheritance diagram for Diffuse\+Area\+Light\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{class_diffuse_area_light}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Detailed Description}
-\mbox{\hyperlink{class_diffuse}{Diffuse}} area light source. 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Light/\mbox{\hyperlink{_diffuse_area_light_8h}{Diffuse\+Area\+Light.\+h}}\item 
-/mnt/renderer/\+Zero/src/\+Function\+Layer/\+Light/\mbox{\hyperlink{_diffuse_area_light_8cpp}{Diffuse\+Area\+Light.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_diffuse_area_light_a0ac49f63f50fabc71ad24067bee17293}\label{class_diffuse_area_light_a0ac49f63f50fabc71ad24067bee17293}} 
+{\bfseries Diffuse\+Area\+Light} (std\+::shared\+\_\+ptr$<$ Entity $>$ shape, \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} radiance)
+\item 
+virtual Light\+Sample\+Result \mbox{\hyperlink{class_diffuse_area_light_a2e13903c6e7a748f0aa6fff68060613b}{eval\+Environment}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray) override
+\item 
+virtual Light\+Sample\+Result \mbox{\hyperlink{class_diffuse_area_light_a74285887832036c3a8750109fad559c6}{eval}} (const \mbox{\hyperlink{struct_ray}{Ray}} \&ray, const Intersection \&its, const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&d) override
+\item 
+virtual Light\+Sample\+Result \mbox{\hyperlink{class_diffuse_area_light_a3fa45f08989f0a7e1961d0780d17b640}{sample\+Emit}} (const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&position\+Sample, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&direction\+Sample, float time) override
+\item 
+virtual Light\+Sample\+Result \mbox{\hyperlink{class_diffuse_area_light_a51932ea173fbd8191412ce95848c9ffc}{sample\+Direct}} (const Intersection \&its, const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&sample, float time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_diffuse_area_light_a74285887832036c3a8750109fad559c6}\label{class_diffuse_area_light_a74285887832036c3a8750109fad559c6}} 
+\index{DiffuseAreaLight@{DiffuseAreaLight}!eval@{eval}}
+\index{eval@{eval}!DiffuseAreaLight@{DiffuseAreaLight}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}}
+{\footnotesize\ttfamily Light\+Sample\+Result Diffuse\+Area\+Light\+::eval (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray,  }\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{struct_t_vector3}{Vec3d}} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_diffuse_area_light_a2e13903c6e7a748f0aa6fff68060613b}\label{class_diffuse_area_light_a2e13903c6e7a748f0aa6fff68060613b}} 
+\index{DiffuseAreaLight@{DiffuseAreaLight}!evalEnvironment@{evalEnvironment}}
+\index{evalEnvironment@{evalEnvironment}!DiffuseAreaLight@{DiffuseAreaLight}}
+\doxysubsubsection{\texorpdfstring{evalEnvironment()}{evalEnvironment()}}
+{\footnotesize\ttfamily Light\+Sample\+Result Diffuse\+Area\+Light\+::eval\+Environment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_ray}{Ray}} \&}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_diffuse_area_light_a51932ea173fbd8191412ce95848c9ffc}\label{class_diffuse_area_light_a51932ea173fbd8191412ce95848c9ffc}} 
+\index{DiffuseAreaLight@{DiffuseAreaLight}!sampleDirect@{sampleDirect}}
+\index{sampleDirect@{sampleDirect}!DiffuseAreaLight@{DiffuseAreaLight}}
+\doxysubsubsection{\texorpdfstring{sampleDirect()}{sampleDirect()}}
+{\footnotesize\ttfamily Light\+Sample\+Result Diffuse\+Area\+Light\+::sample\+Direct (\begin{DoxyParamCaption}\item[{const Intersection \&}]{its,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{sample,  }\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+
+\mbox{\Hypertarget{class_diffuse_area_light_a3fa45f08989f0a7e1961d0780d17b640}\label{class_diffuse_area_light_a3fa45f08989f0a7e1961d0780d17b640}} 
+\index{DiffuseAreaLight@{DiffuseAreaLight}!sampleEmit@{sampleEmit}}
+\index{sampleEmit@{sampleEmit}!DiffuseAreaLight@{DiffuseAreaLight}}
+\doxysubsubsection{\texorpdfstring{sampleEmit()}{sampleEmit()}}
+{\footnotesize\ttfamily Light\+Sample\+Result Diffuse\+Area\+Light\+::sample\+Emit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{position\+Sample,  }\item[{const \mbox{\hyperlink{struct_t_point2}{Point2d}} \&}]{direction\+Sample,  }\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_light}{Light}}.
+

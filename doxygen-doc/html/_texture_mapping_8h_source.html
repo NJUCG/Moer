@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zero-Renderer: /mnt/renderer/Zero/src/FunctionLayer/Texture/TextureMapping.h Source File</title>
+<title>Zero-Renderer: TextureMapping.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,13 +70,13 @@ $(function() {
   <div class="headertitle"><div class="title">TextureMapping.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_texture_mapping_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">CoreLayer/ColorSpace/Color.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_texture_8h.html">Texture.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_intersection_8h.html">FunctionLayer/Intersection.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;CoreLayer/ColorSpace/Color.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;Texture.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;FunctionLayer/Intersection.h&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// Various kinds of TextureMapping</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span>UVTextureMapping2D : <span class="keyword">public</span> <a class="code hl_class" href="class_texture_mapping.html">TextureMapping</a>&lt;TextureCoord2D&gt;</div>
@@ -94,9 +94,6 @@ $(function() {
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">virtual</span> TextureCoord3D mapping(<span class="keyword">const</span> Intersection &amp;intersection) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
-<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div><div class="ttdoc">Color representation, including rgb, xyz and spectrum.</div></div>
-<div class="ttc" id="a_intersection_8h_html"><div class="ttname"><a href="_intersection_8h.html">Intersection.h</a></div><div class="ttdoc">Intersection information on an object.</div></div>
-<div class="ttc" id="a_texture_8h_html"><div class="ttname"><a href="_texture_8h.html">Texture.h</a></div><div class="ttdoc">Texture of different types.</div></div>
 <div class="ttc" id="aclass_texture_mapping_html"><div class="ttname"><a href="class_texture_mapping.html">TextureMapping</a></div><div class="ttdoc">TextureMapping maps an intersection to texture coordinates of type Tcoord.</div><div class="ttdef"><b>Definition:</b> Texture.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

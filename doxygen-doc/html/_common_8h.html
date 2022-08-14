@@ -69,7 +69,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Common.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -86,6 +87,12 @@ $(function() {
 Macros</h2></td></tr>
 <tr class="memitem:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_common_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>&#160;&#160;&#160;3.14159265358979323846f</td></tr>
 <tr class="separator:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebad45bfa06a5d66805c5813fbc59f4b"><td class="memItemLeft" align="right" valign="top"><a id="aebad45bfa06a5d66805c5813fbc59f4b" name="aebad45bfa06a5d66805c5813fbc59f4b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INV_PI</b>&#160;&#160;&#160;0.31830988618379067154f</td></tr>
+<tr class="separator:aebad45bfa06a5d66805c5813fbc59f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42177ad937b6de334f376c039189e067"><td class="memItemLeft" align="right" valign="top"><a id="a42177ad937b6de334f376c039189e067" name="a42177ad937b6de334f376c039189e067"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INV_TWOPI</b>&#160;&#160;&#160;0.15915494309189533577f</td></tr>
+<tr class="separator:a42177ad937b6de334f376c039189e067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -111,6 +118,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mod</b> (int a, int b)
 <tr class="memitem:a2ad2c6c590e48dd021738bd29c0dbae8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_common_8h.html#a2ad2c6c590e48dd021738bd29c0dbae8">fresnel</a> (double cosThetaI, double extIOR, double intIOR)</td></tr>
 <tr class="memdesc:a2ad2c6c590e48dd021738bd29c0dbae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute fresnel term in reflection.  <a href="_common_8h.html#a2ad2c6c590e48dd021738bd29c0dbae8">More...</a><br /></td></tr>
 <tr class="separator:a2ad2c6c590e48dd021738bd29c0dbae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a88945c2b061fef56019f5c800f210c5d"><td class="memItemLeft" align="right" valign="top"><a id="a88945c2b061fef56019f5c800f210c5d" name="a88945c2b061fef56019f5c800f210c5d"></a>
+constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>ONEMINUSEPSILON</b> = 1 - std::numeric_limits&lt;double&gt;::epsilon()</td></tr>
+<tr class="separator:a88945c2b061fef56019f5c800f210c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >some common but useful functions </p>
@@ -130,7 +143,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mod</b> (int a, int b)
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>multiple defination M_PI </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>multiple defination M_PI </dd></dl>
 
 </div>
 </div>
@@ -176,7 +189,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mod</b> (int a, int b)
 </div><div class="memdoc">
 
 <p>Compute fresnel term in reflection. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Where should this function be placed </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Where should this function be placed </dd></dl>
 
 </div>
 </div>
@@ -221,7 +234,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>mod</b> (int a, int b)
 </div><div class="memdoc">
 
 <p>Compute fresnel term in reflection. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>delete this float version </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>delete this float version </dd></dl>
 
 </div>
 </div>

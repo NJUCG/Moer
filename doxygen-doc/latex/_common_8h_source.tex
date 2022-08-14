@@ -1,6 +1,6 @@
 \hypertarget{_common_8h_source}{}\doxysection{Common.\+h}
-\label{_common_8h_source}\index{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h@{/mnt/renderer/Zero/src/CoreLayer/Math/Common.h}}
-\mbox{\hyperlink{_common_8h}{Go to the documentation of this file.}}
+\label{_common_8h_source}\index{Common.h@{Common.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma  once}}
@@ -14,7 +14,7 @@
 \DoxyCodeLine{21 }
 \DoxyCodeLine{22 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} ONEMINUSEPSILON = 1 -\/ std::numeric\_limits<double>::epsilon();}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{25 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max) \{}
+\DoxyCodeLine{25 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} clamp(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max) \{}
 \DoxyCodeLine{26     \textcolor{keywordflow}{if} (value < min)}
 \DoxyCodeLine{27         \textcolor{keywordflow}{return} min;}
 \DoxyCodeLine{28     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
@@ -22,7 +22,7 @@
 \DoxyCodeLine{30     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
 \DoxyCodeLine{31 \}}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{34 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a5db81d5a7a3dcf2ea181f62790dc13a0}{clamp}}(\textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max) \{}
+\DoxyCodeLine{34 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} clamp(\textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max) \{}
 \DoxyCodeLine{35     \textcolor{keywordflow}{if} (value < min)}
 \DoxyCodeLine{36         \textcolor{keywordflow}{return} min;}
 \DoxyCodeLine{37     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value > max)}
@@ -30,16 +30,16 @@
 \DoxyCodeLine{39     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} value;}
 \DoxyCodeLine{40 \}}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{43 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_a4fd25f7b1bae1987e401066bb9cf06ef}{lerp}}(\textcolor{keywordtype}{float} t, \textcolor{keywordtype}{float} v1, \textcolor{keywordtype}{float} v2) \{}
+\DoxyCodeLine{43 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} lerp(\textcolor{keywordtype}{float} t, \textcolor{keywordtype}{float} v1, \textcolor{keywordtype}{float} v2) \{}
 \DoxyCodeLine{44     \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{float}) 1 -\/ t) * v1 + t * v2;}
 \DoxyCodeLine{45 \}}
 \DoxyCodeLine{46 }
-\DoxyCodeLine{48 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{_common_8h_a69c18c9507ef22a89f1f437bcc75baaf}{mod}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b) \{}
+\DoxyCodeLine{48 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} mod(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b) \{}
 \DoxyCodeLine{49     \textcolor{keywordtype}{int} r = a \% b;}
 \DoxyCodeLine{50     \textcolor{keywordflow}{return} (r < 0) ? r+b : r;}
 \DoxyCodeLine{51 \}}
 \DoxyCodeLine{52 }
-\DoxyCodeLine{55 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{float} cosThetaI, \textcolor{keywordtype}{float} extIOR, \textcolor{keywordtype}{float} intIOR) \{}
+\DoxyCodeLine{55 \textcolor{keyword}{inline}  \textcolor{keywordtype}{float} fresnel(\textcolor{keywordtype}{float} cosThetaI, \textcolor{keywordtype}{float} extIOR, \textcolor{keywordtype}{float} intIOR) \{}
 \DoxyCodeLine{56     \textcolor{keywordtype}{float} etaI = extIOR, etaT = intIOR;}
 \DoxyCodeLine{57 }
 \DoxyCodeLine{58     \textcolor{keywordflow}{if} (extIOR == intIOR)}
@@ -70,7 +70,7 @@
 \DoxyCodeLine{83     \textcolor{keywordflow}{return} (Rs * Rs + Rp * Rp) / 2.0f;}
 \DoxyCodeLine{84 \}}
 \DoxyCodeLine{85 }
-\DoxyCodeLine{88 \textcolor{keyword}{inline}  \textcolor{keywordtype}{double} \mbox{\hyperlink{_common_8h_aa4bc628102111f721c678c58c1d81aa1}{fresnel}}(\textcolor{keywordtype}{double} cosThetaI, \textcolor{keywordtype}{double} extIOR, \textcolor{keywordtype}{double} intIOR) \{}
+\DoxyCodeLine{88 \textcolor{keyword}{inline}  \textcolor{keywordtype}{double} fresnel(\textcolor{keywordtype}{double} cosThetaI, \textcolor{keywordtype}{double} extIOR, \textcolor{keywordtype}{double} intIOR) \{}
 \DoxyCodeLine{89     \textcolor{keywordtype}{double} etaI = extIOR, etaT = intIOR;}
 \DoxyCodeLine{90 }
 \DoxyCodeLine{91     \textcolor{keywordflow}{if} (extIOR == intIOR)}

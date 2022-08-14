@@ -1,12 +1,12 @@
 \hypertarget{_image_8h_source}{}\doxysection{Image.\+h}
-\label{_image_8h_source}\index{/mnt/renderer/Zero/src/ResourceLayer/File/Image.h@{/mnt/renderer/Zero/src/ResourceLayer/File/Image.h}}
-\mbox{\hyperlink{_image_8h}{Go to the documentation of this file.}}
+\label{_image_8h_source}\index{Image.h@{Image.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{CoreLayer/ColorSpace/Color.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}CoreLayer/Geometry/Geometry.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}CoreLayer/ColorSpace/Color.h"{}}}
 \DoxyCodeLine{16 }
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{18 }
@@ -43,8 +43,8 @@
 \DoxyCodeLine{49     \textcolor{keywordtype}{int} getHeight() \textcolor{keyword}{const};}
 \DoxyCodeLine{50 }
 \DoxyCodeLine{51     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} \&s);}
-\DoxyCodeLine{52     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} RGB3 \&rgb);}
-\DoxyCodeLine{53     RGB3 getRGBColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} setColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p, \textcolor{keyword}{const} \mbox{\hyperlink{class_r_g_b3}{RGB3}} \&rgb);}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_r_g_b3}{RGB3}} getRGBColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
 \DoxyCodeLine{54     \mbox{\hyperlink{class_sampled_spectrum}{Spectrum}} getSpectrumColorAt(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_point2}{Point2i}} \&p);}
 \DoxyCodeLine{55 }
 \DoxyCodeLine{56     \textcolor{keywordtype}{bool} saveTo(\textcolor{keyword}{const} std::string \&path);}

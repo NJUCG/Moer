@@ -1,14 +1,14 @@
 \hypertarget{_sampler_8h_source}{}\doxysection{Sampler.\+h}
-\label{_sampler_8h_source}\index{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Sampler.h@{/mnt/renderer/Zero/src/FunctionLayer/Sampler/Sampler.h}}
-\mbox{\hyperlink{_sampler_8h}{Go to the documentation of this file.}}
+\label{_sampler_8h_source}\index{Sampler.h@{Sampler.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_random_8h}{CoreLayer/Adapter/Random.h}}"{}}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_geometry_8h}{CoreLayer/Geometry/Geometry.h}}"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_common_8h}{CoreLayer/Math/Common.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}CoreLayer/Adapter/Random.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}CoreLayer/Geometry/Geometry.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}CoreLayer/Math/Common.h"{}}}
 \DoxyCodeLine{18 }
 \DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_camera_sample}{CameraSample}};}
 \DoxyCodeLine{20 }
@@ -35,7 +35,7 @@
 \DoxyCodeLine{46 \};}
 \DoxyCodeLine{47 }
 \DoxyCodeLine{54 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{55 \textcolor{keywordtype}{void} \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(std::vector<T> \&samples, \mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}} \&rng) \{}
+\DoxyCodeLine{55 \textcolor{keywordtype}{void} shuffle(std::vector<T> \&samples, \mbox{\hyperlink{class_random_number_generator}{RandomNumberGenerator}} \&rng) \{}
 \DoxyCodeLine{56     \textcolor{keywordtype}{int} count = samples.size();}
 \DoxyCodeLine{57     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < count; ++i) \{}
 \DoxyCodeLine{58         \textcolor{keywordtype}{int} other = rng(i, count);}
@@ -99,9 +99,9 @@
 \DoxyCodeLine{123         \textcolor{comment}{// generate the samples will be used in current pixel}}
 \DoxyCodeLine{124         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nDimensions; ++i) \{}
 \DoxyCodeLine{125             generateSamples1D(samples1D[i]);}
-\DoxyCodeLine{126             \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(samples1D[i], rng);}
+\DoxyCodeLine{126             shuffle(samples1D[i], rng);}
 \DoxyCodeLine{127             generateSamples2D(samples2D[i]);}
-\DoxyCodeLine{128             \mbox{\hyperlink{_sampler_8h_aa836e548630255f5906a790eff52da88}{shuffle}}(samples2D[i], rng);}
+\DoxyCodeLine{128             shuffle(samples2D[i], rng);}
 \DoxyCodeLine{129         \}}
 \DoxyCodeLine{130     \}}
 \DoxyCodeLine{131 }

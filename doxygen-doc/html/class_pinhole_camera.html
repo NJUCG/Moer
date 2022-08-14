@@ -71,9 +71,7 @@ $(function() {
 <div class="contents">
 
 <p>Pinhole camera.  
- <a href="class_pinhole_camera.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_pinhole_8h_source.html">Pinhole.h</a>&gt;</code></p>
+</p>
 <div class="dynheader">
 Inheritance diagram for PinholeCamera:</div>
 <div class="dyncontent">
@@ -87,6 +85,9 @@ Inheritance diagram for PinholeCamera:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acd85d4d2fc3227f4c5f4ca3e0b7bc212"><td class="memItemLeft" align="right" valign="top"><a id="acd85d4d2fc3227f4c5f4ca3e0b7bc212" name="acd85d4d2fc3227f4c5f4ca3e0b7bc212"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PinholeCamera</b> (const <a class="el" href="struct_t_point3.html">Point3d</a> &amp;lookFrom, const <a class="el" href="struct_t_point3.html">Point3d</a> &amp;lookAt, const <a class="el" href="struct_t_vector3.html">Vec3d</a> &amp;up, double xFov, double aspectRatio, double distToFilm)</td></tr>
+<tr class="separator:acd85d4d2fc3227f4c5f4ca3e0b7bc212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab415cdc67e1c1ff2ebeda7f3c806e6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_ray.html">Ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pinhole_camera.html#abab415cdc67e1c1ff2ebeda7f3c806e6">generateRay</a> (const <a class="el" href="struct_t_point2.html">Point2i</a> &amp;filmResolution, const <a class="el" href="struct_t_point2.html">Point2i</a> &amp;pixelPosition, const <a class="el" href="struct_camera_sample.html">CameraSample</a> &amp;sample) const override</td></tr>
 <tr class="memdesc:abab415cdc67e1c1ff2ebeda7f3c806e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Notice, NDC is the sample in unit square  <a href="class_pinhole_camera.html#abab415cdc67e1c1ff2ebeda7f3c806e6">More...</a><br /></td></tr>
 <tr class="separator:abab415cdc67e1c1ff2ebeda7f3c806e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,10 +104,11 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_class_perspective_camera"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_perspective_camera')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_perspective_camera.html">PerspectiveCamera</a></td></tr>
 <tr class="memitem:a105de3c844d5e522a432e0aa85c57dc5 inherit pub_attribs_class_perspective_camera"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_perspective_camera.html#a105de3c844d5e522a432e0aa85c57dc5">cameraToWorld</a></td></tr>
 <tr class="separator:a105de3c844d5e522a432e0aa85c57dc5 inherit pub_attribs_class_perspective_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af704c493a6cfabb3f12dba26a62a6717 inherit pub_attribs_class_perspective_camera"><td class="memItemLeft" align="right" valign="top"><a id="af704c493a6cfabb3f12dba26a62a6717" name="af704c493a6cfabb3f12dba26a62a6717"></a>
+<a class="el" href="class_matrix4x4.html">Matrix4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sampleToFilm</b></td></tr>
+<tr class="separator:af704c493a6cfabb3f12dba26a62a6717 inherit pub_attribs_class_perspective_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Pinhole camera. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="abab415cdc67e1c1ff2ebeda7f3c806e6" name="abab415cdc67e1c1ff2ebeda7f3c806e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abab415cdc67e1c1ff2ebeda7f3c806e6">&#9670;&nbsp;</a></span>generateRay()</h2>
 
@@ -146,8 +148,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>! Notice, NDC is the sample in unit square </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">NDC</td><td></td></tr>
@@ -160,10 +160,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Camera/<a class="el" href="_pinhole_8h_source.html">Pinhole.h</a></li>
-<li>/mnt/renderer/Zero/src/FunctionLayer/Camera/Pinhole.cpp</li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
