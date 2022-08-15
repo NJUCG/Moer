@@ -26,6 +26,7 @@
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Shape/Triangle.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
+#include "ResourceLayer/ResourceManager.h"
 
 TEST_CASE("test-material-diffuse")
 {
