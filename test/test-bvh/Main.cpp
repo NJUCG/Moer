@@ -26,7 +26,7 @@
 #include "FunctionLayer/Shape/Triangle.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
-TEST_CASE("test-material-diffuse")
+TEST_CASE("test-bvh")
 {
     Spectrum::init();
     std::cout << "NJUCG Zero v0.1" << std::endl;

@@ -26,7 +26,7 @@
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
 
-TEST_CASE("test-material-diffuse")
+TEST_CASE("test-sampler")
 {
     Spectrum::init();
     std::cout << "NJUCG Zero v0.1" << std::endl;
