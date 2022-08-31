@@ -32,3 +32,7 @@ Point3i MeshData::getTriangleIndiceAt(int i) const {
 int MeshData::getTriangleNum() const {
     return m_indices.size();
 }
+
+BoundingBox3f MeshData::getAABB() const {
+    return m_aabb;
+}

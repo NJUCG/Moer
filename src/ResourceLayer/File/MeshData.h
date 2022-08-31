@@ -15,6 +15,7 @@
 #include "Eigen/Dense"
 
 #include "CoreLayer/Geometry/Geometry.h"
+#include "CoreLayer/Geometry/BoundingBox.h"
 
 #include <string>
 
@@ -38,20 +39,24 @@ public:
 
 	int getTriangleNum() const;
 
+	BoundingBox3f getAABB() const;
+
 private:
 	//double *vertexRaw;
 	Eigen::MatrixXd m_vertices;
 	
 	//double *normalRaw;
 	Eigen::MatrixXd m_normals;
-	
-	//double *uvRaw;
-	Eigen::MatrixXd m_UVs;
 
-	double *tangentRaw;
-	double *bitangentRaw;
+	Eigen::MatrixXd m_tangents;
+
+	Eigen::MatrixXd m_bitangents;
 	
+	std::vector<Point2d> m_UVs;
+
 	std::vector<Point3i> m_indices;
+
+	BoundingBox3f m_aabb;
 
 	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
 	MeshData(double *_v, double *_n, double *_uv, double *_tan, double *_bi, int *_indice);

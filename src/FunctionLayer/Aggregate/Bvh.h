@@ -75,4 +75,5 @@ public:
 
 	/// @brief return the scene intersection
 	std::optional<Intersection> Intersect(const Ray& r);
+
 };

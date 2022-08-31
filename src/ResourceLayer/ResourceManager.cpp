@@ -59,7 +59,6 @@ MeshDataManager::getMeshData(const std::string &path) {
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
 
-
         //*---------------------------------------------
         //*-----------  Parsing normals  --------------
         //*---------------------------------------------
@@ -76,6 +75,26 @@ MeshDataManager::getMeshData(const std::string &path) {
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
 
+        //*---------------------------------------------
+        //*-----------  Parsing UVs  --------------
+        //*---------------------------------------------
+        if (ai_mesh->GetNumUVChannels() == 1 && ai_mesh->mNumUVComponents[0] == 2) {
+            mesh_data->m_UVs.reserve(ai_mesh->mNumVertices);
+            auto text_coords = ai_mesh->mTextureCoords[0];
+            for (int j = 0; j < ai_mesh->mNumVertices; ++j) {
+            
+                mesh_data->m_UVs.emplace_back(
+                    Point2d {
+                        text_coords[j][0],
+                        text_coords[j][1]
+                    }
+                );
+            }   
+        } else {
+            std::cerr << "Mesh without uv coordinates (or not 2d) is not supported \n";
+            std::exit(1);
+        }
+
 
         //*---------------------------------------------
         //*-----------  Parsing indices  --------------
@@ -90,15 +109,53 @@ MeshDataManager::getMeshData(const std::string &path) {
 
         mesh_data->m_indices.reserve(ai_mesh->mNumFaces);
         for (int j = 0; j < ai_mesh->mNumFaces; ++j) {
+            aiFace indices = ai_mesh->mFaces[j];
             mesh_data->m_indices.emplace_back(
                 Point3i {
-                    static_cast<int>(ai_mesh->mFaces->mIndices[0]),
-                    static_cast<int>(ai_mesh->mFaces->mIndices[1]),
-                    static_cast<int>(ai_mesh->mFaces->mIndices[2])
+                    static_cast<int>(indices.mIndices[0]),
+                    static_cast<int>(indices.mIndices[1]),
+                    static_cast<int>(indices.mIndices[2])
                 }
             );
         }
 
+        //*--------------------------------------
+        //*--------- Parsing tangent  -----------
+        //*--------------------------------------
+        if (!ai_mesh->HasTangentsAndBitangents()) {
+            std::cerr << "Mesh without tangent-space is not supported \n!";
+            std::exit(1);
+        }
+        mesh_data->m_tangents.resize(3, ai_mesh->mNumVertices);
+        std::memcpy(
+            mesh_data->m_tangents.data(), 
+            ai_mesh->mTangents, 
+            sizeof(aiVector3D) * ai_mesh->mNumVertices
+        );
+        
+        mesh_data->m_bitangents.resize(3, ai_mesh->mNumVertices);
+        std::memcpy(
+            mesh_data->m_bitangents.data(), 
+            ai_mesh->mBitangents, 
+            sizeof(aiVector3D) * ai_mesh->mNumVertices
+        );
+
+        //*--------------------------------------
+        //*------------ Parsing AABB ------------
+        //*--------------------------------------
+        //! Some problems in assimp aabb
+
+        double minX = mesh_data->m_vertices.row(0).minCoeff(),
+               maxX = mesh_data->m_vertices.row(0).maxCoeff(),
+               minY = mesh_data->m_vertices.row(1).minCoeff(),
+               maxY = mesh_data->m_vertices.row(1).maxCoeff(),
+               minZ = mesh_data->m_vertices.row(2).minCoeff(),
+               maxZ = mesh_data->m_vertices.row(2).maxCoeff();
+
+        mesh_data->m_aabb = BoundingBox3f(
+            Point3d {minX, minY, minZ},
+            Point3d {maxX, maxY, maxZ}
+        );
 
         result.emplace_back(mesh_data);
     }
