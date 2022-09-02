@@ -1,7 +1,0 @@
-<map id="StratifiedSampler" name="StratifiedSampler">
-<area shape="rect" id="node1" title="Stratified generate sample." alt="" coords="125,256,260,281"/>
-<area shape="rect" id="node2" href="$class_pixel_sampler.html" title="Base class for pixel sampler, which generate specific samples before rendering each pixel need the di..." alt="" coords="139,181,246,207"/>
-<area shape="rect" id="node3" href="$class_sampler.html" title="Base class for all samplers." alt="" coords="64,93,140,119"/>
-<area shape="rect" id="node4" href="$class_random_number_generator.html" title="RandomNumberGenerator, using pcg &#160;to generate random number." alt="" coords="5,5,199,31"/>
-<area shape="rect" id="node5" href="$struct_t_point2.html" title=" " alt="" coords="164,93,283,119"/>
-</map>

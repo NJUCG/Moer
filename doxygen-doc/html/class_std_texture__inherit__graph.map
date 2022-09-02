@@ -1,4 +1,0 @@
-<map id="StdTexture&lt; Tvalue, Tcoord &gt;" name="StdTexture&lt; Tvalue, Tcoord &gt;">
-<area shape="rect" id="node1" title="StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection." alt="" coords="5,79,160,119"/>
-<area shape="rect" id="node2" href="$class_texture.html" title="Base class for all textures." alt="" coords="11,5,155,31"/>
-</map>

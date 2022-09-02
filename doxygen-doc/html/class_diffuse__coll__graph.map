@@ -1,4 +1,0 @@
-<map id="Diffuse" name="Diffuse">
-<area shape="rect" id="node1" title="Lambertian reflection model." alt="" coords="5,79,73,104"/>
-<area shape="rect" id="node2" href="$class_bx_d_f.html" title="BxDF. out == rays from/to camera, in == rays from/to objects/lights." alt="" coords="11,5,68,31"/>
-</map>

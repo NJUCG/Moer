@@ -1,4 +1,0 @@
-<map id="CameraSample" name="CameraSample">
-<area shape="rect" id="node1" title="This is used by camera to generate a ray." alt="" coords="17,108,139,133"/>
-<area shape="rect" id="node2" href="$struct_t_point2.html" title=" " alt="" coords="5,5,151,31"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="MonteCarloIntegrator" name="MonteCarloIntegrator">
-<area shape="rect" id="node1" title="Base class for all integrators solving rendering equation using MonteCarlo methods." alt="" coords="5,79,167,104"/>
-<area shape="rect" id="node2" href="$class_integrator.html" title="Base class for all integrators solving the rendering equation." alt="" coords="43,5,129,31"/>
-</map>

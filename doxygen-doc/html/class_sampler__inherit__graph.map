@@ -1,6 +1,0 @@
-<map id="Sampler" name="Sampler">
-<area shape="rect" id="node1" title="Base class for all samplers." alt="" coords="123,5,199,31"/>
-<area shape="rect" id="node2" href="$class_independent_sampler.html" title="Generate unifromly distributed sample in [0, 1)" alt="" coords="5,79,163,104"/>
-<area shape="rect" id="node3" href="$class_pixel_sampler.html" title="Base class for pixel sampler, which generate specific samples before rendering each pixel need the di..." alt="" coords="187,79,293,104"/>
-<area shape="rect" id="node4" href="$class_stratified_sampler.html" title="Stratified generate sample." alt="" coords="173,152,307,177"/>
-</map>

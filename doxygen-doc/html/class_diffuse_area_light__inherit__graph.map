@@ -1,5 +1,0 @@
-<map id="DiffuseAreaLight" name="DiffuseAreaLight">
-<area shape="rect" id="node1" title="Diffuse area light source." alt="" coords="5,152,136,177"/>
-<area shape="rect" id="node2" href="$class_area_light.html" title="Base class for all area light source." alt="" coords="29,79,113,104"/>
-<area shape="rect" id="node3" href="$class_light.html" title="The base class for all light source." alt="" coords="43,5,98,31"/>
-</map>

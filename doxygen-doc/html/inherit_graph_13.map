@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_integrator.html" title="Base class for all integrators solving the rendering equation." alt="" coords="5,5,92,31"/>
-<area shape="rect" id="node2" href="$class_monte_carlo_integrator.html" title="Base class for all integrators solving rendering equation using MonteCarlo methods." alt="" coords="140,5,301,31"/>
-<area shape="rect" id="node3" href="$class_abstract_path_integrator.html" title="Base class for all path_tracing&#45;like integrators." alt="" coords="349,5,517,31"/>
-<area shape="rect" id="node4" href="$class_path_integrator.html" title="Unidirectional path&#45;tracing integrator." alt="" coords="565,5,680,31"/>
-</map>
