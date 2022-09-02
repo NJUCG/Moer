@@ -14,6 +14,8 @@
 #include <cmath>
 #include <iostream>
 
+/// \ingroup Geometry
+/// \brief Vector2
 template <typename T>
 struct TVector2 {
     
@@ -142,14 +144,12 @@ inline TVector2<int>& TVector2<int>::operator/=(int i) {
     return *this;
 }
 
-
-
+/// \ingroup Geometry
+/// \brief Vector3
 template <typename T>
 struct TVector3 {
-    /*--- data field ---*/
     T x, y, z;
 
-    /*--- constructor ---*/
     TVector3 () { }
 
     TVector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }

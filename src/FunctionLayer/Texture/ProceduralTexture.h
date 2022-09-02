@@ -12,6 +12,8 @@
 
 #include "Texture.h"
 
+/// \brief 2D checkboard texture
+/// \ingroup Texture
 class Checkerboard2D : public StdTexture<double, TextureCoord2D>
 {
 protected:
@@ -21,6 +23,8 @@ public:
     virtual double eval(const TextureCoord2D &coord) const override;
 };
 
+/// \brief 3D checkboard texture
+/// \ingroup Texture
 class Checkerboard3D : public StdTexture<double, TextureCoord3D>
 {
 protected:

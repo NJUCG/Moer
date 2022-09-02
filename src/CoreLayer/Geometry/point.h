@@ -12,6 +12,8 @@
 #pragma once
 #include "vector.h"
 
+/// \ingroup Geometry
+/// \brief Point2 
 template <typename T>
 struct TPoint2 {
     /*--- data field ---*/
@@ -122,7 +124,8 @@ inline TPoint2<int>& TPoint2<int>::operator/=(int i) {
     return *this; 
 }
 
-
+/// \ingroup Geometry
+/// \brief Point3
 template <typename T>
 struct TPoint3 {
     /*--- data field ---*/

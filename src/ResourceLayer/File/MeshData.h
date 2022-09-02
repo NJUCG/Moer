@@ -4,6 +4,7 @@
  * @brief Mesh data for both real time renderer and ray tracing renderer.
  * @version 0.1
  * @date 2022-04-30
+ * -	edit by Chenxi Zhou, 2022-8-14
  *
  * @copyright NJUMeta (c) 2022 
  * www.njumeta.com
@@ -11,33 +12,54 @@
  */
 #pragma once
 
+#include "Eigen/Dense"
+
 #include "CoreLayer/Geometry/Geometry.h"
+#include "CoreLayer/Geometry/BoundingBox.h"
 
 #include <string>
 
 class MeshData
 {
-	double *vertexRaw;
-	double *normalRaw;
-	double *uvRaw;
-	double *tangentRaw;
-	double *bitangentRaw;
-	int *indiceRaw;
-
-	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
-	MeshData(double *_v, double *_n, double *_uv, double *_tan, double *_bi, int *_indice);
-
 public:
 	friend class MeshDataManager;
 
 	Point3d getVertexAt(int i) const;
+
 	Normal3d getNormalAt(int i) const;
+
 	Point2d getUvAt(int i) const;
+
 	Vec3d getTangentAt(int i) const;
+
 	Vec3d getBitangentAt(int i) const;
 
 	// @brief get 3 indices for ist triangle mesh. In order.
 	Point3i getTriangleIndiceAt(int i) const;
 
 	int getTriangleNum() const;
+
+	BoundingBox3f getAABB() const;
+
+private:
+	//double *vertexRaw;
+	Eigen::MatrixXd m_vertices;
+	
+	//double *normalRaw;
+	Eigen::MatrixXd m_normals;
+
+	Eigen::MatrixXd m_tangents;
+
+	Eigen::MatrixXd m_bitangents;
+	
+	std::vector<Point2d> m_UVs;
+
+	std::vector<Point3i> m_indices;
+
+	BoundingBox3f m_aabb;
+
+	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
+	MeshData(double *_v, double *_n, double *_uv, double *_tan, double *_bi, int *_indice);
+
+	MeshData() { }
 };

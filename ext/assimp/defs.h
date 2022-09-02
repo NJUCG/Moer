@@ -236,7 +236,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     /* Define ASSIMP_DOUBLE_PRECISION to compile assimp
      * with double precision support (64-bit). */
     //////////////////////////////////////////////////////////////////////////
-
+#define ASSIMP_DOUBLE_PRECISION
 #ifdef ASSIMP_DOUBLE_PRECISION
     typedef double ai_real;
     typedef signed long long int ai_int;

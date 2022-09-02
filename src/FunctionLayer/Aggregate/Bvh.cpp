@@ -12,7 +12,9 @@
 #include "Bvh.h"
 #define BVH_BUILD_ERROR false
 //build the BVH of entites within the interval [start, end)
-std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entityInfo, int start, int end, int& nodeNumber, std::vector<std::shared_ptr<Entity>>& orderedEntites) {
+std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entityInfo, 
+												 int start, int end, int& nodeNumber, 
+												 std::vector<std::shared_ptr<Entity>>& orderedEntites) {
 	nodeNumber++;
 	std::shared_ptr<BvhTreeNode> root = std::make_shared<BvhTreeNode>();
 	BoundingBox3f totalBounds;
@@ -57,7 +59,10 @@ std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entity
 
 			else if (nEntities <= 2 || splitMethod == SplitMethod::EqualCounts) {
 				mid = (start + end) >> 1;
-				std::nth_element(entityInfo.begin() + start, entityInfo.begin() + mid, entityInfo.begin() + end, [&](const EntityInfo& a, const EntityInfo& b) {
+				std::nth_element(entityInfo.begin() + start, 
+								 entityInfo.begin() + mid, 
+								 entityInfo.begin() + end, 
+								 [&](const EntityInfo& a, const EntityInfo& b) {
 					return a.center[dim] < b.center[dim];
 				});
 				success = 1;

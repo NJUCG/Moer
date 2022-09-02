@@ -104,6 +104,7 @@ std::optional<Intersection> Triangle::intersect(const Ray& r) const {
 	//get intersection, mostly refer to PBRT-V3
 	Intersection its;
 	its.position = r.origin + r.direction * X[2];
+	its.t = (its.position - r.origin).length();		//* caculate t, by zcx 8-22
 	its.geometryNormal = geometryNormal;
 	coordinateSystem(geometryNormal, its.geometryTangent, its.geometryBitangent);
 	its.uv = uv[0] * X[0] + uv[1] * X[1] + uv[2] * (1 - X[0] - X[1]);

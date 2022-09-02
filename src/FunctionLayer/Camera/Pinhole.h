@@ -2,6 +2,10 @@
 
 #include "Perspective.h"
 
+/**
+ * @brief Pinhole camera
+ * @ingroup Camera
+ */
 class PinholeCamera : public PerspectiveCamera {
 public:
     PinholeCamera() = default;

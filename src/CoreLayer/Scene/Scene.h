@@ -19,9 +19,11 @@
 
 #include <optional>
 
+/// \brief Store the primitives in scene
 class Scene
 {
-	std::shared_ptr<Bvh> BVH;
+	std::shared_ptr<Bvh> BVH;											///< Spacial accelerate structure
+																		///< \todo Replace it whit a abstruct base class
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights;
 	std::shared_ptr<std::vector<std::shared_ptr<Entity>>> entities;
 

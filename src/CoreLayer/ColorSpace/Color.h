@@ -11,8 +11,6 @@
  */
 #pragma once
 
-//#include "Geometry.h"
-
 #include <vector>
 #include <cmath>
 #include <cfloat>
@@ -29,18 +27,37 @@ using Spectrum = SampledSpectrum;
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
 
-// @brief the number of uniform samples for SampledSpectrum.
+// The number of uniform samples for SampledSpectrum.
 static const int nSpectrumSamples = 60;
 
-// @brief mathematical clamp.
+/**
+ * @brief Mathematical clamp
+ * 
+ * @param source 	The double to be clamped
+ * @param low 		Lower bound of the range
+ * @param high 		Upper bound of the range
+ * @return double 
+ */
 double mathClamp(double source, double low=0.0, double high=DBL_MAX);
 
-// @brief mathematical lerp.
-double mathLerp(double ratio,double source0,double source1);
+/**
+ * @brief Mathematical lerp.
+ * 
+ * @param ratio 	The weight of the source1
+ * @param source0 	
+ * @param source1 
+ * @return double = (1 - ratio) * source0 + ratio * source1
+ */
+double mathLerp(double ratio, double source0, double source1);
 
-// @brief types of spectrum. different strategies will be applied.
+/// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };
 
+
+/**
+ * @brief Classical rgb color space
+ * 
+ */
 class RGB3
 {
 	double rgbData[3];
@@ -76,10 +93,14 @@ public:
 
 	XYZ3 toXYZ3() const;
 
-	// @brief convert RGB3 to SampledSpectrum.
+	/// @brief Convert RGB3 to SampledSpectrum.
 	Spectrum toSpectrum(SpectrumType type=SpectrumType::REFLECTANCE) const;
 };
 
+/**
+ * @brief XYZ3 color space
+ * 
+ */
 class XYZ3
 {
 	double xyzData[3];
@@ -113,10 +134,14 @@ public:
 
 	friend XYZ3 operator*(double v, const XYZ3 &xyz);
 
+	/// @brief Convert XYZ3 to RGB3
 	RGB3 toRGB3() const;
 };
 
-// @brief Spectrum of nSamples sample points.
+/**
+ * 	@brief Spectrum of nSamples sample points.
+ * 	@tparam nSamples The number of samples
+ */
 template <int nSamples>
 class CoefficientSpectrum
 {
@@ -124,30 +149,33 @@ protected:
 	double coefficients[nSamples];
 
 public:
-	// @brief all coefficients initialized as 0.0f.
+	/// @brief All coefficients initialized as 0.0f.
 	CoefficientSpectrum() {
 		for (int i = 0; i < nSamples; i++) {
 			coefficients[i] = 0.0;
 		}
 	}
 
-	// @brief all coefficients initialized as val.
+	/// @brief All coefficients initialized as val.
 	CoefficientSpectrum(double val) {
 		for (int i = 0; i < nSamples; i++) {
 			coefficients[i] = val;
 		}
 	}
 
+	/// @brief Access the value of the spectrum at the ith sample point
+	/// @attention No bounding check
 	double operator[](int i) const {
-		// no bounding check.
 		return coefficients[i];
 	}
 
+	/// @brief Access the value of the spectrum at the ith sample point
+	/// @attention  No bounding check
 	double &operator[](int i) {
-		// no bounding check.
 		return coefficients[i];
 	}
 
+	/// @brief Each component of the two spectra is added correspondingly
 	CoefficientSpectrum operator+(const CoefficientSpectrum&s) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -156,6 +184,7 @@ public:
 		return retVal;
 	}
 
+	/// @brief Subtract each component of the two spectra
 	CoefficientSpectrum operator-(const CoefficientSpectrum&s) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -164,6 +193,7 @@ public:
 		return retVal;
 	}
 
+	/// @brief Each component of the two spectra is multiplied correspondingly
 	CoefficientSpectrum operator*(const CoefficientSpectrum&s) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -172,6 +202,8 @@ public:
 		return retVal;
 	}
 
+	/// @brief Each component of the spectra is divided by the corresponding component of the other spectra
+	/// @attention There may be NaNs in result
 	CoefficientSpectrum operator/(const CoefficientSpectrum&s) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -180,6 +212,7 @@ public:
 		return retVal;
 	}
 
+	/// @brief Each component of the two spectra is added correspondingly
 	CoefficientSpectrum& operator+=(const CoefficientSpectrum&s) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] += s.coefficients[i];
@@ -187,6 +220,7 @@ public:
 		return *this;
 	}
 
+	/// @brief Subtract each component of the two spectra
 	CoefficientSpectrum& operator-=(const CoefficientSpectrum&s) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] -= s.coefficients[i];
@@ -194,6 +228,7 @@ public:
 		return *this;
 	}
 
+	/// @brief Each component of the two spectra is multiplied correspondingly
 	CoefficientSpectrum& operator*=(const CoefficientSpectrum&s) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] *= s.coefficients[i];
@@ -201,6 +236,7 @@ public:
 		return *this;
 	}
 
+	/// @attention There may be NaNs in result
 	CoefficientSpectrum& operator/=(const CoefficientSpectrum&s) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] /= s.coefficients[i];	// NaN
@@ -208,6 +244,7 @@ public:
 		return *this;
 	}
 
+	/// @brief Scale each component of the spectra (multiple by v)
 	CoefficientSpectrum operator*(double v) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -216,6 +253,8 @@ public:
 		return retVal;
 	}
 
+	/// @brief Scale each component of the spectra (divide v)
+	/// @attention There may be NaNs in result
 	CoefficientSpectrum operator/(double v) const {
 		CoefficientSpectrum retVal = *this;
 		for (int i = 0; i < nSamples; i++) {
@@ -224,6 +263,7 @@ public:
 		return retVal;
 	}
 
+	/// @brief Scale each component of the spectra (multiple by v)
 	CoefficientSpectrum& operator*=(double v) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] *= v;
@@ -231,6 +271,8 @@ public:
 		return *this;
 	}
 
+	/// @brief Scale each component of the spectra (divide v)
+	/// @attention There may be NaNs in result
 	CoefficientSpectrum& operator/=(double v) {
 		for (int i = 0; i < nSamples; i++) {
 			this->coefficients[i] /= v;	// NaN
@@ -238,10 +280,13 @@ public:
 		return *this;
 	}
 
+	/// @brief Scale each component of the spectra (multiple by v)
 	friend CoefficientSpectrum operator*(double v, const CoefficientSpectrum& s) {
 		return s * v;
 	}
 
+	/// @brief Call std::sqrt() on each component 
+	/// @attention Does not check whether the value on each component is greater than zero
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
@@ -249,6 +294,7 @@ public:
 		return ret;
 	}
 
+	/// @brief Call std::pow() on each component
 	friend CoefficientSpectrum pow(const CoefficientSpectrum&s, double e) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
@@ -256,6 +302,7 @@ public:
 		return ret;
 	}
 
+	/// @brief Call std::exp() on each component
 	friend CoefficientSpectrum exp(const CoefficientSpectrum&s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
@@ -263,13 +310,16 @@ public:
 		return ret;
 	}
 
+	/// @brief Returns true if all components are not equal to zero
 	bool isBlack() const {
 		for (int i = 0; i < nSamples; i++) {
 			if (coefficients[i] != 0.0) 
 				return false;
 		}
+		return true;
 	}
 
+	/// @brief Returns true if any component is NaN
 	bool hasNaN() const {
 		for (int i = 0; i <nSamples; i++)
 			if (std::isnan(coefficients[i]))
@@ -277,6 +327,9 @@ public:
 		return false;
 	}
 
+	/// @brief Clamp each component of the spectra to a given range
+	/// @param low Lower bound of the range (default 0)
+	/// @param high Upper bound of the range (default max of double)
 	inline CoefficientSpectrum clamp(double low = 0.0, double high = DBL_MAX) const {
 		CoefficientSpectrum retVal;
 		for (int i = 0; i < nSamples; i++) {
@@ -285,6 +338,7 @@ public:
 		return retVal;
 	}
 
+	/// @brief Returns the summary of each component
 	double sum() const {
 		double sum = 0;
 		for (int i = 0; i < nSamples; i++) {
@@ -293,17 +347,19 @@ public:
 		return sum;
 	}
 
+	/// @brief Returns the average of each component
 	double average() const {
 		return sum() / nSamples;
 	}
 
+	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
 		//DEBUG this function should never be called.
 		return XYZ3(0.0);
 	}
 };
 
-// @brief one sample point from a spectrum.
+/// \brief One sample point from a spectrum.
 struct SpectrumSample
 {
 	double lambda;
@@ -314,18 +370,18 @@ struct SpectrumSample
 		value = _value;
 	}
 
-	// @brief sorted by lambda.
+	/// \brief Sorted by lambda.
 	bool operator>(const SpectrumSample& s) const {
 		return lambda > s.lambda;
 	}
 
-	// @brief sorted by lambda.
+	/// \brief Sorted by lambda.
 	bool operator<(const SpectrumSample& s) const {
 		return lambda < s.lambda;
 	}
 };
 
-// @brief The specturm samples uniformly. Actually used in program.
+/// \brief The specturm samples uniformly. Actually used in program.
 class SampledSpectrum
 	: public CoefficientSpectrum<nSpectrumSamples>
 {
@@ -354,7 +410,7 @@ public:
 	friend class RGB3;
 	friend class XYZ3;
 
-	// @brief global init of static values. should be called before any constructor of SampledSpectrum.
+	/// \brief Global init of static values. should be called before any constructor of SampledSpectrum.
 	static void init();
 
 	SampledSpectrum();
@@ -363,12 +419,13 @@ public:
 
 	SampledSpectrum(const CoefficientSpectrum& s);
 
-	// @brief generate SampledSpectrum from a set of SpectrumSample.
+	/// \brief generate SampledSpectrum from a set of SpectrumSample.
 	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 
 	virtual XYZ3 toXYZ3() const override;
 };
 
+/// \todo To be finished
 class RGBSpectrum : public CoefficientSpectrum<3>
 {
 	// TODO RGBSpectrum

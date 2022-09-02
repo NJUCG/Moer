@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(TEST_NAME test-bvh)
+set(TEST_NAME test-mesh)
 
 AddTestModule(
-    ModuleName ${TEST_NAME}
+    ModuleName  ${TEST_NAME}
     Src Main.cpp
     ${ZERO_SOURCES}
 )

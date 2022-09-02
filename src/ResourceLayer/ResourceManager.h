@@ -25,13 +25,12 @@ protected:
 	std::map<std::string, std::shared_ptr<BaseType>> hash;
 
 public:
-	ResourceManager();
+	ResourceManager() { };
 };
 
 class ImageManager : public ResourceManager<Image>
 {
-	ImageManager();
-	std::shared_ptr<ImageManager> instance;
+	static std::shared_ptr<ImageManager> instance;
 
 public:
 	// @brief singleton pattern get.
@@ -42,8 +41,7 @@ public:
 
 class MeshDataManager : public ResourceManager<MeshData>
 {
-	MeshDataManager();
-	std::shared_ptr<MeshDataManager> instance;
+	static std::shared_ptr<MeshDataManager> instance;
 
 public:
 	// @brief singleton pattern get.
