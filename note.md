@@ -7,12 +7,12 @@ Some note to understand the project.
 
 # problems or questions
 
-1. cmake configure error of assimp? UNKNOW_PLATFORM
+1. cmake configure error of assimp? UNKNOWN_PLATFORM
 2. CoreLayer/Adapter/Attribute.h has some macro expanding error, relating to Win SDK and UNICODE
 3. see no need to include vector.h in CoreLayer/Geometry/point.h, maybe for future coding?
 4. BoundingBox3 cstr sanity check?
 5. What is Tent? (CoreLayer/Math/Warp.h)
-6. Ray is a struct?
+6. Ray is a structure?
 
 # code
 
@@ -104,14 +104,26 @@ Some sphere sample methods and their pdf value. A bit of redundant code with [Co
 
 ### Ray
 
-Why struct?
+Why structure?
 
 Incomplete.
 
 ### Scene
 
-Scene::intersect() may need a time range if we want participating medium. And this class mixed BVH and entity list?
+Scene::intersect() may need a time range if we want participating medium. And this class mixes BVH and entity list?
 
 Scene::addEntity() and Scene::addLight() will change the BVH?
 
-Incomplete, need intersectionTest().
+Incomplete, need definition for intersectionTest().
+
+
+## FunctionLayer
+
+### Shape
+
+
+
+### Aggregate
+
+#### BVH
+
