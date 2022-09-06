@@ -16,6 +16,10 @@
 #include "CoreLayer/Geometry/Geometry.h"
 
 // Tvalue can be float or any specturm type
+/// \defgroup Texture
+
+/// \brief Base class for all textures
+/// \ingroup Texture
 template <typename Tvalue>
 class Texture
 {
@@ -36,7 +40,7 @@ struct TextureCoord
 typedef TextureCoord<Point2d, Vec2d> TextureCoord2D;
 typedef TextureCoord<Point3d, Vec3d> TextureCoord3D;
 
-// @brief TextureMapping maps an intersection to texture coordinates of type Tcoord.
+/// @brief TextureMapping maps an intersection to texture coordinates of type Tcoord.
 template <typename Tcoord>
 class TextureMapping
 {
@@ -75,7 +79,8 @@ public:
     virtual Tvalue eval(const Intersection &intersection) const;
 };
 
-// @brief StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection
+/// @brief StdTexture refers to textures that needs a texture mapping to generate Tcoord from Intersection
+/// \ingroup Texture
 template <typename Tvalue, typename Tcoord>
 class StdTexture : public Texture<Tvalue>
 {
@@ -86,10 +91,10 @@ public:
     StdTexture();
     StdTexture(std::shared_ptr<TextureMapping<Tcoord>> mapping);
 
-    // @brief This function just redirects the query to eval(coord) using member TextureMapping. Derived should NOT overwrite this.
+    /// @brief This function just redirects the query to eval(coord) using member TextureMapping. Derived should NOT overwrite this.
     virtual Tvalue eval(const Intersection &intersection) const final;
 
-    // @brief Eval texture value at given texture coord. (Derived needs to implement this)
+    /// @brief Eval texture value at given texture coord. (Derived needs to implement this)
     virtual Tvalue eval(const Tcoord &coord) const = 0;
 };
 

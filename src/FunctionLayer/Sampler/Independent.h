@@ -1,6 +1,8 @@
 #pragma once
 #include "Sampler.h"
 
+/// \brief Generate unifromly distributed sample in [0, 1)
+/// \ingroup Sampler
 class IndependentSampler : public Sampler {
 public:
     IndependentSampler() = default;

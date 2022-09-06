@@ -13,6 +13,8 @@
 #include "CoreLayer/Geometry/Transform3d.h"
 #include "Light.h"
 
+/// \ingroup Light
+/// \brief Base class for all area light source
 class AreaLight : public Light
 {
 protected:

@@ -12,6 +12,9 @@
 #pragma  once
 #include "CoreLayer/Geometry/Frame.h"
 #include "BxDF.h"
+
+/// \brief Dielectric reflection model
+/// \ingroup BxDF
 class Dielectric : public  BxDF{
 public:
     Dielectric(float m_intIOR =1.5046f,float m_extIOR = 1.00277f) : m_intIOR(m_intIOR), m_extIOR(m_extIOR){
