@@ -31,6 +31,8 @@ static void coordinateSystem(const Normal3d &a, Vec3d  &b, Vec3d  &c) {
     b = cross(_a,c);
 }
 
+/// \ingroup Geometry
+/// \brief Convert the vector between world coordinate and local coordinate 
 struct Frame {
     Vec3d s, t;
     Normal3d  n;

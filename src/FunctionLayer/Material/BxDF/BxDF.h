@@ -22,7 +22,11 @@ struct BxDFSampleResult
 	bool isSpecular;
 };
 
-// @brief BxDF. out == rays from/to camera, in == rays from/to objects/lights.
+/// \defgroup BxDF
+
+/// @brief BxDF. out == rays from/to camera, in == rays from/to objects/lights.
+/// \ingroup BxDF
+/// \todo Use a structure warp the BxDF query information
 class BxDF
 {
 

@@ -16,7 +16,7 @@
 #include <vector>
 #include <mutex>
 #include <optional>
-
+#include <memory>
 /*@brief Iterator for Point2i.
 * It will generate points between pBegin and pEnd but pEnd is not included.
 * e.g, pBegin=[0,0], pEnd=[2,2], and the generated points will be 

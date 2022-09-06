@@ -2,6 +2,10 @@
 
 #include "Perspective.h"
 
+/**
+ * @brief Thinlens camera
+ * @ingroup Camera
+ */
 class ThinlensCamera : public PerspectiveCamera {
 protected:
     double apertureRadius, focalLen, focalDistance;

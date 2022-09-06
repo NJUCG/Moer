@@ -5,7 +5,7 @@
  * @version 0.1
  * @date 2022-05-31
  *
- * @copyright NJUMeta (c) 2022 
+ * @copyright NJUMeta (c) 2022
  * www.njumeta.com
  *
  */
@@ -22,7 +22,7 @@ void Scene::build() {
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
     if (BVH)
-        return BVH->Intersect(r);
+	    return BVH->Intersect(r);
     std::optional<Intersection> minIntersection;
     for (auto i : *entities)
     {

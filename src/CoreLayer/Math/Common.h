@@ -15,7 +15,7 @@
 #include <limits>
 #include <utility>
 // some constant values
-#define M_PI         3.14159265358979323846f
+#define M_PI         3.14159265358979323846f    ///< \todo multiple defination M_PI
 #define INV_PI       0.31830988618379067154f
 #define INV_TWOPI    0.15915494309189533577f
 
@@ -50,6 +50,8 @@ inline int mod(int a, int b) {
     return (r < 0) ? r+b : r;
 }
 
+/// \brief Compute fresnel term in reflection
+/// \todo delete this float version
 inline  float fresnel(float cosThetaI, float extIOR, float intIOR) {
     float etaI = extIOR, etaT = intIOR;
 
@@ -81,6 +83,8 @@ inline  float fresnel(float cosThetaI, float extIOR, float intIOR) {
     return (Rs * Rs + Rp * Rp) / 2.0f;
 }
 
+/// \brief Compute fresnel term in reflection
+/// \todo Where should this function be placed
 inline  double fresnel(double cosThetaI, double extIOR, double intIOR) {
     double etaI = extIOR, etaT = intIOR;
 

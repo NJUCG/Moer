@@ -17,6 +17,8 @@
 
 #pragma  once
 
+/// \brief Point light source
+/// \ingroup Light
 class PointLight : public Light, public Transform3D
 {
 protected:

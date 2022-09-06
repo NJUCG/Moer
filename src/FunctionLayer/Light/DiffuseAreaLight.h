@@ -14,6 +14,8 @@
 #include "CoreLayer/Geometry/Transform3d.h"
 #include "FunctionLayer/Shape/Entity.h"
 
+/// \ingroup Light
+/// \brief Diffuse area light source
 class DiffuseAreaLight : public AreaLight
 {
     std::shared_ptr<Entity> shape;

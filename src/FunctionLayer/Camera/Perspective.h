@@ -13,6 +13,10 @@
 #include "CoreLayer/Geometry/Matrix.h"
 #include "Camera.h"
 
+/**
+ * @brief Base class for all perspective camera
+ * @ingroup Camera
+ */
 class PerspectiveCamera : public Camera {
 protected:
 public:

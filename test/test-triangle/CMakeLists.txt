@@ -11,6 +11,8 @@ AddTestModule(
 set(EXCNAME ${PROJECT_NAME}_${TEST_NAME})
 
 target_include_directories(${EXCNAME} PUBLIC ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/ext)
+target_link_directories(${EXCNAME} PRIVATE ${PROJECT_SOURCE_DIR}/target/lib)
+target_link_libraries(${EXCNAME} assimp)
 
 if(MSVC AND ((NOT CMAKE_BUILD_TYPE) OR CMAKE_BUILD_TYPE STREQUAL "Debug") )    
     set_property(TARGET ${EXCNAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
