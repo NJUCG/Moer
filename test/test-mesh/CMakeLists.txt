@@ -11,7 +11,11 @@ AddTestModule(
 set(EXCNAME ${PROJECT_NAME}_${TEST_NAME})
 
 target_include_directories(${EXCNAME} PUBLIC ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/ext)
-target_link_directories(${EXCNAME} PRIVATE ${PROJECT_SOURCE_DIR}/target/lib)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_link_directories(${EXCNAME} PRIVATE ${PROJECT_SOURCE_DIR}/target/Debug/lib)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+    target_link_directories(${EXCNAME} PRIVATE ${PROJECT_SOURCE_DIR}/target/Release/lib)
+endif()
 target_link_libraries(${EXCNAME} assimp)
 
 if(MSVC AND ((NOT CMAKE_BUILD_TYPE) OR CMAKE_BUILD_TYPE STREQUAL "Debug") )    

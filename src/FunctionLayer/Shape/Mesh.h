@@ -22,16 +22,27 @@
 class Mesh : public Entity 
 {
 public:
+    
     Mesh() = default;
+    
     Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material);
+    
     virtual ~Mesh() = default;
+    
     virtual std::optional<Intersection> intersect(const Ray &r) const override;
+    
     virtual double area() const override;
+    
     //TODO, name -> sampleOnSurface, param-> Point2d sample
+    
     virtual Intersection sample(const Point2d &positionSample) const override;
+    
     virtual std::shared_ptr<Light> getLight() const override;
+    
     virtual void setLight(std::shared_ptr<Light> light) override;
+    
     //TODO, why up case?
+    
     virtual BoundingBox3f WorldBound() const override;
 
 protected:
