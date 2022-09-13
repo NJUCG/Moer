@@ -22,6 +22,7 @@
 class Mesh : public Entity 
 {
 public:
+    friend class Bvh;
     
     Mesh() = default;
     
@@ -41,6 +42,8 @@ public:
     
     virtual BoundingBox3f WorldBound() const override;
 
+    Triangle getTriangle(int idx) const;
+
 protected:
 	Eigen::MatrixXd m_vertices;
 	
@@ -58,9 +61,6 @@ protected:
   
     std::shared_ptr<Bvh>      BVH;      ///< Spacial accelerate structure
                                         /// \todo Replace with abstruct class
-
-    // TODO replace this
-    std::vector<std::shared_ptr<Entity>> m_triangles;
     
     virtual void apply() override;
 };

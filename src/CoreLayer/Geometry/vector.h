@@ -13,6 +13,7 @@
 #include <assert.h>
 #include <cmath>
 #include <iostream>
+#include "Eigen/Dense"
 
 /// \ingroup Geometry
 /// \brief Vector2
@@ -274,6 +275,11 @@ TVector3<T> cross(const TVector3<T> &v1, const TVector3<T> &v2) {
     );
 }
 
-
+inline TVector3<double> 
+eigenToVector3d(Eigen::DenseBase<Eigen::MatrixXd>::ConstColXpr col) {
+    return TVector3<double>{
+        col.x(), col.y(), col.z()
+    };
+}
 
 

@@ -10,11 +10,12 @@
  *
  */
 #include "Bvh.h"
+#include "FunctionLayer/Shape/Mesh.h"
 #define BVH_BUILD_ERROR false
 //build the BVH of entites within the interval [start, end)
 std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entityInfo, 
 												 int start, int end, int& nodeNumber, 
-												 std::vector<std::shared_ptr<Entity>>& orderedEntites) {
+												 std::vector<int>& orderedIndices) {
 	nodeNumber++;
 	std::shared_ptr<BvhTreeNode> root = std::make_shared<BvhTreeNode>();
 	BoundingBox3f totalBounds;
@@ -23,9 +24,9 @@ std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entity
 	int nEntities = end - start;
 	if (nEntities == 1) {
 		//leaf node
-		root->entityOffset = orderedEntites.size();
+		root->entityOffset = orderedIndices.size();
 		root->nEntites = 1;
-		orderedEntites.push_back(entites[entityInfo[start].EntityId]);
+		orderedIndices.push_back(entityInfo[start].EntityId);
 	}
 	else {
 		BoundingBox3f centerBounds;
@@ -38,10 +39,10 @@ std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entity
 		}
 		if (dim == -1) {
 			//leaf node
-			root->entityOffset = orderedEntites.size();
+			root->entityOffset = orderedIndices.size();
 			root->nEntites = nEntities;
 			for (int i = start; i < end; i++) {
-				orderedEntites.push_back(entites[entityInfo[i].EntityId]);
+				orderedIndices.push_back(entityInfo[i].EntityId);
 			}
 		}
 		else {
@@ -106,18 +107,18 @@ std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entity
 				else {
 					//leaf node
 					mid = -1;
-					root->entityOffset = orderedEntites.size();
+					root->entityOffset = orderedIndices.size();
 					root->nEntites = nEntities;
 					for (int i = start; i < end; i++) {
-						orderedEntites.push_back(entites[entityInfo[i].EntityId]);
+						orderedIndices.push_back(entityInfo[i].EntityId);
 					}
 				}
 			}
 			else assert(BVH_BUILD_ERROR);//should not be here!!!
 			if (mid != -1) {
 				assert(mid > start);
-				root->children[0] = RecursiveBuild(entityInfo, start, mid, nodeNumber, orderedEntites);
-				root->children[1] = RecursiveBuild(entityInfo, mid, end, nodeNumber, orderedEntites);
+				root->children[0] = RecursiveBuild(entityInfo, start, mid, nodeNumber, orderedIndices);
+				root->children[1] = RecursiveBuild(entityInfo, mid, end, nodeNumber, orderedIndices);
 			}
 		}
 	}
@@ -147,11 +148,47 @@ Bvh::Bvh(std::vector<std::shared_ptr<Entity>>& _entites, SplitMethod _splitMetho
 
 	std::vector<EntityInfo> entityInfo(entites.size());
 	for (int i = 0; i < entites.size(); i++) entityInfo[i] = EntityInfo(i, entites[i]->WorldBound());
-	std::vector<std::shared_ptr<Entity>> orderedEntites;
+	std::vector<int> orderedIndices;
 	int nodeNumber = 0;
-	std::shared_ptr<BvhTreeNode> root = RecursiveBuild(entityInfo, 0, entityInfo.size(), nodeNumber, orderedEntites);
+	std::shared_ptr<BvhTreeNode> root = RecursiveBuild(entityInfo, 0, entityInfo.size(), nodeNumber, orderedIndices);
 
-	entites.swap(orderedEntites);
+	indices.swap(orderedIndices);
+	entityInfo.resize(0);
+	
+	int dfsOrder = 0;
+	linearBvhNodes.resize(nodeNumber);
+	Flatten(root, dfsOrder);
+}
+
+Bvh::Bvh(Mesh *_triangleMesh, 
+		 SplitMethod _splidMethod) :
+	triangleMesh(_triangleMesh), splitMethod(_splidMethod)
+{
+	const auto &idxes = triangleMesh->m_indices;
+	const auto &vertices = triangleMesh->m_vertices;
+	if (idxes.empty()) return;
+
+	auto getTriangleBound = [&idxes, &vertices](int i) {
+		auto [i0, i1, i2] = idxes[i];
+		auto p0 = eigenToPoint3d(vertices.col(i0)),
+			 p1 = eigenToPoint3d(vertices.col(i1)),
+			 p2 = eigenToPoint3d(vertices.col(i2));
+		BoundingBox3f bounds{p0};
+		bounds = BoundingBoxUnion(bounds, BoundingBox3f{p1});
+		bounds = BoundingBoxUnion(bounds, BoundingBox3f{p2});
+		return bounds;
+	};
+
+	std::vector<EntityInfo> entityInfo(idxes.size());
+	for (int i = 0; i < idxes.size(); ++i) {
+		entityInfo[i] =  EntityInfo{i, getTriangleBound(i)};
+	}
+
+	std::vector<int> orderedIndices;
+	int nodeNumber = 0;
+	std::shared_ptr<BvhTreeNode> root = RecursiveBuild(entityInfo, 0, entityInfo.size(), nodeNumber, orderedIndices);
+
+	indices.swap(orderedIndices);
 	entityInfo.resize(0);
 	
 	int dfsOrder = 0;
@@ -173,7 +210,18 @@ std::optional<Intersection> Bvh::Intersect(const Ray& r) {
 		if (boundingIts.has_value()) {
 			if (node.nEntites > 0) {
 				for (int i = 0; i < node.nEntites; i++) {
-					auto its = entites[node.firstdEntityOffset + i]->intersect(R);
+					int idx = indices[node.firstdEntityOffset +i];
+					//auto its = entites[node.firstdEntityOffset + i]->intersect(R);
+					std::optional<Intersection> its = std::nullopt;
+					if (!entites.empty())
+						its = entites[idx]->intersect(R);
+					else {
+						auto tri = triangleMesh->getTriangle(idx);
+						its = tri.intersect(R);
+						if (its.has_value())
+							its->object = triangleMesh;
+					}
+					
 					if (its.has_value()) {
 						flag = true;
 						double t = (its->position[0] - r.origin[0]) / r.direction[0];

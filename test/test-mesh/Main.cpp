@@ -63,7 +63,7 @@ TEST_CASE("test-mesh")
     std::cout << "start rendering" << std::endl;
     auto before = std::chrono::steady_clock::now();
     integrator.render(scene);
-    integrator.save("mesh-9.bmp");
+    integrator.save("mesh-new.bmp");
     std::cout << "finish" << std::endl;
     auto cost = std::chrono::steady_clock::now() - before;
     std::cout << (float)std::chrono::duration_cast<std::chrono::milliseconds>(cost).count() / 1000.f << std::endl;
