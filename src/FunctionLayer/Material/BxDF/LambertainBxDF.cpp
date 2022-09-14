@@ -11,14 +11,14 @@
  */
 
 #pragma  once
-#include "Diffuse.h"
+#include "LambertainBxDF.h"
 
 
-Diffuse::Diffuse(Spectrum albedo) :albedo(albedo) {
+LambertainBxDF::LambertainBxDF(Spectrum albedo) : albedo(albedo) {
 }
 
 
-Spectrum Diffuse::f(const Vec3d & wo , const Vec3d & wi) const {
+Spectrum LambertainBxDF::f(const Vec3d & wo , const Vec3d & wi) const {
     if(Frame::cosTheta(wi )<0 || Frame::cosTheta(wo )<0){
         return 0;
     }
@@ -26,27 +26,27 @@ Spectrum Diffuse::f(const Vec3d & wo , const Vec3d & wi) const {
 
 }
 
-Vec3d Diffuse::sampleWi(const Vec3d & wo , const Point2d &sample) const {
+Vec3d LambertainBxDF::sampleWi(const Vec3d & wo , const Point2d &sample) const {
     return SquareToUniformHemisphere(sample);
 }
 
-double Diffuse::pdf(const Vec3d &wo , const Vec3d & wi) const {
+double LambertainBxDF::pdf(const Vec3d &wo , const Vec3d & wi) const {
     return SquareToUniformHemispherePdf(wi);
 }
 
-BxDFSampleResult Diffuse::sample(const Vec3d  & wo, const Point2d &sample) const {\
+BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample) const {\
     BxDFSampleResult result ;
 
     auto wi = sampleWi(wo,sample);
     result.directionIn = wi ;
-    result.isSpecular = false;
+    result.bxdfSampleType = BXDFType(BXDF_DIFFUSE | BXDF_REFLECTION);
     result.pdf = pdf(wo,wi);
     result.s = f(wo,wi);
 
     return result;
 }
 
-bool Diffuse::isSpecular() const {
+bool LambertainBxDF::isSpecular() const {
     return false;
 }
 

@@ -14,16 +14,22 @@
 #include "FunctionLayer/Material/BxDF/BxDF.h"
 #include "FunctionLayer/Material/BSSRDF/BSSRDF.h"
 #include <memory>
-//#include "Intersection.h"
+#include <utility>
 
-
+template<class T>
+class Texture;
 
 struct Intersection;
 
 class Material
 {
 public:
+    Material(const std::shared_ptr<Texture<Spectrum>> &  _albedo = nullptr,
+             const std::shared_ptr<Texture<double>> &  _bump = nullptr);
+	virtual std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const ;
+	virtual std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const;
 
-	virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const = 0;
-	virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const = 0;
+protected:
+    std::shared_ptr<Texture<Spectrum>> albedo;
+    std::shared_ptr<Texture<double>> bump;
 };

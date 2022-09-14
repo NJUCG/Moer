@@ -11,13 +11,13 @@
  */
 
 #include "Material.h"
-#include "FunctionLayer/Material/BxDF/Mirror.h"
+#include "FunctionLayer/Material/BxDF/MirrorBxDF.h"
 #include "FunctionLayer/Intersection.h"
 
 #pragma  once
 class MirrorMaterial  : public  Material{
 
 public:
-    virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
-    virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const;
+    std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const  override;
+    std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const override;
 };

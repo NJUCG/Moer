@@ -18,3 +18,7 @@ Ray::Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin, doubl
 	timeMin = _timeMin;
 	timeMax = _timeMax;
 }
+
+Point3d Ray::at(double t) const {
+    return origin + direction * t;
+}

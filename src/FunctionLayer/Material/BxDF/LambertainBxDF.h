@@ -15,14 +15,14 @@
 
 /// \brief Lambertian reflection model
 /// \ingroup BxDF
-class Diffuse : public  BxDF{
+class LambertainBxDF : public  BxDF{
 private:
 
     Spectrum  albedo;
 
 public:
 
-    Diffuse(Spectrum albedo);
+    LambertainBxDF(Spectrum albedo);
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 

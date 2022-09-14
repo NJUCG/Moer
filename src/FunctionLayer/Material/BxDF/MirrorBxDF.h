@@ -16,7 +16,7 @@
 
 /// \brief Ideally specular reflection model
 /// \ingroup BxDF
-class Mirror : public  BxDF {
+class MirrorBxDF : public  BxDF {
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 

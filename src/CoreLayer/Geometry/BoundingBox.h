@@ -100,4 +100,13 @@ static BoundingBox3<BaseType> BoundingBoxUnionIntersect(const BoundingBox3<BaseT
 	return BoundingBox3(_pMin, _pMax);
 }
 
+template <typename BaseType>
+static BoundingBox3<BaseType> BoundingBoxPointUnion(const BoundingBox3<BaseType>& b1,
+                                                    const TPoint3<BaseType>& p)
+{
+    TPoint3<BaseType> _pMin(std::min(b1.pMin[0],p[0]), std::min(b1.pMin[1],p[1]), std::min(b1.pMin[2],p[2]));
+    TPoint3<BaseType> _pMax(std::max(b1.pMax[0],p[0]), std::max(b1.pMax[1],p[1]), std::max(b1.pMax[2],p[3]));
+    return BoundingBox3(_pMin, _pMax);
+}
+
 using BoundingBox3f = BoundingBox3<double>;

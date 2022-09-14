@@ -24,7 +24,6 @@ AddTestModule(
     #../../src/Light/AreaLight.cpp
     #../../src/Light/DiffuseAreaLight.cpp
     #../../src/Transform/Transform3d.cpp
-    #../../src/Entity/Sphere.cpp
     #../../src/Film/Film.cpp
     #../../src/Geometry/CoordConvertor.cpp
 #
@@ -48,8 +47,6 @@ AddTestModule(
     # ../../src/BxDF/Microfacet.h
     # ../../src/BxDF/Mircofacet.cpp
 #
-    # ../../src/Material/TestMirror.cpp
-    # ../../src/Material/TestMirror.h
     # ../../src/Material/MirrorMaterial.h
     # ../../src/Material/MirrorMaterial.cpp
     # ../../src/Material/MatteMaterial.cpp

@@ -12,14 +12,14 @@
  */
 
 #include "MirrorMaterial.h"
-std::shared_ptr<BxDF> MirrorMaterial::getBxDF(Intersection intersect) const
+std::shared_ptr<BxDF> MirrorMaterial::getBxDF(const Intersection & intersect) const
 {
-    std::shared_ptr<Mirror> bxdf = std::make_shared<Mirror>();
+    std::shared_ptr<MirrorBxDF> bxdf = std::make_shared<MirrorBxDF>();
     return bxdf;
 }
 
 
-std::shared_ptr<BSSRDF> MirrorMaterial::getBSSRDF(Intersection intersect) const
+std::shared_ptr<BSSRDF> MirrorMaterial::getBSSRDF(const Intersection & intersect) const
 {
     return nullptr;
 }
