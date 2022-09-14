@@ -16,6 +16,8 @@
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
 
+#include "CoreLayer/Adapter/JsonUtil.hpp"
+
 #include <optional>
 #include <memory>
 
@@ -29,11 +31,25 @@ public:
 	std::shared_ptr<Material> material;
 	//@brief Returns the intersection of the entity and the ray
 	virtual std::optional<Intersection> intersect(const Ray &r) const = 0;
-	//@brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
+     void intersect(const Ray * r) const {
+
+     }
+    virtual void  intersect1(const Ray * r) const {};
+    //@brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
 	virtual std::shared_ptr<Light> getLight() const = 0;
 	virtual void setLight(std::shared_ptr<Light> light) = 0;
 	virtual double area() const = 0;
 	virtual Intersection sample(const Point2d &positionSample) const = 0;
 	//@brief Return the bounding box of the entity
 	virtual BoundingBox3f WorldBound() const = 0;
+    //@brief set the material of the entity
+    void setMaterial(std::shared_ptr<Material> _material){
+        material = _material;
+    }
+    Entity(){}
+    Entity(const nlohmann::json json) : Transform3D(json.at("transform")){
+
+    }
 };
+
+

@@ -1,3 +1,13 @@
+/**
+ * @file Warp.h
+ * @author Chenxi Zhou
+ * @brief The warp function to transform from unifrom sample to specific sample
+ * @version 0.1
+ * @date 2022-07-18
+ * @todo The up direction is (0, 1, 0) or (0, 0, 1) ??
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "CoreLayer/Geometry/Geometry.h"
 #include "Common.h"
 
@@ -12,21 +22,11 @@ inline   Point2d SquareToTent(const Point2d &sample) {
 //    throw NoriException("SquareToTent() is not yet implemented!");
 }
 
-inline  float SquareToTentPdf(const Point2d &p) {
-    return (1.0-abs(p[0])) * (1.0-abs(p[1]));
+inline double SquareToTentPdf(const Point2d &p) {
+    return (1.0-std::abs(p[0])) * (1.0-std::abs(p[1]));
 }
 
-
-//Point2d SquareToUniformDisk(const Point2d &sample) {
-//    auto phi=2*sample.x()*M_PI;
-//    auto r=sqrt(sample.y());
-//    return {r*cos(phi),r*sin(phi)};
-//}
-//
-//float SquareToUniformDiskPdf(const Point2d &p) {
-//    return  < 1.f ? INV_PI : .0f;}
-
-inline  Vec3d SquareToUniformSphere(const Point2d &sample) {
+inline Vec3d SquareToUniformSphere(const Point2d &sample) {
     float z = 1 - 2 * sample[0];
     float r = std::sqrt(std::max((float )0, (float)1 - z * z));
     float phi = 2 * M_PI * sample[1];
@@ -41,7 +41,7 @@ inline  Vec3d SquareToUniformHemisphere(const Point2d &sample) {
     float z = 1 - 2 * sample[0];
     float r = std::sqrt(std::max((float )0, (float)1 - z * z));
     float phi = 2 * M_PI * sample[1];
-    return {r * std::cos(phi), r * std::sin(phi), abs(z)};
+    return {r * std::cos(phi), r * std::sin(phi), std::abs(z)};
 }
 
 inline float SquareToUniformHemispherePdf(const Vec3d &v) {

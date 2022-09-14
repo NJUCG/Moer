@@ -14,23 +14,29 @@
 #include "Geometry.h"
 #include "Matrix.h"
 
+#include <CoreLayer/Adapter/JsonUtil.hpp>
 #include <memory>
 
+/// \ingroup Geometry
+/// \brief 3d transformation representation
 class Transform3D
 {
 
-	std::shared_ptr<TransformMatrix3D> matrix;
 
-	bool isDone = false;
 
 protected:
 	// apply matrix to this object. Cache should be managed locally.
 	virtual void apply() = 0;
+    //I move this from private to protected since object needs matrix to apply transform.
+    std::shared_ptr<TransformMatrix3D> matrix;
 
+    bool isDone = false;
 public:
 	Transform3D();
 
 	Transform3D(std::shared_ptr<Transform3D> _matrix);
+
+    Transform3D(const nlohmann::json);
 
 	void setTranslate(double x, double y, double z);
 
@@ -41,10 +47,10 @@ public:
 
 	void setRotateQuaternion(double w, double x, double y, double z);
 
-	// @brief Rotate by axis. Counterclockwise rotate.
+	/// @brief Rotate by axis. Counterclockwise rotate.
 	void setRotateAxis(Angle angle, Vec3d axis);
 
-	// @brief inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within.
+	/// @brief inform this object that transform setting is DONE and 'you' can apply all transformation without redundant calculation. apply() should be called within.
 	void done();
 
 	Point3d getTranslate();

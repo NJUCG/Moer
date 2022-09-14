@@ -1,11 +1,12 @@
 /**
- * @file  Diffuse.h
+ * @file  Mirror.h
  * @author Junping Yuan
- * @brief diffuse bxdf
+ * @brief   Mirror bxdf
  * @version 0.1
- * @date 2022/06/06
+ * @date 2022/6/8
  *
- * @copyright Copyright (c) 2022
+ * @copyright NJUMeta (c) 2022 
+ * www.njumeta.com
  *
  */
 
@@ -13,16 +14,9 @@
 #include "CoreLayer/Geometry/Frame.h"
 #include "BxDF.h"
 
-
-
-class Diffuse : public  BxDF{
-private:
-
-    Spectrum  albedo;
-
-public:
-
-    Diffuse(Spectrum albedo);
+/// \brief Ideally specular reflection model
+/// \ingroup BxDF
+class MirrorBxDF : public  BxDF {
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 
@@ -33,8 +27,5 @@ public:
     virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const;
 
     virtual bool isSpecular() const;
-
 };
-
-
 

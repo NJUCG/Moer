@@ -17,11 +17,13 @@
 #include "FunctionLayer/Sampler/Independent.h"
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
-#include "FunctionLayer/Material/TestMirror.h"
+#include "FunctionLayer/Material/MirrorMaterial.h"
+
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
+#include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
 TEST_CASE("test-integrator")
 {
@@ -34,7 +36,7 @@ TEST_CASE("test-integrator")
     std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
     std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(imageTexture);
     std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
-    std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>();
+    std::shared_ptr<MirrorMaterial> mirror = std::make_shared<MirrorMaterial>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, mirror));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));
@@ -52,7 +54,7 @@ TEST_CASE("test-integrator")
     auto thinlens = std::make_shared<ThinlensCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 2.2, 0.50);
 
-    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), nullptr, std::make_shared<IndependentSampler>(), 16);
+    PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), std::make_unique<SequenceTileGenerator>(Point2i(128, 128)), std::make_shared<IndependentSampler>(), 1,16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("result-thinlens2.bmp");

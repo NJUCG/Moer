@@ -1,21 +1,28 @@
 /**
- * @file  Mirror.h
+ * @file  Diffuse.h
  * @author Junping Yuan
- * @brief   Mirror Material
+ * @brief diffuse bxdf
  * @version 0.1
- * @date 2022/6/8
+ * @date 2022/06/06
  *
- * @copyright NJUMeta (c) 2022 
- * www.njumeta.com
+ * @copyright Copyright (c) 2022
  *
  */
 
+#pragma  once
 #include "CoreLayer/Geometry/Frame.h"
 #include "BxDF.h"
 
-#pragma  once
+/// \brief Lambertian reflection model
+/// \ingroup BxDF
+class LambertainBxDF : public  BxDF{
+private:
 
-class Mirror : public  BxDF {
+    Spectrum  albedo;
+
+public:
+
+    LambertainBxDF(Spectrum albedo);
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const;
 
@@ -26,5 +33,8 @@ class Mirror : public  BxDF {
     virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const;
 
     virtual bool isSpecular() const;
+
 };
+
+
 

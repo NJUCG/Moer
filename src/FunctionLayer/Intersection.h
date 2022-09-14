@@ -19,8 +19,11 @@
 
 #include <memory>
 
+//* Add t in intersection, by zcx 8-22
 struct Intersection
 {
+	double t;
+
 	Point3d position;
 	Normal3d geometryNormal;
 	Normal3d geometryTangent;

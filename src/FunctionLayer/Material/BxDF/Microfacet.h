@@ -1,7 +1,7 @@
 /**
- * @file  
+ * @file  Mircofacet.h
  * @author Junping Yuan 
- * @brief 
+ * @brief  Microfacet model
  * @version 0.1
  * @date 2022/6/12
  *
@@ -15,6 +15,8 @@
 #include "BxDF.h"
 #include "CoreLayer/Geometry/Frame.h"
 
+/// \brief Micro-facet reflection model
+/// \ingroup BxDF
 class Mircofacet : public  BxDF {
 
 

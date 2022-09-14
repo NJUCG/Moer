@@ -30,12 +30,11 @@ RGB3 Film::getRGB(const Point2i &p)
     return 0.0;
 }
 
-void Film::deposit(const Point2d &p, const Spectrum &s)
+void Film::deposit(const Point2i &p, const Spectrum &s)
 {
     // ! A temp implementation
     // ignore filter now
-    Point2i pi(p.x, p.y);
-    int id = pi.y * resolution.x + pi.x;
+    int id = p.y * resolution.x + p.x;
     sumWeights[id] += 1.0;
     sumValues[id] += s;
 }

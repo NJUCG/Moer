@@ -111,3 +111,8 @@ BoundingBox3f Sphere::WorldBound() const {
 	Point3d pMax = center + Vec3d(radius);
 	return BoundingBox3f(pMin, pMax);
 }
+
+Sphere::Sphere(const nlohmann::json & json)  :Entity(json){
+    center = getOptional(json,"center",Point3d(0,0,0));
+    radius = getOptional(json,"radius",1.0);
+}
