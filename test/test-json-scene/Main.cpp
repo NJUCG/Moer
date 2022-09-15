@@ -28,13 +28,26 @@
 #include "ResourceLayer/ResourceManager.h"
 #include "FunctionLayer/Shape/Quad.h"
 
+#ifdef _WIN32
+#include <direct.h>
+    #define getcwd _getcwd // stupid MSFT "deprecation" warning
+#else
+#include "unistd.h"
+#endif
+
+
 TEST_CASE("load-cornell-box")
 {
     Spectrum::init();
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::cout << "scene start" << std::endl;
     nlohmann::json  sceneJson;
-    std::ifstream sceneFile("/Users/yjp/nju/大三下/graphics/offline-render/Zero/scnens/scene.json");
+    char dir[1024];
+    getcwd(dir,sizeof(dir));
+    std::filesystem::path path(dir);
+    std::string rootDir= path.parent_path().parent_path().string();
+    std::string sceneDir = "/scenes/scene.json";
+    std::ifstream sceneFile(rootDir+sceneDir);
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
    // scene->addEntity(std::make_shared<Quad>());
