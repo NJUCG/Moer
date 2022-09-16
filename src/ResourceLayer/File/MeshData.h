@@ -18,6 +18,7 @@
 #include "CoreLayer/Geometry/BoundingBox.h"
 
 #include <string>
+#include <vector>
 
 class MeshData
 {

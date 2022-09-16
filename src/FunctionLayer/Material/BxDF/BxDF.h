@@ -14,13 +14,25 @@
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Math/Warp.h"
+
+enum BXDFType {
+    BXDF_REFLECTION = 1 << 0,
+    BXDF_TRANSMISSION = 1 << 1,
+    BXDF_DIFFUSE = 1 << 2,
+    BXDF_GLOSSY = 1 << 3,
+    BXDF_SPECULAR = 1 << 4,
+    BXDF_ALL = BXDF_DIFFUSE | BXDF_GLOSSY | BXDF_SPECULAR | BXDF_REFLECTION |
+               BXDF_TRANSMISSION,
+};
+
 struct BxDFSampleResult
 {
-	Spectrum s;
-	Vec3d directionIn;
-	double pdf;
-	bool isSpecular;
+    Spectrum s;
+    Vec3d directionIn;
+    double pdf;
+    BXDFType bxdfSampleType;
 };
+
 
 /// \defgroup BxDF
 
@@ -31,6 +43,10 @@ class BxDF
 {
 
 public:
+    static bool MatchFlags(BXDFType typeToMatch,BXDFType type ){
+        return (typeToMatch & type) == type;
+    }
+
 	virtual Spectrum f(const Vec3d &out, const Vec3d &in) const = 0;
 
 	virtual Vec3d sampleWi(const Vec3d &out, const Point2d& sample) const = 0;
@@ -40,4 +56,6 @@ public:
 	virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const = 0;
 
 	virtual bool isSpecular() const = 0;
+protected:
+    BXDFType type;
 };

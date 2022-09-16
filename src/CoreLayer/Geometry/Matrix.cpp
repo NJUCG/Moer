@@ -115,6 +115,10 @@ Matrix4x4 Matrix4x4::rotateEuler(const Angle &x, const Angle &y, const Angle &z,
 	{
 		block = rotX * rotY * rotZ;
 	}
+    else if (type == EulerType::EULER_YZX)
+    {
+        block = rotX * rotZ * rotY;
+    }
 	else
 	{
 		// never should come here.

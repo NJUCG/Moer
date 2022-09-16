@@ -22,7 +22,7 @@
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
 #include "FunctionLayer/Material/MirrorMaterial.h"
-#include "FunctionLayer/Material/DelectricMaterial.h"
+#include "FunctionLayer/Material/DielectricMaterial.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
@@ -37,7 +37,7 @@ TEST_CASE("test-mesh")
     auto meshDataManager = MeshDataManager::getInstance();
 
     std::vector<std::shared_ptr<MeshData>> meshes 
-        = meshDataManager->getMeshData("../../../asset/monkey.obj");
+        = meshDataManager->getMeshData("../../asset/monkey.obj");
     
 
     Spectrum::init();
