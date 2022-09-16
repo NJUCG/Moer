@@ -44,16 +44,26 @@ struct LinearBvhNode {
 	int splitAxis;
 };
 
+class Mesh;
+
 struct Bvh {
 public:
-	enum class SplitMethod{
+	const enum class SplitMethod{
 		SAH, 
 		Middle, 
 		EqualCounts
-	};//not support LBVH yet
-	const SplitMethod splitMethod;
-	std::vector<std::shared_ptr<Entity>> entites;
+	} splitMethod;//not support LBVH yet
+
 	std::vector<LinearBvhNode> linearBvhNodes;
+	
+	std::vector<int> indices;
+	
+	//* If entities bvh
+	std::vector<std::shared_ptr<Entity>> entites;
+
+	//* If triangles bvh
+	Mesh *triangleMesh;
+
 
 	/**
 	 * @brief Bvh constructor
@@ -62,13 +72,15 @@ public:
 	 */
 	Bvh(std::vector<std::shared_ptr<Entity>>& _entites, SplitMethod _splitMethod = SplitMethod::SAH);
 
+	Bvh(Mesh *_triangleMesh, SplitMethod _splidMethod = SplitMethod::SAH);
+
 	/**
 	* @brief recursively build BVH
 	* @return the root of BVH
 	*/
 	std::shared_ptr<BvhTreeNode> RecursiveBuild(std::vector<EntityInfo>& entityInfo, 
 												int start, int end, int& nodeNumber, 
-												std::vector<std::shared_ptr<Entity>>& orderedEntites);
+												std::vector<int>& orderedIndices);
 
 	/// @brief flatten the BVH to Dfs-Order
 	void Flatten(std::shared_ptr<BvhTreeNode> node, int& dfsOrder);

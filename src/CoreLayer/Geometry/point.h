@@ -11,6 +11,7 @@
  */
 #pragma once
 #include "vector.h"
+#include "Eigen/Dense"
 
 /// \ingroup Geometry
 /// \brief Point2 
@@ -234,4 +235,11 @@ inline TPoint3<int>& TPoint3<int>::operator/=(int i) {
     assert(i!=0);
     x/=i, y/=i, z/i;
     return *this; 
+}
+
+inline TPoint3<double> 
+eigenToPoint3d(Eigen::DenseBase<Eigen::MatrixXd>::ConstColXpr col) {
+    return TPoint3<double>{
+        col.x(), col.y(), col.z()
+    };
 }
