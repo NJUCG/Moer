@@ -26,7 +26,6 @@
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 
-
 TEST_CASE("test-material-diffuse")
 {
     Spectrum::init();
