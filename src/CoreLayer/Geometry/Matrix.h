@@ -46,7 +46,8 @@ public:
 enum class EulerType
 {
 	EULER_XYZ,
-	EULER_ZYX
+	EULER_ZYX,
+    EULER_YZX
 };
 
 /// \brief a simple wrap of Eigen Matrix 4x4.

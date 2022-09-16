@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/bin)
 include(Testing.cmake)
 
 add_subdirectory(example/test1)
@@ -13,3 +12,4 @@ add_subdirectory(test-sampler)
 add_subdirectory(test-triangle)
 add_subdirectory(test-bvh)
 add_subdirectory(test-mesh)
+add_subdirectory(test-json-scene)

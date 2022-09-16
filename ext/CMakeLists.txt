@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 3.12)
-
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/lib)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Debug/lib)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Debug/lib)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Debug/bin)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Release/lib)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Release/lib)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/Release/bin)
+endif()
 ## compile for catch2
 add_subdirectory(./catch2)
 add_subdirectory(./assimp)

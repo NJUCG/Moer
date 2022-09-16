@@ -137,5 +137,7 @@ struct Frame {
         return !operator==(frame);
     }
 
-
+    static Vec3d reflect(const Vec3d & w){
+        return Vec3d(-w.x,-w.y,w.z);
+    }
 };

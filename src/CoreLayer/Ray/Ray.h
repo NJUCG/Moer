@@ -27,7 +27,7 @@ struct Ray
 
 	std::shared_ptr<Medium> medium;		///< The medium
 
-	Point3d at(double t);
+	Point3d at(double t) const ;
 
 	bool withinTime(double time);
 

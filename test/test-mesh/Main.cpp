@@ -21,7 +21,7 @@
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
 #include "FunctionLayer/Material/MirrorMaterial.h"
-#include "FunctionLayer/Material/DelectricMaterial.h"
+#include "FunctionLayer/Material/DielectricMaterial.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
@@ -58,9 +58,9 @@ TEST_CASE("test-mesh")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128, 128), 3), std::make_unique<SequenceTileGenerator>(Point2i(128, 128)), std::make_shared<IndependentSampler>(), 9);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(512, 512), 3), std::make_unique<SequenceTileGenerator>(Point2i(512, 512)), std::make_shared<IndependentSampler>(), 9, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("mesh.bmp");
+    integrator.save("mesh-1.bmp");
     std::cout << "finish" << std::endl;
 }

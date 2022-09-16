@@ -112,7 +112,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));
-        return {dirScatter, bsdfSample.s * wiDotN, pdf, bsdfSample.isSpecular};
+        return {dirScatter, bsdfSample.s * wiDotN, pdf, BxDF::MatchFlags(bsdfSample.bxdfSampleType,BXDF_SPECULAR)};
     }
     else
     {

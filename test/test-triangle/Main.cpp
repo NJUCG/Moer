@@ -18,7 +18,7 @@
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
 #include "FunctionLayer/Material/MirrorMaterial.h"
-#include "FunctionLayer/Material/DelectricMaterial.h"
+#include "FunctionLayer/Material/DielectricMaterial.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
