@@ -140,23 +140,6 @@ MeshDataManager::getMeshData(const std::string &path) {
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
 
-        //*--------------------------------------
-        //*------------ Parsing AABB ------------
-        //*--------------------------------------
-        //! Some problems in assimp aabb
-
-        double minX = mesh_data->m_vertices.row(0).minCoeff(),
-               maxX = mesh_data->m_vertices.row(0).maxCoeff(),
-               minY = mesh_data->m_vertices.row(1).minCoeff(),
-               maxY = mesh_data->m_vertices.row(1).maxCoeff(),
-               minZ = mesh_data->m_vertices.row(2).minCoeff(),
-               maxZ = mesh_data->m_vertices.row(2).maxCoeff();
-
-        mesh_data->m_aabb = BoundingBox3f(
-            Point3d {minX, minY, minZ},
-            Point3d {maxX, maxY, maxZ}
-        );
-
         result.emplace_back(mesh_data);
     }
 

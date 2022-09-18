@@ -57,7 +57,7 @@ TEST_CASE("test-integrator")
     PathIntegrator integrator(thinlens, std::make_unique<Film>(Point2i(128, 128), 3), std::make_unique<SequenceTileGenerator>(Point2i(128, 128)), std::make_shared<IndependentSampler>(), 1,16);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("result-thinlens2.bmp");
+    integrator.save("F:/NJUCG/build/result-thinlens2.bmp");
     std::cout << "finish" << std::endl;
     return;
 }

@@ -24,7 +24,10 @@ namespace EntityFactory{
      //   entities.push_back(std::make_shared <Sphere>(Point3d(0,0,0),1.0,nullptr));
         if(json.is_array()){
             for(auto & entityJson : json){
-                entities.push_back(LoadEntityFromJson(entityJson));
+                std::shared_ptr<Entity> entity = LoadEntityFromJson(entityJson);
+                entity->setMaterial(scene.fetchMaterial(getOptional(entityJson,
+                                                                    "material",std::string("default"))));
+                entities.push_back(entity);
             }
         }
         else{
