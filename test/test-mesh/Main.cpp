@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <vector>
 #include <memory>
+#include <chrono>
 #include "CoreLayer/Scene/Scene.h"
 #include "FunctionLayer/Camera/Camera.h"
 #include "FunctionLayer/Camera/Thinlens.h"
@@ -58,9 +59,12 @@ TEST_CASE("test-mesh")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(512, 512), 3), std::make_unique<SequenceTileGenerator>(Point2i(512, 512)), std::make_shared<IndependentSampler>(), 9, 12);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128 * 3, 128 * 3), 3), std::make_unique<SequenceTileGenerator>(Point2i(128 * 3, 128 * 3)), std::make_shared<IndependentSampler>(), 1, 12);
     std::cout << "start rendering" << std::endl;
+    auto before = std::chrono::steady_clock::now();
     integrator.render(scene);
-    integrator.save("mesh-1.bmp");
+    integrator.save("mesh-new.bmp");
     std::cout << "finish" << std::endl;
+    auto cost = std::chrono::steady_clock::now() - before;
+    std::cout << (float)std::chrono::duration_cast<std::chrono::milliseconds>(cost).count() / 1000.f << std::endl;
 }
