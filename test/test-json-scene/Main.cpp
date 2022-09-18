@@ -1,7 +1,7 @@
 // test testing module
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
-
+#include <filesystem>
 #include <iostream>
 #include <cstdio>
 #include <vector>
@@ -35,6 +35,7 @@
 #include "unistd.h"
 #endif
 
+
 TEST_CASE("load-cornell-box")
 {
     Spectrum::init();
@@ -49,15 +50,16 @@ TEST_CASE("load-cornell-box")
     std::ifstream sceneFile(rootDir+sceneDir);
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
+   // scene->addEntity(std::make_shared<Quad>());
     std::cout << "scene created" << std::endl;
 	std::cout << "building accelerator" << std::endl;
 	scene->build();
     std::cout << "scene prepared" << std::endl;
-    Point3d lookFrom(0, 1, 6.8),
+    Point3d lookFrom(0, 1, 4),
         lookAt(0, 1, 0);
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
-        lookFrom, lookAt, up, 35, 1/0.56, 1.57f);
+        lookFrom, lookAt, up, 35, 0.56, 3.17f);
     PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 25);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
