@@ -1,7 +1,7 @@
 #include "Quad.h"
 #include "FunctionLayer/Intersection.h"
 
-Quad::Quad(const nlohmann::json & json) : Entity(json) {
+Quad::Quad(const Json & json) : Entity(json) {
     _base = getOptional(json,"base",Point3d(0,0,0));
     _edge0 = getOptional(json,"edge0",Vec3d(1,0,0));
     _edge1 = getOptional(json,"edge1",Vec3d(0,0,1));

@@ -36,7 +36,7 @@ public:
 
 	Transform3D(std::shared_ptr<Transform3D> _matrix);
 
-    Transform3D(const nlohmann::json);
+    Transform3D(const Json);
 
 	void setTranslate(double x, double y, double z);
 

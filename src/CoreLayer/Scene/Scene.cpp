@@ -19,7 +19,7 @@ Scene::Scene() : lights(std::make_shared<std::vector<std::shared_ptr<Light>>>())
 {
 }
 
-Scene::Scene(const nlohmann::json & json) {
+Scene::Scene(const Json & json) {
     materials = MaterialFactory::LoadMaterialMapFromJson(json.at("materials"));
     entities  = std::make_shared<std::vector<std::shared_ptr<Entity>>>
                         (EntityFactory::LoadEntityListFromJson(json.at("entities"),*this));
