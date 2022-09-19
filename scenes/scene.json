@@ -223,6 +223,29 @@
             ],
             "type": "quad",
             "material": "light"
+        },
+
+        {
+            "name" : "sphere1",
+            "center" : [0.4, 0.31, 0],
+            "radius" : 0.3,
+            "transform" : {
+                "scale" : [1, 1, 1],
+                "rotation" : [0, 0, 0]
+            },
+            "type" : "sphere",
+            "material" : "backWall"
+        }, 
+        {
+            "name" : "sphere2",
+            "center" : [-0.4, 0.51, 0],
+            "radius" : 0.5,
+            "transform" : {
+                "scale" : [1, 1, 1],
+                "rotation" : [0, 0, 0]
+            },
+            "type" : "sphere",
+            "material" : "backWall"
         }
     ]
 }
