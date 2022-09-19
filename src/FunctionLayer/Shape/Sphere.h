@@ -22,7 +22,7 @@ protected:
     virtual void apply() override;
 
 public:
-    Sphere(const nlohmann::json & json);
+    Sphere(const Json & json);
     Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material);
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;

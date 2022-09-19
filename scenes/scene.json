@@ -76,8 +76,8 @@
         {
             "name": "leftWall",
             "base" :[-1,0,-1],
-            "edge0" : [0,2,0],
-            "edge1" : [0,0,2],
+            "edge1" : [0,2,0],
+            "edge0" : [0,0,2],
             "transform": {
                 "position": [
                     -1,
@@ -101,8 +101,8 @@
         {
             "name": "floor",
             "base" :[1,0,-1],
-            "edge0" : [0,0,2],
             "edge1" : [-2,0,0],
+            "edge0" : [0,0,2],
             "transform": {
                 "scale": [
                     2,
@@ -146,8 +146,8 @@
         {
             "name": "backWall",
             "base" :[1,0,-1],
-            "edge0" : [0,2,0],
-            "edge1" : [-2,0,0],
+            "edge1" : [0,2,0],
+            "edge0" : [-2,0,0],
             "transform": {
                 "position": [
                     0,
@@ -171,8 +171,8 @@
         {
             "name": "rightWall",
             "base" :[1,0,1],
-            "edge0" : [0,2,0],
-            "edge1" : [0,0,-2],
+            "edge1" : [0,2,0],
+            "edge0" : [0,0,-2],
             "transform": {
                 "position": [
                     1,
@@ -197,8 +197,8 @@
         {
             "name": "light",
             "base" :[-0.24, 1.98 ,0.16],
-            "edge0" : [0.47 ,0 ,0],
             "edge1" : [0, 0, -0.38 ],
+            "edge0" : [0.47 ,0 ,0],
             "transform": {
                 "position": [
                     -0.005,

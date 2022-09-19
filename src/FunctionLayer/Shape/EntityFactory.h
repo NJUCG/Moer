@@ -15,7 +15,7 @@ class Scene;
 
 namespace EntityFactory {
 
-    std::shared_ptr < Entity > LoadEntityFromJson(const nlohmann::json & json) ;
+    std::shared_ptr < Entity > LoadEntityFromJson(const Json & json) ;
 
-    std::vector<std::shared_ptr < Entity >> LoadEntityListFromJson(const nlohmann::json & json,const Scene & scene);
+    std::vector<std::shared_ptr < Entity >> LoadEntityListFromJson(const Json & json,const Scene & scene);
 }

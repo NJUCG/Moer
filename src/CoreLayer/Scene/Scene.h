@@ -29,7 +29,7 @@ class Scene
     std::unordered_map<std::string,std::shared_ptr<Material>> materials;
 public:
 	Scene();
-    Scene(const nlohmann::json & json);
+    Scene(const Json & json);
 	void addEntity(std::shared_ptr<Entity> object);
 	void addLight(std::shared_ptr<Light> light);
 
@@ -41,5 +41,5 @@ public:
 
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> getLights() const;
 
-    std::shared_ptr<Material> fetchMaterial(const std::string & name = "default");
+    std::shared_ptr<Material> fetchMaterial(const std::string & name = "default") const;
 };

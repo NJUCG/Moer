@@ -41,7 +41,7 @@ TEST_CASE("load-cornell-box")
     Spectrum::init();
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::cout << "scene start" << std::endl;
-    nlohmann::json  sceneJson;
+    Json  sceneJson;
     char dir[1024];
     getcwd(dir,sizeof(dir));
     std::filesystem::path path(dir);
@@ -55,11 +55,11 @@ TEST_CASE("load-cornell-box")
 	std::cout << "building accelerator" << std::endl;
 	scene->build();
     std::cout << "scene prepared" << std::endl;
-    Point3d lookFrom(0, 1, 4),
+    Point3d lookFrom(0, 1, 6.8),
         lookAt(0, 1, 0);
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
-        lookFrom, lookAt, up, 35, 0.56, 3.17f);
+        lookFrom, lookAt, up, 35, 1/0.56, 3.17f);
     PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 25);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);

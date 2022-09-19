@@ -23,7 +23,7 @@ protected:
 
     virtual void apply() override;
 public:
-    Quad(const nlohmann::json & json);
+    Quad(const Json & json);
     Quad() = default;
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;

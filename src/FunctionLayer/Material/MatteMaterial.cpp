@@ -32,7 +32,7 @@ std::shared_ptr<BSSRDF> MatteMaterial::getBSSRDF(const Intersection & intersect)
     return nullptr;
 }
 
-MatteMaterial::MatteMaterial(const nlohmann::json & json) {
+MatteMaterial::MatteMaterial(const Json & json) {
    // RGB3 _albedo = getOptional(json,"albedo",RGB3(1,1,1));
     Vec3d  _albedo = getOptional(json,"albedo",Vec3d(1,1,1));
     albedo = std::make_shared <ConstantTexture<Spectrum>>(RGB3(_albedo.x,_albedo.y,_albedo.z).toSpectrum());

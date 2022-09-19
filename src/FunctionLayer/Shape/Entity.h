@@ -31,10 +31,6 @@ public:
 	std::shared_ptr<Material> material;
 	//@brief Returns the intersection of the entity and the ray
 	virtual std::optional<Intersection> intersect(const Ray &r) const = 0;
-     void intersect(const Ray * r) const {
-
-     }
-    virtual void  intersect1(const Ray * r) const {};
     //@brief Return ptr to light when primitive is a emitter. Otherwise, return nullptr.
 	virtual std::shared_ptr<Light> getLight() const = 0;
 	virtual void setLight(std::shared_ptr<Light> light) = 0;
@@ -47,7 +43,7 @@ public:
         material = _material;
     }
     Entity(){}
-    Entity(const nlohmann::json json) : Transform3D(json.at("transform")){
+    Entity(const Json json) : Transform3D(json.at("transform")){
 
     }
 };
