@@ -27,7 +27,7 @@ public:
                        const std::shared_ptr<Texture<Spectrum>> &  _albedo = nullptr,
                        const std::shared_ptr<Texture<double>> &  _bump = nullptr ) : Material(_albedo,_bump),ior(_ior) {}
 
-
+    DielectricMaterial(const Json &json);
 private:
     std::shared_ptr<Texture<double>> ior;
 

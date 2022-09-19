@@ -70,6 +70,12 @@
             "name": "light",
             "albedo": 1,
             "type": "lambert"
+        },
+        {
+            "name" : "water",
+            "albedo":[1, 1, 1],
+            "ior" : 1.0,
+            "type":"dielectric"
         }
     ],
     "entities": [
@@ -234,7 +240,7 @@
                 "rotation" : [0, 0, 0]
             },
             "type" : "sphere",
-            "material" : "backWall"
+            "material" : "water"
         }, 
         {
             "name" : "sphere2",
