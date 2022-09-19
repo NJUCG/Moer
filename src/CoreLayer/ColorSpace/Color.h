@@ -60,6 +60,8 @@ enum class SpectrumType { REFLECTANCE, ILLUMINANT };
  */
 class RGB3
 {
+public:
+//TODO delete the public
 	double rgbData[3];
 
 public:

@@ -60,7 +60,16 @@ BxDFSampleResult DielectricBxDF::sample(const Vec3d &wo, const Point2d &sample) 
         result.bxdfSampleType = BXDFType(BXDF_TRANSMISSION | BXDF_SPECULAR);
         result.s= albedo * (1-F);
     }
-
+//    std::cout << "pdf = " <<result.pdf << std::endl;
+//    std::cout << "albedo = [" 
+//              << albedo.toXYZ3().toRGB3().rgbData[0] << ", "
+//              << albedo.toXYZ3().toRGB3().rgbData[1] << ", "
+//              << albedo.toXYZ3().toRGB3().rgbData[2] << "]\n"; 
+//    std::cout << "s = [" 
+//              << result.s.toXYZ3().toRGB3().rgbData[0] << ", "
+//              << result.s.toXYZ3().toRGB3().rgbData[1] << ", "
+//              << result.s.toXYZ3().toRGB3().rgbData[2] << "]\n"; 
+//
     return  result;
 }
 

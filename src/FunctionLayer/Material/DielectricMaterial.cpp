@@ -19,7 +19,7 @@ DielectricMaterial::DielectricMaterial(const Json &json) {
 }
 
 std::shared_ptr<BxDF> DielectricMaterial::getBxDF(const Intersection & intersect) const  {
-    return std::make_shared<DielectricBxDF>(ior->eval(intersect));
+    return std::make_shared<DielectricBxDF>(ior->eval(intersect), albedo->eval(intersect));
 }
 
 std::shared_ptr<BSSRDF> DielectricMaterial::getBSSRDF(const Intersection & intersect) const{
