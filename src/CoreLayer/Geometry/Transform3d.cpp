@@ -57,7 +57,7 @@ void Transform3D::setTranslate(double x, double y, double z)
     matrix->setTranslate(x, y, z);
 }
 
-Transform3D::Transform3D(const nlohmann::json json) {
+Transform3D::Transform3D(const Json json) {
     //todo modify this
     matrix = std::make_shared<TransformMatrix3D>() ;
     Vec3d x(1.0, 0.0, 0.0);

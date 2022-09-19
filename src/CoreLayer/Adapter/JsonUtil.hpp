@@ -12,8 +12,11 @@
 #include "nlohmann/json.hpp"
 #include "CoreLayer/ColorSpace/Color.h"
 #include "../Geometry/Geometry.h"
+
+typedef nlohmann::json Json;
+
 template <class T>
-inline T getOptional(const nlohmann::json &j, std::string field, T default_value)
+inline T getOptional(const Json &j, std::string field, T default_value)
 {
     T ret = default_value;
     if (j.find(field) != j.end())
@@ -24,7 +27,7 @@ inline T getOptional(const nlohmann::json &j, std::string field, T default_value
 }
 
 template <class T>
-inline  bool containsAndGet(const nlohmann::json &j, std::string field, T & value)
+inline  bool containsAndGet(const Json &j, std::string field, T & value)
 {
     if (j.find(field) != j.end())
     {
@@ -37,8 +40,8 @@ inline  bool containsAndGet(const nlohmann::json &j, std::string field, T & valu
 
 
 template<class T>
-void from_json(const nlohmann::json &j,TVector2<T> & vec2){
-    if (j.type() == nlohmann::json::value_t::array)
+void from_json(const Json &j,TVector2<T> & vec2){
+    if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(vec2[i]);
     else
         for (int i = 0; i < 2; i++) j.get_to(vec2[i]);
@@ -46,16 +49,16 @@ void from_json(const nlohmann::json &j,TVector2<T> & vec2){
 
 
 template<class T>
-void from_json(const nlohmann::json &j,TVector3<T> & vec3){
-    if (j.type() == nlohmann::json::value_t::array)
+void from_json(const Json &j,TVector3<T> & vec3){
+    if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(vec3[i]);
     else
         for (int i = 0; i < 3; i++) j.get_to(vec3[i]);
 }
 
 template<class T>
-void from_json(const nlohmann::json &j,TPoint2<T> & point2){
-    if (j.type() == nlohmann::json::value_t::array)
+void from_json(const Json &j,TPoint2<T> & point2){
+    if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(point2[i]);
     else
         for (int i = 0; i < 2; i++) j.get_to(point2[i]);
@@ -63,8 +66,8 @@ void from_json(const nlohmann::json &j,TPoint2<T> & point2){
 
 
 template<class T>
-void from_json(const nlohmann::json &j,TPoint3<T> & point3){
-    if (j.type() == nlohmann::json::value_t::array)
+void from_json(const Json &j,TPoint3<T> & point3){
+    if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(point3[i]);
     else
         for (int i = 0; i < 3; i++) j.get_to(point3[i]);
@@ -72,8 +75,8 @@ void from_json(const nlohmann::json &j,TPoint3<T> & point3){
 
 
 
-//void from_json(const nlohmann::json &j,RGB3 rgb3){
-//    if (j.type() == nlohmann::json::value_t::array)
+//void from_json(const Json &j,RGB3 rgb3){
+//    if (j.type() == Json::value_t::array)
 //        for (int i = 0; i < 3; i++) j.at(i).get_to(rgb3[i]);
 //    else
 //        for (int i = 0; i < 3; i++) j.get_to(rgb3[i]);
