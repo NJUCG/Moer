@@ -51,25 +51,16 @@ BxDFSampleResult DielectricBxDF::sample(const Vec3d &wo, const Point2d &sample) 
         result.directionIn = Frame::reflect(wo);
         result.pdf = reflectionProbability;
         result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
-        result.s = albedo * F;
+        result.s = albedo * F / std::abs(result.directionIn.z);
     }
     else {
         result.directionIn = Vec3d (-eta*wo.x,-eta*wo.y,-std::copysign(cosThetaT,wo.z));
         // *wi = vec3(0,0,-std::copysign(1,wo.z));
         result.pdf = 1-reflectionProbability;
         result.bxdfSampleType = BXDFType(BXDF_TRANSMISSION | BXDF_SPECULAR);
-        result.s= albedo * (1-F);
+        result.s= albedo * (1-F) / std::abs(result.directionIn.z);
     }
-//    std::cout << "pdf = " <<result.pdf << std::endl;
-//    std::cout << "albedo = [" 
-//              << albedo.toXYZ3().toRGB3().rgbData[0] << ", "
-//              << albedo.toXYZ3().toRGB3().rgbData[1] << ", "
-//              << albedo.toXYZ3().toRGB3().rgbData[2] << "]\n"; 
-//    std::cout << "s = [" 
-//              << result.s.toXYZ3().toRGB3().rgbData[0] << ", "
-//              << result.s.toXYZ3().toRGB3().rgbData[1] << ", "
-//              << result.s.toXYZ3().toRGB3().rgbData[2] << "]\n"; 
-//
+
     return  result;
 }
 

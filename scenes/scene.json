@@ -74,7 +74,7 @@
         {
             "name" : "water",
             "albedo":[1, 1, 1],
-            "ior" : 1.001,
+            "ior" : 1.33,
             "type":"dielectric"
         }
     ],
