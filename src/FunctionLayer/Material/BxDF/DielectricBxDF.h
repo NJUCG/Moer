@@ -17,9 +17,12 @@
 /// \ingroup BxDF
 class DielectricBxDF : public  BxDF{
 public:
-    DielectricBxDF(double ior = 1.33) : ior(ior),invIor(1/ior){
+    DielectricBxDF(double ior = 1.33) : ior(ior),invIor(1/ior), albedo(1){
 
     }
+
+    DielectricBxDF(double _ior, const Spectrum& _albedo) 
+        : ior(_ior), invIor(1/ior), albedo(_albedo) {}
 
     virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const ;
 

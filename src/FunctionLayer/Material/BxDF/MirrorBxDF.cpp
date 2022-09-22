@@ -27,10 +27,10 @@ double MirrorBxDF::pdf(const Vec3d &wo, const Vec3d &wi) const {
 
 BxDFSampleResult MirrorBxDF::sample(const Vec3d &wo, const Point2d &sample) const {
     BxDFSampleResult result;
-    result.s=1;
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
     result.directionIn= sampleWi(wo,sample);
     result.pdf=1;
+    result.s = 1 / std::abs(result.directionIn.z);
     return  result;
 }
 
