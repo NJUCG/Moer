@@ -1,57 +1,36 @@
 /**
- * @file AbstractPathIntegrator.h
- * @author Zhimin Fan
- * @brief Path Integrator Abstraction
+ * @file PathIntegrator-new.h
+ * @author Chenxi Zhou
+ * @brief Path Integrator with new implementation
  * @version 0.1
- * @date 2022-05-16
- *
+ * @date 2022-09-21
+ * 
  * @copyright NJUMeta (c) 2022 
  * www.njumeta.com
- *
  */
+
 #pragma once
 
-//#include <cmath>
 #include "CoreLayer/Ray/Ray.h"
-#include "MonteCarloIntegrator.h"
+#include "AbstractPathIntegrator.h"
 
 /**
- * @brief 
- * @todo PathIntegratorLocalRecord
- */
-struct PathIntegratorLocalRecord
-{
-    Vec3d wi;
-    Spectrum f;
-    double pdf;
-    bool isDelta = false;
-};
-
-/**
- * @brief Base class for all path_tracing-like integrators
+ * @brief Unidirectional path-tracing integrator with new 
+ * implementation (mitsuba-like)
  * @ingroup Integrator
  */
-class AbstractPathIntegrator : public MonteCarloIntegrator
+
+class PathIntegratorNew : public AbstractPathIntegrator 
 {
-protected:
-    const int nDirectLightSamples = 1;      ///< Default, sample the direct illumination at each hitpoint once
-    const double misWeightPower = 1.0f;
-
 public:
-    AbstractPathIntegrator(
-        std::shared_ptr<Camera> _camera, 
-        std::unique_ptr<Film> _film, 
-        std::unique_ptr<TileGenerator> _tileGenerator, 
-        std::shared_ptr<Sampler> _sampler, 
-        int _spp,
-        int _renderThreadNum=4);
+    PathIntegratorNew (std::shared_ptr<Camera> _camera,
+                       std::unique_ptr<Film> _film,
+                       std::unique_ptr<TileGenerator> _tileGenerator,
+                       std::shared_ptr<Sampler> _sampler,
+                       int _spp,
+                       int _renderThreadNum = 4);
 
-    virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene);
-    virtual double MISWeight(double x, double y);
-
-    /*************************************************************
-    Functions below need to be implemented in derived classes
-    *************************************************************/
+    virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene) override;
 
     /// @brief Return the radiance along given ray, emitted from given intersection.
     /// @param scene     Ptr to scene.
@@ -59,8 +38,9 @@ public:
     /// @param ray       Ray to evaluate.
     /// @return          Direction of given ray, incident radiance at origin of ray, pdf of direct light sampling.
     virtual PathIntegratorLocalRecord evalEmittance(std::shared_ptr<Scene> scene,
-                                                    std::optional<Intersection> its,
-                                                    const Ray &ray) = 0;
+                                                    std::optional<Intersection> itsOpt,
+                                                    const Ray &ray) override;
+
 
     /// @brief Sample incident direction of direct lighting.
     /// @param scene     Ptr to scene.
@@ -69,7 +49,7 @@ public:
     /// @return          Sampled incident direction, incident radiance and pdf per solid angle.
     virtual PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
                                                            const Intersection &its,
-                                                           const Ray &ray) = 0;
+                                                           const Ray &ray) override;
 
     /// @brief Return scatter value of BSDF or phase function.
     /// @param scene     Ptr to scene.
@@ -82,7 +62,7 @@ public:
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray,
-                                                  const Vec3d &wi) = 0;
+                                                  const Vec3d &wi) override;
 
     /// @brief Sample incident direction by scatter value of BSDF or phase function.
     /// @param scene     Ptr to scene.
@@ -93,11 +73,33 @@ public:
     ///                  For medium, f is the value of phase function.
     virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
                                                     const Intersection &its,
-                                                    const Ray &ray) = 0;
+                                                    const Ray &ray) override;
 
-    /// @brief Return probability of Russian roulette.
+    /// @brief Return survive probability of Russian roulette.
     virtual double russianRoulette(std::shared_ptr<Scene> scene,
                                    const Intersection &its,
                                    const Spectrum &T,
-                                   int nBounce) = 0;
+                                   int nBounce) override;
+
+    // todo: move light sampling into a new class (called LightDistribution?)
+    /// @brief Sample a light, by some weight distribution
+    /// @todo  move light sampling into a new class (called LightDistribution?)
+    virtual std::pair<std::shared_ptr<Light>, double> chooseOneLight(std::shared_ptr<Scene> scene,
+                                                                     const Intersection &its,
+                                                                     const Ray &ray,
+                                                                     double lightSample);
+
+    /// @brief Probability of choosing a specified light source
+    virtual double chooseOneLightPdf(std::shared_ptr<Scene> scene,
+                                     const Intersection &its,
+                                     const Ray &ray,
+                                     std::shared_ptr<Light> light);
+
+    /// @brief Evaluate radiance of env lights
+    virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
+                                                    const Ray &ray);
+
+protected:
+    const int nPathLengthLimit = 20;
+    const double pRussianRoulette = 0.95;
 };
