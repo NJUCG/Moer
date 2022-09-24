@@ -53,6 +53,8 @@ public:
 
     EMaterialType type = EMaterialType::Unkown;
 
+    EMaterialType type = EMaterialType::Unkown;
+
 protected:
     std::shared_ptr<Texture<Spectrum>> albedo;
     std::shared_ptr<Texture<double>> bump;
