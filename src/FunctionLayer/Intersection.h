@@ -14,7 +14,6 @@
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Geometry/Frame.h"
 #include "FunctionLayer/Material/Material.h"
-#include "FunctionLayer/Medium/Medium.h"
 #include "FunctionLayer/Shape/Entity.h"
 
 #include <memory>
@@ -40,8 +39,6 @@ struct Intersection
 	const Entity *object;
 
 	std::shared_ptr<Material> material;
-	std::shared_ptr<Medium> mediumInside;
-	std::shared_ptr<Medium> mediumOutside;
 
 	Vec3d toLocal(const Vec3d &d) const
 	{

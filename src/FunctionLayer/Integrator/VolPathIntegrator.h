@@ -13,12 +13,14 @@
 
 #include "CoreLayer/Ray/Ray.h"
 #include "AbstractPathIntegrator.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 /**
  * @brief Unidirectional path-tracing integrator which
  * take volume into consideration
  * @ingroup Integrator
  */
+
 
 class VolPathIntegrator : public AbstractPathIntegrator
 {
@@ -68,8 +70,16 @@ public:
                                      std::shared_ptr<Light> light);
 
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
-                                                    const Ray &ray);                                                                                                     
+                                                    const Ray &ray);
 
+    std::shared_ptr<Medium> getTargetMedium(const Ray &ray,
+                                            const Intersection &its,
+                                            Vec3d wi) const;                                                                                                     
+
+    std::pair<std::optional<Intersection>, Spectrum> 
+    intersectIgnoreSurface(std::shared_ptr<Scene> scene,
+                           const Ray &ray,
+                           std::shared_ptr<Medium> medium) const;
 
 protected:
     const int nPathLengthLimit = 20;

@@ -15,8 +15,6 @@
 #include "Light.h"
 #include "CoreLayer/Geometry/Transform3d.h"
 
-#pragma  once
-
 /// \brief Point light source
 /// \ingroup Light
 class PointLight : public Light, public Transform3D

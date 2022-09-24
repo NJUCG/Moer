@@ -31,4 +31,11 @@ std::shared_ptr < BSSRDF > Material::getBSSRDF(const Intersection & intersect) c
     return std::shared_ptr < BSSRDF >();
 }
 
+std::shared_ptr<Medium> Material::getInsideMedium() const {
+    return insideMedium;
+}
+
+std::shared_ptr<Medium> Material::getOutsideMedium() const {
+    return outsideMedium;
+}
 

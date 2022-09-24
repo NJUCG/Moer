@@ -21,6 +21,8 @@ class Texture;
 
 struct Intersection;
 
+class Medium;
+
 class Material
 {
 public:
@@ -29,7 +31,13 @@ public:
 	virtual std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const ;
 	virtual std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const;
 
+    std::shared_ptr<Medium> getInsideMedium() const;
+    std::shared_ptr<Medium> getOutsideMedium() const;
+
 protected:
     std::shared_ptr<Texture<Spectrum>> albedo;
     std::shared_ptr<Texture<double>> bump;
+
+    std::shared_ptr<Medium> insideMedium;
+    std::shared_ptr<Medium> outsideMedium;
 };

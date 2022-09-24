@@ -46,16 +46,19 @@ std::optional<Intersection> Mesh::intersect(const Ray &r) const
 
 void Mesh::apply()
 {
+    return;
 }
 
 double Mesh::area() const
 {
     // TODO
+    return 0;
 }
 
 Intersection Mesh::sample(const Point2d &positionSample) const 
 {
     // TODO
+    return Intersection();
 }
 
 std::shared_ptr<Light> Mesh::getLight() const 
