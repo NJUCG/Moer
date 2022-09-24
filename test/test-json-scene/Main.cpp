@@ -65,6 +65,6 @@ TEST_CASE("load-cornell-box")
     VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 25, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("cornell-box-9-24-nullbsdf.bmp");
+    integrator.save("cornell-box-9-24-beerslaw_0.1.bmp");
     std::cout << "finish" << std::endl;
 }

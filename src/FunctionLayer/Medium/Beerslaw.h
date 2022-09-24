@@ -12,7 +12,7 @@
 #pragma once
 #include "Medium.h"
 
-class BeerslawMedium {
+class BeerslawMedium : public Medium {
 public:
     BeerslawMedium() = default;
 

@@ -60,8 +60,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
             auto its = itsOpt.value();
             //* ----- Handle special surface -----
-            if (its.material == nullptr) {
-                //medium = getTargetMedium(ray, its, ray.direction);
+            if (its.material->type & EMaterialType::Null) {
+                medium = getTargetMedium(ray, its, ray.direction);
                 ray = Ray{its.position + 1e-4 * ray.direction, ray.direction};
                 itsOpt = scene->intersect(ray);
                 evalLightRecord = evalEmittance(scene, itsOpt, ray);
@@ -70,7 +70,6 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
             //* ----- Direct Illumination -----
             for (int i = 0; i < nDirectLightSamples; ++i) {
-                //TODO consider the transmittance
                 PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
                 PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, its, ray, sampleLightRecord.wi);
 
@@ -310,11 +309,11 @@ VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene,
     while(its.has_value()) {
         tr *= (currentMedium ? currentMedium->evalTransmittance(ray.origin, its->position) : 1);
 
-        if (its->material == nullptr) {
+        if (its->material->type & EMaterialType::Null) {
             //* Continue the ray when the surface is ignored
             const double eps = 1e-4;
             marchingRay = Ray {its->position + eps * marchingRay.direction, marchingRay.direction};
-            //currentMedium = getTargetMedium(marchingRay, its.value(), marchingRay.direction);
+            currentMedium = getTargetMedium(marchingRay, its.value(), marchingRay.direction);
         } else {
             //* Intersect on surface which can't be ignored
             break;

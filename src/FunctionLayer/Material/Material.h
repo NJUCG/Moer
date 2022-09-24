@@ -23,6 +23,19 @@ struct Intersection;
 
 class Medium;
 
+enum EMaterialType {
+    Unkown = 1 << 0,
+    Null = 1 << 1,
+    Diffuse = 1 << 2,
+    SpecularReflect = 1 << 3, 
+    RoughReflect = 1 << 4,
+    SpecularTransmission = 1 << 5,
+    RoughTransmission = 1 << 6
+    
+    //* Other
+};
+
+
 class Material
 {
 public:
@@ -33,6 +46,8 @@ public:
 
     std::shared_ptr<Medium> getInsideMedium() const;
     std::shared_ptr<Medium> getOutsideMedium() const;
+
+    EMaterialType type = EMaterialType::Unkown;
 
 protected:
     std::shared_ptr<Texture<Spectrum>> albedo;

@@ -17,7 +17,7 @@ class MatteMaterial   : public  Material{
 
 public:
     MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & _albedo = nullptr,
-                  const std::shared_ptr<Texture<double>> & _bump = nullptr );
+                  const std::shared_ptr<Texture<double>> & _bump = nullptr);
     MatteMaterial(const Json &);
     std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const   override;
 
