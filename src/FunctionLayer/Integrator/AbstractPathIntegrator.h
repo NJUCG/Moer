@@ -2,6 +2,7 @@
  * @file AbstractPathIntegrator.h
  * @author Zhimin Fan
  * @brief Path Integrator Abstraction
+ * edit by zcx 2022-9-24
  * @version 0.1
  * @date 2022-05-16
  *
@@ -14,6 +15,8 @@
 //#include <cmath>
 #include "CoreLayer/Ray/Ray.h"
 #include "MonteCarloIntegrator.h"
+
+struct MediumSampleRecord;
 
 /**
  * @brief 

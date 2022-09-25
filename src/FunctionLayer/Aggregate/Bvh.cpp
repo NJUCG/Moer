@@ -228,6 +228,7 @@ std::optional<Intersection> Bvh::Intersect(const Ray& r) {
 						if (R.timeMax > t) {
 							R.timeMax = t;
 							result = its;
+							result->t = t;
 						}
 					}
 				}

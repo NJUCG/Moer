@@ -81,7 +81,31 @@ public:
                            const Ray &ray,
                            std::shared_ptr<Medium> medium) const;
 
+    //TODO this should consider the tr
+    PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
+                                                   const MediumSampleRecord &mRec,
+                                                   const Ray &ray,
+                                                   std::shared_ptr<Medium> medium) const;
+
+    PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
+                                          const MediumSampleRecord &mRec,
+                                          const Ray &ray,
+                                          const Vec3d &wi,
+                                          std::shared_ptr<Medium> medium) const;
+
+    PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
+                                            const MediumSampleRecord &mRec,
+                                            const Ray &ray,
+                                            std::shared_ptr<Medium> medium) const;  
+
+    std::pair<std::shared_ptr<Light>, double>
+    chooseOneLight(std::shared_ptr<Scene> scene,
+                   const MediumSampleRecord &mRec,
+                   const Ray &ray,
+                   double lightSample) const ;
+
+
 protected:
-    const int nPathLengthLimit = 20;
+    const int nPathLengthLimit = 64;
     const double pRussianRoulette = 0.95;
 };

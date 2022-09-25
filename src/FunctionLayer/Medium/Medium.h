@@ -42,6 +42,6 @@ public:
 								const std::optional<Intersection> &itsOpt,
 								Point2d sample) const = 0;
 
-	virtual Spectrum evalTransmittance (Point3d from, Point3d end) const = 0;
+	virtual Spectrum evalTransmittance (Point3d from, Point3d dest) const = 0;
 
 };

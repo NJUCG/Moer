@@ -29,4 +29,8 @@ public:
     virtual LightSampleResult eval(const Ray &ray, const Intersection &its, const Vec3d &d) override;
     virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;
     virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) override;
+
+	virtual LightSampleResult sampleDirect(const MediumSampleRecord &mRec,
+										   Point2d sample,
+										   double time) override;
 };

@@ -14,6 +14,7 @@
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Intersection.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 struct LightSampleResult
 {
@@ -60,4 +61,8 @@ public:
 	// @brief Note that this function will not return a direct light sampling PDF.
 	virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) = 0;
 	virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) = 0;
+
+	virtual LightSampleResult sampleDirect(const MediumSampleRecord &mRec,
+										   Point2d sample,
+										   double time) = 0;
 };

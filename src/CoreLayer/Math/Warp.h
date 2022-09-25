@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
+#pragma once
 #include "CoreLayer/Geometry/Geometry.h"
 #include "Common.h"
 
