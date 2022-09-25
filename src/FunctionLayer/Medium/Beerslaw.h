@@ -14,9 +14,9 @@
 
 class BeerslawMedium : public Medium {
 public:
-    BeerslawMedium() = default;
 
-    BeerslawMedium(const Spectrum &density) : mDensity(density) { }
+    BeerslawMedium(const Spectrum &density, std::shared_ptr<PhaseFunction> _phase) 
+        : Medium(_phase), mDensity(density) { }
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,

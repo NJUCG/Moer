@@ -410,10 +410,9 @@ VolPathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
                                const Vec3d &wi,
                                std::shared_ptr<Medium> medium) const
 {
-    //TODO hack
-    return {
-        wi, 0.25 * INV_PI, 0.25 * INV_PI, false
-    };
+    auto [phaseValue, phasePdf, isDelta]
+        = medium->evalPhase(-ray.direction, wi, mRec.scatterPoint);
+    return {wi, phaseValue, phasePdf, isDelta};
 }
 
 PathIntegratorLocalRecord 
@@ -422,7 +421,7 @@ VolPathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
                                  const Ray &ray,
                                  std::shared_ptr<Medium> medium) const
 {
-    //TODO hack
-    Vec3d wi = SquareToUniformSphere(sampler->sample2D());
-    return {wi, 0.25 * INV_PI, 0.25 * INV_PI, false};
+    auto [wi, phaseValue, phasePdf, isDelta]
+        = medium->samplePhase(-ray.direction, mRec.scatterPoint, sampler->sample2D());
+    return {wi, phaseValue, phasePdf, isDelta};
 }  

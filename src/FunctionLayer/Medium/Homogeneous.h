@@ -15,10 +15,10 @@
 
 class HomogeneousMedium : public Medium {
 public:
-    HomogeneousMedium() = default;
 
-    HomogeneousMedium(double density, double albedo)
-        : mDensity(density), mAlbedo(albedo) { }
+    HomogeneousMedium(double density, double albedo, 
+                      std::shared_ptr<PhaseFunction> phase)
+        :Medium(phase), mDensity(density), mAlbedo(albedo) { }
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,

@@ -15,6 +15,7 @@
 #include "FunctionLayer/Material/BSSRDF/BSSRDF.h"
 #include <memory>
 #include <utility>
+#include "CoreLayer/Adapter/JsonUtil.hpp"
 
 template<class T>
 class Texture;
