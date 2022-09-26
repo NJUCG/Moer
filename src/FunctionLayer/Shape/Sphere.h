@@ -32,8 +32,10 @@ public:
 	virtual BoundingBox3f WorldBound() const;
 
     //TODO
-    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const {} ;
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const;
     //TODO
 	virtual EntitySurfaceInfo
-	getEntitySurfaceInfo(int instID, Point2d uv) const {};
+	getEntitySurfaceInfo(int instID, Point2d uv) const;
+
+    friend void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args);
 };
