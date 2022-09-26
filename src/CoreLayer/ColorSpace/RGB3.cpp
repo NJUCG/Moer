@@ -45,25 +45,31 @@ double& RGB3::operator[](int i)
 	return rgbData[i];
 }
 
-RGB3 RGB3::operator+(const RGB3& rgb)
+RGB3 RGB3::operator+(const RGB3& rgb) const
 {
 	return RGB3(rgbData[0] + rgb[0], rgbData[1] + rgb[1], rgbData[2] + rgb[2]);
 }
 
-RGB3 RGB3::operator-(const RGB3& rgb)
+RGB3 RGB3::operator-(const RGB3& rgb) const
 {
 	return RGB3(rgbData[0] - rgb[0], rgbData[0] - rgb[1], rgbData[0] - rgb[2]);
 }
 
-RGB3 RGB3::operator*(const RGB3& rgb)
+RGB3 RGB3::operator*(const RGB3& rgb) const
 {
 	return RGB3(rgbData[0] * rgb[0], rgbData[0] * rgb[1], rgbData[0] * rgb[2]);
 }
 
-RGB3 RGB3::operator/(const RGB3& rgb)
+RGB3 RGB3::operator/(const RGB3& rgb) const
 {
 	return RGB3(rgbData[0] / rgb[0], rgbData[0] / rgb[1], rgbData[0] / rgb[2]);
 }
+
+RGB3  RGB3::pow(double v) const
+{
+    return RGB3(std::pow(rgbData[0],v),std::pow(rgbData[1],v),std::pow(rgbData[2],v));
+}
+
 
 RGB3& RGB3::operator+=(const RGB3& rgb)
 {
@@ -122,6 +128,8 @@ RGB3& RGB3::operator/=(double v)
 	rgbData[2] /= v;
 	return *this;
 }
+
+
 
 XYZ3 RGB3::toXYZ3() const
 {
@@ -227,3 +235,4 @@ RGB3 operator*(double v, const RGB3& rgb)
 {
 	return RGB3(rgb[0] * v, rgb[1] * v, rgb[2] * v);
 }
+

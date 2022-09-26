@@ -14,7 +14,7 @@
 #include "Entity.h"
 #include "Triangle.h"
 #include "ResourceLayer/File/MeshData.h"
-#include "FunctionLayer/Aggregate/Bvh.h"
+#include "FunctionLayer/Acceleration/Bvh.h"
 #include <optional>
 #include <memory>
 
@@ -43,6 +43,11 @@ public:
     virtual BoundingBox3f WorldBound() const override;
 
     Triangle getTriangle(int idx) const;
+
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
+
+    virtual EntitySurfaceInfo getEntitySurfaceInfo(int primIDs,
+                                                   Point2d uv) const override;
 
 protected:
 	Eigen::MatrixXd m_vertices;

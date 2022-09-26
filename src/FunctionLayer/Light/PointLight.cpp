@@ -12,6 +12,7 @@
 
 #include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PointLight.h"
+#include "FunctionLayer/Integrator/AbstractPathIntegrator.h"
 
 #define DIRAC 1.0
 
@@ -79,6 +80,23 @@ LightSampleResult PointLight::sampleDirect(const Intersection &its, const Point2
     ans.isDeltaDir = false;
     return ans;
 }
+
+LightSampleResult PointLight::sampleDirect(const MediumSampleRecord &mRec,
+                                           Point2d sample,
+                                           double time) 
+{
+    Normal3d wi = normalize(Transform3D::getTranslate() - mRec.scatterPoint);
+    LightSampleResult ans;
+    ans.src = mRec.scatterPoint;
+    ans.dst = Transform3D::getTranslate();
+    ans.s = intensity / (ans.dst - ans.src).length2() * DIRAC;
+    ans.wi = wi;
+    ans.pdfDirect = 1.0 * DIRAC;
+    ans.isDeltaPos = true;
+    ans.isDeltaDir = false;
+    return ans;
+}
+
 
 void PointLight::apply()
 {

@@ -11,16 +11,18 @@
  */
 
 #include "Scene.h"
-
+#include "FunctionLayer/Acceleration/Embree.h"
 #include "FunctionLayer/Material/MaterialFactory.h"
 #include "FunctionLayer/Shape/EntityFactory.h"
+#include "FunctionLayer/Medium/MediumFactory.h"
 
 Scene::Scene() : lights(std::make_shared<std::vector<std::shared_ptr<Light>>>()), entities(std::make_shared<std::vector<std::shared_ptr<Entity>>>())
 {
 }
 
 Scene::Scene(const Json & json) {
-    materials = MaterialFactory::LoadMaterialMapFromJson(json.at("materials"));
+    mediums =  MediumFactory::LoadMediumMapFromJson(json.at("mediums"));
+    materials = MaterialFactory::LoadMaterialMapFromJson(json.at("materials"),*this);
     entities  = std::make_shared<std::vector<std::shared_ptr<Entity>>>
                         (EntityFactory::LoadEntityListFromJson(json.at("entities"),*this));
     lights = std::make_shared<std::vector<std::shared_ptr<Light>>>();
@@ -32,34 +34,12 @@ Scene::Scene(const Json & json) {
 }
 
 void Scene::build() {
-	BVH = std::make_shared<Bvh>(*entities);
+	//accel = std::make_shared<Bvh>(*entities);
+    accel = std::make_shared<EmbreeAccel>(*entities);
 }
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
-    if (BVH)
-	    return BVH->Intersect(r);
-    std::optional<Intersection> minIntersection;
-    for (auto i : *entities)
-    {
-        auto its = i->intersect(r);
-       if (its.has_value())
-        {
-            if (minIntersection.has_value())
-            {
-                double d = (its->position - r.origin).length2();
-                double d0 = (minIntersection->position - r.origin).length2();
-                if (d < d0)
-                {
-                    minIntersection = its;
-                }
-            }
-            else
-            {
-                minIntersection = its;
-            }
-        }
-    }
-    return minIntersection;
+    return accel->Intersect(r);
 }
 
 std::shared_ptr<std::vector<std::shared_ptr<Light>>> Scene::getLights() const
@@ -84,6 +64,11 @@ std::shared_ptr < Material > Scene::fetchMaterial(const std::string & name) cons
     if(!materials.count(name))
         return materials.at("default");
     return materials.at(name);
+}
+
+std::shared_ptr < Medium > Scene::fetchMedium(const std::string & name) const {
+    if(!mediums.count(name)) return nullptr;
+    return mediums.at(name);
 }
 
 

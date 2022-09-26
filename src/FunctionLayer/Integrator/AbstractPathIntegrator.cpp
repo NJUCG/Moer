@@ -11,6 +11,7 @@
  */
 
 #include "AbstractPathIntegrator.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 AbstractPathIntegrator::AbstractPathIntegrator(
         std::shared_ptr<Camera> _camera, 

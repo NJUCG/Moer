@@ -10,10 +10,11 @@
  */
 #pragma  once
 #include "nlohmann/json.hpp"
-#include "CoreLayer/ColorSpace/Color.h"
 #include "../Geometry/Geometry.h"
 
 typedef nlohmann::json Json;
+
+class  RGB3;
 
 template <class T>
 inline T getOptional(const Json &j, std::string field, T default_value)
@@ -75,9 +76,4 @@ void from_json(const Json &j,TPoint3<T> & point3){
 
 
 
-//void from_json(const Json &j,RGB3 rgb3){
-//    if (j.type() == Json::value_t::array)
-//        for (int i = 0; i < 3; i++) j.at(i).get_to(rgb3[i]);
-//    else
-//        for (int i = 0; i < 3; i++) j.get_to(rgb3[i]);
-//}
+void from_json(const Json &j,RGB3 & rgb3);
