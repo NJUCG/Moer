@@ -59,7 +59,7 @@ TEST_CASE("test-mesh")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128 * 3, 128 * 3), 3), std::make_unique<SequenceTileGenerator>(Point2i(128 * 3, 128 * 3)), std::make_shared<IndependentSampler>(), 1, 12);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128 * 3, 128 * 3), 3), std::make_unique<SequenceTileGenerator>(Point2i(128 * 3, 128 * 3)), std::make_shared<IndependentSampler>(), 1, 6);
     std::cout << "start rendering" << std::endl;
     auto before = std::chrono::steady_clock::now();
     integrator.render(scene);

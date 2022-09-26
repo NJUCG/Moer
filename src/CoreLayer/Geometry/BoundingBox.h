@@ -49,7 +49,7 @@ public:
 	 * \brief Intersect of ray and bounding box
 	 * \return A pointer to the pair (t0, t1)
 	 */
-	std::optional<Point2d> Intersection(const Ray& r) {
+	std::optional<Point2d> Intersection(const Ray& r) const{
 		double t0 = 0, t1 = DBL_MAX;
 		for (int i = 0; i < 3; i++) {
 			double inv = 1.0 / r.direction[i];

@@ -8,3 +8,4 @@ set(ASSIMP_WARNINGS_AS_ERRORS off)
 
 add_subdirectory(./glfw)
 add_subdirectory(./imgui)
+add_subdirectory(./embree3)

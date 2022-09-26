@@ -15,11 +15,19 @@
 #include "FunctionLayer/Material/Material.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
-
 #include "CoreLayer/Adapter/JsonUtil.hpp"
-
+#include <embree3/rtcore.h>
 #include <optional>
 #include <memory>
+
+struct EntitySurfaceInfo {
+	Point3d position;
+	Normal3d normal;
+	Normal3d tangent;
+	Normal3d bitangent;
+	Point2d uv;
+};
+
 
 struct Intersection;
 class Light;
@@ -46,6 +54,12 @@ public:
     Entity(const Json json) : Transform3D(json.at("transform")){
 
     }
+
+	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const = 0;
+
+	virtual EntitySurfaceInfo
+	getEntitySurfaceInfo(int instID, Point2d uv) const = 0;
+
 };
 
 
