@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file MatteMaterial.h
  * @author Junping Yuan
  * @brief
  * @version 0.1
@@ -12,17 +12,17 @@
 #pragma  once
 #include "Material.h"
 #include "FunctionLayer/Intersection.h"
-#include "FunctionLayer/Texture/Texture.h"
 
-class MatteMaterial     : public  Material{
-private:
-    std::shared_ptr<Texture<Spectrum>> kd ;
+class MatteMaterial   : public  Material{
+
 public:
-    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & kd );
+    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & _albedo = nullptr,
+                  const std::shared_ptr<Texture<double>> & _bump = nullptr);
+    MatteMaterial(const Json &);
+    std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const   override;
 
-    virtual std::shared_ptr<BxDF> getBxDF(Intersection intersect) const;
-
-    virtual std::shared_ptr<BSSRDF> getBSSRDF(Intersection intersect) const;
+    std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const  override;
+protected:
 
 };
 

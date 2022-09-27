@@ -23,7 +23,7 @@ BxDFSampleResult TestMirrorBxdf::sample(const Vec3d &wo, const Point2d &sample) 
 
     auto wi = sampleWi(wo, sample);
     result.directionIn = wi;
-    result.isSpecular = false;
+    result.bxdfSampleType= BXDFType(BXDF_SPECULAR | BXDF_REFLECTION);
     result.pdf = 1.0;
     result.s = 1.0;
 

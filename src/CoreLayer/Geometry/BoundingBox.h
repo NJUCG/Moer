@@ -49,7 +49,7 @@ public:
 	 * \brief Intersect of ray and bounding box
 	 * \return A pointer to the pair (t0, t1)
 	 */
-	std::optional<Point2d> Intersection(const Ray& r) {
+	std::optional<Point2d> Intersection(const Ray& r) const{
 		double t0 = 0, t1 = DBL_MAX;
 		for (int i = 0; i < 3; i++) {
 			double inv = 1.0 / r.direction[i];
@@ -98,6 +98,15 @@ static BoundingBox3<BaseType> BoundingBoxUnionIntersect(const BoundingBox3<BaseT
 	TPoint3<BaseType> _pMin(std::max(b1.pMin[0], b2.pMin[0]), std::max(b1.pMin[1], b2.pMin[1]), std::max(b1.pMin[2], b2.pMin[2]));
 	TPoint3<BaseType> _pMax(std::min(b1.pMax[0], b2.pMax[0]), std::min(b1.pMax[1], b2.pMax[1]), std::min(b1.pMax[2], b2.pMax[2]));
 	return BoundingBox3(_pMin, _pMax);
+}
+
+template <typename BaseType>
+static BoundingBox3<BaseType> BoundingBoxPointUnion(const BoundingBox3<BaseType>& b1,
+                                                    const TPoint3<BaseType>& p)
+{
+    TPoint3<BaseType> _pMin(std::min(b1.pMin[0],p[0]), std::min(b1.pMin[1],p[1]), std::min(b1.pMin[2],p[2]));
+    TPoint3<BaseType> _pMax(std::max(b1.pMax[0],p[0]), std::max(b1.pMax[1],p[1]), std::max(b1.pMax[2],p[3]));
+    return BoundingBox3(_pMin, _pMax);
 }
 
 using BoundingBox3f = BoundingBox3<double>;

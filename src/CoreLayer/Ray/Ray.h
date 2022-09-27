@@ -13,8 +13,8 @@
 
 #include <memory>
 #include "CoreLayer/Geometry/Geometry.h"
-#include "FunctionLayer/Medium/Medium.h"
 #include <cfloat>
+
 
 /// \brief ray
 struct Ray
@@ -24,10 +24,7 @@ struct Ray
 
 	double timeMin;		///< The time when the shutter open
 	double timeMax;		///< The time when the shutter close
-
-	std::shared_ptr<Medium> medium;		///< The medium
-
-	Point3d at(double t);
+	Point3d at(double t) const ;
 
 	bool withinTime(double time);
 

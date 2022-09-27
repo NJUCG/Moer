@@ -14,6 +14,7 @@
 #include "Geometry.h"
 #include "Matrix.h"
 
+#include <CoreLayer/Adapter/JsonUtil.hpp>
 #include <memory>
 
 /// \ingroup Geometry
@@ -21,18 +22,21 @@
 class Transform3D
 {
 
-	std::shared_ptr<TransformMatrix3D> matrix;
 
-	bool isDone = false;
 
 protected:
 	// apply matrix to this object. Cache should be managed locally.
 	virtual void apply() = 0;
+    //I move this from private to protected since object needs matrix to apply transform.
+    std::shared_ptr<TransformMatrix3D> matrix;
 
+    bool isDone = false;
 public:
 	Transform3D();
 
 	Transform3D(std::shared_ptr<Transform3D> _matrix);
+
+    Transform3D(const Json);
 
 	void setTranslate(double x, double y, double z);
 

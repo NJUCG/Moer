@@ -112,4 +112,9 @@ public:
 	*/
 	virtual std::optional<std::shared_ptr<Tile>> generateNextTile() = 0;
 
+    /*
+     * avoid delete mutex
+     */
+    virtual ~TileGenerator() {};
+
 };

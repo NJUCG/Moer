@@ -14,7 +14,7 @@
 #include "Entity.h"
 #include "Triangle.h"
 #include "ResourceLayer/File/MeshData.h"
-#include "FunctionLayer/Aggregate/Bvh.h"
+#include "FunctionLayer/Acceleration/Bvh.h"
 #include <optional>
 #include <memory>
 
@@ -22,24 +22,50 @@
 class Mesh : public Entity 
 {
 public:
+    friend class Bvh;
+    
     Mesh() = default;
+    
     Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material);
+    
     virtual ~Mesh() = default;
+    
     virtual std::optional<Intersection> intersect(const Ray &r) const override;
+    
     virtual double area() const override;
-    //TODO, name -> sampleOnSurface, param-> Point2d sample
+        
     virtual Intersection sample(const Point2d &positionSample) const override;
+    
     virtual std::shared_ptr<Light> getLight() const override;
+    
     virtual void setLight(std::shared_ptr<Light> light) override;
-    //TODO, why up case?
+    
     virtual BoundingBox3f WorldBound() const override;
 
+    Triangle getTriangle(int idx) const;
+
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
+
+    virtual EntitySurfaceInfo getEntitySurfaceInfo(int primIDs,
+                                                   Point2d uv) const override;
+
 protected:
-    std::shared_ptr<MeshData> data;
+	Eigen::MatrixXd m_vertices;
+	
+	Eigen::MatrixXd m_normals;
+
+	Eigen::MatrixXd m_tangents;
+
+	Eigen::MatrixXd m_bitangents;
+	
+	std::vector<Point2d> m_UVs;
+
+	std::vector<Point3i> m_indices;
+
+    BoundingBox3f m_aabb;
+  
     std::shared_ptr<Bvh>      BVH;      ///< Spacial accelerate structure
                                         /// \todo Replace with abstruct class
-    //* Make it compatible with the bvh
-    std::vector<std::shared_ptr<Entity>> m_triangles;
     
     virtual void apply() override;
 };

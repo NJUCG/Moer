@@ -1,0 +1,52 @@
+/**
+ * @file
+ * @author Junping Yuan 
+ * @brief 
+ * @version 0.1
+ * @date 
+ *
+ * @copyright NJUMeta (c) 2022 
+ * www.njumeta.com
+ *
+ */
+
+#pragma  once
+#include "LambertainBxDF.h"
+
+
+LambertainBxDF::LambertainBxDF(Spectrum albedo) : albedo(albedo) {
+}
+
+
+Spectrum LambertainBxDF::f(const Vec3d & wo , const Vec3d & wi) const {
+    if(Frame::cosTheta(wi )<0 || Frame::cosTheta(wo )<0){
+        return 0;
+    }
+    return albedo * INV_PI ;
+
+}
+
+Vec3d LambertainBxDF::sampleWi(const Vec3d & wo , const Point2d &sample) const {
+    return SquareToUniformHemisphere(sample);
+}
+
+double LambertainBxDF::pdf(const Vec3d &wo , const Vec3d & wi) const {
+    return SquareToUniformHemispherePdf(wi);
+}
+
+BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample) const {\
+    BxDFSampleResult result ;
+
+    auto wi = sampleWi(wo,sample);
+    result.directionIn = wi ;
+    result.bxdfSampleType = BXDFType(BXDF_DIFFUSE | BXDF_REFLECTION);
+    result.pdf = pdf(wo,wi);
+    result.s = f(wo,wi);
+
+    return result;
+}
+
+bool LambertainBxDF::isSpecular() const {
+    return false;
+}
+

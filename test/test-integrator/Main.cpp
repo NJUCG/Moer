@@ -17,7 +17,8 @@
 #include "FunctionLayer/Sampler/Independent.h"
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
-#include "FunctionLayer/Material/TestMirror.h"
+#include "FunctionLayer/Material/MirrorMaterial.h"
+
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
@@ -35,7 +36,7 @@ TEST_CASE("test-integrator")
     std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
     std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(imageTexture);
     std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
-    std::shared_ptr<TestMirror> mirror = std::make_shared<TestMirror>();
+    std::shared_ptr<MirrorMaterial> mirror = std::make_shared<MirrorMaterial>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, mirror));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));

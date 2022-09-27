@@ -18,34 +18,15 @@
 #include "CoreLayer/Geometry/BoundingBox.h"
 
 #include <string>
+#include <vector>
 
 class MeshData
 {
 public:
 	friend class MeshDataManager;
 
-	Point3d getVertexAt(int i) const;
-
-	Normal3d getNormalAt(int i) const;
-
-	Point2d getUvAt(int i) const;
-
-	Vec3d getTangentAt(int i) const;
-
-	Vec3d getBitangentAt(int i) const;
-
-	// @brief get 3 indices for ist triangle mesh. In order.
-	Point3i getTriangleIndiceAt(int i) const;
-
-	int getTriangleNum() const;
-
-	BoundingBox3f getAABB() const;
-
-private:
-	//double *vertexRaw;
 	Eigen::MatrixXd m_vertices;
 	
-	//double *normalRaw;
 	Eigen::MatrixXd m_normals;
 
 	Eigen::MatrixXd m_tangents;
@@ -56,10 +37,4 @@ private:
 
 	std::vector<Point3i> m_indices;
 
-	BoundingBox3f m_aabb;
-
-	// @brief init MeshData from raw data pointer. MeshData can not be initialized from file path cause one single file may cantain multiple MeshData.
-	MeshData(double *_v, double *_n, double *_uv, double *_tan, double *_bi, int *_indice);
-
-	MeshData() { }
 };
