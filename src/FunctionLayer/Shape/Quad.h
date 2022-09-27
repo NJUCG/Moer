@@ -32,4 +32,12 @@ public:
     virtual void setLight(std::shared_ptr<Light> light);
     virtual BoundingBox3f WorldBound() const;
 
+    //TODO
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
+    //TODO
+	virtual EntitySurfaceInfo
+	getEntitySurfaceInfo(int primID, Point2d _uv) const override;
+
+    friend void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args);
+
 };

@@ -14,8 +14,8 @@
 
 static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(RGB3(1, 1, 1).toSpectrum());
 
-Material::Material(const std::shared_ptr < Texture < Spectrum>> & _albedo,
-                   const std::shared_ptr < Texture < double>> & _bump)
+Material::Material(const std::shared_ptr <Texture <Spectrum>> & _albedo,
+                   const std::shared_ptr <Texture <double>> & _bump)
                  :albedo(_albedo),bump(_bump)
 {
   if(albedo == nullptr)
@@ -28,7 +28,14 @@ std::shared_ptr < BxDF > Material::getBxDF(const Intersection & intersect) const
 
 
 std::shared_ptr < BSSRDF > Material::getBSSRDF(const Intersection & intersect) const {
-    return std::shared_ptr < BSSRDF >();
+    return std::shared_ptr <BSSRDF>();
 }
 
+std::shared_ptr<Medium> Material::getInsideMedium() const {
+    return insideMedium;
+}
+
+std::shared_ptr<Medium> Material::getOutsideMedium() const {
+    return outsideMedium;
+}
 

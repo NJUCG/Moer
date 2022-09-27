@@ -76,6 +76,10 @@
             "albedo":[1, 1, 1],
             "ior" : 1.33,
             "type":"dielectric"
+        },
+        {
+            "name" : "null-bsdf",
+            "type" : "null"
         }
     ],
     "entities": [
@@ -223,9 +227,9 @@
                 ]
             },
             "emission": [
-                17,
-                12,
-                4
+                34,
+                24,
+                8
             ],
             "type": "quad",
             "material": "light"
@@ -240,7 +244,7 @@
                 "rotation" : [0, 0, 0]
             },
             "type" : "sphere",
-            "material" : "water"
+            "material" : "backWall"
         }, 
         {
             "name" : "sphere2",
@@ -251,7 +255,7 @@
                 "rotation" : [0, 0, 0]
             },
             "type" : "sphere",
-            "material" : "backWall"
+            "material" : "null-bsdf"
         }
     ]
 }

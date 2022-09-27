@@ -30,4 +30,12 @@ public:
     virtual std::shared_ptr<Light> getLight() const;
     virtual void setLight(std::shared_ptr<Light> light);
 	virtual BoundingBox3f WorldBound() const;
+
+    //TODO
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const;
+    //TODO
+	virtual EntitySurfaceInfo
+	getEntitySurfaceInfo(int instID, Point2d uv) const;
+
+    friend void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args);
 };

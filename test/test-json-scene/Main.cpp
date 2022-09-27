@@ -23,6 +23,7 @@
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator-new.h"
+#include "FunctionLayer/Integrator/VolPathIntegrator.h"
 #include "FunctionLayer/Shape/Triangle.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "ResourceLayer/ResourceManager.h"
@@ -61,9 +62,9 @@ TEST_CASE("load-cornell-box")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 35, 1/0.56, 3.17f);
-    PathIntegratorNew integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 25, 12);
+    VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 16, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("cornell-box-9-22-zcx.bmp");
+    integrator.save("9-26-embree-1.bmp");
     std::cout << "finish" << std::endl;
 }

@@ -28,6 +28,7 @@
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
 #include "FunctionLayer/Shape/Triangle.h"
+#include "FunctionLayer/Shape/Quad.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "ResourceLayer/ResourceManager.h"
 
@@ -38,6 +39,8 @@ TEST_CASE("test-mesh")
 
     std::vector<std::shared_ptr<MeshData>> meshes 
         = meshDataManager->getMeshData("../../asset/monkey.obj");
+
+    
     
 
     Spectrum::init();

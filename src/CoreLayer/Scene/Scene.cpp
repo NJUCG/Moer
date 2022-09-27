@@ -11,7 +11,7 @@
  */
 
 #include "Scene.h"
-
+#include "FunctionLayer/Acceleration/Embree.h"
 #include "FunctionLayer/Material/MaterialFactory.h"
 #include "FunctionLayer/Shape/EntityFactory.h"
 
@@ -32,34 +32,12 @@ Scene::Scene(const Json & json) {
 }
 
 void Scene::build() {
-	BVH = std::make_shared<Bvh>(*entities);
+	//accel = std::make_shared<Bvh>(*entities);
+    accel = std::make_shared<EmbreeAccel>(*entities);
 }
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
-    if (BVH)
-	    return BVH->Intersect(r);
-    std::optional<Intersection> minIntersection;
-    for (auto i : *entities)
-    {
-        auto its = i->intersect(r);
-       if (its.has_value())
-        {
-            if (minIntersection.has_value())
-            {
-                double d = (its->position - r.origin).length2();
-                double d0 = (minIntersection->position - r.origin).length2();
-                if (d < d0)
-                {
-                    minIntersection = its;
-                }
-            }
-            else
-            {
-                minIntersection = its;
-            }
-        }
-    }
-    return minIntersection;
+    return accel->Intersect(r);
 }
 
 std::shared_ptr<std::vector<std::shared_ptr<Light>>> Scene::getLights() const
