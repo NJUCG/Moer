@@ -1114,3 +1114,47 @@ XYZ3 SampledSpectrum::toXYZ3() const
     xyz *= scale;
     return xyz;
 }
+
+RGB3 SampledSpectrum::toRGB3() const
+{
+    return toXYZ3().toRGB3();
+}
+
+// RGB spectrum implementions
+
+RGBSpectrum::RGBSpectrum()
+    :CoefficientSpectrum()
+{
+    // empty
+}
+
+RGBSpectrum::RGBSpectrum(double val)
+    :CoefficientSpectrum(val)
+{
+    // empty
+}
+
+RGBSpectrum::RGBSpectrum(const RGB3& rgb)
+{
+    coefficients[0]=rgb[0];
+    coefficients[1]=rgb[1];
+    coefficients[2]=rgb[2];
+}
+
+RGBSpectrum RGBSpectrum::fromSampled(std::vector<SpectrumSample> v,int n)
+{
+    // TODO
+    return RGBSpectrum();
+}
+
+XYZ3 RGBSpectrum::toXYZ3() const
+{
+    RGB3 rgb(coefficients[0],coefficients[1],coefficients[2]);
+    return rgb.toXYZ3();
+}
+
+RGB3 RGBSpectrum::toRGB3() const
+{
+    RGB3 rgb(coefficients[0],coefficients[1],coefficients[2]);
+    return rgb;
+}

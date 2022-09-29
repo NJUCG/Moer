@@ -356,8 +356,14 @@ public:
 
 	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
-		//DEBUG this function should never be called.
+		// this function should never be called.
 		return XYZ3(0.0);
+	}
+
+	/// \attention This function is just used for debugging
+	virtual RGB3 toRGB3() const {
+		// this function should never be called.
+		return RGB3(0.0);
 	}
 };
 
@@ -425,10 +431,25 @@ public:
 	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 
 	virtual XYZ3 toXYZ3() const override;
+
+	virtual RGB3 toRGB3() const override;
 };
 
-/// \todo To be finished
+/// @brief RGB spectrum. The value of RGB spectrum is the same as RGB3.
 class RGBSpectrum : public CoefficientSpectrum<3>
 {
-	// TODO RGBSpectrum
+public:
+
+	RGBSpectrum();
+
+	RGBSpectrum(double val);
+
+	RGBSpectrum(const RGB3& rgb);
+
+	static RGBSpectrum fromSampled(std::vector<SpectrumSample> v,int n);
+
+	virtual XYZ3 toXYZ3() const override;
+
+	virtual RGB3 toRGB3() const override;
+	
 };
