@@ -14,7 +14,7 @@
 #include <vector>
 #include <cmath>
 #include <cfloat>
-
+#include "CoreLayer/Adapter/JsonUtil.hpp"
 class RGB3;
 class XYZ3;
 class SampledSpectrum;
@@ -75,21 +75,24 @@ public:
 	double operator[](int i) const;
 	double &operator[](int i);
 
-	RGB3 operator+(const RGB3 &rgb);
-	RGB3 operator-(const RGB3 &rgb);
-	RGB3 operator*(const RGB3 &rgb);
-	RGB3 operator/(const RGB3 &rgb);
+	RGB3 operator+(const RGB3 &rgb) const ;
+	RGB3 operator-(const RGB3 &rgb) const ;
+	RGB3 operator*(const RGB3 &rgb) const ;
+	RGB3 operator/(const RGB3 &rgb) const ;
 
-	RGB3 &operator+=(const RGB3 &rgb);
+    RGB3  pow(double v) const ;
+
+    RGB3 &operator+=(const RGB3 &rgb);
 	RGB3 &operator-=(const RGB3 &rgb);
 	RGB3 &operator*=(const RGB3 &rgb);
 	RGB3 &operator/=(const RGB3 &rgb);
 
-	RGB3 operator*(double v);
+    RGB3 operator*(double v);
 	RGB3 operator/(double v);
 
 	RGB3 &operator*=(double v);
 	RGB3 &operator/=(double v);
+
 
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
@@ -98,6 +101,7 @@ public:
 	/// @brief Convert RGB3 to SampledSpectrum.
 	Spectrum toSpectrum(SpectrumType type=SpectrumType::REFLECTANCE) const;
 };
+
 
 /**
  * @brief XYZ3 color space

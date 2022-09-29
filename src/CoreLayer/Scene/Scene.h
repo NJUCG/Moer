@@ -17,6 +17,7 @@
 #include "FunctionLayer/Acceleration/Accel.h"
 #include "FunctionLayer/Intersection.h"
 #include "FunctionLayer/Light/Light.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 #include "nlohmann/json.hpp"
 #include <optional>
@@ -28,6 +29,8 @@ class Scene
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights;
 	std::shared_ptr<std::vector<std::shared_ptr<Entity>>> entities;
     std::unordered_map<std::string,std::shared_ptr<Material>> materials;
+    std::unordered_map<std::string,std::shared_ptr<Medium>> mediums;
+
 public:
 	Scene();
     Scene(const Json & json);
@@ -43,4 +46,6 @@ public:
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> getLights() const;
 
     std::shared_ptr<Material> fetchMaterial(const std::string & name = "default") const;
+    std::shared_ptr<Medium>   fetchMedium(const std::string & name) const;
+
 };

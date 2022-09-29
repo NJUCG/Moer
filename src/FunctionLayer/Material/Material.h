@@ -48,6 +48,9 @@ public:
     std::shared_ptr<Medium> getInsideMedium() const;
     std::shared_ptr<Medium> getOutsideMedium() const;
 
+    void setInsideMedium(std::shared_ptr<Medium> _insideMedium);
+    void setOutMedium(std::shared_ptr<Medium> _outsideMedium);
+
     EMaterialType type = EMaterialType::Unkown;
 
 protected:

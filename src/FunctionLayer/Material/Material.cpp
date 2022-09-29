@@ -39,3 +39,11 @@ std::shared_ptr<Medium> Material::getOutsideMedium() const {
     return outsideMedium;
 }
 
+void Material::setInsideMedium(std::shared_ptr < Medium > _insideMedium) {
+    insideMedium = _insideMedium;
+}
+
+void Material::setOutMedium(std::shared_ptr < Medium > _outsideMedium) {
+    outsideMedium = _outsideMedium;
+}
+

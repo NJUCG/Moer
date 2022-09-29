@@ -1,4 +1,14 @@
 {
+    "mediums" : [
+        {
+            "type": "beers_law",
+             "name": "medium1"
+        },
+        {
+            "type": "homogeneous",
+            "name": "medium2"
+        }
+    ],
     "materials": [
 
 
@@ -9,7 +19,9 @@
                 0.065,
                 0.05
             ],
-            "type": "lambert"
+            "type": "lambert",
+            "in_medium" : "medium1",
+            "out_medium": "medium2"
         },
         
         {
