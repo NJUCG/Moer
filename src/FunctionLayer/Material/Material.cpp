@@ -12,7 +12,7 @@
 #include "Material.h"
 #include "FunctionLayer/Texture/Texture.h"
 
-static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(RGB3(1, 1, 1).toSpectrum());
+static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(1, 1, 1)));
 
 Material::Material(const std::shared_ptr <Texture <Spectrum>> & _albedo,
                    const std::shared_ptr <Texture <double>> & _bump)

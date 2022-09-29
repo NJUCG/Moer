@@ -82,7 +82,7 @@ int Image::getHeight() const
 
 void Image::setColorAt(const Point2i &p, const Spectrum &s)
 {
-    setColorAt(p, s.toXYZ3().toRGB3());
+    setColorAt(p, s.toRGB3());
 }
 
 void Image::setColorAt(const Point2i &p, const RGB3 &rgb)
@@ -118,7 +118,7 @@ RGB3 Image::getRGBColorAt(const Point2i &p)
 
 Spectrum Image::getSpectrumColorAt(const Point2i &p)
 {
-    return getRGBColorAt(p).toSpectrum();
+    return Spectrum(getRGBColorAt(p));
 }
 
 bool Image::saveTo(const std::string &path)

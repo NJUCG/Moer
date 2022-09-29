@@ -39,7 +39,7 @@
 
 TEST_CASE("load-cornell-box")
 {
-    Spectrum::init();
+    SampledSpectrum::init();
 
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::cout << "scene start" << std::endl;
@@ -49,7 +49,7 @@ TEST_CASE("load-cornell-box")
     std::filesystem::path path(dir);
     std::string rootDir= path.parent_path().parent_path().string();
     std::string sceneDir = "/scenes/scene.json";
-    std::ifstream sceneFile(rootDir+sceneDir);
+    std::ifstream sceneFile("F:/NJUCG/scenes/scene.json");
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
    // scene->addEntity(std::make_shared<Quad>());
@@ -65,6 +65,6 @@ TEST_CASE("load-cornell-box")
     VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 16, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("9-26-embree-1.bmp");
+    integrator.save("F:/NJUCG/9-26-embree-RGB.bmp");
     std::cout << "finish" << std::endl;
 }

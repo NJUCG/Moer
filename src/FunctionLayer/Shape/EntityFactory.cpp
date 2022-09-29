@@ -13,7 +13,7 @@ namespace EntityFactory{
             Vec3d emission;
             if(containsAndGet(json,"emission",emission)){
                 entity->setLight(std::make_shared<DiffuseAreaLight>(entity,
-                       RGB3(emission.x,emission.y,emission.z).toSpectrum()));
+                       Spectrum(RGB3(emission.x,emission.y,emission.z))));
             }
         }
         return entity;

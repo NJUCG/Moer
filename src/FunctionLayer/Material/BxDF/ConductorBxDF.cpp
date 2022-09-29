@@ -23,7 +23,7 @@ BxDFSampleResult ConductorBxDF::sample(const Vec3d & out, const Point2d & sample
     result.directionIn = Frame::reflect(out);
     result.pdf = 1;
     Vec3d F = Fresnel::conductorReflectance(eta, k, out.z);
-    result.s =  albedo  *  RGB3(F.x,F.y,F.z).toSpectrum();
+    result.s =  albedo  *  Spectrum(RGB3(F.x,F.y,F.z));
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
     return result;
 }

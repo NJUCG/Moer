@@ -1044,6 +1044,94 @@ SampledSpectrum::SampledSpectrum(const CoefficientSpectrum& s)
     : CoefficientSpectrum(s)
 {
     // empty
+    
+}
+
+// Smits, B. 1999. An RGB-to-spectrum conversion for reflectances. Journal of Graphics Tools 4 (4), 11–22.
+SampledSpectrum::SampledSpectrum(const RGB3& rgb,SpectrumType type)
+{
+    SampledSpectrum *r=this;
+    if (type == SpectrumType::REFLECTANCE) {
+        // Convert reflectance spectrum to rgb
+        if (rgb[0] <= rgb[1] && rgb[0] <= rgb[2]) {
+            // Compute reflectance _SampledSpectrum_ with _rgb[0]_ as minimum
+            r->operator+=((rgb[0] * SampledSpectrum::rgbRefl2SpectWhite));
+            if (rgb[1] <= rgb[2]) {
+                r ->operator+= ((rgb[1] - rgb[0]) * SampledSpectrum::rgbRefl2SpectCyan);
+                r ->operator+= ((rgb[2] - rgb[1]) * SampledSpectrum::rgbRefl2SpectBlue);
+            }
+            else {
+                r ->operator+= ((rgb[2] - rgb[0]) * SampledSpectrum::rgbRefl2SpectCyan);
+                r ->operator+= ((rgb[1] - rgb[2]) * SampledSpectrum::rgbRefl2SpectGreen);
+            }
+        }
+        else if (rgb[1] <= rgb[0] && rgb[1] <= rgb[2]) {
+            // Compute reflectance _SampledSpectrum_ with _rgb[1]_ as minimum
+            r ->operator+= (rgb[1] * SampledSpectrum::rgbRefl2SpectWhite);
+            if (rgb[0] <= rgb[2]) {
+                r ->operator+= ((rgb[0] - rgb[1]) * SampledSpectrum::rgbRefl2SpectMagenta);
+                r ->operator+= ((rgb[2] - rgb[0]) * SampledSpectrum::rgbRefl2SpectBlue);
+            }
+            else {
+                r ->operator+= ((rgb[2] - rgb[1]) * SampledSpectrum::rgbRefl2SpectMagenta);
+                r ->operator+= ((rgb[0] - rgb[2]) * SampledSpectrum::rgbRefl2SpectRed);
+            }
+        }
+        else {
+            // Compute reflectance _SampledSpectrum_ with _rgb[2]_ as minimum
+            r ->operator+= (rgb[2] * SampledSpectrum::rgbRefl2SpectWhite);
+            if (rgb[0] <= rgb[1]) {
+                r ->operator+= ((rgb[0] - rgb[2]) * SampledSpectrum::rgbRefl2SpectYellow);
+                r ->operator+= ((rgb[1] - rgb[0]) * SampledSpectrum::rgbRefl2SpectGreen);
+            }
+            else {
+                r ->operator+= ((rgb[1] - rgb[2]) * SampledSpectrum::rgbRefl2SpectYellow);
+                r ->operator+= ((rgb[0] - rgb[1]) * SampledSpectrum::rgbRefl2SpectRed);
+            }
+        }
+        r ->operator*= (.94);
+    }
+    else {
+        // Convert illuminant spectrum to rgb
+        if (rgb[0] <= rgb[1] && rgb[0] <= rgb[2]) {
+            // Compute illuminant _SampledSpectrum_ with _rgb[0]_ as minimum
+            r ->operator+= (rgb[0] * SampledSpectrum::rgbIllum2SpectWhite);
+            if (rgb[1] <= rgb[2]) {
+                r ->operator+= ((rgb[1] - rgb[0]) * SampledSpectrum::rgbIllum2SpectCyan);
+                r ->operator+= ((rgb[2] - rgb[1]) * SampledSpectrum::rgbIllum2SpectBlue);
+            }
+            else {
+                r ->operator+= ((rgb[2] - rgb[0]) * SampledSpectrum::rgbIllum2SpectCyan);
+                r ->operator+= ((rgb[1] - rgb[2]) * SampledSpectrum::rgbIllum2SpectGreen);
+            }
+        }
+        else if (rgb[1] <= rgb[0] && rgb[1] <= rgb[2]) {
+            // Compute illuminant _SampledSpectrum_ with _rgb[1]_ as minimum
+            r ->operator+= (rgb[1] * SampledSpectrum::rgbIllum2SpectWhite);
+            if (rgb[0] <= rgb[2]) {
+                r ->operator+= ((rgb[0] - rgb[1]) * SampledSpectrum::rgbIllum2SpectMagenta);
+                r ->operator+= ((rgb[2] - rgb[0]) * SampledSpectrum::rgbIllum2SpectBlue);
+            }
+            else {
+                r ->operator+= ((rgb[2] - rgb[1]) * SampledSpectrum::rgbIllum2SpectMagenta);
+                r ->operator+= ((rgb[0] - rgb[2]) * SampledSpectrum::rgbIllum2SpectRed);
+            }
+        }
+        else {
+            // Compute illuminant _SampledSpectrum_ with _rgb[2]_ as minimum
+            r ->operator+= (rgb[2] * SampledSpectrum::rgbIllum2SpectWhite);
+            if (rgb[0] <= rgb[1]) {
+                r ->operator+= ((rgb[0] - rgb[2]) * SampledSpectrum::rgbIllum2SpectYellow);
+                r ->operator+= ((rgb[1] - rgb[0]) * SampledSpectrum::rgbIllum2SpectGreen);
+            }
+            else {
+                r ->operator+= ((rgb[1] - rgb[2]) * SampledSpectrum::rgbIllum2SpectYellow);
+                r ->operator+= ((rgb[0] - rgb[1]) * SampledSpectrum::rgbIllum2SpectRed);
+            }
+        }
+        r ->operator*= (.86445f);
+      
+    }
 }
 
 SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> v)
@@ -1113,4 +1201,54 @@ XYZ3 SampledSpectrum::toXYZ3() const
     double scale = double(sampledLambdaEnd - sampledLambdaStart) / double(CIE_Y_integral * nSpectrumSamples);
     xyz *= scale;
     return xyz;
+}
+
+RGB3 SampledSpectrum::toRGB3() const
+{
+    return toXYZ3().toRGB3();
+}
+
+// RGB spectrum implementions
+
+RGBSpectrum::RGBSpectrum()
+    :CoefficientSpectrum()
+{
+    // empty
+}
+
+RGBSpectrum::RGBSpectrum(double val)
+    :CoefficientSpectrum(val)
+{
+    // empty
+}
+
+RGBSpectrum::RGBSpectrum(const RGB3& rgb)
+{
+    coefficients[0]=rgb[0];
+    coefficients[1]=rgb[1];
+    coefficients[2]=rgb[2];
+}
+
+RGBSpectrum::RGBSpectrum(const CoefficientSpectrum& s)
+    :CoefficientSpectrum(s)
+{
+    // empty
+}
+
+RGBSpectrum RGBSpectrum::fromSampled(std::vector<SpectrumSample> v,int n)
+{
+    // TODO
+    return RGBSpectrum();
+}
+
+XYZ3 RGBSpectrum::toXYZ3() const
+{
+    RGB3 rgb(coefficients[0],coefficients[1],coefficients[2]);
+    return rgb.toXYZ3();
+}
+
+RGB3 RGBSpectrum::toRGB3() const
+{
+    RGB3 rgb(coefficients[0],coefficients[1],coefficients[2]);
+    return rgb;
 }
