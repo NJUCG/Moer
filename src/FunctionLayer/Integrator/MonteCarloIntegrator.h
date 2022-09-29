@@ -32,13 +32,6 @@ protected:
 
     int renderThreadNum=4;              ///< Default rendering threads = 4
 
-    std::shared_ptr<TileGenerator> tileGenerator;
-
-    // @brief: render process per thread. Should be called in render().
-    void renderPerThread(std::shared_ptr<Scene> scene);
-
-    int renderThreadNum=4;
-
 public:
     MonteCarloIntegrator(
         std::shared_ptr<Camera> _camera, 
