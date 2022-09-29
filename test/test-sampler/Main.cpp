@@ -18,7 +18,7 @@
 #include "FunctionLayer/Light/PointLight.h"
 #include "FunctionLayer/Material/MatteMaterial.h"
 #include "FunctionLayer/Material/MirrorMaterial.h"
-#include "FunctionLayer/Material/DelectricMaterial.h"
+#include "FunctionLayer/Material/DielectricMaterial.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
@@ -92,7 +92,7 @@ TEST_CASE("test-material-delectric")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<DelectricMaterial>  deletric = std::make_shared<DelectricMaterial>();
+    std::shared_ptr<DielectricMaterial>  deletric = std::make_shared<DielectricMaterial>();
     std::shared_ptr<MirrorMaterial>  mirror = std::make_shared<MirrorMaterial>();
     std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
     std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));

@@ -15,11 +15,22 @@
 #include <cmath>
 #include "Integrator.h"
 
+/**
+ * @brief Base class for all integrators solving rendering equation using MonteCarlo methods
+ * @ingroup Integrator
+ */
 class MonteCarloIntegrator : public Integrator
 {
 protected:
     std::shared_ptr<Sampler> sampler;
-    int spp = 4;
+    int spp = 4;                        ///< Default sample per pixel = 4
+
+    std::shared_ptr<TileGenerator> tileGenerator;
+
+    /// @brief: render process per thread. Should be called in render().
+    void renderPerThread(std::shared_ptr<Scene> scene);
+
+    int renderThreadNum=4;              ///< Default rendering threads = 4
 
     std::shared_ptr<TileGenerator> tileGenerator;
 
@@ -40,8 +51,9 @@ public:
 
     virtual void render(std::shared_ptr<Scene> scene);
 
-    // @brief Estimate radiance along a given ray
+    /// @brief Estimate radiance along a given ray
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene) = 0;
-    // @brief Get a random number WITHOUT using MonteCarloIntegrator::sampler
+    
+    /// @brief Get a random number WITHOUT using MonteCarloIntegrator::sampler
     virtual double randFloat();
 };

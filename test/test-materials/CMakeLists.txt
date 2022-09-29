@@ -24,7 +24,6 @@ AddTestModule(
     #../../src/Light/AreaLight.cpp
     #../../src/Light/DiffuseAreaLight.cpp
     #../../src/Transform/Transform3d.cpp
-    #../../src/Entity/Sphere.cpp
     #../../src/Film/Film.cpp
     #../../src/Geometry/CoordConvertor.cpp
 #
@@ -48,8 +47,6 @@ AddTestModule(
     # ../../src/BxDF/Microfacet.h
     # ../../src/BxDF/Mircofacet.cpp
 #
-    # ../../src/Material/TestMirror.cpp
-    # ../../src/Material/TestMirror.h
     # ../../src/Material/MirrorMaterial.h
     # ../../src/Material/MirrorMaterial.cpp
     # ../../src/Material/MatteMaterial.cpp
@@ -68,8 +65,8 @@ AddTestModule(
 set(EXCNAME ${PROJECT_NAME}_${TEST_NAME})
 
 target_include_directories(${EXCNAME} PUBLIC ${PROJECT_EXTERN_INCLUDE})
-target_link_directories(${EXCNAME} PUBLIC ${PROJECT_EXTERN_LIBDIR})
-
+target_link_directories(${EXCNAME} PRIVATE ${PROJECT_SOURCE_DIR}/target/lib)
+target_link_libraries(${EXCNAME} assimp)
 # test for imgui-dx11
 # target_link_libraries(app assimp-vc142-mt imgui-dx11 d3d11 d3dcompiler)
 

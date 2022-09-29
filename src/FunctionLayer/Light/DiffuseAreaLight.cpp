@@ -12,6 +12,7 @@
 
 #include "DiffuseAreaLight.h"
 #include "CoreLayer/Geometry/CoordConvertor.h"
+#include "FunctionLayer/Integrator/AbstractPathIntegrator.h"
 
 DiffuseAreaLight::DiffuseAreaLight(std::shared_ptr<Entity> shape,
                                    Spectrum radiance) : shape(shape),
@@ -108,6 +109,38 @@ LightSampleResult DiffuseAreaLight::sampleDirect(const Intersection &its, const 
         ans.pdfEmitDir = 0;
         ans.pdfDirect = 0;
         ans.wi = wi;
+    }
+    ans.isDeltaPos = false;
+    ans.isDeltaDir = false;
+    return ans;
+}
+
+LightSampleResult DiffuseAreaLight::sampleDirect(const MediumSampleRecord &mRec,
+                                                 Point2d sample,
+                                                 double time)
+{
+    Intersection itsEmitter = shape->sample(sample);
+    Point3d pos = itsEmitter.position;
+    Normal3d normal = itsEmitter.geometryNormal;
+    Vec3d wi = normalize(pos - mRec.scatterPoint);
+    LightSampleResult ans;
+    ans.src = mRec.scatterPoint;
+    ans.dst = itsEmitter.position;
+    double dist2 = (ans.dst - ans.src).length2();
+
+    if (dot(-wi, itsEmitter.geometryNormal) > 0) {
+        ans.s = radiance;
+        ans.pdfEmitPos = 1.0 / shape->area();
+        ans.pdfEmitDir = 1.0 / M_PI / 2;
+        ans.wi = wi;
+        ans.pdfDirect = ans.pdfEmitPos * dist2 / dot(-wi, itsEmitter.geometryNormal);
+
+    } else {
+        ans.s = 0;
+        ans.pdfEmitPos = 0;
+        ans.pdfEmitDir = 0;
+        ans.pdfDirect = 0;
+        ans.wi = wi;        
     }
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;

@@ -13,7 +13,10 @@
 #include <assert.h>
 #include <cmath>
 #include <iostream>
+#include "Eigen/Dense"
 
+/// \ingroup Geometry
+/// \brief Vector2
 template <typename T>
 struct TVector2 {
     
@@ -142,14 +145,12 @@ inline TVector2<int>& TVector2<int>::operator/=(int i) {
     return *this;
 }
 
-
-
+/// \ingroup Geometry
+/// \brief Vector3
 template <typename T>
 struct TVector3 {
-    /*--- data field ---*/
     T x, y, z;
 
-    /*--- constructor ---*/
     TVector3 () { }
 
     TVector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }
@@ -274,6 +275,11 @@ TVector3<T> cross(const TVector3<T> &v1, const TVector3<T> &v2) {
     );
 }
 
-
+inline TVector3<double> 
+eigenToVector3d(Eigen::DenseBase<Eigen::MatrixXd>::ConstColXpr col) {
+    return TVector3<double>{
+        col.x(), col.y(), col.z()
+    };
+}
 
 

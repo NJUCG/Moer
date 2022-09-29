@@ -5,3 +5,4 @@ target
 NJUCG.mdj
 cmake-build*
 .idea
+./doxygen-doc

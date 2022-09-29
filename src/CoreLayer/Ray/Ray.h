@@ -11,28 +11,27 @@
  */
 #pragma once
 
-//#include "../core.h"
 #include <memory>
 #include "CoreLayer/Geometry/Geometry.h"
-#include "FunctionLayer/Medium/Medium.h"
 #include <cfloat>
+
+
+/// \brief ray
 struct Ray
 {
-	Point3d origin;
-	Vec3d direction;
+	Point3d origin;		///< The origin of the ray
+	Vec3d direction;	///< The direction of the ray
 
-	double timeMin;
-	double timeMax;
-
-	std::shared_ptr<Medium> medium;
-
-	Point3d at(double t);
+	double timeMin;		///< The time when the shutter open
+	double timeMax;		///< The time when the shutter close
+	Point3d at(double t) const ;
 
 	bool withinTime(double time);
 
 	Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin = .0f, double _timeMax = DBL_MAX);
 };
 
+/// \brief ray differential
 struct RayDifferential : public Ray
 {
 	Point3d origin_x, origin_y;

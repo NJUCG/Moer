@@ -14,37 +14,41 @@
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Intersection.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 struct LightSampleResult
 {
-	// @brief Spectrum from light.
+	/// @brief Spectrum from light.
 	Spectrum s;
 
-	// @brief Point on an object where receives light if exists.
+	/// @brief Point on an object where receives light if exists.
 	Point3d src;
 
-	// @brief Point on a light where emits light if exists.
+	/// @brief Point on a light where emits light if exists.
 	Point3d dst;
 
-	// @brief Direction from src to dst.
+	/// @brief Direction from src to dst.
 	Vec3d wi;
 
 	Normal3d dstNormal;
 	Point2d uv;
 
-	// @brief PDF of direct light sampling.
+	/// @brief PDF of direct light sampling.
 	double pdfDirect;
-	// @brief Positional emission PDF if exists.
+	/// @brief Positional emission PDF if exists.
 	double pdfEmitPos;
-	// @brief Directional emission PDF if exists.
+	/// @brief Directional emission PDF if exists.
 	double pdfEmitDir;
 
-	// @brief FALSE for area and volume light, TRUE for point and etc
+	/// @brief FALSE for area and volume light, TRUE for point and etc
 	bool isDeltaPos;
-	// @brief TRUE for distant light
+	/// @brief TRUE for distant light
 	bool isDeltaDir;
 };
 
+/// \defgroup Light
+
+/// \brief The base class for all light source
 class Light
 {
 public:
@@ -57,4 +61,8 @@ public:
 	// @brief Note that this function will not return a direct light sampling PDF.
 	virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) = 0;
 	virtual LightSampleResult sampleDirect(const Intersection &its, const Point2d &sample, float time) = 0;
+
+	virtual LightSampleResult sampleDirect(const MediumSampleRecord &mRec,
+										   Point2d sample,
+										   double time) = 0;
 };

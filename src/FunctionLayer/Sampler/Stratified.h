@@ -13,6 +13,8 @@
 #pragma once
 #include "Sampler.h"
 
+/// \brief Stratified generate sample
+/// \ingroup Sampler
 class StratifiedSampler : public PixelSampler {
     // fill the samples1D
     virtual void generateSamples1D(std::vector<double> &samples) override;

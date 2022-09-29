@@ -1,10 +1,12 @@
+
+
+
 #include "Microfacet.h"
+#include "Fresnel.hpp"
 
 Mircofacet::Mircofacet(Spectrum kd, double intIOR, double extIOR,double alpha) : kd(kd),intIOR(intIOR),extIOR(extIOR),alpha(alpha) {
     RGB3 s= kd.toXYZ3().toRGB3();
     ks =1-std::max(s[0],std::max(s[1],s[2]));
-
-
 
 }
 
@@ -13,7 +15,8 @@ Spectrum Mircofacet::f(const Vec3d &wo, const Vec3d &wi) const {
 
     Vec3d  wh=normalize((wi+wo));
 
-    double F= fresnel(dot(wh,wi),extIOR,intIOR);
+
+    double F= Fresnel::fresnel(dot(wh,wi),extIOR,intIOR);
 
     auto G_1=[&](const Vec3d & wv,const Vec3d & wh){
         if(dot(wv,wh)/Frame::cosTheta(wv)<=0)
@@ -73,7 +76,7 @@ double Mircofacet::pdf(const Vec3d &wo, const Vec3d &wi) const {
 BxDFSampleResult Mircofacet::sample(const Vec3d &wo, const Point2d &sample) const {
     BxDFSampleResult result ;
     result.directionIn= sampleWi(wo,sample);
-    result.isSpecular=isSpecular();
+    result.bxdfSampleType =BXDFType(BXDF_DIFFUSE | BXDF_REFLECTION);
     result.pdf= pdf(wo,result.directionIn);
     result.s= f(wo,result.directionIn);
     return result;
