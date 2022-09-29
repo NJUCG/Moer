@@ -47,7 +47,7 @@ TEST_CASE("test-mesh")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.5,0.5,0.5));
 
     for (auto data : meshes) {
         scene->addEntity(std::make_shared<Mesh>(data, lambert));

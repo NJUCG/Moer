@@ -18,6 +18,7 @@
 class RGB3;
 class XYZ3;
 class SampledSpectrum;
+class RGBSpectrum;
 
 // TODO: should be defined by cmake marco.
 using Spectrum = SampledSpectrum;
@@ -60,8 +61,7 @@ enum class SpectrumType { REFLECTANCE, ILLUMINANT };
  */
 class RGB3
 {
-public:
-//TODO delete the public
+private:
 	double rgbData[3];
 
 public:
@@ -94,9 +94,6 @@ public:
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
-
-	/// @brief Convert RGB3 to SampledSpectrum.
-	Spectrum toSpectrum(SpectrumType type=SpectrumType::REFLECTANCE) const;
 };
 
 /**
@@ -425,6 +422,8 @@ public:
 
 	SampledSpectrum(double val);
 
+	SampledSpectrum(const RGB3& rgb,SpectrumType type=SpectrumType::REFLECTANCE);
+
 	SampledSpectrum(const CoefficientSpectrum& s);
 
 	/// \brief generate SampledSpectrum from a set of SpectrumSample.
@@ -445,6 +444,8 @@ public:
 	RGBSpectrum(double val);
 
 	RGBSpectrum(const RGB3& rgb);
+
+	RGBSpectrum(const CoefficientSpectrum& s);
 
 	static RGBSpectrum fromSampled(std::vector<SpectrumSample> v,int n);
 
