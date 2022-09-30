@@ -46,16 +46,19 @@ std::optional<Intersection> Mesh::intersect(const Ray &r) const
 
 void Mesh::apply()
 {
+    return;
 }
 
 double Mesh::area() const
 {
     // TODO
+    return 0;
 }
 
 Intersection Mesh::sample(const Point2d &positionSample) const 
 {
     // TODO
+    return Intersection();
 }
 
 std::shared_ptr<Light> Mesh::getLight() const 
@@ -72,4 +75,68 @@ BoundingBox3f Mesh::WorldBound() const
 {
     // TODO, store the bounding box
     return m_aabb;
+}
+
+RTCGeometry Mesh::toEmbreeGeometry(RTCDevice device) const 
+{
+    RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);
+
+    float *vertices = (float *)rtcSetNewGeometryBuffer(
+        geom, RTC_BUFFER_TYPE_VERTEX, 0, 
+        RTC_FORMAT_FLOAT3,3 * sizeof(float), 
+        m_vertices.cols()
+    );
+
+    //* brute-force copy
+    for (int i = 0; i < m_vertices.cols(); ++i) {
+        auto [x, y, z] = eigenToPoint3d(m_vertices.col(i));
+        vertices[i * 3 + 0] = x;
+        vertices[i * 3 + 1] = y;
+        vertices[i * 3 + 2] = z;
+    };
+
+    unsigned *indices = (unsigned *)rtcSetNewGeometryBuffer(
+        geom, RTC_BUFFER_TYPE_INDEX, 0, 
+        RTC_FORMAT_UINT3, 3 * sizeof(unsigned),
+        m_indices.size()
+    );
+
+    //* brute-force copy
+    for (int i = 0; i < m_indices.size(); ++i) {
+        auto [i0, i1, i2] = m_indices[i];
+        indices[i * 3 + 0] = i0;
+        indices[i * 3 + 1] = i1;
+        indices[i * 3 + 2] = i2;
+    }
+
+    rtcCommitGeometry(geom);
+    return geom;
+}
+
+EntitySurfaceInfo
+Mesh::getEntitySurfaceInfo(int primID, Point2d _uv) const 
+{
+    //TODO add tangent and bitangent
+    auto [u, v] = _uv;
+    auto [i0, i1, i2] = m_indices[primID];
+    auto p0 = eigenToPoint3d(m_vertices.col(i0)),
+         p1 = eigenToPoint3d(m_vertices.col(i1)),
+         p2 = eigenToPoint3d(m_vertices.col(i2));
+    auto n0 = eigenToVector3d(m_normals.col(i0)),
+         n1 = eigenToVector3d(m_normals.col(i1)),
+         n2 = eigenToVector3d(m_normals.col(i2));
+    auto uv0 = m_UVs[i0],
+         uv1 = m_UVs[i1],
+         uv2 = m_UVs[i2];
+
+    Point3d position = (1 - u - v) * p0
+        + u * p1
+        + v * p2;
+    Normal3d normal = (1 - u - v) * n0
+        + u * n1
+        + v * n2;
+    Point2d uv = (1 - u - v) * uv0
+        + u * uv1
+        + v * uv2;
+    return {position, normal, Normal3d(), Normal3d(), uv};
 }

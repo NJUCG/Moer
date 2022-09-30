@@ -23,7 +23,7 @@ protected:
 
     virtual void apply() override;
 public:
-    Quad(const nlohmann::json & json);
+    Quad(const Json & json);
     Quad() = default;
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;
@@ -31,5 +31,13 @@ public:
     virtual std::shared_ptr<Light> getLight() const;
     virtual void setLight(std::shared_ptr<Light> light);
     virtual BoundingBox3f WorldBound() const;
+
+    //TODO
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
+    //TODO
+	virtual EntitySurfaceInfo
+	getEntitySurfaceInfo(int primID, Point2d _uv) const override;
+
+    friend void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args);
 
 };

@@ -11,6 +11,7 @@
  */
 
 #include "AbstractPathIntegrator.h"
+#include "FunctionLayer/Medium/Medium.h"
 
 AbstractPathIntegrator::AbstractPathIntegrator(
         std::shared_ptr<Camera> _camera, 
@@ -71,6 +72,13 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         if (randFloat() > pSurvive)
             break;
         throughput /= pSurvive;
+
+        //flip The Frame If ray direction and normal not in one side.
+        // Todo : Is this justified?
+//        if(dot(-ray.direction,its.geometryNormal)<0){
+//            its.shFrame.n = -its.shFrame.n;
+//            its.shFrame.s = -its.shFrame.s;
+//        }
 
         // SAMPLE DIRECT LIGHTING
         // Support multiple direct light samples per intersection. n=1 by default.

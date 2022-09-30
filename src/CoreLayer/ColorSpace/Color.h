@@ -14,10 +14,11 @@
 #include <vector>
 #include <cmath>
 #include <cfloat>
-
+#include "CoreLayer/Adapter/JsonUtil.hpp"
 class RGB3;
 class XYZ3;
 class SampledSpectrum;
+class RGBSpectrum;
 
 // TODO: should be defined by cmake marco.
 using Spectrum = SampledSpectrum;
@@ -60,6 +61,7 @@ enum class SpectrumType { REFLECTANCE, ILLUMINANT };
  */
 class RGB3
 {
+private:
 	double rgbData[3];
 
 public:
@@ -73,29 +75,30 @@ public:
 	double operator[](int i) const;
 	double &operator[](int i);
 
-	RGB3 operator+(const RGB3 &rgb);
-	RGB3 operator-(const RGB3 &rgb);
-	RGB3 operator*(const RGB3 &rgb);
-	RGB3 operator/(const RGB3 &rgb);
+	RGB3 operator+(const RGB3 &rgb) const ;
+	RGB3 operator-(const RGB3 &rgb) const ;
+	RGB3 operator*(const RGB3 &rgb) const ;
+	RGB3 operator/(const RGB3 &rgb) const ;
 
-	RGB3 &operator+=(const RGB3 &rgb);
+    RGB3  pow(double v) const ;
+
+    RGB3 &operator+=(const RGB3 &rgb);
 	RGB3 &operator-=(const RGB3 &rgb);
 	RGB3 &operator*=(const RGB3 &rgb);
 	RGB3 &operator/=(const RGB3 &rgb);
 
-	RGB3 operator*(double v);
+    RGB3 operator*(double v);
 	RGB3 operator/(double v);
 
 	RGB3 &operator*=(double v);
 	RGB3 &operator/=(double v);
 
+
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
-
-	/// @brief Convert RGB3 to SampledSpectrum.
-	Spectrum toSpectrum(SpectrumType type=SpectrumType::REFLECTANCE) const;
 };
+
 
 /**
  * @brief XYZ3 color space
@@ -354,8 +357,14 @@ public:
 
 	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
-		//DEBUG this function should never be called.
+		// this function should never be called.
 		return XYZ3(0.0);
+	}
+
+	/// \attention This function is just used for debugging
+	virtual RGB3 toRGB3() const {
+		// this function should never be called.
+		return RGB3(0.0);
 	}
 };
 
@@ -417,16 +426,35 @@ public:
 
 	SampledSpectrum(double val);
 
+	SampledSpectrum(const RGB3& rgb,SpectrumType type=SpectrumType::REFLECTANCE);
+
 	SampledSpectrum(const CoefficientSpectrum& s);
 
 	/// \brief generate SampledSpectrum from a set of SpectrumSample.
 	static SampledSpectrum fromSampled(std::vector<SpectrumSample> v);
 
 	virtual XYZ3 toXYZ3() const override;
+
+	virtual RGB3 toRGB3() const override;
 };
 
-/// \todo To be finished
+/// @brief RGB spectrum. The value of RGB spectrum is the same as RGB3.
 class RGBSpectrum : public CoefficientSpectrum<3>
 {
-	// TODO RGBSpectrum
+public:
+
+	RGBSpectrum();
+
+	RGBSpectrum(double val);
+
+	RGBSpectrum(const RGB3& rgb);
+
+	RGBSpectrum(const CoefficientSpectrum& s);
+
+	static RGBSpectrum fromSampled(std::vector<SpectrumSample> v,int n);
+
+	virtual XYZ3 toXYZ3() const override;
+
+	virtual RGB3 toRGB3() const override;
+	
 };

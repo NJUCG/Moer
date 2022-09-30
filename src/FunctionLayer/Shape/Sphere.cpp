@@ -112,7 +112,179 @@ BoundingBox3f Sphere::WorldBound() const {
 	return BoundingBox3f(pMin, pMax);
 }
 
-Sphere::Sphere(const nlohmann::json & json)  :Entity(json){
+Sphere::Sphere(const Json & json)  :Entity(json){
     center = getOptional(json,"center",Point3d(0,0,0));
     radius = getOptional(json,"radius",1.0);
+}
+
+void rtcSphereBoundsFunc(const RTCBoundsFunctionArguments *args)
+{
+    Sphere *sphere = (Sphere *)args->geometryUserPtr;
+    RTCBounds *bounds = args->bounds_o;
+
+    BoundingBox3f box = sphere->WorldBound();
+    
+    bounds->lower_x = box.pMin.x;
+    bounds->lower_y = box.pMin.y;
+    bounds->lower_z = box.pMin.z;
+
+    bounds->upper_x = box.pMax.x;
+    bounds->upper_y = box.pMax.y;
+    bounds->upper_z = box.pMax.z;    
+}
+
+void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args)
+{
+    int *valid = args->valid;
+    void *ptr  = args->geometryUserPtr;
+
+    RTCRayHitN *rayhit = args->rayhit;
+    RTCRayN *ray = RTCRayHitN_RayN(rayhit, 1);
+    RTCHitN *hit = RTCRayHitN_HitN(rayhit, 1);
+    unsigned int primID = args->primID;
+
+    Sphere *sphere = (Sphere *) ptr;
+
+    if(!valid[0]) return;
+
+    double ray_ox = RTCRayN_org_x(ray, 1, 0),
+           ray_oy = RTCRayN_org_y(ray, 1, 0),
+           ray_oz = RTCRayN_org_z(ray, 1, 0),
+           ray_dx = RTCRayN_dir_x(ray, 1, 0),
+           ray_dy = RTCRayN_dir_y(ray, 1, 0),
+           ray_dz = RTCRayN_dir_z(ray, 1, 0);
+
+    Point3d ray_org(ray_ox, ray_oy, ray_oz);
+    Vec3d   ray_dir(ray_dx, ray_dy, ray_dz);
+
+    Vec3d v = ray_org - sphere->center;
+    const double A = dot(ray_dir, ray_dir);
+    const double B = 2.0 * dot(v, ray_dir);
+    const double C = dot(v, v) - sphere->radius * sphere->radius;
+    const double D = B * B - 4.0f * A * C; 
+
+    if(D < .0) return;
+    const double Q = std::sqrt(D);
+    const double rcpA = 1.0 / A;
+    const double t0 = 0.5 * rcpA * (-B - Q);
+    const double t1 = 0.5 * rcpA * (-B + Q);
+    RTCHit potentialHit;
+    potentialHit.u = potentialHit.v =.0;
+    potentialHit.geomID = args->geomID;
+    if ((RTCRayN_tnear(ray, 1, 0) < t0) & (t0 < RTCRayN_tfar(ray, 1, 0))) {
+        int imask;
+        bool mask = 1;
+        {
+            imask = mask ? -1 : 0;
+        }
+
+        Vec3d Ng = ray_org + ray_dir * t0 - sphere->center;
+        potentialHit.Ng_x = Ng.x;
+        potentialHit.Ng_y = Ng.y;
+        potentialHit.Ng_z = Ng.z;
+
+        RTCFilterFunctionNArguments fargs;
+        fargs.valid = (int *)&imask;
+        fargs.geometryUserPtr = ptr;
+        fargs.context = args->context;
+        fargs.ray = (RTCRayN *) args->rayhit;
+        fargs.hit = (RTCHitN *) &potentialHit;
+        fargs.N = 1;
+
+        //* uv = {theta, phi}
+        Normal3d normal {Ng.x, Ng.y, Ng.z};
+        double theta = std::acos(normal.z);
+        double phi = std::atan(normal.y / normal.x);
+        if (normal.x < 0) 
+            phi += M_PI;
+        if (phi < 0)
+            phi += 2 * M_PI;
+        potentialHit.u = theta;
+        potentialHit.v = phi;
+
+        const float old_t = RTCRayN_tfar(ray, 1, 0);
+        RTCRayN_tfar(ray, 1, 0) = t0;
+        rtcFilterIntersection(args, &fargs);
+
+        if(imask == -1){
+            *((RTCHit *)hit) = potentialHit;
+        } else {
+            RTCRayN_tfar(ray, 1, 0) = old_t;
+        }
+    }
+    if ((RTCRayN_tnear(ray, 1, 0) < t1) & (t1 < RTCRayN_tfar(ray, 1, 0))) {
+        int imask;
+        bool mask = 1;
+        {
+            imask = mask ? -1 : 0;
+        }
+        Vec3d Ng = ray_org + t1 * ray_dir - sphere->center;
+        potentialHit.Ng_x = Ng.x;
+        potentialHit.Ng_y = Ng.y;
+        potentialHit.Ng_z = Ng.z;
+
+        RTCFilterFunctionNArguments fargs;
+        fargs.valid = (int *)&imask;
+        fargs.geometryUserPtr = ptr;
+        fargs.context = args->context;
+        fargs.ray = (RTCRayN *) args->rayhit;
+        fargs.hit = (RTCHitN *) &potentialHit;
+        fargs.N = 1;
+
+        //* uv = {theta, phi}
+        Normal3d normal {Ng.x, Ng.y, Ng.z};
+        double theta = std::acos(normal.z);
+        double phi = std::atan(normal.y / normal.x);
+        if (normal.x < 0) 
+            phi += M_PI;
+        if (phi < 0)
+            phi += 2 * M_PI;
+        potentialHit.u = theta;
+        potentialHit.v = phi;
+
+        const float old_t = RTCRayN_tfar(ray, 1, 0);
+        RTCRayN_tfar(ray, 1, 0) = t1;
+        rtcFilterIntersection(args, &fargs);
+
+        if(imask == -1){
+            // when in occludedFunc
+            //RTCRayN_tfar(ray, 1, 0) = -std::numeric_limits<float>::infinity();
+            *((RTCHit *)hit) = potentialHit;
+        } else {
+            RTCRayN_tfar(ray, 1, 0) = old_t;
+        }
+    }
+}
+
+//todo
+void rtcSphereOccludeFunc(const RTCOccludedFunctionNArguments *args) {
+    return;
+}
+
+RTCGeometry Sphere::toEmbreeGeometry(RTCDevice device) const 
+{
+    RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);
+    rtcSetGeometryUserPrimitiveCount(geom, 1);
+    rtcSetGeometryUserData(geom, (void *)this);
+    rtcSetGeometryBoundsFunction(geom, rtcSphereBoundsFunc, nullptr);
+    rtcSetGeometryIntersectFunction(geom,rtcSphereIntersectFunc);
+    rtcSetGeometryOccludedFunction(geom, rtcSphereOccludeFunc);
+    rtcCommitGeometry(geom);
+    return geom;
+}
+
+EntitySurfaceInfo Sphere::getEntitySurfaceInfo(int instID, Point2d uv) const{
+    auto [theta, phi] = uv;
+    Normal3d normal {
+        std::sin(theta) * std::cos(phi),
+        std::sin(theta) * std::sin(phi),
+        std::cos(theta)
+    };
+    
+    return {
+        center + normal * radius,
+        normal,
+        Normal3d(), Normal3d(),
+        {theta * INV_PI, phi * 0.5 * INV_PI}
+    };
 }

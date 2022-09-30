@@ -11,6 +11,7 @@
 
 #pragma  once
 #include "math.h"
+#include "CoreLayer/Geometry/Geometry.h"
 
 namespace Fresnel {
 

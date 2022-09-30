@@ -1,10 +1,10 @@
 # Moer
 Offline Renderer
-
 ## Checklist
 
 ### Accelerator
 - [x] BVH
+- [X] Embree
 - [ ] others
 
 ### Camera
@@ -15,7 +15,7 @@ Offline Renderer
 
 ### Integrator
 - [x] path-tracing
-- [ ] volpath-tracing
+- [X] volpath-tracing
 - [ ] bdpt
 - [ ] mlt
 - [ ] photon-mapping
@@ -29,11 +29,11 @@ Offline Renderer
 
 ### Emitter
 - [x] point
-- [ ] area
+- [X] area
 - [ ] others
 
 ### Media
-- [ ] homogeneous
+- [X] homogeneous
 - [ ] hetergeneous
 - [ ] others
 

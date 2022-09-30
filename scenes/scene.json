@@ -1,4 +1,14 @@
 {
+    "mediums" : [
+        {
+            "type": "beers_law",
+             "name": "medium1"
+        },
+        {
+            "type": "homogeneous",
+            "name": "medium2"
+        }
+    ],
     "materials": [
 
 
@@ -9,7 +19,9 @@
                 0.065,
                 0.05
             ],
-            "type": "lambert"
+            "type": "lambert",
+            "in_medium" : "medium1",
+            "out_medium": "medium2"
         },
         
         {
@@ -70,14 +82,24 @@
             "name": "light",
             "albedo": 1,
             "type": "lambert"
+        },
+        {
+            "name" : "water",
+            "albedo":[1, 1, 1],
+            "ior" : 1.33,
+            "type":"dielectric"
+        },
+        {
+            "name" : "null-bsdf",
+            "type" : "null"
         }
     ],
     "entities": [
         {
             "name": "leftWall",
             "base" :[-1,0,-1],
-            "edge0" : [0,2,0],
-            "edge1" : [0,0,2],
+            "edge1" : [0,2,0],
+            "edge0" : [0,0,2],
             "transform": {
                 "position": [
                     -1,
@@ -101,8 +123,8 @@
         {
             "name": "floor",
             "base" :[1,0,-1],
-            "edge0" : [0,0,2],
             "edge1" : [-2,0,0],
+            "edge0" : [0,0,2],
             "transform": {
                 "scale": [
                     2,
@@ -146,8 +168,8 @@
         {
             "name": "backWall",
             "base" :[1,0,-1],
-            "edge0" : [0,2,0],
-            "edge1" : [-2,0,0],
+            "edge1" : [0,2,0],
+            "edge0" : [-2,0,0],
             "transform": {
                 "position": [
                     0,
@@ -171,8 +193,8 @@
         {
             "name": "rightWall",
             "base" :[1,0,1],
-            "edge0" : [0,2,0],
-            "edge1" : [0,0,-2],
+            "edge1" : [0,2,0],
+            "edge0" : [0,0,-2],
             "transform": {
                 "position": [
                     1,
@@ -197,8 +219,8 @@
         {
             "name": "light",
             "base" :[-0.24, 1.98 ,0.16],
-            "edge0" : [0.47 ,0 ,0],
             "edge1" : [0, 0, -0.38 ],
+            "edge0" : [0.47 ,0 ,0],
             "transform": {
                 "position": [
                     -0.005,
@@ -217,12 +239,35 @@
                 ]
             },
             "emission": [
-                17,
-                12,
-                4
+                34,
+                24,
+                8
             ],
             "type": "quad",
             "material": "light"
+        },
+
+        {
+            "name" : "sphere1",
+            "center" : [0.4, 0.31, 0],
+            "radius" : 0.3,
+            "transform" : {
+                "scale" : [1, 1, 1],
+                "rotation" : [0, 0, 0]
+            },
+            "type" : "sphere",
+            "material" : "backWall"
+        }, 
+        {
+            "name" : "sphere2",
+            "center" : [-0.4, 0.51, 0],
+            "radius" : 0.5,
+            "transform" : {
+                "scale" : [1, 1, 1],
+                "rotation" : [0, 0, 0]
+            },
+            "type" : "sphere",
+            "material" : "null-bsdf"
         }
     ]
 }

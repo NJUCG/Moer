@@ -60,4 +60,12 @@ public:
 	virtual std::shared_ptr<Light> getLight() const override;
 	virtual void setLight(std::shared_ptr<Light> light) override;
 	virtual BoundingBox3f WorldBound() const override;
+
+	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override {
+		RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);
+		return geom;
+	}
+	virtual EntitySurfaceInfo getEntitySurfaceInfo(int primID, Point2d uv) const override {
+		return EntitySurfaceInfo();
+	}
 };

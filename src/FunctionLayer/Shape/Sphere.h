@@ -22,7 +22,7 @@ protected:
     virtual void apply() override;
 
 public:
-    Sphere(const nlohmann::json & json);
+    Sphere(const Json & json);
     Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material);
     virtual std::optional<Intersection> intersect(const Ray &r) const;
     virtual double area() const;
@@ -30,4 +30,12 @@ public:
     virtual std::shared_ptr<Light> getLight() const;
     virtual void setLight(std::shared_ptr<Light> light);
 	virtual BoundingBox3f WorldBound() const;
+
+    //TODO
+    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const;
+    //TODO
+	virtual EntitySurfaceInfo
+	getEntitySurfaceInfo(int instID, Point2d uv) const;
+
+    friend void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args);
 };
