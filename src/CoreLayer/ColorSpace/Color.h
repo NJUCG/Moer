@@ -21,9 +21,13 @@ class SampledSpectrum;
 class RGBSpectrum;
 
 // TODO: should be defined by cmake marco.
-using Spectrum = SampledSpectrum;
+//#define USING_SAMPLEDSPECTRUM
 
-//using Spectrum = RGB3;
+#ifdef USING_SAMPLEDSPECTRUM
+using Spectrum = SampledSpectrum;
+#else
+using Spectrum = RGB3;
+#endif
 
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
@@ -65,7 +69,9 @@ private:
 	double rgbData[3];
 
 public:
-	RGB3();
+    static void init(){}
+
+    RGB3();
 
 	RGB3(double r, double g, double b);
 
@@ -97,6 +103,72 @@ public:
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
+    RGB3 toRGB3() const;
+
+
+    friend RGB3 sqrt(const RGB3 & s) {
+        RGB3 ret;
+        for (int i = 0; i < 3; i++)
+            ret[i] = std::sqrt(s[i]);
+        return ret;
+    }
+
+    friend RGB3 pow(const RGB3&s, double e) {
+        RGB3 ret;
+        for (int i = 0; i < 3; i++)
+            ret[i] = std::pow(s[i], e);
+        return ret;
+    }
+
+    friend RGB3 exp(const RGB3& s){
+        RGB3 res;
+        for(int i=0;i<3;i++)
+            res[i] = std::exp(s[i]);
+    }
+
+    bool isBlack() const {
+        for (int i = 0; i < 3; i++) {
+            if (rgbData[i] != 0.0)
+                return false;
+        }
+        return true;
+    }
+
+    bool hasNaN() const {
+        for (int i = 0; i <3; i++)
+            if (std::isnan(rgbData[i]))
+                return true;
+        return false;
+    }
+
+    inline RGB3 clamp(double low = 0.0, double high = DBL_MAX) const {
+        RGB3 retVal;
+        for (int i = 0; i < 3; i++) {
+            retVal[i] = mathClamp(rgbData[i], low, high);
+        }
+        return retVal;
+    }
+
+    double sum() const {
+        double sum = 0;
+        for (int i = 0; i < 3; i++) {
+            sum += rgbData[i];
+        }
+        return sum;
+    }
+
+    double average() const {
+        return sum()/3;
+    };
+
+    Spectrum toSpectrum() const {
+        #ifdef USING_SAMPLEDSPECTRUM
+           //todo
+        #eise
+           return *this;
+        #endif
+    }
+
 };
 
 

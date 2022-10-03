@@ -20,11 +20,16 @@
 
 class Image
 {
-	unsigned char *imageRawData;
+	void  * imageRawData;
 	Point2i resolution;
 	int channels;
 
+    bool isHdr;
 public:
+
+    template<typename  T>
+    inline  T * as() const;
+
 	Image();
 	~Image();
 
@@ -48,10 +53,16 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 
-	void setColorAt(const Point2i &p, const Spectrum &s);
+#ifdef USING_SAMPLEDSPECTRUM
+	void setColorAt(const Point2i &p, const Spectrum &s){
+        setColorAt(p, s.toRGB3());
+    }
+#endif
+
 	void setColorAt(const Point2i &p, const RGB3 &rgb);
 	RGB3 getRGBColorAt(const Point2i &p);
 	Spectrum getSpectrumColorAt(const Point2i &p);
 
 	bool saveTo(const std::string &path);
 };
+

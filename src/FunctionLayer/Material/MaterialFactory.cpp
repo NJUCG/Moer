@@ -2,7 +2,6 @@
 #include "DielectricMaterial.h"
 #include "NullMaterial.h"
 #include "CoreLayer/Scene/Scene.h"
-
 namespace  MaterialFactory{
     std::shared_ptr <Material> LoadMaterialFromJson(const Json json) {
         std::string material_type = json.at("type");

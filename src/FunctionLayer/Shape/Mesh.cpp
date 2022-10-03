@@ -2,13 +2,15 @@
 #include "FunctionLayer/Intersection.h"
 
 Mesh::Mesh(std::shared_ptr<MeshData> _data, 
-           std::shared_ptr<Material> _material): 
-    m_vertices(_data->m_vertices),
-    m_normals(_data->m_normals),
-    m_tangents(_data->m_tangents),
-    m_bitangents(_data->m_bitangents),
-    m_UVs(_data->m_UVs),
-    m_indices(_data->m_indices)
+           std::shared_ptr<Material> _material,
+           const Json & json):
+    Entity(json),
+    m_vertices(std::move(_data->m_vertices)),
+    m_normals(std::move(_data->m_normals)),
+    m_tangents(std::move(_data->m_tangents)),
+    m_bitangents(std::move(_data->m_bitangents)),
+    m_UVs(std::move(_data->m_UVs)),
+    m_indices(std::move(_data->m_indices))
 {   
     this->material = _material;
     
@@ -26,6 +28,8 @@ Mesh::Mesh(std::shared_ptr<MeshData> _data,
 
     BVH = std::make_shared<Bvh>(this);
 }
+
+
 
 Triangle Mesh::getTriangle(int idx) const {
     auto [i0, i1, i2] = m_indices[idx];
@@ -46,7 +50,10 @@ std::optional<Intersection> Mesh::intersect(const Ray &r) const
 
 void Mesh::apply()
 {
-    return;
+    m_vertices = matrix->transformPoints(m_vertices);
+    m_normals = matrix->transformNormals(m_normals);
+//   Eigen::Matrix4d  matrix4D(matrix.);
+//   matrix4D*this->m_vertices;
 }
 
 double Mesh::area() const
@@ -140,3 +147,33 @@ Mesh::getEntitySurfaceInfo(int primID, Point2d _uv) const
         + v * uv2;
     return {position, normal, Normal3d(), Normal3d(), uv};
 }
+
+//Mesh::Mesh(std::shared_ptr < MeshData > _data, std::shared_ptr < Material > _material,
+//           const Json & transformJson)
+//                :Entity(transformJson),
+//                 m_vertices(_data->m_vertices),
+//                 m_normals(_data->m_normals),
+//                 m_tangents(_data->m_tangents),
+//                 m_bitangents(_data->m_bitangents),
+//                 m_UVs(_data->m_UVs),
+//                 m_indices(_data->m_indices),
+//
+//{
+//    this->material = _material;
+//
+//    auto maxX = m_vertices.row(0).maxCoeff(),
+//            minX = m_vertices.row(0).minCoeff(),
+//            maxY = m_vertices.row(1).maxCoeff(),
+//            minY = m_vertices.row(1).minCoeff(),
+//            maxZ = m_vertices.row(2).maxCoeff(),
+//            minZ = m_vertices.row(2).minCoeff();
+//
+//    m_aabb = BoundingBox3f {
+//            Point3d {minX, minY, minZ},
+//            Point3d {maxX, maxY, maxZ}
+//    };
+//
+//    BVH = std::make_shared<Bvh>(this);
+//}
+//
+//

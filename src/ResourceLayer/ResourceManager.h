@@ -47,5 +47,5 @@ public:
 	// @brief singleton pattern get.
 	static std::shared_ptr<MeshDataManager> getInstance();
 
-	std::vector<std::shared_ptr<MeshData>> getMeshData(const std::string &path);
+    std::unordered_map<std::string,std::shared_ptr<MeshData>> getMeshData(const std::string &path);
 };

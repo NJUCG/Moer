@@ -27,7 +27,26 @@ public:
 
     bool isSpecular( ) const override;
 
-private:
+protected:
+    Vec3d  eta;
+    Vec3d  k;
+    Spectrum albedo;
+};
+
+class RoughConductorBxDF : public  BxDF{
+public:
+    Spectrum f(const Vec3d & out, const Vec3d & in) const override;
+
+    Vec3d sampleWi(const Vec3d & out, const Point2d & sample) const override;
+
+    double pdf(const Vec3d & out, const Vec3d & in) const override;
+
+    BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
+
+    bool isSpecular( ) const override;
+
+protected:
+    double roughness;
     Vec3d  eta;
     Vec3d  k;
     Spectrum albedo;

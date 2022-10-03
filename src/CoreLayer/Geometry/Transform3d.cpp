@@ -57,73 +57,27 @@ void Transform3D::setTranslate(double x, double y, double z)
     matrix->setTranslate(x, y, z);
 }
 
-Transform3D::Transform3D(const Json json) {
-    //todo modify this
-    matrix = std::make_shared<TransformMatrix3D>() ;
-    Vec3d x(1.0, 0.0, 0.0);
-    Vec3d y(0.0, 1.0, 0.0);
-    Vec3d z(0.0, 0.0, 1.0);
-
-    Point3d pos= getOptional(json,"position",Point3d(0.0));
-    this->matrix->setTranslate(pos.x,pos.y,pos.z);
-
-    bool explicitX = false, explicitY = false, explicitZ = false;
-
-
-    explicitX = containsAndGet(json,"x_axis", x) || explicitX;
-    explicitY = containsAndGet(json,"y_axis", y) || explicitY;
-    explicitZ = containsAndGet(json,"z_axis", z) || explicitZ;
-
-    int id =
-            ( explicitZ ? 4 : 0 ) +
-            ( explicitY ? 2 : 0 ) +
-            ( explicitX ? 1 : 0 );
-    switch ( id ) {
-        case 0:
-            gramSchmidt(z, y, x);
-            break;
-        case 1:
-            gramSchmidt(x, z, y);
-            break;
-        case 2:
-            gramSchmidt(y, z, x);
-            break;
-        case 3:
-            gramSchmidt(y, x, z);
-            break;
-        case 4:
-            gramSchmidt(z, y, x);
-            break;
-        case 5:
-            gramSchmidt(z, x, y);
-            break;
-        case 6:
-            gramSchmidt(z, y, x);
-            break;
-        case 7:
-            gramSchmidt(z, y, x);
-            break;
+Transform3D::Transform3D(const Json & json) {
+    if(json.is_null()){
+        matrix = std::make_shared<TransformMatrix3D>();
     }
-
-    if ( dot(cross(x, y), z) < 0.0f ) {
-        if ( ! explicitX )
-            x = - x;
-        else if ( ! explicitY )
-            y = - y;
-        else
-            z = - z;
+    else if(json.is_array()){
+        double matrixData[16];
+        for(int i=0;i<16;i++)
+            json.at(i).get_to(matrixData[i]);
+        matrix = std::make_shared<TransformMatrix3D>(matrixData);
     }
-
-    Vec3d scale = getOptional(json,"scale",Vec3d(1,1,1));
-        scale = json["scale"];
-        x *= scale.x;
-        y *= scale.y;
-        z *= scale.z;
-    this->matrix->setScale(scale.x,scale.y,scale.z);
-    scale /= (180/M_PI);
-    Vec3d rotate = getOptional(json,"rotation",Vec3d(0,0,0));
-    this->matrix->setRotateEuler(Angle(rotate.x,Angle::AngleType::ANGLE_DEG),
-                                 Angle(rotate.y,Angle::AngleType::ANGLE_DEG),
-                                 Angle(rotate.z,Angle::AngleType::ANGLE_DEG),
-                                 EulerType::EULER_YZX);
+    else{
+        matrix = std::make_shared<TransformMatrix3D>();
+        //todo modify this
+        Point3d pos= getOptional(json,"position",Point3d(0.0));
+        this->matrix->setTranslate(pos.x,pos.y,pos.z);
+        Vec3d scale = getOptional(json,"scale",Vec3d(1,1,1));
+        this->matrix->setScale(scale.x,scale.y,scale.z);
+        Vec3d rotate = getOptional(json,"rotation",Vec3d(0,0,0));
+        this->matrix->setRotateEuler(Angle(rotate.x,Angle::AngleType::ANGLE_DEG),
+                                     Angle(rotate.y,Angle::AngleType::ANGLE_DEG),
+                                     Angle(rotate.z,Angle::AngleType::ANGLE_DEG),
+                                     EulerType::EULER_YZX);
+    }
 }

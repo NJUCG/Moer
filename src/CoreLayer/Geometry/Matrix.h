@@ -64,12 +64,16 @@ private:
 public:
 
 	Matrix4x4();
+    Matrix4x4 (const double  * matData);
 
-	Matrix4x4 operator*(const Matrix4x4& mat) const;
+    Matrix4x4 operator*(const Matrix4x4& mat) const;
 
 	Vec3d operator*(const Vec3d& v) const;
 	Point3d operator*(const Point3d& p) const;
 	Normal3d operator*(const Normal3d& n) const;
+
+    Eigen::MatrixXd  transformPoints(const Eigen::MatrixXd & points) const;
+    Eigen::MatrixXd  transformNormals(const Eigen::MatrixXd & normals) const;
 
 	// model
 	static Matrix4x4 translate(double x, double y, double z);
@@ -109,6 +113,7 @@ class TransformMatrix3D
 
 public:
 	TransformMatrix3D();
+    TransformMatrix3D(const double  * transformData);
 
 	void setTranslate(double x, double y, double z);
 
@@ -125,6 +130,10 @@ public:
 	Vec3d operator*(const Vec3d &v);
 	Point3d operator*(const Point3d &p);
 	Normal3d operator*(const Normal3d &n);
+
+    Eigen::MatrixXd  transformPoints(const Eigen::MatrixXd & points);
+    Eigen::MatrixXd  transformNormals(const Eigen::MatrixXd & normals);
+
 };
 
 // TODO TransformMatrix2D

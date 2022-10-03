@@ -52,17 +52,17 @@ RGB3 RGB3::operator+(const RGB3& rgb) const
 
 RGB3 RGB3::operator-(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] - rgb[0], rgbData[0] - rgb[1], rgbData[0] - rgb[2]);
+	return RGB3(rgbData[0] - rgb[0], rgbData[1] - rgb[1], rgbData[2] - rgb[2]);
 }
 
 RGB3 RGB3::operator*(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] * rgb[0], rgbData[0] * rgb[1], rgbData[0] * rgb[2]);
+	return RGB3(rgbData[0] * rgb[0], rgbData[1] * rgb[1], rgbData[2] * rgb[2]);
 }
 
 RGB3 RGB3::operator/(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] / rgb[0], rgbData[0] / rgb[1], rgbData[0] / rgb[2]);
+	return RGB3(rgbData[0] / rgb[0], rgbData[1] / rgb[1], rgbData[2] / rgb[2]);
 }
 
 RGB3  RGB3::pow(double v) const
@@ -142,6 +142,10 @@ XYZ3 RGB3::toXYZ3() const
 	vec << rgbData[0], rgbData[1], rgbData[2];
 	auto res = rgb2xyzMatrix * vec;
 	return XYZ3(res[0], res[1], res[2]);
+}
+
+RGB3 RGB3::toRGB3( ) const {
+    return *this;
 }
 
 RGB3 operator*(double v, const RGB3& rgb)
