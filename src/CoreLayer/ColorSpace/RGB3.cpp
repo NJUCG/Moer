@@ -144,12 +144,14 @@ XYZ3 RGB3::toXYZ3() const
 	return XYZ3(res[0], res[1], res[2]);
 }
 
-RGB3 RGB3::toRGB3( ) const {
-    return *this;
-}
+
 
 RGB3 operator*(double v, const RGB3& rgb)
 {
 	return RGB3(rgb[0] * v, rgb[1] * v, rgb[2] * v);
+}
+
+Spectrum RGB3::toSpectrum(SpectrumType type) const {
+    return RGBSpectrum(*this);
 }
 
