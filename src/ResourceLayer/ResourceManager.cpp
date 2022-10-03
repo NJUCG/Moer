@@ -12,9 +12,9 @@ MeshDataManager::getInstance() {
     return instance;
 }
 
-std::vector<std::shared_ptr<MeshData>>
+std::unordered_map<std::string,std::shared_ptr<MeshData>>
 MeshDataManager::getMeshData(const std::string &path) {
-    std::vector<std::shared_ptr<MeshData>> result;
+    std::unordered_map<std::string,std::shared_ptr<MeshData>> result;
     
     Assimp::Importer importer;
 
@@ -139,8 +139,7 @@ MeshDataManager::getMeshData(const std::string &path) {
             ai_mesh->mBitangents, 
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
-
-        result.emplace_back(mesh_data);
+        result[std::string(ai_mesh->mName.C_Str())] = mesh_data;
     }
 
     return result;

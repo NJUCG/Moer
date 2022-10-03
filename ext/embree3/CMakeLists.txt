@@ -590,9 +590,9 @@ CONFIGURE_FILE(
 
 ADD_SUBDIRECTORY(common)
 ADD_SUBDIRECTORY(kernels)
-IF (EMBREE_TUTORIALS)
-  ADD_SUBDIRECTORY(tutorials)
-ENDIF()
+#IF (EMBREE_TUTORIALS)
+#  ADD_SUBDIRECTORY(tutorials)
+#ENDIF()
 
 ##############################################################
 # Uninstall

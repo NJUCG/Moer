@@ -61,3 +61,15 @@ Point2i Film::getResolution() const
 {
     return resolution;
 }
+
+void Film::postProcess( ) {
+    //tone mapping
+    for (int i = 0; i < resolution.y; i++)
+    {
+        for (int j = 0; j < resolution.x; j++)
+        {
+            RGB3 toneMapRGB = ToneMapping::toneMap(toneMapType,image->getRGBColorAt(Point2i(j, i)));
+            image->setColorAt(Point2i(j, i),toneMapRGB);
+        }
+    }
+}

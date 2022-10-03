@@ -23,17 +23,15 @@ Scene::Scene() : lights(std::make_shared<std::vector<std::shared_ptr<Light>>>())
 Scene::Scene(const Json & json) {
     mediums =  MediumFactory::LoadMediumMapFromJson(json.at("mediums"));
     materials = MaterialFactory::LoadMaterialMapFromJson(json.at("materials"),*this);
+    lights = std::make_shared<std::vector<std::shared_ptr<Light>>>();
     entities  = std::make_shared<std::vector<std::shared_ptr<Entity>>>
                         (EntityFactory::LoadEntityListFromJson(json.at("entities"),*this));
-    lights = std::make_shared<std::vector<std::shared_ptr<Light>>>();
-    for(std::shared_ptr<Entity> entity : *entities){
-        if(entity->getLight())
-            lights->push_back(entity->getLight());
-    }
 
 }
 
 void Scene::build() {
+    for(auto entity:*entities)
+        entity->apply();
 	//accel = std::make_shared<Bvh>(*entities);
     accel = std::make_shared<EmbreeAccel>(*entities);
 }

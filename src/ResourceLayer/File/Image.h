@@ -20,11 +20,16 @@
 
 class Image
 {
-	unsigned char *imageRawData;
+	void  * imageRawData;
 	Point2i resolution;
 	int channels;
 
+    bool isHdr;
 public:
+
+    template<typename  T>
+    inline  T * as() const;
+
 	Image();
 	~Image();
 
@@ -54,4 +59,8 @@ public:
 	Spectrum getSpectrumColorAt(const Point2i &p);
 
 	bool saveTo(const std::string &path);
+};
+
+class HDRImage : public  Image{
+
 };

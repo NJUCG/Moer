@@ -26,8 +26,12 @@ public:
     
     Mesh() = default;
     
-    Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material);
-    
+    Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material,const Json & json );
+
+//    Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material,const Json & transformJson);
+
+
+
     virtual ~Mesh() = default;
     
     virtual std::optional<Intersection> intersect(const Ray &r) const override;
