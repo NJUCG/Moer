@@ -5,7 +5,7 @@
 #include "Fresnel.hpp"
 
 Mircofacet::Mircofacet(Spectrum kd, double intIOR, double extIOR,double alpha) : kd(kd),intIOR(intIOR),extIOR(extIOR),alpha(alpha) {
-    RGB3 s= kd.toXYZ3().toRGB3();
+    RGB3 s= kd.toRGB3();
     ks =1-std::max(s[0],std::max(s[1],s[2]));
 
 }

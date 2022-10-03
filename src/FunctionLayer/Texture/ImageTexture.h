@@ -130,7 +130,7 @@ int DirectImage < T >::getImageWidth( ) const {
 
 template < typename T >
 int DirectImage < T >::getImageHeight( ) const {
-    return image->getWidth();
+    return image->getHeight();
 }
 
 template <typename Treturn, typename Tmemory>

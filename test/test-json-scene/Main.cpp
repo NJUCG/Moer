@@ -90,7 +90,7 @@ TEST_CASE("test-ball")
             lookFrom, lookAt, up, 35, (float(1280)/float(780)), 3.17f);
 
     PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1280,780), 3),
-            std::make_unique<SequenceTileGenerator>(Point2i(1280,780)), std::make_shared<IndependentSampler>(), 10, 12);
+            std::make_unique<SequenceTileGenerator>(Point2i(1280,780)), std::make_shared<IndependentSampler>(), 1, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("testball.bmp");

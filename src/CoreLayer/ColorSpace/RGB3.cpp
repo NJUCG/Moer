@@ -52,17 +52,17 @@ RGB3 RGB3::operator+(const RGB3& rgb) const
 
 RGB3 RGB3::operator-(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] - rgb[0], rgbData[0] - rgb[1], rgbData[0] - rgb[2]);
+	return RGB3(rgbData[0] - rgb[0], rgbData[1] - rgb[1], rgbData[2] - rgb[2]);
 }
 
 RGB3 RGB3::operator*(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] * rgb[0], rgbData[0] * rgb[1], rgbData[0] * rgb[2]);
+	return RGB3(rgbData[0] * rgb[0], rgbData[1] * rgb[1], rgbData[2] * rgb[2]);
 }
 
 RGB3 RGB3::operator/(const RGB3& rgb) const
 {
-	return RGB3(rgbData[0] / rgb[0], rgbData[0] / rgb[1], rgbData[0] / rgb[2]);
+	return RGB3(rgbData[0] / rgb[0], rgbData[1] / rgb[1], rgbData[2] / rgb[2]);
 }
 
 RGB3  RGB3::pow(double v) const
@@ -144,91 +144,8 @@ XYZ3 RGB3::toXYZ3() const
 	return XYZ3(res[0], res[1], res[2]);
 }
 
-// @brief rgb to Spectrum. COSTLY so arrange cache if possible.
-Spectrum RGB3::toSpectrum(SpectrumType type) const
-{
-    SampledSpectrum r;
-    if (type == SpectrumType::REFLECTANCE) {
-        // Convert reflectance spectrum to rgb
-        if (rgbData[0] <= rgbData[1] && rgbData[0] <= rgbData[2]) {
-            // Compute reflectance _SampledSpectrum_ with _rgb[0]_ as minimum
-            r += rgbData[0] * SampledSpectrum::rgbRefl2SpectWhite;
-            if (rgbData[1] <= rgbData[2]) {
-                r += (rgbData[1] - rgbData[0]) * SampledSpectrum::rgbRefl2SpectCyan;
-                r += (rgbData[2] - rgbData[1]) * SampledSpectrum::rgbRefl2SpectBlue;
-            }
-            else {
-                r += (rgbData[2] - rgbData[0]) * SampledSpectrum::rgbRefl2SpectCyan;
-                r += (rgbData[1] - rgbData[2]) * SampledSpectrum::rgbRefl2SpectGreen;
-            }
-        }
-        else if (rgbData[1] <= rgbData[0] && rgbData[1] <= rgbData[2]) {
-            // Compute reflectance _SampledSpectrum_ with _rgb[1]_ as minimum
-            r += rgbData[1] * SampledSpectrum::rgbRefl2SpectWhite;
-            if (rgbData[0] <= rgbData[2]) {
-                r += (rgbData[0] - rgbData[1]) * SampledSpectrum::rgbRefl2SpectMagenta;
-                r += (rgbData[2] - rgbData[0]) * SampledSpectrum::rgbRefl2SpectBlue;
-            }
-            else {
-                r += (rgbData[2] - rgbData[1]) * SampledSpectrum::rgbRefl2SpectMagenta;
-                r += (rgbData[0] - rgbData[2]) * SampledSpectrum::rgbRefl2SpectRed;
-            }
-        }
-        else {
-            // Compute reflectance _SampledSpectrum_ with _rgb[2]_ as minimum
-            r += rgbData[2] * SampledSpectrum::rgbRefl2SpectWhite;
-            if (rgbData[0] <= rgbData[1]) {
-                r += (rgbData[0] - rgbData[2]) * SampledSpectrum::rgbRefl2SpectYellow;
-                r += (rgbData[1] - rgbData[0]) * SampledSpectrum::rgbRefl2SpectGreen;
-            }
-            else {
-                r += (rgbData[1] - rgbData[2]) * SampledSpectrum::rgbRefl2SpectYellow;
-                r += (rgbData[0] - rgbData[1]) * SampledSpectrum::rgbRefl2SpectRed;
-            }
-        }
-        r *= .94;
-    }
-    else {
-        // Convert illuminant spectrum to rgbData
-        if (rgbData[0] <= rgbData[1] && rgbData[0] <= rgbData[2]) {
-            // Compute illuminant _SampledSpectrum_ with _rgb[0]_ as minimum
-            r += rgbData[0] * SampledSpectrum::rgbIllum2SpectWhite;
-            if (rgbData[1] <= rgbData[2]) {
-                r += (rgbData[1] - rgbData[0]) * SampledSpectrum::rgbIllum2SpectCyan;
-                r += (rgbData[2] - rgbData[1]) * SampledSpectrum::rgbIllum2SpectBlue;
-            }
-            else {
-                r += (rgbData[2] - rgbData[0]) * SampledSpectrum::rgbIllum2SpectCyan;
-                r += (rgbData[1] - rgbData[2]) * SampledSpectrum::rgbIllum2SpectGreen;
-            }
-        }
-        else if (rgbData[1] <= rgbData[0] && rgbData[1] <= rgbData[2]) {
-            // Compute illuminant _SampledSpectrum_ with _rgb[1]_ as minimum
-            r += rgbData[1] * SampledSpectrum::rgbIllum2SpectWhite;
-            if (rgbData[0] <= rgbData[2]) {
-                r += (rgbData[0] - rgbData[1]) * SampledSpectrum::rgbIllum2SpectMagenta;
-                r += (rgbData[2] - rgbData[0]) * SampledSpectrum::rgbIllum2SpectBlue;
-            }
-            else {
-                r += (rgbData[2] - rgbData[1]) * SampledSpectrum::rgbIllum2SpectMagenta;
-                r += (rgbData[0] - rgbData[2]) * SampledSpectrum::rgbIllum2SpectRed;
-            }
-        }
-        else {
-            // Compute illuminant _SampledSpectrum_ with _rgb[2]_ as minimum
-            r += rgbData[2] * SampledSpectrum::rgbIllum2SpectWhite;
-            if (rgbData[0] <= rgbData[1]) {
-                r += (rgbData[0] - rgbData[2]) * SampledSpectrum::rgbIllum2SpectYellow;
-                r += (rgbData[1] - rgbData[0]) * SampledSpectrum::rgbIllum2SpectGreen;
-            }
-            else {
-                r += (rgbData[1] - rgbData[2]) * SampledSpectrum::rgbIllum2SpectYellow;
-                r += (rgbData[0] - rgbData[1]) * SampledSpectrum::rgbIllum2SpectRed;
-            }
-        }
-        r *= .86445f;
-    }
-    return r.clamp();
+RGB3 RGB3::toRGB3( ) const {
+    return *this;
 }
 
 RGB3 operator*(double v, const RGB3& rgb)

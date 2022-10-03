@@ -4,7 +4,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
-Image::Image( ) {
+Image::Image() {
     imageRawData = nullptr;
 }
 
@@ -68,25 +68,27 @@ Image::Image(const Point3i & shape) : resolution(shape.x, shape.y), channels(sha
     memset(imageRawData, 0, w * h * c * sizeof(unsigned char));
 }
 
-Point2i Image::getResolution( ) const {
+Point2i Image::getResolution() const
+{
     return resolution;
 }
 
-int Image::getChannels( ) const {
+int Image::getChannels() const
+{
     return channels;
 }
 
-int Image::getWidth( ) const {
+int Image::getWidth() const
+{
     return resolution.x;
 }
 
-int Image::getHeight( ) const {
+int Image::getHeight() const
+{
     return resolution.y;
 }
 
-void Image::setColorAt(const Point2i & p, const Spectrum & s) {
-    setColorAt(p, s.toXYZ3().toRGB3());
-}
+
 
 void Image::setColorAt(const Point2i & p, const RGB3 & rgb) {
     int i = p.x;
@@ -112,16 +114,18 @@ RGB3 Image::getRGBColorAt(const Point2i & p) {
     int w = resolution.x;
     int srcIdx = c * i + c * w * j;
     ans[0] = isHdr?as<float>()[srcIdx+0]:as<unsigned  char>()[srcIdx + 0] * 1. / 255;
-    ans[1] = isHdr?as<float>()[srcIdx+0]:as<unsigned  char>()[srcIdx + 1] * 1. / 255;
-    ans[2] = isHdr?as<float>()[srcIdx+0]:as<unsigned  char>()[srcIdx + 2] * 1. / 255;
+    ans[1] = isHdr?as<float>()[srcIdx+1]:as<unsigned  char>()[srcIdx + 1] * 1. / 255;
+    ans[2] = isHdr?as<float>()[srcIdx+2]:as<unsigned  char>()[srcIdx + 2] * 1. / 255;
     return ans;
 }
 
-Spectrum Image::getSpectrumColorAt(const Point2i & p) {
-    return getRGBColorAt(p).toSpectrum();
+Spectrum Image::getSpectrumColorAt(const Point2i &p)
+{
+    return Spectrum(getRGBColorAt(p));
 }
 
-bool Image::saveTo(const std::string & path) {
+bool Image::saveTo(const std::string &path)
+{
     stbi_write_bmp(path.c_str(), resolution.x, resolution.y, 3, imageRawData);
     return true;
 }

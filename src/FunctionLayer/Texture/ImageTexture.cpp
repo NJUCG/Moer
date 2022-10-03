@@ -61,5 +61,5 @@ RGB3 DirectImage<RGB3>::eval(const TextureCoord2D &coord)
 template <>
 Spectrum ImageTexture<Spectrum, RGB3>::eval(const TextureCoord2D &coord) const
 {
-    return imageSampler->eval(coord).toSpectrum();
+    return Spectrum(imageSampler->eval(coord));
 }
