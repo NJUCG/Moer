@@ -53,11 +53,9 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 
-#ifdef USING_SAMPLEDSPECTRUM
 	void setColorAt(const Point2i &p, const Spectrum &s){
         setColorAt(p, s.toRGB3());
     }
-#endif
 
 	void setColorAt(const Point2i &p, const RGB3 &rgb);
 	RGB3 getRGBColorAt(const Point2i &p);
