@@ -13,5 +13,5 @@
 #include <string>
 
 namespace  FileUtils{
-    const static std::string WorkingDir = "/Users/yjp/nju/大三下/graphics/offline-render/Zero/scenes/testball/";
+    const static std::string WorkingDir = "/mnt/renderer/Moer/scenes/cornell-box/";
 }

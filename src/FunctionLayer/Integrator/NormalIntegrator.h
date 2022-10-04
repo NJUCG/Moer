@@ -26,7 +26,10 @@ public:
         if(its.has_value())
         {
             Normal3d normal = its->shFrame.n;
-            return RGB3(normal.x,normal.y,normal.z);
+            auto res 
+                = RGB3(normal.x,normal.y,normal.z)
+                + RGB3(1);
+            return res/2;
         }
         return Spectrum(0);
     }

@@ -267,7 +267,7 @@
                 "rotation" : [0, 0, 0]
             },
             "type" : "sphere",
-            "material" : "null-bsdf"
+            "material" : "backWall"
         }
     ]
 }

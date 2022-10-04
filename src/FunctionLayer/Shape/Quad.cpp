@@ -117,7 +117,6 @@ void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args)
     auto base = quad->_base;
     auto edge0 = quad->_edge0,
          edge1 = quad->_edge1;
-    double invArea2 = 1 / cross(edge0, edge1).length();
 
     RTCRayHitN *rayhit = args->rayhit;
     RTCRayN *ray = RTCRayHitN_RayN(rayhit, 1);
@@ -138,7 +137,7 @@ void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args)
 
     Vec3d n = normalize(cross(edge1, edge0));
     double dirDotN = dot(dir, n);
-    if (std::abs(dirDotN) < 1e-6) {
+    if (std::abs(dirDotN) < 1e-9) {
         return;
     }
 
@@ -147,8 +146,10 @@ void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args)
         return;
 
     Point3d hitpoint = ori + dir * t;
-    double u = cross(hitpoint - base, edge1).length() * invArea2,
-           v = cross(hitpoint - base, edge0).length() * invArea2;
+
+    double u = dot(hitpoint - base, edge0) / edge0.length2(),
+           v = dot(hitpoint - base, edge1) / edge1.length2();
+    
     if ((u < 0 || u > 1) || (v < 0 || v > 1))
         return;
 
