@@ -12,7 +12,7 @@
 #include "Material.h"
 #include "FunctionLayer/Texture/Texture.h"
 
-static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(RGB3(1, 1, 1).toSpectrum());
+static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(1, 1, 1)));
 
 Material::Material(const std::shared_ptr <Texture <Spectrum>> & _albedo,
                    const std::shared_ptr <Texture <double>> & _bump)
@@ -37,5 +37,13 @@ std::shared_ptr<Medium> Material::getInsideMedium() const {
 
 std::shared_ptr<Medium> Material::getOutsideMedium() const {
     return outsideMedium;
+}
+
+void Material::setInsideMedium(std::shared_ptr < Medium > _insideMedium) {
+    insideMedium = _insideMedium;
+}
+
+void Material::setOutMedium(std::shared_ptr < Medium > _outsideMedium) {
+    outsideMedium = _outsideMedium;
 }
 

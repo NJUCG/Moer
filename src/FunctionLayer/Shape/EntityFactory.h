@@ -17,5 +17,5 @@ namespace EntityFactory {
 
     std::shared_ptr < Entity > LoadEntityFromJson(const Json & json) ;
 
-    std::vector<std::shared_ptr < Entity >> LoadEntityListFromJson(const Json & json,const Scene & scene);
+    std::vector<std::shared_ptr < Entity >> LoadEntityListFromJson(const Json & json,Scene & scene);
 }

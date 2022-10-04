@@ -47,7 +47,7 @@ TEST_CASE("test-mesh")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.5,0.5,0.5));
 
     for (auto data : meshes) {
         scene->addEntity(std::make_shared<Mesh>(data, lambert));
@@ -62,7 +62,7 @@ TEST_CASE("test-mesh")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 90.f, 1.f, 1.f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128 * 3, 128 * 3), 3), std::make_unique<SequenceTileGenerator>(Point2i(128 * 3, 128 * 3)), std::make_shared<IndependentSampler>(), 1, 12);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(128 * 3, 128 * 3), 3), std::make_unique<SequenceTileGenerator>(Point2i(128 * 3, 128 * 3)), std::make_shared<IndependentSampler>(), 1, 6);
     std::cout << "start rendering" << std::endl;
     auto before = std::chrono::steady_clock::now();
     integrator.render(scene);

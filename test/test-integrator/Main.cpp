@@ -32,10 +32,10 @@ TEST_CASE("test-integrator")
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
     std::shared_ptr<ImageTexture<Spectrum, RGB3>> imageTexture = std::make_shared<ImageTexture<Spectrum, RGB3>>("../asset/tex.jpg");
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.5, 0.5, 0.5)));
+    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.8, 0.0, 0.0)));
     std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(imageTexture);
-    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.0, 0.0, 0.8)));
     std::shared_ptr<MirrorMaterial> mirror = std::make_shared<MirrorMaterial>();
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, mirror));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, 0.0, -1.0), 1.0, lambertG));

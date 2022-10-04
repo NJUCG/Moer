@@ -32,10 +32,10 @@ TEST_CASE("test-material-diffuse")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.8, 0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.5, 0.5, 0.5)));
+    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.8, 0.0, 0.0)));
+    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.0, 0.0, 0.8)));
+    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.0, 0.8, 0.0)));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));
     scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -2.0), 1.0, lambertB));
@@ -63,8 +63,8 @@ TEST_CASE("test-material-mirror")
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
     std::shared_ptr<MirrorMaterial>  mirror = std::make_shared<MirrorMaterial>();
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.5,0.5,0.5));
+    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.8,0.0,0.0));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, mirror));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));
     scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -2.0), 1.0, mirror));
@@ -96,8 +96,8 @@ TEST_CASE("test-material-delectric")
     std::shared_ptr<DielectricMaterial>  dielectric2 = std::make_shared<DielectricMaterial>(std::make_shared<ConstantTexture<double>>(0.67));
     std::shared_ptr<DielectricMaterial>  dielectric3 = std::make_shared<DielectricMaterial>(std::make_shared<ConstantTexture<double>>(1.5));
     std::shared_ptr<MirrorMaterial>  mirror = std::make_shared<MirrorMaterial>();
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.5,0.5,0.5));
+    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.8,0.0,0.0));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, dielectric1));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));
     scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -2.0), 1.0, dielectric2));
@@ -122,10 +122,10 @@ TEST_CASE("test-material-microfacet")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.8, 0.0, 0.0).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.8, 0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.5, 0.5, 0.5)));
+    std::shared_ptr<MatteMaterial> lambertR = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.8, 0.0, 0.0)));
+    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.0, 0.0, 0.8)));
+    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(0.0, 0.8, 0.0)));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, lambertR));
     scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -2.0), 1.0, lambertB));
@@ -152,11 +152,11 @@ TEST_CASE("test-material-conductor")
     std::cout << "NJUCG Zero v0.1" << std::endl;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     std::cout << "scene start" << std::endl;
-    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.5, 0.5, 0.5).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambert = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.5,0.5,0.5));
     std::shared_ptr<Material> Cu = std::make_shared<ConductorMaterial>
                 (Vec3d(0.200438, 0.924033, 1.10221),Vec3d(3.91295, 2.45285, 2.14219));
-    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.0, 0.8).toSpectrum()));
-    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>(RGB3(0.0, 0.8, 0).toSpectrum()));
+    std::shared_ptr<MatteMaterial> lambertB = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.0,0.0,0.8));
+    std::shared_ptr<MatteMaterial> lambertG = std::make_shared<MatteMaterial>(std::make_shared<ConstantTexture<Spectrum>>Spectrum(RGB3(0.0,0.8,0.0));
     scene->addEntity(std::make_shared<Sphere>(Point3d(0.0, -1.5, 1.0), 1.0, lambertG));
     scene->addEntity(std::make_shared<Sphere>(Point3d(2.1, 0.0, -2.0), 1.0, Cu));
     scene->addEntity(std::make_shared<Sphere>(Point3d(-2.1, 0.0, -2.0), 1.0, lambertB));

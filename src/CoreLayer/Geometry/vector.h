@@ -158,6 +158,10 @@ struct TVector3 {
     explicit TVector3 (T t) : x(t), y(t), z(t) { }
 
     /*--- operator overloading ---*/
+    TVector3 operator+(T value) const {
+         return TVector3(x + value , y + value, z + value);
+    }
+
     TVector3 operator+(const TVector3 &rhs) const {
         return TVector3(x + rhs.x, y + rhs.y, z + rhs.z);
     }
@@ -165,6 +169,10 @@ struct TVector3 {
     TVector3& operator+=(const TVector3 &rhs) {
         x += rhs.x, y += rhs.y, z += rhs.z;
         return *this;
+    }
+
+    TVector3 operator-(T value) const {
+        return TVector3(x - value , y - value, z -value);
     }
 
     TVector3 operator-(const TVector3 &rhs) const {
@@ -180,6 +188,10 @@ struct TVector3 {
         return TVector3(x*t, y*t, z*t);
     }
 
+    TVector3 operator*(const TVector3 &rhs) const {
+        return TVector3(x * rhs.x, y * rhs.y, z * rhs.z);
+    }
+
     TVector3& operator*=(const T t) {
         x*=t, y*=t, z*=t;
         return *this;
@@ -189,6 +201,10 @@ struct TVector3 {
         assert(t != 0);
         T recip = (T) 1/t;
         return TVector3(x*recip, y*recip, z*recip);
+    }
+
+    TVector3 operator/(const TVector3 &rhs) const {
+        return TVector3(x / rhs.x, y / rhs.y, z / rhs.z);
     }
 
     TVector3& operator/=(const T t) {

@@ -38,7 +38,7 @@ MatteMaterial::MatteMaterial(const Json & json) {
    // RGB3 _albedo = getOptional(json,"albedo",RGB3(1,1,1));
     type = EMaterialType::Diffuse;
     Vec3d  _albedo = getOptional(json,"albedo",Vec3d(1,1,1));
-    albedo = std::make_shared <ConstantTexture<Spectrum>>(RGB3(_albedo.x,_albedo.y,_albedo.z).toSpectrum());
+    albedo = std::make_shared <ConstantTexture<Spectrum>>(RGB3(_albedo.x,_albedo.y,_albedo.z));
 }
 
 

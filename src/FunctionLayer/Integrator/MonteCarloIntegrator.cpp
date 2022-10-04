@@ -72,6 +72,7 @@ void MonteCarloIntegrator::render(std::shared_ptr<Scene> scene)
     for(int i=0;i<renderThreadNum;i++){
         threads[i].join();
     }
+    film->postProcess();
 }
 
 double MonteCarloIntegrator::randFloat()
