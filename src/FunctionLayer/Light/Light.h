@@ -46,6 +46,13 @@ struct LightSampleResult
 	bool isDeltaDir;
 };
 
+enum class ELightType{
+    UNDEFINED,
+    POINT,
+    AREA,
+    INFINITE
+};
+
 /// \defgroup Light
 
 /// \brief The base class for all light source
@@ -64,5 +71,9 @@ public:
 
 	virtual LightSampleResult sampleDirect(const MediumSampleRecord &mRec,
 										   Point2d sample,
-										   double time) = 0;
+                                           double time) = 0;
+
+    Light(ELightType _lightType):lightType(_lightType){}
+
+    ELightType lightType;
 };

@@ -151,7 +151,5 @@ RGB3 operator*(double v, const RGB3& rgb)
 	return RGB3(rgb[0] * v, rgb[1] * v, rgb[2] * v);
 }
 
-Spectrum RGB3::toSpectrum(SpectrumType type) const {
-    return RGBSpectrum(*this);
-}
+
 

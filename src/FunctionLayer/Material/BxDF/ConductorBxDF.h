@@ -12,9 +12,11 @@
 
 #pragma once
 #include "BxDF.h"
+#include "MicrofacetDistribution.h"
 
 class ConductorBxDF : public  BxDF {
 public:
+
     ConductorBxDF(Vec3d  _eta,Vec3d _k,Spectrum _albedo);
 
     Spectrum f(const Vec3d & out, const Vec3d & in) const override;
@@ -35,6 +37,9 @@ protected:
 
 class RoughConductorBxDF : public  BxDF{
 public:
+    RoughConductorBxDF(Vec3d  _eta,Vec3d _k,Spectrum _albedo, double _uRoughness,double _vRoughness,
+                       std::shared_ptr<MicrofacetDistribution> _distrib);
+
     Spectrum f(const Vec3d & out, const Vec3d & in) const override;
 
     Vec3d sampleWi(const Vec3d & out, const Point2d & sample) const override;
@@ -46,8 +51,9 @@ public:
     bool isSpecular( ) const override;
 
 protected:
-    double roughness;
-    Vec3d  eta;
-    Vec3d  k;
+    std::shared_ptr<MicrofacetDistribution> distrib;
+    Vec2d alphaXY;
+    Vec3d eta;
+    Vec3d k;
     Spectrum albedo;
 };

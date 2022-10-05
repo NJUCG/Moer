@@ -169,7 +169,8 @@ Matrix4x4 Matrix4x4::lookAt(const Point3d &lookFrom, const Vec3d &vecLookAt, con
 	Vec3d realUp = normalize(cross(realLookAt, right));
 	Matrix4x4 rotMat;
 	// input manually
-	rotMat.matrix << right[0], right[1], right[2], 0.0f, realUp[0], realUp[1], realUp[2], 0.0f,
+    //todo ugly now
+	rotMat.matrix << -right[0], -right[1], -right[2], 0.0f, realUp[0], realUp[1], realUp[2], 0.0f,
 		realLookAt[0], realLookAt[1], realLookAt[2], 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f;
 	return rotMat * translateMat;

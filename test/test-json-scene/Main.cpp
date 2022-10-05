@@ -30,6 +30,7 @@
 #else
 #include "unistd.h"
 #include "FunctionLayer/Integrator/PathIntegrator.h"
+#include "FunctionLayer/Integrator/PathIntegrator-new.h"
 
 #endif
 
@@ -55,7 +56,6 @@ TEST_CASE("load-cornell-box")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 35, 1/0.56, 3.17f);
-<<<<<<< HEAD
     VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 1, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
@@ -90,16 +90,10 @@ TEST_CASE("test-ball")
     auto pinhole = std::make_shared<PinholeCamera>(
             lookFrom, lookAt, up, 35, (float(1280)/float(780)), 3.17f);
 
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1280,780), 3),
-            std::make_unique<SequenceTileGenerator>(Point2i(1280,780)), std::make_shared<IndependentSampler>(), 1, 12);
+    PathIntegratorNew integrator(pinhole, std::make_unique<Film>(Point2i(1280,780), 3),
+            std::make_unique<SequenceTileGenerator>(Point2i(1280,780)), std::make_shared<IndependentSampler>(), 32, 12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
     integrator.save("testball.bmp");
-=======
-    VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 16, 12);
-    std::cout << "start rendering" << std::endl;
-    integrator.render(scene);
-    integrator.save("9-26-embree-1.bmp");
->>>>>>> feature(user-defined-geomtry):integrate embree
     std::cout << "finish" << std::endl;
 }

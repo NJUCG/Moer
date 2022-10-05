@@ -1,13 +1,18 @@
 #include "MaterialFactory.h"
 #include "DielectricMaterial.h"
 #include "NullMaterial.h"
+#include "MirrorMaterial.h"
 #include "CoreLayer/Scene/Scene.h"
+#include "ConductorMaterial.h"
+
 namespace  MaterialFactory{
     std::shared_ptr <Material> LoadMaterialFromJson(const Json json) {
-        std::string material_type = json.at("type");
-        if (material_type == "lambert") return std::make_shared <MatteMaterial>(json);
-        else if (material_type == "dielectric") return std::make_shared<DielectricMaterial>(json);
-        else if (material_type == "null") return std::make_shared<NullMaterial>(json);
+        std::string materialType = json.at("type");
+        if (materialType == "lambert") return std::make_shared <MatteMaterial>(json);
+        else if (materialType == "mirror") return std::make_shared <MirrorMaterial>();
+        else if (materialType == "dielectric") return std::make_shared<DielectricMaterial>(json);
+        else if(materialType == "conductor") return std::make_shared<ConductorMaterial>(json);
+        else if (materialType == "null") return std::make_shared<NullMaterial>(json);
         return nullptr;
     }
 
