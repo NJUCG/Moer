@@ -44,7 +44,7 @@ public:
 	void deposit(const Point2i &p, const Spectrum &s);
 	void save(const std::string &path);
 
-    void postProcess();
+    Spectrum postProcess(const Spectrum & value) const;
 
 	int getDepositeCount(const Point2i &p);
 };

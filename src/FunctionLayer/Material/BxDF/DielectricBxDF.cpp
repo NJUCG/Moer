@@ -11,7 +11,7 @@
  */
 
 #include "DielectricBxDF.h"
-#include "Fresnel.hpp"
+#include "Fresnel.h"
 Spectrum DielectricBxDF::f(const Vec3d &wo, const Vec3d &wi) const {
     return {0.f};
 }

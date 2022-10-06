@@ -14,19 +14,24 @@
 
 #include "Material.h"
 
+class MicrofacetDistribution;
+
 class ConductorMaterial : public  Material{
 public:
     ConductorMaterial(Vec3d _eta,Vec3d _k,
                       std::shared_ptr<Texture<Spectrum>> _albedo = nullptr,
                       std::shared_ptr<Texture<double>> _bump = nullptr
             );
+    ConductorMaterial(const Json & json);
     ConductorMaterial(const std::string  & _materialName);
 
     std::shared_ptr < BxDF > getBxDF(const Intersection & intersect)  const override;
 //
     std::shared_ptr < BSSRDF > getBSSRDF(const Intersection & intersect) const override;
 private:
+    std::shared_ptr<Texture<double>> roughness = nullptr, uRoughness = nullptr, vRoughness = nullptr;
+    std::shared_ptr<MicrofacetDistribution> distrib;
     Vec3d eta;
     Vec3d k;
-    std::string materialName;
+    std::string conductorName;
 };

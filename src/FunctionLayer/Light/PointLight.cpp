@@ -16,7 +16,7 @@
 
 #define DIRAC 1.0
 
-PointLight::PointLight(const Spectrum &intensity, const Point3d &center) : intensity(intensity)
+PointLight::PointLight(const Spectrum &intensity, const Point3d &center) :Light(ELightType::POINT) ,intensity(intensity)
 {
     Transform3D::setTranslate(center.x, center.y, center.z);
 }

@@ -59,3 +59,32 @@ public:
 protected:
     BXDFType type;
 };
+
+// BSDF Inline Functions
+inline double CosTheta(const Vec3d &w) { return w.z; }
+inline double Cos2Theta(const Vec3d &w) { return w.z * w.z; }
+inline double AbsCosTheta(const Vec3d &w) { return std::abs(w.z); }
+inline double Sin2Theta(const Vec3d &w) {
+    return std::max((double)0, (double)1 - Cos2Theta(w));
+}
+
+inline double SinTheta(const Vec3d &w) { return std::sqrt(Sin2Theta(w)); }
+
+inline double TanTheta(const Vec3d &w) { return SinTheta(w) / CosTheta(w); }
+
+inline double Tan2Theta(const Vec3d &w) {return Sin2Theta(w) / Cos2Theta(w);}
+
+inline double CosPhi(const Vec3d &w) {
+    double sinTheta = SinTheta(w);
+    return (sinTheta == 0) ? 1 : std::clamp(w.x / sinTheta, -1.0, 1.0);
+}
+
+inline double SinPhi(const Vec3d &w) {
+    double sinTheta = SinTheta(w);
+    return (sinTheta == 0) ? 0 : std::clamp(w.y / sinTheta, -1.0, 1.0);
+}
+
+inline double Cos2Phi(const Vec3d &w) { return CosPhi(w) * CosPhi(w); }
+
+inline double Sin2Phi(const Vec3d &w) { return SinPhi(w) * SinPhi(w); }
+

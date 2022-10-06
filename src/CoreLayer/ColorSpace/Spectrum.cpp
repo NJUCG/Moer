@@ -1208,6 +1208,13 @@ RGB3 SampledSpectrum::toRGB3() const
     return toXYZ3().toRGB3();
 }
 
+double SampledSpectrum::luminance( ) const {
+    double yy = 0.0;
+    for (int i = 0; i < nSpectrumSamples; ++i) yy += Y[i] * coefficients[i];
+    return yy * double (sampledLambdaEnd - sampledLambdaStart) /
+           double (CIE_Y_integral * nSpectrumSamples);
+}
+
 // RGB spectrum implementions
 
 RGBSpectrum::RGBSpectrum()
@@ -1251,4 +1258,9 @@ RGB3 RGBSpectrum::toRGB3() const
 {
     RGB3 rgb(coefficients[0],coefficients[1],coefficients[2]);
     return rgb;
+}
+
+double RGBSpectrum::luminance( ) const {
+    const double YWeight[3] = {0.212671f, 0.715160f, 0.072169f};
+    return YWeight[0] * coefficients[0] + YWeight[1] * coefficients[1] + YWeight[2] * coefficients[2];
 }
