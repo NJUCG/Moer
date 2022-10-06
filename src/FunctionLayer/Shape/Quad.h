@@ -32,9 +32,9 @@ public:
     virtual void setLight(std::shared_ptr<Light> light);
     virtual BoundingBox3f WorldBound() const;
 
-    //TODO
-    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
-    //TODO
+
+//    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
+
 	virtual EntitySurfaceInfo
 	getEntitySurfaceInfo(int primID, Point2d _uv) const override;
 

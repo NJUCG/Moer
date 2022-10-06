@@ -216,12 +216,12 @@ Matrix4x4 Matrix4x4::perspective(const Angle &fov, double aspect, double near, d
 	return retVal;
 }
 
-Matrix4x4 Matrix4x4::inverse()
+Matrix4x4 Matrix4x4::inverse() const
 {
 	return Matrix4x4(matrix.inverse());
 }
 
-Matrix4x4 Matrix4x4::transpose()
+Matrix4x4 Matrix4x4::transpose() const
 {
 	return Matrix4x4(matrix.transpose());
 }
@@ -315,4 +315,19 @@ Eigen::MatrixXd TransformMatrix3D::transformPoints(const Eigen::MatrixXd & point
 Eigen::MatrixXd TransformMatrix3D::transformNormals(const Eigen::MatrixXd & normals) {
     update();
     return matrixAll.transformNormals(normals);
+}
+
+Matrix4x4 TransformMatrix3D::getScale() const 
+{
+	return matrixScale;
+}
+
+Matrix4x4 TransformMatrix3D::getRotate() const 
+{
+	return matrixRotate;
+}
+
+Matrix4x4 TransformMatrix3D::getTranslate() const 
+{
+	return matrixTranslate;
 }

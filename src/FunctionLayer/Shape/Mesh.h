@@ -53,6 +53,8 @@ public:
     virtual EntitySurfaceInfo getEntitySurfaceInfo(int primIDs,
                                                    Point2d uv) const override;
 
+    virtual std::optional<Intersection> getIntersectionFromRayHit(const UserRayHit1 &rayhit) const override;
+
 protected:
 	Eigen::MatrixXd m_vertices;
 	

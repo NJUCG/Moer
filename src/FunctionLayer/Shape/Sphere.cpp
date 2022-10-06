@@ -260,7 +260,7 @@ void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args)
 void rtcSphereOccludeFunc(const RTCOccludedFunctionNArguments *args) {
     return;
 }
-
+/*
 RTCGeometry Sphere::toEmbreeGeometry(RTCDevice device) const 
 {
     RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);
@@ -272,7 +272,7 @@ RTCGeometry Sphere::toEmbreeGeometry(RTCDevice device) const
     rtcCommitGeometry(geom);
     return geom;
 }
-
+*/
 EntitySurfaceInfo Sphere::getEntitySurfaceInfo(int instID, Point2d uv) const{
     auto [theta, phi] = uv;
     Normal3d normal {

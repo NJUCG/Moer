@@ -32,6 +32,14 @@ struct EntitySurfaceInfo {
 struct Intersection;
 class Light;
 
+/**
+ * @brief User defined RayHit1
+ * 
+ */
+struct UserRayHit1 : public RTCRayHit {
+	std::shared_ptr<Intersection> its = nullptr;
+};
+
 class Entity : public Transform3D
 {
 public:
@@ -52,10 +60,12 @@ public:
     }
     Entity(){}
     Entity(const Json json) : Transform3D(json.at("transform")){
-
+		
     }
 
-	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const = 0;
+	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const;
+
+	virtual std::optional<Intersection> getIntersectionFromRayHit(const UserRayHit1 &rayhit) const;
 
 	virtual EntitySurfaceInfo
 	getEntitySurfaceInfo(int instID, Point2d uv) const = 0;

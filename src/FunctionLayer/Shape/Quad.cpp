@@ -119,6 +119,7 @@ void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args)
          edge1 = quad->_edge1;
 
     RTCRayHitN *rayhit = args->rayhit;
+
     RTCRayN *ray = RTCRayHitN_RayN(rayhit, 1);
     RTCHitN *hit = RTCRayHitN_HitN(rayhit, 1);
 
@@ -180,7 +181,7 @@ void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args)
 void rtcQuadOccludeFunc(const RTCOccludedFunctionNArguments *args) {
     return;
 }
-
+/*
 RTCGeometry Quad::toEmbreeGeometry(RTCDevice device) const 
 {
     RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);
@@ -192,7 +193,7 @@ RTCGeometry Quad::toEmbreeGeometry(RTCDevice device) const
     rtcCommitGeometry(geom);
     return geom;
 }
-
+*/
 EntitySurfaceInfo Quad::getEntitySurfaceInfo(int primID, Point2d _uv) const
 {
     Normal3d normal = normalize(cross(_edge1, _edge0));
