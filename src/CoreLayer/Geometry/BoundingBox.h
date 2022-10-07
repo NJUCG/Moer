@@ -32,7 +32,7 @@ public:
 
 	BoundingBox3() {
 		pMin[0] = pMin[1] = pMin[2] = std::numeric_limits<BaseType>::max();
-		pMax[0] = pMax[1] = pMax[2] = std::numeric_limits<BaseType>::min();
+		pMax[0] = pMax[1] = pMax[2] = std::numeric_limits<BaseType>::lowest();
 	};
 
 	BoundingBox3(TPoint3<BaseType> _p)

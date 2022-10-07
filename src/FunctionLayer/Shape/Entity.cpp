@@ -70,7 +70,7 @@ void rtcEntityIntersectFunc(const RTCIntersectFunctionNArguments *args)
     } else {
         rayhit->its = std::make_shared<Intersection>(its.value());
         rayhit->ray.tfar = its->t;
-        rayhit->hit.geomID = args->geomID;
+        rayhit->hit.geomID = args->geomID;     
     }
 }
 

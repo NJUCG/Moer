@@ -73,13 +73,6 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
             break;
         throughput /= pSurvive;
 
-        //flip The Frame If ray direction and normal not in one side.
-        // Todo : Is this justified?
-//        if(dot(-ray.direction,its.geometryNormal)<0){
-//            its.shFrame.n = -its.shFrame.n;
-//            its.shFrame.s = -its.shFrame.s;
-//        }
-
         // SAMPLE DIRECT LIGHTING
         // Support multiple direct light samples per intersection. n=1 by default.
         for (int i = 0; i < nDirectLightSamples; i++)

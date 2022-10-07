@@ -63,7 +63,7 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
         its.t = tmin;
         Vec3d hitpoint_ = ori_ + its.t * dir_;
         its.geometryNormal = rotation * computeNormalInLocal(hitpoint_);
-        its.position = *matrix * (Point3d(0) + hitpoint_);
+        its.position = r.at(its.t);
         its.object = this;
         its.shFrame = Frame{its.geometryNormal};
         its.material = material;
@@ -72,7 +72,7 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
         its.t = tmax;
         Vec3d hitpoint_ = ori_ + its.t * dir_;
         its.geometryNormal = rotation * computeNormalInLocal(hitpoint_);
-        its.position = *matrix * (Point3d(0) + hitpoint_);
+        its.position = r.at(its.t);
         its.object = this;
         its.shFrame = Frame{its.geometryNormal};
         its.material = material;
@@ -102,13 +102,7 @@ BoundingBox3f Cube::WorldBound() const {
                 (i & 4 ? -edge.z : edge.z)
             );
 
-        box = BoundingBoxPointUnion(box, 
-            position +  rotation * Vec3d(
-                (i & 1 ? -edge.x : edge.x),
-                (i & 2 ? -edge.y : edge.y),
-                (i & 4 ? -edge.z : edge.z)
-            )
-        );
+        box = BoundingBoxPointUnion(box, vertex);
     }
     return box;
 }

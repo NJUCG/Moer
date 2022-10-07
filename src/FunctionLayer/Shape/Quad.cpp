@@ -33,6 +33,7 @@ std::optional <Intersection> Quad::intersect(const Ray & r) const {
 
 
     Intersection ans;
+    ans.t = t;
     ans.position = r.at(t);
     ans.geometryNormal = n;
     ans.geometryTangent = normalize(Vec3d(n.z, 0, -n.x));
