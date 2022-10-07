@@ -57,8 +57,7 @@ public:
 	virtual std::optional<Intersection> intersect(const Ray& r) const override;
 	virtual double area() const override;
 	virtual Intersection sample(const Point2d& positionSample) const override;
-	virtual std::shared_ptr<Light> getLight() const override;
-	virtual void setLight(std::shared_ptr<Light> light) override;
+
 	virtual BoundingBox3f WorldBound() const override;
 
 
@@ -66,8 +65,5 @@ public:
 	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override {
 		RTCGeometry geom;
 		return geom;
-	}
-	virtual EntitySurfaceInfo getEntitySurfaceInfo(int primID, Point2d uv) const override {
-		return EntitySurfaceInfo();
 	}
 };

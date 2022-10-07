@@ -68,19 +68,8 @@ Intersection Mesh::sample(const Point2d &positionSample) const
     return Intersection();
 }
 
-std::shared_ptr<Light> Mesh::getLight() const 
-{
-    return this->lightPtr;
-}
-
-void Mesh::setLight(std::shared_ptr<Light> light)
-{
-    this->lightPtr = light;
-}
-
 BoundingBox3f Mesh::WorldBound() const
 {
-    // TODO, store the bounding box
     return m_aabb;
 }
 
@@ -118,34 +107,6 @@ RTCGeometry Mesh::toEmbreeGeometry(RTCDevice device) const
 
     rtcCommitGeometry(geom);
     return geom;
-}
-
-EntitySurfaceInfo
-Mesh::getEntitySurfaceInfo(int primID, Point2d _uv) const 
-{
-    //TODO add tangent and bitangent
-    auto [u, v] = _uv;
-    auto [i0, i1, i2] = m_indices[primID];
-    auto p0 = eigenToPoint3d(m_vertices.col(i0)),
-         p1 = eigenToPoint3d(m_vertices.col(i1)),
-         p2 = eigenToPoint3d(m_vertices.col(i2));
-    auto n0 = eigenToVector3d(m_normals.col(i0)),
-         n1 = eigenToVector3d(m_normals.col(i1)),
-         n2 = eigenToVector3d(m_normals.col(i2));
-    auto uv0 = m_UVs[i0],
-         uv1 = m_UVs[i1],
-         uv2 = m_UVs[i2];
-
-    Point3d position = (1 - u - v) * p0
-        + u * p1
-        + v * p2;
-    Normal3d normal = (1 - u - v) * n0
-        + u * n1
-        + v * n2;
-    Point2d uv = (1 - u - v) * uv0
-        + u * uv1
-        + v * uv2;
-    return {position, normal, Normal3d(), Normal3d(), uv};
 }
 
 std::optional<Intersection> Mesh::getIntersectionFromRayHit(const UserRayHit1 &rayhit) const

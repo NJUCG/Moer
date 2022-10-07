@@ -12,12 +12,23 @@
 #include "Entity.h"
 #include "FunctionLayer/Intersection.h"
 
-/**
- * @brief Default define an user-type embree geometry
- * 
- * @param device 
- * @return RTCGeometry 
- */
+std::shared_ptr<Light> Entity::getLight() const {
+    return light;
+}
+
+void Entity::setLight(std::shared_ptr<Light> _light) {
+    this->light = _light;
+}
+
+std::shared_ptr<Material> Entity::getMaterial() const {
+    return material;
+}
+
+void Entity::setMaterial(std::shared_ptr<Material> _material) {
+    this->material = _material;
+}
+
+
 void rtcEntityBoundsFunc(const RTCBoundsFunctionArguments *args)
 {
     Entity *entity = static_cast<Entity *>(args->geometryUserPtr);
@@ -43,6 +54,7 @@ void rtcEntityIntersectFunc(const RTCIntersectFunctionNArguments *args)
     
     Entity *entity = static_cast<Entity *>(args->geometryUserPtr);
     UserRayHit1 *rayhit = (UserRayHit1 *)(args->rayhit);
+
     auto ray = rayhit->ray;
 
     Ray r{
@@ -68,7 +80,12 @@ void rtcEntityOccludeFunc(const RTCOccludedFunctionNArguments *args)
     return;
 }
 
-
+/**
+ * @brief Default define an user-type embree geometry
+ * 
+ * @param device 
+ * @return RTCGeometry 
+ */
 RTCGeometry Entity::toEmbreeGeometry(RTCDevice device) const 
 {
     RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);

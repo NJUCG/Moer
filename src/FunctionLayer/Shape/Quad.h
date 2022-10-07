@@ -15,6 +15,19 @@
 #include <optional>
 
 class Quad : public  Entity{
+public:
+    Quad() = default;
+    
+    Quad(const Json & json);
+    
+    virtual std::optional<Intersection> intersect(const Ray &r) const override;
+    
+    virtual double area() const override;
+
+    virtual Intersection sample(const Point2d &positionSample) const override;
+
+    virtual BoundingBox3f WorldBound() const override;
+
 protected:
     Point3d  _base;
     Vec3d _edge0,_edge1;
@@ -22,22 +35,4 @@ protected:
     Vec2d  _invSq;
 
     virtual void apply() override;
-public:
-    Quad(const Json & json);
-    Quad() = default;
-    virtual std::optional<Intersection> intersect(const Ray &r) const;
-    virtual double area() const;
-    virtual Intersection sample(const Point2d &positionSample) const;
-    virtual std::shared_ptr<Light> getLight() const;
-    virtual void setLight(std::shared_ptr<Light> light);
-    virtual BoundingBox3f WorldBound() const;
-
-
-//    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
-
-	virtual EntitySurfaceInfo
-	getEntitySurfaceInfo(int primID, Point2d _uv) const override;
-
-    friend void rtcQuadIntersectFunc(const RTCIntersectFunctionNArguments *args);
-
 };

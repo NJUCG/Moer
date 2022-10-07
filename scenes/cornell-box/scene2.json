@@ -250,23 +250,23 @@
             "name": "shortBox",
             "transform": {
                 "position": [
-                    -0.35,
-                    0.35,
-                    0.25
+                    0,
+                    0.3,
+                    0.3
                 ],
                 "scale": [
-                    0.5,
-                    0.7,
-                    0.5
+                    0.3,
+                    1,
+                    0.3
                 ],
                 "rotation": [
-                    0,
-                    -10,
-                    0
+                    30,
+                    30,
+                    10
                 ]
             },
             "type": "cube",
             "bsdf": "shortbox"
-        }        
+        }
     ]
 }
