@@ -28,7 +28,7 @@ struct Ray
 
 	bool withinTime(double time);
 
-	Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin = .01f, double _timeMax = DBL_MAX);
+	Ray(const Point3d &_origin, const Vec3d &_direction, double _timeMin = .0f, double _timeMax = DBL_MAX);
 };
 
 /// \brief ray differential

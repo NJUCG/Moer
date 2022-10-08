@@ -36,7 +36,7 @@ void Scene::build() {
     accel = std::make_shared<EmbreeAccel>(*entities);
 }
 std::optional<Intersection> Scene::intersect(const Ray &r) const
-{   
+{
     return accel->Intersect(r);
 }
 

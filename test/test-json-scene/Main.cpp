@@ -61,7 +61,7 @@ TEST_CASE("load-cornell-box")
 
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("cornell-final-final-path-new.bmp");
+    integrator.save("cornell-box.bmp");
     std::cout << "finish" << std::endl;
 }
 
