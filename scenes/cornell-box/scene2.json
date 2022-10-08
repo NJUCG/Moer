@@ -250,45 +250,23 @@
             "name": "shortBox",
             "transform": {
                 "position": [
-                    0.328631,
-                    0.35,
-                    0.374592
+                    0,
+                    0.3,
+                    0.3
                 ],
                 "scale": [
-                    0.594811,
-                    0.604394,
-                    0.6
+                    0.3,
+                    1,
+                    0.3
                 ],
                 "rotation": [
-                    90,
-                    90,
-                    -163.36
+                    30,
+                    30,
+                    10
                 ]
             },
             "type": "cube",
-            "material": "backWall"
-        },
-        {
-            "name": "tallBox",
-            "transform": {
-                "position": [
-                    -0.335439,
-                    0.6,
-                    -0.291415
-                ],
-                "scale": [
-                    0.607289,
-                    0.597739,
-                    1.2
-                ],
-                "rotation": [
-                    90,
-                    180,
-                    160.812
-                ]
-            },
-            "type": "cube",
-            "material": "backWall"
+            "bsdf": "shortbox"
         }
     ]
 }

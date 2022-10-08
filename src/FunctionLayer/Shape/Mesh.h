@@ -28,10 +28,6 @@ public:
     
     Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material,const Json & json );
 
-//    Mesh(std::shared_ptr<MeshData> _data, std::shared_ptr<Material> _material,const Json & transformJson);
-
-
-
     virtual ~Mesh() = default;
     
     virtual std::optional<Intersection> intersect(const Ray &r) const override;
@@ -40,18 +36,13 @@ public:
         
     virtual Intersection sample(const Point2d &positionSample) const override;
     
-    virtual std::shared_ptr<Light> getLight() const override;
-    
-    virtual void setLight(std::shared_ptr<Light> light) override;
-    
     virtual BoundingBox3f WorldBound() const override;
 
     Triangle getTriangle(int idx) const;
 
     virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
 
-    virtual EntitySurfaceInfo getEntitySurfaceInfo(int primIDs,
-                                                   Point2d uv) const override;
+    virtual std::optional<Intersection> getIntersectionFromRayHit(const UserRayHit1 &rayhit) const override;
 
 protected:
 	Eigen::MatrixXd m_vertices;
