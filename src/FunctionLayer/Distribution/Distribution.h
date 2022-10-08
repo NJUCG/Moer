@@ -16,8 +16,8 @@
 
 #include <vector>
 
-static template <typename Predicate>
-int FindInterval(int size, const Predicate &pred) {
+template <typename Predicate>
+static int FindInterval(int size, const Predicate &pred) {
     int first = 0, len = size;
     while (len > 0) {
         int half = len >> 1, middle = first + half;
