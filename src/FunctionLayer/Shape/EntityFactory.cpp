@@ -10,6 +10,7 @@
 #include "Quad.h"
 #include "Sphere.h"
 #include "Mesh.h"
+#include "Cube.h"
 
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;
@@ -27,6 +28,7 @@ namespace EntityFactory{
         std::shared_ptr < Entity > entity ;
         if(type=="quad") entity =  std::make_shared<Quad>(json);
         if(type=="sphere") entity = std::make_shared<Sphere>(json);
+        if(type == "cube") entity = std::make_shared<Cube>(json);
 
         if(type=="mesh") {
             if(!json.contains("file")){
@@ -63,7 +65,7 @@ namespace EntityFactory{
                 for(int i=0;i<entityCount;i++){
                     entity = entities[entityIdxBegin+i];
                     auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
-                                                                               RGB3(emission.x,emission.y,emission.z).toSpectrum());
+                                                                               Spectrum(RGB3(emission.x,emission.y,emission.z)));
                     entity->setLight(diffuseAreaLight);
                     scene.addLight(diffuseAreaLight);
                 }

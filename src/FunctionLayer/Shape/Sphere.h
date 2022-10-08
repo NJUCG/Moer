@@ -16,26 +16,23 @@
 
 class Sphere : public Entity
 {
+public:
+    Sphere(const Json & json);
+
+    Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material);
+
+    virtual std::optional<Intersection> intersect(const Ray &r) const override;
+
+    virtual double area() const override;
+
+    virtual Intersection sample(const Point2d &positionSample) const override;
+
+	virtual BoundingBox3f WorldBound() const override;
+
 protected:
     double radius;
     Point3d center;
     virtual void apply() override;
 
-public:
-    Sphere(const Json & json);
-    Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material);
-    virtual std::optional<Intersection> intersect(const Ray &r) const;
-    virtual double area() const;
-    virtual Intersection sample(const Point2d &positionSample) const;
-    virtual std::shared_ptr<Light> getLight() const;
-    virtual void setLight(std::shared_ptr<Light> light);
-	virtual BoundingBox3f WorldBound() const;
 
-    //TODO
-    virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const;
-    //TODO
-	virtual EntitySurfaceInfo
-	getEntitySurfaceInfo(int instID, Point2d uv) const;
-
-    friend void rtcSphereIntersectFunc(const RTCIntersectFunctionNArguments *args);
 };
