@@ -39,15 +39,24 @@ inline int clamp(int value, int min, int max) {
     else return value;
 }
 
-/// Linearly interpolate between two values
-inline float lerp(float t, float v1, float v2) {
-    return ((float) 1 - t) * v1 + t * v2;
-}
 
 /// Always-positive modulo operation
 inline int mod(int a, int b) {
     int r = a % b;
     return (r < 0) ? r+b : r;
+}
+
+template<class T>
+T lerp(const T & a,const T & b,double  u){
+    return a * (1-u) + b*u;
+}
+
+template < class T >
+T  lerp(const T & x00, const T & x01, const T & x10, const T & x11, double u, double v
+) {
+
+    return (x00*(1.0f - u) + x01*u)*(1.0f - v) +
+           (x10*(1.0f - u) + x11*u)*v;
 }
 
 

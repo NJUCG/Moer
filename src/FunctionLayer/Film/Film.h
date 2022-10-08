@@ -13,6 +13,8 @@
 
 #include "FunctionLayer/Filter/Filter.h"
 #include "ResourceLayer/ResourceManager.h"
+#include "ToneMapping.h"
+
 #include <memory>
 
 class Film
@@ -24,7 +26,7 @@ protected:
 	int channels;
 	std::vector<double> sumWeights; // a temp impl
 	std::vector<Spectrum> sumValues; // a temp impl
-
+    ToneMapping::ToneMapType toneMapType = ToneMapping::Filmic;
 	void syncWithGui();
 
 public:
@@ -41,6 +43,8 @@ public:
 	// @brief: 'deposit' a spectrum at p. all deposit will be averaged when get(p).
 	void deposit(const Point2i &p, const Spectrum &s);
 	void save(const std::string &path);
+
+    Spectrum postProcess(const Spectrum & value) const;
 
 	int getDepositeCount(const Point2i &p);
 };

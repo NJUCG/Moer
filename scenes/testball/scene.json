@@ -1,0 +1,126 @@
+{
+  "mediums" : [],
+  "materials": [
+ 
+    {
+      "name": "Stand",
+      "albedo": 1,
+      "type": "conductor"
+    },
+    {
+      "name": "RoughMetal",
+      "albedo": 1,
+      "type": "conductor",
+      "material": "Cu",
+      "distribution": "beckmann",
+      "roughness": 0.1
+    }
+  ],
+
+  "entities": [
+    {
+      "transform": {
+        "position": [
+          0.110507,
+          0.494301,
+          0.126194
+        ],
+        "scale": 0.482906
+      },
+      "bump_strength": 1,
+      "type": "mesh",
+      "file": "models/Mesh000.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "RoughMetal"
+    },
+    {
+      "transform": {
+        "position": [
+          0.0571719,
+          0.213656,
+          0.0682078
+        ],
+        "scale": 0.482906
+      },
+      "bump_strength": 1,
+      "type": "mesh",
+      "file": "models/Mesh001.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "RoughMetal"
+    },
+    {
+      "transform": {
+        "position": [
+          0.156382,
+          0.777229,
+          0.161698
+        ],
+        "scale": 0.482906
+      },
+      "bump_strength": 1,
+      "type": "mesh",
+      "file": "models/Mesh002.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "RoughMetal"
+    },
+    {
+      "type" : "infinite_sphere",
+      "emission" : "textures/envmap.hdr"
+    }
+  ],
+  "camera": {
+    "tonemap": "filmic",
+    "resolution": [
+      1280,
+      720
+    ],
+    "reconstruction_filter": "tent",
+    "transform": {
+      "position": [
+        3.04068,
+        3.17153,
+        3.20454
+      ],
+      "look_at": [
+        0.118789,
+        0.473398,
+        0.161081
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "type": "pinhole",
+    "fov": 35
+  },
+  "integrator": {
+    "type": "path_tracer",
+    "min_bounces": 0,
+    "max_bounces": 64,
+    "enable_light_sampling": true,
+    "enable_volume_light_sampling": true,
+    "enable_consistency_checks": false,
+    "enable_two_sided_shading": true
+  },
+  "renderer": {
+    "output_file": "material-testball.png",
+    "resume_render_file": "RenderState.dat",
+    "overwrite_output_files": true,
+    "adaptive_sampling": true,
+    "enable_resume_render": false,
+    "stratified_sampler": true,
+    "scene_bvh": true,
+    "spp": 128,
+    "spp_step": 16,
+    "checkpoint_interval": "0",
+    "hdr_output_file": "material-testball.exr"
+  }
+}

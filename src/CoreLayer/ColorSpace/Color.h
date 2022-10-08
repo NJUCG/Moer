@@ -21,9 +21,13 @@ class SampledSpectrum;
 class RGBSpectrum;
 
 // TODO: should be defined by cmake marco.
-using Spectrum = SampledSpectrum;
+//#define USING_SAMPLEDSPECTRUM
 
-//using Spectrum = RGB3;
+#ifdef USING_SAMPLEDSPECTRUM
+using Spectrum = SampledSpectrum;
+#else
+using Spectrum = RGBSpectrum;
+#endif
 
 static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
@@ -65,7 +69,9 @@ private:
 	double rgbData[3];
 
 public:
-	RGB3();
+    static void init(){}
+
+    RGB3();
 
 	RGB3(double r, double g, double b);
 
@@ -97,6 +103,8 @@ public:
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
+
+
 };
 
 
@@ -355,6 +363,7 @@ public:
 		return sum() / nSamples;
 	}
 
+
 	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
 		// this function should never be called.
@@ -366,6 +375,11 @@ public:
 		// this function should never be called.
 		return RGB3(0.0);
 	}
+
+     /// @brief get the luminance
+     virtual double luminance() const {
+        return 0;
+    }
 };
 
 /// \brief One sample point from a spectrum.
@@ -436,14 +450,18 @@ public:
 	virtual XYZ3 toXYZ3() const override;
 
 	virtual RGB3 toRGB3() const override;
+
+    virtual double luminance() const override;
 };
 
 /// @brief RGB spectrum. The value of RGB spectrum is the same as RGB3.
 class RGBSpectrum : public CoefficientSpectrum<3>
 {
 public:
+    static void init() {}
 
-	RGBSpectrum();
+
+    RGBSpectrum();
 
 	RGBSpectrum(double val);
 
@@ -456,5 +474,6 @@ public:
 	virtual XYZ3 toXYZ3() const override;
 
 	virtual RGB3 toRGB3() const override;
-	
+
+    virtual double luminance() const override;
 };

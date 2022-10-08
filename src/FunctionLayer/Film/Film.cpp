@@ -49,9 +49,10 @@ void Film::save(const std::string &path)
         {
             int id = i * resolution.x + j;
             Spectrum value = sumValues[id] / sumWeights[id];
+            value = postProcess(value);
             image->setColorAt(Point2i(j, i), value);
             // for debug
-            ofs << j << " " << i << " " << value.average() << std::endl;
+            ofs << j << " " << i << " " << value[0]<<" "<<value[1]<<" "<<value[2]<<" "<< std::endl;
         }
     }
     image->saveTo(path);
@@ -60,4 +61,9 @@ void Film::save(const std::string &path)
 Point2i Film::getResolution() const
 {
     return resolution;
+}
+
+Spectrum Film::postProcess(const Spectrum & value ) const {
+    RGB3 rgbValue = value.toRGB3();
+    return ToneMapping::toneMap(toneMapType,rgbValue).toSpectrum();
 }

@@ -73,6 +73,22 @@ Normal3d Matrix4x4::operator*(const Normal3d &n) const
 	return Normal3d(result[0], result[1], result[2]);
 }
 
+Eigen::MatrixXd Matrix4x4::transformPoints(const Eigen::MatrixXd & points) const {
+    Eigen::Matrix3d mat = matrix.block<3, 3>(0, 0);
+    Eigen::Vector3d translateVector= matrix.block<3,1>(0,3);
+    Eigen::MatrixXd transformPoints= mat*points;
+   // return mat *(points.colwise() + translateVector);
+    return  transformPoints.colwise() + translateVector;
+}
+
+Eigen::MatrixXd Matrix4x4::transformNormals(const Eigen::MatrixXd & normals) const {
+    Eigen::Matrix3d mat = matrix.block<3, 3>(0, 0);
+    Eigen::Matrix3d scale  = Matrix4x4::scale(1.0/mat.col(0).norm(),1.0/mat.col(1).norm(),1.0/mat.col(2).norm()).
+            matrix.block<3, 3>(0, 0);
+    return (scale * mat) * normals;
+}
+
+
 Matrix4x4 Matrix4x4::translate(double x, double y, double z)
 {
 	Matrix4x4 retVal;
@@ -153,7 +169,8 @@ Matrix4x4 Matrix4x4::lookAt(const Point3d &lookFrom, const Vec3d &vecLookAt, con
 	Vec3d realUp = normalize(cross(realLookAt, right));
 	Matrix4x4 rotMat;
 	// input manually
-	rotMat.matrix << right[0], right[1], right[2], 0.0f, realUp[0], realUp[1], realUp[2], 0.0f,
+    //todo ugly now
+	rotMat.matrix << -right[0], -right[1], -right[2], 0.0f, realUp[0], realUp[1], realUp[2], 0.0f,
 		realLookAt[0], realLookAt[1], realLookAt[2], 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f;
 	return rotMat * translateMat;
@@ -207,6 +224,11 @@ Matrix4x4 Matrix4x4::transpose()
 {
 	return Matrix4x4(matrix.transpose());
 }
+
+Matrix4x4::Matrix4x4(const double * matData) {
+    memcpy(matrix.data(),matData,16*sizeof(double));
+}
+
 
 // Transform3D impl
 
@@ -277,4 +299,19 @@ Normal3d TransformMatrix3D::operator*(const Normal3d &n)
 {
 	update();
 	return matrixAll * n;
+}
+
+TransformMatrix3D::TransformMatrix3D(const double * transformData) {
+    matrixAll = Matrix4x4(transformData);
+    dirty = false;
+}
+
+Eigen::MatrixXd TransformMatrix3D::transformPoints(const Eigen::MatrixXd & points) {
+    update();
+    return matrixAll.transformPoints(points);
+}
+
+Eigen::MatrixXd TransformMatrix3D::transformNormals(const Eigen::MatrixXd & normals) {
+    update();
+    return matrixAll.transformNormals(normals);
 }

@@ -156,6 +156,9 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleDirectLighting(std::shared_pt
     {
         transmittance = 0.0;
     }
+    if(!visibilityTestingIts.has_value() && light->lightType==ELightType::INFINITE){
+        transmittance = 1.0;
+    }
     return {dirScatter, Li * transmittance, pdfDirect, record.isDeltaPos};
 
 }

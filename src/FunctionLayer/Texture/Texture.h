@@ -32,6 +32,8 @@ public:
 template <typename Tpos, typename Tvec>
 struct TextureCoord
 {
+    TextureCoord(const Tpos & _coord) : coord(_coord){}
+    TextureCoord() = default;
     Tpos coord;
     Tvec dcdx;
     Tvec dcdy;

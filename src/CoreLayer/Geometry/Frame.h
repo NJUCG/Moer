@@ -140,4 +140,8 @@ struct Frame {
     static Vec3d reflect(const Vec3d & w){
         return Vec3d(-w.x,-w.y,w.z);
     }
+
+    static Vec3d reflect(const Vec3d &wo, const Vec3d & n) {
+        return -wo + 2 * dot(wo, n) * n;
+    }
 };
