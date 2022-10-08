@@ -25,7 +25,6 @@ std::shared_ptr<BxDF> MatteMaterial::getBxDF(const Intersection & intersect) con
 {
     Spectrum color = albedo->eval(intersect);
     std::shared_ptr<LambertainBxDF> bxdf = std::make_shared<LambertainBxDF>(color);
-//    return std::make_shared<Mircofacet>(color,1.5046,1.000277,0.05);
     return bxdf;
 }
 

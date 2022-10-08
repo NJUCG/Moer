@@ -104,8 +104,6 @@ public:
 
 	XYZ3 toXYZ3() const;
 
-    /// @brief Convert RGB3 to SampledSpectrum.
-    Spectrum toSpectrum(SpectrumType type=SpectrumType::REFLECTANCE) const;
 
 };
 
@@ -365,6 +363,7 @@ public:
 		return sum() / nSamples;
 	}
 
+
 	/// \attention This function is just used for debugging
 	virtual XYZ3 toXYZ3() const {
 		// this function should never be called.
@@ -376,6 +375,11 @@ public:
 		// this function should never be called.
 		return RGB3(0.0);
 	}
+
+     /// @brief get the luminance
+     virtual double luminance() const {
+        return 0;
+    }
 };
 
 /// \brief One sample point from a spectrum.
@@ -446,6 +450,8 @@ public:
 	virtual XYZ3 toXYZ3() const override;
 
 	virtual RGB3 toRGB3() const override;
+
+    virtual double luminance() const override;
 };
 
 /// @brief RGB spectrum. The value of RGB spectrum is the same as RGB3.
@@ -469,6 +475,5 @@ public:
 
 	virtual RGB3 toRGB3() const override;
 
-
-	
+    virtual double luminance() const override;
 };

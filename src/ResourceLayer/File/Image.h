@@ -24,7 +24,7 @@ class Image
 	Point2i resolution;
 	int channels;
 
-    bool isHdr;
+    bool isHdr = false;
 public:
 
     template<typename  T>

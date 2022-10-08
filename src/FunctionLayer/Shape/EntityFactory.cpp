@@ -49,13 +49,19 @@ namespace EntityFactory{
             scene.addLight(std::make_shared <InfiniteSphereLight>(json));
         }
 
-        else entities.push_back(entity);
+        else {
+            auto material = scene.fetchMaterial(
+                                        getOptional(json,"material",std::string("default")));
+            entity->setMaterial(material);
+            entities.push_back(entity);
+        }
 
         {
             Vec3d emission;
             if(entityCount>0 && containsAndGet(json,"emission",emission)){
+                int entityIdxBegin = entities.size() - entityCount;
                 for(int i=0;i<entityCount;i++){
-                    entity = entities[entities.size()-i];
+                    entity = entities[entityIdxBegin+i];
                     auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
                                                                                RGB3(emission.x,emission.y,emission.z).toSpectrum());
                     entity->setLight(diffuseAreaLight);

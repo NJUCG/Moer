@@ -30,6 +30,8 @@ public:
 
     LightSampleResult sampleDirect(const MediumSampleRecord & mRec, Point2d sample, double time) override;
 protected:
+    double  directPdf(Vec3d dir);
+
     std::unique_ptr <Distribution2D> distribution;
     std::shared_ptr <ImageTexture<Spectrum,RGB3>> emission;
 };

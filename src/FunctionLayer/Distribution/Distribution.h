@@ -113,8 +113,7 @@ public:
         int iu = std::clamp(int(p[0] * pConditionalV[0]->Count()), 0,
                        pConditionalV[0]->Count() - 1);
         int iv = std::clamp(int(p[1] * pMarginal->Count()), 0, pMarginal->Count() - 1);
-//        return (pMarginal->func[iv] / pMarginal->funcInt) * (pConditionalV[iv]->func[iu]/pConditionalV[iv]->funcInt);
-        return pMarginal->DiscretePDF(iv) * pConditionalV[iv]->DiscretePDF(iu);
+        //return pMarginal->DiscretePDF(iv) * pConditionalV[iv]->DiscretePDF(iu);
         return pConditionalV[iv]->func[iu] / pMarginal->funcInt;
     }
 

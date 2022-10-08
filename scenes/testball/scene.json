@@ -4,8 +4,16 @@
  
     {
       "name": "Stand",
-      "albedo": 0.2,
-      "type": "lambert"
+      "albedo": 1,
+      "type": "conductor"
+    },
+    {
+      "name": "RoughMetal",
+      "albedo": 1,
+      "type": "conductor",
+      "material": "Cu",
+      "distribution": "beckmann",
+      "roughness": 0.1
     }
   ],
 
@@ -25,7 +33,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Stand"
+      "material": "RoughMetal"
     },
     {
       "transform": {
@@ -42,7 +50,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Stand"
+      "material": "RoughMetal"
     },
     {
       "transform": {
@@ -59,7 +67,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Stand"
+      "material": "RoughMetal"
     },
     {
       "type" : "infinite_sphere",
