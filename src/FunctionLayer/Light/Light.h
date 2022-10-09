@@ -50,6 +50,8 @@ enum class ELightType{
     UNDEFINED,
     POINT,
     AREA,
+// Windows SDK has a definition of INFINITE
+#undef INFINITE
     INFINITE
 };
 
