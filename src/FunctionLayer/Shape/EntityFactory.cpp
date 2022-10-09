@@ -63,7 +63,9 @@ namespace EntityFactory{
                 for(int i=0;i<entityCount;i++){
                     entity = entities[entityIdxBegin+i];
                     auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
-                                                                               RGB3(emission.x,emission.y,emission.z).toSpectrum());
+                                                                               RGB3(emission.x,emission.y,emission.z));
+                    // auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
+                    //                                                            RGB3(emission.x,emission.y,emission.z).toSpectrum());
                     entity->setLight(diffuseAreaLight);
                     scene.addLight(diffuseAreaLight);
                 }
