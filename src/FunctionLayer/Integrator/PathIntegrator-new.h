@@ -100,6 +100,6 @@ public:
                                                     const Ray &ray);
 
 protected:
-    const int nPathLengthLimit = 20;
+    const int nPathLengthLimit = 64;
     const double pRussianRoulette = 0.95;
 };

@@ -23,11 +23,6 @@ Spectrum LambertainBxDF::f(const Vec3d & wo , const Vec3d & wi) const {
         return 0;
     }
     return albedo * INV_PI ;
-
-}
-
-Vec3d LambertainBxDF::sampleWi(const Vec3d & wo , const Point2d &sample) const {
-    return SquareToUniformHemisphere(sample);
 }
 
 double LambertainBxDF::pdf(const Vec3d &wo , const Vec3d & wi) const {
@@ -37,16 +32,12 @@ double LambertainBxDF::pdf(const Vec3d &wo , const Vec3d & wi) const {
 BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample) const {\
     BxDFSampleResult result ;
 
-    auto wi = sampleWi(wo,sample);
+    auto wi = SquareToUniformHemisphere(sample);
     result.directionIn = wi ;
     result.bxdfSampleType = BXDFType(BXDF_DIFFUSE | BXDF_REFLECTION);
     result.pdf = pdf(wo,wi);
     result.s = f(wo,wi);
 
     return result;
-}
-
-bool LambertainBxDF::isSpecular() const {
-    return false;
 }
 

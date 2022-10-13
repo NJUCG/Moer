@@ -92,7 +92,7 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
         Vec3d wo = its.toLocal(-ray.direction);
         return {
             dirScatter,
-            bxdf->f(wo, wi) * wiDotN,
+            bxdf->f(wo, wi,false) * wiDotN,
             bxdf->pdf(wo, wi),
             false};
     }
@@ -112,7 +112,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         Vec3d wo = its.toLocal(-ray.direction);
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Vec3d n = its.geometryNormal;
-        BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D());
+        BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D(),false);
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));

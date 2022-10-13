@@ -24,18 +24,7 @@ namespace  TextureFactory{
             return std::make_shared <ConstantTexture<T>>(textureJson);
         }
         if(textureJson.is_string()){
-//            std::string hex_string = textureJson.get<std::string>();
-//            if (hex_string.size() == 7 && hex_string[0] == '#')
-//            {
-//                hex_string.erase(0, 1);
-//                std::stringstream ss;
-//                ss << std::hex << hex_string;
-//                uint32_t color_int;
-//                ss >> color_int;
-//                Spectrum  albedo = intToColor(color_int);
-//                return std::make_shared <ConstantTexture<T>>(albedo);
-//            }
-
+            //todo
             return nullptr;
         }
         if(textureJson.is_object()){
@@ -58,6 +47,11 @@ namespace  TextureFactory{
         if(auto texture = LoadTexture<T>(textureJson))
             return texture;
         return std::make_shared<ConstantTexture<T>>(defaultValue);
+    }
+
+    template <class T>
+    std::shared_ptr<ConstantTexture<T>> LoadConstantTexture(T value){
+        return std::make_shared<ConstantTexture<T>>(value);
     }
 }
 

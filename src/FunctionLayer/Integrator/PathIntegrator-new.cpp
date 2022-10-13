@@ -177,7 +177,7 @@ PathIntegratorLocalRecord PathIntegratorNew::evalScatter(std::shared_ptr<Scene> 
         Vec3d wo = its.toLocal(-ray.direction);
         return {
             dirScatter,
-            bxdf->f(wo, wi) * wiDotN,
+            bxdf->f(wo, wi,false) * wiDotN,
             bxdf->pdf(wo, wi),
             false};
     }
@@ -197,7 +197,7 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleScatter(std::shared_ptr<Scene
         Vec3d wo = its.toLocal(-ray.direction);
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Vec3d n = its.geometryNormal;
-        BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D());
+        BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D(),false);
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
         double wiDotN = std::abs(dot(dirScatter, n));
@@ -219,7 +219,7 @@ double PathIntegratorNew::russianRoulette(std::shared_ptr<Scene> scene,
     double pSurvive = pRussianRoulette;
     if (nBounce > nPathLengthLimit)
         pSurvive = 0.0;
-    if (nBounce <= 2)
+    if (nBounce <= 20)
         pSurvive = 1.0;
     return pSurvive;
 }

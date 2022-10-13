@@ -54,7 +54,7 @@ protected:
     double Lambda(const Vec3d & w, const Vec2d & alphaXY) const override;
 };
 
-class TrowbridgeReitzDistribution : public MicrofacetDistribution {
+class GGXDistribution : public MicrofacetDistribution {
 public:
     double roughnessToAlpha(double roughness) const override;
 
