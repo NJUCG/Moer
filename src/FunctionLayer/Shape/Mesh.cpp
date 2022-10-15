@@ -68,19 +68,8 @@ Intersection Mesh::sample(const Point2d &positionSample) const
     return Intersection();
 }
 
-std::shared_ptr<Light> Mesh::getLight() const 
-{
-    return this->lightPtr;
-}
-
-void Mesh::setLight(std::shared_ptr<Light> light)
-{
-    this->lightPtr = light;
-}
-
 BoundingBox3f Mesh::WorldBound() const
 {
-    // TODO, store the bounding box
     return m_aabb;
 }
 
@@ -120,11 +109,12 @@ RTCGeometry Mesh::toEmbreeGeometry(RTCDevice device) const
     return geom;
 }
 
-EntitySurfaceInfo
-Mesh::getEntitySurfaceInfo(int primID, Point2d _uv) const 
+std::optional<Intersection> Mesh::getIntersectionFromRayHit(const UserRayHit1 &rayhit) const
 {
-    //TODO add tangent and bitangent
-    auto [u, v] = _uv;
+    auto primID = rayhit.hit.primID;
+    double u = rayhit.hit.u,
+           v = rayhit.hit.v;
+
     auto [i0, i1, i2] = m_indices[primID];
     auto p0 = eigenToPoint3d(m_vertices.col(i0)),
          p1 = eigenToPoint3d(m_vertices.col(i1)),
@@ -145,35 +135,17 @@ Mesh::getEntitySurfaceInfo(int primID, Point2d _uv) const
     Point2d uv = (1 - u - v) * uv0
         + u * uv1
         + v * uv2;
-    return {position, normal, Normal3d(), Normal3d(), uv};
-}
 
-//Mesh::Mesh(std::shared_ptr < MeshData > _data, std::shared_ptr < Material > _material,
-//           const Json & transformJson)
-//                :Entity(transformJson),
-//                 m_vertices(_data->m_vertices),
-//                 m_normals(_data->m_normals),
-//                 m_tangents(_data->m_tangents),
-//                 m_bitangents(_data->m_bitangents),
-//                 m_UVs(_data->m_UVs),
-//                 m_indices(_data->m_indices),
-//
-//{
-//    this->material = _material;
-//
-//    auto maxX = m_vertices.row(0).maxCoeff(),
-//            minX = m_vertices.row(0).minCoeff(),
-//            maxY = m_vertices.row(1).maxCoeff(),
-//            minY = m_vertices.row(1).minCoeff(),
-//            maxZ = m_vertices.row(2).maxCoeff(),
-//            minZ = m_vertices.row(2).minCoeff();
-//
-//    m_aabb = BoundingBox3f {
-//            Point3d {minX, minY, minZ},
-//            Point3d {maxX, maxY, maxZ}
-//    };
-//
-//    BVH = std::make_shared<Bvh>(this);
-//}
-//
-//
+
+
+    //todo tangent and bitangent
+    Intersection its;
+    its.t = rayhit.ray.tfar;
+    its.object = this;
+    its.material = this->material;
+    its.position = position;
+    its.geometryNormal = normal;
+    its.shFrame = Frame{normal};
+    its.uv = uv;
+    return std::make_optional(its);
+}

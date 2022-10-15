@@ -88,8 +88,8 @@ public:
 	static Matrix4x4 orthographic(double left,double right,double up,double down,double near,double far);
 	static Matrix4x4 perspective(const Angle& fov,double aspect, double near, double far);
 
-	Matrix4x4 inverse();
-	Matrix4x4 transpose();
+	Matrix4x4 inverse() const;
+	Matrix4x4 transpose() const;
 
 	friend void printMatrix(const Matrix4x4 &mat);
 };
@@ -126,6 +126,10 @@ public:
 
 	/// @brief Rotate by axis. Counterclockwise rotate.
 	void setRotateAxis(const Vec3d& axis, const Angle& angle);
+
+	Matrix4x4 getScale() const;
+	Matrix4x4 getRotate() const;
+	Matrix4x4 getTranslate() const;
 
 	Vec3d operator*(const Vec3d &v);
 	Point3d operator*(const Point3d &p);

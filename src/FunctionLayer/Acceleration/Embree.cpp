@@ -49,7 +49,8 @@ std::optional<Intersection> EmbreeAccel::Intersect(const Ray &r) const
     RTCIntersectContext ictx;
     rtcInitIntersectContext(&ictx);
 
-    RTCRayHit rayhit;
+//    RTCRayHit rayhit;
+    UserRayHit1 rayhit;
     rayhit.ray = toRTCRay(r);
     rayhit.hit.geomID = RTC_INVALID_GEOMETRY_ID;
 
@@ -61,18 +62,7 @@ std::optional<Intersection> EmbreeAccel::Intersect(const Ray &r) const
         return std::nullopt;
     }
 
-    //* Hit entity
-    Intersection its;
-    its.t = rayhit.ray.tfar;
-    its.object = entities[geomID].get();
-    its.material = its.object->material;
-    auto [hitpoint, normal, tangent, bitangent, uv]
-        = its.object->getEntitySurfaceInfo(primID, Point2d{rayhit.hit.u, rayhit.hit.v});
-    its.position = hitpoint;
-    its.geometryNormal = normal;
-    its.shFrame = Frame{normal};
-    its.geometryTangent = tangent;
-    its.geometryBitangent = bitangent;
-    //TODO differentials computing
-    return its;
+    auto object = entities[geomID].get();
+
+    return object->getIntersectionFromRayHit(rayhit);
 }

@@ -179,14 +179,6 @@ Intersection Triangle::sample(const Point2d& positionSample) const{
 	return its;
 }
 
-void Triangle::setLight(std::shared_ptr<Light> light)
-{
-	lightPtr = light;
-}
-std::shared_ptr<Light> Triangle::getLight() const
-{
-	return lightPtr;
-}
 double Triangle::area() const
 {
 	const Point3d& p0 = mesh->p->at(vertexId[0]);
