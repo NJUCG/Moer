@@ -21,13 +21,9 @@ public:
 
     Spectrum f(const Vec3d & out, const Vec3d & in) const override;
 
-    Vec3d sampleWi(const Vec3d & out, const Point2d & sample) const override;
-
     double pdf(const Vec3d & out, const Vec3d & in) const override;
 
     BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
-
-    bool isSpecular( ) const override;
 
 protected:
     Vec3d  eta;
@@ -42,13 +38,9 @@ public:
 
     Spectrum f(const Vec3d & out, const Vec3d & in) const override;
 
-    Vec3d sampleWi(const Vec3d & out, const Point2d & sample) const override;
-
     double pdf(const Vec3d & out, const Vec3d & in) const override;
 
     BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
-
-    bool isSpecular( ) const override;
 
 protected:
     std::shared_ptr<MicrofacetDistribution> distrib;

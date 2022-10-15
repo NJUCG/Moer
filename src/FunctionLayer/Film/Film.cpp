@@ -64,6 +64,6 @@ Point2i Film::getResolution() const
 }
 
 Spectrum Film::postProcess(const Spectrum & value ) const {
-    RGB3 rgbValue = value.toRGB3();
-    return Spectrum(ToneMapping::toneMap(toneMapType,rgbValue));
+    RGB3 rgbValue = ToneMapping::toneMap(toneMapType,value.toRGB3());
+    return Spectrum(rgbValue);
 }

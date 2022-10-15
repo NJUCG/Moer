@@ -23,13 +23,12 @@ public:
 
     std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const override;
 
-    DielectricMaterial(const std::shared_ptr<Texture<double>> & _ior,
-                       const std::shared_ptr<Texture<Spectrum>> &  _albedo = nullptr,
-                       const std::shared_ptr<Texture<double>> &  _bump = nullptr ) : Material(_albedo,_bump),ior(_ior) {}
-
     DielectricMaterial(const Json &json);
 private:
-    std::shared_ptr<Texture<double>> ior;
+    std::shared_ptr<Texture<double>> roughness = nullptr, uRoughness = nullptr, vRoughness = nullptr;
+    double ior;
+    std::shared_ptr<MicrofacetDistribution> distrib;
+    std::shared_ptr<Texture<RGB3>> albedoR,albedoT;
 
 };
 

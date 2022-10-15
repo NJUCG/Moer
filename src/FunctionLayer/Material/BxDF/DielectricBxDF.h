@@ -12,34 +12,56 @@
 #pragma  once
 #include "CoreLayer/Geometry/Frame.h"
 #include "BxDF.h"
+#include "MicrofacetDistribution.h"
 
 /// \brief Dielectric reflection model
 /// \ingroup BxDF
 class DielectricBxDF : public  BxDF{
 public:
-    DielectricBxDF(double ior = 1.33) : ior(ior),invIor(1/ior), albedo(1){
 
-    }
+    DielectricBxDF(double _ior, const Spectrum& _specularR,Spectrum _specularT)
+        : ior(_ior), invIor(1/ior),specularR(_specularR),specularT(_specularT) {}
 
-    DielectricBxDF(double _ior, const Spectrum& _albedo) 
-        : ior(_ior), invIor(1/ior), albedo(_albedo) {}
+    virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const override ;
 
-    virtual Spectrum f(const Vec3d &wo, const Vec3d &wi) const ;
+    virtual double pdf(const Vec3d &wo, const Vec3d &wi) const override;
 
-    virtual Vec3d sampleWi(const Vec3d &wo, const Point2d &sample) const ;
+    virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const override;
 
-    virtual double pdf(const Vec3d &wo, const Vec3d &wi) const ;
-
-
-    virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const ;
-
-    virtual bool isSpecular() const ;
-
+protected:
+    double eta(const Vec3d & out,const Vec3d & in) const override;
 
 private:
    double ior;
    double invIor;
-   Spectrum albedo;
+   Spectrum specularR,specularT;
+};
+
+class RoughDielectricBxDF : public  BxDF{
+public:
+    RoughDielectricBxDF(double _ior, const Spectrum& _specularR,Spectrum _specularT,
+                        double _uRoughness,double _vRoughness,
+                        std::shared_ptr<MicrofacetDistribution> _distrib);
+
+    Spectrum f(const Vec3d & out, const Vec3d & in) const override;
+
+    double pdf(const Vec3d & out, const Vec3d & in) const override;
+
+    BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
+
+protected:
+    double eta(const Vec3d & out, const Vec3d & in) const override;
+
+private:
+    double pdf(const Vec3d & out, const Vec3d & in,bool reflected) const ;
+
+    Spectrum f(const Vec3d & out, const Vec3d & in,bool reflected) const ;
+
+    std::shared_ptr<MicrofacetDistribution> distrib;
+    Vec2d alphaXY;
+    double ior;
+    Spectrum specularR;
+    Spectrum specularT;
 };
 
 

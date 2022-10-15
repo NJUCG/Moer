@@ -17,10 +17,6 @@ Spectrum MirrorBxDF::f(const Vec3d &wo, const Vec3d &wi) const {
    return Spectrum{0.0};
 }
 
-Vec3d MirrorBxDF::sampleWi(const Vec3d &wo, const Point2d &sample) const {
-    return Vec3d (-wo.x,-wo.y,wo.z);
-}
-
 double MirrorBxDF::pdf(const Vec3d &wo, const Vec3d &wi) const {
     return 0.0;
 }
@@ -28,12 +24,9 @@ double MirrorBxDF::pdf(const Vec3d &wo, const Vec3d &wi) const {
 BxDFSampleResult MirrorBxDF::sample(const Vec3d &wo, const Point2d &sample) const {
     BxDFSampleResult result;
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
-    result.directionIn= sampleWi(wo,sample);
+    result.directionIn=  Vec3d (-wo.x,-wo.y,wo.z);
     result.pdf=1;
     result.s = 1 / std::abs(result.directionIn.z);
     return  result;
 }
 
-bool MirrorBxDF::isSpecular() const {
-    return true;
-}

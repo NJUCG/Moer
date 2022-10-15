@@ -75,7 +75,6 @@ Vec3d BeckmannDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const
         double cosTheta = std::sqrt(1 / (1+tan2Theta));
         double sinTheta = std::sqrt(1 / (1+1/tan2Theta));
         Vec3d  wh = Vec3d(sinTheta*std::cos(phi),sinTheta*std::sin(phi),cosTheta);
-        if(dot(wo,wh)<0) wh = -wh;
         return wh;
     }
         // see https://hal.inria.fr/hal-00996995v1/document // todo
@@ -88,23 +87,23 @@ std::string BeckmannDistribution::ToString( ) const {
     return std::string();
 }
 
-double TrowbridgeReitzDistribution::roughnessToAlpha(double roughness) const {
+double GGXDistribution::roughnessToAlpha(double roughness) const {
     return 0;
 }
 
-double TrowbridgeReitzDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {
+double GGXDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {
     return 0;
 }
 
-double TrowbridgeReitzDistribution::Lambda(const Vec3d & w, const Vec2d & alphaXY) const {
+double GGXDistribution::Lambda(const Vec3d & w, const Vec2d & alphaXY) const {
     return 0;
 }
 
-Vec3d TrowbridgeReitzDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const Vec2d & alphaXY) const {
+Vec3d GGXDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const Vec2d & alphaXY) const {
     return Vec3d();
 }
 
-std::string TrowbridgeReitzDistribution::ToString( ) const {
+std::string GGXDistribution::ToString( ) const {
     return std::string();
 }
 

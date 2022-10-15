@@ -31,11 +31,6 @@ namespace EntityFactory{
         if(type == "cube") entity = std::make_shared<Cube>(json);
 
         if(type=="mesh") {
-            if(!json.contains("file")){
-                throw ("Mesh should have the File property");
-            }
-            std::string workDir = FileUtils::WorkingDir;
-            //throw(workDir);
             auto meshDataPath = FileUtils::WorkingDir+std::string(json["file"]);
             auto meshDataList = MeshDataManager::getInstance()->getMeshData(meshDataPath);
             entityCount = meshDataList.size();
@@ -65,7 +60,7 @@ namespace EntityFactory{
                 for(int i=0;i<entityCount;i++){
                     entity = entities[entityIdxBegin+i];
                     auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
-                                                                               Spectrum(RGB3(emission.x,emission.y,emission.z)));
+                                                                               RGB3(emission.x,emission.y,emission.z));
                     entity->setLight(diffuseAreaLight);
                     scene.addLight(diffuseAreaLight);
                 }
