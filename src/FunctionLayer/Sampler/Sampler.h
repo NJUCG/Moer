@@ -41,6 +41,21 @@ public:
 
 	virtual Point2d sample2D() = 0;
 
+  /**
+   * @brief Return a copy of this Sampler instance,
+   *        in order to secure the multi-thread sampling.
+   * @note  Copy of a Sampler is to persist the sampling strategy,
+   *        not identical sampling sequences.
+   * 
+   * @param seed Seed of rng, to make random sequence UNIQUE for each copy.
+   *             May not be used, because RandomNumberGenerator uses random seeds.
+   * @return std::unique_ptr<Sampler> Copy of this Sampler
+   * 
+   * @date 2022-10-15
+   * @author ja50n
+   */
+  virtual std::unique_ptr<Sampler> clone(int seed) = 0;
+
 	CameraSample getCameraSample();
 
 };
@@ -113,7 +128,7 @@ public:
 	
 	virtual ~PixelSampler() = default;
 	
-	/// @brief The sampler may change the sampling stragety at different pixel location ,record the current pixel location
+	/// @brief The sampler may change the sampling stragety at different pixel location, record the current pixel location
 	/// @param _pixelPositon location of current pixel
 	virtual void startPixel(const Point2i &_pixelPositon) override {
 		// record the position

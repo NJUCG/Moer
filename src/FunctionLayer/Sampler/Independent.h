@@ -24,4 +24,8 @@ public:
     virtual Point2d sample2D() override {
         return Point2d{rng(), rng()};
     }
+
+    virtual std::unique_ptr<Sampler> clone(int seed) override {
+      return std::unique_ptr<Sampler>(new IndependentSampler());
+    }
 };
