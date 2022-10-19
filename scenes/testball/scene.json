@@ -4,8 +4,8 @@
  
     {
       "name": "Stand",
-      "albedo": 1,
-      "type": "conductor"
+      "albedo": 0.2,
+      "type": "lambert"
     },
     {
       "name": "RoughMetal",
@@ -14,6 +14,24 @@
       "material": "Cu",
       "distribution": "beckmann",
       "roughness": 0.1
+    },{
+      "name" :"Disney",
+       "type" : "disney",
+       "base_color" : [0.5 ,0.9, 0.84],
+       "albedo_transmission" : [0.5 ,0.9, 0.84],
+       "albedo_reflection": [0.5,0.9,0.84],
+      "specular_transmission" : 0.5,
+      "metallic" : 0,
+      "subsurface" : 0.5,
+      "roughness": 0.1,
+      "specular_tint" : 0.5,
+      "anisotropic": 0.2,
+      "sheen" : 0,
+      "sheen_tint" : 0.5,
+      "clear_coat" : 0,
+      "clear_coat_gloss": 0.25,
+       "eta": 1.3,
+      "ior":1.3
     }
   ],
 
@@ -33,8 +51,9 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "RoughMetal"
+      "material": "Stand"
     },
+
     {
       "transform": {
         "position": [
@@ -50,7 +69,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "RoughMetal"
+      "material": "Disney"
     },
     {
       "transform": {
@@ -67,11 +86,13 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "RoughMetal"
+      "material": "Disney"
     },
+
     {
       "type" : "infinite_sphere",
       "emission" : "textures/envmap.hdr"
+
     }
   ],
   "camera": {

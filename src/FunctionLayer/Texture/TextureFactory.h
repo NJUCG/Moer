@@ -28,18 +28,9 @@ namespace  TextureFactory{
             return nullptr;
         }
         if(textureJson.is_object()){
-            std::string textureType = textureJson.at("type");
-            if(textureType == "checker"){
-                T onColor= getOptional(textureJson,"on_color",T());
-                T offColor= getOptional(textureJson,"off_color",T());
-                int resU = getOptional(textureJson,"res_u",20);
-                int resV = getOptional(textureJson,"res_v",20);
-                //todo
-               // return std::make_shared <CheckTexture<T>>(onColor,offColor,resU,resV);
-            }
+            //todo
         }
         return nullptr;
-        // return std::make_shared <ConstantTexture<T>>(defaultValue);
     }
 
     template <class T>

@@ -34,4 +34,6 @@ protected:
 
     std::unique_ptr <Distribution2D> distribution;
     std::shared_ptr <ImageTexture<Spectrum,RGB3>> emission;
+    Matrix4x4 toWorld;
+    Matrix4x4 toLocal;
 };

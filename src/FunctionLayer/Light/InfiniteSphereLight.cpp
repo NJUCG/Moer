@@ -26,7 +26,7 @@ LightSampleResult InfiniteSphereLight::evalEnvironment(const Ray & ray) {
 
     //todo support environment
     LightSampleResult ans;
-    TextureCoord2D textureCoord2D(DirectionToUv(ray.direction));
+    TextureCoord2D textureCoord2D(DirectionToUv(toLocal * ray.direction));
     ans.s = emission->eval(textureCoord2D);
     ans.src = ray.origin;
     ans.pdfDirect = 0.0;
@@ -44,7 +44,6 @@ LightSampleResult InfiniteSphereLight::eval(const Ray & ray, const Intersection 
 LightSampleResult
 InfiniteSphereLight::sampleEmit(const Point2d & positionSample, const Point2d & directionSample, float time) {
     throw ( "Not implemented yet" );
-    return LightSampleResult();
 }
 
 LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, const Point2d & sample, float time) {
@@ -59,8 +58,7 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, co
     TextureCoord2D textureCoord2D(uv);
     ans.s = emission->eval(textureCoord2D);
     double sinTheta;
-    Vec3d dir = UvToDirection(uv, sinTheta);
-
+    Vec3d dir = toWorld * UvToDirection(uv, sinTheta);
 
     ans.src = its.position;
     double _worldRadius = 100; //todo load radius from scene
@@ -68,17 +66,14 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, co
     ans.uv = uv;
     ans.pdfDirect = pdf  / ( 2 * M_PI * M_PI * sinTheta );
     ans.pdfDirect = directPdf(dir);
-  //  ans.wi = Vec3d(uv.x,uv.y,0);
     ans.wi = dir;
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
-
     return ans;
 }
 
 LightSampleResult InfiniteSphereLight::sampleDirect(const MediumSampleRecord & mRec, Point2d sample, double time) {
     throw ( "Not implemented yet" );
-    return LightSampleResult();
 }
 
 InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::INFINITE) {
@@ -93,10 +88,22 @@ InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::
     } else {
         //todo report error
     }
+
+    if(json.contains("to_world")){
+        double matrixData[16];
+        for(int i=0;i<16;i++)
+            json["to_world"].at(i).get_to(matrixData[i]);
+        toWorld = Matrix4x4(matrixData);
+        toLocal = toWorld.inverse();
+    }
+    else {
+        toWorld = Matrix4x4();
+        toLocal = Matrix4x4();
+    }
 }
 
 double InfiniteSphereLight::directPdf(Vec3d dir) {
     double sinTheta;
-    Point2d uv = DirectionToUv(dir, sinTheta);
+    Point2d uv = DirectionToUv(toLocal * dir, sinTheta);
     return INV_PI * INV_TWOPI * distribution->Pdf(uv)  / sinTheta;
 }
