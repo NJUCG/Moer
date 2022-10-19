@@ -23,7 +23,7 @@
       "specular_transmission" : 0.5,
       "metallic" : 0,
       "subsurface" : 0.5,
-      "roughness": 0.1,
+      "roughness": 0.5,
       "specular_tint" : 0.5,
       "anisotropic": 0.2,
       "sheen" : 0,

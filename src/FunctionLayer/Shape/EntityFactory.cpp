@@ -29,7 +29,7 @@ namespace EntityFactory{
         if(type=="sphere") entity = std::make_shared<Sphere>(json);
 
         if(type=="mesh") {
-            auto meshDataPath = FileUtils::WorkingDir+std::string(json["file"]);
+            auto meshDataPath = FileUtils::getWorkingDir()+std::string(json["file"]);
             auto meshDataList = MeshDataManager::getInstance()->getMeshData(meshDataPath);
             entityCount = meshDataList.size();
             for(auto meshData:meshDataList){

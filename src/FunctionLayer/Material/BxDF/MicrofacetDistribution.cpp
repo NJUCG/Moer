@@ -1,7 +1,7 @@
 #include "MicrofacetDistribution.h"
+#include "CoreLayer/Geometry/Frame.h"
+
 #include "BxDF.h"
-
-
 
 std::shared_ptr<MicrofacetDistribution> LoadDistributionFromJson(const Json & json){
     if(!json.contains("distribution"))
@@ -146,9 +146,6 @@ Vec3d GGXDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const Vec2
         Vec3d T1 = normalize(Vec3d(-hemisphereDirOut.y,hemisphereDirOut.x,0));
         Vec3d T2 = cross(hemisphereDirOut,T1);
         Vec3d hemisphereN =  t1 * T1 + t2 * T2 + diskN.z * hemisphereDirOut;
-
-        Frame frame(hemisphereDirOut);
-        hemisphereN = frame.toWorld(diskN);
 
         // Transforming the normal back to the ellipsoid configuration
         return normalize(Vec3d(alphaX * hemisphereN.x, alphaY *  hemisphereN.y, std::max(0.0, hemisphereN.z)));

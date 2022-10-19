@@ -8,7 +8,7 @@
 
 //for debug purpose
 static bool onlyDiffuse = false;
-static bool onlyMetal = false;
+static bool onlyMetal = true;
 static bool onlyGlass = false;
 static bool onlySheen = false;
 static bool onlyClearCoat = false;

@@ -13,5 +13,7 @@
 #include <string>
 
 namespace  FileUtils{
-    const static std::string WorkingDir = "/Users/yjp/nju/大三下/graphics/offline-render/Zero/scenes/testball/";
+    void setWorkingDir(const std::string & _workingDir);
+    std::string getWorkingDir();
+    std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite);
 }

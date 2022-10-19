@@ -1,9 +1,9 @@
 #include "Image.h"
+#include "ResourceLayer/File/FileUtils.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
-
 Image::Image() {
     imageRawData = nullptr;
 }
@@ -126,6 +126,7 @@ Spectrum Image::getSpectrumColorAt(const Point2i &p)
 
 bool Image::saveTo(const std::string &path)
 {
-    stbi_write_bmp(path.c_str(), resolution.x, resolution.y, 3, imageRawData);
+    const char * destBmpPath = FileUtils::getFilePath(path,"bmp",false).data();
+    stbi_write_bmp(destBmpPath, resolution.x, resolution.y, 3, imageRawData);
     return true;
 }

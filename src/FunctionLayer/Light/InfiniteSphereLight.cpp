@@ -78,10 +78,10 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const MediumSampleRecord & m
 
 InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::INFINITE) {
     if ( json.contains("emission") ) {
-        std::string workingDir = FileUtils::WorkingDir;
-        std::string emissionTexturePath = FileUtils::WorkingDir + json.at("emission").get < std::string >();
+        std::string workingDir = FileUtils::getWorkingDir();
+        std::string emissionTexturePath = FileUtils::getWorkingDir() + json.at("emission").get < std::string >();
         emission = std::make_shared < ImageTexture < Spectrum, RGB3>>(
-                FileUtils::WorkingDir + json.at("emission").get < std::string >());
+                FileUtils::getWorkingDir() + json.at("emission").get < std::string >());
         std::vector < double > weights = emission->sphericalWeighs();
         //todo sphere weights
         distribution = std::make_unique < Distribution2D >(weights.data(), emission->getWidth(), emission->getHeight());
