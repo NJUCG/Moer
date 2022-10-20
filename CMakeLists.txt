@@ -21,4 +21,9 @@ add_subdirectory(${ZERO_DEPENDENCIES_DIR})
 
 ## complie for Zero
 file(GLOB_RECURSE ZERO_SOURCES ${ZERO_SOURCES_DIR}/*.cpp)
-add_subdirectory(./test)
+#add_subdirectory(./test)
+
+add_executable(MOER src/main.cpp ${ZERO_SOURCES})
+target_include_directories(MOER PUBLIC ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/ext)
+target_link_directories(MOER PRIVATE ${PROJECT_SOURCE_DIR}/target/lib)
+target_link_libraries(MOER assimp embree3)

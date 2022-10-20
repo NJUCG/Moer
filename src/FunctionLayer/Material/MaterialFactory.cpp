@@ -4,14 +4,17 @@
 #include "MirrorMaterial.h"
 #include "CoreLayer/Scene/Scene.h"
 #include "ConductorMaterial.h"
+#include "DisneyBSDF.h"
 
 namespace  MaterialFactory{
+
     std::shared_ptr <Material> LoadMaterialFromJson(const Json json) {
         std::string materialType = json.at("type");
         if (materialType == "lambert") return std::make_shared <MatteMaterial>(json);
         else if (materialType == "mirror") return std::make_shared <MirrorMaterial>();
         else if (materialType == "dielectric") return std::make_shared<DielectricMaterial>(json);
         else if(materialType == "conductor") return std::make_shared<ConductorMaterial>(json);
+        else if(materialType == "disney") return std::make_shared<DisneyMaterial>(json);
         else if (materialType == "null") return std::make_shared<NullMaterial>(json);
         return nullptr;
     }

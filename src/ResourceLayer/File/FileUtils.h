@@ -13,5 +13,7 @@
 #include <string>
 
 namespace  FileUtils{
-    const static std::string WorkingDir = "/mnt/renderer/Moer/scenes/cornell-box/";
+    void setWorkingDir(const std::string & _workingDir);
+    std::string getWorkingDir();
+    std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite);
 }

@@ -10,6 +10,7 @@
  *
  */
 
+
 #include "DielectricBxDF.h"
 #include "Fresnel.h"
 Spectrum DielectricBxDF::f(const Vec3d &wo, const Vec3d &wi) const {
@@ -70,25 +71,24 @@ double RoughDielectricBxDF::pdf(const Vec3d & out, const Vec3d & in) const {
 BxDFSampleResult RoughDielectricBxDF::sample(const Vec3d & out, const Point2d & sample) const {
     BxDFSampleResult result;
     Vec3d wh = distrib->Sample_wh(out,sample,alphaXY);
-    double whDotOut = dot(out, wh);
-    double  cosThetaI;
-    double  F = Fresnel::dielectricReflectance(1/ior,whDotOut,cosThetaI);
 
+    double whDotOut = dot(out, wh);
+    double  cosThetaT;
+    double  F = Fresnel::dielectricReflectance(1/ior,whDotOut,cosThetaT);
     double  r = rand() % (10000 + 1) / (float)(10000 + 1);
     bool reflect = r<F;
     if(reflect){
         Vec3d in = -out + 2 * dot(out, wh) * wh;
         result.directionIn = in;
         result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_GLOSSY);
-        result.s = f(out,in,reflect);
     }
     else {
         double eta = whDotOut < 0.0f ? ior : 1.0f/ior;
-        Vec3d in = (eta * whDotOut - (whDotOut>0?1:-1)*cosThetaI)* wh - eta* out ;
+        Vec3d in = (eta * whDotOut - (whDotOut>0?1:-1)*cosThetaT)* wh - eta* out ;
         result.directionIn = in;
         result.bxdfSampleType = BXDFType(BXDF_TRANSMISSION | BXDF_GLOSSY);
     }
-    result.s = f(out,result.directionIn,reflect);
+    result.s = f(out,result.directionIn,reflect) ;
     result.pdf = pdf(out,result.directionIn,reflect);
     return result;
 }
@@ -104,14 +104,19 @@ double RoughDielectricBxDF::pdf(const Vec3d & out, const Vec3d & in, bool reflec
         wh = -normalize(in + out * eta);
     }
     double  F =  Fresnel::dielectricReflectance(1/ior,dot(out,wh));
+    double whPdf = distrib->Pdf(out,wh,alphaXY);
+    if(whPdf < 1e-50)
+    {
+        return 0;
+    }
     if(reflect){
-        pdf = F * distrib->Pdf(out,wh,alphaXY) / (4 * absDot(out,wh));
+        pdf = F * whPdf / (4 * absDot(out,wh));
     }
     else {
         double sqrtDenom = dot(out, wh) * eta +  dot(in, wh);
         double dWhDWi =
                 std::abs( dot(in, wh)) / (sqrtDenom * sqrtDenom);
-        pdf =   distrib->Pdf(out,wh,alphaXY) * (1-F) * dWhDWi;
+        pdf =   whPdf * (1-F) * dWhDWi;
     }
     return pdf;
 }
@@ -122,13 +127,11 @@ Spectrum RoughDielectricBxDF::f(const Vec3d & out, const Vec3d & in, bool reflec
     if (reflect) {
         wh = std::copysign(1,out.z) * normalize(in + out);
     } else {
-        // See "Microfacet Models for Refraction through Rough Surfaces"
         wh = -normalize(in + out * eta);
     }
     double F = Fresnel::dielectricReflectance(1/ior,dot(out,wh));
     double D = distrib->D(wh,alphaXY);
     double G = distrib->G(in,out,alphaXY);
-
     if (reflect) {
         return  specularR * F * D * G/ 4 /(abs(in.z * out.z));
     }

@@ -43,7 +43,7 @@ TEST_CASE("load-cornell-box")
     std::cout << "scene start" << std::endl;
     Json  sceneJson;
 
-    std::ifstream sceneFile(FileUtils::WorkingDir+"scene.json");
+    std::ifstream sceneFile(FileUtils::getWorkingDir()+"scene.json");
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
    // scene->addEntity(std::make_shared<Quad>());
@@ -74,7 +74,7 @@ TEST_CASE("test-ball")
     std::cout << "scene start" << std::endl;
     Json  sceneJson;
 
-    std::ifstream sceneFile(FileUtils::WorkingDir+"scene.json");
+    std::ifstream sceneFile(FileUtils::getWorkingDir()+"scene.json");
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
     // scene->addEntity(std::make_shared<Quad>());

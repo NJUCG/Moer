@@ -10,11 +10,23 @@
  */
 #pragma  once
 #include "nlohmann/json.hpp"
-#include "../Geometry/Geometry.h"
+#include "CoreLayer/Geometry/Geometry.h"
 
 typedef nlohmann::json Json;
 
 class  RGB3;
+
+
+inline const Json getChild(const Json & json,std::string & field){
+    if(json.contains(field))
+        return json[field];
+    return Json();
+}
+inline const Json getChild(const Json & json,const char * field){
+    if(json.contains(field))
+        return json[field];
+    return Json();
+}
 
 template <class T>
 inline T getOptional(const Json &j, std::string field, T default_value)
@@ -73,7 +85,6 @@ void from_json(const Json &j,TPoint3<T> & point3){
     else
         for (int i = 0; i < 3; i++) j.get_to(point3[i]);
 }
-
 
 
 void from_json(const Json &j,RGB3 & rgb3);

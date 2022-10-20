@@ -55,6 +55,7 @@ void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
                         sampler->getCameraSample()
                     ), scene
                 );
+                L = L.clamp(0.0,1.0);
                 film->deposit(pixelPosition, L);
                 sampler->nextSample();
             }

@@ -477,3 +477,5 @@ public:
 
     virtual double luminance() const override;
 };
+
+void from_json(const Json &j,Spectrum & spectrum);
