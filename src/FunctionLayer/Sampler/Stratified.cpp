@@ -11,7 +11,7 @@ void StratifiedSampler::generateSamples1D(std::vector<double> &samples) {
 void StratifiedSampler::generateSamples2D(std::vector<Point2d> &samples) {
     double dx = (double)1 / sppSqrt,
            dy = (double)1 / sppSqrt;
-    // Samples will be restricted in 1/dx * 1/dy strats
+    // Samples will be restricted in 1/dx * 1/dy strata
     for (int x = 0; x < sppSqrt; ++x)
         for (int y = 0; y < sppSqrt; ++y) {
             samples[x + y * sppSqrt].x = std::min((x + rng()) * dx, ONEMINUSEPSILON);

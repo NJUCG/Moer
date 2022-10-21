@@ -168,3 +168,149 @@ public:
 		 	return Point2d{rng(), rng()};
 	}
 };
+
+/**
+ * @brief Some sampling strategies have better performance when generating
+ *        samples over all the image. (low-discrepancy sequences, etc.)
+ *        GlobalSampler is to warp them in order to fit the
+ *        pixel-by-pixel interface.
+ *        It maintains samples for all pixels and picks sample
+ *        values through some mapping.
+ * @note  By now the GlobalSampler generates 1 or 2 values each time through
+ *        calling sample1D() or sample2D().
+ * @author ja50n
+ */
+class GlobalSampler : public Sampler {
+ public:
+  GlobalSampler() = delete;
+  GlobalSampler(int64_t _sppSqrt)
+      : GlobalSampler(_sppSqrt, 4) {
+  }
+  GlobalSampler(int64_t _sppSqrt, int _nDimensions)
+      : samplesPerPixel(_sppSqrt * _sppSqrt),
+        nDimensions(_nDimensions),
+        nextDimension(0),
+        curSampleGlobalIndex(0),
+        curSamplePixelIndex(0),
+        curDimensionIndex1D(0),
+        curDimensionIndex2D(0) {
+    for (int i = 0; i < nDimensions; i++) {
+      samples1D.emplace_back(std::vector<double>(samplesPerPixel));
+      samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
+    }
+  }
+
+  virtual void startPixel(const Point2i &_pixelPosition) override {
+    pixelPosition = _pixelPosition;
+    // Reset dimension
+    nextDimension = 0;
+    // Reset sample index
+    curDimensionIndex1D = curDimensionIndex2D = curSamplePixelIndex = 0;
+    // Get index of the first sample in global sequence
+    curSampleGlobalIndex = globalSampleIndex(0);
+    // Generate 1D array
+    for (size_t i = 0; i < nDimensions; i++) {
+      for (int64_t j = 0; j < samplesPerPixel; j++) {
+        // Fill the pixel sample array with some global sequence
+        int64_t idx = globalSampleIndex(j);
+        samples1D[i][j] = sampleValue(idx, i);
+      }
+    }
+    // Generate 2D array
+    // To avoid the identical values
+    // in case that low-discrepancy sequence is deterministic
+    int dim = nDimensions;
+    for (size_t i = 0; i < nDimensions; i++) {
+      for (int64_t j = 0; j < samplesPerPixel; j++) {
+        int64_t idx = globalSampleIndex(j);
+        // In fact it goes further than nDimensions
+        samples2D[i][j].x = sampleValue(idx, dim);
+        samples2D[i][j].y = sampleValue(idx, dim + 1);
+      }
+      dim += 2;
+    }
+  }
+
+  virtual void nextSample() override {
+    // Reset the dimension
+    nextDimension = 0;
+    // Increase the global index
+    curSampleGlobalIndex = globalSampleIndex(curSamplePixelIndex + 1);
+    curSamplePixelIndex++;
+    // Reset the in-sample index
+    curDimensionIndex1D = curDimensionIndex2D = 0;
+    /// @note This assertion is a compromise with
+    ///       nextSample() not indicating end of vector
+    assert(curSamplePixelIndex < samplesPerPixel);
+  }
+
+  virtual double sample1D() override {
+    if (curDimensionIndex1D < nDimensions) 
+      return samples1D[curDimensionIndex1D++][curSamplePixelIndex];
+    else
+      return rng();
+  }
+
+  virtual Point2d sample2D() override {
+    if (curDimensionIndex2D < nDimensions) 
+      return samples2D[curDimensionIndex2D++][curSamplePixelIndex];
+    else
+      return Point2d{rng(), rng()};
+  }
+
+  /**
+   * @brief Map current pixel position and current pixel sample index
+   *        to the global sample index.
+   *
+   * @param pixelSampleIndex Index of current pixel sample.
+   * @return int64_t Index in global samples.
+   */
+  virtual int64_t globalSampleIndex(int64_t pixelSampleIndex) const = 0;
+
+  /**
+   * @brief Get the specified sample value from the global sequence.
+   *
+   * @param globalIndex Index of global sample sequence.
+   * @param dim Index of dimension, start with 0.
+   * @return double PIXEL RELATED sample value, should be in [0, 1).
+   */
+  virtual double sampleValue(int64_t globalIndex, int dim) const = 0;
+
+  /**
+   * @brief Return a copy of this Sampler instance,
+   *        in order to secure the multi-thread sampling.
+   *
+   * @param seed Seed of rng, to make random sequence UNIQUE for each
+   * copy. May not be used, because RandomNumberGenerator uses random
+   * seeds.
+   * @return std::unique_ptr<Sampler> Copy of this Sampler
+   */
+  virtual std::unique_ptr<Sampler> clone(int seed) override;
+
+  CameraSample getCameraSample();
+
+  const int64_t samplesPerPixel;
+  
+
+ protected:
+  // Position of current sampling pixel, set by startPixel().
+  Point2i pixelPosition;
+  // Samples
+  // Layout: samples[i][j] is the i-th (dimension) value of j-th sample.
+  std::vector<std::vector<double>> samples1D;
+  std::vector<std::vector<Point2d>> samples2D;
+  // Number of dimensions per sample
+  int nDimensions;
+  // Index of current sample in one pixel
+  int64_t curSamplePixelIndex;
+  // Index of sample dimension
+  size_t curDimensionIndex1D;
+  size_t curDimensionIndex2D;
+
+ private:
+  // The next dimension, incremented when sample1D() or sample2D() is
+  // called
+  size_t nextDimension;
+  // Index of current sample in the global sequence
+  int64_t curSampleGlobalIndex;
+};
