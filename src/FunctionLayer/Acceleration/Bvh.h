@@ -47,6 +47,7 @@ struct LinearBvhNode {
 
 class Mesh;
 
+/// @brief Bounding Volume Hierarchies.
 struct Bvh : public Accel{
 public:
 	const enum class SplitMethod{

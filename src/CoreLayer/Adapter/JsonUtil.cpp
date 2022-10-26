@@ -1,4 +1,4 @@
-#include "JsonUtil.hpp"
+#include "JsonUtil.h"
 #include "CoreLayer/ColorSpace/Color.h"
 
 void fromJson(const Json & j, RGB3 & rgb3) {

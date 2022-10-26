@@ -3,7 +3,7 @@
 #include "Sphere.h"
 #include "Mesh.h"
 #include "Cube.h"
-#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Scene/Scene.h"
 #include "ResourceLayer/ResourceManager.h"
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/Light/DiffuseAreaLight.h"

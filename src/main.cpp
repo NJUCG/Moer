@@ -1,11 +1,10 @@
+#include <iostream>
+#include <fstream>
 #include "FunctionLayer/Integrator/PathIntegrator-new.h"
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/Camera/Pinhole.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "FunctionLayer/Sampler/Independent.h"
-
-#include <iostream>
-#include <fstream>
 
 struct Render{
 public:

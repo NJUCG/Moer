@@ -115,7 +115,7 @@ std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entity
 					}
 				}
 			}
-			else assert(BVH_BUILD_ERROR);//should not be here!!!
+			else assert(BVH_BUILD_ERROR);//TODO:should not be here!!!
 			if (mid != -1) {
 				assert(mid > start);
 				root->children[0] = RecursiveBuild(entityInfo, start, mid, nodeNumber, orderedIndices);

@@ -13,7 +13,7 @@
 
 #include <vector>
 #include <cfloat>
-#include "CoreLayer/Adapter/JsonUtil.hpp"
+#include "CoreLayer/Adapter/JsonUtil.h"
 #include "CoreLayer/Math/Common.h"
 
 class RGB3;

@@ -18,7 +18,7 @@
 #include "FunctionLayer/Material/Material.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
-#include "CoreLayer/Adapter/JsonUtil.hpp"
+#include "CoreLayer/Adapter/JsonUtil.h"
 
 struct Intersection;
 class Light;

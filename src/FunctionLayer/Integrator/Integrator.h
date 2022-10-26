@@ -13,7 +13,7 @@
 
 #include <memory>
 
-#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Scene/Scene.h"
 #include "FunctionLayer/Camera/Camera.h"
 #include "FunctionLayer/Film/Film.h"
 #include "FunctionLayer/Sampler/Sampler.h"

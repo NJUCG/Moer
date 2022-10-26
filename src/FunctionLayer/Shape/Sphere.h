@@ -11,8 +11,8 @@
  */
 #pragma once
 
-#include "Entity.h"
 #include <optional>
+#include "Entity.h"
 
 class Sphere : public Entity
 {

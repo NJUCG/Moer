@@ -17,9 +17,9 @@
 #include <utility>
 
 // some constant values
-#define M_PI         3.14159265358979323846f    ///< \todo multiple defination M_PI
-#define INV_PI       0.31830988618379067154f
-#define INV_TWOPI    0.15915494309189533577f
+constexpr double M_PI       =           3.14159265358979323846f;    ///< \todo multiple defination M_PI
+constexpr double INV_PI     =           0.31830988618379067154f;
+constexpr double INV_TWOPI  =           0.15915494309189533577f;
 
 constexpr double ONEMINUSEPSILON = 1 - std::numeric_limits<double>::epsilon();
 constexpr double EPSILON = std::numeric_limits<double>::epsilon();

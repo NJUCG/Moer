@@ -14,7 +14,9 @@
 #include "Accel.h"
 #include "embree3/rtcore.h"
 
+/// @brief Acceleration structure built on Intel Embree. https://www.embree.org/
 struct EmbreeAccel : public Accel {
+
     EmbreeAccel(const std::vector<std::shared_ptr<Entity>> &_entities);
 
     virtual std::optional<Intersection> Intersect(const Ray &r) const override;

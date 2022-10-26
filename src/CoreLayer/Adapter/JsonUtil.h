@@ -1,5 +1,5 @@
 /**
- * @file JsonUtil.hpp
+ * @file JsonUtil.h
  * @author JunPing Yuan
  * @brief  contains nlohmann json and some useful json functions
  * @version 0.1
@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2022
  *
  */
-#pragma  once
+#pragma once
 
 #include "nlohmann/json.hpp"
 #include "CoreLayer/Geometry/Geometry.h"
@@ -16,7 +16,6 @@
 typedef nlohmann::json Json;
 
 class RGB3;
-
 
 inline const Json getChild(const Json & json,std::string & field){
     if(json.contains(field))

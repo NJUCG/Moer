@@ -1,5 +1,6 @@
-#include "Thinlens.h"
 #include <cmath>
+#include "Thinlens.h"
+#include "CoreLayer/Math/Common.h"
 
 #define _USE_MATH_DEFINES
 
