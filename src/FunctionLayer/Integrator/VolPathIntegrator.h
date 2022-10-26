@@ -21,7 +21,6 @@
  * @ingroup Integrator
  */
 
-
 class VolPathIntegrator : public AbstractPathIntegrator
 {
 

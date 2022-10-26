@@ -10,8 +10,9 @@
  * 
  */
 #pragma once
-#include "CoreLayer/Geometry/Matrix.h"
+
 #include "Camera.h"
+#include "CoreLayer/Geometry/Matrix.h"
 
 /**
  * @brief Base class for all perspective camera

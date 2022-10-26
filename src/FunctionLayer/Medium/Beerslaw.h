@@ -10,6 +10,7 @@
  */
 
 #pragma once
+
 #include "Medium.h"
 
 class BeerslawMedium : public Medium {

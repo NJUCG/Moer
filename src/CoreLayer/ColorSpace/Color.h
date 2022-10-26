@@ -12,9 +12,10 @@
 #pragma once
 
 #include <vector>
-#include <cmath>
 #include <cfloat>
 #include "CoreLayer/Adapter/JsonUtil.hpp"
+#include "CoreLayer/Math/Common.h"
+
 class RGB3;
 class XYZ3;
 class SampledSpectrum;
@@ -34,26 +35,6 @@ static const double sampledLambdaEnd = 700.0;
 
 // The number of uniform samples for SampledSpectrum.
 static const int nSpectrumSamples = 60;
-
-/**
- * @brief Mathematical clamp
- * 
- * @param source 	The double to be clamped
- * @param low 		Lower bound of the range
- * @param high 		Upper bound of the range
- * @return double 
- */
-double mathClamp(double source, double low=0.0, double high=DBL_MAX);
-
-/**
- * @brief Mathematical lerp.
- * 
- * @param ratio 	The weight of the source1
- * @param source0 	
- * @param source1 
- * @return double = (1 - ratio) * source0 + ratio * source1
- */
-double mathLerp(double ratio, double source0, double source1);
 
 /// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };

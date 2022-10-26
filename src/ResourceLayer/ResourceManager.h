@@ -9,14 +9,14 @@
  * www.njumeta.com
  *
  */
-#pragma once
 
-#include "ResourceLayer/File/Image.h"
-#include "ResourceLayer/File/MeshData.h"
+#pragma once
 
 #include <map>
 #include <string>
 #include <memory>
+#include "ResourceLayer/File/Image.h"
+#include "ResourceLayer/File/MeshData.h"
 
 template <typename BaseType>
 class ResourceManager

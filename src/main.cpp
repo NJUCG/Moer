@@ -1,4 +1,3 @@
-
 #include "FunctionLayer/Integrator/PathIntegrator-new.h"
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/Camera/Pinhole.h"

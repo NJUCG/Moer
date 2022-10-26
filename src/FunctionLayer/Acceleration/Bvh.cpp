@@ -11,6 +11,7 @@
  */
 #include "Bvh.h"
 #include "FunctionLayer/Shape/Mesh.h"
+
 #define BVH_BUILD_ERROR false
 //build the BVH of entites within the interval [start, end)
 std::shared_ptr<BvhTreeNode> Bvh::RecursiveBuild(std::vector<EntityInfo>& entityInfo, 

@@ -10,11 +10,11 @@
  *
  */
 
-#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PointLight.h"
+#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "FunctionLayer/Integrator/AbstractPathIntegrator.h"
 
-#define DIRAC 1.0
+constexpr double DIRAC = 1.0;
 
 PointLight::PointLight(const Spectrum &intensity, const Point3d &center) :Light(ELightType::POINT) ,intensity(intensity)
 {

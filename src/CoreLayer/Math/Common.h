@@ -11,9 +11,11 @@
  */
 
 #pragma  once
+
 #include <cmath>
 #include <limits>
 #include <utility>
+
 // some constant values
 #define M_PI         3.14159265358979323846f    ///< \todo multiple defination M_PI
 #define INV_PI       0.31830988618379067154f
@@ -21,6 +23,7 @@
 
 constexpr double ONEMINUSEPSILON = 1 - std::numeric_limits<double>::epsilon();
 constexpr double EPSILON = std::numeric_limits<double>::epsilon();
+
 /// Simple floating point clamping function
 inline float clamp(float value, float min, float max) {
     if (value < min)

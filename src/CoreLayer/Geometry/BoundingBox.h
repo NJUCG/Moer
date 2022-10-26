@@ -12,10 +12,10 @@
 #pragma once
 
 #include "Geometry.h"
-#include "CoreLayer/Ray/Ray.h"
 #include <optional>
 #include <algorithm>
 #include <limits>
+#include "CoreLayer/Ray/Ray.h"
 
 /**
  * @ingroup Geometry

@@ -9,12 +9,13 @@
  *
  */
 #pragma  once
+
 #include "nlohmann/json.hpp"
 #include "CoreLayer/Geometry/Geometry.h"
 
 typedef nlohmann::json Json;
 
-class  RGB3;
+class RGB3;
 
 
 inline const Json getChild(const Json & json,std::string & field){
@@ -22,6 +23,7 @@ inline const Json getChild(const Json & json,std::string & field){
         return json[field];
     return Json();
 }
+
 inline const Json getChild(const Json & json,const char * field){
     if(json.contains(field))
         return json[field];
@@ -50,19 +52,16 @@ inline  bool containsAndGet(const Json &j, std::string field, T & value)
     return false;
 }
 
-
-
 template<class T>
-void from_json(const Json &j,TVector2<T> & vec2){
+void fromJson(const Json &j,TVector2<T> & vec2){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(vec2[i]);
     else
         for (int i = 0; i < 2; i++) j.get_to(vec2[i]);
 }
 
-
 template<class T>
-void from_json(const Json &j,TVector3<T> & vec3){
+void fromJson(const Json &j,TVector3<T> & vec3){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(vec3[i]);
     else
@@ -70,16 +69,15 @@ void from_json(const Json &j,TVector3<T> & vec3){
 }
 
 template<class T>
-void from_json(const Json &j,TPoint2<T> & point2){
+void fromJson(const Json &j,TPoint2<T> & point2){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(point2[i]);
     else
         for (int i = 0; i < 2; i++) j.get_to(point2[i]);
 }
 
-
 template<class T>
-void from_json(const Json &j,TPoint3<T> & point3){
+void fromJson(const Json &j,TPoint3<T> & point3){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(point3[i]);
     else
@@ -87,4 +85,4 @@ void from_json(const Json &j,TPoint3<T> & point3){
 }
 
 
-void from_json(const Json &j,RGB3 & rgb3);
+void fromJson(const Json &j,RGB3 & rgb3);

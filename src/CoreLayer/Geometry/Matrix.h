@@ -12,7 +12,6 @@
 #pragma once
 
 #include "Geometry.h"
-
 #include "Eigen/Dense"
 
 

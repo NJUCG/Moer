@@ -11,10 +11,9 @@
  */
 #pragma once
 
+#include <string>
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/ColorSpace/Color.h"
-
-#include <string>
 
 // todo: support various data type
 

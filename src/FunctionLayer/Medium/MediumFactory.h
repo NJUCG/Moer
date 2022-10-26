@@ -9,9 +9,10 @@
  *
  */
 #pragma  once
-#include "CoreLayer/Adapter/JsonUtil.hpp"
 
 #include "Medium.h"
+#include "CoreLayer/Adapter/JsonUtil.hpp"
+
 
 namespace  MediumFactory{
     std::shared_ptr < Medium > LoadMediumFromJson(const Json json) ;

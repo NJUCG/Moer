@@ -11,10 +11,10 @@
  */
 #pragma once
 
+#include "Accel.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Intersection.h"
-#include "Accel.h"
 
 /// @brief Entity information declaration for building BVH
 struct EntityInfo {

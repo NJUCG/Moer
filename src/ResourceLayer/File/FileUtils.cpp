@@ -1,6 +1,8 @@
+#include <sys/stat.h>
+#include <stdexcept>
+#include <memory>
 #include "FileUtils.h"
 
-#include <sys/stat.h>
 inline bool fileExists (const std::string& name) {
     struct stat buffer;
     return (stat (name.c_str(), &buffer) == 0);

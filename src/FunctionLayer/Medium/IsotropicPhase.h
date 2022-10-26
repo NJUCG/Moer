@@ -9,6 +9,7 @@
  */
 
 #pragma once
+
 #include "Phase.h"
 
 class IsotropicPhase : public PhaseFunction {

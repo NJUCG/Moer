@@ -1,5 +1,4 @@
 #include "MediumFactory.h"
-
 #include "Homogeneous.h"
 #include "IsotropicPhase.h"
 #include "Beerslaw.h"

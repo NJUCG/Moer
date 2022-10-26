@@ -11,9 +11,7 @@
  */
 
 #include "Color.h"
-
 #include "Eigen/Dense"
-
 
 RGB3::RGB3() 
 {

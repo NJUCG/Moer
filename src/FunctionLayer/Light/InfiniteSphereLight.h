@@ -10,8 +10,9 @@
  *
  */
 
-#include "Light.h"
+#pragma once
 
+#include "Light.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Distribution/Distribution.h"
 

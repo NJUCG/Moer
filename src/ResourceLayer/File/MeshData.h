@@ -12,13 +12,11 @@
  */
 #pragma once
 
-#include "Eigen/Dense"
-
-#include "CoreLayer/Geometry/Geometry.h"
-#include "CoreLayer/Geometry/BoundingBox.h"
-
 #include <string>
 #include <vector>
+#include "Eigen/Dense"
+#include "CoreLayer/Geometry/Geometry.h"
+#include "CoreLayer/Geometry/BoundingBox.h"
 
 class MeshData
 {
