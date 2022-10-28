@@ -52,7 +52,7 @@ inline  bool containsAndGet(const Json &j, std::string field, T & value)
 }
 
 template<class T>
-void fromJson(const Json &j,TVector2<T> & vec2){
+void from_json(const Json &j, TVector2<T> & vec2){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(vec2[i]);
     else
@@ -60,7 +60,7 @@ void fromJson(const Json &j,TVector2<T> & vec2){
 }
 
 template<class T>
-void fromJson(const Json &j,TVector3<T> & vec3){
+void from_json(const Json &j, TVector3<T> & vec3){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(vec3[i]);
     else
@@ -68,7 +68,7 @@ void fromJson(const Json &j,TVector3<T> & vec3){
 }
 
 template<class T>
-void fromJson(const Json &j,TPoint2<T> & point2){
+void from_json(const Json &j, TPoint2<T> & point2){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 2; i++) j.at(i).get_to(point2[i]);
     else
@@ -76,7 +76,7 @@ void fromJson(const Json &j,TPoint2<T> & point2){
 }
 
 template<class T>
-void fromJson(const Json &j,TPoint3<T> & point3){
+void from_json(const Json &j, TPoint3<T> & point3){
     if (j.type() == Json::value_t::array)
         for (int i = 0; i < 3; i++) j.at(i).get_to(point3[i]);
     else
@@ -84,4 +84,4 @@ void fromJson(const Json &j,TPoint3<T> & point3){
 }
 
 
-void fromJson(const Json &j,RGB3 & rgb3);
+void from_json(const Json &j, RGB3 & rgb3);
