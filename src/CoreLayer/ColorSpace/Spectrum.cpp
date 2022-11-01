@@ -18,7 +18,7 @@
 // @param lambdaBegin begin lambda.
 // @param lambdaEnd end lambda.
 // @return average value of samples within intraval [lambdaBegin,lambdaEnd].
-double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd)
+double averageSpectrumSamples(const std::vector<SpectrumSample>& samples, double lambdaBegin, double lambdaEnd)
 {
     auto len = samples.size();
     // handle boundary situation

@@ -10,7 +10,6 @@
  */
 
 #include "PathIntegrator-new.h"
-#include "CoreLayer/Geometry/CoordConvertor.h"
 
 PathIntegratorNew::PathIntegratorNew(std::shared_ptr<Camera> _camera,
                                      std::unique_ptr<Film> _film,

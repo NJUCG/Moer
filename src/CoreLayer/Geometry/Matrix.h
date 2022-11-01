@@ -12,35 +12,8 @@
 #pragma once
 
 #include "Geometry.h"
+#include "Angle.h"
 #include "Eigen/Dense"
-
-
- /**
-  * @brief Angle type. Providing convenient angle transformation between deg and rad.
-  */
-class Angle
-{
-	double deg;
-	double rad;
-
-public:
-	enum class AngleType
-	{
-		ANGLE_DEG,
-		ANGLE_RAD
-	};
-
-	/**
-	 * @brief init an angle.
-	 * @param v value of angle, deg or rad.
-	 * @param type the type of v.
-	 */
-	Angle(double v, AngleType type);
-
-	double getDeg() const;
-
-	double getRad() const;
-};
 
 enum class EulerType
 {

@@ -43,6 +43,12 @@ public:
 	{
 		pMin = _pMin;
 		pMax = _pMax;
+
+		// corner case: bounding box not exist
+		if(pMin.x > pMax.x || pMin.y > pMax.y || pMin.z > pMax.z){
+			pMin[0] = pMin[1] = pMin[2] = std::numeric_limits<BaseType>::max();
+			pMax[0] = pMax[1] = pMax[2] = std::numeric_limits<BaseType>::lowest();
+		}
 	}
 
 	/**

@@ -11,7 +11,6 @@
  */
 
 #include "PathIntegrator.h"
-#include "CoreLayer/Geometry/CoordConvertor.h"
 
 PathIntegrator::PathIntegrator(
         std::shared_ptr<Camera> _camera, 
