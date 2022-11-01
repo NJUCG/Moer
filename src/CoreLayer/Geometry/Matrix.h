@@ -107,8 +107,9 @@ public:
 	Point3d operator*(const Point3d &p);
 	Normal3d operator*(const Normal3d &n);
 
-    Eigen::MatrixXd  transformPoints(const Eigen::MatrixXd & points);
-    Eigen::MatrixXd  transformNormals(const Eigen::MatrixXd & normals);
+	// interfaces for Eigen matrix.
+    Eigen::MatrixXd transformPoints(const Eigen::MatrixXd & points);
+    Eigen::MatrixXd transformNormals(const Eigen::MatrixXd & normals);
 
 };
 

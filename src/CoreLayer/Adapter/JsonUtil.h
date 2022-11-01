@@ -17,6 +17,8 @@ typedef nlohmann::json Json;
 
 class RGB3;
 
+/// @note Do not modify any function signatures below or adding namespace. Could cause ERRORs.
+
 inline const Json getChild(const Json & json,std::string & field){
     if(json.contains(field))
         return json[field];
