@@ -1,5 +1,5 @@
 /**
- * @file point.h
+ * @file Point.h
  * @author zcx
  * @brief 
  * @version 0.1
@@ -10,7 +10,7 @@
  * 
  */
 #pragma once
-#include "vector.h"
+#include "Vector.h"
 #include "Eigen/Dense"
 
 /// \ingroup Geometry

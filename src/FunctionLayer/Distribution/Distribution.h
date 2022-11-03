@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include "CoreLayer/Geometry/Geometry.h"
 #include <memory>
 #include <vector>
+#include "CoreLayer/Geometry/Geometry.h"
 
 template <typename Predicate>
 int FindInterval(int size, const Predicate &pred) {

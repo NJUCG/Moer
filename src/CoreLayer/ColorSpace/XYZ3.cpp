@@ -11,7 +11,6 @@
  */
 
 #include "Color.h"
-
 #include "Eigen/Dense"
 
 XYZ3::XYZ3()

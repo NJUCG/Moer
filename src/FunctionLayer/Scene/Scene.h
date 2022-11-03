@@ -11,6 +11,8 @@
  */
 #pragma once
 
+#include <optional>
+#include "nlohmann/json.hpp"
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Acceleration/Bvh.h"
@@ -19,8 +21,6 @@
 #include "FunctionLayer/Light/Light.h"
 #include "FunctionLayer/Medium/Medium.h"
 
-#include "nlohmann/json.hpp"
-#include <optional>
 /// \brief Store the primitives in scene
 class Scene
 {

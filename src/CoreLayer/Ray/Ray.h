@@ -12,8 +12,8 @@
 #pragma once
 
 #include <memory>
-#include "CoreLayer/Geometry/Geometry.h"
 #include <cfloat>
+#include "CoreLayer/Geometry/Geometry.h"
 
 
 /// \brief ray

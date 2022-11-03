@@ -11,6 +11,7 @@
  */
 #include "Triangle.h"
 #include "FunctionLayer/Intersection.h"
+
 TriangleMesh::TriangleMesh(const int& _nTriangles, const int& _nVertices,
 	const std::shared_ptr<std::vector<int>>& _vertexIndices, const std::shared_ptr<std::vector<Point3d>>& _p,
 	const std::shared_ptr<std::vector<Normal3d>>& _n, const std::shared_ptr<std::vector<Vec3d>>& _s,

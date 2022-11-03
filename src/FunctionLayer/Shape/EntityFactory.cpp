@@ -1,16 +1,13 @@
-
-#include "CoreLayer/Scene/Scene.h"
-#include "ResourceLayer/ResourceManager.h"
-#include "ResourceLayer/File/FileUtils.h"
-
-#include "FunctionLayer/Light/DiffuseAreaLight.h"
-#include "FunctionLayer/Light/InfiniteSphereLight.h"
-
 #include "EntityFactory.h"
 #include "Quad.h"
 #include "Sphere.h"
 #include "Mesh.h"
 #include "Cube.h"
+#include "FunctionLayer/Scene/Scene.h"
+#include "ResourceLayer/ResourceManager.h"
+#include "ResourceLayer/File/FileUtils.h"
+#include "FunctionLayer/Light/DiffuseAreaLight.h"
+#include "FunctionLayer/Light/InfiniteSphereLight.h"
 
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;

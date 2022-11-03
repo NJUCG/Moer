@@ -10,8 +10,10 @@
  */
 
 #pragma once
-#include "CoreLayer/Geometry/Geometry.h"
+
 #include <tuple>
+#include "CoreLayer/Geometry/Geometry.h"
+
 class PhaseFunction {
 public:
     PhaseFunction() = default;

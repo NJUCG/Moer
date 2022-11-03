@@ -75,9 +75,9 @@ Transform3D::Transform3D(const Json & json) {
         Vec3d scale = getOptional(json,"scale",Vec3d(1,1,1));
         this->matrix->setScale(scale.x,scale.y,scale.z);
         Vec3d rotate = getOptional(json,"rotation",Vec3d(0,0,0));
-        this->matrix->setRotateEuler(Angle(rotate.x,Angle::AngleType::ANGLE_DEG),
-                                     Angle(rotate.y,Angle::AngleType::ANGLE_DEG),
-                                     Angle(rotate.z,Angle::AngleType::ANGLE_DEG),
+        this->matrix->setRotateEuler(Angle(rotate.x,Angle::EAngleType::ANGLE_DEG),
+                                     Angle(rotate.y,Angle::EAngleType::ANGLE_DEG),
+                                     Angle(rotate.z,Angle::EAngleType::ANGLE_DEG),
                                      EulerType::EULER_YZX);
     }
 }

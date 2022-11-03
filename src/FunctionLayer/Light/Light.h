@@ -10,6 +10,7 @@
  *
  */
 #pragma once
+
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Ray/Ray.h"

@@ -11,14 +11,14 @@
  */
 #pragma once
 
+#include <optional>
+#include <memory>
+#include <embree3/rtcore.h>
 #include "CoreLayer/Geometry/Transform3d.h"
 #include "FunctionLayer/Material/Material.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
-#include "CoreLayer/Adapter/JsonUtil.hpp"
-#include <embree3/rtcore.h>
-#include <optional>
-#include <memory>
+#include "CoreLayer/Adapter/JsonUtil.h"
 
 struct Intersection;
 class Light;

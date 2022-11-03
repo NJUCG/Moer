@@ -12,7 +12,7 @@
 
 #include "Sphere.h"
 #include "FunctionLayer/Intersection.h"
-#include "CoreLayer/Geometry/CoordConvertor.h"
+#include "CoreLayer/Geometry/Angle.h"
 
 Sphere::Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material)
     : center(_center), radius(_radius)
@@ -86,7 +86,8 @@ double Sphere::area() const
 Intersection Sphere::sample(const Point2d &positionSample) const
 {
     Intersection ans;
-    Vec3d v = CoordConvertor::cartesian2SphericalVec(positionSample);
+    Polar3d polar=Polar3d(1.0,Angle(positionSample.x * 2 * M_PI,Angle::EAngleType::ANGLE_RAD),Angle(acos(positionSample.y*2.0-1.0),Angle::EAngleType::ANGLE_RAD));
+    Vec3d v = polar.toVec3d();
     ans.position = center + v * radius;
     ans.geometryNormal = v;
     auto n = v;

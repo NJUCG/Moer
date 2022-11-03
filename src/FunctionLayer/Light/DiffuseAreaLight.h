@@ -10,6 +10,8 @@
  *
  */
 
+#pragma once
+
 #include "AreaLight.h"
 #include "CoreLayer/Geometry/Transform3d.h"
 #include "FunctionLayer/Shape/Entity.h"

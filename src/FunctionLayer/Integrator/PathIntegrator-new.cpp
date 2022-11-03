@@ -9,7 +9,6 @@
  * www.njumeta.com
  */
 
-#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PathIntegrator-new.h"
 
 PathIntegratorNew::PathIntegratorNew(std::shared_ptr<Camera> _camera,

@@ -1,7 +1,3 @@
-//
-// Created by yjp on 2022/6/6.
-//
-
 /**
  * @file  Frame.h
  * @author Junping Yuan
@@ -13,6 +9,7 @@
  * www.njumeta.com
  *
  */
+
 #pragma once
 
 #include "Geometry.h"

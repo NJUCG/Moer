@@ -1,5 +1,5 @@
 /**
- * @file normal.h
+ * @file Normal.h
  * @author Chenxi Zhou
  * @brief 
  * @version 0.1
@@ -11,7 +11,8 @@
  */
 
 #pragma once
-#include "vector.h"
+
+#include "Vector.h"
 
 /// \ingroup Geometry
 /// \brief Normal

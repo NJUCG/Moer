@@ -10,7 +10,6 @@
  *
  */
 
-#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PathIntegrator.h"
 
 PathIntegrator::PathIntegrator(

@@ -11,9 +11,8 @@
  *
  */
 
-#include "MonteCarloIntegrator.h"
-
 #include <thread>
+#include "MonteCarloIntegrator.h"
 
 MonteCarloIntegrator::MonteCarloIntegrator(
         std::shared_ptr<Camera> _camera, 

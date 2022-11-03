@@ -11,13 +11,12 @@
 
 #pragma once
 
+#include <optional>
+#include <memory>
 #include "Entity.h"
 #include "Triangle.h"
 #include "ResourceLayer/File/MeshData.h"
 #include "FunctionLayer/Acceleration/Bvh.h"
-
-#include <optional>
-#include <memory>
 
 class Cube : public  Entity{
 public:

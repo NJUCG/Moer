@@ -2,7 +2,6 @@
 
 #include "Sampler.h"
 
-#pragma  once
 class DirectSampler : public Sampler
 {
 public:
