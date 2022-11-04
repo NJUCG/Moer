@@ -32,11 +32,13 @@ namespace FileUtils{
     std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite){
         std::string destPath = path + "." +suffix;
         if(overwrite)
-            return std::move(destPath);
+            //return std::move(destPath);
+            return destPath;
         int count = 1;
         while( fileExists(destPath)){
             destPath = stringFormat("%s%d.%s",path.c_str(),count++,suffix.c_str());
         }
-        return std::move(destPath);
+        //return std::move(destPath);
+        return destPath;
     }
 }
