@@ -42,7 +42,7 @@ public:
 	// @brief singleton pattern get.
 	static std::shared_ptr<ImageManager> getInstance();
 
-	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode);
+	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode=Image::ImageLoadMode::IMAGE_LOAD_COLOR);
 };
 
 /// @brief mesh data collection for simplifying.

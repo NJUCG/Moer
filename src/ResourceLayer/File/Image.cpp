@@ -20,6 +20,8 @@ T * Image::as( ) const {
 
 Image::Image(const std::string & path, ImageLoadMode ilm) {
 
+    // todo: support alpha reading
+	// todo: do gamma correction
     isHdr = stbi_is_hdr(path.c_str());
     int w, h, c;
     if ( isHdr ) {

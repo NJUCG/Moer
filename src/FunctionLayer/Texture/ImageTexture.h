@@ -14,6 +14,7 @@
 #include <cmath>
 #include "CoreLayer/ColorSpace/Color.h"
 #include "ResourceLayer/File/Image.h"
+#include "ResourceLayer/ResourceManager.h"
 #include "FunctionLayer/Intersection.h"
 #include "Texture.h"
 #include "TextureMapping.h"
@@ -114,7 +115,7 @@ WrapMode PrefilteredImage<T>::getWrapMode()
 template <typename T>
 void DirectImage<T>::loadImage(const std::string &filename)
 {
-    image = std::make_shared<Image>(filename);
+    image = ImageManager::getInstance()->getImage(filename);
 }
 
 template <typename T>

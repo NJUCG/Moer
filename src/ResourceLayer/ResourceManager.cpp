@@ -3,10 +3,12 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+// MeshDataManager implemention
+
 std::shared_ptr<MeshDataManager> MeshDataManager::instance = nullptr;
 
-std::shared_ptr<MeshDataManager> 
-MeshDataManager::getInstance() {
+/// @note don't need singleton pattern with mutex now. TODO
+std::shared_ptr<MeshDataManager> MeshDataManager::getInstance() {
     if (!instance)
         instance.reset(new MeshDataManager());
     return instance;
@@ -156,4 +158,27 @@ MeshDataManager::getMeshData(const std::string &path) {
     
     return result;
 
+}
+
+// ImageManager implemention
+
+std::shared_ptr<ImageManager> ImageManager::instance=nullptr;
+
+std::shared_ptr<ImageManager>
+ImageManager::getInstance(){
+    if(!instance)
+        instance.reset(new ImageManager());
+    return instance;
+}
+
+std::shared_ptr<Image> ImageManager::getImage(const std::string &path, Image::ImageLoadMode mode){
+    auto ret=hash.find(path);
+    if(ret!=hash.end()){
+        return ret->second;
+    }
+
+    Image* img=new Image(path,mode);
+    std::shared_ptr<Image> imgPtr(img);
+    hash[path]=imgPtr;
+    return imgPtr;
 }
