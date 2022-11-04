@@ -19,6 +19,9 @@
 
 class Image
 {
+
+private:
+
 	void  * imageRawData;
 	Point2i resolution;
 	int channels;
@@ -37,9 +40,11 @@ public:
 		IMAGE_LOAD_BW,
 		IMAGE_LOAD_COLOR
 	};
+
 	// todo: support alpha reading
 	// todo: do gamma correction
 	Image(const std::string &path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
+
 
 	// @brief generate one black image with resolution [width,height] and channels.
 	Image(const Point2i &resolution, int channels);

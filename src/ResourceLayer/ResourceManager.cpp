@@ -12,9 +12,19 @@ MeshDataManager::getInstance() {
     return instance;
 }
 
-std::unordered_map<std::string,std::shared_ptr<MeshData>>
+/// @brief load and build meshes from path.
+/// @param path path for a 3d model file.
+/// @return unordered map for meshes. key: mesh name, value:raw mesh data.
+std::shared_ptr<MeshDataCollection>
 MeshDataManager::getMeshData(const std::string &path) {
-    std::unordered_map<std::string,std::shared_ptr<MeshData>> result;
+
+    // return existing mesh data.
+    auto ret=hash.find(path);
+    if(ret!=hash.end()){
+        return ret->second;
+    }
+
+    std::shared_ptr<MeshDataCollection> result=std::make_shared<MeshDataCollection>();
     
     Assimp::Importer importer;
 
@@ -139,9 +149,11 @@ MeshDataManager::getMeshData(const std::string &path) {
             ai_mesh->mBitangents, 
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
-        result[std::string(ai_mesh->mName.C_Str())] = mesh_data;
+        result->operator[](std::string(ai_mesh->mName.C_Str())) = mesh_data;
     }
 
+    hash[path]=result;
+    
     return result;
 
 }
