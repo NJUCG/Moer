@@ -129,7 +129,8 @@ Spectrum Image::getSpectrumColorAt(const Point2i &p)
 
 bool Image::saveTo(const std::string &path)
 {
-    const char * destBmpPath = FileUtils::getFilePath(path,"bmp",false).data();
+    auto destpath = FileUtils::getFilePath(path,"bmp",false);
+    const char * destBmpPath = destpath.c_str();
     stbi_write_bmp(destBmpPath, resolution.x, resolution.y, 3, imageRawData);
     return true;
 }
