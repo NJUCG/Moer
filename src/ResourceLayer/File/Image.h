@@ -35,7 +35,9 @@ public:
 private:
 
 	void  * imageRawData;
+
 	Point2i resolution;
+
 	int channels;
 
     bool isHdr = false;
@@ -53,11 +55,9 @@ public:
 	Image();
 	~Image();
 
-	// @brief generate one black image with resolution [width,height] and channels.
+	// @brief generate one black image with resolution [width,height] and channels. Could be accessed directly.
 	Image(const Point2i &resolution, int channels);
 	Image(const Point3i &shape);
-
-	friend class ImageManager;
 
 	Point2i getResolution() const;
 	int getChannels() const;
