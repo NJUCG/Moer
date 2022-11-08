@@ -3,18 +3,30 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+// MeshDataManager implemention
+
 std::shared_ptr<MeshDataManager> MeshDataManager::instance = nullptr;
 
-std::shared_ptr<MeshDataManager> 
-MeshDataManager::getInstance() {
+/// @note don't need singleton pattern with mutex now. TODO
+std::shared_ptr<MeshDataManager> MeshDataManager::getInstance() {
     if (!instance)
         instance.reset(new MeshDataManager());
     return instance;
 }
 
-std::unordered_map<std::string,std::shared_ptr<MeshData>>
+/// @brief load and build meshes from path.
+/// @param path path for a 3d model file.
+/// @return unordered map for meshes. key: mesh name, value:raw mesh data.
+std::shared_ptr<MeshDataCollection>
 MeshDataManager::getMeshData(const std::string &path) {
-    std::unordered_map<std::string,std::shared_ptr<MeshData>> result;
+
+    // return existing mesh data.
+    auto ret=hash.find(path);
+    if(ret!=hash.end()){
+        return ret->second;
+    }
+
+    std::shared_ptr<MeshDataCollection> result=std::make_shared<MeshDataCollection>();
     
     Assimp::Importer importer;
 
@@ -139,9 +151,34 @@ MeshDataManager::getMeshData(const std::string &path) {
             ai_mesh->mBitangents, 
             sizeof(aiVector3D) * ai_mesh->mNumVertices
         );
-        result[std::string(ai_mesh->mName.C_Str())] = mesh_data;
+        result->operator[](std::string(ai_mesh->mName.C_Str())) = mesh_data;
     }
 
+    hash[path]=result;
+    
     return result;
 
+}
+
+// ImageManager implemention
+
+std::shared_ptr<ImageManager> ImageManager::instance=nullptr;
+
+std::shared_ptr<ImageManager>
+ImageManager::getInstance(){
+    if(!instance)
+        instance.reset(new ImageManager());
+    return instance;
+}
+
+std::shared_ptr<Image> ImageManager::getImage(const std::string &path, Image::ImageLoadMode mode){
+    auto ret=hash.find(path);
+    if(ret!=hash.end()){
+        return ret->second;
+    }
+
+    Image* img=new Image(path,mode);
+    std::shared_ptr<Image> imgPtr(img);
+    hash[path]=imgPtr;
+    return imgPtr;
 }

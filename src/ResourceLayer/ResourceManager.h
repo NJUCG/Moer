@@ -18,10 +18,16 @@
 #include "ResourceLayer/File/Image.h"
 #include "ResourceLayer/File/MeshData.h"
 
+/// @brief Manager for 'heavy' resources.
+/// @tparam BaseType type of resources, could be mesh or image.
 template <typename BaseType>
 class ResourceManager
 {
 protected:
+
+	/// @brief hash for saving resources.
+	/// key: full file path for resource.
+	/// value: shared ptr for resource.
 	std::map<std::string, std::shared_ptr<BaseType>> hash;
 
 public:
@@ -36,10 +42,13 @@ public:
 	// @brief singleton pattern get.
 	static std::shared_ptr<ImageManager> getInstance();
 
-	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode);
+	std::shared_ptr<Image> getImage(const std::string &path, Image::ImageLoadMode mode=Image::ImageLoadMode::IMAGE_LOAD_COLOR);
 };
 
-class MeshDataManager : public ResourceManager<MeshData>
+/// @brief mesh data collection for simplifying.
+using MeshDataCollection=std::unordered_map<std::string,std::shared_ptr<MeshData>>;
+
+class MeshDataManager : public ResourceManager<MeshDataCollection>
 {
 	static std::shared_ptr<MeshDataManager> instance;
 
@@ -47,5 +56,5 @@ public:
 	// @brief singleton pattern get.
 	static std::shared_ptr<MeshDataManager> getInstance();
 
-    std::unordered_map<std::string,std::shared_ptr<MeshData>> getMeshData(const std::string &path);
+    std::shared_ptr<MeshDataCollection> getMeshData(const std::string &path);
 };

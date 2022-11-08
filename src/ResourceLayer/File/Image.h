@@ -17,13 +17,36 @@
 
 // todo: support various data type
 
+class ImageManager;
+
 class Image
 {
+
+	friend class ImageManager;
+
+public:
+
+	enum class ImageLoadMode
+	{
+		IMAGE_LOAD_BW,
+		IMAGE_LOAD_COLOR
+	};
+
+private:
+
 	void  * imageRawData;
+
 	Point2i resolution;
+
 	int channels;
 
     bool isHdr = false;
+
+	/// @brief load an image from path. Can ONLY be accessed from ImageManager. If you want to load an image from path, call ImageManager::getInstance::getImage.
+	/// @param path path for the image.
+	/// @param ilm load mode for image, color or black/white.
+	Image(const std::string &path, ImageLoadMode ilm = ImageLoadMode::IMAGE_LOAD_COLOR);
+
 public:
 
     template<typename  T>
@@ -32,20 +55,9 @@ public:
 	Image();
 	~Image();
 
-	enum class ImageLoadMode
-	{
-		IMAGE_LOAD_BW,
-		IMAGE_LOAD_COLOR
-	};
-	// todo: support alpha reading
-	// todo: do gamma correction
-	Image(const std::string &path, ImageLoadMode = ImageLoadMode::IMAGE_LOAD_COLOR);
-
-	// @brief generate one black image with resolution [width,height] and channels.
+	// @brief generate one black image with resolution [width,height] and channels. Could be accessed directly.
 	Image(const Point2i &resolution, int channels);
 	Image(const Point3i &shape);
-
-	friend class ImageManager;
 
 	Point2i getResolution() const;
 	int getChannels() const;

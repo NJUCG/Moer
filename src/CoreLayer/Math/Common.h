@@ -17,7 +17,9 @@
 #include <utility>
 
 // some constant values
-constexpr double M_PI       =           3.14159265358979323846f;    ///< \todo multiple defination M_PI
+#ifdef _WIN32
+constexpr double M_PI       =           3.14159265358979323846f;
+#endif
 constexpr double INV_PI     =           0.31830988618379067154f;
 constexpr double INV_TWOPI  =           0.15915494309189533577f;
 

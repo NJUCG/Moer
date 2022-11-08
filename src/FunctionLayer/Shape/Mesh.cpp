@@ -5,12 +5,12 @@ Mesh::Mesh(std::shared_ptr<MeshData> _data,
            std::shared_ptr<Material> _material,
            const Json & json):
     Entity(json),
-    m_vertices(std::move(_data->m_vertices)),
-    m_normals(std::move(_data->m_normals)),
-    m_tangents(std::move(_data->m_tangents)),
-    m_bitangents(std::move(_data->m_bitangents)),
-    m_UVs(std::move(_data->m_UVs)),
-    m_indices(std::move(_data->m_indices))
+    m_vertices((_data->m_vertices)),
+    m_normals((_data->m_normals)),
+    m_tangents((_data->m_tangents)),
+    m_bitangents((_data->m_bitangents)),
+    m_UVs((_data->m_UVs)),
+    m_indices((_data->m_indices))
 {   
     this->material = _material;
     

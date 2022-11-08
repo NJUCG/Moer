@@ -9,7 +9,6 @@
  * www.njumeta.com
  *
  */
-#pragma once
 
 #include "Transform3d.h"
 #include "CoreLayer/Math/Common.h"

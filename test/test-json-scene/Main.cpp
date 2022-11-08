@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <vector>
 #include <memory>
-#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Scene/Scene.h"
 #include "FunctionLayer/Camera/Camera.h"
 #include "FunctionLayer/Camera/Thinlens.h"
 #include "FunctionLayer/Camera/Pinhole.h"
@@ -43,6 +43,7 @@ TEST_CASE("load-cornell-box")
     std::cout << "scene start" << std::endl;
     Json  sceneJson;
 
+    FileUtils::setWorkingDir("/mnt/renderer/Moer/scenes/cornell-box/");
     std::ifstream sceneFile(FileUtils::getWorkingDir()+"scene.json");
     sceneFile>>sceneJson;
     std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
@@ -56,12 +57,12 @@ TEST_CASE("load-cornell-box")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 35, 1/0.56, 3.17f);
-    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 16, 12);
-//    NormalIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 16, 12);
+    PathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 1, 12);
+//    NormalIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 1, 12);
 
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("cornell-box.bmp");
+    integrator.save("cornell-box-test");
     std::cout << "finish" << std::endl;
 }
 

@@ -29,7 +29,8 @@ namespace EntityFactory{
 
         if(type=="mesh") {
             auto meshDataPath = FileUtils::getWorkingDir()+std::string(json["file"]);
-            auto meshDataList = MeshDataManager::getInstance()->getMeshData(meshDataPath);
+            // for convenience. won't cost much cuz meshDataList not actually contains data.
+            auto meshDataList = *(MeshDataManager::getInstance()->getMeshData(meshDataPath));
             entityCount = meshDataList.size();
             for(auto meshData:meshDataList){
                 auto material = scene.fetchMaterial(getOptional(json,

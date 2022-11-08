@@ -325,8 +325,8 @@ public:
 	inline CoefficientSpectrum clamp(double low = 0.0, double high = DBL_MAX) const {
 		CoefficientSpectrum retVal;
 		for (int i = 0; i < nSamples; i++) {
-			retVal[i] = (retVal[i]>low)?(retVal[i]):(low);
-			retVal[i] = (retVal[i]<high)?(retVal[i]):(high);
+			retVal[i] = (coefficients[i]>low)?(coefficients[i]):(low);
+			retVal[i] = (coefficients[i]<high)?(coefficients[i]):(high);
 		}
 		return retVal;
 	}

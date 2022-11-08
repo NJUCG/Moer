@@ -71,11 +71,11 @@ BoundingBox3f Quad::WorldBound( ) const {
 
 void Quad::apply( ) {
 
-    _base = matrix->operator *(_base);
-    _edge0 = matrix->operator *(_edge0);
-    _edge1 = matrix->operator *(_edge1);
-    _base -= _edge0*0.5;
-    _base -= _edge1*0.5;
+//    _base = matrix->operator *(_base);
+//    _edge0 = matrix->operator *(_edge0);
+//    _edge1 = matrix->operator *(_edge1);
+//    _base -= _edge0*0.5;
+//    _base -= _edge1*0.5;
 
     _area  =  cross(_edge0,_edge1).length();
     _invArea = 1/_area;
