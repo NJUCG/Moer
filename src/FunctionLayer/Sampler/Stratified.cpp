@@ -24,7 +24,7 @@ void StratifiedSampler::generateSamples2D(std::vector<Point2d> &samples) {
  * @param seed Seed for rng. Will not be used.
  * @return std::unique_ptr<Sampler> Copy of this StratifiedSampler.
  */
-std::unique_ptr<Sampler> StratifiedSampler::clone(int seed) {
+std::unique_ptr<Sampler> StratifiedSampler::clone(int seed) const {
   StratifiedSampler *ptr = new StratifiedSampler(this->sppSqrt, this->nDimensions);
   return std::unique_ptr<Sampler>(ptr);
 }

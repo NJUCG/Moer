@@ -29,6 +29,6 @@ public:
 
     ~StratifiedSampler() = default;
 
-    std::unique_ptr<Sampler> clone(int seed) override;
+    std::unique_ptr<Sampler> clone(int seed) const override;
     
 };

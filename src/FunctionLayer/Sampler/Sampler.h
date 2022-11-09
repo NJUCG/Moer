@@ -54,7 +54,7 @@ public:
    * @date 2022-10-15
    * @author ja50n
    */
-  virtual std::unique_ptr<Sampler> clone(int seed) = 0;
+  virtual std::unique_ptr<Sampler> clone(int seed) const = 0;
 
 	CameraSample getCameraSample();
 
@@ -101,7 +101,7 @@ public:
 	PixelSampler(int _sppSqrt)
 		: sppSqrt(_sppSqrt), 
 		  samplesPerPixel(_sppSqrt * _sppSqrt), 
-		  nDimensions(4), 
+		  nDimensions(5), 
 		  curSamplePixelIndex(0), 
 		  curDimensionIndex1D(0), 
 		  curDimensionIndex2D(0) 
@@ -184,10 +184,11 @@ class GlobalSampler : public Sampler {
  public:
   GlobalSampler() = delete;
   GlobalSampler(int64_t _sppSqrt)
-      : GlobalSampler(_sppSqrt, 4) {
+      : GlobalSampler(_sppSqrt, 5) {
   }
   GlobalSampler(int64_t _sppSqrt, int _nDimensions)
-      : samplesPerPixel(_sppSqrt * _sppSqrt),
+      : sppSqrt(_sppSqrt),
+        samplesPerPixel(_sppSqrt * _sppSqrt),
         nDimensions(_nDimensions),
         nextDimension(0),
         curSampleGlobalIndex(0),
@@ -199,6 +200,7 @@ class GlobalSampler : public Sampler {
       samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
     }
   }
+  virtual ~GlobalSampler() = default;
 
   virtual void startPixel(const Point2i &_pixelPosition) override {
     pixelPosition = _pixelPosition;
@@ -209,7 +211,7 @@ class GlobalSampler : public Sampler {
     // Get index of the first sample in global sequence
     curSampleGlobalIndex = globalSampleIndex(0);
     // Generate 1D array
-    for (size_t i = 0; i < nDimensions; i++) {
+    for (int i = 0; i < nDimensions; i++) {
       for (int64_t j = 0; j < samplesPerPixel; j++) {
         // Fill the pixel sample array with some global sequence
         int64_t idx = globalSampleIndex(j);
@@ -276,21 +278,8 @@ class GlobalSampler : public Sampler {
    */
   virtual double sampleValue(int64_t globalIndex, int dim) const = 0;
 
-  /**
-   * @brief Return a copy of this Sampler instance,
-   *        in order to secure the multi-thread sampling.
-   *
-   * @param seed Seed of rng, to make random sequence UNIQUE for each
-   * copy. May not be used, because RandomNumberGenerator uses random
-   * seeds.
-   * @return std::unique_ptr<Sampler> Copy of this Sampler
-   */
-  virtual std::unique_ptr<Sampler> clone(int seed) override;
-
-  CameraSample getCameraSample();
-
   const int64_t samplesPerPixel;
-  
+  const int64_t sppSqrt;
 
  protected:
   // Position of current sampling pixel, set by startPixel().
