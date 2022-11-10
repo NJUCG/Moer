@@ -32,6 +32,14 @@ MonteCarloIntegrator::MonteCarloIntegrator(
 
 void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
 {
+  /**
+   * @warning Other part of Integrator uses the original sampler
+   *          so I have to fill its vectors here.
+   *          In fact every time a fresh sampler is needed we should
+   *          use Sampler::clone() to get one.
+   */
+    sampler->startPixel({0, 0});
+    auto ssampler = sampler->clone(0);
     while(true)
     {
         auto optionalTile=tileGenerator->generateNextTile();
@@ -44,19 +52,32 @@ void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
             auto pixelPosition=*it;
 
             const auto &cam = *this->camera;
-            sampler->startPixel(pixelPosition);
+            /**
+             * @bug Sampler is NOT designed for multi-threads, need copy for each thread.
+             *      Sampler::clone() will return a Sampler copy, only with same sampling 
+             *      strategy, random numbers are not guaranteed to be identical.
+             */
+            // sampler->startPixel(pixelPosition);
+            ssampler->startPixel(pixelPosition);
             for (int i = 0; i < spp; i++)
             {
                 auto L = Li(
                     cam.generateRay(
                         film->getResolution(), 
                         pixelPosition, 
-                        sampler->getCameraSample()
+                        ssampler->getCameraSample()
                     ), scene
                 );
                 L = L.clamp(0.0,1.0);
                 film->deposit(pixelPosition, L);
-                sampler->nextSample();
+                /**
+                 * @warning spp used in this for loop belongs to Integrator.
+                 *          It is irrelevant with spp passed to Sampler.
+                 *          And Sampler has no sanity check for subscript
+                 *          of sample vector. Error may occur if spp passed to
+                 *          Integrator is bigger than which passed to Sampler.
+                 */
+                ssampler->nextSample();
             }
         }
     }

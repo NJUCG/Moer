@@ -84,7 +84,6 @@ public:
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
-  // TODO Where is the toSpectrum()?
 
 };
 
