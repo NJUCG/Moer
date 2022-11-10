@@ -1,6 +1,8 @@
+#include <sys/stat.h>
+#include <stdexcept>
+#include <memory>
 #include "FileUtils.h"
 
-#include <sys/stat.h>
 inline bool fileExists (const std::string& name) {
     struct stat buffer;
     return (stat (name.c_str(), &buffer) == 0);
@@ -30,11 +32,13 @@ namespace FileUtils{
     std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite){
         std::string destPath = path + "." +suffix;
         if(overwrite)
-            return std::move(destPath);
+            //return std::move(destPath);
+            return destPath;
         int count = 1;
         while( fileExists(destPath)){
             destPath = stringFormat("%s%d.%s",path.c_str(),count++,suffix.c_str());
         }
-        return std::move(destPath);
+        //return std::move(destPath);
+        return destPath;
     }
 }

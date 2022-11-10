@@ -15,6 +15,7 @@
 #include "CoreLayer/ColorSpace/Color.h"
 #include "Texture.h"
 #include "FunctionLayer/Intersection.h"
+
 // Various kinds of TextureMapping
 
 class UVTextureMapping2D : public TextureMapping<TextureCoord2D>

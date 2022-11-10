@@ -2,7 +2,7 @@
 #include "DielectricMaterial.h"
 #include "NullMaterial.h"
 #include "MirrorMaterial.h"
-#include "CoreLayer/Scene/Scene.h"
+#include "FunctionLayer/Scene/Scene.h"
 #include "ConductorMaterial.h"
 #include "DisneyBSDF.h"
 

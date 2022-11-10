@@ -11,14 +11,14 @@
  */
 #pragma once
 
-#include "normal.h"
-#include "point.h"
-#include "vector.h"
+#include "Normal.h"
+#include "Point.h"
+#include "Vector.h"
 
 /// \defgroup Geometry 
 /// \todo Cause all the real number will be represented as double, maybe delete the float version  
 
-// vector.h
+// Vector.h
 template <typename T>
 struct TVector2;
 template <typename T>
@@ -29,7 +29,7 @@ using Vec2i = TVector2<int>;
 using Vec3f = TVector3<float>;
 using Vec3d = TVector3<double>;
 using Vec3i = TVector3<int>;
-// point.h
+// Point.h
 template <typename T>
 struct TPoint2;
 template <typename T>
@@ -40,5 +40,5 @@ using Point2i = TPoint2<int>;
 using Point3f = TPoint3<float>;
 using Point3d = TPoint3<double>;
 using Point3i = TPoint3<int>;
-// normal.h
+// Normal.h
 struct Normal3d;

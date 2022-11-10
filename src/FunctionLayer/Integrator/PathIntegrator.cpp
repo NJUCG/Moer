@@ -10,7 +10,6 @@
  *
  */
 
-#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PathIntegrator.h"
 
 PathIntegrator::PathIntegrator(
@@ -74,7 +73,6 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
     if(!visibilityTestingIts.has_value() && light->lightType==ELightType::INFINITE){
         transmittance = 1.0;
     }
-    transmittance = 1.0;
     return {dirScatter, Li * transmittance, pdfDirect, record.isDeltaPos};
 }
 

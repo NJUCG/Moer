@@ -12,7 +12,7 @@
 
 #include <string>
 
-namespace  FileUtils{
+namespace FileUtils{
     void setWorkingDir(const std::string & _workingDir);
     std::string getWorkingDir();
     std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite);

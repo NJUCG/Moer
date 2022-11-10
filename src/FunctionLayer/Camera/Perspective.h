@@ -10,9 +10,9 @@
  * 
  */
 #pragma once
-#include "CoreLayer/Adapter/JsonUtil.hpp"
-#include "CoreLayer/Geometry/Matrix.h"
+
 #include "Camera.h"
+#include "CoreLayer/Geometry/Matrix.h"
 
 /**
  * @brief Base class for all perspective camera
@@ -58,7 +58,7 @@ public:
         // ! near is the distToFilm and far set to MAX_FLOAT 
         // ! if far set to MAX_DOUBLE, it will crash when computing the matrix 
         Matrix4x4 filmToSample = Matrix4x4::perspective(
-            Angle(xFov, Angle::AngleType::ANGLE_DEG), 
+            Angle(xFov, Angle::EAngleType::ANGLE_DEG), 
             aspectRatio, 
             distToFilm, 
             std::numeric_limits<float>::max()
@@ -69,31 +69,4 @@ public:
             * filmToSample;
         sampleToFilm = sampleToFilm.inverse();
     }
-
-    PerspectiveCamera(const Json & json){
-        const Json & transformJson = json["transform"];
-        Point3d lookFrom = getOptional(transformJson,"position",Point3d(0,0,0));
-        Point3d lookAt = getOptional(transformJson,"look_at",Point3d(0,1,0));
-        Vec3d up = getOptional(transformJson,"up",Vec3d(0,0,1));
-
-        double xFov = getOptional(json,"fov",45);
-        Vec2i resolution = getOptional(json,"resolution",Vec2i(512,512));
-        double  aspectRatio = double(resolution.x) / resolution.y;
-        double distToFilm= 1.0f / std::tan(xFov * M_PI / 360);
-
-        cameraToWorld =
-                Matrix4x4::lookAt(lookFrom, lookAt - lookFrom, up).inverse();
-        Matrix4x4 filmToSample = Matrix4x4::perspective(
-                Angle(xFov, Angle::AngleType::ANGLE_DEG),
-                aspectRatio,
-                distToFilm,
-                std::numeric_limits<float>::max()
-        );
-        sampleToFilm =
-                Matrix4x4::scale(0.5, -0.5, 1.0)
-                * Matrix4x4::translate(1, -1, 0)
-                * filmToSample;
-        sampleToFilm = sampleToFilm.inverse();
-    }
-
 };

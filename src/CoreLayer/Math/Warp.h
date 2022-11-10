@@ -9,8 +9,9 @@
  * 
  */
 #pragma once
-#include "CoreLayer/Geometry/Geometry.h"
+
 #include "Common.h"
+#include "CoreLayer/Geometry/Geometry.h"
 
 static  double TentInverse(double x){
     if(x<=.5f)

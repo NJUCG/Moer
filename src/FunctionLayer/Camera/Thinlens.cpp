@@ -1,7 +1,8 @@
-#include "Thinlens.h"
-#define _USE_MATH_DEFINES
 #include <cmath>
-#include <math.h>
+#include "Thinlens.h"
+#include "CoreLayer/Math/Common.h"
+
+#define _USE_MATH_DEFINES
 
 Ray ThinlensCamera::generateRay(const Point2i &filmResolution, const Point2i &pixelPosition, const CameraSample &sample) const {
     double x = (double) (pixelPosition.x + sample.xy.x) / filmResolution.x,

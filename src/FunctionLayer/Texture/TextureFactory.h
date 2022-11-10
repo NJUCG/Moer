@@ -9,8 +9,10 @@
  *
  */
 #pragma once
+
 #include "memory"
 #include "Texture.h"
+
 namespace  TextureFactory{
     template <class T>
     std::shared_ptr<Texture<T>> LoadTexture(const Json & textureJson){

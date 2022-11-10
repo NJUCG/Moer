@@ -11,27 +11,14 @@
  */
 
 #include "Color.h"
-
 #include <algorithm>
-
-double mathClamp(double source, double low, double high)
-{
-	if (source < low) return low;
-	if (source > high) return high;
-	return source;
-}
-
-double mathLerp(double ratio,double source0, double source1)
-{
-	return (1.0f - ratio) * source0 + ratio * source1;
-}
 
 // @brief calculate the average value from samples within interval [lambdaBegin,lambdaEnd].
 // @param samples (maybe unsorted) spectrum samples.
 // @param lambdaBegin begin lambda.
 // @param lambdaEnd end lambda.
 // @return average value of samples within intraval [lambdaBegin,lambdaEnd].
-double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd)
+double averageSpectrumSamples(const std::vector<SpectrumSample>& samples, double lambdaBegin, double lambdaEnd)
 {
     auto len = samples.size();
     // handle boundary situation
@@ -46,7 +33,7 @@ double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambda
 
     auto interp = [samples](double w, int i) {
         // Linear interpolation
-        return mathLerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
+        return lerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
     };
     int i = 0;
     while (lambdaBegin > samples[i + 1].lambda) i++;
@@ -1140,8 +1127,8 @@ SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> v)
         std::sort(v.begin(), v.end());
     SampledSpectrum r(0.0);
     for (int i = 0; i < nSpectrumSamples; i++) {
-        double lambda0 = mathLerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
-        double lambda1 = mathLerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+        double lambda0 = lerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+        double lambda1 = lerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
         r[i] = averageSpectrumSamples(v, lambda0, lambda1);
     }
     return r;

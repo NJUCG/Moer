@@ -11,11 +11,10 @@
  */
 #pragma once
 
+#include <memory>
 #include "Geometry.h"
 #include "Matrix.h"
-
-#include <CoreLayer/Adapter/JsonUtil.hpp>
-#include <memory>
+#include "CoreLayer/Adapter/JsonUtil.h"
 
 /// \ingroup Geometry
 /// \brief 3d transformation representation

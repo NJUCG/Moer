@@ -11,6 +11,7 @@
  */
 
 #pragma once
+
 #include "Sampler.h"
 
 /// \brief Stratified generate sample

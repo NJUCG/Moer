@@ -12,9 +12,8 @@
  */
 #pragma once
 
-//#include <cmath>
-#include "CoreLayer/Ray/Ray.h"
 #include "MonteCarloIntegrator.h"
+#include "CoreLayer/Ray/Ray.h"
 
 struct MediumSampleRecord;
 

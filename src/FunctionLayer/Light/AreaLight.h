@@ -10,8 +10,10 @@
  *
  */
 
-#include "CoreLayer/Geometry/Transform3d.h"
+#pragma once
+
 #include "Light.h"
+#include "CoreLayer/Geometry/Transform3d.h"
 
 /// \ingroup Light
 /// \brief Base class for all area light source

@@ -4,6 +4,7 @@
 #include "stb/stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
+
 Image::Image() {
     imageRawData = nullptr;
 }
@@ -19,6 +20,8 @@ T * Image::as( ) const {
 
 Image::Image(const std::string & path, ImageLoadMode ilm) {
 
+    // todo: support alpha reading
+	// todo: do gamma correction
     isHdr = stbi_is_hdr(path.c_str());
     int w, h, c;
     if ( isHdr ) {
@@ -126,7 +129,8 @@ Spectrum Image::getSpectrumColorAt(const Point2i &p)
 
 bool Image::saveTo(const std::string &path)
 {
-    const char * destBmpPath = FileUtils::getFilePath(path,"bmp",false).data();
+    auto destpath = FileUtils::getFilePath(path,"bmp",false);
+    const char * destBmpPath = destpath.c_str();
     stbi_write_bmp(destBmpPath, resolution.x, resolution.y, 3, imageRawData);
     return true;
 }

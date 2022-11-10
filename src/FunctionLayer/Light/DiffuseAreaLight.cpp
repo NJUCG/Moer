@@ -11,7 +11,7 @@
  */
 
 #include "DiffuseAreaLight.h"
-#include "CoreLayer/Geometry/CoordConvertor.h"
+#include "CoreLayer/Geometry/Angle.h"
 #include "FunctionLayer/Integrator/AbstractPathIntegrator.h"
 
 DiffuseAreaLight::DiffuseAreaLight(std::shared_ptr<Entity> shape,
@@ -67,7 +67,8 @@ LightSampleResult DiffuseAreaLight::sampleEmit(const Point2d &positionSample, co
     Intersection itsEmitter = shape->sample(positionSample);
     Point3d pos = itsEmitter.position;
     Normal3d normal = itsEmitter.geometryNormal;
-    Vec3d wi = CoordConvertor::cartesian2SphericalVec(directionSample);
+    Polar3d polar=Polar3d(1.0,Angle(directionSample.x * 2 * M_PI,Angle::EAngleType::ANGLE_RAD),Angle(acos(directionSample.y*2.0-1.0),Angle::EAngleType::ANGLE_RAD));
+    Vec3d wi = polar.toVec3d();
     if (dot(wi, normal) < 0)
     {
         wi = -wi;

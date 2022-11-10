@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Sampler.h"
 
 /// \brief Generate unifromly distributed sample in [0, 1)

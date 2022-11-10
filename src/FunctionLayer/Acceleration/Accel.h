@@ -14,9 +14,17 @@
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Intersection.h"
 
-struct Accel {
+/// @brief Acceleration structure Interface.
+class Accel {
+
 public:
+
     Accel() = default;
 
+    /*
+    * @brief basic interface for ray intersection.
+    * @param r The ray that intersect with a scene. This interface will only utilize its geometry information.
+    * @return The exactly closest intersection point on an entity in the scene with other useful information.
+    */
     virtual std::optional<Intersection> Intersect(const Ray &r) const = 0;
 };

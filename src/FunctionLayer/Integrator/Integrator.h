@@ -11,13 +11,14 @@
  */
 #pragma once
 
-#include "CoreLayer/Scene/Scene.h"
+#include <memory>
+
+#include "FunctionLayer/Scene/Scene.h"
 #include "FunctionLayer/Camera/Camera.h"
 #include "FunctionLayer/Film/Film.h"
 #include "FunctionLayer/Sampler/Sampler.h"
 #include "FunctionLayer/TileGenerator/TileGenerator.h"
 
-#include <memory>
 /// @defgroup Integrator
 
 /**

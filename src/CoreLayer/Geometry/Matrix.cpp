@@ -12,26 +12,6 @@
 
 #include "Matrix.h"
 
-/// \todo replace the 3.14159
-// todo
-Angle::Angle(double v, AngleType type)
-{
-	if (type == AngleType::ANGLE_DEG)
-	{
-		deg = v;
-		rad = v / 180 * 3.14159;
-	}
-	else
-	{
-		rad = v;
-		deg = v * 180 / 3.14159;
-	}
-}
-
-double Angle::getDeg() const { return deg; }
-
-double Angle::getRad() const { return rad; }
-
 // Matrix4x4 impl
 
 Matrix4x4::Matrix4x4(const Eigen::Matrix4d &_matrix)
@@ -215,12 +195,12 @@ Matrix4x4 Matrix4x4::perspective(const Angle &fov, double aspect, double near, d
 	return retVal;
 }
 
-Matrix4x4 Matrix4x4::inverse()
+Matrix4x4 Matrix4x4::inverse() const
 {
 	return Matrix4x4(matrix.inverse());
 }
 
-Matrix4x4 Matrix4x4::transpose()
+Matrix4x4 Matrix4x4::transpose() const
 {
 	return Matrix4x4(matrix.transpose());
 }
@@ -314,4 +294,19 @@ Eigen::MatrixXd TransformMatrix3D::transformPoints(const Eigen::MatrixXd & point
 Eigen::MatrixXd TransformMatrix3D::transformNormals(const Eigen::MatrixXd & normals) {
     update();
     return matrixAll.transformNormals(normals);
+}
+
+Matrix4x4 TransformMatrix3D::getScale() const 
+{
+	return matrixScale;
+}
+
+Matrix4x4 TransformMatrix3D::getRotate() const 
+{
+	return matrixRotate;
+}
+
+Matrix4x4 TransformMatrix3D::getTranslate() const 
+{
+	return matrixTranslate;
 }
