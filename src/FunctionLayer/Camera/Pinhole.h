@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Perspective.h"
+#include "CoreLayer/Adapter/JsonUtil.hpp"
 
 /**
  * @brief Pinhole camera
@@ -17,6 +18,8 @@ public:
         double aspectRatio,
         double distToFilm
     ) : PerspectiveCamera(lookFrom, lookAt, up, xFov, aspectRatio, distToFilm) { }
+
+    PinholeCamera(const Json & json);
 
     /**
      * @brief 

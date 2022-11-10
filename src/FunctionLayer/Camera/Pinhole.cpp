@@ -14,3 +14,6 @@ Ray PinholeCamera::generateRay(const Point2i &filmResolution, const Point2i &pix
         cameraToWorld * dir        
     );
 }
+
+PinholeCamera::PinholeCamera(const Json & json) : PerspectiveCamera(json) {
+}
