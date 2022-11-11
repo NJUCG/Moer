@@ -13,10 +13,6 @@ Spectrum ConductorBxDF::f(const Vec3d & out, const Vec3d & in) const {
     return Spectrum();
 }
 
-Vec3d ConductorBxDF::sampleWi(const Vec3d & out, const Point2d & sample) const {
-    return Frame::reflect(out);
-}
-
 double ConductorBxDF::pdf(const Vec3d & out, const Vec3d & in) const {
     return 0;
 }
@@ -29,10 +25,6 @@ BxDFSampleResult ConductorBxDF::sample(const Vec3d & out, const Point2d & sample
     result.s =  albedo  *  Spectrum(RGB3(F.x,F.y,F.z)) / (abs(result.directionIn.z));
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
     return result;
-}
-
-bool ConductorBxDF::isSpecular( ) const {
-    return true;
 }
 
 RoughConductorBxDF::RoughConductorBxDF(Vec3d _eta, Vec3d _k, Spectrum _albedo, double _uRoughness, double _vRoughness,
@@ -60,10 +52,6 @@ Spectrum RoughConductorBxDF::f(const Vec3d & out, const Vec3d & in) const {
     return Spectrum(rgbSpectrum);
 }
 
-Vec3d RoughConductorBxDF::sampleWi(const Vec3d & out, const Point2d & sample) const {
-    return Vec3d();
-}
-
 double RoughConductorBxDF::pdf(const Vec3d & out, const Vec3d & in) const {
     if ( CosTheta(out) * Cos2Theta(in) < 0) return 0;
     Vec3d wh = normalize(out + in);
@@ -86,6 +74,3 @@ BxDFSampleResult RoughConductorBxDF::sample(const Vec3d & out, const Point2d & s
     return result;
 }
 
-bool RoughConductorBxDF::isSpecular( ) const {
-    return false;
-}

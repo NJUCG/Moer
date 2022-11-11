@@ -29,7 +29,7 @@ public:
         // ! near is the distToFilm and far set to MAX_FLOAT 
         // ! if far set to MAX_DOUBLE, it will crash when computing the matrix 
         Matrix4x4 filmToSample = Matrix4x4::perspective(
-            Angle(xFov, Angle::AngleType::ANGLE_DEG), 
+            Angle(xFov, Angle::EAngleType::ANGLE_DEG), 
             aspectRatio, 
             distToFilm, 
             std::numeric_limits<float>::max()

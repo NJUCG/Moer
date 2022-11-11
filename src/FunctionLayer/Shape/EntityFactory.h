@@ -9,8 +9,10 @@
  * www.njumeta.com
  *
  */
-#pragma  once 
+#pragma  once
+
 #include "Entity.h"
+
 class Scene;
 
 namespace EntityFactory {

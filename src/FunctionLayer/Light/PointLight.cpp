@@ -10,11 +10,11 @@
  *
  */
 
-#include "CoreLayer/Geometry/CoordConvertor.h"
 #include "PointLight.h"
+#include "CoreLayer/Geometry/Angle.h"
 #include "FunctionLayer/Integrator/AbstractPathIntegrator.h"
 
-#define DIRAC 1.0
+constexpr double DIRAC = 1.0;
 
 PointLight::PointLight(const Spectrum &intensity, const Point3d &center) :Light(ELightType::POINT) ,intensity(intensity)
 {
@@ -54,7 +54,8 @@ LightSampleResult PointLight::eval(const Ray &ray, const Intersection &its, cons
 
 LightSampleResult PointLight::sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time)
 {
-    Normal3d wi = CoordConvertor::cartesian2SphericalVec(directionSample);
+    Polar3d polar=Polar3d(1.0,Angle(directionSample.x * 2 * M_PI,Angle::EAngleType::ANGLE_RAD),Angle(acos(directionSample.y*2.0-1.0),Angle::EAngleType::ANGLE_RAD));
+    Normal3d wi = polar.toVec3d();
     LightSampleResult ans;
     ans.s = intensity * DIRAC;
     ans.dst = Transform3D::getTranslate();

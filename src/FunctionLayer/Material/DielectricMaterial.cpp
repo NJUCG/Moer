@@ -12,18 +12,35 @@
 
 #include "DielectricMaterial.h"
 #include "FunctionLayer/Medium/Beerslaw.h"
+#include "FunctionLayer/Texture/TextureFactory.h"
 DielectricMaterial::DielectricMaterial(const Json &json) {
     //! If bumpmap, not specularTransmission
-    type = EMaterialType::SpecularTransmission;
-    double _ior = getOptional(json, "ior", 1.0);
-    Vec3d _albedo = getOptional(json, "albedo", Vec3d{1, 1, 1});
-    ior = std::make_shared<ConstantTexture<double>>(_ior);
-    albedo = std::make_shared<ConstantTexture<Spectrum>>(RGB3(_albedo.x, _albedo.y, _albedo.z));
-    
+    //type = EMaterialType::SpecularTransmission;
+    ior = getOptional(json, "ior", 1.33); //water
+    albedoR = TextureFactory::LoadConstantTexture<RGB3>(getOptional(json,"albedo_reflection",RGB3(1,1,1)));
+    albedoT = TextureFactory::LoadConstantTexture<RGB3>(getOptional(json,"albedo_transmission",RGB3(1,1,1)));
+    if(json.contains("roughness"))
+        roughness = TextureFactory::LoadTexture<double>(json["roughness"]);
+    if(json.contains("u_roughness"))
+        uRoughness =  TextureFactory::LoadTexture<double>(json["u_roughness"]);
+    if(json.contains("v_roughness"))
+        vRoughness =  TextureFactory::LoadTexture<double>(json["v_roughness"]);
+    if(roughness || uRoughness || vRoughness){
+        distrib = LoadDistributionFromJson(json);
+    }
 }
 
 std::shared_ptr<BxDF> DielectricMaterial::getBxDF(const Intersection & intersect) const  {
-    return std::make_shared<DielectricBxDF>(ior->eval(intersect), albedo->eval(intersect));
+    Spectrum specularT = albedoT->eval(intersect);
+    Spectrum specularR = albedoR->eval(intersect);
+    if( roughness || uRoughness || vRoughness){
+        double  uRough = uRoughness?uRoughness->eval(intersect):roughness->eval(intersect);
+        double  vRough = uRoughness?uRoughness->eval(intersect):roughness->eval(intersect);
+        return std::make_shared <RoughDielectricBxDF>(ior,specularR,specularT,uRough,vRough,distrib);
+    }
+    else {
+        return  std::make_shared<DielectricBxDF>(ior,specularR,specularT);
+    }
 }
 
 std::shared_ptr<BSSRDF> DielectricMaterial::getBSSRDF(const Intersection & intersect) const{

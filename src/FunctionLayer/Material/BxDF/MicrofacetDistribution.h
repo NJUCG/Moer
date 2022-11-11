@@ -11,7 +11,7 @@
  */
 #pragma  once
 
-#include "CoreLayer/Adapter/JsonUtil.hpp"
+#include "CoreLayer/Adapter/JsonUtil.h"
 
 class MicrofacetDistribution {
 public:
@@ -44,7 +44,8 @@ protected:
 
 class BeckmannDistribution : public  MicrofacetDistribution{
 public:
-    BeckmannDistribution(bool sampleVis = false): MicrofacetDistribution(sampleVis)
+    //For Beckmann sample visible normals is not supported yet.
+    BeckmannDistribution(bool sampleVis = false): MicrofacetDistribution(false)
     {}
     double roughnessToAlpha(double roughness) const override;
     double D(const Vec3d & wh, const Vec2d & alphaXY) const override;
@@ -54,11 +55,15 @@ protected:
     double Lambda(const Vec3d & w, const Vec2d & alphaXY) const override;
 };
 
-class TrowbridgeReitzDistribution : public MicrofacetDistribution {
+class GGXDistribution : public MicrofacetDistribution {
 public:
+    GGXDistribution(bool sampleVis = true) : MicrofacetDistribution(sampleVis)
+    {}
     double roughnessToAlpha(double roughness) const override;
 
     double D(const Vec3d & wh, const Vec2d & alphaXY) const override;
+
+    double G(const Vec3d & wo, const Vec3d & wi, const Vec2d & alphaXY) const override;
 
     double Lambda(const Vec3d & w, const Vec2d & alphaXY) const override;
 

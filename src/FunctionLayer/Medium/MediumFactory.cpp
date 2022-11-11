@@ -1,5 +1,4 @@
 #include "MediumFactory.h"
-
 #include "Homogeneous.h"
 #include "IsotropicPhase.h"
 #include "Beerslaw.h"
@@ -11,7 +10,6 @@ namespace  MediumFactory{
         {
             RGB3 intensity = getOptional(json,"intensity",RGB3(1.0));
             return std::make_shared <BeerslawMedium>(intensity,std::make_shared <IsotropicPhase>());
-            // return std::make_shared <BeerslawMedium>(intensity.toSpectrum(),std::make_shared <IsotropicPhase>());
         }
         else if (medium_type == "homogeneous"){
             double intensity = getOptional(json,"intensity",1.0);

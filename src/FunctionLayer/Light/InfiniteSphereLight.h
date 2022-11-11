@@ -10,8 +10,9 @@
  *
  */
 
-#include "Light.h"
+#pragma once
 
+#include "Light.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Distribution/Distribution.h"
 
@@ -34,4 +35,6 @@ protected:
 
     std::unique_ptr <Distribution2D> distribution;
     std::shared_ptr <ImageTexture<Spectrum,RGB3>> emission;
+    Matrix4x4 toWorld;
+    Matrix4x4 toLocal;
 };

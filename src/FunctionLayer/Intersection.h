@@ -11,12 +11,11 @@
  */
 #pragma once
 
+#include <memory>
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Geometry/Frame.h"
 #include "FunctionLayer/Material/Material.h"
 #include "FunctionLayer/Shape/Entity.h"
-
-#include <memory>
 
 //* Add t in intersection, by zcx 8-22
 struct Intersection

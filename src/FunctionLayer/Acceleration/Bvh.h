@@ -11,10 +11,10 @@
  */
 #pragma once
 
+#include "Accel.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Intersection.h"
-#include "Accel.h"
 
 /// @brief Entity information declaration for building BVH
 struct EntityInfo {
@@ -47,6 +47,7 @@ struct LinearBvhNode {
 
 class Mesh;
 
+/// @brief Bounding Volume Hierarchies.
 struct Bvh : public Accel{
 public:
 	const enum class SplitMethod{

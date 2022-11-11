@@ -47,16 +47,33 @@ public:
         return (typeToMatch & type) == type;
     }
 
-	virtual Spectrum f(const Vec3d &out, const Vec3d &in) const = 0;
 
-	virtual Vec3d sampleWi(const Vec3d &out, const Point2d& sample) const = 0;
+    virtual double pdf(const Vec3d &out, const Vec3d &in) const = 0;
 
-	virtual double pdf(const Vec3d &out, const Vec3d &in) const = 0;
+    BxDFSampleResult sample(const Vec3d & out,const Point2d & sample,bool adjoint){
+        BxDFSampleResult result = this->sample(out,sample);
+        if(!adjoint){
+            result.s *= pow(eta(out,result.directionIn),2);
+        }
+        else {
 
-	virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const = 0;
+        }
+        return result;
+    }
+    Spectrum f(const Vec3d & out,const Vec3d & in,bool adjoint) {
+        Spectrum result = f(out,in);
+        if(!adjoint){
+            result *= pow(eta(out,in),2);
+        }
+        else {
 
-	virtual bool isSpecular() const = 0;
+        }
+        return result;
+    }
 protected:
+    virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const = 0;
+    virtual Spectrum f(const Vec3d &out, const Vec3d &in) const = 0;
+    virtual double eta(const Vec3d &out,const Vec3d & in) const {return 1;}
     BXDFType type;
 };
 

@@ -11,11 +11,10 @@
  */
 #pragma once
 
+#include <memory>
+#include "ToneMapping.h"
 #include "FunctionLayer/Filter/Filter.h"
 #include "ResourceLayer/ResourceManager.h"
-#include "ToneMapping.h"
-
-#include <memory>
 
 class Film
 {

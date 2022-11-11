@@ -1,15 +1,13 @@
-
-#include "CoreLayer/Scene/Scene.h"
-#include "ResourceLayer/ResourceManager.h"
-#include "ResourceLayer/File/FileUtils.h"
-
-#include "FunctionLayer/Light/DiffuseAreaLight.h"
-#include "FunctionLayer/Light/InfiniteSphereLight.h"
-
 #include "EntityFactory.h"
 #include "Quad.h"
 #include "Sphere.h"
 #include "Mesh.h"
+#include "Cube.h"
+#include "FunctionLayer/Scene/Scene.h"
+#include "ResourceLayer/ResourceManager.h"
+#include "ResourceLayer/File/FileUtils.h"
+#include "FunctionLayer/Light/DiffuseAreaLight.h"
+#include "FunctionLayer/Light/InfiniteSphereLight.h"
 
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;
@@ -27,15 +25,12 @@ namespace EntityFactory{
         std::shared_ptr < Entity > entity ;
         if(type=="quad") entity =  std::make_shared<Quad>(json);
         if(type=="sphere") entity = std::make_shared<Sphere>(json);
+        if(type == "cube") entity = std::make_shared<Cube>(json);
 
         if(type=="mesh") {
-            if(!json.contains("file")){
-                throw ("Mesh should have the File property");
-            }
-            std::string workDir = FileUtils::WorkingDir;
-            //throw(workDir);
-            auto meshDataPath = FileUtils::WorkingDir+std::string(json["file"]);
-            auto meshDataList = MeshDataManager::getInstance()->getMeshData(meshDataPath);
+            auto meshDataPath = FileUtils::getWorkingDir()+std::string(json["file"]);
+            // for convenience. won't cost much cuz meshDataList not actually contains data.
+            auto meshDataList = *(MeshDataManager::getInstance()->getMeshData(meshDataPath));
             entityCount = meshDataList.size();
             for(auto meshData:meshDataList){
                 auto material = scene.fetchMaterial(getOptional(json,
@@ -64,8 +59,6 @@ namespace EntityFactory{
                     entity = entities[entityIdxBegin+i];
                     auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
                                                                                RGB3(emission.x,emission.y,emission.z));
-                    // auto diffuseAreaLight = std::make_shared<DiffuseAreaLight>(entity,
-                    //                                                            RGB3(emission.x,emission.y,emission.z).toSpectrum());
                     entity->setLight(diffuseAreaLight);
                     scene.addLight(diffuseAreaLight);
                 }

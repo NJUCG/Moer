@@ -11,6 +11,7 @@
  */
 
 #pragma once
+
 #include <random>
 #include "pcg/pcg_random.hpp"
 #include "CoreLayer/Math/Common.h"
@@ -20,9 +21,11 @@
  * 
  */
 class RandomNumberGenerator {
+
     std::uniform_real_distribution<> dist;
     pcg_extras::seed_seq_from<std::random_device> seedSource;
     pcg32 rng;
+
 public:
     RandomNumberGenerator():dist(0, ONEMINUSEPSILON), rng(seedSource) { }
     // Add this copy cstr to enable auto-generation of other copy cstr
