@@ -14,8 +14,9 @@
 #include "FunctionLayer/Shape/Entity.h"
 #include "FunctionLayer/Sampler/DirectSampler.h"
 #include "FunctionLayer/Sampler/Stratified.h"
+#include "FunctionLayer/Sampler/Halton.h"
 #include "FunctionLayer/Sampler/Independent.h"
-
+#include "FunctionLayer/Integrator/PathIntegrator-new.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Integrator/NormalIntegrator.h"
 #include "FunctionLayer/Integrator/VolPathIntegrator.h"
@@ -56,10 +57,17 @@ TEST_CASE("load-cornell-box")
     Vec3d up(0, 1, 0);
     auto pinhole = std::make_shared<PinholeCamera>(
         lookFrom, lookAt, up, 35, 1/0.56, 3.17f);
-    VolPathIntegrator integrator(pinhole, std::make_unique<Film>(Point2i(1000, 563), 3), std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)), std::make_shared<IndependentSampler>(), 1, 12);
-    std::cout << "start rendering" << std::endl;
-    integrator.render(scene);
-    integrator.save("9-26-embree-1.bmp");
+
+    VolPathIntegrator integrator(
+      pinhole, std::make_unique<Film>(Point2i(1000, 563), 3),
+      std::make_unique<SequenceTileGenerator>(Point2i(1000, 563)),
+      std::make_shared<IndependentSampler>(),
+      // std::make_shared<StratifiedSampler>(20, 10),
+      1, // spp
+      12);
+    // std::cout << "start rendering" << std::endl;
+    // integrator.render(scene);
+    // integrator.save("9-26-embree-1.bmp");
     std::cout << "finish" << std::endl;
 }
 
@@ -90,10 +98,16 @@ TEST_CASE("test-ball")
     auto pinhole = std::make_shared<PinholeCamera>(
             lookFrom, lookAt, up, 35, (float(1280)/float(780)), 3.17f);
 
-    PathIntegratorNew integrator(pinhole, std::make_unique<Film>(Point2i(1280,780), 3),
-            std::make_unique<SequenceTileGenerator>(Point2i(1280,780)), std::make_shared<IndependentSampler>(), 32, 12);
+    PathIntegratorNew integrator(
+      pinhole, std::make_unique<Film>(Point2i(1280,780), 3),
+      std::make_unique<SequenceTileGenerator>(Point2i(1280,780)),
+      // std::make_shared<IndependentSampler>(), // 1 min
+      // std::make_shared<StratifiedSampler>(10, 200), // 15 min
+      std::make_shared<HaltonSampler>(10, 1280, 780, 10), // 1 min
+      5, // spp
+      12);
     std::cout << "start rendering" << std::endl;
     integrator.render(scene);
-    integrator.save("testball.bmp");
+    integrator.save("testball.stratified.bmp");
     std::cout << "finish" << std::endl;
 }

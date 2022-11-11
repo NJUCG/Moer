@@ -69,6 +69,7 @@ TEST_CASE("test-box") {
   std::cout << "scene created" << std::endl;
 
   scene->addLight(std::make_shared<PointLight>(32.0, Point3d(0, 2, 1)));
+  scene->build();  // Never forget!
   std::cout << "scene prepared" << std::endl;
 
   Point3d lookFrom(0, 1, 2), lookAt(0, 0, 0);
@@ -80,9 +81,11 @@ TEST_CASE("test-box") {
     std::make_unique<Film>(Point2i(128, 128), 3),
     std::make_unique<SequenceTileGenerator>(Point2i(128, 128)),
     // std::make_shared<IndependentSampler>(),
-    std::make_shared<StratifiedSampler>(2, 6),
-    1
+    std::make_shared<StratifiedSampler>(4, 5),
+    10,
+    12
   );
+
   std::cout << "start rendering" << std::endl;
   integrator.render(scene);
   integrator.save("diffuse_result.bmp");
