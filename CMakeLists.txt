@@ -13,6 +13,10 @@ if (MSVC)
 endif (MSVC)
 
 option(EMBREE_USE_TBB "Enable TBB in embree." OFF)
+option(USE_SAMPLED_SPECTRUM "" OFF)
+
+set(MESH_LOADER "Tinyobjloader" CACHE STRING "Select mesh loader")
+set_property(CACHE MESH_LOADER PROPERTY STRINGS Assimp Tinyobjloader)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

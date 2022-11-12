@@ -15,8 +15,21 @@ add_executable(${TARGET_NAME} ${ALL_INCLUDE} ${ALL_SOURCES})
 target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/ext)
 
-target_link_libraries(${TARGET_NAME} PUBLIC assimp)
 target_link_libraries(${TARGET_NAME} PUBLIC embree)
+
+if (MESH_LOADER STREQUAL "Assimp")
+    target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)
+    target_link_libraries(${TARGET_NAME} PUBLIC assimp)
+elseif (MESH_LOADER STREQUAL "Tinyobjloader")
+    target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_TINYOBJ)
+    target_link_libraries(${TARGET_NAME} PUBLIC tinyobjloader)
+endif()
+
+if (USE_SAMPLED_SPECTRUM)
+    target_compile_definitions(${TARGET_NAME} PRIVATE USING_SAMPLED_SPECTRUM)
+endif()
+
+target_compile_definitions(${TARGET_NAME} PRIVATE CMAKE_DEF_SPECTRUM_SAMPLES=60)
 
 set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "_d")
 set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "_r")
