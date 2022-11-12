@@ -24,7 +24,7 @@ class RGBSpectrum;
 // TODO: should be defined by cmake marco.
 //#define USING_SAMPLEDSPECTRUM
 
-#ifdef USING_SAMPLEDSPECTRUM
+#ifdef USING_SAMPLED_SPECTRUM
 using Spectrum = SampledSpectrum;
 #else
 using Spectrum = RGBSpectrum;
@@ -34,7 +34,8 @@ static const double sampledLambdaStart = 400.0;
 static const double sampledLambdaEnd = 700.0;
 
 // The number of uniform samples for SampledSpectrum.
-static const int nSpectrumSamples = 60;
+#define SPECTRUM_SAMPLES CMAKE_DEF_SPECTRUM_SAMPLES
+static const int nSpectrumSamples = SPECTRUM_SAMPLES;
 
 /// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };
