@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Perspective.h"
-#include "CoreLayer/Adapter/JsonUtil.hpp"
+#include "CoreLayer/Adapter/JsonUtil.h"
 
 /**
  * @brief Pinhole camera

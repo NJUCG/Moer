@@ -12,6 +12,7 @@
 
 #include "nlohmann/json.hpp"
 #include "CoreLayer/Geometry/Geometry.h"
+#include "CoreLayer/ColorSpace/Color.h"
 
 typedef nlohmann::json Json;
 
@@ -87,3 +88,4 @@ void from_json(const Json &j, TPoint3<T> & point3){
 
 
 void from_json(const Json &j, RGB3 & rgb3);
+void from_json(const Json &j,Spectrum & spectrum);

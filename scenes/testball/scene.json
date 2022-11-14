@@ -14,7 +14,14 @@
       "material": "Cu",
       "distribution": "beckmann",
       "roughness": 0.1
-    },{
+    },
+    {
+      "name": "Plastic",
+      "albedo": 1,
+      "type": "plastic",
+      "distribution": "beckmann"
+    },
+    {
       "name" :"Disney",
        "type" : "disney",
        "base_color" : [0.5 ,0.9, 0.84],
@@ -69,7 +76,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Disney"
+      "material": "Plastic"
     },
     {
       "transform": {
@@ -86,7 +93,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Disney"
+      "material": "Plastic"
     },
 
     {
@@ -139,7 +146,7 @@
     "enable_resume_render": false,
     "stratified_sampler": true,
     "scene_bvh": true,
-    "spp": 128,
+    "spp": 32,
     "spp_step": 16,
     "checkpoint_interval": "0",
     "hdr_output_file": "material-testball.exr"

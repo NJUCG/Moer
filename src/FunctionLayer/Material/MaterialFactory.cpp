@@ -1,10 +1,15 @@
 #include "MaterialFactory.h"
-#include "DielectricMaterial.h"
-#include "NullMaterial.h"
-#include "MirrorMaterial.h"
-#include "FunctionLayer/Scene/Scene.h"
-#include "ConductorMaterial.h"
+
 #include "DisneyBSDF.h"
+#include "PlasticMaterial.h"
+#include "NullMaterial.h"
+#include "MatteMaterial.h"
+#include "MirrorMaterial.h"
+#include "ConductorMaterial.h"
+#include "DielectricMaterial.h"
+
+
+#include "FunctionLayer/Scene/Scene.h"
 
 namespace  MaterialFactory{
 
@@ -14,6 +19,7 @@ namespace  MaterialFactory{
         else if (materialType == "mirror") return std::make_shared <MirrorMaterial>();
         else if (materialType == "dielectric") return std::make_shared<DielectricMaterial>(json);
         else if(materialType == "conductor") return std::make_shared<ConductorMaterial>(json);
+        else if(materialType == "plastic") return std::make_shared<PlasticMaterial>(json);
         else if(materialType == "disney") return std::make_shared<DisneyMaterial>(json);
         else if (materialType == "null") return std::make_shared<NullMaterial>(json);
         return nullptr;
