@@ -13,7 +13,6 @@
 
 #include <vector>
 #include <cfloat>
-#include "CoreLayer/Adapter/JsonUtil.h"
 #include "CoreLayer/Math/Common.h"
 
 class RGB3;
@@ -327,7 +326,7 @@ public:
 		CoefficientSpectrum retVal;
 		for (int i = 0; i < nSamples; i++) {
 			retVal[i] = (coefficients[i]>low)?(coefficients[i]):(low);
-			retVal[i] = (coefficients[i]<high)?(coefficients[i]):(high);
+			retVal[i] = (coefficients[i]<high)?(retVal[i]):(high);
 		}
 		return retVal;
 	}
@@ -461,4 +460,3 @@ public:
     virtual double luminance() const override;
 };
 
-void from_json(const Json &j,Spectrum & spectrum);
