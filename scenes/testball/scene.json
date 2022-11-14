@@ -139,14 +139,14 @@
     "enable_two_sided_shading": true
   },
   "renderer": {
-    "output_file": "material-testball.png",
+    "output_file": "material-testball",
     "resume_render_file": "RenderState.dat",
     "overwrite_output_files": true,
     "adaptive_sampling": true,
     "enable_resume_render": false,
     "stratified_sampler": true,
     "scene_bvh": true,
-    "spp": 32,
+    "spp": 2,
     "spp_step": 16,
     "checkpoint_interval": "0",
     "hdr_output_file": "material-testball.exr"
