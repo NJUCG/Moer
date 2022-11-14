@@ -10,10 +10,10 @@
  * 
  */
 #pragma once
-#include "CoreLayer/Adapter/JsonUtil.h"
-#include "CoreLayer/Geometry/Matrix.h"
-#include "Camera.h"
 
+#include "Camera.h"
+#include "CoreLayer/Geometry/Matrix.h"
+#include "CoreLayer/Adapter/JsonUtil.h"
 /**
  * @brief Base class for all perspective camera
  * @ingroup Camera
@@ -58,7 +58,7 @@ public:
         // ! near is the distToFilm and far set to MAX_FLOAT 
         // ! if far set to MAX_DOUBLE, it will crash when computing the matrix 
         Matrix4x4 filmToSample = Matrix4x4::perspective(
-            Angle(xFov, Angle::EAngleType::ANGLE_DEG),
+            Angle(xFov, Angle::EAngleType::ANGLE_DEG), 
             aspectRatio, 
             distToFilm, 
             std::numeric_limits<float>::max()
@@ -95,5 +95,4 @@ public:
                 * filmToSample;
         sampleToFilm = sampleToFilm.inverse();
     }
-
 };
