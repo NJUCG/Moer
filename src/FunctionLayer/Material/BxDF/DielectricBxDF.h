@@ -60,8 +60,8 @@ private:
     std::shared_ptr<MicrofacetDistribution> distrib;
     Vec2d alphaXY;
     double ior;
-    Spectrum specularR;
-    Spectrum specularT;
+    Spectrum glossyR;
+    Spectrum glossyT;
 };
 
 

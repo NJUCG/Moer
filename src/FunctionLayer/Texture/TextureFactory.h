@@ -43,6 +43,13 @@ namespace  TextureFactory{
     }
 
     template <class T>
+    std::shared_ptr<Texture<T>> LoadTexture(const nlohmann::json & parentJson,std::string field ,T defaultValue){
+        if(!parentJson.contains(field))
+            return std::make_shared<ConstantTexture<T>>(defaultValue);
+        return LoadTexture <T>(parentJson["field"],defaultValue);
+    }
+
+    template <class T>
     std::shared_ptr<ConstantTexture<T>> LoadConstantTexture(T value){
         return std::make_shared<ConstantTexture<T>>(value);
     }
