@@ -1,9 +1,20 @@
-# Moer
-Offline Renderer
+# Moer: Research Oriented Physically Based Renderer
+
+Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for computer vision (CV) and computer graphcis (CG) research.
+
+Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
+
+## Features
+
+- Easy to deploy, "install & clone & make & run"
+- Structured scene description using `json`
+- Interface for integrator/medium/bxdf/texture... and some pre-set implementions
+- Unworried resource management for heavy resource (image/mesh)
+
 ## Checklist
 
 ### Accelerator
-- [x] BVH
+- [X] BVH
 - [X] Embree
 - [ ] others
 
@@ -22,13 +33,13 @@ Offline Renderer
 - [ ] others
 
 ### Sampler
-- [x] independent 
+- [X] independent 
 - [ ] stratified 
 - [ ] low-discrepancy
 - [ ] others
 
 ### Emitter
-- [x] point
+- [X] point
 - [X] area
 - [ ] others
 
@@ -38,16 +49,16 @@ Offline Renderer
 - [ ] others
 
 ### BxDF
-- [x] lambert
-- [x] mirror
-- [x] dielectric
+- [X] lambert
+- [X] mirror
+- [X] dielectric
 - [ ] microfacet
 - [ ] others
 
 ### Shape
-- [x] sphere
-- [x] quad
-- [x] triangle-mesh
+- [X] sphere
+- [X] quad
+- [X] triangle-mesh
 - [ ] others
 
 
