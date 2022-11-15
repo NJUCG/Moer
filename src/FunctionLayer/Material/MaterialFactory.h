@@ -11,7 +11,6 @@
  */
 #pragma once
 #include "Material.h"
-#include "MatteMaterial.h"
 #include "CoreLayer/Adapter/JsonUtil.h"
 
 class Scene;

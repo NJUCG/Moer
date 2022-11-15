@@ -17,8 +17,8 @@ DielectricMaterial::DielectricMaterial(const Json &json) {
     //! If bumpmap, not specularTransmission
     //type = EMaterialType::SpecularTransmission;
     ior = getOptional(json, "ior", 1.33); //water
-    albedoR = TextureFactory::LoadConstantTexture<RGB3>(getOptional(json,"albedo_reflection",RGB3(1,1,1)));
-    albedoT = TextureFactory::LoadConstantTexture<RGB3>(getOptional(json,"albedo_transmission",RGB3(1,1,1)));
+    albedoR = TextureFactory::LoadTexture<>(json,"albedo_reflection",RGB3(1,1,1));
+    albedoT = TextureFactory::LoadTexture<>(json,"albedo_transmission",RGB3(1,1,1));
     if(json.contains("roughness"))
         roughness = TextureFactory::LoadTexture<double>(json["roughness"]);
     if(json.contains("u_roughness"))
