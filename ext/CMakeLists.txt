@@ -11,11 +11,11 @@ include(FetchContent)
 
 if (MESH_LOADER STREQUAL "Assimp")
     if (NOT TARGET assimp)
-        message(STATUS "============start clone assimp============")
+        message(STATUS "============start config assimp============")
         FetchContent_Declare(
             assimp
             GIT_REPOSITORY  https://github.com/assimp/assimp.git
-            GIT_TAG v5.2.5
+            GIT_TAG         v5.2.5
         )
 
         set(ASSIMP_FOLDER ${3DPARTY_FOLDER}/assimp)
@@ -37,12 +37,12 @@ if (MESH_LOADER STREQUAL "Assimp")
     endif()
 elseif (MESH_LOADER STREQUAL "Tinyobjloader")
     if (NOT TARGET tinyobjloader)
-        message(STATUS "============start clone tinyobjloader============")
+        message(STATUS "============start config tinyobjloader============")
         # add_subdirectory(tinyobjloader)
         FetchContent_Declare(
             tinyobjloader
-            GIT_REPOSITORY https://github.com/tinyobjloader/tinyobjloader.git
-            GIT_TAG v2.0.0rc10
+            GIT_REPOSITORY  https://github.com/tinyobjloader/tinyobjloader.git
+            GIT_TAG         v2.0.0rc10
         )
         FetchContent_MakeAvailable(tinyobjloader)
         
@@ -55,7 +55,30 @@ else()
     message(FATAL_ERROR "Unknown mesh loader!!")
 endif()
 
+
+if (NOT TARGET Eigen3::Eigen)
+    message(STATUS "============start config Eigen============")
+    FetchContent_Declare(
+        Eigen
+        GIT_REPOSITORY  https://gitlab.com/libeigen/eigen.git
+        GIT_TAG         3.4.0
+    )
+    
+    set(EIGEN_BUILD_TESTING OFF CACHE INTERNAL "")
+    set(EIGEN_BUILD_DOC OFF CACHE INTERNAL "")
+
+    FetchContent_MakeAvailable(Eigen)
+        
+    set_target_properties(eigen PROPERTIES DEBUG_POSTFIX "_d")
+    set_target_properties(eigen PROPERTIES RELEASE_POSTFIX "_r")
+
+    find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+    set_ide_folder(eigen ${3DPARTY_FOLDER})
+endif()
+
+
 if (NOT TARGET embree)
+    message(STATUS "============start config embree============")
     set(EMBREE_FOLDER ${3DPARTY_FOLDER}/embree)
     if(EMBREE_USE_TBB)
         set(EMBREE_TASKING_SYSTEM TBB)
@@ -66,12 +89,15 @@ if (NOT TARGET embree)
             set(EMBREE_TASKING_SYSTEM INTERNAL)
         endif()
     endif()
+    
+    set(EMBREE_TUTORIALS OFF CACHE INTERNAL "")
 
     add_subdirectory(embree3)
     set_target_properties(embree PROPERTIES DEBUG_POSTFIX "_d")
     set_target_properties(embree PROPERTIES RELEASE_POSTFIX "_r")
 
     set_ide_folder(embree ${EMBREE_FOLDER})
+    set_ide_folder(uninstall ${EMBREE_FOLDER})
     set_ide_folder(lexers ${EMBREE_FOLDER}/common)
     set_ide_folder(math ${EMBREE_FOLDER}/common)
     set_ide_folder(simd ${EMBREE_FOLDER}/common)
@@ -81,5 +107,3 @@ if (NOT TARGET embree)
     set_ide_folder(embree_avx2 ${EMBREE_FOLDER}/kernels)
     set_ide_folder(embree_sse42 ${EMBREE_FOLDER}/kernels)
 endif()
-
-
