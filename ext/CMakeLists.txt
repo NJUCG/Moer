@@ -55,7 +55,6 @@ else()
     message(FATAL_ERROR "Unknown mesh loader!!")
 endif()
 
-
 if (NOT TARGET Eigen3::Eigen)
     message(STATUS "============start config Eigen============")
     FetchContent_Declare(
@@ -75,7 +74,6 @@ if (NOT TARGET Eigen3::Eigen)
     find_package(Eigen3 3.3 REQUIRED NO_MODULE)
     set_ide_folder(eigen ${3DPARTY_FOLDER})
 endif()
-
 
 if (NOT TARGET embree)
     message(STATUS "============start config embree============")
@@ -106,4 +104,12 @@ if (NOT TARGET embree)
     set_ide_folder(embree_avx ${EMBREE_FOLDER}/kernels)
     set_ide_folder(embree_avx2 ${EMBREE_FOLDER}/kernels)
     set_ide_folder(embree_sse42 ${EMBREE_FOLDER}/kernels)
+endif()
+
+if (NOT TARGET pcg)
+    message(STATUS "============start config pcg============")
+    add_subdirectory(pcg)
+    set(PCG_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/pcg/pcg-cpp/include)
+    target_include_directories(pcg INTERFACE ${PCG_INCLUDE_DIR})
+    set_ide_folder(pcg ${3DPARTY_FOLDER})
 endif()

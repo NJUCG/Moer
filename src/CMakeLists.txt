@@ -17,6 +17,7 @@ target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/ext)
 
 target_link_libraries(${TARGET_NAME} PUBLIC embree)
 target_link_libraries(${TARGET_NAME} PUBLIC Eigen3::Eigen)
+target_link_libraries(${TARGET_NAME} PUBLIC pcg)
 
 if (MESH_LOADER STREQUAL "Assimp")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)
