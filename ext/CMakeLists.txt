@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.14)
 set(3DPARTY_FOLDER ext)
 
 function(set_ide_folder target_name folder_name)
@@ -6,16 +7,27 @@ function(set_ide_folder target_name folder_name)
     endif()
 endfunction()
 
+include(FetchContent)
+
 if (MESH_LOADER STREQUAL "Assimp")
     if (NOT TARGET assimp)
+        message(STATUS "============start clone assimp============")
+        FetchContent_Declare(
+            assimp
+            GIT_REPOSITORY  https://github.com/assimp/assimp.git
+            GIT_TAG v5.2.5
+        )
+
         set(ASSIMP_FOLDER ${3DPARTY_FOLDER}/assimp)
-        set(ASSIMP_BUILD_OBJ_IMPORTER ON)
-        set(ASSIMP_DOUBLE_PRECISION ON)
-        set(ASSIMP_WARNINGS_AS_ERRORS OFF)
-        set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-        set(ASSIMP_BUILD_TESTS OFF)
-        set(ASSIMP_INSTALL OFF)
-        add_subdirectory(assimp)
+        set(ASSIMP_BUILD_OBJ_IMPORTER ON CACHE INTERNAL "")
+        set(ASSIMP_DOUBLE_PRECISION ON CACHE INTERNAL "")
+        set(ASSIMP_WARNINGS_AS_ERRORS OFF CACHE INTERNAL "")
+        set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE INTERNAL "")
+        set(ASSIMP_BUILD_TESTS OFF CACHE INTERNAL "")
+        set(ASSIMP_INSTALL OFF CACHE INTERNAL "")
+
+        FetchContent_MakeAvailable(assimp)
+        
         set_target_properties(assimp PROPERTIES DEBUG_POSTFIX "_d")
         set_target_properties(assimp PROPERTIES RELEASE_POSTFIX "_r")
 
@@ -25,7 +37,17 @@ if (MESH_LOADER STREQUAL "Assimp")
     endif()
 elseif (MESH_LOADER STREQUAL "Tinyobjloader")
     if (NOT TARGET tinyobjloader)
-        add_subdirectory(tinyobjloader)
+        message(STATUS "============start clone tinyobjloader============")
+        # add_subdirectory(tinyobjloader)
+        FetchContent_Declare(
+            tinyobjloader
+            GIT_REPOSITORY https://github.com/tinyobjloader/tinyobjloader.git
+            GIT_TAG v2.0.0rc10
+        )
+        FetchContent_MakeAvailable(tinyobjloader)
+        
+        target_include_directories(tinyobjloader PUBLIC $<BUILD_INTERFACE:${tinyobjloader_SOURCE_DIR}>)
+        
         set_ide_folder(tinyobjloader ${3DPARTY_FOLDER}/tinyobjloader)
         set_ide_folder(uninstall ${3DPARTY_FOLDER}/tinyobjloader)
     endif()
