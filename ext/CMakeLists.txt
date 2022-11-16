@@ -92,7 +92,7 @@ if (NOT TARGET embree)
     
     set(EMBREE_TUTORIALS OFF CACHE INTERNAL "")
 
-    add_subdirectory(embree3)
+    add_subdirectory(embree)
     set_target_properties(embree PROPERTIES DEBUG_POSTFIX "_d")
     set_target_properties(embree PROPERTIES RELEASE_POSTFIX "_r")
 
