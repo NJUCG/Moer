@@ -19,6 +19,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC embree)
 target_link_libraries(${TARGET_NAME} PUBLIC Eigen3::Eigen)
 target_link_libraries(${TARGET_NAME} PUBLIC pcg)
 target_link_libraries(${TARGET_NAME} PUBLIC nlohmann_json)
+target_link_libraries(${TARGET_NAME} PUBLIC stb)
 
 if (MESH_LOADER STREQUAL "Assimp")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)

@@ -8,3 +8,6 @@
 [submodule "ext/json"]
 	path = ext/json
 	url = https://github.com/nlohmann/json.git
+[submodule "ext/stb/stb"]
+	path = ext/stb/stb
+	url = https://github.com/nothings/stb.git
