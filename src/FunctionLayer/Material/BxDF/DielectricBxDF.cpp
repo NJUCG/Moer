@@ -53,7 +53,7 @@ double DielectricBxDF::eta(const Vec3d & out,const Vec3d & in) const {
 RoughDielectricBxDF::RoughDielectricBxDF(double _ior, const Spectrum & _specularR, Spectrum _specularT,
                                          double _uRoughness, double _vRoughness,
                                          std::shared_ptr < MicrofacetDistribution > _distrib)
-                                         :ior(_ior),specularR(_specularR),specularT(_specularT),distrib(_distrib){
+                                         : ior(_ior), glossyR(_specularR), glossyT(_specularT), distrib(_distrib){
     alphaXY = Vec2d(distrib->roughnessToAlpha(_uRoughness),distrib->roughnessToAlpha(_vRoughness));
 }
 
@@ -133,13 +133,13 @@ Spectrum RoughDielectricBxDF::f(const Vec3d & out, const Vec3d & in, bool reflec
     double D = distrib->D(wh,alphaXY);
     double G = distrib->G(in,out,alphaXY);
     if (reflect) {
-        return  specularR * F * D * G/ 4 /(abs(in.z * out.z));
+        return glossyR * F * D * G / 4 / (abs(in.z * out.z));
     }
     else {
         double whDotIn =  dot(wh,in);
         double whDotOut = dot(wh,out);
         double sqrtDeom = eta * whDotOut  +  whDotIn;
-        return  specularT * (1-F) *D * G  * std::abs(
+        return glossyT * ( 1 - F) * D * G * std::abs(
                 whDotIn * whDotOut  /
                 (in.z * out.z * sqrtDeom * sqrtDeom)
         );

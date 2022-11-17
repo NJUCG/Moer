@@ -21,7 +21,6 @@ static  double TentInverse(double x){
 inline   Point2d SquareToTent(const Point2d &sample) {
     Point2d  res(TentInverse(sample[0]), TentInverse(sample[1]));
     return  res;
-//    throw NoriException("SquareToTent() is not yet implemented!");
 }
 
 inline double SquareToTentPdf(const Point2d &p) {
@@ -60,7 +59,7 @@ inline  Vec3d SquareToCosineHemisphere(const Point2d &sample) {
 inline  float SquareToCosineHemispherePdf(const Vec3d &v) {
     return v[2] >=0 ? v.z * INV_PI : .0f;
 }
-//
+
 inline  Vec3d SquareToBeckmann(const Point2d &sample,double alpha) {
     auto tan2theta= -alpha*alpha*log( sample.x );
     auto cosTheta=sqrt(1/(1+tan2theta));
@@ -69,7 +68,7 @@ inline  Vec3d SquareToBeckmann(const Point2d &sample,double alpha) {
     Vec3d t1= Vec3d(sinTheta*cos(phi), sinTheta*sin(phi),cosTheta);
     return t1;
 }
-//
+
 inline  float SquareToBeckmannPdf(const Vec3d &m, double alpha) {
     if(m.z<=0)
         return 0.0f;
