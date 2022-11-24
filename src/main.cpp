@@ -20,7 +20,7 @@ struct Render{
 public:
    static  void RenderScene(const std::string sceneWorkingDir){
        FileUtils::setWorkingDir(sceneWorkingDir + "/");
-       Json  sceneJson;
+       Json sceneJson;
        std::ifstream sceneFile(FileUtils::getWorkingDir()+std::string("scene.json"));
        sceneFile>>sceneJson;
        std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
