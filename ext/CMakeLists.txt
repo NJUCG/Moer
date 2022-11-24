@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
+
 set(TARGET_NAME Moer-ext)
 add_library(${TARGET_NAME} SHARED ext.cpp)
 set_target_properties(${TARGET_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
-
 set(3DPARTY_FOLDER ext)
 
 function(set_ide_folder target_name folder_name)
@@ -10,6 +10,7 @@ function(set_ide_folder target_name folder_name)
         set_target_properties(${target_name} PROPERTIES FOLDER ${folder_name})
     endif()
 endfunction()
+
 
 set_ide_folder(${TARGET_NAME} ${3DPARTY_FOLDER})
 
@@ -21,6 +22,7 @@ set_ide_folder(ext-copy ${3DPARTY_FOLDER})
 include(FetchContent)
 Set(FETCHCONTENT_QUIET FALSE)
 
+
 if (MESH_LOADER STREQUAL "Assimp")
     if (NOT TARGET assimp)
         message(STATUS "============start config assimp============")
@@ -28,7 +30,9 @@ if (MESH_LOADER STREQUAL "Assimp")
             assimp
             GIT_REPOSITORY  https://github.com/assimp/assimp.git
             GIT_TAG         v5.2.5
+
             GIT_PROGRESS    TRUE
+
         )
 
         set(ASSIMP_FOLDER ${3DPARTY_FOLDER}/assimp)
@@ -41,6 +45,7 @@ if (MESH_LOADER STREQUAL "Assimp")
 
         FetchContent_MakeAvailable(assimp)
         target_link_libraries(${TARGET_NAME} PUBLIC assimp)
+
         
         set_target_properties(assimp PROPERTIES DEBUG_POSTFIX "_d")
         set_target_properties(assimp PROPERTIES RELEASE_POSTFIX "_r")
@@ -61,7 +66,6 @@ elseif (MESH_LOADER STREQUAL "Tinyobjloader")
         )
         FetchContent_MakeAvailable(tinyobjloader)
         target_link_libraries(${TARGET_NAME} PUBLIC tinyobjloader)
-
         target_include_directories(tinyobjloader PUBLIC $<BUILD_INTERFACE:${tinyobjloader_SOURCE_DIR}>)
         
         set_ide_folder(tinyobjloader ${3DPARTY_FOLDER}/tinyobjloader)
@@ -110,7 +114,6 @@ if (NOT TARGET embree)
 
     add_subdirectory(embree)
     target_link_libraries(${TARGET_NAME} PUBLIC embree)
-
     set_target_properties(embree PROPERTIES DEBUG_POSTFIX "_d")
     set_target_properties(embree PROPERTIES RELEASE_POSTFIX "_r")
 
