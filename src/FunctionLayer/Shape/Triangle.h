@@ -60,10 +60,11 @@ public:
 
 	virtual BoundingBox3f WorldBound() const override;
 
-
-	//TODO Delete this
 	virtual RTCGeometry toEmbreeGeometry(RTCDevice device) const override {
-		RTCGeometry geom;
-		return geom;
+    RTCGeometry geom;
+    return geom;
+  }
+	virtual EntitySurfaceInfo getEntitySurfaceInfo(int primID, Point2d uv) const override {
+		return EntitySurfaceInfo();
 	}
 };

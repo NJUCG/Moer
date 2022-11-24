@@ -16,8 +16,10 @@
 #include <vector>
 #include "CoreLayer/Geometry/Geometry.h"
 
+#include <vector>
+
 template <typename Predicate>
-int FindInterval(int size, const Predicate &pred) {
+static int FindInterval(int size, const Predicate &pred) {
     int first = 0, len = size;
     while (len > 0) {
         int half = len >> 1, middle = first + half;
