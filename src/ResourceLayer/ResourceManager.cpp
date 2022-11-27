@@ -1,12 +1,12 @@
 #include "ResourceManager.h"
 
 #if defined(MESH_LOADER_ASSIMP)
-    #include <assimp/Importer.hpp>
-    #include <assimp/scene.h>
-    #include <assimp/postprocess.h>
+#   include <assimp/Importer.hpp>
+#   include <assimp/scene.h>
+#   include <assimp/postprocess.h>
 #elif defined(MESH_LOADER_TINYOBJ)
-    #include <fstream>
-    #include "tinyobjloader/tiny_obj_loader.h"
+#   include <fstream>
+#   include "tiny_obj_loader.h"
 #else
 #   error UNKNOWN MESH LOADER
 #endif
