@@ -13,6 +13,7 @@
 #include "MatteMaterial.h"
 #include "FunctionLayer/Material/BxDF/LambertainBxDF.h"
 #include "FunctionLayer/Texture/Texture.h"
+#include "FunctionLayer/Texture/TextureFactory.h"
 
 MatteMaterial::MatteMaterial(const std::shared_ptr < Texture < Spectrum>> & _albedo,
                              const std::shared_ptr < Texture < double>> & _bump) 
@@ -36,8 +37,7 @@ std::shared_ptr<BSSRDF> MatteMaterial::getBSSRDF(const Intersection & intersect)
 MatteMaterial::MatteMaterial(const Json & json) {
    // RGB3 _albedo = getOptional(json,"albedo",RGB3(1,1,1));
     type = EMaterialType::Diffuse;
-    Vec3d  _albedo = getOptional(json,"albedo",Vec3d(1,1,1));
-    albedo = std::make_shared <ConstantTexture<Spectrum>>(RGB3(_albedo.x,_albedo.y,_albedo.z));
+    albedo = TextureFactory::LoadTexture<Spectrum>(json,"albedo",RGB3(1,1,1));
 }
 
 

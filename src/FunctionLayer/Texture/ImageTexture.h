@@ -51,8 +51,8 @@ protected:
 
 public:
     virtual void loadImage(const std::string &filename) override;
-    virtual T eval(const TextureCoord2D &coord);
-    virtual T texel(const Point2i &coord);
+    virtual T eval(const TextureCoord2D &coord) override;
+    virtual T texel(const Point2i &coord) override;
 
     int getImageWidth( ) const override;
     int getImageHeight( ) const override;
