@@ -1,5 +1,5 @@
 /**
- * @file Lowdiscrepancy.cpp
+ * @file LowDiscrepancy.cpp
  * @author fengzesen (ja50n zs_feng@qq.com)
  * @brief Implemention of low-discrepancy functions.
  * @version 0.1

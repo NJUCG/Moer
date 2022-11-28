@@ -1,5 +1,5 @@
 /**
- * @file Lowdiscrepancy.h
+ * @file LowDiscrepancy.h
  * @author fengzesen (ja50n zs_feng@qq.com)
  * @brief Utility or math functions about low-discrepancy sequences.
  * @version 0.1
