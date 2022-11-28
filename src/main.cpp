@@ -7,9 +7,23 @@
 #include "FunctionLayer/Sampler/Stratified.h"
 #include "FunctionLayer/Sampler/Halton.h"
 
+struct TimeCounter{
+    std::chrono::high_resolution_clock::time_point start,end;
+    TimeCounter(){
+        start =  std::chrono::high_resolution_clock::now();
+    }
+    void Done(){
+        std::chrono::time_point end =  std::chrono::high_resolution_clock::now();
+        auto sToken =std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
+        std::cout<<"rendering done take\n"<<sToken<<"s";
+    }
+};
+
 struct Render{
 public:
    static  void RenderScene(const std::string sceneWorkingDir){
+       TimeCounter renderClock;
+
        FileUtils::setWorkingDir(sceneWorkingDir + "/");
        Json sceneJson;
        std::ifstream sceneFile(FileUtils::getWorkingDir()+std::string("scene.json"));
@@ -42,6 +56,7 @@ public:
        integrator.render(scene);
        integrator.save("cornell-box.halton");
        std::cout << "finish" << std::endl;
+       renderClock.Done();
    }
     static RenderSettings *  settings;
 };

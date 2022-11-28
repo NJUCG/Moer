@@ -10,8 +10,10 @@
  */
 #pragma once
 
-#include "memory"
 #include "Texture.h"
+#include "ImageTexture.h"
+
+#include "ResourceLayer/File/FileUtils.h"
 
 namespace  TextureFactory{
     template <class T>
@@ -26,8 +28,9 @@ namespace  TextureFactory{
             return std::make_shared <ConstantTexture<T>>(textureJson);
         }
         if(textureJson.is_string()){
-            //todo
-            return nullptr;
+            auto emission = std::make_shared < ImageTexture < T, RGB3>>(
+                    FileUtils::getWorkingDir() + textureJson.get<std::string>());
+            return emission;
         }
         if(textureJson.is_object()){
             //todo
@@ -43,10 +46,10 @@ namespace  TextureFactory{
     }
 
     template <class T>
-    std::shared_ptr<Texture<T>> LoadTexture(const nlohmann::json & parentJson,std::string field ,T defaultValue){
+    std::shared_ptr<Texture<T>> LoadTexture(const nlohmann::json & parentJson,const std::string & field ,T defaultValue){
         if(!parentJson.contains(field))
             return std::make_shared<ConstantTexture<T>>(defaultValue);
-        return LoadTexture <T>(parentJson["field"],defaultValue);
+        return LoadTexture <T>(parentJson.at(field),defaultValue);
     }
 
     template <class T>

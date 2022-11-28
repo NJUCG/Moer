@@ -36,7 +36,7 @@ class Entity : public Transform3D
 public:
     Entity() = default;
 	
-    Entity(const Json json) : Transform3D(json.at("transform")){
+    Entity(const Json json) : Transform3D(getOptional(json, "transform", Json())){
 		
     }
 	

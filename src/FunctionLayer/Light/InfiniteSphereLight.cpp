@@ -65,7 +65,6 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, co
     ans.dst = ans.src + 2 * _worldRadius * dir;
     ans.uv = uv;
     ans.pdfDirect = pdf  / ( 2 * M_PI * M_PI * sinTheta );
-    ans.pdfDirect = directPdf(dir);
     ans.wi = dir;
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
