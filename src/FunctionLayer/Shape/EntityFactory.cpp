@@ -8,6 +8,7 @@
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/Light/DiffuseAreaLight.h"
 #include "FunctionLayer/Light/InfiniteSphereLight.h"
+#include "FunctionLayer/Light/InfiniteSphereCapLight.h"
 
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;
@@ -42,6 +43,11 @@ namespace EntityFactory{
         else if(type == "infinite_sphere"){
             entityCount = 0;
             scene.addLight(std::make_shared <InfiniteSphereLight>(json));
+        }
+
+        else if(type == "infinite_sphere_cap"){
+            entityCount = 0;
+            scene.addLight(std::make_shared <InfiniteSphereCapLight>(json));
         }
 
         else {

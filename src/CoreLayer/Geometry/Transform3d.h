@@ -53,5 +53,5 @@ public:
 	Point3d getTranslate();
 
     // apply matrix to this object. Cache should be managed locally.
-    virtual void apply() = 0;
+    virtual void apply() {}
 };
