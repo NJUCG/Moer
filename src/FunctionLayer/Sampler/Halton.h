@@ -10,7 +10,7 @@
  */
 #pragma once
 #include "FunctionLayer/Sampler/Sampler.h"
-#include "CoreLayer/Math/Lowdiscrepancy.h"
+#include "CoreLayer/Math/LowDiscrepancy.h"
 // Restrict the resolution to maintain floating precision.
 static constexpr int MAX_RESOLUTION = 128;
 

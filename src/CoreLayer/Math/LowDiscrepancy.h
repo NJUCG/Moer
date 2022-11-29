@@ -24,7 +24,7 @@ extern const int PrimeSums[nPrimes];
  * @param rng                     Random number generator.
  * @return std::vector<uint16_t>  Computed permutations, in a continuous memory.
  */
-std::vector<uint16_t> computeScramblePermutations(RandomNumberGenerator &rng); 
+std::vector<uint16_t> computeScramblePermutations(RandomNumberGenerator &rng);
 /**
  * @brief Represent value a under the base of baseIndex-th prime,
  *        then inverse the representation to right of the decimal point.
@@ -48,17 +48,17 @@ double radicalInverse(int baseIndex, uint64_t a);
 double radicalInverseScramble(int baseIndex, uint64_t a, const uint16_t *perm);
 
 inline uint32_t reverseBits32(uint32_t x) {
-  x = (x << 16) | (x >> 16);
-  x = ((x & 0x00ff00ff) << 8) | ((x & 0xff00ff00) >> 8);
-  x = ((x & 0x0f0f0f0f) << 4) | ((x & 0xf0f0f0f0) >> 4);
-  x = ((x & 0x33333333) << 2) | ((x & 0xcccccccc) >> 2);
-  x = ((x & 0x55555555) << 1) | ((x & 0xaaaaaaaa) >> 1);
-  return x;
+    x = (x << 16) | (x >> 16);
+    x = ((x & 0x00ff00ff) << 8) | ((x & 0xff00ff00) >> 8);
+    x = ((x & 0x0f0f0f0f) << 4) | ((x & 0xf0f0f0f0) >> 4);
+    x = ((x & 0x33333333) << 2) | ((x & 0xcccccccc) >> 2);
+    x = ((x & 0x55555555) << 1) | ((x & 0xaaaaaaaa) >> 1);
+    return x;
 }
 inline uint64_t reverseBits64(uint64_t x) {
-  uint64_t high32 = reverseBits32(uint32_t(x));
-  uint64_t low32 = reverseBits32(uint32_t(x >> 32));
-  return (high32 << 32) | low32;
+    uint64_t high32 = reverseBits32(uint32_t(x));
+    uint64_t low32 = reverseBits32(uint32_t(x >> 32));
+    return (high32 << 32) | low32;
 }
 /**
  * @brief Take the inversed digits and get the original value back.
@@ -70,7 +70,7 @@ inline uint64_t reverseBits64(uint64_t x) {
  * @param nDigits   To maintain the trailing zeros.
  * @return uint64_t Just the value.
  */
-template <int base>
+template<int base>
 inline uint64_t inverseRadicalInverse(uint64_t inverse, int nDigits) {
     uint64_t index = 0;
     for (int i = 0; i < nDigits; ++i) {
