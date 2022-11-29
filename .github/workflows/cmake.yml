@@ -20,6 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Update submodules
+      run: git submodule update --init --recursive
+    
     - name: Install dependencies
       run: sudo apt-get install cmake-curses-gui libtbb-dev libglfw3-dev
 
