@@ -84,7 +84,6 @@ public:
 
 	XYZ3 toXYZ3() const;
 
-
 };
 
 

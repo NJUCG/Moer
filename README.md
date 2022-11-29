@@ -13,6 +13,10 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 - Interface for integrator/medium/bxdf/texture... and some pre-set implementions
 - Unworried resource management for heavy resource (image/mesh)
 
+## Gallery
+
+![classroom](https://user-images.githubusercontent.com/46410388/204492936-a7fc480b-1557-44e9-afaf-56d0ff1537a2.jpg)
+
 ## Checklist
 
 ### Accelerator
@@ -36,8 +40,12 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 
 ### Sampler
 - [X] independent 
-- [ ] stratified 
+- [X] stratified 
 - [ ] low-discrepancy
+  - [X] Halton
+  - [ ] (0-2)-Sequence
+  - [ ] Maximized minimal distance
+  - [ ] Sobol'
 - [ ] others
 
 ### Emitter
