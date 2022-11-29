@@ -1,6 +1,6 @@
 # Moer: Research Oriented Physically Based Renderer
 
-![Moer build](https://github.com/NJUCG/Moer/actions/workflows/cmake.yml/badge.svg)
+![build](https://github.com/NJUCG/Moer/actions/workflows/cmake.yml/badge.svg)
 
 Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for computer vision (CV) and computer graphcis (CG) research.
 
