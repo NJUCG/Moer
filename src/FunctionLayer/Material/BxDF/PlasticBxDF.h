@@ -1,4 +1,5 @@
 #include "BxDF.h"
+#include <memory>
 
 class MicrofacetDistribution;
 
