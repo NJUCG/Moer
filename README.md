@@ -34,8 +34,12 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 
 ### Sampler
 - [X] independent 
-- [ ] stratified 
+- [X] stratified 
 - [ ] low-discrepancy
+  - [X] Halton
+  - [ ] (0-2)-Sequence
+  - [ ] Maximized minimal distance
+  - [ ] Sobol'
 - [ ] others
 
 ### Emitter

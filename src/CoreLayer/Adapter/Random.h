@@ -28,6 +28,9 @@ class RandomNumberGenerator {
 
 public:
     RandomNumberGenerator():dist(0, ONEMINUSEPSILON), rng(seedSource) { }
+    // Add this copy cstr to enable auto-generation of other copy cstr
+    // for classes having RNG as member variable
+    RandomNumberGenerator(const RandomNumberGenerator&): dist(0, ONEMINUSEPSILON), rng(seedSource) { }
     
     /// \brief Generate uniformly distributed random double in [0, 1)
     double operator()() {
