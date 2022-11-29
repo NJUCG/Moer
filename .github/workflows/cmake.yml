@@ -1,4 +1,4 @@
-name: CMake
+name: Moer build
 
 on:
   push:
