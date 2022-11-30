@@ -11,6 +11,9 @@ function(set_ide_folder target_name folder_name)
     endif()
 endfunction()
 
+if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
+    cmake_policy(SET CMP0135 NEW)
+endif()
 
 set_ide_folder(${TARGET_NAME} ${3DPARTY_FOLDER})
 
@@ -22,7 +25,6 @@ set_ide_folder(ext-copy ${3DPARTY_FOLDER})
 include(FetchContent)
 Set(FETCHCONTENT_QUIET FALSE)
 
-
 if (MESH_LOADER STREQUAL "Assimp")
     if (NOT TARGET assimp)
         message(STATUS "============start config assimp============")
@@ -30,9 +32,7 @@ if (MESH_LOADER STREQUAL "Assimp")
             assimp
             GIT_REPOSITORY  https://github.com/assimp/assimp.git
             GIT_TAG         v5.2.5
-
             GIT_PROGRESS    TRUE
-
         )
 
         set(ASSIMP_FOLDER ${3DPARTY_FOLDER}/assimp)
@@ -112,10 +112,39 @@ if (NOT TARGET embree)
     
     set(EMBREE_TUTORIALS OFF CACHE INTERNAL "")
 
-    add_subdirectory(embree)
-    target_link_libraries(${TARGET_NAME} PUBLIC embree)
-    set_target_properties(embree PROPERTIES DEBUG_POSTFIX "_d")
-    set_target_properties(embree PROPERTIES RELEASE_POSTFIX "_r")
+    # add_subdirectory(embree)
+    # target_link_libraries(${TARGET_NAME} PUBLIC embree)
+    # set_target_properties(embree PROPERTIES DEBUG_POSTFIX "_d")
+    # set_target_properties(embree PROPERTIES RELEASE_POSTFIX "_r")
+
+    set(EMBREE_VERSION "3.13.5")
+    file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/embree)
+    message(STATUS "Downloading embree ${EMBREE_VERSION}...")
+    include(FetchContent)
+    if (WIN32)
+        set(EMBREE_URL_SUFFIX ".x64.vc14.windows.zip")
+    elseif (APPLE)
+        set(EMBREE_URL_SUFFIX ".x86_64.macosx.zip")
+    else ()# Linux
+        set(EMBREE_URL_SUFFIX ".x86_64.linux.tar.gz")
+    endif ()
+
+    set(EMBREE_DOWNLOAD_URL "https://github.com/embree/embree/releases/download/v${EMBREE_VERSION}/embree-${EMBREE_VERSION}${EMBREE_URL_SUFFIX}")
+    FetchContent_Declare(
+        embree_binary
+        URL ${EMBREE_DOWNLOAD_URL}
+        GIT_PROGRESS TRUE
+    )
+    FetchContent_MakeAvailable(embree_binary)
+    FetchContent_GetProperties(embree_binary)
+    # patch embree
+    message(STATUS "Patching embree-config.cmake...")
+    file(READ "${embree_binary_SOURCE_DIR}/lib/cmake/embree-${EMBREE_VERSION}/embree-config.cmake" EMBREE_CONFIG)
+    string(REPLACE "FIND_PACKAGE(TBB REQUIRED \${EMBREE_TBB_COMPONENT})" "" EMBREE_CONFIG "${EMBREE_CONFIG}")
+    file(WRITE "${embree_binary_SOURCE_DIR}/lib/cmake/embree-${EMBREE_VERSION}/embree-config.cmake" "${EMBREE_CONFIG}")
+    message(STATUS "Downloaded embree: ${embree_binary_SOURCE_DIR}")
+    set(embree_ROOT ${embree_binary_SOURCE_DIR})
+    find_package(embree 3 CONFIG REQUIRED)
 
     add_custom_command(TARGET ext-copy
         DEPENDS $<TARGET_FILE:embree>
@@ -125,17 +154,9 @@ if (NOT TARGET embree)
         DEPENDS $<TARGET_LINKER_FILE:embree>
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_LINKER_FILE:embree> $<TARGET_FILE_DIR:${TARGET_NAME}>)
-
-    set_ide_folder(embree ${EMBREE_FOLDER})
-    set_ide_folder(uninstall ${EMBREE_FOLDER})
-    set_ide_folder(lexers ${EMBREE_FOLDER}/common)
-    set_ide_folder(math ${EMBREE_FOLDER}/common)
-    set_ide_folder(simd ${EMBREE_FOLDER}/common)
-    set_ide_folder(sys ${EMBREE_FOLDER}/common)
-    set_ide_folder(tasking ${EMBREE_FOLDER}/common)
-    set_ide_folder(embree_avx ${EMBREE_FOLDER}/kernels)
-    set_ide_folder(embree_avx2 ${EMBREE_FOLDER}/kernels)
-    set_ide_folder(embree_sse42 ${EMBREE_FOLDER}/kernels)
+    
+    target_include_directories(embree INTERFACE ${embree_binary_SOURCE_DIR}/include)
+    target_link_libraries(${TARGET_NAME} INTERFACE embree)
 endif()
 
 if (NOT TARGET pcg)
