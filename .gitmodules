@@ -2,9 +2,6 @@
 [submodule "ext/pcg/pcg-cpp"]
 	path = ext/pcg/pcg-cpp
 	url = https://github.com/imneme/pcg-cpp.git
-[submodule "ext/embree"]
-	path = ext/embree
-	url = https://github.com/embree/embree.git
 [submodule "ext/json"]
 	path = ext/json
 	url = https://github.com/nlohmann/json.git
