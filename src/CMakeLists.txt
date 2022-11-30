@@ -11,6 +11,9 @@ target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src)
 add_dependencies(${TARGET_NAME} ext-copy)
 target_link_libraries(${TARGET_NAME} PUBLIC Moer-ext)
 
+find_package(Threads)
+target_link_libraries(${TARGET_NAME} PUBLIC ${CMAKE_THREAD_LIBS_INIT})
+
 if (MESH_LOADER STREQUAL "Assimp")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)
 elseif (MESH_LOADER STREQUAL "Tinyobjloader")
