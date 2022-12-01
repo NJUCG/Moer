@@ -48,14 +48,6 @@ std::optional<Intersection> Mesh::intersect(const Ray &r) const
     return BVH->Intersect(r);
 }
 
-void Mesh::apply()
-{
-    m_vertices = matrix->transformPoints(m_vertices);
-    m_normals = matrix->transformNormals(m_normals);
-//   Eigen::Matrix4d  matrix4D(matrix.);
-//   matrix4D*this->m_vertices;
-}
-
 double Mesh::area() const
 {
     // TODO

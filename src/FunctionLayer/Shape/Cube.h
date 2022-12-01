@@ -36,6 +36,4 @@ protected:
     Point3d position;
     Matrix4x4 rotation;
     Matrix4x4 scale;
-
-    virtual void apply() override;
 };

@@ -106,8 +106,3 @@ BoundingBox3f Cube::WorldBound() const {
     }
     return box;
 }
-
-void Cube::apply() {
-    //* do nothing
-    return;
-}

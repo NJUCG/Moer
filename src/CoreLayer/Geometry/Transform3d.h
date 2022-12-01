@@ -23,7 +23,11 @@ class Transform3D
 
 protected:
     //I move this from private to protected since object needs matrix to apply transform.
+
+    /// @brief matrix from local to world.
     std::shared_ptr<TransformMatrix3D> matrix;
+
+	/// @brief matrix from world to local. It is const and can not be modified.
 	std::shared_ptr<TransformMatrix3D> matrixInv;
 	
 public:

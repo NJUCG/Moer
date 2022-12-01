@@ -32,7 +32,4 @@ public:
 protected:
     double radius;
     Point3d center;
-    virtual void apply() override;
-
-
 };

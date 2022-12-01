@@ -33,6 +33,4 @@ protected:
     Vec3d _edge0,_edge1;
     double  _area,_invArea;
     Vec2d  _invSq;
-
-    virtual void apply() override;
 };

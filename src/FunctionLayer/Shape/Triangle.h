@@ -51,7 +51,6 @@ protected:
 	int faceId;
 	std::shared_ptr<TriangleMesh> mesh;
 public:
-	virtual void apply() override;
 	Triangle(const std::shared_ptr<TriangleMesh>& _mesh, const int& _faceId);
 	Triangle(const std::vector<Point3d>& points, const std::shared_ptr<Material>& _material);
 	virtual std::optional<Intersection> intersect(const Ray& r) const override;

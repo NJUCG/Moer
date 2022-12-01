@@ -62,5 +62,4 @@ protected:
     std::shared_ptr<Bvh>      BVH;      ///< Spacial accelerate structure
                                         /// \todo Replace with abstruct class
     
-    virtual void apply() override;
 };

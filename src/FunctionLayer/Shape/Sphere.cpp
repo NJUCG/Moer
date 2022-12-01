@@ -20,10 +20,6 @@ Sphere::Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _mater
 	this->material = _material;
 }
 
-void Sphere::apply()
-{
-}
-
 std::optional<Intersection> Sphere::intersect(const Ray &r) const
 {
     auto R = radius;

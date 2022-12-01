@@ -32,9 +32,7 @@ Triangle::Triangle(const std::vector<Point3d>& points, const std::shared_ptr<Mat
 	material = _material;
 	for (int i = 0; i < 3; i++) vertexId[i] = i;
 }
-void Triangle::apply()
-{
-}
+
 //@brief a simple version using barycentric coordinates to calculate the intersection
 //does not handle the case where ray and triangle fall in the same plane
 std::optional<Intersection> Triangle::intersect(const Ray& r) const {

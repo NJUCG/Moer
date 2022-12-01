@@ -5,6 +5,10 @@ Quad::Quad(const Json & json) : Entity(json) {
     _base = getOptional(json,"base",Point3d(0,0,0));
     _edge0 = getOptional(json,"edge0",Vec3d(1,0,0));
     _edge1 = getOptional(json,"edge1",Vec3d(0,0,1));
+
+    _area  =  cross(_edge0,_edge1).length();
+    _invArea = 1/_area;
+    _invSq = Vec2d (1/ _edge0.length2(),1/_edge1.length2());
 }
 
 
@@ -67,19 +71,6 @@ BoundingBox3f Quad::WorldBound( ) const {
 
     return bb;
 
-}
-
-void Quad::apply( ) {
-
-//    _base = matrix->operator *(_base);
-//    _edge0 = matrix->operator *(_edge0);
-//    _edge1 = matrix->operator *(_edge1);
-//    _base -= _edge0*0.5;
-//    _base -= _edge1*0.5;
-
-    _area  =  cross(_edge0,_edge1).length();
-    _invArea = 1/_area;
-    _invSq = Vec2d (1/ _edge0.length2(),1/_edge1.length2());
 }
 
 
