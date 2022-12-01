@@ -29,8 +29,6 @@ Mesh::Mesh(std::shared_ptr<MeshData> _data,
     BVH = std::make_shared<Bvh>(this);
 }
 
-
-
 Triangle Mesh::getTriangle(int idx) const {
     auto [i0, i1, i2] = m_indices[idx];
     auto p0 = eigenToPoint3d(m_vertices.col(i0)),

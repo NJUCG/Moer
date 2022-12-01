@@ -18,8 +18,8 @@ static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(co
 
 namespace EntityFactory{
     void  LoadEntityFromJson(const Json &  json,Scene & scene,
-                             std::vector<std::shared_ptr < Entity >> & entities
-    ) {
+                             std::vector<std::shared_ptr < Entity >> & entities) 
+    {
         int entityCount = 1;
 
         const std::string type = json["type"];

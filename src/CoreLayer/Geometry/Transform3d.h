@@ -39,4 +39,6 @@ public:
     Transform3D(const Json &);
 
 	Point3d getTranslate();
+
+	void setTranslate(double x, double y, double z);
 };

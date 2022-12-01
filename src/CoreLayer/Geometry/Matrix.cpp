@@ -234,15 +234,14 @@ TransformMatrix3D::TransformMatrix3D()
 TransformMatrix3D::TransformMatrix3D(const TransformMatrix3D& another)
 {
 	isConst=true;
-	another.update();
-	matrixAll=another.matrixAll();
+	matrixAll=Matrix4x4(another.matrixAll);
 
 }
 
-TransformMatrix3D::TransformMatrix3D(const TransformMatrix3D& another)
+TransformMatrix3D::TransformMatrix3D(const Matrix4x4& another)
 {
 	isConst=true;
-	matrixAll=another;
+	matrixAll=Matrix4x4(another);
 }
 
 void TransformMatrix3D::setTranslate(double x, double y, double z)

@@ -81,7 +81,7 @@ class TransformMatrix3D
 	/// @brief true iff matrixAll!=matrixTranslate*matrixScale*matrixRotate.
 	bool dirty=true;
 
-	/// @brief true iff the matrix is const and never be updated.
+	/// @brief true iff the matrix is const and should never be updated.
 	bool isConst=false;
 
 	void update();
