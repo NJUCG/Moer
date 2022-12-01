@@ -79,4 +79,6 @@ Transform3D::Transform3D(const Json & json) {
                                      Angle(rotate.z,Angle::EAngleType::ANGLE_DEG),
                                      EulerType::EULER_YZX);
     }
+
+    matrixInv=std::make_shared<TransformMatrix3D>(matrix->inverse());
 }

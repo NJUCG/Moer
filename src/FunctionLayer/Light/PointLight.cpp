@@ -97,8 +97,3 @@ LightSampleResult PointLight::sampleDirect(const MediumSampleRecord &mRec,
     ans.isDeltaDir = false;
     return ans;
 }
-
-
-void PointLight::apply()
-{
-}

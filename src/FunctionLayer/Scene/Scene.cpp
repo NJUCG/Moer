@@ -30,8 +30,6 @@ Scene::Scene(const Json & json) {
 }
 
 void Scene::build() {
-    for(auto entity:*entities)
-        entity->apply();
 	//accel = std::make_shared<Bvh>(*entities);
     accel = std::make_shared<EmbreeAccel>(*entities);
 }

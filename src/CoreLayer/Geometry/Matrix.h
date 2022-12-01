@@ -79,13 +79,22 @@ class TransformMatrix3D
 	Matrix4x4 matrixTranslate;
 
 	/// @brief true iff matrixAll!=matrixTranslate*matrixScale*matrixRotate.
-	bool dirty;
+	bool dirty=true;
+
+	/// @brief true iff the matrix is const and never be updated.
+	bool isConst=false;
 
 	void update();
 
 public:
 	TransformMatrix3D();
-    TransformMatrix3D(const double  * transformData);
+    TransformMatrix3D(const double * transformData);
+
+	/// @brief construct Transform3D from another Transform3D. The transform will be const and any set... will be invalid.
+	TransformMatrix3D(const TransformMatrix3D& another);
+
+	/// @brief construct Transform3D from Matrix4x4. The transform will be const and any set... will be invalid.
+	TransformMatrix3D(const Matrix4x4& another);
 
 	void setTranslate(double x, double y, double z);
 
@@ -110,6 +119,10 @@ public:
 	// interfaces for Eigen matrix.
     Eigen::MatrixXd transformPoints(const Eigen::MatrixXd & points);
     Eigen::MatrixXd transformNormals(const Eigen::MatrixXd & normals);
+
+	// inverse & transpose
+	Matrix4x4 inverse() const;
+	Matrix4x4 transpose() const;
 
 };
 

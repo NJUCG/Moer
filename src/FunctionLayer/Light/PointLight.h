@@ -24,7 +24,6 @@ protected:
 
 public:
     PointLight(const Spectrum &intensity, const Point3d &center);
-    virtual void apply() override;
     virtual LightSampleResult evalEnvironment(const Ray &ray) override;
     virtual LightSampleResult eval(const Ray &ray, const Intersection &its, const Vec3d &d) override;
     virtual LightSampleResult sampleEmit(const Point2d &positionSample, const Point2d &directionSample, float time) override;

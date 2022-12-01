@@ -214,6 +214,10 @@ Matrix4x4::Matrix4x4(const double * matData) {
 
 void TransformMatrix3D::update()
 {
+	if(isConst){
+		return;
+	}
+
 	if (dirty)
 	{
 		dirty = false;
@@ -225,6 +229,20 @@ void TransformMatrix3D::update()
 TransformMatrix3D::TransformMatrix3D()
 {
 	dirty = true;
+}
+
+TransformMatrix3D::TransformMatrix3D(const TransformMatrix3D& another)
+{
+	isConst=true;
+	another.update();
+	matrixAll=another.matrixAll();
+
+}
+
+TransformMatrix3D::TransformMatrix3D(const TransformMatrix3D& another)
+{
+	isConst=true;
+	matrixAll=another;
 }
 
 void TransformMatrix3D::setTranslate(double x, double y, double z)
@@ -309,4 +327,14 @@ Matrix4x4 TransformMatrix3D::getRotate() const
 Matrix4x4 TransformMatrix3D::getTranslate() const 
 {
 	return matrixTranslate;
+}
+
+Matrix4x4 TransformMatrix3D::inverse() const 
+{
+	return matrixAll.inverse();
+}
+
+Matrix4x4 TransformMatrix3D::transpose() const 
+{
+	return matrixAll.transpose();
 }
