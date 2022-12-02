@@ -13,6 +13,7 @@
 
 #include "CoreLayer/Ray/Ray.h"
 #include "AbstractPathIntegrator.h"
+#include "PathIntegratorUtils.h"
 #include "FunctionLayer/Medium/Medium.h"
 
 /**
@@ -38,25 +39,25 @@ public:
 
     virtual PathIntegratorLocalRecord evalEmittance(std::shared_ptr<Scene> scene,
                                                     std::optional<Intersection> itsOpt,
-                                                    const Ray &ray) override;
+                                                    const Ray &ray);
 
     virtual PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
                                                            const Intersection &its,
-                                                           const Ray &ray) override;
+                                                           const Ray &ray);
 
     virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
                                                   const Intersection &its,
                                                   const Ray &ray,
-                                                  const Vec3d &wi) override;
+                                                  const Vec3d &wi);
 
     virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
                                                     const Intersection &its,
-                                                    const Ray &ray) override;
+                                                    const Ray &ray);
 
     virtual double russianRoulette(std::shared_ptr<Scene> scene,
                                    const Intersection &its,
                                    const Spectrum &T,
-                                   int nBounce) override;
+                                   int nBounce);
 
     virtual std::pair<std::shared_ptr<Light>, double> chooseOneLight(std::shared_ptr<Scene> scene,
                                                                      const Intersection &its,
