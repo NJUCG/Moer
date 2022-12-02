@@ -46,7 +46,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         std::optional<Intersection> itsOpt = scene->intersect(ray);
 
         // EVAL EMITTANCE
-        PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
+        PathIntegratorLocalRecord evalLightRecord = PathIntegratorUtils::evalEmittance(scene, itsOpt, ray);
 
         if (evalLightRecord.f.isBlack() == false)
         {
@@ -68,7 +68,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
         // RUSSIAN ROULETTE
         nBounce++;
-        double pSurvive = russianRoulette(scene, its, throughput, nBounce);
+        double pSurvive = PathIntegratorUtils::russianRoulette(nBounce,64,0.95);
         if (randFloat() > pSurvive)
             break;
         throughput /= pSurvive;
@@ -77,8 +77,8 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         // Support multiple direct light samples per intersection. n=1 by default.
         for (int i = 0; i < nDirectLightSamples; i++)
         {
-            PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
-            PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, its, ray, sampleLightRecord.wi);
+            PathIntegratorLocalRecord sampleLightRecord = PathIntegratorUtils::sampleDirectLighting(scene, its, ray,sampler);
+            PathIntegratorLocalRecord evalScatterRecord = PathIntegratorUtils::evalScatter(scene, its, ray, sampleLightRecord.wi);
 
             if (sampleLightRecord.f.isBlack() == false)
             {
@@ -92,7 +92,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         }
 
         // SAMPLE SCATTER (BSDF or PHASE)
-        PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, its, ray);
+        PathIntegratorLocalRecord sampleScatterRecord = PathIntegratorUtils::sampleScatter(scene, its, ray,sampler);
         pdfLastScatterSample = sampleScatterRecord.pdf;
         isLastScatterSampleDelta = sampleScatterRecord.isDelta;
         if (sampleScatterRecord.f.isBlack() == false)
