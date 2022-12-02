@@ -12,7 +12,7 @@
  */
 #pragma once
 
-#include "FunctionLayer/Phase/Phase.h"
+#include "Phase.h"
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Ray/Ray.h"

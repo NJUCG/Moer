@@ -33,12 +33,7 @@ static const double sampledLambdaEnd = 700.0;
 
 // The number of uniform samples for SampledSpectrum.
 #define SPECTRUM_SAMPLES CMAKE_DEF_SPECTRUM_SAMPLES
-
-#ifdef USING_SAMPLED_SPECTRUM
-const int nSpectrumSamples = SPECTRUM_SAMPLES;
-#else // RGB Spectrum
-const int nSpectrumSamples = 3;
-#endif
+static const int nSpectrumSamples = SPECTRUM_SAMPLES;
 
 /// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };

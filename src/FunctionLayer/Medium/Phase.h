@@ -14,13 +14,6 @@
 #include <tuple>
 #include "CoreLayer/Geometry/Geometry.h"
 
-struct PhaseFunctionLocalResult{
-    Vec3d wo;
-    Spectrum f;
-    double pdf;
-    bool isDelta=false;
-};
-
 class PhaseFunction {
 public:
     PhaseFunction() = default;

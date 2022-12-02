@@ -78,8 +78,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             if (!itsOpt.has_value())
                 break;
 
-        } 
-        else {
+        } else {
             if (medium) {
                 throughput *= mRec.tr / mRec.pdf;
             }
