@@ -34,5 +34,5 @@ private:
     Spectrum sigmaT;
     Spectrum albedo;
     Spectrum sigmaS;
-    Spectrum SigmaA;
+    Spectrum sigmaA;
 };
