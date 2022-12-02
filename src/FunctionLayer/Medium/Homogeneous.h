@@ -12,6 +12,7 @@
 #pragma once
 
 #include "Medium.h"
+#include "CoreLayer/ColorSpace/Color.h"
 
 class HomogeneousMedium : public Medium {
 public:
@@ -29,10 +30,9 @@ public:
                                        Point3d dest) const override;
 
 private:
-    //* sigma_s = mAlbedo * mDensity
-    //* sigma_a = (1 - mAlbedo) * mDensity
-    
-    //TODO replace with spectrum
-    double mDensity;
-    double mAlbedo;
+
+    Spectrum sigmaT;
+    Spectrum albedo;
+    Spectrum sigmaS;
+    Spectrum SigmaA;
 };
