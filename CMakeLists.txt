@@ -12,11 +12,13 @@ if (MSVC)
     # add_definitions(-DUNICODE -D_UNICODE)
 endif (MSVC)
 
-option(EMBREE_USE_TBB "Enable TBB in embree." OFF)
-option(USE_SAMPLED_SPECTRUM "" OFF)
+option(${CMAKE_PROJECT_NAME}_EMBREE_USE_TBB "Enable TBB in embree." OFF)
+option(${CMAKE_PROJECT_NAME}_USE_SAMPLED_SPECTRUM "" OFF)
 
-set(MESH_LOADER "Tinyobjloader" CACHE STRING "Select mesh loader")
-set_property(CACHE MESH_LOADER PROPERTY STRINGS Assimp Tinyobjloader)
+set(${CMAKE_PROJECT_NAME}_SPECTRUM_SAMPLES 60 CACHE STRING "The number of spectrum samples")
+
+set(${CMAKE_PROJECT_NAME}_MESH_LOADER "Tinyobjloader" CACHE STRING "Select mesh loader")
+set_property(CACHE ${CMAKE_PROJECT_NAME}_MESH_LOADER PROPERTY STRINGS Assimp Tinyobjloader)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

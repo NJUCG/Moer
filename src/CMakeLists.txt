@@ -14,17 +14,17 @@ target_link_libraries(${TARGET_NAME} PUBLIC Moer-ext)
 find_package(Threads)
 target_link_libraries(${TARGET_NAME} PUBLIC ${CMAKE_THREAD_LIBS_INIT})
 
-if (MESH_LOADER STREQUAL "Assimp")
+if (${CMAKE_PROJECT_NAME}_MESH_LOADER STREQUAL "Assimp")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)
-elseif (MESH_LOADER STREQUAL "Tinyobjloader")
+elseif (${CMAKE_PROJECT_NAME}_MESH_LOADER STREQUAL "Tinyobjloader")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_TINYOBJ)
 endif()
 
-if (USE_SAMPLED_SPECTRUM)
+if (${CMAKE_PROJECT_NAME}_USE_SAMPLED_SPECTRUM)
     target_compile_definitions(${TARGET_NAME} PRIVATE USING_SAMPLED_SPECTRUM)
 endif()
 
-target_compile_definitions(${TARGET_NAME} PRIVATE CMAKE_DEF_SPECTRUM_SAMPLES=60)
+target_compile_definitions(${TARGET_NAME} PRIVATE CMAKE_DEF_SPECTRUM_SAMPLES=${${CMAKE_PROJECT_NAME}_SPECTRUM_SAMPLES})
 
 set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "_d")
 set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "_r")
