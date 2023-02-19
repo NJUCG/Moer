@@ -53,7 +53,7 @@ Spectrum RoughConductorBxDF::f(const Vec3d & out, const Vec3d & in) const {
 }
 
 double RoughConductorBxDF::pdf(const Vec3d & out, const Vec3d & in) const {
-    if ( CosTheta(out) * Cos2Theta(in) < 0) return 0;
+    if ( CosTheta(out) * CosTheta(in) < 0) return 0;
     Vec3d wh = normalize(out + in);
     return distrib->Pdf(out, wh,alphaXY) / (4 * dot(out, wh));
 }
@@ -62,7 +62,7 @@ BxDFSampleResult RoughConductorBxDF::sample(const Vec3d & out, const Point2d & s
     BxDFSampleResult result;
     Vec3d wh = distrib->Sample_wh(out,sample,alphaXY);
     Vec3d in = Frame::reflect(out,wh);
-    if (CosTheta(out) * Cos2Theta(in) < 0)
+    if (CosTheta(out) * CosTheta(in) < 0)
     {
         result.s=Spectrum(0);
         return result;
