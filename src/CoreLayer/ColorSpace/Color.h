@@ -21,7 +21,6 @@ class SampledSpectrum;
 class RGBSpectrum;
 
 // TODO: should be defined by cmake marco.
-//#define USING_SAMPLEDSPECTRUM
 
 #ifdef USING_SAMPLED_SPECTRUM
 using Spectrum = SampledSpectrum;

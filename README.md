@@ -1,6 +1,8 @@
 # Moer: Research Oriented Physically Based Renderer
 
-Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for computer vision (CV) and computer graphcis (CG) research.
+![build](https://github.com/NJUCG/Moer/actions/workflows/cmake.yml/badge.svg)
+
+Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for computer vision (CV) and computer graphics (CG) research.
 
 Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 
@@ -10,6 +12,10 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 - Structured scene description using `json`
 - Interface for integrator/medium/bxdf/texture... and some pre-set implementions
 - Unworried resource management for heavy resource (image/mesh)
+
+## Gallery
+
+![classroom](https://user-images.githubusercontent.com/46410388/204492936-a7fc480b-1557-44e9-afaf-56d0ff1537a2.jpg)
 
 ## Checklist
 

@@ -37,7 +37,8 @@ ConductorMaterial::ConductorMaterial(const Json & json) {
     eta = getOptional(json,"eta",Vec3d(0.2004376970, 0.9240334304, 1.1022119527));
     k   = getOptional(json,"k", Vec3d(3.9129485033f, 2.4528477015f,
                                       2.1421879552f));
-    conductorName = getOptional("json","conductor",std::string());
+    conductorName = getOptional(json,"conductor",std::string());
+    conductorName = getOptional(json,"material",conductorName);
     if(json.contains("roughness"))
         roughness = TextureFactory::LoadTexture<double>(json["roughness"]);
     if(json.contains("u_roughness"))

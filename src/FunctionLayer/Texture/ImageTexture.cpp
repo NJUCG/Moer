@@ -58,8 +58,20 @@ RGB3 DirectImage<RGB3>::eval(const TextureCoord2D &coord)
 //    return image->getRGBColorAt(xy);
 }
 
-template <>
+template<>
 Spectrum ImageTexture<Spectrum, RGB3>::eval(const TextureCoord2D &coord) const
 {
     return Spectrum(imageSampler->eval(coord));
+}
+
+template<>
+double ImageTexture<double, RGB3>::eval(const TextureCoord2D &coord) const
+{
+    return imageSampler->eval(coord)[0];
+}
+
+template<>
+RGB3 ImageTexture<RGB3, RGB3>::eval(const TextureCoord2D &coord) const
+{
+    return imageSampler->eval(coord);
 }
