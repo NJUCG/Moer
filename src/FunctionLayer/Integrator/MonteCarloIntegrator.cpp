@@ -68,7 +68,7 @@ void MonteCarloIntegrator::renderPerThread(std::shared_ptr<Scene> scene)
                         ssampler->getCameraSample()
                     ), scene
                 );
-                L = L.clamp(0.0,1.0);
+//                L = L.clamp(0.0,1.0);
                 film->deposit(pixelPosition, L);
                 /**
                  * @warning spp used in this for loop belongs to Integrator.

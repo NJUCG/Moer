@@ -102,3 +102,7 @@ std::optional<std::shared_ptr<Tile>> SequenceTileGenerator::generateNextTile()
 	return retVal;
 }
 
+void SequenceTileGenerator::restart() {
+    currentBeginIndex = Point2i(0, 0);
+    reachedEnd = false;
+}

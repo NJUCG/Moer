@@ -1,0 +1,119 @@
+/**
+* @file GuidedPathIntegrator.h
+* @author Yiyang Sun
+* @brief Path Integrator with path guiding technologies
+* @version 0.1
+* @date 2023-03-12
+*
+* @copyright NJUMeta (c) 2023
+* www.njumeta.com
+*/
+
+#pragma once
+
+#include <atomic>
+#include <shared_mutex>
+#include "PathIntegrator-new.h"
+#include "guiding/guiding.h"
+
+/**
+ * @brief Unidirectional path-tracing integrator with
+ * path guiding technologies
+ * @ingroup Integrator
+ */
+
+class GuidedPathIntegrator : public PathIntegratorNew {
+public:
+
+    GuidedPathIntegrator(std::shared_ptr<Camera> _camera,
+                      std::unique_ptr<Film> _film,
+                      std::unique_ptr<TileGenerator> _tileGenerator,
+                      std::shared_ptr<Sampler> _sampler,
+                      int _spp,
+                      int _renderThreadNum = 4);
+
+    void render(std::shared_ptr<Scene> scene) override;
+
+    /// @brief Estimate radiance along a given ray
+    Spectrum Li(const Ray &initialRay, std::shared_ptr<Scene> scene) override;
+
+    /// @brief Return scatter value of BSDF or phase function.
+    /// @param scene     Ptr to scene.
+    /// @param its       Reference point.
+    /// @param ray       Ray, used to specify wo (out direction).
+    /// @param wi        Incident direction wi.
+    /// @return          Incident direction, scatter throughput f, pdf per solid angle.
+    ///                  For surface, f is the product of BSDF value and cosine term.
+    ///                  For medium, f is the value of phase function.
+    PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
+                                          const Intersection &its,
+                                          const Ray &ray,
+                                          const Vec3d &wi) override;
+
+    /// @brief Sample incident direction by scatter value of BSDF or phase function.
+    /// @param scene     Ptr to scene.
+    /// @param its       Reference point.
+    /// @param ray       Ray, used to specify wo (out direction).
+    /// @return          Sampled incident direction, scatter throughput f, pdf per solid angle.
+    ///                  For surface, f is the product of BSDF value and cosine term.
+    ///                  For medium, f is the value of phase function.
+    PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
+                                            const Intersection &its,
+                                            const Ray &ray) override;
+
+    /// @brief Return survive probability of Russian roulette.
+    double russianRoulette(std::shared_ptr<Scene> scene,
+                           const Intersection &its,
+                           const Spectrum &T,
+                           int nBounce) override;
+
+protected:
+
+    using PGSampleData = PathGuiding::SampleData;
+    using AdaptiveKDTree = PathGuiding::kdtree::AdaptiveKDTree;
+    using GuidedBxDF = PathGuiding::GuidedBxDF;
+
+    constexpr static float trainingSPPFraction = 0.5;
+    constexpr static int sppPerIteration = 4;
+    constexpr static int maxSampleBufferSize = 256 * 1024 * 1024 / sizeof(PGSampleData);
+
+    struct BounceInfo {
+        Spectrum L{0};
+        Spectrum bxdfWeight{0};
+        Vec3d position{0};
+        Vec3d direction{0};
+        double bxdfPdf{0};
+        double distance{0};
+        double roughness{0};
+        double distanceFactor{1};
+    };
+
+    std::mutex pgSampleMutex;
+    std::vector<PGSampleData> pgSamples;
+
+    std::shared_mutex pgTreeMutex;
+    std::shared_ptr<AdaptiveKDTree> pgTree;
+
+    int totalSPP;
+    bool isTraining;
+    bool isFirstIteration;
+
+    static double computeDistanceFactor(const Intersection & its,
+                                        const Vec3d & out,
+                                        const Vec3d & in);
+
+    void addPGSampleData(const Vec3d & position,
+                         const Vec3d & direction,
+                         double radiance,
+                         double bsdfPdf,
+                         double distance);
+
+    void prepareGuidedBxDF(GuidedBxDF & guidedBxDF,
+                           BxDF * bxdf,
+                           const Point3d & position);
+
+private:
+
+    size_t numFlashedSamples;
+
+};

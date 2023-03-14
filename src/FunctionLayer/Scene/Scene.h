@@ -43,6 +43,11 @@ public:
 	// @return true if r hits object first (closest), false otherwise.
 	bool intersectionTest(const Ray &r, std::shared_ptr<Entity> object) const;
 
+    [[nodiscard]]
+    BoundingBox3f getBoundingBox() const {
+        return accel->getBoundingBox();
+    }
+
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> getLights() const;
 
     std::shared_ptr<Material> fetchMaterial(const std::string & name = "default") const;

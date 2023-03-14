@@ -27,4 +27,10 @@ public:
     * @return The exactly closest intersection point on an entity in the scene with other useful information.
     */
     virtual std::optional<Intersection> Intersect(const Ray &r) const = 0;
+
+    /*
+    * @brief get the bounding box of all the objects
+    */
+    [[nodiscard]]
+    virtual BoundingBox3f getBoundingBox() const = 0;
 };

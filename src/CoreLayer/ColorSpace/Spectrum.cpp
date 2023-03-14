@@ -33,7 +33,8 @@ double averageSpectrumSamples(const std::vector<SpectrumSample>& samples, double
 
     auto interp = [samples](double w, int i) {
         // Linear interpolation
-        return lerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
+//        return lerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
+        return lerp(samples[i].value, samples[i + 1].value, (w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda));
     };
     int i = 0;
     while (lambdaBegin > samples[i + 1].lambda) i++;
@@ -1127,8 +1128,10 @@ SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> v)
         std::sort(v.begin(), v.end());
     SampledSpectrum r(0.0);
     for (int i = 0; i < nSpectrumSamples; i++) {
-        double lambda0 = lerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
-        double lambda1 = lerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+//        double lambda0 = lerp(double(i) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+//        double lambda1 = lerp(double(i + 1) / double(nSpectrumSamples), sampledLambdaStart, sampledLambdaEnd);
+        double lambda0 = lerp(sampledLambdaStart, sampledLambdaEnd, double(i) / double(nSpectrumSamples));
+        double lambda1 = lerp(sampledLambdaStart, sampledLambdaEnd, double(i + 1) / double(nSpectrumSamples));
         r[i] = averageSpectrumSamples(v, lambda0, lambda1);
     }
     return r;

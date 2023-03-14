@@ -202,13 +202,12 @@
         },
         {
             "name": "ChairWood",
-            "albedo_diffuse": "textures/wood2.png",
             "type": "plastic",
+            "roughness": 0.05,
             "ior": 1.5,
-            "thickness": 1.0,
-            "sigma_a": 0.0,
-            "distribution": "ggx",
-            "roughness": 0.05
+            "albedo_specular" : [1, 1, 1],
+            "albedo_diffuse": "textures/wood2.png",
+            "distribution": "ggx"
         },
         {
             "name": "ChairFrame",
@@ -1069,8 +1068,8 @@
     "camera": {
         "tonemap": "filmic",
         "resolution": [
-            1280,
-            720
+            640,
+            360
         ],
         "reconstruction_filter": "tent",
         "transform": {
@@ -1108,7 +1107,7 @@
         "enable_resume_render": false,
         "stratified_sampler": true,
         "scene_bvh": true,
-        "spp": 16,
+        "spp": 144,
         "spp_step": 16,
         "checkpoint_interval": "0",
         "timeout": "0",

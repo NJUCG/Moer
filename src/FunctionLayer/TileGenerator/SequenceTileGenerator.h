@@ -39,4 +39,6 @@ public:
 
 	virtual std::optional<std::shared_ptr<Tile>> generateNextTile();
 
+    void restart() override;
+
 };
