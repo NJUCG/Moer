@@ -11,13 +11,13 @@
  */
 #pragma once
 
-#include <cmath>
 #include "CoreLayer/ColorSpace/Color.h"
 #include "ResourceLayer/File/Image.h"
 #include "ResourceLayer/ResourceManager.h"
 #include "FunctionLayer/Intersection.h"
 #include "Texture.h"
 #include "TextureMapping.h"
+#include "FastMath.h"
 
 enum class WrapMode
 {
@@ -159,7 +159,7 @@ std::vector < double > ImageTexture < Treturn, Tmemory >::sphericalWeighs( ) {
     std::vector<double> weights(_w*_h);
     for (int y = 0, idx = 0; y < _h; ++y) {
         double rowWeight = 1.0;
-        rowWeight *= std::sin((y*M_PI)/_h);
+        rowWeight *= fm::sin((y*M_PI)/_h);
         for (int x = 0; x < _w; ++x, ++idx)
         {
             Treturn val = imageSampler->texel(Point2i(x,y));

@@ -12,6 +12,7 @@
 
 #include "AbstractPathIntegrator.h"
 #include "FunctionLayer/Medium/Medium.h"
+#include "FastMath.h"
 
 AbstractPathIntegrator::AbstractPathIntegrator(
         std::shared_ptr<Camera> _camera, 
@@ -27,8 +28,8 @@ AbstractPathIntegrator::AbstractPathIntegrator(
 
 double AbstractPathIntegrator::MISWeight(double x, double y)
 {
-    double pow_x = std::pow(x, misWeightPower);
-    double pow_y = std::pow(y, misWeightPower);
+    double pow_x = fm::pow(x, misWeightPower);
+    double pow_y = fm::pow(y, misWeightPower);
     return pow_x / (pow_x + pow_y);
 }
 

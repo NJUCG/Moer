@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "CoreLayer/Geometry/Matrix.h"
 #include "CoreLayer/Adapter/JsonUtil.h"
+#include "FastMath.h"
 /**
  * @brief Base class for all perspective camera
  * @ingroup Camera
@@ -79,7 +80,7 @@ public:
         double xFov = getOptional(json,"fov",45);
         Vec2i resolution = getOptional(json,"resolution",Vec2i(512,512));
         double  aspectRatio = double(resolution.x) / resolution.y;
-        double distToFilm= 1.0f / std::tan(xFov * M_PI / 360);
+        double distToFilm= 1.0f / fm::tan(xFov * M_PI / 360);
 
         cameraToWorld =
                 Matrix4x4::lookAt(lookFrom, lookAt - lookFrom, up).inverse();
