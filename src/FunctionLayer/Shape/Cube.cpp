@@ -1,4 +1,5 @@
 #include "Cube.h"
+#include "FastMath.h"
 
 Cube::Cube(const Json &json) : Entity(json) {
     position = matrix->getTranslate() * Point3d(.0f);
@@ -43,13 +44,13 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
         int minDimension = -1;
         double minBias = 1e10;
         for (int i = 0; i < 3; ++i) {
-            if (std::abs(pMin[i] - hitpoint_[i]) < minBias) {
+            if (fm::abs(pMin[i] - hitpoint_[i]) < minBias) {
                 minDimension = 2 * i;
-                minBias = std::abs(std::abs(pMin[i] - hitpoint_[i]));
+                minBias = fm::abs(fm::abs(pMin[i] - hitpoint_[i]));
             }
-            if (std::abs(pMax[i] - hitpoint_[i]) < minBias) {
+            if (fm::abs(pMax[i] - hitpoint_[i]) < minBias) {
                 minDimension = 2 * i + 1;
-                minBias = std::abs(pMax[i] - hitpoint_[i]);
+                minBias = fm::abs(pMax[i] - hitpoint_[i]);
             }
         }
         assert(minDimension != -1);

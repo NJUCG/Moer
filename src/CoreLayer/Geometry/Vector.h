@@ -11,7 +11,7 @@
  */
 #pragma once
 #include <assert.h>
-#include <cmath>
+#include "FastMath.h"
 #include <iostream>
 #include "Eigen/Dense"
 
@@ -88,7 +88,7 @@ struct TVector2 {
     }
 
     decltype(auto) length() const {
-        return std::sqrt(x*x + y*y);
+        return fm::sqrt(x*x + y*y);
     }
 
     bool operator==(const TVector2 &rhs) const {
@@ -123,7 +123,7 @@ decltype(auto) dot(const TVector2<T> &v1, const TVector2<T> &v2) {
 
 template <typename T>
 decltype(auto) absDot(const TVector2<T> &v1, const TVector2<T> &v2) {
-    return std::abs(v1.x*v2.x + v1.y * v2.y);
+    return fm::abs(v1.x*v2.x + v1.y * v2.y);
 }
 
 template <typename T>
@@ -231,7 +231,7 @@ struct TVector3 {
     }
     
     decltype(auto) length() const {
-        return std::sqrt(x*x + y*y + z*z);
+        return fm::sqrt(x*x + y*y + z*z);
     }
 
     bool operator==(const TVector3 &rhs) const {
@@ -265,7 +265,7 @@ decltype(auto) dot(const TVector3<T> &v1, const TVector3<T> &v2) {
 
 template <typename T>
 decltype(auto) absDot(const TVector3<T> &v1, const TVector3<T> &v2) {
-    return std::abs(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+    return fm::abs(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
 
 template <typename T>

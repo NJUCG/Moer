@@ -14,6 +14,7 @@
 #include <vector>
 #include <cfloat>
 #include "CoreLayer/Math/Common.h"
+#include "FastMath.h"
 
 class RGB3;
 class XYZ3;
@@ -275,28 +276,28 @@ public:
 		return s * v;
 	}
 
-	/// @brief Call std::sqrt() on each component 
+	/// @brief Call fm::sqrt() on each component 
 	/// @attention Does not check whether the value on each component is greater than zero
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::sqrt(s[i]);
+			ret[i] = fm::sqrt(s[i]);
 		return ret;
 	}
 
-	/// @brief Call std::pow() on each component
+	/// @brief Call fm::pow() on each component
 	friend CoefficientSpectrum pow(const CoefficientSpectrum&s, double e) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::pow(s[i], e);
+			ret[i] = fm::pow(s[i], e);
 		return ret;
 	}
 
-	/// @brief Call std::exp() on each component
+	/// @brief Call fm::exp() on each component
 	friend CoefficientSpectrum exp(const CoefficientSpectrum&s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::exp(s[i]);
+			ret[i] = fm::exp(s[i]);
 		return ret;
 	}
 

@@ -14,6 +14,7 @@
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Math/Warp.h"
+#include "FastMath.h"
 
 enum BXDFType {
     BXDF_REFLECTION = 1 << 0,
@@ -80,12 +81,12 @@ protected:
 // BSDF Inline Functions
 inline double CosTheta(const Vec3d &w) { return w.z; }
 inline double Cos2Theta(const Vec3d &w) { return w.z * w.z; }
-inline double AbsCosTheta(const Vec3d &w) { return std::abs(w.z); }
+inline double AbsCosTheta(const Vec3d &w) { return fm::abs(w.z); }
 inline double Sin2Theta(const Vec3d &w) {
     return std::max((double)0, (double)1 - Cos2Theta(w));
 }
 
-inline double SinTheta(const Vec3d &w) { return std::sqrt(Sin2Theta(w)); }
+inline double SinTheta(const Vec3d &w) { return fm::sqrt(Sin2Theta(w)); }
 
 inline double TanTheta(const Vec3d &w) { return SinTheta(w) / CosTheta(w); }
 

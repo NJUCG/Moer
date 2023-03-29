@@ -8,3 +8,6 @@
 [submodule "ext/stb/stb"]
 	path = ext/stb/stb
 	url = https://github.com/nothings/stb.git
+[submodule "ext/FastMath"]
+	path = ext/FastMath
+	url = https://github.com/NJUCG/FastMath.git

@@ -12,11 +12,12 @@
 
 #include "Transform3d.h"
 #include "CoreLayer/Math/Common.h"
+#include "FastMath.h"
 
 static Vec3d randomOrtho(const Vec3d &a)
 {
     Vec3d res;
-    if (std::abs(a.x) > std::abs(a.y))
+    if (fm::abs(a.x) > fm::abs(a.y))
         res = Vec3d(0.0f, 1.0f, 0.0f);
     else
         res = Vec3d(1.0f, 0.0f, 0.0f);
