@@ -32,5 +32,5 @@ public:
     * @brief get the bounding box of all the objects
     */
     [[nodiscard]]
-    virtual BoundingBox3f getBoundingBox() const = 0;
+    virtual BoundingBox3f getGlobalBoundingBox() const = 0;
 };

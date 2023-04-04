@@ -44,8 +44,8 @@ public:
 	bool intersectionTest(const Ray &r, std::shared_ptr<Entity> object) const;
 
     [[nodiscard]]
-    BoundingBox3f getBoundingBox() const {
-        return accel->getBoundingBox();
+    BoundingBox3f getGlobalBoundingBox() const {
+        return accel->getGlobalBoundingBox();
     }
 
 	std::shared_ptr<std::vector<std::shared_ptr<Light>>> getLights() const;

@@ -168,7 +168,7 @@ Spectrum GuidedPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> 
                 if (itsOpt.has_value()) {
                     bInfo.distance = itsOpt.value().t;
                 } else {
-                    auto aabb = scene->getBoundingBox();
+                    auto aabb = scene->getGlobalBoundingBox();
                     double radius = (aabb.pMax - aabb.pMin).length() / 2.;
                     bInfo.distance = radius * 1024;
                 }
