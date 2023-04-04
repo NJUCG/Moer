@@ -9,6 +9,9 @@ public:
 
     Plastic(const Spectrum &_specularR, const Spectrum &_diffuseR, double _ior);
 
+    [[nodiscard]]
+    double getRoughness() const override;
+
 private:
     BxDFSampleResult sample(const Vec3d &out, const Point2d &sample) const override;
 
@@ -26,6 +29,9 @@ public:
     BxDFSampleResult sample(const Vec3d &out, const Point2d &sample) const override;
 
     Spectrum f(const Vec3d &out, const Vec3d &in) const override;
+
+    [[nodiscard]]
+    double getRoughness() const override;
 
     RoughPlastic(const Spectrum &_glossyR, const Spectrum &_diffuseR, double _ior, double _uRoughness, double _vRoughness,
                  const std::shared_ptr<MicrofacetDistribution> &_distrib);

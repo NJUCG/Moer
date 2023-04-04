@@ -4,8 +4,17 @@
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "FunctionLayer/Sampler/Independent.h"
-#include "FunctionLayer/Sampler/Stratified.h"
-#include "FunctionLayer/Sampler/Halton.h"
+#include "FunctionLayer/Camera/CameraFactory.h"
+
+
+struct RenderSettings{
+    int spp;
+    std::string outputPath;
+    RenderSettings(const Json & json){
+        spp= getOptional(json,"spp",32);
+        outputPath = getOptional(json,"output_file",std::string("image"));
+    }
+};
 
 struct TimeCounter{
     std::chrono::high_resolution_clock::time_point start,end;
@@ -42,19 +51,15 @@ public:
        auto pinhole = std::make_shared<PinholeCamera>(
                lookFrom, lookAt, up, 35, (float(res_w)/float(res_h)), 3.17f);
 
-       PathIntegratorNew integrator(
-        pinhole,                                                    // Camera
-        std::make_unique<Film>(Point2i(res_w, res_h), 3),               // Film
-        std::make_unique<SequenceTileGenerator>(Point2i(res_w, res_h)), // Tile
-        // std::make_shared<IndependentSampler>(),                     // Sampler
-        // std::make_shared<StratifiedSampler>(6, 10),
-        std::make_shared<HaltonSampler>(6, res_w, res_h, 10),
-        16,                                                         // Spp
-        12                                                          // nThread
-        );
+       const Json & settingsJson = sceneJson["renderer"];
+       settings = new RenderSettings(settingsJson);
+       auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
+       Point2i resolution = getOptional(sceneJson["camera"],"resolution",Point2i(512,512));
+       PathIntegratorNew integrator(camera, std::make_unique<Film>(resolution, 3),
+                                    std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), settings->spp, 12);
        std::cout << "start rendering" << std::endl;
        integrator.render(scene);
-       integrator.save("cornell-box.halton");
+       integrator.save(settings->outputPath);
        std::cout << "finish" << std::endl;
        renderClock.Done();
    }
