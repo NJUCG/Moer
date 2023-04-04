@@ -181,3 +181,11 @@ if (NOT TARGET stb)
     target_include_directories(stb PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb)
     set_ide_folder(stb ${3DPARTY_FOLDER})
 endif()
+
+if (NOT TARGET FastMath)
+    message(STATUS "============start config FastMath============")
+    add_subdirectory(FastMath)
+
+    target_include_directories(stb PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/FastMath)
+    set_ide_folder(FastMath ${3DPARTY_FOLDER})
+endif()
