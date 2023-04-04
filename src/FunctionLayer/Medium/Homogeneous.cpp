@@ -1,4 +1,5 @@
 #include "Homogeneous.h"
+#include "FastMath.h"
 
 bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec, 
                                        const Ray &ray, 
@@ -9,13 +10,13 @@ bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
     //TODO sample a channel first
     //! Might crush becaust bad optional access
 
-    double dist = -std::log(1 - x) / mDensity;
+    double dist = -fm::log(1 - x) / mDensity;
 
     if (dist < its->t) {
         //* Scatter in medium
         mRec->marchLength = dist;
         mRec->scatterPoint = ray.at(dist);
-        mRec->pdf = mDensity * std::exp(-mDensity * dist);
+        mRec->pdf = mDensity * fm::exp(-mDensity * dist);
         mRec->sigmaA = Spectrum{(1 - mAlbedo) * mDensity};
         mRec->sigmaS = Spectrum{mAlbedo * mDensity};
         mRec->tr = evalTransmittance(ray.origin, mRec->scatterPoint);
@@ -23,7 +24,7 @@ bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
     } else {
         //* Pass through this medium without collision
         mRec->marchLength = its->t;
-        mRec->pdf = std::exp(-mDensity * its->t);
+        mRec->pdf = fm::exp(-mDensity * its->t);
         mRec->tr = evalTransmittance(ray.origin, its->position);
         return false;
     }
@@ -33,5 +34,5 @@ Spectrum HomogeneousMedium::evalTransmittance(Point3d from,
                                               Point3d dest) const 
 {
     double dist = (dest - from).length();
-    return Spectrum{std::exp(-mDensity * dist)};
+    return Spectrum{fm::exp(-mDensity * dist)};
 }

@@ -10,6 +10,7 @@
  */
 
 #include "PathIntegrator-new.h"
+#include "FastMath.h"
 
 PathIntegratorNew::PathIntegratorNew(std::shared_ptr<Camera> _camera,
                                      std::unique_ptr<Film> _film,
@@ -171,7 +172,7 @@ PathIntegratorLocalRecord PathIntegratorNew::evalScatter(std::shared_ptr<Scene> 
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Normal3d n = its.geometryNormal;
-        double wiDotN = std::abs(dot(n, dirScatter));
+        double wiDotN = fm::abs(dot(n, dirScatter));
         Vec3d wi = its.toLocal(dirScatter);
         Vec3d wo = its.toLocal(-ray.direction);
         return {
@@ -199,7 +200,7 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleScatter(std::shared_ptr<Scene
         BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D(),false);
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
-        double wiDotN = std::abs(dot(dirScatter, n));
+        double wiDotN = fm::abs(dot(dirScatter, n));
         return {dirScatter, bsdfSample.s * wiDotN, pdf, BxDF::MatchFlags(bsdfSample.bxdfSampleType,BXDF_SPECULAR)};
     }
     else

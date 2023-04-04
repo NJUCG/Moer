@@ -10,7 +10,7 @@
  */
 
 #pragma  once
-#include "math.h"
+#include "FastMath.h"
 #include "CoreLayer/Geometry/Geometry.h"
 
 namespace Fresnel {
@@ -25,7 +25,7 @@ namespace Fresnel {
             cosThetaT = 0.0;
             return 1.0;
         }
-        cosThetaT = std::sqrt(std::max(1.0 - sinThetaTSq, 0.0));
+        cosThetaT = fm::sqrt(std::max(1.0 - sinThetaTSq, 0.0));
 
         double Rs = (eta*cosThetaI - cosThetaT)/(eta*cosThetaI + cosThetaT);
         double Rp = (eta*cosThetaT - cosThetaI)/(eta*cosThetaT + cosThetaI);
@@ -45,8 +45,8 @@ namespace Fresnel {
         double sinThetaIQu = sinThetaISq*sinThetaISq;
 
         double innerTerm = eta*eta - k*k - sinThetaISq;
-        double aSqPlusBSq = std::sqrt(std::max(innerTerm*innerTerm + 4.0f*eta*eta*k*k, 0.0));
-        double a = std::sqrt(std::max((aSqPlusBSq + innerTerm)*0.5, 0.0));
+        double aSqPlusBSq = fm::sqrt(std::max(innerTerm*innerTerm + 4.0f*eta*eta*k*k, 0.0));
+        double a = fm::sqrt(std::max((aSqPlusBSq + innerTerm)*0.5, 0.0));
 
         double Rs = ((aSqPlusBSq + cosThetaISq) - (2.0*a*cosThetaI))/
                    ((aSqPlusBSq + cosThetaISq) + (2.0*a*cosThetaI));

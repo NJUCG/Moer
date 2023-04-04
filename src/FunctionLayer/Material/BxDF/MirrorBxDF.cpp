@@ -11,6 +11,7 @@
  */
 
 #include "MirrorBxDF.h"
+#include "FastMath.h"
 
 
 Spectrum MirrorBxDF::f(const Vec3d &wo, const Vec3d &wi) const {
@@ -26,7 +27,7 @@ BxDFSampleResult MirrorBxDF::sample(const Vec3d &wo, const Point2d &sample) cons
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
     result.directionIn=  Vec3d (-wo.x,-wo.y,wo.z);
     result.pdf=1;
-    result.s = 1 / std::abs(result.directionIn.z);
+    result.s = 1 / fm::abs(result.directionIn.z);
     return  result;
 }
 

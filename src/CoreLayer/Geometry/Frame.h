@@ -14,14 +14,14 @@
 
 #include "Geometry.h"
 #include "CoreLayer/Math/Common.h"
-
+#include "FastMath.h"
 
 static void coordinateSystem(const Normal3d &a, Vec3d  &b, Vec3d  &c) {
-    if (std::abs(a.x) > std::abs(a.y)) {
-        float invLen = 1.0f / std::sqrt(a.x * a.x + a.z * a.z);
+    if (fm::abs(a.x) > fm::abs(a.y)) {
+        float invLen = 1.0f / fm::sqrt(a.x * a.x + a.z * a.z);
         c = Vec3d (a.z * invLen, 0.0f, -a.x * invLen);
     } else {
-        float invLen = 1.0f / std::sqrt(a.y * a.y + a.z * a.z);
+        float invLen = 1.0f / fm::sqrt(a.y * a.y + a.z * a.z);
         c = Vec3d(0.0f, a.z * invLen, -a.y * invLen);
     }
     Vec3d  _a(a.x,a.y,a.z);
@@ -74,7 +74,7 @@ struct Frame {
         float temp = sinTheta2(v);
         if (temp <= 0.0f)
             return 0.0f;
-        return std::sqrt(temp);
+        return fm::sqrt(temp);
     }
 
     /** \brief Assuming that the given direction is in the local coordinate
@@ -83,7 +83,7 @@ struct Frame {
         float temp = 1 - v.z*v.z;
         if (temp <= 0.0f)
             return 0.0f;
-        return std::sqrt(temp) / v.z;
+        return fm::sqrt(temp) / v.z;
     }
 
     /** \brief Assuming that the given direction is in the local coordinate
