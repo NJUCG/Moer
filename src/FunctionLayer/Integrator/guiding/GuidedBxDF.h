@@ -11,7 +11,7 @@ public:
 
     using VMFMixture = vmm::VMFMixture;
 
-    constexpr static float bxdfFraction = 0.5;
+    constexpr static double bxdfFraction = 0.5;
 
     VMFMixture model;
     BxDF * bxdf{};
@@ -26,15 +26,15 @@ public:
             result = bxdf->sample(out, reused, adjoint);
 
             // one-sample MIS
-            Vec3f direction = its.toWorld(result.directionIn).convert<float>();
+            Vec3d direction = its.toWorld(result.directionIn);
             double pdfModel = model.pdf(direction);
             result.pdf = lerp(pdfModel, result.pdf, bxdfFraction);
         } else {
             // sample the model
-            Vec2f reused((float) (rn.x - bxdfFraction) / (1 - bxdfFraction), (float) rn.y);
-            Vec3f direction = model.sample(reused);
+            Vec2d reused((rn.x - bxdfFraction) / (1 - bxdfFraction), rn.y);
+            Vec3d direction = model.sample(reused);
             double pdfModel = model.pdf(direction);
-            result.directionIn = its.toLocal(direction.convert<double>());
+            result.directionIn = its.toLocal(direction);
             result.s = bxdf->f(out, result.directionIn, adjoint);
 
             // one-sample MIS
@@ -47,7 +47,7 @@ public:
 
     [[nodiscard]]
     double pdf(const Intersection & its, const Vec3d & out, const Vec3d & in) const {
-        Vec3f direction = its.toWorld(in).convert<float>();
+        Vec3d direction = its.toWorld(in);
         double pdfModel = model.pdf(direction);
         double pdfBxDF = bxdf->pdf(out, in);
         return lerp(pdfModel, pdfBxDF, bxdfFraction);

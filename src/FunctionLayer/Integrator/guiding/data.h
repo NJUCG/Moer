@@ -6,20 +6,20 @@
 namespace PathGuiding {
 
 struct SampleData {
-    Vec3f position;
-    Vec3f direction;
-    float radiance{};
-    float pdf{};
-    float distance{};
+    Vec3d position;
+    Vec3d direction;
+    double radiance{};
+    double pdf{};
+    double distance{};
 
     inline explicit SampleData(const Vec3d & position, const Vec3d & direction,
         double radiance, double pdf, double distance)
     {
-        this->position = position.convert<float>();
-        this->direction = direction.convert<float>();
-        this->radiance = (float) radiance;
-        this->pdf = (float) pdf;
-        this->distance = (float) distance;
+        this->position = position;
+        this->direction = direction;
+        this->radiance = radiance;
+        this->pdf = pdf;
+        this->distance = distance;
     }
 
     [[nodiscard]]

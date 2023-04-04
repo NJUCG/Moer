@@ -5,29 +5,12 @@
 #include "CoreLayer/Geometry/Frame.h"
 #include "data.h"
 
-#define VCL_NAMESPACE vcl
-#include "vcl/vectorclass.h"
-#include "vcl/vectormath_exp.h"
-#include "vcl/vectormath_trig.h"
-
 namespace PathGuiding::vmm {
 
-using Scalar = float;
-using SampleIterator = std::vector<SampleData>::iterator;
-
-#if INSTRSET >= 8
-    using Packet = vcl::Vec8f;
-    using Mask = vcl::Vec8fb;
-#elif INSTRSET >= 2
-    using Packet = vcl::Vec4f;
-    using Mask = vcl::Vec4fb;
-#endif
-
-using PacketVec3 = TVector3<Packet>;
-
+// the number of components in a vMF mixture
 constexpr int NComponents = 32;
-constexpr int NScalars = Packet::size();
-constexpr int NKernels = (NComponents + NScalars - 1) / NScalars;
+
+using SampleIterator = std::vector<SampleData>::iterator;
 
 // TODO approximate the exp?
 
@@ -38,81 +21,53 @@ constexpr int NKernels = (NComponents + NScalars - 1) / NScalars;
 class VMFKernel {
 public:
 
-    const PacketVec3 mu;
-    const Packet kappa{};
-    const Packet alpha{};
+    const Vec3d mu;
+    const double kappa{};
+    const double alpha{};
 
     inline VMFKernel & operator=(const VMFKernel & kernel) {
-        const_cast<PacketVec3 &>(mu) = kernel.mu;
-        const_cast<Packet &>(kappa) = kernel.kappa;
-        const_cast<Packet &>(alpha) = kernel.alpha;
+        const_cast<Vec3d &>(mu) = kernel.mu;
+        const_cast<double &>(kappa) = kernel.kappa;
+        const_cast<double &>(alpha) = kernel.alpha;
         eMin2Kappa = kernel.eMin2Kappa;
         pdfFactor = kernel.pdfFactor;
         return *this;
     }
 
-    inline void setMu(int i, const Vec3f & v) {
-        const_cast<PacketVec3 &>(mu)[0].insert(i, v[0]);
-        const_cast<PacketVec3 &>(mu)[1].insert(i, v[1]);
-        const_cast<PacketVec3 &>(mu)[2].insert(i, v[2]);
+    inline void setMu(const Vec3d & v) {
+        const_cast<Vec3d &>(mu) = v;
     }
 
-    inline void setMu(const PacketVec3 & pv, const Mask & m) {
-        const_cast<PacketVec3 &>(mu)[0] = vcl::select(m, pv[0], mu[0]);
-        const_cast<PacketVec3 &>(mu)[1] = vcl::select(m, pv[1], mu[1]);
-        const_cast<PacketVec3 &>(mu)[2] = vcl::select(m, pv[2], mu[2]);
-    }
-
-    inline void setKappa(const Packet & k) {
-        const_cast<Packet &>(kappa) = k;
+    inline void setKappa(double k) {
+        const_cast<double &>(kappa) = k;
         refreshCache();
     }
 
-    inline void setKappa(const Packet & k, const Mask & m) {
-        const_cast<Packet &>(kappa) = vcl::select(m, k, kappa);
-        refreshCache();
-    }
-
-    inline void setAlpha(const Packet & a) {
-        const_cast<Packet &>(alpha) = a;
-    }
-
-    inline void setAlpha(const Packet & a, const Mask & m) {
-        const_cast<Packet &>(alpha) = vcl::select(m, a, alpha);
+    inline void setAlpha(double a) {
+        const_cast<double &>(alpha) = a;
     }
 
     [[nodiscard]]
-    inline Vec3f sample(int i, const Vec2f & rn) const {
-        Vec3f muI(mu[0][i], mu[1][i], mu[2][i]);
-        Scalar kappaI = kappa[i];
+    inline Vec3d sample(const Vec2d & rn) const {
+        // sample in the local coordinate
+        double sinPhi, cosPhi;
+        sincos(2. * M_PIf * rn.y, &sinPhi, &cosPhi);
 
-        Scalar sinPhi, cosPhi;
-        sincosf(2.f * M_PIf * rn.y, &sinPhi, &cosPhi);
+        double value = rn.x + (1. - rn.x) * eMin2Kappa;
+        double cosTheta = clamp(1. + std::log(value) / kappa, -1., 1.);
+        double sinTheta = std::sqrt(1. - cosTheta * cosTheta);
 
-        Scalar value = rn.x + (1.f - rn.x) * eMin2Kappa[i];
-        Scalar cosTheta = clamp(1.f + std::log(value) / kappaI, -1.f, 1.f);
-        Scalar sinTheta = std::sqrt(1.f - cosTheta * cosTheta);
+        Vec3d omega(sinTheta * cosPhi, sinTheta * sinPhi, cosTheta);
 
-        Vec3f omega(sinTheta * cosPhi, sinTheta * sinPhi, cosTheta);
-        return frameToWorld(muI, omega);
+        // rotate to the world coordinate
+        return Frame({mu.x, mu.y, mu.z}).toWorld(omega);
     }
 
     [[nodiscard]]
-    inline Packet pdf(const Vec3f & v) const {
-        PacketVec3 omega(v[0], v[1], v[2]);
-        Packet t = dot(mu, omega) - 1.f;
-        Packet e = vcl::exp(kappa * t);
+    inline double pdf(const Vec3d & v) const {
+        double t = dot(mu, v) - 1.;
+        double e = std::exp(kappa * t);
         return pdfFactor * e;
-    }
-
-    // for this implementation see Pixar. "Building an Orthonormal Basis, Revisited"
-    inline static Vec3f frameToWorld(const Vec3f & n, const Vec3f & v) {
-        float sign = copysignf(1.0f, n.z);
-        float a = -1.0f / (sign + n.z);
-        float b = n.x * n.y * a;
-        Vec3f x = Vec3f(1.0f + sign * n.x * n.x * a, sign * b, -sign * n.x);
-        Vec3f y = Vec3f(b, sign + n.y * n.y * a, -n.y);
-        return v[0] * x + v[1] * y + v[2] * n;
     }
 
 private:
@@ -120,14 +75,20 @@ private:
     friend class VMFMixture;
     friend class ParallaxAwareVMM;
 
-    Packet eMin2Kappa{};
-    Packet pdfFactor{};
+    double eMin2Kappa{};
+    double pdfFactor{};
 
     inline VMFKernel() = default;
 
+    // clamp value to be in [a, b]
+    inline static double clamp(double value, double a, double b) {
+        return std::min(std::max(value, a), b);
+    }
+
+    // the exp() operation is very expensive, so we cache it
     inline void refreshCache() {
-        eMin2Kappa = vcl::exp(-2.f * kappa);
-        Packet de = 2 * M_PI * (1.f - eMin2Kappa);
+        eMin2Kappa = std::exp(-2. * kappa);
+        double de = 2 * M_PI * (1. - eMin2Kappa);
         pdfFactor = kappa / de;
     }
 };
@@ -136,47 +97,36 @@ class VMFMixture {
 public:
 
     [[nodiscard]]
-    inline Vec3f sample(const Vec2f & rn) const {
-        // pick a kernel
-        int k = 0;
-        Scalar accAlphaSum = 0;
-        for (; k < NKernels - 1; ++k) {
-            Scalar kernelAlphaSum = vcl::horizontal_add(kernels[k].alpha);
-            if (rn.x < accAlphaSum + kernelAlphaSum) {
-                break;
-            }
-            accAlphaSum += kernelAlphaSum;
-        }
-
+    inline Vec3d sample(const Vec2d & rn) const {
         // pick a component
-        int i = 0;
-        for (; i < NScalars - 1; ++i) {
-            if (rn.x < accAlphaSum + kernels[k].alpha[i]) {
+        int k = 0;
+        double accAlphaSum = 0;
+        for (; k < NComponents - 1; ++k) {
+            if (rn.x < accAlphaSum + kernels[k].alpha) {
                 break;
             }
-            accAlphaSum += kernels[k].alpha[i];
+            accAlphaSum += kernels[k].alpha;
         }
-        Vec2f reused((rn.x - accAlphaSum) / kernels[k].alpha[i], rn.y);
 
-        return kernels[k].sample(i, reused);
+        // sample the picked component
+        Vec2d reusedSample((rn.x - accAlphaSum) / kernels[k].alpha, rn.y);
+        return kernels[k].sample(reusedSample);
     }
 
     [[nodiscard]]
-    inline Scalar pdf(const Vec3f & w) const {
-        Packet value(0);
-
+    inline double pdf(const Vec3d & w) const {
+        double value = 0;
         for (const auto & kernel: kernels) {
             value += kernel.alpha * kernel.pdf(w);
         }
-
-        return vcl::horizontal_add(value);
+        return value;
     }
 
 private:
 
     friend class ParallaxAwareVMM;
 
-    VMFKernel kernels[NKernels];
+    VMFKernel kernels[NComponents];
 
 };
 
@@ -184,41 +134,37 @@ class ParallaxAwareVMM : public VMFMixture {
 public:
 
     inline ParallaxAwareVMM() {
-        // initialize mu with spherical Fibonacci point set,
-        // which is uniformly distributed on the unit sphere.
-        // see Marques et al. "Spherical Fibonacci Point Sets for Illumination Integrals" for more details
-        for (int c = 0; c < NComponents; ++c) {
-            Scalar sinPhi, cosPhi;
-            sincosf(2.f * (Scalar) c * M_PIf * 0.618034f, &sinPhi, &cosPhi);
+        for (int k = 0; k < NComponents; ++k) {
+            // initialize mu with spherical Fibonacci point set,
+            // which is uniformly distributed on the unit sphere.
+            // see Marques et al. "Spherical Fibonacci Point Sets for Illumination Integrals" for more details
+            double sinPhi, cosPhi;
+            sincos(2. * k * M_PI * 0.6180339887498949, &sinPhi, &cosPhi);
+            double cosTheta = 1 - (double) (2 * k + 1) / NComponents;
+            double sinTheta = std::sqrt(1. - cosTheta * cosTheta);
+            Vec3d mu(sinTheta * cosPhi, sinTheta * sinPhi, cosTheta);
 
-            Scalar cosTheta = 1 - (Scalar) (2 * c + 1) / NComponents;
-            Scalar sinTheta = std::sqrt(1.f - cosTheta * cosTheta);
-
-            Vec3f mu(sinTheta * cosPhi, sinTheta * sinPhi, cosTheta);
-            kernels[c / NScalars].setMu(c % NScalars, mu);
-        }
-
-        for (int k = 0; k < NKernels; ++k) {
-            kernels[k].setAlpha(1.f / NComponents);
+            kernels[k].setMu(mu);
+            kernels[k].setAlpha(1. / NComponents);
             kernels[k].setKappa(5);
             meanCosine[k] = 0;
-            distances[k] = std::numeric_limits<Scalar>::infinity();
+            distances[k] = std::numeric_limits<double>::infinity();
             distanceWeightSums[k] = 0;
         }
 
-        currentPosition = Vec3f(0.f);
+        currentPosition = Vec3d(0);
         sampleWeightSum = 0;
         batchIndex = 0;
     }
 
-    inline void update(const Vec3f & newPosition, SampleIterator begin, SampleIterator end) {
+    inline void update(const Vec3d & newPosition, SampleIterator begin, SampleIterator end) {
         warpTo(newPosition);
 
         // relocate the samples
         for (auto iter = begin; iter != end; ++iter) {
-            Vec3f origin = iter->position + iter->direction * iter->distance;
-            Vec3f po = origin - newPosition;
-            Scalar t = po.length();
+            Vec3d origin = iter->position + iter->direction * iter->distance;
+            Vec3d po = origin - newPosition;
+            double t = po.length();
             if (t > 0) {
                 iter->direction = po / t;
                 iter->distance = t;
@@ -229,16 +175,16 @@ public:
         updateDistances(begin, end);
     }
 
-    inline void getWarped(VMFMixture & out, const Vec3f & newPosition) const {
-        Vec3f ntc = currentPosition - newPosition;
-        PacketVec3 newToCurrent(ntc[0], ntc[1], ntc[2]);
-        for (int k = 0; k < NKernels; ++k) {
-            PacketVec3 po = kernels[k].mu * distances[k] + newToCurrent;
-            Packet t = vcl::sqrt(dot(po, po));
-            Mask mask = vcl::is_finite(distances[k]) && t > 0;
+    inline void getWarped(VMFMixture & out, const Vec3d & newPosition) const {
+        Vec3d newToCurrent = currentPosition - newPosition;
+        for (int k = 0; k < NComponents; ++k) {
+            Vec3d po = kernels[k].mu * distances[k] + newToCurrent;
+            double t = po.length();
 
             out.kernels[k] = kernels[k];
-            out.kernels[k].setMu(po * (1 / t), mask);
+            if (std::isfinite(distances[k]) && t > 0) {
+                out.kernels[k].setMu(po * (1 / t));
+            }
         }
     }
 
@@ -253,40 +199,29 @@ public:
 
 private:
 
-    Packet meanCosine[NKernels]{};
-    Packet distances[NKernels]{};
-    Packet distanceWeightSums[NKernels]{};
-    Vec3f currentPosition;
-    Scalar sampleWeightSum{};
-    Scalar batchIndex{};
-
-    inline static Scalar mix(Scalar t, Scalar a, Scalar b) {
-        return (1.f - t) * a + t * b;
-    }
-
-    inline static Packet mix(Scalar t, const Packet & p1, const Packet & p2) {
-        return (1.f - t) * p1 + t * p2;
-    }
-
-    inline static PacketVec3 mix(Scalar t, const PacketVec3 & pv1, const PacketVec3 & pv2) {
-        return Packet(1.f - t) * pv1 + Packet(t) * pv2;
-    }
+    double meanCosine[NComponents]{};
+    double distances[NComponents]{};
+    double distanceWeightSums[NComponents]{};
+    Vec3d currentPosition;
+    double sampleWeightSum{};
+    double batchIndex{};
 
     // TODO use a more accurate approximation within the specified range?
-    inline static Packet meanCosineToKappa(const Packet & meanCosine) {
-        Packet kappa = meanCosine * (3.f - meanCosine * meanCosine) / (1.f - meanCosine * meanCosine);
-        return vcl::max(vcl::min(kappa, 1e+4f), 1e-2f);
+    inline static double meanCosineToKappa(double meanCosine) {
+        double kappa = meanCosine * (3. - meanCosine * meanCosine) / (1. - meanCosine * meanCosine);
+        return std::max(std::min(kappa, 1e+4), 1e-2);
     }
 
-    inline void warpTo(const Vec3f & newPosition) {
-        Vec3f ntc = currentPosition - newPosition;
-        PacketVec3 newToCurrent(ntc[0], ntc[1], ntc[2]);
-        for (int k = 0; k < NKernels; ++k) {
-            PacketVec3 po = kernels[k].mu * distances[k] + newToCurrent;
-            Packet t = vcl::sqrt(dot(po, po));
-            Mask mask = vcl::is_finite(distances[k]) && t > 0;
-            distances[k] = vcl::select(mask, t, distances[k]);
-            kernels[k].setMu(po * (1 / t), mask);
+    // move the central model to the new reference position
+    inline void warpTo(const Vec3d & newPosition) {
+        Vec3d newToCurrent = currentPosition - newPosition;
+        for (int k = 0; k < NComponents; ++k) {
+            Vec3d po = kernels[k].mu * distances[k] + newToCurrent;
+            double t = po.length();
+            if (std::isfinite(distances[k]) && t > 0) {
+                distances[k] = t;
+                kernels[k].setMu(po / t);
+            }
         }
         currentPosition = newPosition;
     }
@@ -295,58 +230,57 @@ private:
     // see Liang and Klein. "Online EM for Unsupervised Models" for a brief pseudocode
     void updateKernels(SampleIterator begin, SampleIterator end) {
         // compute previous sufficient statistics
-        Packet lastGammaWeightSums[NKernels];
-        PacketVec3 lastGammaWeightSampleSums[NKernels];
-        for (int k = 0; k < NKernels; ++k) {
+        double lastGammaWeightSums[NComponents];
+        Vec3d lastGammaWeightSampleSums[NComponents];
+        for (int k = 0; k < NComponents; ++k) {
             lastGammaWeightSums[k] = sampleWeightSum * kernels[k].alpha;
             lastGammaWeightSampleSums[k] = kernels[k].mu * meanCosine[k] * lastGammaWeightSums[k];
         }
 
         // compute sample weights
-        Scalar batchSampleWeightSum = std::accumulate(begin, end, 0.f,
-            [](Scalar sum, const SampleData & sample) -> Scalar {
+        double batchSampleWeightSum = std::accumulate(begin, end, 0.,
+            [](double sum, const SampleData & sample) -> double {
                 return sum + sample.radiance / sample.pdf;
             }
         );
 
         batchIndex += 1;
-        Scalar movingWeight = 1.f / batchIndex;
-        sampleWeightSum = mix(movingWeight, sampleWeightSum, batchSampleWeightSum);
+        double movingWeight = 1. / batchIndex;
+        sampleWeightSum = lerp(sampleWeightSum, batchSampleWeightSum, movingWeight);
 
-        Packet partialPdfs[NKernels];
-        Packet batchGammaWeightSums[NKernels];
-        PacketVec3 batchGammaWeightSampleSums[NKernels];
+        double partialPdfs[NComponents];
+        double batchGammaWeightSums[NComponents];
+        Vec3d batchGammaWeightSampleSums[NComponents];
 
         const int maxIterations = 128;
-        const Scalar threshold = 5e-3;
+        const double threshold = 5e-3;
 
         // the while loop still converges in an online manner,
         // and is actually more stable in the context of our application
         int iteration = 0;
-        Scalar lastLogLikelihood = 0;
+        double lastLogLikelihood = 0;
         while (iteration < maxIterations) {
-            Scalar logLikelihood = 0;
-            std::fill(batchGammaWeightSums, batchGammaWeightSums + NKernels, Packet(0));
-            std::fill(batchGammaWeightSampleSums, batchGammaWeightSampleSums + NKernels, PacketVec3(0.f));
+            double logLikelihood = 0;
+            std::fill(batchGammaWeightSums, batchGammaWeightSums + NComponents, 0);
+            std::fill(batchGammaWeightSampleSums, batchGammaWeightSampleSums + NComponents, Vec3d(0));
 
             // compute batch sufficient statistics
             int i = 0;
             for (auto iter = begin; iter != end; ++iter) {
-                Scalar pdf = 0.f;
-                for (int k = 0; k < NKernels; ++k) {
+                double pdf = 0;
+                for (int k = 0; k < NComponents; ++k) {
                     partialPdfs[k] = kernels[k].alpha * kernels[k].pdf(iter->direction);
-                    pdf += vcl::horizontal_add(partialPdfs[k]);
+                    pdf += partialPdfs[k];
                 }
 
                 // in case of running out of precision (i.e. pdf = 0)
-                pdf = std::max(pdf, std::numeric_limits<Scalar>::min());
+                pdf = std::max(pdf, std::numeric_limits<double>::min());
 
-                Scalar weight = iter->radiance / iter->pdf;
-                for (int k = 0; k < NKernels; ++k) {
-                    Packet gammaIK = partialPdfs[k] / pdf;
+                double weight = iter->radiance / iter->pdf;
+                for (int k = 0; k < NComponents; ++k) {
+                    double gammaIK = partialPdfs[k] / pdf;
                     batchGammaWeightSums[k] += gammaIK * weight;
-                    PacketVec3 pkd(iter->direction[0], iter->direction[1], iter->direction[2]);
-                    batchGammaWeightSampleSums[k] += gammaIK * weight * pkd;
+                    batchGammaWeightSampleSums[k] += gammaIK * weight * iter->direction;
                 }
 
                 logLikelihood += weight * std::log(pdf);
@@ -354,17 +288,17 @@ private:
             }
 
             // update parameters
-            for (int k = 0; k < NKernels; ++k) {
-                Packet gammaWeightSum = mix(movingWeight, lastGammaWeightSums[k], batchGammaWeightSums[k]);
-                PacketVec3 gammaWeightSampleSum = mix(movingWeight, lastGammaWeightSampleSums[k], batchGammaWeightSampleSums[k]);
-                Packet rLength = vcl::sqrt(dot(gammaWeightSampleSum, gammaWeightSampleSum));
+            for (int k = 0; k < NComponents; ++k) {
+                double gammaWeightSum = lerp(lastGammaWeightSums[k], batchGammaWeightSums[k], movingWeight);
+                Vec3d gammaWeightSampleSum = lerp(lastGammaWeightSampleSums[k], batchGammaWeightSampleSums[k], movingWeight);
+                double rLength = gammaWeightSampleSum.length();
 
-                Mask mask = gammaWeightSum > 0 && rLength > 0;
-
-                kernels[k].setAlpha(gammaWeightSum / sampleWeightSum, mask);
-                kernels[k].setMu(gammaWeightSampleSum * (1 / rLength), mask);
-                meanCosine[k] = vcl::select(mask, vcl::min(rLength / gammaWeightSum, 0.9999f), meanCosine[k]);
-                kernels[k].setKappa(meanCosineToKappa(meanCosine[k]), mask);
+                if (gammaWeightSum > 0 && rLength > 0) {
+                    kernels[k].setAlpha(gammaWeightSum / sampleWeightSum);
+                    kernels[k].setMu(gammaWeightSampleSum / rLength);
+                    meanCosine[k] = std::min(rLength / gammaWeightSum, 0.9999);
+                    kernels[k].setKappa(meanCosineToKappa(meanCosine[k]));
+                }
             }
 
             if (iteration >= 1) {
@@ -381,38 +315,40 @@ private:
     }
 
     void updateDistances(SampleIterator begin, SampleIterator end) {
-        Packet componentPdfs[NKernels];
-        Packet batchWeightedDistanceSums[NKernels];
-        Packet batchDistanceWeightSums[NKernels];
+        double componentPdfs[NComponents];
+        double batchWeightedDistanceSums[NComponents];
+        double batchDistanceWeightSums[NComponents];
 
-        std::fill(batchWeightedDistanceSums, batchWeightedDistanceSums + NKernels, Packet(0.f));
-        std::fill(batchDistanceWeightSums, batchDistanceWeightSums + NKernels, Packet(0.f));
+        std::fill(batchWeightedDistanceSums, batchWeightedDistanceSums + NComponents, 0);
+        std::fill(batchDistanceWeightSums, batchDistanceWeightSums + NComponents, 0);
 
         for (auto iter = begin; iter != end; ++iter) {
-            Scalar weight = iter->radiance / iter->pdf;
+            double weight = iter->radiance / iter->pdf;
 
-            Scalar pdf = 0;
-            for (int k = 0; k < NKernels; ++k) {
+            double pdf = 0;
+            for (int k = 0; k < NComponents; ++k) {
                 componentPdfs[k] = kernels[k].pdf(iter->direction);
-                pdf += vcl::horizontal_add(kernels[k].alpha * componentPdfs[k]);
+                pdf += kernels[k].alpha * componentPdfs[k];
             }
 
-            for (int k = 0; k < NKernels; ++k) {
-                Packet gammaIK = kernels[k].alpha * componentPdfs[k] / pdf;
-                Packet distanceWeight = weight * gammaIK * componentPdfs[k];
+            for (int k = 0; k < NComponents; ++k) {
+                double gammaIK = kernels[k].alpha * componentPdfs[k] / pdf;
+                double distanceWeight = weight * gammaIK * componentPdfs[k];
                 batchWeightedDistanceSums[k] += distanceWeight / iter->distance;
                 batchDistanceWeightSums[k] += distanceWeight;
             }
         }
 
-        Scalar movingWeight = 1.f / batchIndex;
-        for (int k = 0; k < NKernels; ++k) {
-            Mask mask = batchDistanceWeightSums[k] > 0 && batchWeightedDistanceSums[k] > 0;
-            Packet weightedDistanceSum = distanceWeightSums[k] / distances[k];
-            Packet newWeightSum = mix(movingWeight, distanceWeightSums[k], batchDistanceWeightSums[k]);
-            Packet newWeightedDistanceSum = mix(movingWeight, weightedDistanceSum, batchWeightedDistanceSums[k]);
-            distances[k] = vcl::select(mask, newWeightSum / newWeightedDistanceSum, distances[k]);
-            distanceWeightSums[k] = vcl::select(mask, newWeightSum, distanceWeightSums[k]);
+        double movingWeight = 1. / batchIndex;
+        for (int k = 0; k < NComponents; ++k) {
+            double weightedDistanceSum = distanceWeightSums[k] / distances[k];
+            double newWeightSum = lerp(distanceWeightSums[k], batchDistanceWeightSums[k], movingWeight);
+            double newWeightedDistanceSum = lerp(weightedDistanceSum, batchWeightedDistanceSums[k], movingWeight);
+
+            if (batchDistanceWeightSums[k] > 0 && batchWeightedDistanceSums[k] > 0) {
+                distances[k] = newWeightSum / newWeightedDistanceSum;
+                distanceWeightSums[k] = newWeightSum;
+            }
         }
     }
 };

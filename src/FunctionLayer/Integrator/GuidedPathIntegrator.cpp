@@ -311,7 +311,7 @@ void GuidedPathIntegrator::prepareGuidedBxDF(GuidedBxDF &guidedBxDF,
                                              BxDF *bxdf,
                                              const Point3d &position)
 {
-    Vec3f p = Vec3d(position[0], position[1], position[2]).convert<float>();
+    Vec3d p = Vec3d(position[0], position[1], position[2]);
     std::shared_lock lock(pgTreeMutex);
     pgTree->getGuidedBxDF(guidedBxDF, bxdf, p);
 }

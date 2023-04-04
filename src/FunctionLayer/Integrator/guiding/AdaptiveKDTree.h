@@ -12,8 +12,8 @@ using ParallaxAwareVMM = vmm::ParallaxAwareVMM;
 class Region {
 public:
 
-    Vec3f posMean;
-    Vec3f posVar;
+    Vec3d posMean;
+    Vec3d posVar;
     ParallaxAwareVMM * model{};
     int numSamples{};
 
@@ -25,22 +25,18 @@ public:
         delete model;
     }
 
-    inline static Vec3f square(const Vec3f & v) {
-        return {v.x * v.x, v.y * v.y, v.z * v.z};
-    }
-
     inline void updateStats(SampleIterator begin, SampleIterator end) {
         auto iter = begin;
         if (numSamples == 0) {
             posMean = iter->position;
-            posVar = Vec3f(0.f);
+            posVar = Vec3d(0);
             numSamples += 1;
             ++iter;
         }
         while (iter != end) {
-            Vec3f diff = iter->position - posMean;
-            posMean += diff / (numSamples + 1.f);
-            posVar += square(diff) / (numSamples + 1.f) - posVar / numSamples;
+            Vec3d diff = iter->position - posMean;
+            posMean += diff / (numSamples + 1.);
+            posVar += diff * diff / (numSamples + 1.) - posVar / numSamples;
             numSamples += 1;
             ++iter;
         }
@@ -48,31 +44,25 @@ public:
 
     inline void clearStats() {
         numSamples = 0;
-        posMean = Vec3f(0.f);
-        posVar = Vec3f(0.f);
+        posMean = Vec3d(0);
+        posVar = Vec3d(0);
     }
 };
 
 class AdaptiveKDTree {
 private:
 
-    constexpr static int maxDepth = 16;
+    constexpr static int maxDepth = 17;
 
     struct Node {
         union {
             struct { Node * children[2]{}; };
             struct { Node * parent; Region * region; };
         };
-        float splitPos;
+        double splitPos;
         int splitAxis;
 
-        inline Node(Node * left, Node * right, int splitAxis, float splitPos) {
-            this->children[0] = left;
-            this->children[1] = right;
-            this->splitAxis = splitAxis;
-            this->splitPos = splitPos;
-        }
-
+        // Create a leaf node
         inline Node(Region * region, Node * parent) {
             this->region = region;
             this->parent = parent;
@@ -104,7 +94,8 @@ public:
         delete root;
     }
 
-    inline void getGuidedBxDF(GuidedBxDF & guidedBxDF, BxDF * bxdf, const Vec3f & position) const {
+    // configure the BxDF to be prepared for sampling and pdf evaluation at the given position
+    inline void getGuidedBxDF(GuidedBxDF & guidedBxDF, BxDF * bxdf, const Vec3d & position) const {
         Node * currentNode = root;
         while (currentNode->splitAxis >= 0) {
             int childIdx = (position[currentNode->splitAxis] < currentNode->splitPos ? 0 : 1);
@@ -124,7 +115,7 @@ public:
 
 private:
 
-    inline static int argmax(const Vec3f & v) {
+    inline static int argmax(const Vec3d & v) {
         return v[0] >= v[1] ? (v[0] >= v[2] ? 0 : 2) : (v[1] >= v[2] ? 1 : 2);
     }
 

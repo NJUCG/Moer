@@ -17,8 +17,10 @@
 #include "guiding/guiding.h"
 
 /**
- * @brief Unidirectional path-tracing integrator with
- * path guiding technologies
+ * @brief Unidirectional path-tracing integrator with path guiding technologies.
+ * This Integrator mainly implements the idea as described in
+ * Ruppert et al. "Robust fitting of parallax-aware mixtures for path guiding",
+ * except that we have omitted the variance-aware split and merge for the present.
  * @ingroup Integrator
  */
 
@@ -73,7 +75,7 @@ protected:
     using AdaptiveKDTree = PathGuiding::kdtree::AdaptiveKDTree;
     using GuidedBxDF = PathGuiding::GuidedBxDF;
 
-    constexpr static float trainingSPPFraction = 0.5;
+    constexpr static double trainingSPPFraction = 0.5;
     constexpr static int sppPerIteration = 4;
     constexpr static int maxSampleBufferSize = 256 * 1024 * 1024 / sizeof(PGSampleData);
 
@@ -98,22 +100,27 @@ protected:
     bool isTraining;
     bool isFirstIteration;
 
+    // compute the distance scaling factor required on a refractive surface
     static double computeDistanceFactor(const Intersection & its,
                                         const Vec3d & out,
                                         const Vec3d & in);
 
+    // add a sample to the buffer, optionally triggering the update if
+    // the maximum buffer size is exceeded
     void addPGSampleData(const Vec3d & position,
                          const Vec3d & direction,
                          double radiance,
                          double bsdfPdf,
                          double distance);
 
+    // prepare a guided BxDF for sampling and pdf evaluation
     void prepareGuidedBxDF(GuidedBxDF & guidedBxDF,
                            BxDF * bxdf,
                            const Point3d & position);
 
 private:
 
+    // the number of samples flushed during the iteration, for logging usage
     size_t numFlashedSamples;
 
 };
