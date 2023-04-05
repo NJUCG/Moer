@@ -200,11 +200,11 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
     return L;
 }
 
-/// @brief Eval surface or infinite light source emittance and take medium transmittance into account.
-/// @param scene Scene description. Multiple shadow ray intersections will be performed.
+/// @brief Eval surface or infinite light source radiance and take medium transmittance into account.
+/// @param scene Scene description. Used to query scene lighting condition.
 /// @param itsOpt Current intersection point. If there's no intersection, eval the radiance of environment light.
 /// @param ray Current ray.
-/// @return current ray direction, obtained light radiance and corresponding solid angle dependent pdf.
+/// @return current ray direction, obtained light radiance and corresponding solid angle dependent pdf. Note that there is no corresponding sampling process for pdf and the pdf value should NOT be applied to calculate the final radiance contribution.
 PathIntegratorLocalRecord VolPathIntegrator::evalEmittance(std::shared_ptr<Scene> scene, 
                                                            std::optional<Intersection> itsOpt, 
                                                            const Ray &ray)
@@ -234,6 +234,11 @@ PathIntegratorLocalRecord VolPathIntegrator::evalEmittance(std::shared_ptr<Scene
 
 }
 
+/// @brief Sample on the distribution of direct lighting and take medium transmittance into account.
+/// @param scene Scene description. Multiple shadow ray intersect operations will be performed.
+/// @param its Current intersection point which returned pdf dependent on.
+/// @param ray Current ray. Should only be applied for time records.
+/// @return Sampled direction on the distribution of direct lighting and corresponding solid angle dependent pdf. An extra flag indicites that whether it sampled on a delta distribution.
 PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene, 
                                                                   const Intersection &its, 
                                                                   const Ray &ray)

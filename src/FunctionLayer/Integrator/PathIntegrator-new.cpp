@@ -162,7 +162,7 @@ PathIntegratorLocalRecord PathIntegratorNew::evalEmittance(std::shared_ptr<Scene
 }
 
 /// @brief Sample on the distribution of direct lighting and ignore medium transmittance.
-/// @param scene Scene description. Multiple shadow ray intersections will be performed.
+/// @param scene Scene description. Multiple shadow ray intersect operations will be performed.
 /// @param its Current intersection point which returned pdf dependent on.
 /// @param ray Current ray. Should only be applied for time records.
 /// @return Sampled direction on the distribution of direct lighting and corresponding solid angle dependent pdf. An extra flag indicites that whether it sampled on a delta distribution.
