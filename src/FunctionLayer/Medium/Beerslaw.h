@@ -21,7 +21,7 @@ public:
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,
-                                const std::optional<Intersection> &its,
+                                const Intersection &its,
                                 Point2d sample) const;
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const;
