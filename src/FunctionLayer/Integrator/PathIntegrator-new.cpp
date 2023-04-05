@@ -102,7 +102,7 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
             break;
         }
 
-        //* Another part of MIS, Test whether the bsdf sampling ray hit the emitter
+        //* Test whether the bsdf sampling ray hit the emitter
         ray = Ray{its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
         itsOpt = scene->intersect(ray);
 
@@ -126,11 +126,6 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
 }
 
-/// @brief Eval surface or infinite light source (on itsOpt) radiance and ignore medium transmittance.
-/// @param scene Scene description. Used to query scene lighting condition.
-/// @param itsOpt Current intersection point which could be a light source. If there's no intersection, eval the radiance of environment light.
-/// @param ray Current ray which connects last intersection point and itsOpt.
-/// @return Current ray direction, obtained light radiance and solid angle dependent pdf. Note that there is no corresponding sampling process for pdf and the pdf value should NOT be applied to calculate the final radiance contribution.
 PathIntegratorLocalRecord PathIntegratorNew::evalEmittance(std::shared_ptr<Scene> scene, 
                                                            std::optional<Intersection> itsOpt, 
                                                            const Ray &ray)
@@ -155,17 +150,11 @@ PathIntegratorLocalRecord PathIntegratorNew::evalEmittance(std::shared_ptr<Scene
         tmpIts.position = ray.origin;
         pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, tmpIts, ray, light);
     }
-    // Path integrator will ignore medium transmittance. And (of course) there will be no occlusion.
-    // Spectrum transmittance(1.0);
-    return {ray.direction, LEmission, pdfDirect, false}; 
+    Spectrum transmittance(1.0); // todo: transmittance eval
+    return {ray.direction, transmittance * LEmission, pdfDirect, false}; 
 
 }
 
-/// @brief Sample on the distribution of direct lighting and ignore medium transmittance.
-/// @param scene Scene description. Multiple shadow ray intersections will be performed.
-/// @param its Current intersection point which returned pdf dependent on.
-/// @param ray Current ray. Should only be applied for time records.
-/// @return Sampled direction on the distribution of direct lighting and corresponding solid angle dependent pdf. An extra flag indicites that whether it sampled on a delta distribution.
 PathIntegratorLocalRecord PathIntegratorNew::sampleDirectLighting(std::shared_ptr<Scene> scene, 
                                                                   const Intersection &its, 
                                                                   const Ray &ray)
@@ -191,12 +180,6 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleDirectLighting(std::shared_pt
 
 }
 
-/// @brief eval the scattering function, i.e., bsdf * cos. The cosine term will not be counted for delta distributed bsdf (inside f).
-/// @param scene Scene description.
-/// @param its Current intersection point.
-/// @param ray 
-/// @param dirScatter 
-/// @return 
 PathIntegratorLocalRecord PathIntegratorNew::evalScatter(std::shared_ptr<Scene> scene,
                                                       const Intersection &its,
                                                       const Ray &ray,
@@ -217,16 +200,11 @@ PathIntegratorLocalRecord PathIntegratorNew::evalScatter(std::shared_ptr<Scene> 
     }
     else
     {
-        // Path integrator will igonre phase function distribution.
+        // todo: eval phase function
         return {};
     }
 }
 
-/// @brief 
-/// @param scene 
-/// @param its 
-/// @param ray 
-/// @return 
 PathIntegratorLocalRecord PathIntegratorNew::sampleScatter(std::shared_ptr<Scene> scene,
                                                         const Intersection &its,
                                                         const Ray &ray)
@@ -249,12 +227,6 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleScatter(std::shared_ptr<Scene
     }
 }
 
-/// @brief 
-/// @param scene 
-/// @param its 
-/// @param throughput 
-/// @param nBounce 
-/// @return 
 double PathIntegratorNew::russianRoulette(std::shared_ptr<Scene> scene,
                                        const Intersection &its,
                                        const Spectrum &throughput,
@@ -269,12 +241,6 @@ double PathIntegratorNew::russianRoulette(std::shared_ptr<Scene> scene,
     return pSurvive;
 }
 
-/// @brief 
-/// @param scene 
-/// @param its 
-/// @param ray 
-/// @param lightSample 
-/// @return 
 std::pair<std::shared_ptr<Light>, double> 
 PathIntegratorNew::chooseOneLight(std::shared_ptr<Scene> scene,
                                   const Intersection &its,
@@ -289,12 +255,6 @@ PathIntegratorNew::chooseOneLight(std::shared_ptr<Scene> scene,
     return {light, 1.0 / numLights};
 }
 
-/// @brief 
-/// @param scene 
-/// @param its 
-/// @param ray 
-/// @param light 
-/// @return 
 double PathIntegratorNew::chooseOneLightPdf(std::shared_ptr<Scene> scene,
                                             const Intersection &its,
                                             const Ray &ray,
@@ -305,10 +265,6 @@ double PathIntegratorNew::chooseOneLightPdf(std::shared_ptr<Scene> scene,
     return 1.0 / numLights;
 }
 
-/// @brief 
-/// @param scene 
-/// @param ray 
-/// @return 
 PathIntegratorLocalRecord PathIntegratorNew::evalEnvLights(std::shared_ptr<Scene> scene,
                                                            const Ray &ray)
 {

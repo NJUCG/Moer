@@ -16,13 +16,13 @@
 class HomogeneousMedium : public Medium {
 public:
 
-    HomogeneousMedium(Spectrum sigmaT, Spectrum albedo, 
+    HomogeneousMedium(double density, double albedo, 
                       std::shared_ptr<PhaseFunction> phase)
-        :Medium(phase), mSigmaT(sigmaT), mAlbedo(albedo), mSigmaS(mAlbedo * mSigmaT), mSigmaA(mSigmaT - mSigmaS) { }
+        :Medium(phase), mDensity(density), mAlbedo(albedo) { }
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,
-                                const Intersection &its,
+                                const std::optional<Intersection> &its,
                                 Point2d sample) const override;
 
     virtual Spectrum evalTransmittance(Point3d from, 
@@ -31,8 +31,8 @@ public:
 private:
     //* sigma_s = mAlbedo * mDensity
     //* sigma_a = (1 - mAlbedo) * mDensity
-    Spectrum mSigmaT;
-    Spectrum mAlbedo;
-    Spectrum mSigmaA;
-    Spectrum mSigmaS;
+    
+    //TODO replace with spectrum
+    double mDensity;
+    double mAlbedo;
 };
