@@ -20,6 +20,8 @@
 //* Add t in intersection, by zcx 8-22
 struct Intersection
 {
+	/// @brief t indicatees that current position = last ray's origin + t * last ray's direction. 
+	///		   This domain is helpful for medium scattering.
 	double t;
 
 	Point3d position;

@@ -68,8 +68,16 @@ public:
 
     Spectrum VolPathIntegrator::evalTransmittance(std::shared_ptr<Scene> scene,
                                                 const Intersection& its,
-                                                Point3d pointOnLight,
-                                                Spectrum lightRadiance) const;
+                                                Point3d pointOnLight) const;
+
+    Intersection VolPathIntegrator::fulfillScatteringPoint(const Point3d& position,
+                                                            const Normal3d& normal,
+                                                            std::shared_ptr<Medium> medium);
+
+    std::pair<std::optional<Intersection>, Spectrum> 
+    VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
+                                                const Ray &ray,
+                                                std::shared_ptr<Medium> medium) const;
 
 
 protected:

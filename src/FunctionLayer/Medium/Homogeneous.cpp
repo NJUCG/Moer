@@ -4,7 +4,7 @@
 /// @brief Sample a scattering distance inside the (homogeneous) medium using naive but unbiased sampling strategy (i.e., inverse exponential sampling).
 /// @param mRec Serve as return value.
 /// @param ray Current ray inside medium.
-/// @param its Current intersection (scattering point) inside medium.
+/// @param its Current intersection on medium surface.
 /// @param sample Two random number.
 /// @return True if sampled a scattering point inside the medium, and thus fulfill marchLength, scatteringPoint, pdf, sigmaA, sigmaS, tr of mRec.
 ///         False if sampled a point on object boundary (surface), and thus fulfill marchLength, pdf, tr of mRec.
