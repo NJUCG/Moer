@@ -30,9 +30,6 @@ public:
                double sheenTint, double clearCoat, double clearCoatGloss, double eta);
     double eta(const Vec3d &out,const Vec3d & in) const override;
 
-    [[nodiscard]]
-    double getRoughness() const override { return roughness; }
-
 protected:
     BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
     Spectrum f(const Vec3d & out, const Vec3d & in) const override;

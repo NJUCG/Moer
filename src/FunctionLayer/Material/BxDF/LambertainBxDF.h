@@ -30,9 +30,6 @@ public:
 
     virtual BxDFSampleResult sample(const Vec3d &wo, const Point2d &sample) const;
 
-    [[nodiscard]]
-    double getRoughness() const override { return 1; }
-
 };
 
 

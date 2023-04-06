@@ -9,8 +9,6 @@
  * www.njumeta.com
  *
  */
-
-#pragma  once
 #include "LambertainBxDF.h"
 
 

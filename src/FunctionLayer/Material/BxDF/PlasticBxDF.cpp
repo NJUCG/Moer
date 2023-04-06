@@ -23,12 +23,6 @@ double Plastic::pdf(const Vec3d & out, const Vec3d & in) const {
     return specProb + diffProb;
 }
 
-double Plastic::getRoughness() const {
-    double lS = specularR.luminance(), lD = diffuseR.luminance();
-    double specProb = lS / ( lS + lD );
-    return 1 - specProb;
-}
-
 BxDFSampleResult Plastic::sample(const Vec3d & out, const Point2d & sample) const {
     BxDFSampleResult result;
     if ( CosTheta(out) <= 0 ) {
@@ -139,13 +133,6 @@ Spectrum RoughPlastic::f(const Vec3d & out, const Vec3d & in) const {
     double FIn = Fresnel::dielectricReflectance(1 / ior, in.z);
     Spectrum diffuseContrib = diffuseR * ( 1 - FOut ) * ( 1 - FIn ) * ( 1 / ( ior * ior ) ) / M_PI;
     return glossyContrib + diffuseContrib;
-}
-
-double RoughPlastic::getRoughness() const {
-    double lS = glossyR.luminance(), lD = diffuseR.luminance();
-    double glossyProb = lS / ( lS + lD );
-    double glossyRoughness = (alphaXY[0] + alphaXY[1]) / 2.;
-    return lerp(1., glossyRoughness, glossyProb);
 }
 
 RoughPlastic::RoughPlastic(const Spectrum & _glossyR, const Spectrum & _diffuseR, double _ior,

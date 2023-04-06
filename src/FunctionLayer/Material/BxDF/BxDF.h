@@ -52,6 +52,7 @@ public:
         return (typeToMatch & type) == type;
     }
 
+
     virtual double pdf(const Vec3d &out, const Vec3d &in) const = 0;
 
     BxDFSampleResult sample(const Vec3d & out,const Point2d & sample,bool adjoint){
@@ -64,7 +65,6 @@ public:
         }
         return result;
     }
-
     Spectrum f(const Vec3d & out,const Vec3d & in,bool adjoint) {
         Spectrum result = f(out,in);
         if(!adjoint){
@@ -75,18 +75,11 @@ public:
         }
         return result;
     }
-
-    // return an estimation of the roughness in [0, 1]
-    [[nodiscard]]
-    virtual double getRoughness() const {return 0;}
-
 protected:
-
     virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const = 0;
     virtual Spectrum f(const Vec3d &out, const Vec3d &in) const = 0;
     virtual double eta(const Vec3d &out,const Vec3d & in) const {return 1;}
     BXDFType type;
-
 };
 
 /// @brief A special bxdf indicating that light can pass through directly.
