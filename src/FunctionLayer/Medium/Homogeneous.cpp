@@ -1,7 +1,7 @@
 #include "Homogeneous.h"
 #include "FastMath.h"
 
-/// @brief Sample a scattering distance inside the (homogeneous) medium using naive sampling strategy (i.e., inverse exponential sampling).
+/// @brief Sample a scattering distance inside the (homogeneous) medium using naive but unbiased sampling strategy (i.e., inverse exponential sampling).
 /// @param mRec Serve as return value.
 /// @param ray Current ray inside medium.
 /// @param its Current intersection (scattering point) inside medium.

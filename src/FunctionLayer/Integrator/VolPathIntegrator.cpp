@@ -73,19 +73,19 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
         }
 
         nBounces++;
-        double pSurvive = russianRoulette(scene, itsOpt.value(), throughput, nBounces);
+        double pSurvive = russianRoulette(throughput, nBounces);
         if (randFloat() > pSurvive)
             break;
         throughput /= pSurvive;
 
-        // * Ray currently travel inside medium and will continue.
+    //     // * Ray currently travel inside medium and will continue.
     //     if (medium &&
     //         medium->sampleDistance(&mRec, ray, itsOpt.value(), sampler->sample2D()))
     //     {
     //         throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
     //         //* ----- Luminaire Sampling -----
     //         for (int i = 0; i < nDirectLightSamples; ++i) {
-    //             PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, mRec, ray, medium);
+    //             PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, mRec, ray);
     //             PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, mRec, ray, sampleLightRecord.wi, medium);
             
     //             if (!sampleLightRecord.f.isBlack()) {
@@ -98,7 +98,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
     //             }
     //         }
     //         //* ----- Phase Sampling -----
-    //         PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, mRec, ray, medium);
+    //         PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, mRec, ray);
     //         if (sampleScatterRecord.f.isBlack())
     //             break;
     //         throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
@@ -139,7 +139,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
     //         auto its = itsOpt.value();
     //         //* ----- Handle special surface -----
     //         if (its.material->type & EMaterialType::Null) {
-    //             medium = getTargetMedium(ray, its, ray.direction);
+    //             medium = getTargetMedium(its, ray.direction);
     //             ray = Ray{its.position + 1e-4 * ray.direction, ray.direction};
     //             itsOpt = scene->intersect(ray);
     //             evalLightRecord = evalEmittance(scene, itsOpt, ray);
@@ -168,7 +168,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
     //             break;
     //         throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
 
-    //         medium = getTargetMedium(ray, its, sampleScatterRecord.wi);
+    //         medium = getTargetMedium(its, sampleScatterRecord.wi);
 
     //         //* Test whether the sampling ray hit the emitter
     //         const double eps = 1e-4;
@@ -202,9 +202,9 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
 /// @brief Eval surface or infinite light source radiance and take medium transmittance into account.
 /// @param scene Scene description. Used to query scene lighting condition.
-/// @param itsOpt Current intersection point. If there's no intersection, eval the radiance of environment light.
-/// @param ray Current ray.
-/// @return current ray direction, obtained light radiance and corresponding solid angle dependent pdf. Note that there is no corresponding sampling process for pdf and the pdf value should NOT be applied to calculate the final radiance contribution.
+/// @param itsOpt Current intersection point which could be a light source. If there's no intersection, eval the radiance of environment light.
+/// @param ray Current ray which connects last intersection point and itsOpt.
+/// @return Current ray direction, obtained light radiance and solid angle dependent pdf. Note that there is no corresponding sampling process for pdf and the pdf value should NOT be applied to calculate the final radiance contribution.
 PathIntegratorLocalRecord VolPathIntegrator::evalEmittance(std::shared_ptr<Scene> scene, 
                                                            std::optional<Intersection> itsOpt, 
                                                            const Ray &ray)
@@ -227,7 +227,7 @@ PathIntegratorLocalRecord VolPathIntegrator::evalEmittance(std::shared_ptr<Scene
         LEmission = record.s;
         Intersection tmpIts;
         tmpIts.position = ray.origin;
-        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, tmpIts, ray, light);
+        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, light);
     }
     Spectrum transmittance(1.0);
     return {ray.direction, transmittance * LEmission, pdfDirect, false}; 
@@ -243,26 +243,24 @@ PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting(std::shared_pt
                                                                   const Intersection &its, 
                                                                   const Ray &ray)
 {
-    auto [light, pdfChooseLight] = chooseOneLight(scene, its, ray, sampler->sample1D());
+    auto [light, pdfChooseLight] = chooseOneLight(scene, sampler->sample1D());
     auto record = light->sampleDirect(its, sampler->sample2D(), ray.timeMin);
     double pdfDirect = record.pdfDirect * pdfChooseLight; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
-    Spectrum Li = record.s;
     Point3d posL = record.dst;
     Point3d posS = its.position;
     Ray visibilityTestingRay(posL - dirScatter * 1e-4, -dirScatter, ray.timeMin, ray.timeMax);
-    auto [visibilityTestingIts, tr] 
-        = intersectIgnoreSurface(scene, visibilityTestingRay, nullptr);
-    if (!visibilityTestingIts.has_value() || visibilityTestingIts->object != its.object || (visibilityTestingIts->position - posS).length2() > 1e-6)
-    {
-        tr = 0.0;
-    }
-    return {dirScatter, Li * tr, pdfDirect, record.isDeltaPos};
+    auto transmittedRadiance = evalTransmittance(scene,its,record.dst,record.s);
+    return {dirScatter, transmittedRadiance, pdfDirect, record.isDeltaPos};
 
 }
 
-PathIntegratorLocalRecord VolPathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
-                                                      const Intersection &its,
+/// @brief Eval the scattering function, i.e., bsdf * cos or phase function. The cosine term will not be counted for delta distributed bsdf (inside f).
+/// @param its Current intersection point which is used to obtain local coordinate, bxdf and phase function.
+/// @param ray Current ray which is used to calculate bsdf $f(\omega_i,\omega_o)$ or phase function.
+/// @param dirScatter (already sampled) scattering direction.
+/// @return scattering direction, bsdf/phase value and bsdf/phase pdf. 
+PathIntegratorLocalRecord VolPathIntegrator::evalScatter(const Intersection &its,
                                                       const Ray &ray,
                                                       const Vec3d &dirScatter)
 {
@@ -282,12 +280,27 @@ PathIntegratorLocalRecord VolPathIntegrator::evalScatter(std::shared_ptr<Scene> 
     else
     {
         // todo: eval phase function
-        return {};
+        auto medium=its.medium;
+        Normal3d n = its.geometryNormal;
+        double wiDotN = fm::abs(dot(n, dirScatter));
+        Vec3d wi = its.toLocal(dirScatter);
+        Vec3d wo = its.toLocal(-ray.direction);
+        Point3d scatteringPoint=its.position;
+        auto evalPhaseResult=medium->evalPhase(wo,wi,scatteringPoint);
+        return {
+            dirScatter,
+            std::get<0>(evalPhaseResult),   // no cosine term
+            std::get<1>(evalPhaseResult),
+            false
+        };
     }
 }
 
-PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
-                                                        const Intersection &its,
+/// @brief Sample a direction along with a pdf value in term of solid angle according to the distribution of bsdf/phase.
+/// @param its Current intersection point.
+/// @param ray Current incident ray.
+/// @return Sampled scattering direction, bsdf * cos or phase function, corresponding pdf and whether it is sampled on a delta distribution.
+PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(const Intersection &its,
                                                         const Ray &ray)
 {
     if (its.material != nullptr)
@@ -303,14 +316,23 @@ PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(std::shared_ptr<Scene
     }
     else
     {
-        // todo: sample phase function
-        return {};
+        Vec3d wo = its.toLocal(-ray.direction);
+        auto medium=its.medium;
+        Vec3d n = its.geometryNormal;
+        auto scatteringPoint=its.position;
+        auto phaseSample=medium->samplePhase(wo,scatteringPoint,sampler->sample2D());
+        Spectrum phaseValue=Spectrum(std::get<1>(phaseSample));
+        double pdf=std::get<2>(phaseSample);
+        Vec3d dirScatter = its.toWorld(std::get<0>(phaseSample));
+        return {dirScatter, phaseValue, pdf, false};
     }
 }
 
-double VolPathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
-                                       const Intersection &its,
-                                       const Spectrum &throughput,
+/// @brief Russian roulette method.
+/// @param throughput Current thorughput, i.e., multiplicative (bsdf * cos) / pdf or phase / pdf.
+/// @param nBounce Current bounce depth.
+/// @return Survive probility after Russian roulette.
+double VolPathIntegrator::russianRoulette(const Spectrum &throughput,
                                        int nBounce)
 {
     // double pSurvive = std::min(pRussianRoulette, throughput.sum());
@@ -322,10 +344,12 @@ double VolPathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
     return pSurvive;
 }
 
+/// @brief (discretely) sample a light source.
+/// @param scene Scene description which is used to query scene lights.
+/// @param lightSample A random number within [0,1].
+/// @return Pointer of the sampled light source and corresponding (discrete) probility.
 std::pair<std::shared_ptr<Light>, double> 
 VolPathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
-                                  const Intersection &its,
-                                  const Ray &ray,
                                   double lightSample)
 {
     // uniformly weighted
@@ -336,9 +360,11 @@ VolPathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
     return {light, 1.0 / numLights};
 }
 
+/// @brief Calculate the (discrete) probility that a specific light source is sampled.
+/// @param scene Scene description which is used to query scene lights.
+/// @param light The specific light source.
+/// @return Corresponding (discrete) probility.
 double VolPathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
-                                            const Intersection &its,
-                                            const Ray &ray,
                                             std::shared_ptr<Light> light)
 {
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
@@ -346,6 +372,11 @@ double VolPathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
     return 1.0 / numLights;
 }
 
+/// @brief Eval the effect of environment light source (infinite area light).
+/// @param scene Scene description which is used to query scene lights.
+/// @param ray Current ray.
+/// @return light source direction, light radiance and pdf. Without sampling process, the pdf can NOT be used to calculate final radiance.
+///         Note that this function will ignore infinite medium as environment map light source should never appear together with infinite medium.
 PathIntegratorLocalRecord VolPathIntegrator::evalEnvLights(std::shared_ptr<Scene> scene,
                                                            const Ray &ray)
 {
@@ -361,114 +392,86 @@ PathIntegratorLocalRecord VolPathIntegrator::evalEnvLights(std::shared_ptr<Scene
     return {-ray.direction, L, pdf};
 }
 
-std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Ray &ray, 
-                                                           const Intersection &its,
+/// @brief Obtain the medium while ray intersect with a surface.
+/// @param its Current surface intersection point.
+/// @param wi Current scattering direction.
+/// @return Medium inside or outside the surface.
+std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &its,
                                                            Vec3d wi) const 
 {
     bool scatterToOutSide = dot(its.geometryNormal, wi) > 0;
-    bool scatterToinSide = dot(its.geometryNormal, wi) < 0;
+    // bool scatterToinSide = dot(its.geometryNormal, wi) < 0;
     if (scatterToOutSide) 
         return its.material->getOutsideMedium();
-    else if (scatterToinSide)
+    else
         return its.material->getInsideMedium();
 
-    return nullptr;
+    // return nullptr;
 }
 
-std::pair<std::optional<Intersection>, Spectrum> 
-VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
-                                          const Ray &ray,
-                                          std::shared_ptr<Medium> medium) const
+/// @brief Iteratively eval the transmittance from intersection point its to direction wi.
+/// @param scene Scene description used to operate ray intersection.
+/// @param its Current intersection point or scattering point.
+/// @param pointOnLight Sampled point on light.
+/// @param lightRadiance Radiance light carried.
+/// @return The transmittance from pointOnLight to its. Transmittance will be zero if ray hits a non-null surface.
+Spectrum VolPathIntegrator::evalTransmittance(
+                                                std::shared_ptr<Scene> scene,
+                                                const Intersection& its,
+                                                Point3d pointOnLight,
+                                                Spectrum lightRadiance) const
 {
-    //TODO add an argument indicates which surface to ignore
-    //! Infinity medium is not considered
-    Ray marchingRay = ray;
-    std::shared_ptr<Medium> currentMedium = medium;
-    
-    auto its = scene->intersect(marchingRay);
-    Spectrum tr(1.0);
+    const double eps=1e-5;
+    Point3d target=its.position;
+    Vec3d dir=normalize(target - pointOnLight);
+    const double maxDistance = (pointOnLight - target).length();
 
-    while(its.has_value()) {
-        tr *= (currentMedium ? currentMedium->evalTransmittance(ray.origin, its->position) : 1);
+    Spectrum tr=lightRadiance;
+    Ray ray{pointOnLight,dir};
+    std::shared_ptr<Medium> medium=its.medium;
 
-        if (its->material->type & EMaterialType::Null) {
-            //* Continue the ray when the surface is ignored
-            const double eps = 1e-4;
-            marchingRay = Ray {its->position + eps * marchingRay.direction, marchingRay.direction};
-            currentMedium = getTargetMedium(marchingRay, its.value(), marchingRay.direction);
-        } else {
-            //* Intersect on surface which can't be ignored
-            break;
+    Point3d lastScatteringPoint = pointOnLight;
+    auto testRayItsOpt=scene->intersect(ray);
+
+    // calculate the transmittance of last segment from lastScatteringPoint to testRayItsOpt.
+    while(true){
+
+        // corner case: infinite medium.
+        if(!testRayItsOpt.has_value()){
+            if(medium!=nullptr){
+                tr *= medium->evalTransmittance(target,lastScatteringPoint);
+            }
+            return tr;
         }
-        its = scene->intersect(marchingRay);
+
+        auto testRayIts=testRayItsOpt.value();
+
+        // corner case: point light source.
+        if((testRayIts.position-pointOnLight).length() >= maxDistance){
+            if(medium != nullptr){
+                tr*= medium->evalTransmittance(target,lastScatteringPoint);
+            }
+            return tr;
+        }
+
+        // corner case: non-null surface
+        if(testRayIts.material!=nullptr){
+            if(!testRayIts.material->getBxDF(testRayIts)->isNull())
+                return 0.0;
+        }
+
+        // hit a null surface, calculate tr
+        if (medium != nullptr)
+            tr *= medium->evalTransmittance(testRayIts.position,lastScatteringPoint);
+
+        // update medium
+        medium = getTargetMedium(testRayIts, dir);
+
+        // update ray and intersection point.
+        ray.origin=testRayIts.position + dir * eps;
+        lastScatteringPoint = testRayIts.position;
+        testRayItsOpt = scene -> intersect(ray);
     }
-    return {its, tr};
+    
 }
 
-PathIntegratorLocalRecord 
-VolPathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene,
-                                        const MediumSampleRecord &mRec,
-                                        const Ray &ray,
-                                        std::shared_ptr<Medium> medium) const 
-{
-    auto [light, pdfChooseLight]
-        = chooseOneLight(scene, mRec, ray, sampler->sample1D());
-
-    auto record 
-        = light->sampleDirect(mRec, sampler->sample2D(), ray.timeMin);
-
-    double pdfDirect = record.pdfDirect * pdfChooseLight;
-    Vec3d dirScatter = record.wi;
-    Spectrum Li = record.s;
-    Point3d posL = record.dst,
-            PosS = mRec.scatterPoint;
-
-    Ray shadowRay{mRec.scatterPoint + dirScatter * 1e-4, dirScatter};
-    auto [shadowIts, tr] 
-        = intersectIgnoreSurface(scene, shadowRay, medium);
-    if (!shadowIts.has_value() || (shadowIts->position - record.dst).length2() > 1e-6 ) {
-        tr = 0.0;
-    }
-
-    return {dirScatter, Li * tr, pdfDirect, record.isDeltaPos};
-
-}
-
-
-std::pair<std::shared_ptr<Light>, double>
-VolPathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
-                                  const MediumSampleRecord &mRec,
-                                  const Ray &ray,
-                                  double lightSample) const 
-{
-    // uniformly weighted
-    std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();
-    int numLights = lights->size();
-    int lightID = std::min(numLights - 1, (int)(lightSample * numLights));
-    std::shared_ptr<Light> light = lights->operator[](lightID);
-    return {light, 1.0 / numLights};
-
-}
-
-PathIntegratorLocalRecord
-VolPathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
-                               const MediumSampleRecord &mRec,
-                               const Ray &ray,
-                               const Vec3d &wi,
-                               std::shared_ptr<Medium> medium) const
-{
-    auto [phaseValue, phasePdf, isDelta]
-        = medium->evalPhase(-ray.direction, wi, mRec.scatterPoint);
-    return {wi, phaseValue, phasePdf, isDelta};
-}
-
-PathIntegratorLocalRecord 
-VolPathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
-                                 const MediumSampleRecord &mRec,
-                                 const Ray &ray,
-                                 std::shared_ptr<Medium> medium) const
-{
-    auto [wi, phaseValue, phasePdf, isDelta]
-        = medium->samplePhase(-ray.direction, mRec.scatterPoint, sampler->sample2D());
-    return {wi, phaseValue, phasePdf, isDelta};
-}  

@@ -62,8 +62,8 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
         nBounces++;
 
-        // * Ignore null materials using dynamic_cast.
-        if(dynamic_cast<NullMaterial*>(its.material.get())!=nullptr){
+        // * Ignore null materials using isNull() flag.
+        if(its.material->getBxDF(its)->isNull()){
             nBounces--;
             // * hint: ray should be immersed in medium. However, PathIntegrator will ignore any medium.
             ray = Ray{its.position + ray.direction * eps, ray.direction};
@@ -71,6 +71,7 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
             continue;
         }
 
+        // Russian roulette.
         double pSurvive = russianRoulette(throughput, nBounces);
         if (randFloat() > pSurvive)
             break;
@@ -109,7 +110,7 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
         auto evalLightRecord = evalEmittance(scene, itsOpt, ray);
         if (itsOpt.has_value() && !evalLightRecord.f.isBlack()) {
             //* The continuous ray hit the emitter
-            //* Multiple importance sampling
+            //* Multiple importance samplingy 
 
             double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
             if (sampleScatterRecord.isDelta) {
@@ -192,7 +193,7 @@ PathIntegratorLocalRecord PathIntegratorNew::sampleDirectLighting(std::shared_pt
 }
 
 /// @brief Eval the scattering function, i.e., bsdf * cos. The cosine term will not be counted for delta distributed bsdf (inside f).
-/// @param its Current intersection point which is used to obtain local coordinate.
+/// @param its Current intersection point which is used to obtain local coordinate and bxdf.
 /// @param ray Current ray which is used to calculate bsdf $f(\omega_i,\omega_o)$.
 /// @param dirScatter (already sampled) scattering direction.
 /// @return scattering direction, bsdf value and bsdf pdf. 
