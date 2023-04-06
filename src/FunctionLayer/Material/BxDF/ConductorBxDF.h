@@ -25,6 +25,9 @@ public:
 
     BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
 
+    [[nodiscard]]
+    double getRoughness() const override { return 0; }
+
 protected:
     Vec3d  eta;
     Vec3d  k;
@@ -41,6 +44,9 @@ public:
     double pdf(const Vec3d & out, const Vec3d & in) const override;
 
     BxDFSampleResult sample(const Vec3d & out, const Point2d & sample) const override;
+
+    [[nodiscard]]
+    double getRoughness() const override { return (alphaXY[0] + alphaXY[1]) / 2.; }
 
 protected:
     std::shared_ptr<MicrofacetDistribution> distrib;
