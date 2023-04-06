@@ -36,6 +36,9 @@ public:
 
     void render(std::shared_ptr<Scene> scene) override;
 
+    /// @brief: render process per thread. Should be called in render().
+    void renderPerThread(const std::shared_ptr<Scene> & scene);
+
     /// @brief Estimate radiance along a given ray
     Spectrum Li(const Ray &initialRay, std::shared_ptr<Scene> scene) override;
 
@@ -119,6 +122,11 @@ protected:
                            const Point3d & position);
 
 private:
+
+    // pre-generated tiles used for per-thread rendering
+    std::mutex tilesMutex;
+    std::vector<std::shared_ptr<Tile>>::iterator tilesBegin;
+    std::vector<std::shared_ptr<Tile>>::iterator tilesEnd;
 
     // the number of samples flushed during the iteration, for logging usage
     size_t numFlashedSamples;

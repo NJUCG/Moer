@@ -24,7 +24,12 @@ struct SampleData {
 
     [[nodiscard]]
     inline bool isValid() const {
-        if (position.isNaN() || direction.isNaN() || direction.isZero()) {
+        if (std::isnan(direction[0]) || std::isnan(direction[1]) || std::isnan(direction[2]) ||
+            std::isnan(position[0]) || std::isnan(position[1]) || std::isnan(position[2]))
+        {
+            return false;
+        }
+        if (direction.isZero()) {
             return false;
         }
         if (std::isnan(radiance) || radiance <= 0) {

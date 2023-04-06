@@ -25,6 +25,9 @@ void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
     std::vector<std::thread> threads;
     threads.reserve(renderThreadNum);
 
+    auto tiles = tileGenerator->generateTiles();
+    tilesEnd = tiles.end();
+
     isTraining = true;
     isFirstIteration = true;
 
@@ -36,6 +39,7 @@ void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
         spp = std::min(sppPerIteration, totalSPP - sppRendered);
 
         numFlashedSamples = 0;
+        tilesBegin = tiles.begin();
 
         for(int i = 0; i < renderThreadNum; ++i){
             threads.emplace_back(&GuidedPathIntegrator::renderPerThread, this, scene);
@@ -47,7 +51,6 @@ void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
 
         sppRendered += spp;
         threads.clear();
-        tileGenerator->restart();
 
         if (isTraining) {
             std::cout << "got " << pgSamples.size() + numFlashedSamples << " samples" << std::endl;
@@ -69,6 +72,58 @@ void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
             isTraining = false;
             std::vector<PGSampleData>().swap(pgSamples);
             std::cout << "stop training, rendering for the rest " << totalSPP - sppRendered << " spp" << std::endl;
+        }
+    }
+}
+
+void GuidedPathIntegrator::renderPerThread(const std::shared_ptr<Scene> & scene) {
+    /**
+   * @warning Other part of Integrator uses the original sampler
+   *          so I have to fill its vectors here.
+   *          In fact every time a fresh sampler is needed we should
+   *          use Sampler::clone() to get one.
+   */
+    sampler->startPixel({0, 0});
+    auto ssampler = sampler->clone(0);
+    while(true)
+    {
+        std::unique_lock tilesLock(tilesMutex);
+        if (tilesBegin == tilesEnd) {
+            break;
+        }
+        auto tile = *(tilesBegin++);
+        tilesLock.unlock();
+
+        for(auto pixelPosition : *tile)
+        {
+            const auto &cam = *this->camera;
+            /**
+             * @bug Sampler is NOT designed for multi-threads, need copy for each thread.
+             *      Sampler::clone() will return a Sampler copy, only with same sampling
+             *      strategy, random numbers are not guaranteed to be identical.
+             */
+            // sampler->startPixel(pixelPosition);
+            ssampler->startPixel(pixelPosition);
+            for (int i = 0; i < spp; i++)
+            {
+                auto L = Li(
+                    cam.generateRay(
+                        film->getResolution(),
+                        pixelPosition,
+                        ssampler->getCameraSample()
+                            ), scene
+                );
+                //                L = L.clamp(0.0,1.0);
+                film->deposit(pixelPosition, L);
+                /**
+                 * @warning spp used in this for loop belongs to Integrator.
+                 *          It is irrelevant with spp passed to Sampler.
+                 *          And Sampler has no sanity check for subscript
+                 *          of sample vector. Error may occur if spp passed to
+                 *          Integrator is bigger than which passed to Sampler.
+                 */
+                ssampler->nextSample();
+            }
         }
     }
 }

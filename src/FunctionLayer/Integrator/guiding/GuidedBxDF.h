@@ -5,7 +5,6 @@
 
 namespace PathGuiding {
 
-// TODO decide sampling fraction based on roughness?
 class GuidedBxDF {
 public:
 

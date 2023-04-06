@@ -113,11 +113,6 @@ public:
 	virtual std::optional<std::shared_ptr<Tile>> generateNextTile() = 0;
 
     /*
-     * @brief restart the tile generator
-     */
-    virtual void restart() = 0;
-
-    /*
      * avoid delete mutex
      */
     virtual ~TileGenerator() {};

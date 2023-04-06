@@ -44,6 +44,7 @@ inline int clamp(int value, int min, int max) {
     else return value;
 }
 
+
 /// Always-positive modulo operation
 inline int mod(int a, int b) {
     int r = a % b;
@@ -62,3 +63,14 @@ T  lerp(const T & x00, const T & x01, const T & x10, const T & x11, double u, do
     return (x00*(1.0f - u) + x01*u)*(1.0f - v) +
            (x10*(1.0f - u) + x11*u)*v;
 }
+
+
+
+
+
+
+
+
+
+
+

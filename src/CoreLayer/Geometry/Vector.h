@@ -103,10 +103,6 @@ struct TVector2 {
         return x==0 && y==0;
     }
 
-    [[nodiscard]]
-    bool isNaN() const {
-        return std::isnan(x) || std::isnan(y);
-    }
 };
 
 template <typename T>
@@ -248,11 +244,6 @@ struct TVector3 {
 
     bool isZero() const {
         return x==0 && y==0 && z==0;
-    }
-
-    [[nodiscard]]
-    bool isNaN() const {
-        return std::isnan(x) || std::isnan(y) || std::isnan(z);
     }
 };
 
