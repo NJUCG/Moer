@@ -56,7 +56,7 @@ private:
 
     struct Node {
         union {
-            struct { Node * children[2]{}; };
+            struct { Node * children[2]; };
             struct { Node * parent; Region * region; };
         };
         double splitPos;
