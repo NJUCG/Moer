@@ -19,6 +19,14 @@ GuidedPathIntegrator::GuidedPathIntegrator(std::shared_ptr<Camera> _camera,
     pgTree = std::make_shared<AdaptiveKDTree>();
 
     numFlashedSamples = 0;
+
+#ifdef _WIN32
+    Concurrency::SchedulerPolicy schedulerPolicy;
+    schedulerPolicy.SetConcurrencyLimits(1, _renderThreadNum);
+    Concurrency::Scheduler::SetDefaultSchedulerPolicy(schedulerPolicy);
+#else
+    omp_set_num_threads(_renderThreadNum);
+#endif
 }
 
 void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
