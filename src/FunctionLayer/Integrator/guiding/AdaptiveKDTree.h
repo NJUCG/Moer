@@ -1,7 +1,13 @@
 #pragma once
 
 #include <vector>
+
+#ifdef _WIN32
+#include <ppl.h>
+#else
 #include <omp.h>
+#endif
+
 #include "GuidedBxDF.h"
 
 namespace PathGuiding::kdtree {
@@ -56,7 +62,7 @@ private:
 
     struct Node {
         union {
-            struct { Node * children[2]{}; };
+            struct { Node * children[2]; };
             struct { Node * parent; Region * region; };
         };
         double splitPos;
@@ -108,8 +114,10 @@ public:
     }
 
     inline void update(std::vector<SampleData> & samples, int nThreads) {
+#ifndef _WIN32
 #pragma omp parallel num_threads(nThreads), default(none), shared(samples)
 #pragma omp single nowait
+#endif
         updateNode(root, samples.begin(), samples.end(), 0);
     }
 
@@ -153,10 +161,21 @@ private:
                 return sample.position[node->splitAxis] < node->splitPos;
             });
 
+#ifdef _WIN32
+            if (std::distance(begin, end) < 512) {
+                updateNode(node->children[0], begin, middle, depth + 1);
+                updateNode(node->children[1], middle, end, depth + 1);
+            } else {
+                Concurrency::parallel_invoke(
+                    [&] { updateNode(node->children[0], begin, middle, depth + 1); },
+                    [&] { updateNode(node->children[1], middle, end, depth + 1); });
+            }
+#else
 #pragma omp task mergeable default(none), firstprivate(node, begin, middle, depth)
             updateNode(node->children[0], begin, middle, depth + 1);
 #pragma omp task mergeable default(none), firstprivate(node, middle, end, depth)
             updateNode(node->children[1], middle, end, depth + 1);
+#endif
         }
     }
 };
