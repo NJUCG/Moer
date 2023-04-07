@@ -186,18 +186,6 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
                 L += throughput * tr * evalLightRecord.f * misw;
             }
-
-            //* Terminate if ray escape the scene
-            if (!itsOpt.has_value())
-                break;
-
-        // * Ignore null materials using dynamic_cast.
-        if(dynamic_cast<NullMaterial*>(its.material.get())!=nullptr){
-            nBounces--;
-            // ray should be immersed in possible medium.
-            ray = Ray{its.position + ray.direction * eps, ray.direction};
-            itsOpt=scene->intersect(ray);
-            continue;
         }
     }
 
