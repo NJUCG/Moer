@@ -21,6 +21,15 @@ struct EmbreeAccel : public Accel {
 
     virtual std::optional<Intersection> Intersect(const Ray &r) const override;
 
+    [[nodiscard]]
+    BoundingBox3f getGlobalBoundingBox() const override {
+        RTCBounds aabb{};
+        rtcGetSceneBounds(scene, &aabb);
+        Point3d pMin(aabb.lower_x, aabb.lower_y, aabb.lower_z);
+        Point3d pMax(aabb.upper_x, aabb.upper_y, aabb.upper_z);
+        return {pMin, pMax};
+    }
+
 private:
     std::vector<std::shared_ptr<Entity>> entities;
     //* Embree
