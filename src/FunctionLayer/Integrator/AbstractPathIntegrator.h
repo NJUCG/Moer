@@ -81,8 +81,7 @@ public:
     /// @return          Incident direction, scatter throughput f, pdf per solid angle.
     ///                  For surface, f is the product of BSDF value and cosine term.
     ///                  For medium, f is the value of phase function.
-    virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
-                                                  const Intersection &its,
+    virtual PathIntegratorLocalRecord evalScatter(const Intersection &its,
                                                   const Ray &ray,
                                                   const Vec3d &wi) = 0;
 
@@ -93,13 +92,10 @@ public:
     /// @return          Sampled incident direction, scatter throughput f, pdf per solid angle.
     ///                  For surface, f is the product of BSDF value and cosine term.
     ///                  For medium, f is the value of phase function.
-    virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
-                                                    const Intersection &its,
+    virtual PathIntegratorLocalRecord sampleScatter(const Intersection &its,
                                                     const Ray &ray) = 0;
 
     /// @brief Return probability of Russian roulette.
-    virtual double russianRoulette(std::shared_ptr<Scene> scene,
-                                   const Intersection &its,
-                                   const Spectrum &T,
+    virtual double russianRoulette(const Spectrum &T,
                                    int nBounce) = 0;
 };

@@ -8,7 +8,7 @@ NullMaterial::NullMaterial(const Json &json) {
 std::shared_ptr<BxDF>
 NullMaterial::getBxDF(const Intersection &intersect) const 
 {
-    return nullptr;
+    return bxdf;
 }
 
 std::shared_ptr<BSSRDF>
