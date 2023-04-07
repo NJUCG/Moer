@@ -10,11 +10,6 @@
 #include "FunctionLayer/Light/InfiniteSphereLight.h"
 #include "FunctionLayer/Light/InfiniteSphereCapLight.h"
 
-// FOR DEBUG
-#include "FunctionLayer/Material/NullMaterial.h"
-#include "FunctionLayer/Medium/Homogeneous.h"
-#include "FunctionLayer/Medium/IsotropicPhase.h"
-
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;
     //todo
