@@ -238,7 +238,7 @@ PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting(std::shared_pt
     Vec3d dirScatter = record.wi;
     Point3d posL = record.dst;
     Point3d posS = its.position;
-    auto transmittance=evalTransmittance(scene,its,record.dst);
+    auto transmittance = evalTransmittance(scene,its,record.dst);
     return {dirScatter, transmittance * record.s, pdfDirect, record.isDeltaPos};
 
 }
@@ -403,12 +403,12 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
                                                 Point3d pointOnLight) const
 {
     const double eps=1e-5;
-    Point3d target=pointOnLight;
-    Vec3d dir=normalize(target - its.position);
-    const double maxDistance = (target - its.position).length();
+    Point3d target=its.position;
+    Vec3d dir=normalize(target - pointOnLight);
+    const double maxDistance = (pointOnLight - target).length();
 
     Spectrum tr(1.0);
-    Ray ray{its.position + dir * eps,dir};
+    Ray ray{pointOnLight,dir};
     std::shared_ptr<Medium> medium=its.medium;
 
     Point3d lastScatteringPoint = pointOnLight;
@@ -428,7 +428,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
         auto testRayIts=testRayItsOpt.value();
 
         // corner case: point light source.
-        if((testRayIts.position-its.position).length() >= maxDistance - eps){
+        if((testRayIts.position-pointOnLight).length() >= maxDistance){
             if(medium != nullptr){
                 tr*= medium->evalTransmittance(target,lastScatteringPoint);
             }
@@ -491,46 +491,26 @@ VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene,
                                         const Ray &ray,
                                         std::shared_ptr<Medium> medium) const
 {
-    const double eps=1e-5;
-    Vec3d dir=ray.direction;
-
+    Ray marchingRay = ray;
+    std::shared_ptr<Medium> currentMedium = medium;
+    
+    auto its = scene->intersect(marchingRay);
     Spectrum tr(1.0);
-    Ray marchRay{ray.origin + dir * eps,dir};
-    std::shared_ptr<Medium> currentMedium=medium;
 
-    Point3d lastScatteringPoint = ray.origin;
-    auto testRayItsOpt=scene->intersect(marchRay);
+    while(its.has_value()) {
+        tr *= (currentMedium ? currentMedium->evalTransmittance(ray.origin, its->position) : 1);
 
-    // calculate the transmittance of last segment from lastScatteringPoint to testRayItsOpt.
-    while(true){
-
-        // corner case: infinite medium.
-        if(!testRayItsOpt.has_value()){
-            return {testRayItsOpt,tr};
+        auto itsVal=its.value();
+        if (itsVal.material->getBxDF(itsVal)->isNull()) {
+            //* Continue the ray when the surface is ignored
+            const double eps = 1e-4;
+            marchingRay = Ray {its->position + eps * marchingRay.direction, marchingRay.direction};
+            currentMedium = getTargetMedium(its.value(), marchingRay.direction);
+        } else {
+            //* Intersect on surface which can't be ignored
+            break;
         }
-
-        auto testRayIts=testRayItsOpt.value();
-
-        // corner case: non-null surface
-        if(testRayIts.material!=nullptr){
-            if(!testRayIts.material->getBxDF(testRayIts)->isNull()){
-                if (currentMedium != nullptr)
-                    tr *= currentMedium->evalTransmittance(testRayIts.position,lastScatteringPoint);
-                return {testRayItsOpt,tr};
-            }
-        }
-
-        // hit a null surface, calculate tr
-        if (currentMedium != nullptr)
-            tr *= currentMedium->evalTransmittance(testRayIts.position,lastScatteringPoint);
-
-        // update medium
-        currentMedium = getTargetMedium(testRayIts, dir);
-
-        // update ray and intersection point.
-        marchRay.origin=testRayIts.position + dir * eps;
-        lastScatteringPoint = testRayIts.position;
-        testRayItsOpt = scene -> intersect(marchRay);
+        its = scene->intersect(marchingRay);
     }
-    return {testRayItsOpt,tr};
+    return {its, tr};
 }

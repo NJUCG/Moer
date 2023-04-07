@@ -10,11 +10,6 @@
 #include "FunctionLayer/Light/InfiniteSphereLight.h"
 #include "FunctionLayer/Light/InfiniteSphereCapLight.h"
 
-// FOR DEBUG
-#include "FunctionLayer/Material/NullMaterial.h"
-#include "FunctionLayer/Medium/Homogeneous.h"
-#include "FunctionLayer/Medium/IsotropicPhase.h"
-
 static std::unordered_map<std::string,std::string> meshNameAndMaterialNameMap(const Json & json){
     std::unordered_map<std::string,std::string> result;
     //todo
@@ -29,20 +24,9 @@ namespace EntityFactory{
 
         const std::string type = json["type"];
         std::shared_ptr < Entity > entity ;
-        if(type=="quad") { entity =  std::make_shared<Quad>(json);}
+        if(type=="quad") entity =  std::make_shared<Quad>(json);
         if(type=="sphere") entity = std::make_shared<Sphere>(json);
-        if(type == "cube") {
-            entity = std::make_shared<Cube>(json);
-            entity->setMaterial(std::make_shared<NullMaterial>());
-            entity->getMaterial()->setInsideMedium(
-                std::make_shared<HomogeneousMedium>(
-                    Spectrum(RGB3(154.30258760580458,93.01455121241355,71.4724885083439))
-                    ,Spectrum(RGB3(0.8492618883639103,0.7284827728974482,0.39746262221169487))
-                    ,std::make_shared<IsotropicPhase>())
-                );
-            entities.push_back(entity);
-            return;
-            }
+        if(type == "cube") entity = std::make_shared<Cube>(json);
 
         if(type=="mesh") {
             auto meshDataPath = FileUtils::getWorkingDir()+std::string(json["file"]);
