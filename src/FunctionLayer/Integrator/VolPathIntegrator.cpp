@@ -111,15 +111,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-
-        //* No intersection. Add possible radiance from environment map.
-        if (!itsOpt.has_value()){
-            auto envMapRecord=evalEmittance(scene,itsOpt,ray);
-            L += throughput * envMapRecord.f;
-            break;
-        }
-        
-        auto its = itsOpt.value();
+                L += throughput * tr * evalLightRecord.f * misw;
+            }
 
             if (!itsOpt.has_value())
                 break;
@@ -191,13 +184,6 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             if (!itsOpt.has_value())
                 break;
 
-        // * Ignore null materials using dynamic_cast.
-        if(dynamic_cast<NullMaterial*>(its.material.get())!=nullptr){
-            nBounces--;
-            // ray should be immersed in possible medium.
-            ray = Ray{its.position + ray.direction * eps, ray.direction};
-            itsOpt=scene->intersect(ray);
-            continue;
         }
     }
 
