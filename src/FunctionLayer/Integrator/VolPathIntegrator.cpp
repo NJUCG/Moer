@@ -111,20 +111,9 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-
-        //* No intersection. Add possible radiance from environment map.
-        if (!itsOpt.has_value()){
-            auto envMapRecord=evalEmittance(scene,itsOpt,ray);
-            L += throughput * envMapRecord.f;
-            break;
+                L += throughput * tr * evalLightRecord.f * misw;
+            } 
         }
-        
-        auto its = itsOpt.value();
-
-            if (!itsOpt.has_value())
-                break;
-
-        } 
         else {
             // * Ray currently travel inside medium, but will flee from medium.
             if (medium) {
@@ -183,11 +172,9 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-
                 L += throughput * tr * evalLightRecord.f * misw;
             }
         }
-    }
 
     return L;
 }
