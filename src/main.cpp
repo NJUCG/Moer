@@ -5,7 +5,6 @@
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "FunctionLayer/Sampler/Independent.h"
 #include "FunctionLayer/Camera/CameraFactory.h"
-#include "FunctionLayer/Camera/Pinhole.h"
 
 
 struct RenderSettings{
@@ -31,7 +30,7 @@ struct TimeCounter{
 
 struct Render{
 public:
-   static void RenderScene(const std::string sceneWorkingDir){
+   static  void RenderScene(const std::string sceneWorkingDir){
        TimeCounter renderClock;
 
        FileUtils::setWorkingDir(sceneWorkingDir + "/");
@@ -46,14 +45,13 @@ public:
 
        const Json & settingsJson = sceneJson["renderer"];
        settings = new RenderSettings(settingsJson);
-        //    auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
-       auto camera = std::make_shared<PinholeCamera>(Point3d(0,1,5),Point3d(0,1,0),Vec3d(0,1,0),30,1.0,1.0);
-       Point2i resolution = getOptional(sceneJson["camera"],"resolution",Point2i(256,256));
+       auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
+       Point2i resolution = getOptional(sceneJson["camera"],"resolution",Point2i(512,512));
        PathIntegratorNew integrator(camera, std::make_unique<Film>(resolution, 3),
-                                    std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), 4, 16);
+                                    std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), settings->spp, 12);
        std::cout << "start rendering" << std::endl;
        integrator.render(scene);
-       integrator.save("J:/Moer/scenes/cornell-box/output");
+       integrator.save(settings->outputPath);
        std::cout << "finish" << std::endl;
        renderClock.Done();
    }
@@ -63,7 +61,9 @@ public:
 RenderSettings *  Render::settings = nullptr;
 
 int main(int argc, const char *argv[]){
-    std::cout<<"Moer begin\n";
     Spectrum::init();
-    Render::RenderScene("J:/Moer/scenes/cornell-box");
+    std::vector<std::string> filenames;
+    for (int i = 1; i < argc; ++i) {
+        Render::RenderScene(argv[i]);
+    }
 }
