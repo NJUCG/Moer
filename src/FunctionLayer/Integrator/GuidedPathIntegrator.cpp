@@ -19,6 +19,14 @@ GuidedPathIntegrator::GuidedPathIntegrator(std::shared_ptr<Camera> _camera,
     pgTree = std::make_shared<AdaptiveKDTree>();
 
     numFlashedSamples = 0;
+
+#ifdef _WIN32
+    Concurrency::SchedulerPolicy schedulerPolicy;
+    schedulerPolicy.SetConcurrencyLimits(1, _renderThreadNum);
+    Concurrency::Scheduler::SetDefaultSchedulerPolicy(schedulerPolicy);
+#else
+    omp_set_num_threads(_renderThreadNum);
+#endif
 }
 
 void GuidedPathIntegrator::render(std::shared_ptr<Scene> scene) {
@@ -154,7 +162,7 @@ Spectrum GuidedPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> 
         auto its = itsOpt.value();
 
         nBounces++;
-        double pSurvive = russianRoulette(scene, its, throughput, nBounces);
+        double pSurvive = russianRoulette(throughput, nBounces);
         if (randFloat() > pSurvive)
             break;
         throughput /= pSurvive;
@@ -167,7 +175,7 @@ Spectrum GuidedPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> 
         //* ----- Direct Illumination -----
         for (int i = 0; i < nDirectLightSamples; ++i) {
             PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
-            PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, its, ray, sampleLightRecord.wi);
+            PathIntegratorLocalRecord evalScatterRecord = evalScatter(its, ray, sampleLightRecord.wi);
 
             if (!sampleLightRecord.f.isBlack()) {
                 //* Multiple importance sampling
@@ -186,7 +194,7 @@ Spectrum GuidedPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> 
         }
 
         //*----- BSDF Sampling -----
-        PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, its, ray);
+        PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(its, ray);
         if (!sampleScatterRecord.f.isBlack()) {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
         } else {
@@ -263,9 +271,7 @@ Spectrum GuidedPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> 
     return L;
 }
 
-PathIntegratorLocalRecord GuidedPathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
-                                                              const Intersection &its,
-                                                              const Ray &ray)
+PathIntegratorLocalRecord GuidedPathIntegrator::sampleScatter(const Intersection &its, const Ray &ray)
 {
     thread_local GuidedBxDF guidedBxDF;
 
@@ -291,8 +297,7 @@ PathIntegratorLocalRecord GuidedPathIntegrator::sampleScatter(std::shared_ptr<Sc
     return {dirScatter, bsdfSample.s * wiDotN, bsdfSample.pdf, isDelta};
 }
 
-PathIntegratorLocalRecord GuidedPathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
-                                                            const Intersection &its,
+PathIntegratorLocalRecord GuidedPathIntegrator::evalScatter(const Intersection &its,
                                                             const Ray &ray,
                                                             const Vec3d &dirScatter)
 {
@@ -318,9 +323,7 @@ PathIntegratorLocalRecord GuidedPathIntegrator::evalScatter(std::shared_ptr<Scen
     return {dirScatter, value, pdf, false};
 }
 
-double GuidedPathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
-                                             const Intersection &its,
-                                             const Spectrum &T,
+double GuidedPathIntegrator::russianRoulette(const Spectrum &T,
                                              int nBounce)
 {
     return nBounce > nPathLengthLimit ? 0 : 1;
