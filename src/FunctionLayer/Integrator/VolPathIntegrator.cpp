@@ -175,6 +175,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 L += throughput * tr * evalLightRecord.f * misw;
             }
         }
+    }
 
     return L;
 }
