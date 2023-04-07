@@ -45,6 +45,9 @@ class BxDF
 
 public:
 
+    /// @brief Whethter the ray could go straight through this surface without any changes in radiance or direction.
+    /// @return True if the surface is null surface and false otherwise.
+    virtual bool isNull() const {return false;}
     static bool MatchFlags(BXDFType typeToMatch,BXDFType type ){
         return (typeToMatch & type) == type;
     }
@@ -84,6 +87,24 @@ protected:
     virtual double eta(const Vec3d &out,const Vec3d & in) const {return 1;}
     BXDFType type;
 
+};
+
+/// @brief A special bxdf indicating that light can pass through directly.
+class NullBxDF: public BxDF
+{
+public:
+
+    virtual bool isNull() const override {return true;}
+
+    virtual double pdf(const Vec3d &out, const Vec3d &in) const override {return 0.0; /*This should never be called*/}
+
+protected:
+
+    virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const override {return BxDFSampleResult{}; /*This should never be called*/}
+
+    virtual Spectrum f(const Vec3d &out, const Vec3d &in) const override {return Spectrum(0.0);/*This should never be called*/}
+    
+    
 };
 
 // BSDF Inline Functions
