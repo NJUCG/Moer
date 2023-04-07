@@ -20,6 +20,8 @@
 //* Add t in intersection, by zcx 8-22
 struct Intersection
 {
+	/// @brief t indicatees that current position = last ray's origin + t * last ray's direction. 
+	///		   This domain is helpful for medium scattering.
 	double t;
 
 	Point3d position;
@@ -37,7 +39,11 @@ struct Intersection
 	// std::shared_ptr<Entity> object;
 	const Entity *object;
 
+	/// @brief Material of intersection point. If material!=nullptr, the intersection event is a surface scattering event.
 	std::shared_ptr<Material> material;
+
+	/// @brief Medium of scattering point. If medium!=nullptr, the intersection event is a medium scattering event.
+	std::shared_ptr<Medium> medium;
 
 	Vec3d toLocal(const Vec3d &d) const
 	{

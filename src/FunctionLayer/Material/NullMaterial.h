@@ -21,4 +21,7 @@ public:
 	virtual std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const override;
 	virtual std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const override;
 
+private:
+    std::shared_ptr<NullBxDF> bxdf = std::make_shared<NullBxDF>();
+
 };

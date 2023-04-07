@@ -12,9 +12,9 @@ namespace  MediumFactory{
             return std::make_shared <BeerslawMedium>(intensity,std::make_shared <IsotropicPhase>());
         }
         else if (medium_type == "homogeneous"){
-            double intensity = getOptional(json,"intensity",1.0);
-            double albedo = getOptional(json,"albedo",1.0);
-            return std::make_shared <HomogeneousMedium>(intensity,albedo,std::make_shared <IsotropicPhase>());
+            RGB3 sigmaT = getOptional(json,"sigmaT",RGB3(0.1));
+            RGB3 albedo = getOptional(json,"albedo",RGB3(0.8));
+            return std::make_shared <HomogeneousMedium>(sigmaT,albedo,std::make_shared <IsotropicPhase>());
         }
         return nullptr;
     }
