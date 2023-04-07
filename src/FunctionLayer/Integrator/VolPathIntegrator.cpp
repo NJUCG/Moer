@@ -429,7 +429,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
             if(!testRayIts.material->getBxDF(testRayIts)->isNull())
                 return 0.0;
         }
-
+        
         // hit a null surface, calculate tr
         if (medium != nullptr)
             tr *= medium->evalTransmittance(testRayIts.position,lastScatteringPoint);
@@ -443,6 +443,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
         testRayItsOpt = scene -> intersect(ray);
     }
     
+
 }
 
 /// @brief fulfill a specially-made Intersection representing medium scattering point.
@@ -468,7 +469,6 @@ Intersection VolPathIntegrator::fulfillScatteringPoint(const Point3d& position,
 
     return scatteringPoint;
 }
-
 
 /// @brief Intersect in scene but ignore bsdf with isNull()==true.
 /// @param scene Scene description where multiple intersect operation will be performed.

@@ -42,35 +42,11 @@ public:
     /// @brief Estimate radiance along a given ray
     Spectrum Li(const Ray &initialRay, std::shared_ptr<Scene> scene) override;
 
-    /// @brief Return scatter value of BSDF or phase function.
-    /// @param scene     Ptr to scene.
-    /// @param its       Reference point.
-    /// @param ray       Ray, used to specify wo (out direction).
-    /// @param wi        Incident direction wi.
-    /// @return          Incident direction, scatter throughput f, pdf per solid angle.
-    ///                  For surface, f is the product of BSDF value and cosine term.
-    ///                  For medium, f is the value of phase function.
-    PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
-                                          const Intersection &its,
-                                          const Ray &ray,
-                                          const Vec3d &wi) override;
+    PathIntegratorLocalRecord evalScatter(const Intersection &its, const Ray &ray, const Vec3d &wi) override;
 
-    /// @brief Sample incident direction by scatter value of BSDF or phase function.
-    /// @param scene     Ptr to scene.
-    /// @param its       Reference point.
-    /// @param ray       Ray, used to specify wo (out direction).
-    /// @return          Sampled incident direction, scatter throughput f, pdf per solid angle.
-    ///                  For surface, f is the product of BSDF value and cosine term.
-    ///                  For medium, f is the value of phase function.
-    PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
-                                            const Intersection &its,
-                                            const Ray &ray) override;
+    PathIntegratorLocalRecord sampleScatter(const Intersection &its, const Ray &ray) override;
 
-    /// @brief Return survive probability of Russian roulette.
-    double russianRoulette(std::shared_ptr<Scene> scene,
-                           const Intersection &its,
-                           const Spectrum &T,
-                           int nBounce) override;
+    double russianRoulette(const Spectrum &T, int nBounce) override;
 
 protected:
 
