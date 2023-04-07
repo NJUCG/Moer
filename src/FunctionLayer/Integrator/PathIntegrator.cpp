@@ -129,7 +129,7 @@ double PathIntegrator::russianRoulette(const Spectrum &throughput,
     double pSurvive = pRussianRoulette;
     if (nBounce > nPathLengthLimit)
         pSurvive = 0.0;
-    if (nBounce <= 2)
+    if (nBounce <= 20)
         pSurvive = 1.0;
     return pSurvive;
 }

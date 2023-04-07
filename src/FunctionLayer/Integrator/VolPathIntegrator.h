@@ -63,21 +63,21 @@ public:
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
                                                     const Ray &ray);
 
-    std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &its,
+    std::shared_ptr<Medium> getTargetMedium(const Intersection &its,
                                                            Vec3d wi) const;
     std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &its,
                                                            Vec3d wi) const;
 
-    Spectrum VolPathIntegrator::evalTransmittance(std::shared_ptr<Scene> scene,
+    Spectrum evalTransmittance(std::shared_ptr<Scene> scene,
                                                 const Intersection& its,
                                                 Point3d pointOnLight) const;
 
-    Intersection VolPathIntegrator::fulfillScatteringPoint(const Point3d& position,
+    Intersection fulfillScatteringPoint(const Point3d& position,
                                                             const Normal3d& normal,
                                                             std::shared_ptr<Medium> medium);
 
     std::pair<std::optional<Intersection>, Spectrum> 
-    VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
+    intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
                                                 const Ray &ray,
                                                 std::shared_ptr<Medium> medium) const;
 

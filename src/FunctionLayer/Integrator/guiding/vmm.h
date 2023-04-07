@@ -50,8 +50,9 @@ public:
     [[nodiscard]]
     inline Vec3d sample(const Vec2d & rn) const {
         // sample in the local coordinate
-        double sinPhi, cosPhi;
-        sincos(2. * M_PIf * rn.y, &sinPhi, &cosPhi);
+        double phi = 2. * M_PI * rn.y;
+        double sinPhi = std::sin(phi);
+        double cosPhi = std::cos(phi);
 
         double value = rn.x + (1. - rn.x) * eMin2Kappa;
         double cosTheta = clamp(1. + std::log(value) / kappa, -1., 1.);
@@ -138,8 +139,9 @@ public:
             // initialize mu with spherical Fibonacci point set,
             // which is uniformly distributed on the unit sphere.
             // see Marques et al. "Spherical Fibonacci Point Sets for Illumination Integrals" for more details
-            double sinPhi, cosPhi;
-            sincos(2. * k * M_PI * 0.6180339887498949, &sinPhi, &cosPhi);
+            double phi = 2. * k * M_PI * 0.6180339887498949;
+            double sinPhi = std::sin(phi);
+            double cosPhi = std::cos(phi);
             double cosTheta = 1 - (double) (2 * k + 1) / NComponents;
             double sinTheta = std::sqrt(1. - cosTheta * cosTheta);
             Vec3d mu(sinTheta * cosPhi, sinTheta * sinPhi, cosTheta);

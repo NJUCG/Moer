@@ -266,7 +266,7 @@
                 ]
             },
             "type": "cube",
-            "material": "backWall"
+            "material": "shortBox"
         },
         {
             "name": "tallBox",
@@ -288,7 +288,26 @@
                 ]
             },
             "type": "cube",
-            "material": "backWall"
+            "material": "tallBox"
         }
-    ]
+    ],
+    "camera" : {
+        "resolution" : [512, 512],
+        "transform" : {
+          "position" : [0, 1, 4],
+          "up" : [0, 1, 0],
+          "look_at" : [0, 1, 0]
+        },
+        "type" : "pinhole",
+        "fov" : 39
+      },
+    
+    "integrator" : {
+    "type" : "path_tracer"
+    },
+
+    "renderer" : {
+    "output_file" : "cornell",
+    "spp" : 64
+    }
 }

@@ -6,69 +6,62 @@
 #include "FunctionLayer/Sampler/Independent.h"
 #include "FunctionLayer/Camera/CameraFactory.h"
 
-
-struct RenderSettings{
+struct RenderSettings {
     int spp;
     std::string outputPath;
-    RenderSettings(const Json & json){
-        spp= getOptional(json,"spp",32);
-        outputPath = getOptional(json,"output_file",std::string("image"));
+    RenderSettings(const Json &json) {
+        spp = getOptional(json, "spp", 32);
+        outputPath = getOptional(json, "output_file", std::string("image"));
     }
 };
 
-struct TimeCounter{
-    std::chrono::high_resolution_clock::time_point start,end;
-    TimeCounter(){
-        start =  std::chrono::high_resolution_clock::now();
+struct TimeCounter {
+    std::chrono::high_resolution_clock::time_point start, end;
+    TimeCounter() {
+        start = std::chrono::high_resolution_clock::now();
     }
-    void Done(){
-        std::chrono::time_point end =  std::chrono::high_resolution_clock::now();
-        auto sToken =std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
-        std::cout<<"rendering done take\n"<<sToken<<"s";
+    void Done() {
+        std::chrono::time_point end = std::chrono::high_resolution_clock::now();
+        auto sToken = std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
+        std::cout << "rendering done take\n"
+                  << sToken << "s";
     }
 };
 
-struct Render{
+struct Render {
 public:
-   static  void RenderScene(const std::string sceneWorkingDir){
-       TimeCounter renderClock;
+    static void RenderScene(const std::string sceneWorkingDir) {
+        TimeCounter renderClock;
 
-       FileUtils::setWorkingDir(sceneWorkingDir + "/");
-       Json sceneJson;
-       std::ifstream sceneFile(FileUtils::getWorkingDir()+std::string("scene.json"));
-       sceneFile>>sceneJson;
-       std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
-       std::cout << "scene created" << std::endl;
-       std::cout << "building accelerator" << std::endl;
-       scene->build();
-       std::cout << "scene prepared" << std::endl;
-       //todo : config camera integrator,film,tile Generator,sampler by Json
-       /// @note Do we need reflection in order to configure them in GUI?
-       int res_w = 600, res_h = 600;
-       Point3d lookFrom(0, 1, 4.5),
-               lookAt(0, 1, 0);
-       Vec3d up(0, 1, 0);
-       auto pinhole = std::make_shared<PinholeCamera>(
-               lookFrom, lookAt, up, 35, (float(res_w)/float(res_h)), 3.17f);
+        FileUtils::setWorkingDir(sceneWorkingDir + "/");
+        Json sceneJson;
+        std::ifstream sceneFile(FileUtils::getWorkingDir() + std::string("scene.json"));
+        sceneFile >> sceneJson;
+        std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
+        std::cout << "scene created" << std::endl;
+        std::cout << "building accelerator" << std::endl;
+        scene->build();
+        std::cout << "scene prepared" << std::endl;
 
-       const Json & settingsJson = sceneJson["renderer"];
-       settings = new RenderSettings(settingsJson);
-       auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
-       Point2i resolution = getOptional(sceneJson["camera"],"resolution",Point2i(512,512));
-       PathIntegratorNew integrator(camera, std::make_unique<Film>(resolution, 3),
-                                    std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), settings->spp, 12);
-       std::cout << "start rendering" << std::endl;
-       integrator.render(scene);
-       integrator.save(settings->outputPath);
-       std::cout << "finish" << std::endl;
-       renderClock.Done();
-   }
-    static RenderSettings *  settings;
+        const Json &settingsJson = sceneJson["renderer"];
+        settings = new RenderSettings(settingsJson);
+        auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
+        Point2i resolution = getOptional(sceneJson["camera"], "resolution", Point2i(512, 512));
+        PathIntegratorNew integrator(camera, std::make_unique<Film>(resolution, 3),
+                                     std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), settings->spp, 12);
+
+        std::cout << "start rendering" << std::endl;
+        integrator.render(scene);
+        integrator.save(settings->outputPath);
+        std::cout << "finish" << std::endl;
+        renderClock.Done();
+    }
+    static RenderSettings *settings;
 };
 
-RenderSettings *  Render::settings = nullptr;
+RenderSettings *Render::settings = nullptr;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[]) {
     Spectrum::init();
     std::vector<std::string> filenames;
     for (int i = 1; i < argc; ++i) {
