@@ -111,15 +111,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-
-        //* No intersection. Add possible radiance from environment map.
-        if (!itsOpt.has_value()){
-            auto envMapRecord=evalEmittance(scene,itsOpt,ray);
-            L += throughput * envMapRecord.f;
-            break;
-        }
-        
-        auto its = itsOpt.value();
+                L += throughput * tr * evalLightRecord.f * misw;
+            }
 
             if (!itsOpt.has_value())
                 break;
@@ -453,7 +446,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
             if(!testRayIts.material->getBxDF(testRayIts)->isNull())
                 return 0.0;
         }
-
+        
         // hit a null surface, calculate tr
         if (medium != nullptr)
             tr *= medium->evalTransmittance(testRayIts.position,lastScatteringPoint);
@@ -467,6 +460,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
         testRayItsOpt = scene -> intersect(ray);
     }
     
+
 }
 
 /// @brief fulfill a specially-made Intersection representing medium scattering point.
@@ -492,7 +486,6 @@ Intersection VolPathIntegrator::fulfillScatteringPoint(const Point3d& position,
 
     return scatteringPoint;
 }
-
 
 /// @brief Intersect in scene but ignore bsdf with isNull()==true.
 /// @param scene Scene description where multiple intersect operation will be performed.
