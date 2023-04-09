@@ -1,12 +1,13 @@
 #include "InfiniteSphereCapLight.h"
+#include "FastMath.h"
 
 static inline Vec3d uniformSphericalCap(const Point2d & xi, double cosThetaMax) {
     double phi = xi.x * 2 * M_PI;
     double z = xi.y * ( 1.0f - cosThetaMax ) + cosThetaMax;
-    double r = std::sqrt(std::max(1.0 - z * z, 0.0));
+    double r = fm::sqrt(std::max(1.0 - z * z, 0.0));
     return Vec3d(
-            std::cos(phi) * r,
-            std::sin(phi) * r,
+            fm::cos(phi) * r,
+            fm::sin(phi) * r,
             z
     );
 }

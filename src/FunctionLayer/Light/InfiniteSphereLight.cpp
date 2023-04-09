@@ -1,23 +1,24 @@
 #include "InfiniteSphereLight.h"
 #include "ResourceLayer/File/FileUtils.h"
+#include "FastMath.h"
 
 Vec3d UvToDirection(const Point2d & uv, double & sinTheta) {
     double phi = ( uv.x - 0.5 ) * 2 * M_PI;
     double theta = uv.y * M_PI;
-    sinTheta = std::sin(theta);
+    sinTheta = fm::sin(theta);
     return Vec3d(
-            std::cos(phi) * sinTheta,
-            -std::cos(theta),
-            std::sin(phi) * sinTheta);
+            fm::cos(phi) * sinTheta,
+            -fm::cos(theta),
+            fm::sin(phi) * sinTheta);
 }
 
 Point2d DirectionToUv(const Vec3d & direction) {
-    return Point2d(std::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, std::acos(- direction.y) * INV_PI);
+    return Point2d(fm::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, fm::acos(- direction.y) * INV_PI);
 }
 
 Point2d DirectionToUv(const Vec3d & direction, double & sinTheta) {
     sinTheta = sqrt(1 - direction.y * direction.y);
-    return Point2d(std::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, std::acos(- direction.y) * INV_PI);
+    return Point2d(fm::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, fm::acos(- direction.y) * INV_PI);
 }
 
 

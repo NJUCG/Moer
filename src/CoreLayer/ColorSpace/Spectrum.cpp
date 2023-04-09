@@ -33,7 +33,7 @@ double averageSpectrumSamples(const std::vector<SpectrumSample>& samples, double
 
     auto interp = [samples](double w, int i) {
         // Linear interpolation
-        return lerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
+        return lerp(samples[i].value, samples[i + 1].value,(w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda));
     };
     int i = 0;
     while (lambdaBegin > samples[i + 1].lambda) i++;

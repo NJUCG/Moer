@@ -14,6 +14,7 @@
 #include <vector>
 #include <cfloat>
 #include "CoreLayer/Math/Common.h"
+#include "FastMath.h"
 
 class RGB3;
 class XYZ3;
@@ -33,7 +34,11 @@ static const double sampledLambdaEnd = 700.0;
 
 // The number of uniform samples for SampledSpectrum.
 #define SPECTRUM_SAMPLES CMAKE_DEF_SPECTRUM_SAMPLES
+#ifdef USING_SAMPLED_SPECTRUM
 static const int nSpectrumSamples = SPECTRUM_SAMPLES;
+#else
+static const int nSpectrumSamples = 3;
+#endif
 
 /// \brief types of spectrum. different strategies will be applied.
 enum class SpectrumType { REFLECTANCE, ILLUMINANT };
@@ -275,28 +280,32 @@ public:
 		return s * v;
 	}
 
+<<<<<<< HEAD
 	/// @brief Call std::sqrt() on each component
+=======
+	/// @brief Call fm::sqrt() on each component 
+>>>>>>> 97d5ce3560343ad7af14e9dd5f96737ea17bb82a
 	/// @attention Does not check whether the value on each component is greater than zero
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::sqrt(s[i]);
+			ret[i] = fm::sqrt(s[i]);
 		return ret;
 	}
 
-	/// @brief Call std::pow() on each component
+	/// @brief Call fm::pow() on each component
 	friend CoefficientSpectrum pow(const CoefficientSpectrum&s, double e) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::pow(s[i], e);
+			ret[i] = fm::pow(s[i], e);
 		return ret;
 	}
 
-	/// @brief Call std::exp() on each component
+	/// @brief Call fm::exp() on each component
 	friend CoefficientSpectrum exp(const CoefficientSpectrum&s) {
 		CoefficientSpectrum ret;
 		for (int i = 0; i < nSamples; i++)
-			ret[i] = std::exp(s[i]);
+			ret[i] = fm::exp(s[i]);
 		return ret;
 	}
 

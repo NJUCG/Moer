@@ -12,6 +12,7 @@
 
 #include "Color.h"
 #include "Eigen/Dense"
+#include "FastMath.h"
 
 RGB3::RGB3() 
 {
@@ -69,7 +70,7 @@ RGB3 RGB3::operator/(const RGB3& rgb) const
 
 RGB3  RGB3::pow(double v) const
 {
-    return RGB3(std::pow(rgbData[0],v),std::pow(rgbData[1],v),std::pow(rgbData[2],v));
+    return RGB3(fm::pow(rgbData[0],v),fm::pow(rgbData[1],v),fm::pow(rgbData[2],v));
 }
 
 

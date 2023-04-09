@@ -3,6 +3,7 @@
 #include "BxDF/Fresnel.h"
 #include  "FunctionLayer/Texture/TextureFactory.h"
 #include "FunctionLayer/Distribution/Distribution.h"
+#include "FastMath.h"
 
 #include <variant>
 
@@ -286,7 +287,7 @@ double pdfDisneyBXDFOP::operator ()(const DisneyGlass & disneyBXDF) {
 
         double sqrtDenom = dot(out, wh) * eta +  dot(in, wh);
         double dWhDWi =
-                std::abs( dot(in, wh)) / (sqrtDenom * sqrtDenom);
+                fm::abs( dot(in, wh)) / (sqrtDenom * sqrtDenom);
         pdf = disneyBXDF.distrib.Pdf(out,wh,alpha) * (1-F) * dWhDWi;
     }
     return pdf;

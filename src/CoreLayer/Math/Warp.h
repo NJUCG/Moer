@@ -12,11 +12,12 @@
 
 #include "Common.h"
 #include "CoreLayer/Geometry/Geometry.h"
+#include "FastMath.h"
 
 static  double TentInverse(double x){
     if(x<=.5f)
-        return std::sqrt(2*x)-1;
-    return  1- std::sqrt(2-2*x);
+        return fm::sqrt(2*x)-1;
+    return  1- fm::sqrt(2-2*x);
 }
 inline   Point2d SquareToTent(const Point2d &sample) {
     Point2d  res(TentInverse(sample[0]), TentInverse(sample[1]));
@@ -24,14 +25,14 @@ inline   Point2d SquareToTent(const Point2d &sample) {
 }
 
 inline double SquareToTentPdf(const Point2d &p) {
-    return (1.0-std::abs(p[0])) * (1.0-std::abs(p[1]));
+    return (1.0-fm::abs(p[0])) * (1.0-fm::abs(p[1]));
 }
 
 inline Vec3d SquareToUniformSphere(const Point2d &sample) {
     float z = 1 - 2 * sample[0];
-    float r = std::sqrt(std::max((float )0, (float)1 - z * z));
+    float r = fm::sqrt(std::max((float )0, (float)1 - z * z));
     float phi = 2 * M_PI * sample[1];
-    return {r * std::cos(phi), r * std::sin(phi), z};
+    return {r * fm::cos(phi), r * fm::sin(phi), z};
 }
 
 inline  float SquareToUniformSpherePdf(const Vec3d &v) {
@@ -40,9 +41,9 @@ inline  float SquareToUniformSpherePdf(const Vec3d &v) {
 
 inline  Vec3d SquareToUniformHemisphere(const Point2d &sample) {
     float z = 1 - 2 * sample[0];
-    float r = std::sqrt(std::max((float )0, (float)1 - z * z));
+    float r = fm::sqrt(std::max((float )0, (float)1 - z * z));
     float phi = 2 * M_PI * sample[1];
-    return {r * std::cos(phi), r * std::sin(phi), std::abs(z)};
+    return {r * fm::cos(phi), r * fm::sin(phi), fm::abs(z)};
 }
 
 inline float SquareToUniformHemispherePdf(const Vec3d &v) {

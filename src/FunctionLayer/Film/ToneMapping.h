@@ -12,6 +12,7 @@
 
 #include "CoreLayer/ColorSpace/Color.h"
 #include "CoreLayer/Geometry/Matrix.h"
+#include "FastMath.h"
 
 static inline  RGB3 filmicACES(const RGB3 &in)
 {
@@ -78,7 +79,7 @@ public:
                     if (c[i] < 0.0031308)
                         result[i] = 12.92*c[i];
                     else
-                        result[i] = 1.055*std::pow(c[i], 1.0f/2.4) - 0.055;
+                        result[i] = 1.055*fm::pow(c[i], 1.0f/2.4) - 0.055;
                 }
                 return result;
             } case Aces:{

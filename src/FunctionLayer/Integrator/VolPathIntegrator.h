@@ -44,64 +44,40 @@ public:
                                                            const Intersection &its,
                                                            const Ray &ray) override;
 
-    virtual PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
-                                                  const Intersection &its,
+    virtual PathIntegratorLocalRecord evalScatter(const Intersection &its,
                                                   const Ray &ray,
                                                   const Vec3d &wi) override;
 
-    virtual PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
-                                                    const Intersection &its,
+    virtual PathIntegratorLocalRecord sampleScatter(const Intersection &its,
                                                     const Ray &ray) override;
 
-    virtual double russianRoulette(std::shared_ptr<Scene> scene,
-                                   const Intersection &its,
-                                   const Spectrum &T,
+    virtual double russianRoulette(const Spectrum &T,
                                    int nBounce) override;
 
     virtual std::pair<std::shared_ptr<Light>, double> chooseOneLight(std::shared_ptr<Scene> scene,
-                                                                     const Intersection &its,
-                                                                     const Ray &ray,
                                                                      double lightSample);   
 
     virtual double chooseOneLightPdf(std::shared_ptr<Scene> scene,
-                                     const Intersection &its,
-                                     const Ray &ray,
                                      std::shared_ptr<Light> light);
 
     virtual PathIntegratorLocalRecord evalEnvLights(std::shared_ptr<Scene> scene,
                                                     const Ray &ray);
 
-    std::shared_ptr<Medium> getTargetMedium(const Ray &ray,
-                                            const Intersection &its,
-                                            Vec3d wi) const;                                                                                                     
+    std::shared_ptr<Medium> getTargetMedium(const Intersection &its,
+                                                           Vec3d wi) const;
+
+    Spectrum evalTransmittance(std::shared_ptr<Scene> scene,
+                                                const Intersection& its,
+                                                Point3d pointOnLight) const;
+
+    Intersection fulfillScatteringPoint(const Point3d& position,
+                                                            const Normal3d& normal,
+                                                            std::shared_ptr<Medium> medium);
 
     std::pair<std::optional<Intersection>, Spectrum> 
-    intersectIgnoreSurface(std::shared_ptr<Scene> scene,
-                           const Ray &ray,
-                           std::shared_ptr<Medium> medium) const;
-
-    //TODO this should consider the tr
-    PathIntegratorLocalRecord sampleDirectLighting(std::shared_ptr<Scene> scene,
-                                                   const MediumSampleRecord &mRec,
-                                                   const Ray &ray,
-                                                   std::shared_ptr<Medium> medium) const;
-
-    PathIntegratorLocalRecord evalScatter(std::shared_ptr<Scene> scene,
-                                          const MediumSampleRecord &mRec,
-                                          const Ray &ray,
-                                          const Vec3d &wi,
-                                          std::shared_ptr<Medium> medium) const;
-
-    PathIntegratorLocalRecord sampleScatter(std::shared_ptr<Scene> scene,
-                                            const MediumSampleRecord &mRec,
-                                            const Ray &ray,
-                                            std::shared_ptr<Medium> medium) const;  
-
-    std::pair<std::shared_ptr<Light>, double>
-    chooseOneLight(std::shared_ptr<Scene> scene,
-                   const MediumSampleRecord &mRec,
-                   const Ray &ray,
-                   double lightSample) const ;
+    intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
+                                                const Ray &ray,
+                                                std::shared_ptr<Medium> medium) const;
 
 
 protected:

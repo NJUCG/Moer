@@ -11,6 +11,7 @@
  */
 
 #include "PathIntegrator.h"
+#include "FastMath.h"
 
 PathIntegrator::PathIntegrator(
         std::shared_ptr<Camera> _camera, 
@@ -46,7 +47,7 @@ PathIntegratorLocalRecord PathIntegrator::evalEmittance(std::shared_ptr<Scene> s
         LEmission = record.s;
         Intersection tmpIts;
         tmpIts.position = ray.origin;
-        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, tmpIts, ray, light);
+        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, light);
     }
     Spectrum transmittance(1.0); // todo: transmittance eval
     return {ray.direction, transmittance * LEmission, pdfDirect, false}; 
@@ -56,7 +57,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
                                                                const Intersection &its,
                                                                const Ray &ray)
 {
-    auto [light, pdfChooseLight] = chooseOneLight(scene, its, ray, sampler->sample1D());
+    auto [light, pdfChooseLight] = chooseOneLight(scene, sampler->sample1D());
     auto record = light->sampleDirect(its, sampler->sample2D(), ray.timeMin);
     double pdfDirect = record.pdfDirect * pdfChooseLight; // pdfScatter with respect to solid angle
     Vec3d dirScatter = record.wi;
@@ -76,8 +77,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleDirectLighting(std::shared_ptr<S
     return {dirScatter, Li * transmittance, pdfDirect, record.isDeltaPos};
 }
 
-PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> scene,
-                                                      const Intersection &its,
+PathIntegratorLocalRecord PathIntegrator::evalScatter(const Intersection &its,
                                                       const Ray &ray,
                                                       const Vec3d &dirScatter)
 {
@@ -85,7 +85,7 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
     {
         std::shared_ptr<BxDF> bxdf = its.material->getBxDF(its);
         Normal3d n = its.geometryNormal;
-        double wiDotN = std::abs(dot(n, dirScatter));
+        double wiDotN = fm::abs(dot(n, dirScatter));
         Vec3d wi = its.toLocal(dirScatter);
         Vec3d wo = its.toLocal(-ray.direction);
         return {
@@ -101,8 +101,7 @@ PathIntegratorLocalRecord PathIntegrator::evalScatter(std::shared_ptr<Scene> sce
     }
 }
 
-PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> scene,
-                                                        const Intersection &its,
+PathIntegratorLocalRecord PathIntegrator::sampleScatter(const Intersection &its,
                                                         const Ray &ray)
 {
     if (its.material != nullptr)
@@ -113,7 +112,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
         BxDFSampleResult bsdfSample = bxdf->sample(wo, sampler->sample2D(),false);
         double pdf = bsdfSample.pdf;
         Vec3d dirScatter = its.toWorld(bsdfSample.directionIn);
-        double wiDotN = std::abs(dot(dirScatter, n));
+        double wiDotN = fm::abs(dot(dirScatter, n));
         return {dirScatter, bsdfSample.s * wiDotN, pdf, BxDF::MatchFlags(bsdfSample.bxdfSampleType,BXDF_SPECULAR)};
     }
     else
@@ -123,9 +122,7 @@ PathIntegratorLocalRecord PathIntegrator::sampleScatter(std::shared_ptr<Scene> s
     }
 }
 
-double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
-                                       const Intersection &its,
-                                       const Spectrum &throughput,
+double PathIntegrator::russianRoulette(const Spectrum &throughput,
                                        int nBounce)
 {
     // double pSurvive = std::min(pRussianRoulette, throughput.sum());
@@ -138,8 +135,6 @@ double PathIntegrator::russianRoulette(std::shared_ptr<Scene> scene,
 }
 
 std::pair<std::shared_ptr<Light>, double> PathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
-                                                                         const Intersection &its,
-                                                                         const Ray &ray,
                                                                          double lightSample)
 {
     // uniformly weighted
@@ -151,8 +146,6 @@ std::pair<std::shared_ptr<Light>, double> PathIntegrator::chooseOneLight(std::sh
 }
 
 double PathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
-                                         const Intersection &its,
-                                         const Ray &ray,
                                          std::shared_ptr<Light> light)
 {
     std::shared_ptr<std::vector<std::shared_ptr<Light>>> lights = scene->getLights();

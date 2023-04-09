@@ -8,9 +8,11 @@ file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS  "CoreLayer/*.cpp" "FunctionLaye
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${ALL_INCLUDE} ${ALL_SOURCES})
 
 add_executable(${TARGET_NAME} ${ALL_INCLUDE} ${ALL_SOURCES} main.cpp FunctionLayer/Material/BumpMapMateiral.cpp)
-add_executable(bsdfTest ${ALL_INCLUDE} ${ALL_SOURCES}  brdfTest.cpp FunctionLayer/Material/NormalMap.cpp FunctionLayer/Material/NormalMap.h FunctionLayer/Material/BxDF/BumpMap.cpp FunctionLayer/Material/BxDF/BumpMap.h FunctionLayer/Material/BumpMapMaterial.h)
+add_executable(bsdfTest ${ALL_INCLUDE} ${ALL_SOURCES}  brdfTest.cpp)
 target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(bsdfTest PUBLIC ${PROJECT_SOURCE_DIR}/src)
+target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/ext/FastMath)
+
 add_dependencies(${TARGET_NAME} ext-copy)
 add_dependencies(bsdfTest ext-copy)
 target_link_libraries(${TARGET_NAME} PUBLIC Moer-ext)
@@ -19,6 +21,15 @@ target_link_libraries(bsdfTest PUBLIC Moer-ext)
 find_package(Threads)
 target_link_libraries(${TARGET_NAME} PUBLIC ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(bsdfTest PUBLIC ${CMAKE_THREAD_LIBS_INIT})
+
+# Better to use TBB
+if (NOT MSVC)
+    find_package(OpenMP REQUIRED)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${OpenMP_SHARED_LINKER_FLAGS}")
+endif()
 
 if (MESH_LOADER STREQUAL "Assimp")
     target_compile_definitions(${TARGET_NAME} PRIVATE MESH_LOADER_ASSIMP)

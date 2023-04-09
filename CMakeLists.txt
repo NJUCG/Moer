@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.19)
 project(Moer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
+set(CMAKE_PREFIX_PATH "/usr/local/opt/libomp" ${CMAKE_PREFIX_PATH})
+set(OpenMP_INCLUDE_DIRS "/usr/local/opt/libomp/include")
 if (MSVC)
     add_compile_options("/MP")
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
@@ -11,6 +12,10 @@ if (MSVC)
     # set unicode as character set
     # add_definitions(-DUNICODE -D_UNICODE)
 endif (MSVC)
+
+if(FM_SPEED_DEFAULT)
+    add_definitions(-DFM_SPEED_DEFAULT=${FM_SPEED_DEFAULT})
+endif (FM_SPEED_DEFAULT)
 
 option(EMBREE_USE_TBB "Enable TBB in embree." OFF)
 option(USE_SAMPLED_SPECTRUM "" OFF)
