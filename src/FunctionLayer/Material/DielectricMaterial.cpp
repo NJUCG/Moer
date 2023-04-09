@@ -13,9 +13,7 @@
 #include "DielectricMaterial.h"
 #include "FunctionLayer/Medium/Beerslaw.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
-DielectricMaterial::DielectricMaterial(const Json &json) {
-    //! If bumpmap, not specularTransmission
-    //type = EMaterialType::SpecularTransmission;
+DielectricMaterial::DielectricMaterial(const Json &json): Material(json) {
     ior = getOptional(json, "ior", 1.33); //water
     albedoR = TextureFactory::LoadTexture<>(json,"albedo_reflection",RGB3(1,1,1));
     albedoT = TextureFactory::LoadTexture<>(json,"albedo_transmission",RGB3(1,1,1));
@@ -28,6 +26,7 @@ DielectricMaterial::DielectricMaterial(const Json &json) {
     if(roughness || uRoughness || vRoughness){
         distrib = LoadDistributionFromJson(json);
     }
+    twoSideShading = false;
 }
 
 std::shared_ptr<BxDF> DielectricMaterial::getBxDF(const Intersection & intersect) const  {

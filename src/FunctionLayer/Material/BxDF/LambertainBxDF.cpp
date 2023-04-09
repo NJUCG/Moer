@@ -17,7 +17,7 @@ LambertainBxDF::LambertainBxDF(Spectrum albedo) : albedo(albedo) {
 
 
 Spectrum LambertainBxDF::f(const Vec3d & wo , const Vec3d & wi) const {
-    if(Frame::cosTheta(wi )<0 || Frame::cosTheta(wo )<0){
+    if(wi.z<0 || wo.z<0){
         return 0;
     }
     return albedo * INV_PI ;
@@ -27,7 +27,7 @@ double LambertainBxDF::pdf(const Vec3d &wo , const Vec3d & wi) const {
     return SquareToUniformHemispherePdf(wi);
 }
 
-BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample) const {\
+BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample) const {
     BxDFSampleResult result ;
 
     auto wi = SquareToUniformHemisphere(sample);

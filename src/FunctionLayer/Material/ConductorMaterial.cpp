@@ -4,12 +4,6 @@
 #include "BxDF/MicrofacetDistribution.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
 #include "FunctionLayer/Material/BxDF/ComplexIor.h"
-ConductorMaterial::ConductorMaterial(Vec3d _eta, Vec3d _k, std::shared_ptr < Texture < Spectrum>> _albedo,
-                                     std::shared_ptr < Texture < double>> _bump) : Material(_albedo,_bump),
-                                     eta(_eta),k(_k){
-
-}
-
 std::shared_ptr < BxDF > ConductorMaterial::getBxDF(const Intersection & intersect) const  {
     Spectrum itsAlbedo = albedo->eval(intersect);
     if( roughness || uRoughness || vRoughness){
@@ -29,11 +23,9 @@ std::shared_ptr < BSSRDF > ConductorMaterial::getBSSRDF(const Intersection & int
 }
 
 
-ConductorMaterial::ConductorMaterial(const std::string & _materialName) {  //todo
 
-}
-
-ConductorMaterial::ConductorMaterial(const Json & json) {
+ConductorMaterial::ConductorMaterial(const Json & json): Material(json) {
+    albedo = TextureFactory::LoadTexture<RGB3>(json,"albedo",RGB3(1,1,1));
     eta = getOptional(json,"eta",Vec3d(0.2004376970, 0.9240334304, 1.1022119527));
     k   = getOptional(json,"k", Vec3d(3.9129485033f, 2.4528477015f,
                                       2.1421879552f));

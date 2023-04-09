@@ -83,7 +83,7 @@ double RoughPlastic::pdf(const Vec3d & out, const Vec3d & in) const {
     double diffProb = 1 - glossyProb;
 
     Vec3d wh = normalize(out + in);
-    glossyProb = distrib->D(wh, alphaXY) / ( 4 * dot(wh, out) );
+    glossyProb *= distrib->Pdf(out,wh, alphaXY) / ( 4 * dot(wh, out) );
 
     diffProb *= SquareToCosineHemispherePdf(in);
 

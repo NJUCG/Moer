@@ -56,13 +56,13 @@ namespace Fresnel {
         return 0.5f*(Rs + Rs*Rp);
     }
 
-    static inline Vec3d conductorReflectance(const Vec3d &eta, const Vec3d &k, double cosThetaI)
+    static inline Spectrum conductorReflectance(const Vec3d &eta, const Vec3d &k, double cosThetaI)
     {
-        return Vec3d(
+        return Spectrum(RGB3(
                 conductorReflectance(eta.x, k.x, cosThetaI),
                 conductorReflectance(eta.y, k.y, cosThetaI),
                 conductorReflectance(eta.z, k.z, cosThetaI)
-        );
+        ));
     }
 }
 

@@ -17,8 +17,9 @@ static inline double uniformSphericalCapPdf(double cosThetaMax) {
 
 InfiniteSphereCapLight::InfiniteSphereCapLight(const Json & json) : Light(ELightType::INFINITE), Transform3D(
         getOptional(json, "transform", Json())) {
-    _capAngle = Angle(getOptional(json, "cap_angle", 5), Angle::EAngleType::ANGLE_DEG).getRad();
+    _capAngle = Angle(getOptional(json, "cap_angle", 10), Angle::EAngleType::ANGLE_DEG).getRad();
     _cosCapAngle = cos(_capAngle);
+    _cosCapAngle = std::min(_cosCapAngle,0.99);
     _capDir = matrix->operator *(Vec3d(0, 1, 0));
 
     //_capDir = Vec3d(- 0.865803718, 0.416766226, - 0.276929319);
@@ -33,7 +34,7 @@ InfiniteSphereCapLight::InfiniteSphereCapLight(const Json & json) : Light(ELight
 LightSampleResult InfiniteSphereCapLight::evalEnvironment(const Ray & ray) {
 
     //todo support environment
-    LightSampleResult ans;
+    LightSampleResult ans{};
     if ( dot(ray.direction, _capDir) < _cosCapAngle )
         return ans;
     ans.s = _emission;

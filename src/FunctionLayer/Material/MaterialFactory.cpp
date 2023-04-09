@@ -7,9 +7,10 @@
 #include "MirrorMaterial.h"
 #include "ConductorMaterial.h"
 #include "DielectricMaterial.h"
-
+#include "BumpMapMaterial.h"
 
 #include "FunctionLayer/Scene/Scene.h"
+#include "FunctionLayer/Texture/TextureFactory.h"
 
 namespace  MaterialFactory{
 
@@ -22,6 +23,7 @@ namespace  MaterialFactory{
         else if(materialType == "plastic") return std::make_shared<PlasticMaterial>(json);
         else if(materialType == "disney") return std::make_shared<DisneyMaterial>(json);
         else if (materialType == "null") return std::make_shared<NullMaterial>(json);
+        else if (materialType == "bump") return std::make_shared<BumpMaterial>(json);
         return nullptr;
     }
 

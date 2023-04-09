@@ -1,0 +1,21 @@
+[
+  {
+    "name": "CeilingLight",
+    "albedo_diffuse": 0.647814,
+    "albedo_specular": 1,
+    "type": "plastic",
+    "ior": 1.5,
+    "thickness": 1.0,
+    "sigma_a": 0.0,
+    "distribution": "ggx",
+    "roughness": 0.1
+  },{
+  "name": "Bookshelf",
+  "albedo": [
+    0.4913010001182556,
+    0.3051770031452179,
+    0.800000011920929
+  ],
+  "type": "lambert"
+}
+]

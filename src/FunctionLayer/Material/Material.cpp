@@ -14,13 +14,6 @@
 
 static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(1, 1, 1)));
 
-Material::Material(const std::shared_ptr <Texture <Spectrum>> & _albedo,
-                   const std::shared_ptr <Texture <double>> & _bump)
-                 :albedo(_albedo),bump(_bump)
-{
-  if(albedo == nullptr)
-    albedo = defaultSpectrum;
-}
 
 std::shared_ptr < BxDF > Material::getBxDF(const Intersection & intersect) const  {
     return nullptr;
@@ -46,4 +39,20 @@ void Material::setInsideMedium(std::shared_ptr < Medium > _insideMedium) {
 void Material::setOutMedium(std::shared_ptr < Medium > _outsideMedium) {
     outsideMedium = _outsideMedium;
 }
+void Material::setFrame(Intersection &its,const Ray&  ray) const{
+    its.shFrame = Frame(its.geometryNormal);
+    if(twoSideShading)
+        flipFrame(its,ray);
+}
 
+void Material::flipFrame(Intersection &its, const Ray &ray) const {
+    bool hitBackSide = dot(-ray.direction, its.geometryNormal) < 0;
+    if (hitBackSide) {
+        its.shFrame.n = -its.shFrame.n;
+        its.shFrame.s = -its.shFrame.s;
+    }
+}
+
+Material::Material(const Json &json) {
+    twoSideShading = getOptional(json,"two_side_shading",true);
+}

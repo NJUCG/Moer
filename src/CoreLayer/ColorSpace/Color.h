@@ -60,6 +60,7 @@ public:
 
 	double operator[](int i) const;
 	double &operator[](int i);
+    double average() const ;
 
 	RGB3 operator+(const RGB3 &rgb) const ;
 	RGB3 operator-(const RGB3 &rgb) const ;
@@ -83,7 +84,6 @@ public:
 	friend RGB3 operator*(double v, const RGB3 &rgb);
 
 	XYZ3 toXYZ3() const;
-
 };
 
 
@@ -275,7 +275,7 @@ public:
 		return s * v;
 	}
 
-	/// @brief Call std::sqrt() on each component 
+	/// @brief Call std::sqrt() on each component
 	/// @attention Does not check whether the value on each component is greater than zero
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;
@@ -303,7 +303,7 @@ public:
 	/// @brief Returns true if all components are not equal to zero
 	bool isBlack() const {
 		for (int i = 0; i < nSamples; i++) {
-			if (coefficients[i] != 0.0) 
+			if (coefficients[i] != 0.0)
 				return false;
 		}
 		return true;

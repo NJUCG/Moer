@@ -37,6 +37,10 @@ double RGB3::operator[](int i) const
 	return rgbData[i];
 }
 
+double RGB3::average() const {
+    return (rgbData[0]+rgbData[1]+rgbData[2])/3;
+}
+
 double& RGB3::operator[](int i)
 {
 	// no checking of i.

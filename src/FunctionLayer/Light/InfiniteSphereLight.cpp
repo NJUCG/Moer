@@ -51,6 +51,7 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, co
     //todo map from image
     double pdf;
     Point2d uv = distribution->SampleContinuous(sample, &pdf);
+    pdf *=emission->getWidth() * emission->getHeight();
     if(pdf==0){
         ans.s = Spectrum(0);
         return ans;
@@ -82,7 +83,6 @@ InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::
         emission = std::make_shared < ImageTexture < Spectrum, RGB3>>(
                 FileUtils::getWorkingDir() + json.at("emission").get < std::string >());
         std::vector < double > weights = emission->sphericalWeighs();
-        //todo sphere weights
         distribution = std::make_unique < Distribution2D >(weights.data(), emission->getWidth(), emission->getHeight());
     } else {
         //todo report error
