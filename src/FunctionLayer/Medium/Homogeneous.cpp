@@ -37,10 +37,10 @@ bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
         // sampled a point on object boundary (surface).
         mRec->marchLength = its.t;
         mRec->tr = evalTransmittance(ray.origin, its.position);
-        // calculate discrete probility (instead of continuous probability density), i.e., sum of $1\n * e^{-\sigma_t^i * t}$.
+        // calculate discrete probility (instead of continuous probability density), i.e., sum of $1\n * e^{-\sigma_t^i * t_max}$.
         mRec->pdf=0.0;
         for(int i=0;i<nSpectrumSamples;i++){
-            mRec->pdf+= fm::exp(-mSigmaT[i] * dist);
+            mRec->pdf+= fm::exp(-mSigmaT[i] * its.t);
         }
         mRec->pdf/=nSpectrumSamples;
         return false;
