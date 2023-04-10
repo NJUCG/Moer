@@ -10,10 +10,7 @@ Image::Image() {
 }
 
 Image::~Image() {
-    if (isHdr)
-        delete[] static_cast<float *>(imageRawData);
-    else
-        delete[] static_cast<unsigned char *>(imageRawData);
+    delete[] imageRawData;
 }
 
 template<typename T>
@@ -40,14 +37,14 @@ Image::Image(const std::string &path, ImageLoadMode ilm) {
             std::cout << "Fail to load image " << path << std::endl;
             return;
         }
-        imageRawData = new unsigned char[w * h * c];
+        imageRawData = new float[w * h * c];
         for (int k = 0; k < c; ++k) {
             for (int j = 0; j < h; ++j) {
                 for (int i = 0; i < w; ++i) {
                     int destIdx = i + w * j + w * h * k;
                     int srcIdx = i + w * j + w * h * k;
                     // todo: gamma
-                    as<unsigned char>()[destIdx] = data[srcIdx];
+                    as<float>()[destIdx] = (float)data[srcIdx] / 255;
                 }
             }
         }
@@ -62,15 +59,14 @@ Image::Image(const Point2i &resolution, int channels) : resolution(resolution), 
     int w = resolution.x;
     int h = resolution.y;
     int c = channels;
-    imageRawData = new unsigned char[w * h * c];
+    imageRawData = new float[w * h * c];
 }
 
 Image::Image(const Point3i &shape) : resolution(shape.x, shape.y), channels(shape.z) {
     int w = resolution.x;
     int h = resolution.y;
     int c = channels;
-    imageRawData = new unsigned char[w * h * c];
-    memset(imageRawData, 0, w * h * c * sizeof(unsigned char));
+    imageRawData = new float[w * h * c]();
 }
 
 Point2i Image::getResolution() const {
@@ -96,13 +92,9 @@ void Image::setColorAt(const Point2i &p, const RGB3 &rgb) {
     int w = resolution.x;
     int srcIdx = c * i + c * w * j;
 
-    int r = std::min(1.0, std::max(0.0, rgb[0])) * 255;
-    int g = std::min(1.0, std::max(0.0, rgb[1])) * 255;
-    int b = std::min(1.0, std::max(0.0, rgb[2])) * 255;
-
-    as<unsigned char>()[srcIdx + 0] = r;
-    as<unsigned char>()[srcIdx + 1] = g;
-    as<unsigned char>()[srcIdx + 2] = b;
+    as<float>()[srcIdx + 0] = rgb[0];
+    as<float>()[srcIdx + 1] = rgb[1];
+    as<float>()[srcIdx + 2] = rgb[2];
 }
 
 RGB3 Image::getRGBColorAt(const Point2i &p) {
@@ -112,9 +104,9 @@ RGB3 Image::getRGBColorAt(const Point2i &p) {
     int c = 3;
     int w = resolution.x;
     int srcIdx = c * i + c * w * j;
-    ans[0] = isHdr ? as<float>()[srcIdx + 0] : as<unsigned char>()[srcIdx + 0] * 1. / 255;
-    ans[1] = isHdr ? as<float>()[srcIdx + 1] : as<unsigned char>()[srcIdx + 1] * 1. / 255;
-    ans[2] = isHdr ? as<float>()[srcIdx + 2] : as<unsigned char>()[srcIdx + 2] * 1. / 255;
+    ans[0] = as<float>()[srcIdx + 0];
+    ans[1] = as<float>()[srcIdx + 1];
+    ans[2] = as<float>()[srcIdx + 2];
     return ans;
 }
 
@@ -123,8 +115,8 @@ Spectrum Image::getSpectrumColorAt(const Point2i &p) {
 }
 
 bool Image::saveTo(const std::string &path) {
-    auto destpath = FileUtils::getFilePath(path, "bmp", false);
-    const char *destBmpPath = destpath.c_str();
-    stbi_write_bmp(destBmpPath, resolution.x, resolution.y, 3, imageRawData);
+    auto destpath = FileUtils::getFilePath(path, "hdr", false);
+    const char *destHdrPath = destpath.c_str();
+    stbi_write_hdr(destHdrPath, resolution.x, resolution.y, 3, imageRawData);
     return true;
 }
