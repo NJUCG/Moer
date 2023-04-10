@@ -266,7 +266,7 @@
                 ]
             },
             "type": "cube",
-            "material": "null-bsdf"
+            "material": "shortBox"
         },
         {
             "name": "tallBox",
@@ -288,7 +288,7 @@
                 ]
             },
             "type": "cube",
-            "material": "null-bsdf"
+            "material": "tallBox"
         }
     ],
     "camera" : {
@@ -307,7 +307,7 @@
     },
 
     "renderer" : {
-    "output_file" : "bunny",
+    "output_file" : "cornell",
     "spp" : 64
     }
 }
