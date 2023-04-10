@@ -3,8 +3,6 @@ project(Moer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_PREFIX_PATH "/usr/local/opt/libomp" ${CMAKE_PREFIX_PATH})
-set(OpenMP_INCLUDE_DIRS "/usr/local/opt/libomp/include")
 if (MSVC)
     add_compile_options("/MP")
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
