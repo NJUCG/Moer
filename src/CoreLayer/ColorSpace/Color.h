@@ -280,11 +280,8 @@ public:
 		return s * v;
 	}
 
-<<<<<<< HEAD
-	/// @brief Call std::sqrt() on each component
-=======
+
 	/// @brief Call fm::sqrt() on each component 
->>>>>>> 97d5ce3560343ad7af14e9dd5f96737ea17bb82a
 	/// @attention Does not check whether the value on each component is greater than zero
 	friend CoefficientSpectrum sqrt(const CoefficientSpectrum& s) {
 		CoefficientSpectrum ret;

@@ -1,7 +1,6 @@
 {
   "mediums" : [],
   "materials": [
- 
     {
       "name": "Stand",
       "albedo": 0.2,

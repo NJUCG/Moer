@@ -29,12 +29,6 @@ double MicrofacetDistribution::Pdf(const Vec3d & wo, const Vec3d & wh, const Vec
 double BeckmannDistribution::roughnessToAlpha(double roughness) const {
     roughness = std::max(roughness, (double)1e-3);
     return roughness;
-<<<<<<< HEAD
-=======
-    double x = fm::log(roughness);
-    return 1.62142f + 0.819955f * x + 0.1734f * x * x +
-           0.0171201f * x * x * x + 0.000640711f * x * x * x * x;
->>>>>>> 97d5ce3560343ad7af14e9dd5f96737ea17bb82a
 }
 
 double BeckmannDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {

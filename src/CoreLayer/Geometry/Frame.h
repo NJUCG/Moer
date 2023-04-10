@@ -16,27 +16,13 @@
 #include "CoreLayer/Math/Common.h"
 #include "FastMath.h"
 
-<<<<<<< HEAD
 static void coordinateSystem(const Normal3d &normal, Vec3d  &tangent, Vec3d  &bitangent) {
     double sign = copysignf(1.0f, normal.z);
-    const double a = -1.0f/(sign + normal.z);
-    const double b = normal.x *normal.y*a;
-    tangent = Vec3d(1.0f + sign*normal.x*normal.x*a, sign*b, -sign*normal.x);
-    bitangent = Vec3d(b, sign + normal.y*normal.y*a, -normal.y);
-=======
-static void coordinateSystem(const Normal3d &a, Vec3d  &b, Vec3d  &c) {
-    if (fm::abs(a.x) > fm::abs(a.y)) {
-        float invLen = 1.0f / fm::sqrt(a.x * a.x + a.z * a.z);
-        c = Vec3d (a.z * invLen, 0.0f, -a.x * invLen);
-    } else {
-        float invLen = 1.0f / fm::sqrt(a.y * a.y + a.z * a.z);
-        c = Vec3d(0.0f, a.z * invLen, -a.y * invLen);
-    }
-    Vec3d  _a(a.x,a.y,a.z);
-    b = cross(_a,c);
->>>>>>> 97d5ce3560343ad7af14e9dd5f96737ea17bb82a
+    const double a = -1.0f / (sign + normal.z);
+    const double b = normal.x * normal.y * a;
+    tangent = Vec3d(1.0f + sign * normal.x * normal.x * a, sign * b, -sign * normal.x);
+    bitangent = Vec3d(b, sign + normal.y * normal.y * a, -normal.y);
 }
-
 /// \ingroup Geometry
 /// \brief Convert the vector between world coordinate and local coordinate 
 struct Frame {
@@ -71,8 +57,6 @@ struct Frame {
         return s * v.x + t * v.y   + n * v.z ;
     }
 
-<<<<<<< HEAD
-=======
     /** \brief Assuming that the given direction is in the local coordinate
      * system, return the cosine of the angle between the normal and v */
     static float cosTheta(const Vec3d &v) {
@@ -111,7 +95,6 @@ struct Frame {
             return 1.0f;
         return clamp(v.y / sinTheta, -1.0f, 1.0f);
     }
->>>>>>> 97d5ce3560343ad7af14e9dd5f96737ea17bb82a
 
 
 
