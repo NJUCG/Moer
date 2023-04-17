@@ -209,7 +209,9 @@ Matrix4x4 Matrix4x4::transpose() const
 Matrix4x4::Matrix4x4(const double * matData) {
     memcpy(matrix.data(),matData,16*sizeof(double));
 }
-
+double *Matrix4x4::getTransformData() {
+    return matrix.data();
+}
 
 // Transform3D impl
 
@@ -310,4 +312,9 @@ Matrix4x4 TransformMatrix3D::getRotate() const
 Matrix4x4 TransformMatrix3D::getTranslate() const 
 {
 	return matrixTranslate;
+}
+
+TransformMatrix3D TransformMatrix3D::getInverse()  {
+    update();
+    return {matrixAll.inverse().getTransformData()};
 }

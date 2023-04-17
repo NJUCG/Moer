@@ -11,9 +11,46 @@
 #pragma  once
 
 #include <string>
+#include <fstream>
+#include <vector>
+namespace FileUtils{
+    void setWorkingDir(const std::string & _workingDir);
+    std::string getWorkingDir();
+    std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite);
+    std::string getFileExtension(const std::string & path);
 
-namespace  FileUtils{
-    // const static std::string WorkingDir = "/Users/yjp/nju/大三下/graphics/offline-render/Zero/scenes/testball/";
-    const static std::string WorkingDir = "D:/documents/005Tasks/20220800_NJUCG_Moer/Moer/scenes/testball/";
 
+    template<typename T>
+    static inline void streamRead(std::istream &in, T &dst)
+    {
+        in.read(reinterpret_cast<char *>(&dst), sizeof(T));
+    }
+
+    template<typename T>
+    static inline T streamRead(std::istream  &in)
+    {
+        T t;
+        streamRead(in, t);
+        return t;
+    }
+
+    template<typename T>
+    static inline void streamRead(std::istream &in, std::vector<T> &dst)
+    {
+        in.read(reinterpret_cast<char *>(&dst[0]), dst.size()*sizeof(T));
+    }
+
+    template<typename T>
+    static inline void streamRead(std::istream &in, T * dst,size_t n)
+    {
+        in.read(reinterpret_cast<char *>(dst), n*sizeof(T));
+    }
+}
+
+template<>
+inline std::string FileUtils::streamRead<std::string>(std::istream  &in)
+{
+    std::string s;
+    std::getline(in, s, '\0');
+    return std::move(s);
 }

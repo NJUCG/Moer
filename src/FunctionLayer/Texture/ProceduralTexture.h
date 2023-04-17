@@ -9,19 +9,41 @@
  * www.njumeta.com
  *
  */
-
+#pragma once
 #include "Texture.h"
-
+#include "TextureMapping.h"
 /// \brief 2D checkboard texture
 /// \ingroup Texture
-class Checkerboard2D : public StdTexture<double, TextureCoord2D>
+template<class T>
+class Checkerboard2D : public StdTexture<T, TextureCoord2D>
 {
 protected:
+    T onColor;
+    T offColor;
+    int resU;
+    int resV;
 public:
-    Checkerboard2D();
-    using StdTexture::eval;
-    virtual double eval(const TextureCoord2D &coord) const override;
+    Checkerboard2D(T onValue,T offValue,int resU = 16 ,int resV = 8);
+    using StdTexture<T, TextureCoord2D>::eval;
+    virtual T eval(const TextureCoord2D &coord) const override;
 };
+
+template<class T>
+Checkerboard2D<T>::Checkerboard2D(T onValue, T offValue, int resU, int resV)
+    :onColor(onValue),offColor(offValue),resU(resU),resV(resV), StdTexture<T, TextureCoord2D>(std::make_shared<UVTextureMapping2D>())
+{
+
+}
+
+
+
+template<class T>
+T Checkerboard2D<T>::eval(const TextureCoord2D &coord) const {
+    int x = coord.coord.x * resU;
+    int y = coord.coord.y * resV;
+    bool on = (x ^ y) & 1;
+    return on ? onColor : offColor;
+}
 
 /// \brief 3D checkboard texture
 /// \ingroup Texture

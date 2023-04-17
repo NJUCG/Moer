@@ -60,7 +60,7 @@ public:
             result.s *= pow(eta(out,result.directionIn),2);
         }
         else {
-
+            //todo
         }
         return result;
     }
@@ -71,7 +71,7 @@ public:
             result *= pow(eta(out,in),2);
         }
         else {
-
+            //todo
         }
         return result;
     }
@@ -152,4 +152,8 @@ inline double SinPhi(const Vec3d &w) {
 inline double Cos2Phi(const Vec3d &w) { return CosPhi(w) * CosPhi(w); }
 
 inline double Sin2Phi(const Vec3d &w) { return SinPhi(w) * SinPhi(w); }
+
+inline bool isMirrorReflect(const Vec3d & wo,const Vec3d & wi ){
+    return std::abs(wi.z*wo.z - wi.x*wo.x - wi.y*wo.y - 1.0f) < 1e-3f;
+}
 

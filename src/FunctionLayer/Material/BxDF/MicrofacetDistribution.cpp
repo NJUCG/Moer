@@ -11,7 +11,7 @@ std::shared_ptr<MicrofacetDistribution> LoadDistributionFromJson(const Json & js
     if(distribStr == "beckmann")
         return std::make_shared<BeckmannDistribution>();
     else if(distribStr == "ggx")
-        return std::make_shared <GGXDistribution>();
+        return std::make_shared <GGXDistribution>(true);
     {}
 }
 
@@ -19,7 +19,6 @@ std::shared_ptr<MicrofacetDistribution> LoadDistributionFromJson(const Json & js
 MicrofacetDistribution::~MicrofacetDistribution( ) noexcept {}
 
 double MicrofacetDistribution::Pdf(const Vec3d & wo, const Vec3d & wh, const Vec2d &alphaXY) const {
-    //if(wh.z<0) return 0 ;
     if (sampleVisibleArea)
         return D(wh, alphaXY) * G1(wo,alphaXY) * absDot(wo, wh) / AbsCosTheta(wo);
     else
@@ -29,9 +28,6 @@ double MicrofacetDistribution::Pdf(const Vec3d & wo, const Vec3d & wh, const Vec
 double BeckmannDistribution::roughnessToAlpha(double roughness) const {
     roughness = std::max(roughness, (double)1e-3);
     return roughness;
-    double x = fm::log(roughness);
-    return 1.62142f + 0.819955f * x + 0.1734f * x * x +
-           0.0171201f * x * x * x + 0.000640711f * x * x * x * x;
 }
 
 double BeckmannDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {
@@ -40,7 +36,7 @@ double BeckmannDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {
     double tan2Theta = Tan2Theta(wh);
     if (std::isinf(tan2Theta)) return 0.;
     double cos4Theta = Cos2Theta(wh) * Cos2Theta(wh);
-    return fm::exp(-tan2Theta * (Cos2Phi(wh) / (alphaX * alphaX) +
+    return std::exp(-tan2Theta * (Cos2Phi(wh) / (alphaX * alphaX) +
                                   Sin2Phi(wh) / (alphay * alphay))) /
            (M_PI * alphaX * alphay * cos4Theta);
 }
@@ -51,15 +47,17 @@ double BeckmannDistribution::Lambda(const Vec3d & w, const Vec2d & alphaXY) cons
 
     double absTanTheta = fm::abs(TanTheta(w));
     if (std::isinf(absTanTheta)) return 0.;
-    // Compute _alpha_ for direction _w_
     double alpha =
             fm::sqrt(Cos2Phi(w) * alphaX * alphaX + Sin2Phi(w) * alphay * alphay);
     double a = 1 / (alpha * absTanTheta);
-    if (a >= 1.6f) return 0;
-    return (1 - 1.259f * a + 0.396f * a * a) / (3.535f * a + 2.181f * a * a);
+    if (a >= 1.6) return 0;
+    return (1 - 1.259 * a + 0.396 * a * a) / (3.535 * a + 2.181 * a * a);
 }
 
-Vec3d BeckmannDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const Vec2d & alphaXY) const {
+Vec3d BeckmannDistribution::Sample_wh(const Vec3d & wo, Point2d u, const Vec2d & alphaXY) const {
+    if (CosTheta(wo) < 0) {
+        return Sample_wh(-wo, u,alphaXY);
+    }
     double alphaX =alphaXY.x;
     double alphay =alphaXY.y;
 
@@ -123,14 +121,15 @@ double GGXDistribution::Lambda(const Vec3d & w, const Vec2d & alphaXY) const {
     return Lambda;
 }
 
-Vec3d GGXDistribution::Sample_wh(const Vec3d & wo, const Point2d & u, const Vec2d & alphaXY) const {
+Vec3d GGXDistribution::Sample_wh(const Vec3d & wo, Point2d u, const Vec2d & alphaXY) const {
+    u.x= std::max(0.01,std::min(0.99,u.x));
+    u.y= std::max(0.01,std::min(0.99,u.y));
     double alphaX = alphaXY.x,alphaY =alphaXY.y;
+    if (CosTheta(wo) < 0) {
+        return Sample_wh(-wo, u,alphaXY);
+    }
     if(sampleVisibleArea){
         //see https://jcgt.org/published/0007/04/01/slides.pdf
-        if (wo.z < 0) {
-            // Ensure the input is on top of the surface.
-            return Sample_wh(-wo, u,alphaXY);
-        }
         // Transform the incoming direction to the "hemisphere configuration".
         Vec3d hemisphereDirOut= normalize(Vec3d(alphaX * wo.x, alphaY * wo.y, wo.z));
         // Parameterization of the projected area of a hemisphere.

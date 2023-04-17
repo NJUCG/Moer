@@ -42,3 +42,10 @@ namespace FileUtils{
         return destPath;
     }
 }
+
+std::string FileUtils::getFileExtension(const std::string & path) {
+    int dotIdx = path.find(".");
+    if(dotIdx == -1)
+        return "";
+    return path.substr(dotIdx+1,path.size());
+}

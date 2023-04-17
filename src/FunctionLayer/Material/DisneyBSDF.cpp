@@ -189,7 +189,7 @@ BxDFSampleResult sampleDisneyBXDFOP::operator ()(const DisneyMetal & disneyBXDF)
 
 Spectrum evalDisneyBXDFOP::operator ()(const DisneyClearCoat & disneyBXDF) {
     if(in.z<0 || out.z<0)
-        return Spectrum(0);
+        return {0};
     Vec3d wh = normalize(in + out);
     double eta = 1.5;
     double R0 = pow((eta-1)/(eta+1),2);
@@ -263,9 +263,13 @@ Spectrum evalDisneyBXDFOP::operator ()(const DisneyGlass & disneyBXDF) {
         return baseColor * F * D * G  / (4 * abs(in.z * out.z));
     }
     else {
-        double deom = dot(wh,out)*eta + dot(wh,in);
-        return  sqrt(baseColor) * (1-F) * D * G * abs(dot(wh,out) * dot(wh,in)) /
-                ( abs(CosTheta(in) * CosTheta(out)) * abs(deom * deom) ) ;
+        double whDotIn =  dot(wh,in);
+        double whDotOut = dot(wh,out);
+        double sqrtDeom = eta * whDotOut  +  whDotIn;
+
+        return  sqrt(baseColor) * (1-F) * D * G * fm::abs(
+                                                       whDotIn * whDotOut  /
+                                                       (in.z * out.z * sqrtDeom * sqrtDeom));
     }
 }
 
@@ -370,7 +374,7 @@ Spectrum DisneyBSDF::f(const Vec3d & out, const Vec3d & in) const {
     if(onlyClearCoat) return evalDisneyBXDF(*disneyClearCoat,out,in);
 
     double glassWeight = (1-metallic) * specularTransmission;
-    Spectrum glassResult = glassWeight>0?glassWeight * evalDisneyBXDF(*disneyMetal,out,in):Spectrum(0);
+    Spectrum glassResult = glassWeight>0?glassWeight * evalDisneyBXDF(*disneyGlass,out,in):Spectrum(0);
     if( CosTheta(out)<0){
         return glassResult;
     }
@@ -408,7 +412,7 @@ double DisneyBSDF::pdf(const Vec3d & out, const Vec3d & in) const {
     double diffuseResult = diffuseWeight>0?diffuseWeight * pdfDisneyBXDF(*disneyDiffuse,out,in):0;
     double metalResult = metalWeight>0?metalWeight * pdfDisneyBXDF(*disneyMetal,out,in):0;
     double clearCoatResult = clearCoatWeight>0?clearCoatWeight * pdfDisneyBXDF(*disneyClearCoat,out,in):0;
-    double glassResult = glassWeight>0?glassWeight * pdfDisneyBXDF(*disneySheen,out,in):0;
+    double glassResult = glassWeight>0?glassWeight * pdfDisneyBXDF(*disneyGlass,out,in):0;
 
     return (diffuseResult + metalResult + clearCoatResult + glassResult)/allWeight;
 }
@@ -481,7 +485,7 @@ std::shared_ptr < BSSRDF > DisneyMaterial::getBSSRDF(const Intersection & inters
     return Material::getBSSRDF(intersect);
 }
 
-DisneyMaterial::DisneyMaterial(const Json & json) {
+DisneyMaterial::DisneyMaterial(const Json & json): Material(json) {
     baseColor = TextureFactory::LoadTexture<Spectrum>(getChild(json,"base_color"),Spectrum(1));
     specularTransmission = TextureFactory::LoadTexture<double>(getChild(json,"specular_transmission"),0);
     metallic = TextureFactory::LoadTexture<double>(getChild(json,"metallic"),0);
@@ -495,4 +499,5 @@ DisneyMaterial::DisneyMaterial(const Json & json) {
     clearCoat = TextureFactory::LoadTexture<double>(getChild(json,"clear_coat"),0);
     clearCoatGloss = TextureFactory::LoadTexture<double>(getChild(json,"clear_coat_gloss"),0);
     eta = getOptional(json,"eta",1.5);
+    twoSideShading = false;
 }
