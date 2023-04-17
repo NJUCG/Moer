@@ -2,6 +2,7 @@
 #include <fstream>
 #include "FunctionLayer/Integrator/PathIntegrator-new.h"
 #include "FunctionLayer/Integrator/VolPathIntegrator.h"
+#include "FunctionLayer/Integrator/NormalIntegrator.h"
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "FunctionLayer/Sampler/Independent.h"

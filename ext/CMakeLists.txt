@@ -181,3 +181,5 @@ if (NOT TARGET stb)
     target_include_directories(stb PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb)
     set_ide_folder(stb ${3DPARTY_FOLDER})
 endif()
+
+target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

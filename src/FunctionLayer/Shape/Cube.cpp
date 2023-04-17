@@ -11,18 +11,17 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
     Matrix4x4 invRotation = rotation.inverse();
 
     //* ori_ is the r.origin in cube coordinate system
-    //* dir_ is the r.direction in cube coordinate system 
+    //* dir_ is the r.direction in cube coordinate system
     //* That is, rotate the ray other than the cube
     auto ori_ = invRotation * (r.origin - position);
     auto dir_ = invRotation * r.direction;
 
     //* Now, the cube is an axis-aligned box
-    auto pMin = - (scale * Point3d(1)),
+    auto pMin = -(scale * Point3d(1)),
          pMax = scale * Point3d(1);
 
     auto tmin = r.timeMin,
          tmax = r.timeMax;
-
 
     //todo divide 0?
     for (int i = 0; i < 3; ++i) {
@@ -39,8 +38,7 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
     if (tmin > tmax)
         return std::nullopt;
 
-    auto computeNormalInLocal = [&pMin, &pMax](Vec3d hitpoint_)
-    {
+    auto computeNormalInLocal = [&pMin, &pMax](Vec3d hitpoint_) {
         int minDimension = -1;
         double minBias = 1e10;
         for (int i = 0; i < 3; ++i) {
@@ -55,7 +53,7 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
         }
         assert(minDimension != -1);
         Vec3d normal{0};
-        normal[minDimension/2] = (minDimension%2) ? 1 : -1;
+        normal[minDimension / 2] = (minDimension % 2) ? 1 : -1;
         return normal;
     };
 
@@ -65,6 +63,7 @@ std::optional<Intersection> Cube::intersect(const Ray &r) const {
         Vec3d hitpoint_ = ori_ + its.t * dir_;
         its.geometryNormal = rotation * computeNormalInLocal(hitpoint_);
         its.position = r.at(its.t);
+
         its.object = this;
         its.shFrame = Frame{its.geometryNormal};
         its.material = material;
@@ -97,11 +96,10 @@ BoundingBox3f Cube::WorldBound() const {
     Vec3d edge = scale * Vec3d(1);
 
     for (int i = 0; i < 8; ++i) {
-        Point3d vertex = position +  rotation * Vec3d(
-                (i & 1 ? -edge.x : edge.x),
-                (i & 2 ? -edge.y : edge.y),
-                (i & 4 ? -edge.z : edge.z)
-            );
+        Point3d vertex = position + rotation * Vec3d(
+                                                   (i & 1 ? -edge.x : edge.x),
+                                                   (i & 2 ? -edge.y : edge.y),
+                                                   (i & 4 ? -edge.z : edge.z));
 
         box = BoundingBoxPointUnion(box, vertex);
     }

@@ -14,12 +14,8 @@
   "entities" : [
     {
       "name" : "bunny",
-      "transform" : {
-        "position" : [0, 0, 0],
-        "scale" : 1
-      },
-      "type" : "mesh",
-      "file" : "models/bunny.obj",
+      "type" : "gridMedium",
+      "file" : "models/cloud.vdb",
       "material" : "surface"
     },
 
@@ -30,11 +26,11 @@
   ],
 
   "camera" : {
-    "resolution" : [512, 512],
+    "resolution" : [1280, 1280],
     "transform" : {
-      "position" : [0, 1, 4],
+      "position" : [0, 1000, 800],
       "up" : [0, 1, 0],
-      "look_at" : [0, 1, 0]
+      "look_at" : [0, 1000, 0]
     },
     "type" : "pinhole",
     "fov" : 39
@@ -46,6 +42,6 @@
 
   "renderer" : {
     "output_file" : "heterogeneous",
-    "spp" : 16
+    "spp" : 1
     }
 }

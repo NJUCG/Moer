@@ -3,6 +3,7 @@
 #include "Sphere.h"
 #include "Mesh.h"
 #include "Cube.h"
+#include "GridMedium.h"
 #include "FunctionLayer/Scene/Scene.h"
 #include "ResourceLayer/ResourceManager.h"
 #include "ResourceLayer/File/FileUtils.h"
@@ -49,8 +50,12 @@ void LoadEntityFromJson(const Json &json, Scene &scene,
             entities.push_back(std::make_shared<Mesh>(meshData.second, material, json));
         }
     }
+    if (type == "gridMedium") {
+        entityCount = 0;
+        entity = std::make_shared<GridMedium>(json);
+    }
 
-    else if (type == "infinite_sphere") {
+    if (type == "infinite_sphere") {
         entityCount = 0;
         scene.addLight(std::make_shared<InfiniteSphereLight>(json));
     }
