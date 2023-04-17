@@ -1,0 +1,51 @@
+{
+  "mediums" : [
+
+  ],
+
+  "materials" : [
+    {
+      "name" : "surface",
+      "albedo" : [0.5, 0.5, 0.5],
+      "type" : "lambert"
+    }
+  ],
+
+  "entities" : [
+    {
+      "name" : "bunny",
+      "transform" : {
+        "position" : [0, 0, 0],
+        "scale" : 1
+      },
+      "type" : "mesh",
+      "file" : "models/bunny.obj",
+      "material" : "surface"
+    },
+
+    {
+      "type" : "infinite_sphere",
+      "emission" : "textures/sunflowers_puresky_1k.hdr"
+    }
+  ],
+
+  "camera" : {
+    "resolution" : [512, 512],
+    "transform" : {
+      "position" : [0, 1, 4],
+      "up" : [0, 1, 0],
+      "look_at" : [0, 1, 0]
+    },
+    "type" : "pinhole",
+    "fov" : 39
+  },
+
+  "integrator" : {
+    "type" : "path_tracer"
+  },
+
+  "renderer" : {
+    "output_file" : "heterogeneous",
+    "spp" : 16
+    }
+}
