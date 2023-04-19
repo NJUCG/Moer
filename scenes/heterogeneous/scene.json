@@ -26,11 +26,11 @@
   ],
 
   "camera" : {
-    "resolution" : [1280, 1280],
+    "resolution" : [900, 900],
     "transform" : {
-      "position" : [0, 1000, 800],
+      "position" : [0, 50, 800],
       "up" : [0, 1, 0],
-      "look_at" : [0, 1000, 0]
+      "look_at" : [0, 50, 0]
     },
     "type" : "pinhole",
     "fov" : 39
@@ -42,6 +42,6 @@
 
   "renderer" : {
     "output_file" : "heterogeneous",
-    "spp" : 1
+    "spp" : 64
     }
 }

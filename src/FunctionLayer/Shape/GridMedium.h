@@ -20,6 +20,6 @@ public:
 
     GridMedium(const Json &json);
 
-private:
+public:
     std::shared_ptr<HeterogeneousMedium> medium;
 };

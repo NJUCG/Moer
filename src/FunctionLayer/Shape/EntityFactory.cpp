@@ -12,6 +12,7 @@
 #include "FunctionLayer/Light/InfiniteSphereCapLight.h"
 #include "FunctionLayer/Material/NullMaterial.h"
 #include "FunctionLayer/Medium/Homogeneous.h"
+#include "FunctionLayer/Medium/Heterogeneous.h"
 #include "FunctionLayer/Medium/IsotropicPhase.h"
 
 static std::unordered_map<std::string, std::string> meshNameAndMaterialNameMap(const Json &json) {
@@ -39,6 +40,15 @@ void LoadEntityFromJson(const Json &json, Scene &scene,
         entities.push_back(entity);
         return;
     }
+    if (type == "gridMedium") {
+        entityCount = 0;
+        entity = std::make_shared<GridMedium>(json);
+        auto material = std::make_shared<NullMaterial>();
+        material->setInsideMedium(std::static_pointer_cast<GridMedium>(entity)->medium);
+        entity->setMaterial(material);
+        entities.push_back(entity);
+        return;
+    }
     if (type == "mesh") {
         auto meshDataPath = FileUtils::getWorkingDir() + std::string(json["file"]);
         // for convenience. won't cost much cuz meshDataList not actually contains data.
@@ -49,10 +59,6 @@ void LoadEntityFromJson(const Json &json, Scene &scene,
                                                             "material", std::string("default")));
             entities.push_back(std::make_shared<Mesh>(meshData.second, material, json));
         }
-    }
-    if (type == "gridMedium") {
-        entityCount = 0;
-        entity = std::make_shared<GridMedium>(json);
     }
 
     if (type == "infinite_sphere") {

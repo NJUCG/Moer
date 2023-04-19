@@ -17,13 +17,4 @@ GridMedium::GridMedium(const Json &json) : Cube(json) {
     float scaleZ = diag[2] * .5f;
 
     this->scale = Matrix4x4::scale(scaleX, scaleY, scaleZ);
-
-    //
-    std::cout << pMin << " " << pMax << "\n";
-    std::cout << this->position << "\n";
-
-    auto ppMin = -(scale * Point3d(1)),
-         ppMax = scale * Point3d(1);
-
-    //    exit(1);
 }

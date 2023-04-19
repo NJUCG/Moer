@@ -14,6 +14,8 @@
 #include "Medium.h"
 
 using BufferT = nanovdb::HostBuffer;
+
+// TODO Handle chromatic heterogeneous
 class HeterogeneousMedium : public Medium {
 public:
     HeterogeneousMedium(std::shared_ptr<PhaseFunction> phase);
@@ -26,10 +28,20 @@ public:
     virtual Spectrum evalTransmittance(Point3d from,
                                        Point3d dest) const override;
 
+protected:
+    float scaleSample(nanovdb::Vec3R index,
+                      const nanovdb::FloatGrid *grid) const;
+
 public:
-    Point3d boxMin, boxMax;
+    Point3d boxMin,
+        boxMax;
 
 private:
+    float voxelSize;
+    int minIndex[3], maxIndex[3];
+
+    float sigmaScale = 1.f;
+
     nanovdb::GridHandle<BufferT> densityGrid;
     nanovdb::GridHandle<BufferT> temperatureGrid;
 
