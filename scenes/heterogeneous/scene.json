@@ -42,6 +42,6 @@
 
   "renderer" : {
     "output_file" : "heterogeneous",
-    "spp" : 64
+    "spp" : 4
     }
 }

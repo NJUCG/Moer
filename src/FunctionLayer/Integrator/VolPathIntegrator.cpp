@@ -68,6 +68,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
         nBounces++;
 
+        if (nBounces > nPathLengthLimit) break;
+
         double pSurvive = russianRoulette(throughput, nBounces);
         if (randFloat() > pSurvive)
             break;

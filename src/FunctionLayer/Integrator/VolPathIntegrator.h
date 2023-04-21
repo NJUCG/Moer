@@ -78,6 +78,6 @@ public:
                            std::shared_ptr<Medium> medium) const;
 
 protected:
-    const int nPathLengthLimit = 8;
+    const int nPathLengthLimit = 3;
     const double pRussianRoulette = 0.95;
 };
