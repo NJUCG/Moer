@@ -488,3 +488,160 @@ VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene,
     }
     return {testRayItsOpt, tr};
 }
+
+//* -------------------------------------------------------------------
+//* --------------         Delta Tracking         ---------------------
+//* -------------------------------------------------------------------
+
+VolPathIntegratorDeltaTracking::VolPathIntegratorDeltaTracking(std::shared_ptr<Camera> _camera,
+                                                               std::unique_ptr<Film> _film,
+                                                               std::unique_ptr<TileGenerator> _tileGenerator,
+                                                               std::shared_ptr<Sampler> _sampler,
+                                                               int _spp,
+                                                               int _renderThreadNum) : VolPathIntegrator(_camera, std::move(_film), std::move(_tileGenerator), _sampler, _spp, _renderThreadNum) {
+    //
+}
+
+//TODO Handle chromatic media
+Spectrum VolPathIntegratorDeltaTracking::Li(const Ray &_ray, std::shared_ptr<Scene> scene) {
+    Spectrum beta(1.0), L(.0);
+    Ray ray(_ray);
+    int bounces = 0;
+
+    std::shared_ptr<Medium> medium = nullptr;
+    while (true) {
+        auto si = scene->intersect(ray);
+
+        Vec3d wo = -ray.direction;
+        MediumSampleRecord mi;
+        bool mediumInteraction = false;
+
+        if (medium) {
+            if (!si) break;
+            mediumInteraction = medium->sampleDistanceDeltaTracking(&mi, ray, *si, sampler->sample2D());
+            //beta *= mi.tr / mi.pdf;
+        }
+
+        if (mediumInteraction /* Medium interaction */) {
+
+            if (++bounces > nPathLengthLimit) break;
+
+            auto sampleMode = [](double sigmaS, double sigmaA, double sigmaN, double u) {
+                double sample = u * (sigmaS + sigmaA + sigmaN);
+                int mode = (sample < sigmaS) ? 0 /* Scatter */
+                           :
+                           (sample < sigmaS + sigmaA) ? 1 /* Absorb */ :
+                                                        2; /* Null-collision */
+                return mode;
+            };
+
+            double sigmaS = mi.sigmaS[0],
+                   sigmaA = mi.sigmaA[0],
+                   sigmaN = std::max(.0, mi.sigmaMaj[0] - sigmaS - sigmaA);
+
+            int mode = sampleMode(sigmaS, sigmaA, sigmaN, sampler->sample1D());
+
+            //* Handle different ray-medium interaction
+            if (mode == 0 /* Scatter */) {
+
+                //                beta *= mi.sigmaS;
+
+                Intersection mediumScatteringPoint = fulfillScatteringPoint(mi.scatterPoint, ray.direction, medium);
+
+                //* ---------- Luminaire Sampling ----------
+                for (int i = 0; i < nDirectLightSamples; ++i) {
+                    PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, mediumScatteringPoint, ray);
+
+                    Vec3d wi = sampleLightRecord.wi;
+                    PathIntegratorLocalRecord evalScatterRecord = evalScatter(mediumScatteringPoint, ray, wi);
+
+                    if (!sampleLightRecord.f.isBlack()) {
+                        double misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
+                        if (sampleLightRecord.isDelta) misw = 1.0;
+
+                        L += beta * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / nDirectLightSamples;
+                    }
+                }
+
+                //* ---------- Phase Sampling ----------
+
+                PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(mediumScatteringPoint, ray);
+                beta *= sampleScatterRecord.f / sampleScatterRecord.pdf;
+
+                if (beta.isBlack()) break;
+
+                Vec3d wi = sampleScatterRecord.wi;
+                ray = Ray{mi.scatterPoint + 1e-4 * wi, wi, 1e-4, DBL_MAX};
+
+                auto [nearestSi, tr] = intersectIgnoreSurface(scene, ray, medium);
+                auto evalLightRecord = evalEmittance(scene, nearestSi, ray);
+                if (!evalLightRecord.f.isBlack()) {
+                    double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
+                    if (sampleScatterRecord.isDelta) misw = 1.0;
+                    L += beta * tr * evalLightRecord.f * misw;
+                }
+
+            } else if (mode == 1 /* Abosorb */) {
+                //* Just terminate
+                // TODO Le
+                break;
+            } else /* Null-collision */ {
+                --bounces;
+                ray = Ray{mi.scatterPoint, ray.direction, 1e-4, DBL_MAX};
+                continue;
+            }
+
+        } else /* Surface interaction */ {
+            medium = nullptr;//* Escape the medium, ignore the nested medium
+
+            if (bounces == 0) {
+                PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, si, ray);
+                L += beta * evalLightRecord.f;
+            }
+
+            if (!si) break;
+
+            if (++bounces > nPathLengthLimit) break;
+
+            if (si->material->getBxDF(*si)->isNull() /* Skip the empty surface */) {
+                --bounces;
+                medium = getTargetMedium(*si, ray.direction);
+                ray = Ray{si->position + 1e-4 * ray.direction, ray.direction, 1e-4, DBL_MAX};
+                continue;
+            }
+
+            //* ---------- Luminaire Sampling ----------
+            for (int i = 0; i < nDirectLightSamples; ++i) {
+                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, *si, ray);
+
+                Vec3d wi = sampleLightRecord.wi;
+                PathIntegratorLocalRecord evalScatterRecord = evalScatter(*si, ray, wi);
+                if (!sampleLightRecord.f.isBlack()) {
+                    double misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
+                    if (sampleLightRecord.isDelta) misw = 1.0;
+                    L += beta * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / nDirectLightSamples;
+                }
+            }
+
+            //* ---------- BSDF Sampling ----------
+            PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(*si, ray);
+            beta *= sampleScatterRecord.f / sampleScatterRecord.pdf;
+            if (beta.isBlack()) break;
+
+            Vec3d wi = sampleScatterRecord.wi;
+            medium = getTargetMedium(*si, wi);
+
+            ray = Ray{si->position + 1e-4 * wi, wi, 1e-4, DBL_MAX};
+
+            auto [nearestSi, tr] = intersectIgnoreSurface(scene, ray, medium);
+            auto evalLightRecord = evalEmittance(scene, nearestSi, ray);
+
+            if (!evalLightRecord.f.isBlack()) {
+                double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
+                if (sampleScatterRecord.isDelta) misw = 1.0;
+                L += beta * tr * evalLightRecord.f * misw;
+            }
+        }
+    }
+    return L;
+}

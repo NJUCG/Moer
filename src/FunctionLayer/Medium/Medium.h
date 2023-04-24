@@ -27,6 +27,7 @@ struct MediumSampleRecord {
     Spectrum tr;
     Spectrum sigmaA;
     Spectrum sigmaS;
+    Spectrum sigmaMaj;
 };
 
 class Medium {
@@ -45,6 +46,13 @@ public:
                                 Point2d sample) const = 0;
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const = 0;
+
+    virtual bool sampleDistanceDeltaTracking(MediumSampleRecord *mRec,
+                                             const Ray &ray,
+                                             const Intersection &itsOpt,
+                                             Point2d sample) const = 0;
+
+    virtual Spectrum evalTransmittanceRatioTracking(Point3d from, Point3d dest) const = 0;
 
     auto evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
         return mPhase->evalPhase(wo, wi, scatterPoint);

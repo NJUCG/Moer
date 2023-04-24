@@ -15,16 +15,23 @@
 
 class BeerslawMedium : public Medium {
 public:
-
-    BeerslawMedium(const Spectrum &density, std::shared_ptr<PhaseFunction> _phase) 
-        : Medium(_phase), mDensity(density) { }
+    BeerslawMedium(const Spectrum &density, std::shared_ptr<PhaseFunction> _phase)
+        : Medium(_phase), mDensity(density) {}
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,
                                 const Intersection &its,
-                                Point2d sample) const;
+                                Point2d sample) const override;
 
-    virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const;
+    virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const override;
+
+    virtual bool sampleDistanceDeltaTracking(MediumSampleRecord *mRec,
+                                             const Ray &ray,
+                                             const Intersection &itsOpt,
+                                             Point2d sample) const override;
+
+    virtual Spectrum evalTransmittanceRatioTracking(Point3d from, Point3d dest) const override;
+
 private:
     Spectrum mDensity;
 };

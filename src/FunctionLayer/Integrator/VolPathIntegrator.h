@@ -78,6 +78,20 @@ public:
                            std::shared_ptr<Medium> medium) const;
 
 protected:
-    const int nPathLengthLimit = 3;
+    const int nPathLengthLimit = 8;
     const double pRussianRoulette = 0.95;
+};
+
+class VolPathIntegratorDeltaTracking : public VolPathIntegrator {
+
+public:
+    VolPathIntegratorDeltaTracking(std::shared_ptr<Camera> _camera,
+                                   std::unique_ptr<Film> _film,
+                                   std::unique_ptr<TileGenerator> _tileGenerator,
+                                   std::shared_ptr<Sampler> _sampler,
+                                   int _spp,
+                                   int _renderThreadNum = 4);
+
+    virtual Spectrum Li(const Ray &ray,
+                        std::shared_ptr<Scene> scene) override;
 };
