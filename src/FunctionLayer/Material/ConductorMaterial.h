@@ -16,13 +16,16 @@
 
 class MicrofacetDistribution;
 
+/* The refractive index of conductor materials is a complex number, which is specified in fresnel.h. */
+
+
 class ConductorMaterial : public  Material{
 public:
     ConductorMaterial(const Json & json);
     ConductorMaterial(const std::string  & _materialName);
 
     std::shared_ptr < BxDF > getBxDF(const Intersection & intersect)  const override;
-//
+
     std::shared_ptr < BSSRDF > getBSSRDF(const Intersection & intersect) const override;
 private:
     std::shared_ptr<Texture<double>> roughness = nullptr, uRoughness = nullptr, vRoughness = nullptr;
