@@ -35,7 +35,7 @@ void LoadEntityFromJson(const Json &json, Scene &scene,
         entity = std::make_shared<Cube>(json);
         auto material = std::make_shared<NullMaterial>();
         material->setInsideMedium(std::make_shared<HomogeneousMedium>(
-            Spectrum(RGB3(82.33059119113332 * 0.1, 144.5443633749726 * 0.1, 72.37389584908527 * 0.1)), Spectrum(RGB3(0.3129313327556703, 0.8415919222753505, 0.7871433602145848)), std::make_shared<IsotropicPhase>()));
+            Spectrum(RGB3(10, 10, 10)), Spectrum(RGB3(1, 1, 1)), std::make_shared<IsotropicPhase>()));
         entity->setMaterial(material);
         entities.push_back(entity);
         return;

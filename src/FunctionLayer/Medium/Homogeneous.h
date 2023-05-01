@@ -39,6 +39,6 @@ private:
     //* sigma_a = (1 - mAlbedo) * mDensity
     Spectrum mSigmaT;
     Spectrum mAlbedo;
-    Spectrum mSigmaA;
     Spectrum mSigmaS;
+    Spectrum mSigmaA;
 };
