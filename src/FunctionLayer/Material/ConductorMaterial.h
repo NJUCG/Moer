@@ -18,10 +18,6 @@ class MicrofacetDistribution;
 
 class ConductorMaterial : public  Material{
 public:
-    ConductorMaterial(Vec3d _eta,Vec3d _k,
-                      std::shared_ptr<Texture<Spectrum>> _albedo = nullptr,
-                      std::shared_ptr<Texture<double>> _bump = nullptr
-            );
     ConductorMaterial(const Json & json);
     ConductorMaterial(const std::string  & _materialName);
 
@@ -34,4 +30,5 @@ private:
     Vec3d eta;
     Vec3d k;
     std::string conductorName;
+    std::shared_ptr<Texture<RGB3>> albedo;
 };

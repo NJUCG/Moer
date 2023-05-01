@@ -37,7 +37,10 @@ void Scene::build() {
 }
 std::optional<Intersection> Scene::intersect(const Ray &r) const
 {
-    return accel->Intersect(r);
+    auto its = accel->Intersect(r);
+    if(its.has_value())
+        its->material->setFrame(its.value(),r);
+    return its;
 }
 
 std::shared_ptr<std::vector<std::shared_ptr<Light>>> Scene::getLights() const

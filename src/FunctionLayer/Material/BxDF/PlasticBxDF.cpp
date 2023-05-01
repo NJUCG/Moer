@@ -74,8 +74,8 @@ Spectrum Plastic::f(const Vec3d & out, const Vec3d & in) const {
 }
 
 Plastic::Plastic(const Spectrum & _specularR, const Spectrum & _diffuseR, double _ior) : specularR(_specularR),
-                                                                                         diffuseR(_diffuseR),
-                                                                                         ior(_ior) {}
+                                                                                       diffuseR(_diffuseR),
+                                                                                       ior(_ior) {}
 
 
 double RoughPlastic::pdf(const Vec3d & out, const Vec3d & in) const {
@@ -89,7 +89,7 @@ double RoughPlastic::pdf(const Vec3d & out, const Vec3d & in) const {
     double diffProb = 1 - glossyProb;
 
     Vec3d wh = normalize(out + in);
-    glossyProb = distrib->D(wh, alphaXY) / ( 4 * dot(wh, out) );
+    glossyProb *= distrib->Pdf(out,wh, alphaXY) / ( 4 * dot(wh, out) );
 
     diffProb *= SquareToCosineHemispherePdf(in);
 
@@ -151,7 +151,7 @@ double RoughPlastic::getRoughness() const {
 RoughPlastic::RoughPlastic(const Spectrum & _glossyR, const Spectrum & _diffuseR, double _ior,
                            double _uRoughness, double _vRoughness,
                            const std::shared_ptr < MicrofacetDistribution > & _distrib) :
-                            glossyR(_glossyR), diffuseR(_diffuseR), ior(_ior), distrib(_distrib) {
+                                                                                      glossyR(_glossyR), diffuseR(_diffuseR), ior(_ior), distrib(_distrib) {
     alphaXY = Vec2d(distrib->roughnessToAlpha(_uRoughness), distrib->roughnessToAlpha(_vRoughness));
 }
 
