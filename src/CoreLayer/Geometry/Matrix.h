@@ -26,7 +26,6 @@ enum class EulerType
 class Matrix4x4
 {
 private:
-
 	/// @brief Eigen data. inaccessible from outside.
 	Eigen::Matrix4d matrix=Eigen::Matrix4d::Identity();
 
@@ -64,6 +63,7 @@ public:
 	Matrix4x4 transpose() const;
 
 	friend void printMatrix(const Matrix4x4 &mat);
+    double *getTransformData();
 };
 
 /**
@@ -84,6 +84,7 @@ class TransformMatrix3D
 	void update();
 
 public:
+    TransformMatrix3D getInverse();
 	TransformMatrix3D();
     TransformMatrix3D(const double  * transformData);
 
@@ -103,7 +104,7 @@ public:
 	Matrix4x4 getRotate() const;
 	Matrix4x4 getTranslate() const;
 
-	Vec3d operator*(const Vec3d &v);
+	Vec3d operator*(const Vec3d &v) ;
 	Point3d operator*(const Point3d &p);
 	Normal3d operator*(const Normal3d &n);
 
