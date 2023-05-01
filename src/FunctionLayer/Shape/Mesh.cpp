@@ -96,8 +96,6 @@ public:
         //todo tangent and bitangent
         Intersection its;
         its.t = rayhit.ray.tfar;
-//        its.object = this;
-//        its.material = this->material;
         its.position = position;
         its.geometryNormal = normal;
         its.shFrame = Frame{normal};

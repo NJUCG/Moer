@@ -8,6 +8,7 @@
 #include "ConductorMaterial.h"
 #include "DielectricMaterial.h"
 #include "BumpMapMaterial.h"
+#include "NormalMapMaterial.h"
 
 #include "FunctionLayer/Scene/Scene.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
@@ -24,6 +25,7 @@ namespace  MaterialFactory{
         else if(materialType == "disney") return std::make_shared<DisneyMaterial>(json);
         else if (materialType == "null") return std::make_shared<NullMaterial>(json);
         else if (materialType == "bump") return std::make_shared<BumpMaterial>(json);
+        else if (materialType == "normal") return std::make_shared<NormalMapMaterial>(json);
         return nullptr;
     }
 
