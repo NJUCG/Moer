@@ -66,7 +66,7 @@ public:
 // TODO Handle chromatic heterogeneous
 class HeterogeneousMedium : public Medium {
 public:
-    HeterogeneousMedium(std::shared_ptr<PhaseFunction> phase);
+    HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase);
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,

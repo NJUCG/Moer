@@ -2,6 +2,7 @@
 #include <nanovdb/util/IO.h>
 #include <nanovdb/util/SampleFromVoxels.h>
 #include <FunctionLayer/Sampler/Independent.h>
+#include <ResourceLayer/File/FileUtils.h>
 
 using GridSampler =
     nanovdb::SampleFromVoxels<nanovdb::FloatGrid::TreeType, 0, false>;
@@ -175,9 +176,9 @@ MajorantTracker MajorantGrid::getTracker(Point3d origin_u, Vec3d dir_u,
     return mt;
 }
 
-HeterogeneousMedium::HeterogeneousMedium(std::shared_ptr<PhaseFunction> phase) : Medium(phase) {
+HeterogeneousMedium::HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase) : Medium(phase) {
     //TODO hard code
-    std::string vdbfilepath = "/home/zcx/Programming/Moer/scenes/heterogeneous/models/cloud.nvdb";
+    std::string vdbfilepath = FileUtils::getWorkingDir() + gridFilePath;
     densityGrid = nanovdb::io::readGrid(vdbfilepath, "density", 1);
     densityFloatGrid = densityGrid.grid<float>();
     if (!densityGrid) {

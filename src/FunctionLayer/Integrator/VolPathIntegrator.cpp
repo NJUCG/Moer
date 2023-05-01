@@ -53,8 +53,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
         if (nBounces == 0) {
             PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
             // environment lighting will not take effect for infinite medium.
-            //if (!medium)
-            //    L += throughput * evalLightRecord.f;
+            if (!medium)
+                L += throughput * evalLightRecord.f;
         }
 
         //* No intersection. The possible radiance from environment has already been evaluated.
@@ -106,8 +106,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-                //                L += throughput * tr * evalLightRecord.f * misw;
-                L += tr;
+                L += throughput * tr * evalLightRecord.f * misw;
             }
         } else {
             // * Ray currently travel inside medium, but will flee from medium.
@@ -578,8 +577,7 @@ Spectrum VolPathIntegratorDeltaTracking::Li(const Ray &_ray, std::shared_ptr<Sce
                 if (!evalLightRecord.f.isBlack()) {
                     double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                     if (sampleScatterRecord.isDelta) misw = 1.0;
-                    //L += beta * tr * evalLightRecord.f * misw;
-                    L += tr;
+                    L += beta * tr * evalLightRecord.f * misw;
                 }
 
             } else if (mode == 1 /* Abosorb */) {
@@ -597,7 +595,7 @@ Spectrum VolPathIntegratorDeltaTracking::Li(const Ray &_ray, std::shared_ptr<Sce
 
             if (bounces == 0) {
                 PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, si, ray);
-                //L += beta * evalLightRecord.f;
+                L += beta * evalLightRecord.f;
             }
 
             if (!si) break;

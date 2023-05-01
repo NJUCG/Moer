@@ -2,8 +2,11 @@
 #include <FunctionLayer/Medium/Heterogeneous.h>
 #include <FunctionLayer/Medium/IsotropicPhase.h>
 GridMedium::GridMedium(const Json &json) : Cube(json) {
-    medium = std::make_shared<HeterogeneousMedium>(
-        std::make_shared<IsotropicPhase>());
+
+    std::string gridFilePath = getOptional<std::string>(json, "file", "");
+
+    medium = std::make_shared<HeterogeneousMedium>(gridFilePath,
+                                                   std::make_shared<IsotropicPhase>());
 
     Point3d pMin = medium->boxMin;
     Point3d pMax = medium->boxMax;

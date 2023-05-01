@@ -15,7 +15,7 @@
     {
       "name" : "bunny",
       "type" : "gridMedium",
-      "file" : "models/cloud.vdb",
+      "file" : "models/cloud.nvdb",
       "material" : "surface"
     },
 
