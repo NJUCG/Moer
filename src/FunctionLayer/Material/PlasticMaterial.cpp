@@ -21,7 +21,7 @@ std::shared_ptr < BSSRDF > PlasticMaterial::getBSSRDF(const Intersection & inter
     return Material::getBSSRDF(intersect);
 }
 
-PlasticMaterial::PlasticMaterial(const Json & json) {
+PlasticMaterial::PlasticMaterial(const Json & json): Material(json) {
     ior = getOptional(json, "ior", 1.5);
     albedoSpecular = TextureFactory::LoadTexture<>(json,"albedo_specular", RGB3(1, 1, 1));
     albedoDiffuse = TextureFactory::LoadTexture<>(json,"albedo_diffuse", RGB3(0.5, 0.5, 0.5));

@@ -481,7 +481,7 @@ std::shared_ptr < BSSRDF > DisneyMaterial::getBSSRDF(const Intersection & inters
     return Material::getBSSRDF(intersect);
 }
 
-DisneyMaterial::DisneyMaterial(const Json & json) {
+DisneyMaterial::DisneyMaterial(const Json & json): Material(json) {
     baseColor = TextureFactory::LoadTexture<Spectrum>(getChild(json,"base_color"),Spectrum(1));
     specularTransmission = TextureFactory::LoadTexture<double>(getChild(json,"specular_transmission"),0);
     metallic = TextureFactory::LoadTexture<double>(getChild(json,"metallic"),0);
