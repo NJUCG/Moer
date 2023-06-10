@@ -1,0 +1,849 @@
+{
+  "mediums": [],
+  "materials": [
+    {
+      "base_color": [
+        0.82,
+        0.67,
+        0.16
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 0.0,
+      "subsurface": 0.5,
+      "specular": 0.5,
+      "roughness": 0.5,
+      "specular_tint": 0.5,
+      "anisotropic": 0.0,
+      "sheen": 0.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney1",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.25,
+        0.83,
+        0.36
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 0.8,
+      "subsurface": 0.5,
+      "specular": 0.5,
+      "roughness": 0.5,
+      "specular_tint": 0.5,
+      "anisotropic": 0.0,
+      "sheen": 0.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 1.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney2",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.75,
+        0.83,
+        0.46
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 0.1,
+      "subsurface": 0.5,
+      "specular": 0.5,
+      "roughness": 0.5,
+      "specular_tint": 0.5,
+      "anisotropic": 0.0,
+      "sheen": 1.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney3",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.75,
+        0.83,
+        0.46
+      ],
+      "specular_transmission": 0.5,
+      "metallic": 0.1,
+      "subsurface": 0.0,
+      "specular": 1.0,
+      "roughness": 0.5,
+      "specular_tint": 0.5,
+      "anisotropic": 0.0,
+      "sheen": 0.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney4",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.5,
+        0.23,
+        0.84
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 0.5,
+      "subsurface": 1.0,
+      "specular": 1.0,
+      "roughness": 0.5,
+      "specular_tint": 0.5,
+      "anisotropic": 0.1,
+      "sheen": 0.5,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney5",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.5,
+        0.9,
+        0.84
+      ],
+      "specular_transmission": 1.0,
+      "metallic": 0.0,
+      "subsurface": 1.0,
+      "specular": 1.0,
+      "roughness": 0.1,
+      "specular_tint": 0.5,
+      "anisotropic": 0.1,
+      "sheen": 0.5,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney6",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.9,
+        0.9,
+        0.84
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 1.0,
+      "subsurface": 1.0,
+      "specular": 1.0,
+      "roughness": 0.1,
+      "specular_tint": 0.5,
+      "anisotropic": 0.1,
+      "sheen": 0.5,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney7",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.2,
+        0.2,
+        0.3
+      ],
+      "specular_transmission": 0.5,
+      "metallic": 0.5,
+      "subsurface": 0.5,
+      "specular": 0.5,
+      "roughness": 0.2,
+      "specular_tint": 0.5,
+      "anisotropic": 0.1,
+      "sheen": 0.5,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney8",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.5,
+        0.6,
+        0.7
+      ],
+      "specular_transmission": 0.2,
+      "metallic": 0.8,
+      "subsurface": 0.2,
+      "specular": 0.7,
+      "roughness": 0.1,
+      "specular_tint": 0.0,
+      "anisotropic": 0.3,
+      "sheen": 0.5,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.5,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney9",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.9,
+        0.2,
+        0.3
+      ],
+      "specular_transmission": 0.0,
+      "metallic": 0.0,
+      "subsurface": 0.8,
+      "specular": 0.3,
+      "roughness": 0.1,
+      "specular_tint": 0.0,
+      "anisotropic": 0.0,
+      "sheen": 1.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 1.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney10",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.3,
+        0.5,
+        0.3
+      ],
+      "specular_transmission": 1.0,
+      "metallic": 0.9,
+      "subsurface": 0.8,
+      "specular": 0.3,
+      "roughness": 0.2,
+      "specular_tint": 0.0,
+      "anisotropic": 0.3,
+      "sheen": 1.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 1.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney11",
+      "type": "disney"
+    },
+    {
+      "base_color": [
+        0.1,
+        0.1,
+        0.3
+      ],
+      "specular_transmission": 0.5,
+      "metallic": 0.5,
+      "subsurface": 0.5,
+      "specular": 0.3,
+      "roughness": 0.9,
+      "specular_tint": 0.0,
+      "anisotropic": 0.1,
+      "sheen": 0.0,
+      "sheen_tint": 0.5,
+      "clear_coat": 0.0,
+      "clear_coat_gloss": 0.5,
+      "eta": 1.5,
+      "name": "disney12",
+      "type": "disney"
+    },
+    {
+      "name": "diffuse",
+      "type": "lambert",
+      "albedo": 0.18
+    },
+    {
+      "name": "Material",
+      "albedo": 0.9,
+      "type": "lambert",
+      "ior": 1.5,
+      "thickness": 1,
+      "sigma_a": [
+        0.5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Disney",
+      "type": "disney",
+      "base_color": [
+        0.5,
+        0.9,
+        0.84
+      ],
+      "albedo": [
+        0.5,
+        0.9,
+        0.84
+      ],
+      "albedo_transmission": [
+        0.5,
+        0.9,
+        0.84
+      ],
+      "albedo_reflection": [
+        0.5,
+        0.9,
+        0.84
+      ],
+      "specular_transmission": 0.5,
+      "metallic": 0.5,
+      "subsurface": 0.5,
+      "roughness": 0.2,
+      "specular_tint": 0.5,
+      "anisotropic": 0.2,
+      "sheen": 0,
+      "sheen_tint": 0.5,
+      "clear_coat": 0,
+      "clear_coat_gloss": 0.25,
+      "eta": 1.3,
+      "ior": 1.3
+    },
+    {
+      "name": "lambert",
+      "type": "lambert"
+    },
+    {
+      "name": "dielectric",
+      "albedo": 0.9,
+      "type": "rough_dielectric",
+      "ior": 1.5,
+      "thickness": 1,
+      "sigma_a": 0
+    },
+    {
+      "type": "rough_conductor",
+      "material": "Ag",
+      "name": "conductor"
+    },
+    {
+      "name": "Floor",
+      "albedo": {
+        "type": "checker",
+        "on_color": [
+          0.725,
+          0.71,
+          0.68
+        ],
+        "off_color": [
+          0.325,
+          0.31,
+          0.25
+        ],
+        "res_u": 20,
+        "res_v": 20
+      },
+      "type": "lambert"
+    }
+  ],
+  "entities": [
+    {
+      "transform": {
+        "scale": [
+          113,
+          113,
+          113
+        ],
+        "rotation": [
+          0,
+          45,
+          -180
+        ]
+      },
+      "type": "quad",
+      "material": "Floor"
+    },
+    {
+      "transform": {
+        "rotation": [
+          0,
+          67.2614,
+          0
+        ]
+      },
+      "emission": "textures/envmap.hdr",
+      "type": "infinite_sphere",
+      "sample": true
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney1"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "disney2"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney3"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          0,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney4"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney5"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "disney6"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney7"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -6.5,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney8"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          -3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney9"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          0
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "smooth": true,
+      "backface_culling": false,
+      "recompute_normals": false,
+      "material": "disney10"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          3
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney11"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj3.obj",
+      "material": "diffuse"
+    },
+    {
+      "transform": {
+        "position": [
+          -13,
+          1.3,
+          6
+        ],
+        "rotation": [
+          0,
+          90,
+          0
+        ]
+      },
+      "type": "mesh",
+      "file": "models/obj2.obj",
+      "material": "disney12"
+    }
+  ],
+  "camera": {
+    "tonemap": "filmic",
+    "resolution": [
+      1280,
+      720
+    ],
+    "reconstruction_filter": "tent",
+    "transform": {
+      "position": [
+        23.895,
+        11.2207,
+        0.0400773
+      ],
+      "look_at": [
+        -0.953633,
+        2.17253,
+        1.0972613
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "type": "pinhole",
+    "fov": 35
+  },
+  "integrator": {
+    "min_bounces": 0,
+    "max_bounces": 64,
+    "enable_consistency_checks": false,
+    "enable_two_sided_shading": true,
+    "type": "path_tracer",
+    "enable_light_sampling": true,
+    "enable_volume_light_sampling": true
+  },
+  "renderer": {
+    "output_file": "teapot.png",
+    "resume_render_file": "RenderState.dat",
+    "overwrite_output_files": false,
+    "adaptive_sampling": true,
+    "enable_resume_render": false,
+    "stratified_sampler": false,
+    "scene_bvh": true,
+    "spp": 4096,
+    "spp_step": 16,
+    "checkpoint_interval": "0",
+    "timeout": "0",
+    "hdr_output_file": "teapot.exr"
+  }
+}

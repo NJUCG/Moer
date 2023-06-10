@@ -15,9 +15,10 @@
 #include "Light.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Distribution/Distribution.h"
+#include "CoreLayer/Geometry/Transform3d.h"
 
 
-class InfiniteSphereLight : public  Light{
+class InfiniteSphereLight : public  Light,Transform3D{
 public:
     InfiniteSphereLight(const Json & json);
 
@@ -35,6 +36,8 @@ protected:
 
     std::unique_ptr <Distribution2D> distribution;
     std::shared_ptr <ImageTexture<Spectrum,RGB3>> emission;
-    Matrix4x4 toWorld;
-    Matrix4x4 toLocal;
+    TransformMatrix3D _toLocal;
+    Vec3d UvToDirection(const Point2d &uv, double &sinTheta);
+    Point2d DirectionToUv(const Vec3d &direction);
+    Point2d DirectionToUv(const Vec3d &direction, double &sinTheta);
 };

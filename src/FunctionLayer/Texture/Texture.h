@@ -92,7 +92,6 @@ protected:
 public:
     StdTexture();
     StdTexture(std::shared_ptr<TextureMapping<Tcoord>> mapping);
-
     /// @brief This function just redirects the query to eval(coord) using member TextureMapping. Derived should NOT overwrite this.
     virtual Tvalue eval(const Intersection &intersection) const final;
 
@@ -124,6 +123,12 @@ Tvalue MixTexture<Tvalue>::eval(const Intersection &intersection) const
     double alpha = factor->eval(intersection);
     return srcA->eval(intersection) * alpha + srcB->eval(intersection) * (1 - alpha);
 }
+
+//template <typename Tvalue, typename Tcoord>
+//StdTexture<Tvalue, Tcoord>::StdTexture()
+//{
+//    mapping = std::make_shared<UVTextureMapping2D>>();
+//}
 
 template <typename Tvalue, typename Tcoord>
 StdTexture<Tvalue, Tcoord>::StdTexture(std::shared_ptr<TextureMapping<Tcoord>> mapping): mapping(mapping)

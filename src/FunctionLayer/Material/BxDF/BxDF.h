@@ -60,7 +60,7 @@ public:
             result.s *= pow(eta(out,result.directionIn),2);
         }
         else {
-
+            //todo
         }
         return result;
     }
@@ -71,7 +71,7 @@ public:
             result *= pow(eta(out,in),2);
         }
         else {
-
+            //todo
         }
         return result;
     }

@@ -134,7 +134,7 @@ Spectrum RoughDielectricBxDF::f(const Vec3d & out, const Vec3d & in, bool reflec
     double D = distrib->D(wh,alphaXY);
     double G = distrib->G(in,out,alphaXY);
     if (reflect) {
-        return glossyR * F * D * G / 4 / (abs(in.z * out.z));
+        return glossyR * F * D * G /  (4 * abs(in.z * out.z));
     }
     else {
         double whDotIn =  dot(wh,in);

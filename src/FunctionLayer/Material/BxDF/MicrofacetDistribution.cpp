@@ -19,7 +19,6 @@ std::shared_ptr<MicrofacetDistribution> LoadDistributionFromJson(const Json & js
 MicrofacetDistribution::~MicrofacetDistribution( ) noexcept {}
 
 double MicrofacetDistribution::Pdf(const Vec3d & wo, const Vec3d & wh, const Vec2d &alphaXY) const {
-    if(wh.z<0) return 0 ;
     if (sampleVisibleArea)
         return D(wh, alphaXY) * G1(wo,alphaXY) * absDot(wo, wh) / AbsCosTheta(wo);
     else
@@ -37,7 +36,7 @@ double BeckmannDistribution::D(const Vec3d & wh, const Vec2d & alphaXY) const {
     double tan2Theta = Tan2Theta(wh);
     if (std::isinf(tan2Theta)) return 0.;
     double cos4Theta = Cos2Theta(wh) * Cos2Theta(wh);
-    return fm::exp(-tan2Theta * (Cos2Phi(wh) / (alphaX * alphaX) +
+    return std::exp(-tan2Theta * (Cos2Phi(wh) / (alphaX * alphaX) +
                                   Sin2Phi(wh) / (alphay * alphay))) /
            (M_PI * alphaX * alphay * cos4Theta);
 }
@@ -48,12 +47,11 @@ double BeckmannDistribution::Lambda(const Vec3d & w, const Vec2d & alphaXY) cons
 
     double absTanTheta = fm::abs(TanTheta(w));
     if (std::isinf(absTanTheta)) return 0.;
-    // Compute _alpha_ for direction _w_
     double alpha =
             fm::sqrt(Cos2Phi(w) * alphaX * alphaX + Sin2Phi(w) * alphay * alphay);
     double a = 1 / (alpha * absTanTheta);
-    if (a >= 1.6f) return 0;
-    return (1 - 1.259f * a + 0.396f * a * a) / (3.535f * a + 2.181f * a * a);
+    if (a >= 1.6) return 0;
+    return (1 - 1.259 * a + 0.396 * a * a) / (3.535 * a + 2.181 * a * a);
 }
 
 Vec3d BeckmannDistribution::Sample_wh(const Vec3d & wo, Point2d u, const Vec2d & alphaXY) const {

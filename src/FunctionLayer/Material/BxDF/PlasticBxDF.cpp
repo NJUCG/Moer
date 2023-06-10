@@ -130,7 +130,7 @@ Spectrum RoughPlastic::f(const Vec3d & out, const Vec3d & in) const {
         return Spectrum(0);
     }
     Vec3d wh = normalize(out + in);
-    double FOut = Fresnel::dielectricReflectance(1 / ior, out.z);
+    double FOut = Fresnel::dielectricReflectance(1 / ior, dot(wh,out));
     double D = distrib->D(wh, alphaXY);
     double G = distrib->G(out, in, alphaXY);
 

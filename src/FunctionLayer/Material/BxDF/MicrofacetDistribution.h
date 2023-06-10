@@ -26,12 +26,15 @@ public:
         return 1 / (1 + Lambda(w, alphaXY) );
     }
     virtual double G(const Vec3d & wo, const Vec3d & wi, const Vec2d & alphaXY) const {
+        return G1(wo,alphaXY) * G1(wi,alphaXY);
         return 1 / ( 1 + Lambda(wo, alphaXY) + Lambda(wi, alphaXY) );
     }
     virtual Vec3d Sample_wh(const Vec3d &wo, Point2d u, const Vec2d &alphaXY) const = 0;
     double Pdf(const Vec3d & wo, const Vec3d & wh, const Vec2d & alphaXY) const;
     virtual std::string ToString() const = 0;
-
+    inline bool sampleVisible(){
+        return sampleVisibleArea;
+    }
 protected:
     // MicrofacetDistribution Protected Methods
     MicrofacetDistribution(bool sampleVisibleArea)

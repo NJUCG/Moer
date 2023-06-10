@@ -112,6 +112,10 @@ struct Frame {
        return Vec3d(-w.x,-w.y,w.z);
    }
 
+   static bool mirrorReflect(const Vec3d & wo,const Vec3d & wi ){
+       return std::abs(wi.z*wo.z - wi.x*wo.x - wi.y*wo.y - 1.0f) < 1e-3f;
+   }
+
    static Vec3d reflect(const Vec3d &wo, const Vec3d & n) {
        return -wo + 2 * dot(wo, n) * n;
    }
