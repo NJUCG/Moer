@@ -12,6 +12,7 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 namespace FileUtils{
     void setWorkingDir(const std::string & _workingDir);
     std::string getWorkingDir();

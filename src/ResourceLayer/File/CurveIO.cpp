@@ -1,6 +1,6 @@
 #include "CurveIO.h"
 #include "FileUtils.h"
-
+#include <memory>
 typedef std::uint8_t uint8;
 typedef std::uint16_t uint16;
 typedef std::uint32_t uint32;

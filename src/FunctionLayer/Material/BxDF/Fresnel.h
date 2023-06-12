@@ -67,4 +67,17 @@ static inline Spectrum conductorReflectance(const Vec3d &eta, const Vec3d &k, do
         conductorReflectance(eta.y, k.y, cosThetaI),
         conductorReflectance(eta.z, k.z, cosThetaI)));
 }
+
+static inline double diffuseReflectance(double eta, double sampleCount) {
+    double diffuseFresnel = 0.0;
+    double fb = Fresnel::dielectricReflectance(eta, 0.0f);
+    for (int i = 1; i <= sampleCount; ++i) {
+        double cosThetaSq = double(i) / sampleCount;
+        double fa = Fresnel::dielectricReflectance(eta, std::min(std::sqrt(cosThetaSq), 1.0));
+        diffuseFresnel += double(fa + fb) * (0.5 / sampleCount);
+        fb = fa;
+    }
+    
+    return double(diffuseFresnel);
+}
 }// namespace Fresnel

@@ -1,3 +1,15 @@
+/**
+* @file CurveIO.h
+* @author JunPing Yuan
+* @brief IO Of Curve
+* @version 0.1
+* @date 2023/6/13
+*
+* @copyright Copyright (c) 2022
+*
+*/
+
+#pragma once
 #include "CoreLayer/Geometry/Geometry.h"
 #include <vector>
 namespace CurveIO{
