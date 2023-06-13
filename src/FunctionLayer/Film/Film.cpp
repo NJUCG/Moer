@@ -30,6 +30,9 @@ RGB3 Film::getRGB(const Point2i &p) {
 void Film::deposit(const Point2i &p, const Spectrum &s) {
     // ! A temp implementation
     // ignore filter now
+    if(s.hasNaN() || s.luminance()<0){
+        std::runtime_error("Invalid spectrum");
+    }
     int id = p.y * resolution.x + p.x;
     sumWeights[id] += 1.0;
     sumValues[id] += s;

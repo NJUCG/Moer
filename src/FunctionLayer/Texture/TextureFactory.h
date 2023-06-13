@@ -12,6 +12,7 @@
 
 #include "Texture.h"
 #include "ImageTexture.h"
+#include "ProceduralTexture.h"
 
 #include "ResourceLayer/File/FileUtils.h"
 
@@ -33,6 +34,14 @@ namespace  TextureFactory{
             return emission;
         }
         if(textureJson.is_object()){
+            auto type = textureJson["type"];
+            if(type == "checker"){
+                T onColor= getOptional(textureJson,"on_color",T());
+                T offColor= getOptional(textureJson,"off_color",T());
+                int resU = getOptional(textureJson,"res_u",20);
+                int resV = getOptional(textureJson,"res_v",20);
+                return std::make_shared<Checkerboard2D<T>>(onColor,offColor,resU,resV);
+            }
             //todo
         }
         return nullptr;
