@@ -4,8 +4,7 @@
     {
       "name" : "plastic",
       "albedo": 0.9,
-      "type" : "plastic",
-      "roughness": 0.2
+      "type" : "plastic"
     },
     {
       "name": "Floor",
@@ -114,7 +113,7 @@
     "enable_resume_render": false,
     "stratified_sampler": false,
     "scene_bvh": true,
-    "spp": 32,
+    "spp": 512,
     "spp_step": 16,
     "checkpoint_interval": "0",
     "timeout": "0",

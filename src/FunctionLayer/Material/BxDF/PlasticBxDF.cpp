@@ -55,7 +55,7 @@ BxDFSampleResult Plastic::sample(const Vec3d &out, const Point2d &sample) const 
         result.directionIn = Frame::reflect(out);
         result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
         result.pdf = specProb;
-        result.s = Spectrum(F);
+        result.s = Spectrum(F)/result.directionIn.z;
         //        event.wi = Frame::Reflect(out);
         //        event.sampleType = BXDFType(BSDF_REFLECTION | BSDF_SPECULAR);
         //        event.pdf = specProb;
@@ -87,7 +87,7 @@ Spectrum Plastic::f(const Vec3d &out, const Vec3d &in) const {
     double FOut = Fresnel::dielectricReflectance(eta, out.z);
 
     if (isMirrorReflect(out, in) && sampleSpecular)
-        return Spectrum(FOut);
+        return Spectrum(FOut)/in.z;
     else if (sampleDiffuse) {
         Spectrum specularContrib(0);
         double FIn = Fresnel::dielectricReflectance(eta, AbsCosTheta(in));
