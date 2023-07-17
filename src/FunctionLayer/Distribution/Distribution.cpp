@@ -12,8 +12,3 @@ Distribution2D::Distribution2D(const double * data, int nu, int nv) {
     pMarginal.reset(new Distribution1D(&marginalFunc[0], nv));
 }
 
-void Distribution2D::warp(Point2d & uv, int & row, int & column) const {
-    pMarginal->warp(uv.x,row);
-    pConditionalV[row]->warp(uv.y,column);
-}
-

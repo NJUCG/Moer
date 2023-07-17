@@ -11,6 +11,7 @@
  */
 
 #include "Matrix.h"
+#include "FastMath.h"
 
 // Matrix4x4 impl
 
@@ -177,7 +178,7 @@ Matrix4x4 Matrix4x4::orthographic(double left, double right, double up, double d
 Matrix4x4 Matrix4x4::perspective(const Angle &fov, double aspect, double near, double far)
 {
 	/*
-	double cotHalfFov = (1 / std::tan(fov.getRad() / 2.0));
+	double cotHalfFov = (1 / fm::tan(fov.getRad() / 2.0));
 	Matrix4x4 retVal;
 	retVal.matrix << cotHalfFov, 0.0f, 0.0f, 0.0f,
 		0.0f, cotHalfFov / aspect, 0.0f, 0.0f,
@@ -186,7 +187,7 @@ Matrix4x4 Matrix4x4::perspective(const Angle &fov, double aspect, double near, d
 	return retVal;
 	*/
 	// zcx 6.10
-	double cotHalfFov = (1 / std::tan(fov.getRad() / 2.0));
+	double cotHalfFov = (1 / fm::tan(fov.getRad() / 2.0));
 	Matrix4x4 retVal;
 	retVal.matrix << cotHalfFov, 0, 0, 0,
 		      		 0, cotHalfFov * aspect, 0, 0,
@@ -208,7 +209,9 @@ Matrix4x4 Matrix4x4::transpose() const
 Matrix4x4::Matrix4x4(const double * matData) {
     memcpy(matrix.data(),matData,16*sizeof(double));
 }
-
+double *Matrix4x4::getTransformData() {
+    return matrix.data();
+}
 
 // Transform3D impl
 
@@ -309,4 +312,9 @@ Matrix4x4 TransformMatrix3D::getRotate() const
 Matrix4x4 TransformMatrix3D::getTranslate() const 
 {
 	return matrixTranslate;
+}
+
+TransformMatrix3D TransformMatrix3D::getInverse()  {
+    update();
+    return {matrixAll.inverse().getTransformData()};
 }

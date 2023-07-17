@@ -12,6 +12,7 @@
 
 #include "AbstractPathIntegrator.h"
 #include "FunctionLayer/Medium/Medium.h"
+#include "FastMath.h"
 
 AbstractPathIntegrator::AbstractPathIntegrator(
         std::shared_ptr<Camera> _camera, 
@@ -27,8 +28,8 @@ AbstractPathIntegrator::AbstractPathIntegrator(
 
 double AbstractPathIntegrator::MISWeight(double x, double y)
 {
-    double pow_x = std::pow(x, misWeightPower);
-    double pow_y = std::pow(y, misWeightPower);
+    double pow_x = fm::pow(x, misWeightPower);
+    double pow_y = fm::pow(y, misWeightPower);
     return pow_x / (pow_x + pow_y);
 }
 
@@ -68,7 +69,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
 
         // RUSSIAN ROULETTE
         nBounce++;
-        double pSurvive = russianRoulette(scene, its, throughput, nBounce);
+        double pSurvive = russianRoulette(throughput, nBounce);
         if (randFloat() > pSurvive)
             break;
         throughput /= pSurvive;
@@ -78,7 +79,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         for (int i = 0; i < nDirectLightSamples; i++)
         {
             PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
-            PathIntegratorLocalRecord evalScatterRecord = evalScatter(scene, its, ray, sampleLightRecord.wi);
+            PathIntegratorLocalRecord evalScatterRecord = evalScatter(its, ray, sampleLightRecord.wi);
 
             if (sampleLightRecord.f.isBlack() == false)
             {
@@ -92,7 +93,7 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         }
 
         // SAMPLE SCATTER (BSDF or PHASE)
-        PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(scene, its, ray);
+        PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(its, ray);
         pdfLastScatterSample = sampleScatterRecord.pdf;
         isLastScatterSampleDelta = sampleScatterRecord.isDelta;
         if (sampleScatterRecord.f.isBlack() == false)

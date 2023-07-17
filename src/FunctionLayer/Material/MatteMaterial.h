@@ -16,14 +16,13 @@
 class MatteMaterial   : public  Material{
 
 public:
-    MatteMaterial(const std::shared_ptr<Texture<Spectrum>> & _albedo = nullptr,
-                  const std::shared_ptr<Texture<double>> & _bump = nullptr);
+    MatteMaterial();
     MatteMaterial(const Json &);
     std::shared_ptr<BxDF> getBxDF(const Intersection & intersect) const   override;
 
     std::shared_ptr<BSSRDF> getBSSRDF(const Intersection & intersect) const  override;
 protected:
-
+    std::shared_ptr<Texture<RGB3>> albedo;
 };
 
 

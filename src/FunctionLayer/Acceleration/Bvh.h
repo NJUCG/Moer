@@ -90,4 +90,8 @@ public:
 	/// @brief return the scene intersection
 	virtual std::optional<Intersection> Intersect(const Ray& r) const override;
 
+    [[nodiscard]]
+    BoundingBox3f getGlobalBoundingBox() const override {
+        return linearBvhNodes[0].bounds;
+    }
 };

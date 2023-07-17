@@ -3,17 +3,15 @@
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
 #include "FunctionLayer/Material/BxDF/MicrofacetDistribution.h"
-
+#include "FunctionLayer/Material/BxDF/Fresnel.h"
 std::shared_ptr < BxDF > PlasticMaterial::getBxDF(const Intersection & intersect) const {
     Spectrum itsAlbedoDiffuse = albedoDiffuse->eval(intersect);
     if ( roughness || uRoughness || vRoughness ) {
-        Spectrum itsAlbedoGlossy = albedoSpecular->eval(intersect);
         double uRough = uRoughness ? uRoughness->eval(intersect) : roughness->eval(intersect);
         double vRough = uRoughness ? uRoughness->eval(intersect) : roughness->eval(intersect);
-        return std::make_shared < RoughPlastic >(itsAlbedoGlossy, itsAlbedoDiffuse, ior, uRough, vRough, distrib);
+        return std::make_shared < RoughPlastic >(itsAlbedoDiffuse,ior,_diffuseFresnel,_avgTransmittance,_scaledSigmaA, uRough, vRough, distrib);
     } else {
-        Spectrum itsAlbedoSpecular = albedoSpecular->eval(intersect);
-        return std::make_shared < Plastic >(itsAlbedoSpecular, itsAlbedoDiffuse, ior);
+        return std::make_shared<Plastic>(itsAlbedoDiffuse,ior,_diffuseFresnel,_avgTransmittance,_scaledSigmaA);
     }
 }
 
@@ -21,10 +19,9 @@ std::shared_ptr < BSSRDF > PlasticMaterial::getBSSRDF(const Intersection & inter
     return Material::getBSSRDF(intersect);
 }
 
-PlasticMaterial::PlasticMaterial(const Json & json) {
+PlasticMaterial::PlasticMaterial(const Json & json): Material(json) {
     ior = getOptional(json, "ior", 1.5);
-    albedoSpecular = TextureFactory::LoadTexture<>(json,"albedo_specular", RGB3(1, 1, 1));
-    albedoDiffuse = TextureFactory::LoadTexture<>(json,"albedo_diffuse", RGB3(0.5, 0.5, 0.5));
+    albedoDiffuse = TextureFactory::LoadTexture<>(json,"albedo", RGB3(0.5, 0.5, 0.5));
     if ( json.contains("roughness") )
         roughness = TextureFactory::LoadTexture < double >(json["roughness"]);
     if ( json.contains("u_roughness") )
@@ -34,6 +31,11 @@ PlasticMaterial::PlasticMaterial(const Json & json) {
     if ( roughness || uRoughness || vRoughness ) {
         distrib = LoadDistributionFromJson(json);
     }
+    double thickness = getOptional(json, "thickness", 1);
+    Spectrum sigmaA = getOptional(json, "sigma_a", Spectrum(0.f));
+    _scaledSigmaA = thickness * sigmaA;
+    _avgTransmittance = std::exp(-2.0 * _scaledSigmaA.average());
+    _diffuseFresnel = Fresnel::diffuseReflectance(ior, 10000);
 }
 
 

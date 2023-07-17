@@ -19,10 +19,7 @@
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include "CoreLayer/Ray/Ray.h"
 #include "CoreLayer/Adapter/JsonUtil.h"
-
-struct Intersection;
 class Light;
-
 /**
  * @brief User defined RayHit1
  * 
@@ -36,9 +33,7 @@ class Entity : public Transform3D
 public:
     Entity() = default;
 	
-    Entity(const Json json) : Transform3D(getOptional(json, "transform", Json())){
-		
-    }
+    Entity(const Json & json);
 	
 	std::shared_ptr<Light> getLight() const;
 

@@ -1,23 +1,26 @@
 #include "InfiniteSphereLight.h"
 #include "ResourceLayer/File/FileUtils.h"
+#include "FastMath.h"
 
-Vec3d UvToDirection(const Point2d & uv, double & sinTheta) {
+Vec3d InfiniteSphereLight::UvToDirection(const Point2d & uv, double & sinTheta) {
     double phi = ( uv.x - 0.5 ) * 2 * M_PI;
     double theta = uv.y * M_PI;
-    sinTheta = std::sin(theta);
-    return Vec3d(
-            std::cos(phi) * sinTheta,
-            -std::cos(theta),
-            std::sin(phi) * sinTheta);
+    sinTheta = fm::sin(theta);
+    return  matrix->operator*(Vec3d(
+            fm::cos(phi) * sinTheta,
+            -fm::cos(theta),
+            fm::sin(phi) * sinTheta));
 }
 
-Point2d DirectionToUv(const Vec3d & direction) {
-    return Point2d(std::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, std::acos(- direction.y) * INV_PI);
+Point2d InfiniteSphereLight::DirectionToUv(const Vec3d & direction) {
+    auto localDir = _toLocal.operator*(direction);
+    return Point2d(fm::atan2(localDir.z, localDir.x) * 0.5 * INV_PI + 0.5, fm::acos(-localDir.y) * INV_PI);
 }
 
-Point2d DirectionToUv(const Vec3d & direction, double & sinTheta) {
-    sinTheta = sqrt(1 - direction.y * direction.y);
-    return Point2d(std::atan2(direction.z, direction.x) * 0.5 * INV_PI + 0.5, std::acos(- direction.y) * INV_PI);
+Point2d InfiniteSphereLight::DirectionToUv(const Vec3d & direction, double & sinTheta) {
+    auto localDir = _toLocal.operator*(direction);
+    sinTheta = sqrt(1 - localDir.y * localDir.y);
+    return Point2d(fm::atan2(localDir.z, localDir.x) * 0.5 * INV_PI + 0.5, fm::acos(- localDir.y) * INV_PI);
 }
 
 
@@ -26,7 +29,7 @@ LightSampleResult InfiniteSphereLight::evalEnvironment(const Ray & ray) {
 
     //todo support environment
     LightSampleResult ans;
-    TextureCoord2D textureCoord2D(DirectionToUv(toLocal * ray.direction));
+    TextureCoord2D textureCoord2D(DirectionToUv( ray.direction));
     ans.s = emission->eval(textureCoord2D);
     ans.src = ray.origin;
     ans.pdfDirect = 0.0;
@@ -58,13 +61,13 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const Intersection & its, co
     TextureCoord2D textureCoord2D(uv);
     ans.s = emission->eval(textureCoord2D);
     double sinTheta;
-    Vec3d dir = toWorld * UvToDirection(uv, sinTheta);
+    Vec3d dir = UvToDirection(uv, sinTheta);
 
     ans.src = its.position;
     double _worldRadius = 100; //todo load radius from scene
     ans.dst = ans.src + 2 * _worldRadius * dir;
     ans.uv = uv;
-    ans.pdfDirect = pdf  / ( 2 * M_PI * M_PI * sinTheta );
+    ans.pdfDirect = pdf * emission->getWidth() * emission->getHeight() / ( 2 * M_PI * M_PI * sinTheta );
     ans.wi = dir;
     ans.isDeltaPos = false;
     ans.isDeltaDir = false;
@@ -75,7 +78,7 @@ LightSampleResult InfiniteSphereLight::sampleDirect(const MediumSampleRecord & m
     throw ( "Not implemented yet" );
 }
 
-InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::INFINITE) {
+InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::INFINITE), Transform3D(getOptional(json,"transform",Json())) {
     if ( json.contains("emission") ) {
         std::string workingDir = FileUtils::getWorkingDir();
         std::string emissionTexturePath = FileUtils::getWorkingDir() + json.at("emission").get < std::string >();
@@ -87,22 +90,11 @@ InfiniteSphereLight::InfiniteSphereLight(const Json & json) : Light(ELightType::
     } else {
         //todo report error
     }
-
-    if(json.contains("to_world")){
-        double matrixData[16];
-        for(int i=0;i<16;i++)
-            json["to_world"].at(i).get_to(matrixData[i]);
-        toWorld = Matrix4x4(matrixData);
-        toLocal = toWorld.inverse();
-    }
-    else {
-        toWorld = Matrix4x4();
-        toLocal = Matrix4x4();
-    }
+    _toLocal = matrix->getInverse();
 }
 
 double InfiniteSphereLight::directPdf(Vec3d dir) {
     double sinTheta;
-    Point2d uv = DirectionToUv(toLocal * dir, sinTheta);
-    return INV_PI * INV_TWOPI * distribution->Pdf(uv)  / sinTheta;
+    Point2d uv = DirectionToUv( dir, sinTheta);
+    return INV_PI * INV_TWOPI * distribution->Pdf(uv)   / sinTheta;
 }

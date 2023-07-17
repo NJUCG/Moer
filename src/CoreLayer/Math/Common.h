@@ -35,20 +35,16 @@ inline float clamp(float value, float min, float max) {
     else return value;
 }
 
-/// Simple integer clamping function
-inline int clamp(int value, int min, int max) {
-    if (value < min)
-        return min;
-    else if (value > max)
-        return max;
-    else return value;
+template<class T>
+inline T clamp(T x, T minVal, T maxVal) {
+    if(x>=minVal && x<=maxVal ) return  x;
+    return x<minVal?minVal:maxVal;
 }
 
-
-/// Always-positive modulo operation
-inline int mod(int a, int b) {
-    int r = a % b;
-    return (r < 0) ? r+b : r;
+template<class T>
+inline T mod(T a, T b) {
+    T r = a % b;
+    return (r < T(0)) ? r+b : r;
 }
 
 template<class T>
@@ -63,6 +59,28 @@ T  lerp(const T & x00, const T & x01, const T & x10, const T & x11, double u, do
     return (x00*(1.0f - u) + x01*u)*(1.0f - v) +
            (x10*(1.0f - u) + x11*u)*v;
 }
+
+template <class T>
+inline T sqr(const T & x){
+    return x * x;
+}
+
+
+template<class T>
+inline T rcp(T x){
+    return 1/x;
+}
+
+template<class T>
+inline T rsqrt(T x){
+    return 1/sqrt(x);
+}
+
+template<class T>
+inline  T select(bool mask,T a,T b){
+    return mask?a:b;
+}
+
 
 
 

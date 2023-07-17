@@ -1,7 +1,6 @@
 {
   "mediums" : [],
   "materials": [
- 
     {
       "name": "Stand",
       "albedo": 0.2,
@@ -14,6 +13,18 @@
       "material": "Cu",
       "distribution": "beckmann",
       "roughness": 0.1
+    },
+    {
+      "name" : "BumpMetal",
+       "type" : "bump",
+      "bump" : "textures/lines.png",
+      "material" : {
+        "albedo": 1,
+        "type": "conductor",
+        "material": "Cu",
+        "distribution": "beckmann",
+        "roughness": 0.1
+      }
     },
     {
       "name": "Plastic",
@@ -76,7 +87,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Plastic"
+      "material": "BumpMetal"
     },
     {
       "transform": {
@@ -93,7 +104,7 @@
       "smooth": true,
       "backface_culling": false,
       "recompute_normals": false,
-      "material": "Plastic"
+      "material": "BumpMetal"
     },
 
     {

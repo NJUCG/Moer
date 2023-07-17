@@ -13,6 +13,7 @@
 
 #include "DielectricBxDF.h"
 #include "Fresnel.h"
+#include "FastMath.h"
 Spectrum DielectricBxDF::f(const Vec3d &wo, const Vec3d &wi) const {
     return {0.f};
 }
@@ -26,19 +27,19 @@ BxDFSampleResult DielectricBxDF::sample(const Vec3d &wo, const Point2d &sample) 
 
     double  eta = wo.z < 0.0 ? ior : invIor;
     double cosThetaT;
-    double F= Fresnel::dielectricReflectance(eta, std::abs(wo.z), cosThetaT);
+    double F= Fresnel::dielectricReflectance(eta, fm::abs(wo.z), cosThetaT);
     double reflectionProbability= F;
     if(sample[0]<=reflectionProbability) {
         result.directionIn = Frame::reflect(wo);
         result.pdf = reflectionProbability;
         result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_SPECULAR);
-        result.s = specularR * F / std::abs(result.directionIn.z);
+        result.s = specularR * F / fm::abs(result.directionIn.z);
     }
     else {
         result.directionIn = Vec3d (-eta*wo.x,-eta*wo.y,-std::copysign(cosThetaT,wo.z));
         result.pdf = 1-reflectionProbability;
         result.bxdfSampleType = BXDFType(BXDF_TRANSMISSION | BXDF_SPECULAR);
-        result.s= specularT * (1-F)/ std::abs(result.directionIn.z);
+        result.s= specularT * (1-F)/ fm::abs(result.directionIn.z);
     }
     return  result;
 }
@@ -115,7 +116,7 @@ double RoughDielectricBxDF::pdf(const Vec3d & out, const Vec3d & in, bool reflec
     else {
         double sqrtDenom = dot(out, wh) * eta +  dot(in, wh);
         double dWhDWi =
-                std::abs( dot(in, wh)) / (sqrtDenom * sqrtDenom);
+                fm::abs( dot(in, wh)) / (sqrtDenom * sqrtDenom);
         pdf =   whPdf * (1-F) * dWhDWi;
     }
     return pdf;
@@ -133,13 +134,13 @@ Spectrum RoughDielectricBxDF::f(const Vec3d & out, const Vec3d & in, bool reflec
     double D = distrib->D(wh,alphaXY);
     double G = distrib->G(in,out,alphaXY);
     if (reflect) {
-        return glossyR * F * D * G / 4 / (abs(in.z * out.z));
+        return glossyR * F * D * G /  (4 * abs(in.z * out.z));
     }
     else {
         double whDotIn =  dot(wh,in);
         double whDotOut = dot(wh,out);
         double sqrtDeom = eta * whDotOut  +  whDotIn;
-        return glossyT * ( 1 - F) * D * G * std::abs(
+        return glossyT * ( 1 - F) * D * G * fm::abs(
                 whDotIn * whDotOut  /
                 (in.z * out.z * sqrtDeom * sqrtDeom)
         );

@@ -1,10 +1,18 @@
 #include "Quad.h"
 #include "FunctionLayer/Intersection.h"
+#include "FastMath.h"
 
 Quad::Quad(const Json & json) : Entity(json) {
     _base = getOptional(json,"base",Point3d(0,0,0));
     _edge0 = getOptional(json,"edge0",Vec3d(1,0,0));
     _edge1 = getOptional(json,"edge1",Vec3d(0,0,1));
+
+    _base = matrix->operator*(_base);
+    _edge0 = matrix->operator*(_edge0);
+    _edge1 = matrix->operator*(_edge1);
+
+    _base -= _edge0 * 0.5f;
+    _base -= _edge1 * 0.5f;
 }
 
 
@@ -13,7 +21,7 @@ Quad::Quad(const Json & json) : Entity(json) {
 std::optional <Intersection> Quad::intersect(const Ray & r) const {
     Vec3d  n = normalize(cross(_edge1,_edge0));;
     double dotW = dot(r.direction,n);
-    if(std::abs(dotW)<EPSILON){
+    if(fm::abs(dotW)<EPSILON){
         return std::nullopt;
     }
     double t = dot(n,(_base - r.origin))/dotW;

@@ -15,13 +15,6 @@
 #include "FunctionLayer/Texture/Texture.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
 
-MatteMaterial::MatteMaterial(const std::shared_ptr < Texture < Spectrum>> & _albedo,
-                             const std::shared_ptr < Texture < double>> & _bump) 
-    : Material(_albedo, _bump) 
-{
-
-}
-
 std::shared_ptr<BxDF> MatteMaterial::getBxDF(const Intersection & intersect) const
 {
     Spectrum color = albedo->eval(intersect);
@@ -34,10 +27,11 @@ std::shared_ptr<BSSRDF> MatteMaterial::getBSSRDF(const Intersection & intersect)
     return nullptr;
 }
 
-MatteMaterial::MatteMaterial(const Json & json) {
-   // RGB3 _albedo = getOptional(json,"albedo",RGB3(1,1,1));
+MatteMaterial::MatteMaterial(const Json & json): Material(json) {
     type = EMaterialType::Diffuse;
-    albedo = TextureFactory::LoadTexture<Spectrum>(json,"albedo",RGB3(1,1,1));
+    albedo = TextureFactory::LoadTexture<RGB3>(json,"albedo",RGB3(1,1,1));
 }
 
-
+MatteMaterial::MatteMaterial() {
+    albedo = TextureFactory::LoadConstantTexture(RGB3(0.5,0.5,0.5));
+}
