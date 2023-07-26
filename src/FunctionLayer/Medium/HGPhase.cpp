@@ -35,6 +35,6 @@ HGPhase::samplePhase(Vec3d wo, Point3d scatterPoint, Point2d sample) const {
     Vec3d wi = v1 * sinTheta * std::cos(phi) + v2 * sinTheta * std::sin(phi) + wo * cosTheta;
     float oper = 1 + g * g + 2 * g * cosTheta;
     float phaseValue = 0.25 * INV_PI * (1 - g * g) / (oper * std::sqrt(oper));
-    float phasePdf = phaseValue * 0.25 * INV_PI;
+    float phasePdf = phaseValue;
     return {wi, phaseValue, phasePdf, false};
 }
