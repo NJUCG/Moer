@@ -140,10 +140,12 @@ std::optional < Intersection > Curve::getIntersectionFromRayHit(const UserRayHit
 
 std::optional < Intersection > Curve::intersect(const Ray & r) const {
     ///use embree intersect
+    return std::optional<Intersection>{};
 }
 
 double Curve::area( ) const {
     //todo
+    return 1.0;
 }
 
 Intersection Curve::sample(const Point2d & positionSample) const {

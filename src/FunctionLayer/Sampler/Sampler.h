@@ -40,26 +40,7 @@ public:
 
     virtual double sample1D() = 0;
 
-<<<<<<< HEAD
-  /**
-   * @brief Return a copy of this Sampler instance,
-   *        in order to secure the multi-thread sampling.
-   * @note  Copy of a Sampler is to persist the sampling strategy,
-   *        not identical sampling sequences.
-   * 
-   * @param seed Seed of rng, to make random sequence UNIQUE for each copy.
-   *             May not be used, because RandomNumberGenerator uses random seeds.
-   * @return std::unique_ptr<Sampler> Copy of this Sampler
-   * 
-   * @date 2022-10-15
-   * @author ja50n
-   */
-  virtual std::unique_ptr<Sampler> clone(int seed) const = 0;
-
-	CameraSample getCameraSample();
-=======
     virtual Point2d sample2D() = 0;
->>>>>>> aa2531e72896444149c9e0d0043f67527eda2e16
 
     /**
    * @brief Return a copy of this Sampler instance,
@@ -115,57 +96,7 @@ protected:
     virtual void generateSamples2D(std::vector<Point2d> &samples) = 0;
 
 public:
-<<<<<<< HEAD
-	PixelSampler() = delete;
-	
-	PixelSampler(int _sppSqrt)
-		: sppSqrt(_sppSqrt), 
-		  samplesPerPixel(_sppSqrt * _sppSqrt), 
-		  nDimensions(5), 
-		  curSamplePixelIndex(0), 
-		  curDimensionIndex1D(0), 
-		  curDimensionIndex2D(0) 
-	{
-		for (int i = 0; i < nDimensions; ++i) {
-			samples1D.emplace_back(std::vector<double>(samplesPerPixel));
-			samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
-		}
-	}
-	
-	PixelSampler(int _sppSqrt, int _nDimensions)
-		: sppSqrt(_sppSqrt), 
-		  samplesPerPixel(_sppSqrt * _sppSqrt), 
-		  nDimensions(_nDimensions), 
-		  curSamplePixelIndex(0), 
-		  curDimensionIndex1D(0), 
-		  curDimensionIndex2D(0) 
-	{ 
-		for (int i = 0; i < nDimensions; ++i) {
-			samples1D.emplace_back(std::vector<double>(samplesPerPixel));
-			samples2D.emplace_back(std::vector<Point2d>(samplesPerPixel));
-		}
-	}
-	
-	virtual ~PixelSampler() = default;
-	
-	/// @brief The sampler may change the sampling stragety at different pixel location, record the current pixel location
-	/// @param _pixelPositon location of current pixel
-	virtual void startPixel(const Point2i &_pixelPositon) override {
-		// record the position
-		pixelPosition = _pixelPositon;
-		// reset the sample index
-		curDimensionIndex1D = curDimensionIndex2D = curSamplePixelIndex = 0;
-		// generate the samples will be used in current pixel
-		for (int i = 0; i < nDimensions; ++i) {
-			generateSamples1D(samples1D[i]);
-			shuffle(samples1D[i], rng);
-			generateSamples2D(samples2D[i]);
-			shuffle(samples2D[i], rng);
-		}
-	}
-=======
     PixelSampler() = delete;
->>>>>>> aa2531e72896444149c9e0d0043f67527eda2e16
 
     PixelSampler(int _sppSqrt)
         : sppSqrt(_sppSqrt),
