@@ -2,6 +2,7 @@
 
 #include "FunctionLayer/Integrator/PathIntegrator-new.h"
 #include "FunctionLayer/Integrator/NormalIntegrator.h"
+#include "FunctionLayer/Sampler/Halton.h"
 #include "ResourceLayer/File/FileUtils.h"
 #include "FunctionLayer/TileGenerator/SequenceTileGenerator.h"
 #include "FunctionLayer/Sampler/Independent.h"
@@ -48,8 +49,14 @@ public:
         settings = new RenderSettings(settingsJson);
         auto camera = CameraFactory::LoadCameraFromJson(sceneJson["camera"]);
         Point2i resolution = getOptional(sceneJson["camera"], "resolution", Point2i(512, 512));
-        PathIntegratorNew integrator(camera, std::make_unique<Film>(resolution, 3),
-                                     std::make_unique<SequenceTileGenerator>(resolution), std::make_shared<IndependentSampler>(), settings->spp, 12);
+        // PathIntegratorNew integrator(camera,
+        //                              std::make_unique<Film>(resolution, 3),
+        //                              std::make_unique<SequenceTileGenerator>(resolution),
+        //                              std::make_shared<HaltonSampler>(settings->spp, resolution.x, resolution.y), settings->spp, 12);
+        PathIntegratorNew integrator(camera,
+                                     std::make_unique<Film>(resolution, 3),
+                                     std::make_unique<SequenceTileGenerator>(resolution),
+                                     std::make_shared<IndependentSampler>(settings->spp, 10), settings->spp, 12);
 
         std::cout << "start rendering" << std::endl;
         integrator.render(scene);
