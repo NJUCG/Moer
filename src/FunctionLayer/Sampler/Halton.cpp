@@ -34,9 +34,11 @@ static uint64_t multiplicative_inverse(int64_t a, int64_t n) {
 }
 
 std::vector<uint16_t> HaltonSampler::scramblePermutations;
+
 HaltonSampler::HaltonSampler(int64_t _spp, int resolution_w,
                              int resolution_h)
     : HaltonSampler(_spp, resolution_w, resolution_h, 5) {}
+
 HaltonSampler::HaltonSampler(int64_t _spp, int resolution_w,
                              int resolution_h, int _nDim)
     : GlobalSampler(_spp, _nDim) {
