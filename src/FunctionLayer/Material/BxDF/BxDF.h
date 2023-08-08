@@ -107,24 +107,6 @@ protected:
     
 };
 
-/// @brief A special bxdf indicating that light can pass through directly.
-class NullBxDF: public BxDF
-{
-public:
-
-    virtual bool isNull() const override {return true;}
-
-    virtual double pdf(const Vec3d &out, const Vec3d &in) const override {return 0.0; /*This should never be called*/}
-
-protected:
-
-    virtual BxDFSampleResult sample(const Vec3d &out, const Point2d& sample) const override {return BxDFSampleResult{}; /*This should never be called*/}
-
-    virtual Spectrum f(const Vec3d &out, const Vec3d &in) const override {return Spectrum(0.0);/*This should never be called*/}
-    
-    
-};
-
 // BSDF Inline Functions
 inline double CosTheta(const Vec3d &w) { return w.z; }
 inline double Cos2Theta(const Vec3d &w) { return w.z * w.z; }

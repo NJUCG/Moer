@@ -65,8 +65,6 @@ public:
 
     std::shared_ptr<Medium> getTargetMedium(const Intersection &its,
                                                            Vec3d wi) const;
-    std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &its,
-                                                           Vec3d wi) const;
 
     Spectrum evalTransmittance(std::shared_ptr<Scene> scene,
                                                 const Intersection& its,

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "FunctionLayer/Intersection.h"
 #include "FunctionLayer/Material/BxDF/BxDF.h"
 #include "vmm.h"
 

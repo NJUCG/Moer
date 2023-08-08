@@ -12,6 +12,7 @@
 #include "VolPathIntegrator.h"
 #include "CoreLayer/Math/Warp.h"
 #include "FastMath.h"
+#include "FunctionLayer/Material/NullMaterial.h"
 
 VolPathIntegrator::VolPathIntegrator(std::shared_ptr<Camera> _camera,
                                      std::unique_ptr<Film> _film,
@@ -28,26 +29,22 @@ VolPathIntegrator::VolPathIntegrator(std::shared_ptr<Camera> _camera,
 }
 
 Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> scene) {
+    const double eps = 1e-4;
     Spectrum L{.0};
     Spectrum throughput{1.0};
     Ray ray = initialRay;
     int nBounces = 0;
 
     // surface intersection point.
-    // surface intersection point.
     auto itsOpt = scene->intersect(ray);
 
     // medium is a flag indicating that whether ray is immersed in medium.
     std::shared_ptr<Medium> medium = nullptr;
     // TODO: medium should be initialized as camera.medium.
-    // TODO: medium should be initialized as camera.medium.
 
-    // an extra intersection recording medium scattering points.
-    Intersection mediumScatteringPoint;
     // an extra intersection recording medium scattering points.
     Intersection mediumScatteringPoint;
     MediumSampleRecord mRec;
-
 
     while(true) {
 
@@ -115,12 +112,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
                 L += throughput * tr * evalLightRecord.f * misw;
-            }
-
-            if (!itsOpt.has_value())
-                break;
-
-        } 
+            } 
+        }
         else {
             // * Ray currently travel inside medium, but will flee from medium.
             if (medium) {
@@ -176,14 +169,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
                 if (sampleScatterRecord.isDelta)
                     misw = 1.0;
-
                 L += throughput * tr * evalLightRecord.f * misw;
             }
-
-            //* Terminate if ray escape the scene
-            if (!itsOpt.has_value())
-                break;
-
         }
     }
 
@@ -218,16 +205,19 @@ PathIntegratorLocalRecord VolPathIntegrator::evalEmittance(std::shared_ptr<Scene
         Intersection tmpIts;
         tmpIts.position = ray.origin;
         pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, light);
-        pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, light);
     }
     return {ray.direction, LEmission, pdfDirect, false}; 
 }
 
+/// @brief Sample on the distribution of direct lighting and take medium transmittance into account.
+/// @param scene Scene description. Multiple shadow ray intersect operations will be performed.
+/// @param its Current intersection point which returned pdf dependent on.
+/// @param ray Current ray. Should only be applied for time records.
+/// @return Sampled direction on the distribution of direct lighting and corresponding solid angle dependent pdf. An extra flag indicites that whether it sampled on a delta distribution.
 PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting(std::shared_ptr<Scene> scene, 
                                                                   const Intersection &its, 
                                                                   const Ray &ray)
 {
-    auto [light, pdfChooseLight] = chooseOneLight(scene, sampler->sample1D());
     auto [light, pdfChooseLight] = chooseOneLight(scene, sampler->sample1D());
     auto record = light->sampleDirect(its, sampler->sample2D(), ray.timeMin);
     double pdfDirect = record.pdfDirect * pdfChooseLight; // pdfScatter with respect to solid angle
@@ -239,12 +229,6 @@ PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting(std::shared_pt
 
 }
 
-/// @brief Eval the scattering function, i.e., bsdf * cos or phase function. The cosine term will not be counted for delta distributed bsdf (inside f).
-/// @param its Current intersection point which is used to obtain local coordinate, bxdf and phase function.
-/// @param ray Current ray which is used to calculate bsdf $f(\omega_i,\omega_o)$ or phase function.
-/// @param dirScatter (already sampled) scattering direction.
-/// @return scattering direction, bsdf/phase value and bsdf/phase pdf. 
-PathIntegratorLocalRecord VolPathIntegrator::evalScatter(const Intersection &its,
 /// @brief Eval the scattering function, i.e., bsdf * cos or phase function. The cosine term will not be counted for delta distributed bsdf (inside f).
 /// @param its Current intersection point which is used to obtain local coordinate, bxdf and phase function.
 /// @param ray Current ray which is used to calculate bsdf $f(\omega_i,\omega_o)$ or phase function.
@@ -288,11 +272,6 @@ PathIntegratorLocalRecord VolPathIntegrator::evalScatter(const Intersection &its
 /// @param ray Current incident ray.
 /// @return Sampled scattering direction, bsdf * cos or phase function, corresponding pdf and whether it is sampled on a delta distribution.
 PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(const Intersection &its,
-/// @brief Sample a direction along with a pdf value in term of solid angle according to the distribution of bsdf/phase.
-/// @param its Current intersection point.
-/// @param ray Current incident ray.
-/// @return Sampled scattering direction, bsdf * cos or phase function, corresponding pdf and whether it is sampled on a delta distribution.
-PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(const Intersection &its,
                                                         const Ray &ray)
 {
     if (its.material != nullptr)
@@ -324,11 +303,6 @@ PathIntegratorLocalRecord VolPathIntegrator::sampleScatter(const Intersection &i
 /// @param nBounce Current bounce depth.
 /// @return Survive probility after Russian roulette.
 double VolPathIntegrator::russianRoulette(const Spectrum &throughput,
-/// @brief Russian roulette method.
-/// @param throughput Current thorughput, i.e., multiplicative (bsdf * cos) / pdf or phase / pdf.
-/// @param nBounce Current bounce depth.
-/// @return Survive probility after Russian roulette.
-double VolPathIntegrator::russianRoulette(const Spectrum &throughput,
                                        int nBounce)
 {
     // double pSurvive = std::min(pRussianRoulette, throughput.sum());
@@ -340,10 +314,6 @@ double VolPathIntegrator::russianRoulette(const Spectrum &throughput,
     return pSurvive;
 }
 
-/// @brief (discretely) sample a light source.
-/// @param scene Scene description which is used to query scene lights.
-/// @param lightSample A random number within [0,1].
-/// @return Pointer of the sampled light source and corresponding (discrete) probility.
 /// @brief (discretely) sample a light source.
 /// @param scene Scene description which is used to query scene lights.
 /// @param lightSample A random number within [0,1].
@@ -364,10 +334,6 @@ VolPathIntegrator::chooseOneLight(std::shared_ptr<Scene> scene,
 /// @param scene Scene description which is used to query scene lights.
 /// @param light The specific light source.
 /// @return Corresponding (discrete) probility.
-/// @brief Calculate the (discrete) probility that a specific light source is sampled.
-/// @param scene Scene description which is used to query scene lights.
-/// @param light The specific light source.
-/// @return Corresponding (discrete) probility.
 double VolPathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
                                             std::shared_ptr<Light> light)
 {
@@ -376,11 +342,6 @@ double VolPathIntegrator::chooseOneLightPdf(std::shared_ptr<Scene> scene,
     return 1.0 / numLights;
 }
 
-/// @brief Eval the effect of environment light source (infinite area light).
-/// @param scene Scene description which is used to query scene lights.
-/// @param ray Current ray.
-/// @return light source direction, light radiance and pdf. Without sampling process, the pdf can NOT be used to calculate final radiance.
-///         Note that this function will ignore infinite medium as environment map light source should never appear together with infinite medium.
 /// @brief Eval the effect of environment light source (infinite area light).
 /// @param scene Scene description which is used to query scene lights.
 /// @param ray Current ray.
@@ -410,10 +371,8 @@ std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &i
 {
     bool scatterToOutSide = dot(its.geometryNormal, wi) > 0;
     // bool scatterToinSide = dot(its.geometryNormal, wi) < 0;
-    // bool scatterToinSide = dot(its.geometryNormal, wi) < 0;
     if (scatterToOutSide) 
         return its.material->getOutsideMedium();
-    else
     else
         return its.material->getInsideMedium();
 
@@ -443,8 +402,6 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
 
     // calculate the transmittance of last segment from lastScatteringPoint to testRayItsOpt.
     while(true){
-    // calculate the transmittance of last segment from lastScatteringPoint to testRayItsOpt.
-    while(true){
 
         // corner case: infinite medium or infinite light source.
         if(!testRayItsOpt.has_value()){
@@ -463,13 +420,12 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
             }
             return tr;
         }
-
+      
         // corner case: non-null surface
         if(testRayIts.material!=nullptr){
             if(!testRayIts.material->getBxDF(testRayIts)->isNull())
                 return 0.0;
         }
-
         // hit a null surface, calculate tr
         if (medium != nullptr)
             tr *= medium->evalTransmittance(testRayIts.position,lastScatteringPoint);
@@ -483,6 +439,7 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
         testRayItsOpt = scene -> intersect(ray);
     }
     
+
 }
 
 /// @brief fulfill a specially-made Intersection representing medium scattering point.
@@ -508,7 +465,6 @@ Intersection VolPathIntegrator::fulfillScatteringPoint(const Point3d& position,
 
     return scatteringPoint;
 }
-
 
 /// @brief Intersect in scene but ignore bsdf with isNull()==true.
 /// @param scene Scene description where multiple intersect operation will be performed.

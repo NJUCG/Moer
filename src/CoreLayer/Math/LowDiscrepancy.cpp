@@ -11,6 +11,7 @@
 #include "LowDiscrepancy.h"
 #include <cassert>
 
+
 const int Primes[nPrimes] = {
     // clang-format off
     2, 3, 5, 7, 11,

@@ -103,7 +103,6 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
         }
 
         //* Another part of MIS, Test whether the bsdf sampling ray hit the emitter
-        //* Another part of MIS, Test whether the bsdf sampling ray hit the emitter
         ray = Ray{its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
         itsOpt = scene->intersect(ray);
 
@@ -127,11 +126,6 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
 }
 
-/// @brief Eval surface or infinite light source (on itsOpt) radiance and ignore medium transmittance.
-/// @param scene Scene description. Used to query scene lighting condition.
-/// @param itsOpt Current intersection point which could be a light source. If there's no intersection, eval the radiance of environment light.
-/// @param ray Current ray which connects last intersection point and itsOpt.
-/// @return Current ray direction, obtained light radiance and solid angle dependent pdf. Note that there is no corresponding sampling process for pdf and the pdf value should NOT be applied to calculate the final radiance contribution.
 /// @brief Eval surface or infinite light source (on itsOpt) radiance and ignore medium transmittance.
 /// @param scene Scene description. Used to query scene lighting condition.
 /// @param itsOpt Current intersection point which could be a light source. If there's no intersection, eval the radiance of environment light.
@@ -161,9 +155,6 @@ PathIntegratorLocalRecord PathIntegratorNew::evalEmittance(std::shared_ptr<Scene
         tmpIts.position = ray.origin;
         pdfDirect = record.pdfDirect * chooseOneLightPdf(scene, light);
     }
-    // Path integrator will ignore medium transmittance. And (of course) there will be no occlusion.
-    // Spectrum transmittance(1.0);
-    return {ray.direction, LEmission, pdfDirect, false}; 
     // Path integrator will ignore medium transmittance. And (of course) there will be no occlusion.
     // Spectrum transmittance(1.0);
     return {ray.direction, LEmission, pdfDirect, false}; 
@@ -224,7 +215,6 @@ PathIntegratorLocalRecord PathIntegratorNew::evalScatter(const Intersection &its
     }
     else
     {
-        // Path integrator will igonre phase function distribution.
         // Path integrator will igonre phase function distribution.
         return {};
     }
