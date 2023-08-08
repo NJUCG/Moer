@@ -1,0 +1,567 @@
+{
+  "renderer": {
+    "spp": 4096,
+    "output_file": "green_bathroom"
+  },
+
+  "mediums": [],
+
+  "materials": [
+    {
+      "name": "bamboo",
+      "type": "lambert",
+      "albedo": "textures/Bamboo.jpg"
+    },
+    {
+      "name": "lustro",
+      "type": "mirror"
+    },
+    {
+      "name": "chrome",
+      "type": "conductor",
+      "distribution": "ggx",
+      "material": "Cr",
+      "roughness": 0.01
+    },
+    {
+      "name": "ceramics",
+      "type": "plastic",
+      "albedo": [0.9, 0.9, 0.9],
+      "roughness": 0.015,
+      "ior": 1.45
+    },
+    {
+      "name": "czarne",
+      "type": "plastic",
+      "albedo": [0.1, 0.1, 0.1],
+      "roughness": 0.01,
+      "ior": 1.7
+    },
+    {
+      "name": "szklo mleczne.001",
+      "type": "conductor",
+      "distribution": "ggx",
+      "material": "Al",
+      "albedo": [0.8, 0.8, 0.8],
+      "roughness": 0.3
+    },
+    {
+      "name": "Material.005",
+      "type": "lambert",
+      "albedo": [0.8, 0.8, 0.8]
+    },
+    {
+      "name": "czerwony",
+      "type": "conductor",
+      "albedo": [1, 0.042, 0],
+      "roughness": 0.02
+    },
+    {
+      "name": "Material.004",
+      "type": "lambert",
+      "albedo": [0.8, 0.779, 0.687]
+    },
+    {
+      "name": "Material.009",
+      "type": "lambert",
+      "albedo": "textures/pasta.jpg"
+    },
+    {
+      "name": "Material.016",
+      "type": "lambert",
+      "albedo": "textures/brush_texture.jpg"
+    },
+    {
+      "name": "Material.013",
+      "type": "lambert",
+      "albedo": [1, 1, 1]
+    },
+    {
+      "name": "szare plytki",
+      "type": "plastic",
+      "albedo": "textures/szare_plytki.jpg",
+      "roughness": 0.04,
+      "ior": 1.45
+    },
+    {
+      "name": "biale sciany",
+      "type": "lambert",
+      "albedo": [1, 1, 1]
+    },
+    {
+      "name": "zielony",
+      "type": "plastic",
+      "albedo": [0.364, 0.8, 0.110],
+      "roughness": 0.02,
+      "ior": 1.5
+    },
+    {
+      "name": "bialy.001",
+      "type": "plastic",
+      "albedo": [0.8, 0.8, 0.8],
+      "roughness": 0.01,
+      "ior": 1.3
+    },
+    {
+      "name": "dywan",
+      "type": "lambert",
+      "albedo": "textures/dywan.jpg"
+    },
+    {
+      "name": "czarne plytki",
+      "type": "plastic",
+      "albedo": "textures/czarne_plytki.jpg",
+      "roughness": 0.04,
+      "ior": 1.4
+    },
+    {
+      "name": "window.002",
+      "type": "dielectric",
+      "distribution": "ggx",
+      "roughness": 0.018,
+      "ior": 1.5
+    },
+    {
+      "name": "Material.014",
+      "type": "lambert",
+      "albedo": "textures/indoor_2.jpg"
+    },
+    {
+      "name": "Material.008",
+      "type": "lambert",
+      "albedo": [0.8, 0.8, 0.8]
+    },
+    {
+      "name": "Material.017",
+      "type": "lambert",
+      "albedo": "textures/courtyard.jpg"
+    },
+    {
+      "name": "dywan.001",
+      "type": "lambert",
+      "albedo": "textures/dywan.jpg"
+    },
+    {
+      "name": "szklo",
+      "type": "dielectric",
+      "distribution": "ggx",
+      "ior": 1.5,
+      "roughness": 0.001
+    },
+    {
+      "name": "Material",
+      "type": "dielectric",
+      "distribution": "ggx",
+      "roughness": 0.001,
+      "ior": 1.45,
+      "albedo_reflection": [1, 0.717, 0.194],
+      "albedo_transmission": [1, 0.717, 0.194]
+    },
+    {
+      "name": "n5",
+      "type": "lambert",
+      "albedo": "textures/liquid_1.jpg"
+    },
+    {
+      "name": "White-pot",
+      "type": "disney",
+      "albedo": [0.8, 0.8, 0.8],
+      "metallic": 0,
+      "specular": 0.5,
+      "roughness": 0.5
+    }
+  ],
+
+  "entities": [
+    {
+      "type": "mesh",
+      "file": "models/Bamboo_000.obj",
+      "material": "bamboo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Bamboo_005.obj",
+      "material": "bamboo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Bamboo_015.obj",
+      "material": "bamboo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Bamboo_016.obj",
+      "material": "bamboo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Bamboo_017.obj",
+      "material": "bamboo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle.obj",
+      "material": "lustro"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_001.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_002.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_003.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_004.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_005.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_006.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_007.obj",
+      "material": "ceramics"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_008.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_009.obj",
+      "material": "szklo mleczne.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_010.obj",
+      "material": "Material.005"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_011.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_012.obj",
+      "material": "czerwony"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_013.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_014.obj",
+      "material": "Material.004"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_015.obj",
+      "material": "Material.004"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_016.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_017.obj",
+      "material": "Material.009"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_018.obj",
+      "material": "Material.016"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_019.obj",
+      "material": "Material.013"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_021.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_022.obj",
+      "material": "Material.016"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Circle_023.obj",
+      "material": "Material.013"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Cube.obj",
+      "material": "szare plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Cube_001.obj",
+      "material": "biale sciany"
+    },
+    {
+      "type": "mesh",
+      "file": "models/KRAN.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane.obj",
+      "material": "zielony"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_001.obj",
+      "material": "zielony"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_002.obj",
+      "material": "zielony"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_003.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_004.obj",
+      "material": "zielony"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_005.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_006.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_007.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_008.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_009.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_010.obj",
+      "material": "bialy.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_011.obj",
+      "material": "dywan"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_012.obj",
+      "material": "czarne plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_013.obj",
+      "material": "czarne plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_014.obj",
+      "material": "czarne plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_015.obj",
+      "material": "szare plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_016.obj",
+      "material": "szare plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_017.obj",
+      "material": "window.002"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_018.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_019.obj",
+      "material": "window.002"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_020.obj",
+      "material": "window.002"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_021.obj",
+      "material": "Material.014",
+      "transform": {
+        "rotation": [
+          0, 0, 0
+        ]
+      }
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_022.obj",
+      "material": "Material.008"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_023.obj",
+      "material": "Material.017"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_024.obj",
+      "material": "dywan.001"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_030.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_031.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_032.obj",
+      "material": "czarne"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_036.obj",
+      "material": "szklo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_037.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_038.obj",
+      "material": "szklo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_039.obj",
+      "material": "szklo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_040.obj",
+      "material": "Material"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_041.obj",
+      "material": "n5"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_043.obj",
+      "material": "chrome"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Plane_044.obj",
+      "material": "szklo"
+    },
+    {
+      "type": "mesh",
+      "file": "models/plytki.obj",
+      "material": "czarne plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/plytki_001.obj",
+      "material": "szare plytki"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Tea-cup.obj",
+      "material": "White-pot"
+    },
+    {
+      "type": "mesh",
+      "file": "models/Tea-cup-saucer.obj",
+      "material": "White-pot"
+    },
+    {
+      "type": "infinite_sphere",
+      "emission": "textures/envmap.hdr"
+    }
+  ],
+
+  "camera": {
+    "type": "pinhole",
+    "fov": 50,
+    "resolution": [
+      1400,
+      900
+    ],
+    "transform": {
+      "position": [
+        -1.46771,
+        0.868513,
+        6.48074
+      ],
+      "look_at": [
+        1.35395,
+        0.623139,
+        0.626473
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  }
+}
