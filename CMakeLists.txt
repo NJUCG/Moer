@@ -31,11 +31,5 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/target/lib)
 set(CMAKE_DEBUG_POSTFIX "_d")
 set(CMAKE_RELEASE_POSTFIX "_r")
 
-## complie for dependencies
-set(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-set(ASSIMP_DOUBLE_PRECISION ON)
-add_subdirectory(${ZERO_DEPENDENCIES_DIR})
-
-## complie for Zero
-file(GLOB_RECURSE ZERO_SOURCES ${ZERO_SOURCES_DIR}/*.cpp)
-add_subdirectory(./test)
+add_subdirectory(ext)
+add_subdirectory(src)
