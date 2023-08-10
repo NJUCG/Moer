@@ -15,6 +15,7 @@
 #include <cmath>
 #include <limits>
 #include <utility>
+#include <cstdint>
 #ifdef _MSC_VER
 #include <intrin.h>
 #endif
