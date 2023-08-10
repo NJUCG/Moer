@@ -66,6 +66,8 @@ public:
     virtual double sample1D() = 0;
     /// @brief Get a 2D sample value in [0, 1)^2.
     virtual Point2d sample2D() = 0;
+    /// @brief Get the proper spp for specific sampling algorithm.
+    virtual int round(int n) { return n; }
 
     /**
      * @brief Return a copy of this Sampler instance,
