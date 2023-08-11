@@ -1,24 +1,22 @@
-#include <cmath>
 #include "Thinlens.h"
-#include "CoreLayer/Math/Common.h"
-#include "FastMath.h"
+#include "CoreLayer/Math/Warp.h"
 
-#define _USE_MATH_DEFINES
+ThinlensCamera::ThinlensCamera(const Json &json) : PerspectiveCamera(json) {
+    apertureRadius = json["aperture_radius"];
+    focusDistance = json["focus_distance"];
+}
 
 Ray ThinlensCamera::generateRay(const Point2i &filmResolution, const Point2i &pixelPosition, const CameraSample &sample) const {
-    double x = (double) (pixelPosition.x + sample.xy.x) / filmResolution.x,
-           y = (double) (pixelPosition.y + sample.xy.y) / filmResolution.y;
+    double x = (double) (pixelPosition.x + sample.xy.x) / filmResolution.x;
+    double y = (double) (pixelPosition.y + sample.xy.y) / filmResolution.y;
     
-    Point3d pointOnFilm = sampleToFilm * Point3d (x, y, 0),
-            pointOnFocalPlane = pointOnFilm * (focalDistance / pointOnFilm.z);
-    // TODO warp the sample transform
-    float r = fm::sqrt(sample.lens[0]),
-          theta = sample.lens[1] * 2 * M_PI;
-    Point3d pointOnApeture = 
-        apertureRadius * Point3d(r * fm::cos(theta), r * fm::sin(theta), 0);       
-    Vec3d dir = normalize(pointOnFocalPlane - pointOnApeture);
-        return Ray(
-        cameraToWorld * pointOnApeture,
-        cameraToWorld * dir
-    );
+    Point3d pointOnFilm = sampleToFilm * Point3d (x, y, 0);
+    Point3d pointOnFocalPlane = pointOnFilm * (focusDistance / pointOnFilm.z);
+
+    Point2d pointOnDisk = apertureRadius * SquareToUniformDiskConcentric(sample.lens);
+    Point3d pointOnAperture = { pointOnDisk.x, pointOnDisk.y, 0 };
+
+    Vec3d dir = normalize(pointOnFocalPlane - pointOnAperture);
+
+    return { cameraToWorld * pointOnAperture,cameraToWorld * dir };
 }
