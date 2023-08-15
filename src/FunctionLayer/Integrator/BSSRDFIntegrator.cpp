@@ -47,26 +47,9 @@ Spectrum BSSRDFIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> scen
                 }
                 L += throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / nDirectLightSamples;
             }
-
-            auto sampleScatterRecord = sampleScatter(scene, its, ray);
-
-            //* Test whether the bsdf sampling ray hit the emitter
-            const double eps = 1e-4;
-            auto sampleRay = Ray{its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
-            auto temp_itsOpt = scene->intersect(sampleRay);
-            evalLightRecord = evalEmittance(scene, temp_itsOpt, sampleRay);
-            if (!evalLightRecord.f.isBlack()) {
-                //* The continuous ray hit the emitter
-                //* Multiple importance sampling
-                double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
-                if (sampleScatterRecord.isDelta) {
-                    misw = 1.0;
-                    break;
-                }
-                L += throughput * evalLightRecord.f * misw * sampleScatterRecord.f / sampleScatterRecord.pdf;
-            }
         }
-        //            //*----- BSDF Sampling -----
+
+        //*----- BSDF Sampling -----
         SubSurfaceLocalRecord sampleSubSurfaceRecord = sampleSubsurface(scene, its, ray, throughput);
         L += sampleSubSurfaceRecord.L;
         if (!sampleSubSurfaceRecord.f.isBlack()) {
@@ -74,8 +57,23 @@ Spectrum BSSRDFIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> scen
         } else {
             break;
         }
+
         ray = Ray{sampleSubSurfaceRecord.point + sampleSubSurfaceRecord.wi * 1e-4, sampleSubSurfaceRecord.wi};
         itsOpt = scene->intersect(ray);
+
+        evalLightRecord = evalEmittance(scene, itsOpt, ray);
+        if (!evalLightRecord.f.isBlack()) {
+            //* The continuous ray hit the emitter or hit nothing but environment lighting.
+            //* Multiple importance samplingy
+
+            double misw = MISWeight(sampleSubSurfaceRecord.pdf, evalLightRecord.pdf);
+            if (sampleSubSurfaceRecord.isDelta) {
+                //* MIS will not be applied with delta distribution of BSDF.
+                misw = 1.0;
+            }
+
+            L += throughput * evalLightRecord.f * misw;
+        }
     }
     return L;
 }
@@ -126,20 +124,17 @@ BSSRDFIntegrator::sampleSubsurface(std::shared_ptr<Scene> scene, const Intersect
             Intersection pi;
 
             Spectrum bssrdfPdf;
+            // TODO: wo seems unchanged
             Spectrum s = bssrdf->sampleS(*scene, sampler->sample1D(), sampler->sample2D(), &pi, &bssrdfPdf, wo);
             if (s.isBlack() || bssrdfPdf.isBlack())
                 return {Vec3d(), Spectrum(0), 0, false,0,Point3d (0)};
             throughput *= s / bssrdfPdf;
 
             //handle direct lighting
-            //* ----- Direct Illumination -----
-            //Shadow ray's origin not used.The interface design for "mis" seems a bit impractical.
-            // It currently requires passing in the information about light separately.
-            // Perhaps in the future, it might be a good idea to incorporate the direction of the light into the "intersection".
-            Ray shadowRay(pi.position - wo,wo,1e-4);
+            Ray ray2(pi.position,dirScatter, ray.timeMin, ray.timeMax);
             for (int i = 0; i < nDirectLightSamples; ++i) {
-                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, pi, shadowRay);
-                PathIntegratorLocalRecord evalScatterRecord = evalScatter(pi, shadowRay, sampleLightRecord.wi);
+                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, pi, ray2);
+                PathIntegratorLocalRecord evalScatterRecord = evalScatter(pi, ray2, sampleLightRecord.wi);
                 if (!sampleLightRecord.f.isBlack()) {
                     //* Multiple importance sampling
                     double misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
@@ -148,32 +143,15 @@ BSSRDFIntegrator::sampleSubsurface(std::shared_ptr<Scene> scene, const Intersect
                     }
                     directL += originThr * throughput * sampleLightRecord.f * evalScatterRecord.f / sampleLightRecord.pdf * misw / nDirectLightSamples;
                 }
-
-                auto sampleScatterRecord = sampleScatter(scene, pi, shadowRay);
-                //* Test whether the bsdf sampling ray hit the emitter
-                const double eps = 1e-4;
-                auto sampleRay = Ray{pi.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
-                auto itsOpt = scene->intersect(sampleRay);
-                auto evalLightRecord = evalEmittance(scene, itsOpt, sampleRay);
-                if (!evalLightRecord.f.isBlack()) {
-                    //* The continuous ray hit the emitter
-                    //* Multiple importance sampling
-                    double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
-                    if (sampleScatterRecord.isDelta) {
-                        misw = 1.0;
-                    }
-                    directL += originThr * throughput * evalLightRecord.f * misw * sampleScatterRecord.f / sampleScatterRecord.pdf;
-                }
             }
-            std::shared_ptr<BxDF> newBxdf = pi.material->getBxDF(pi);
-            BxDFSampleResult newSample = newBxdf->sample(pi.toLocal(wo), sampler->sample2D(), false);
 
+            std::shared_ptr<BxDF> newBxdf = pi.material->getBxDF(pi);
+            BxDFSampleResult newSample = newBxdf->sample(pi.toLocal(-dirScatter), sampler->sample2D(), false);
             if (newSample.s.isBlack() || newSample.pdf == 0) {
                 return {Vec3d(), Spectrum(0), 0, false,0,Point3d (0)};
             }
 
             dirScatter = pi.toWorld(newSample.directionIn);
-
 
             throughput *= newSample.s * std::abs(dot(dirScatter, pi.geometryNormal)) / newSample.pdf;
             return {dirScatter, throughput, 1, BxDF::MatchFlags(newSample.bxdfSampleType, BXDF_SPECULAR), directL, pi.position};

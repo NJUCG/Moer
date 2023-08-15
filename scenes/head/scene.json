@@ -1,11 +1,7 @@
 {
   "mediums": [],
+
   "materials": [
-    {
-      "name" : "plastic",
-      "albedo": 0.9,
-      "type" : "plastic"
-    },
     {
       "name" : "head",
       "type" : "kd_subsurface",
@@ -16,7 +12,7 @@
       "bsdf" :
       {
         "type" : "dielectric",
-        "eta" : 1.5,
+        "eta" : 1.33,
         "albedo_transmission" : "head_albedomap.png"
       }
     },
@@ -25,14 +21,14 @@
       "albedo": {
         "type": "checker",
         "on_color": [
-          0.725,
-          0.71,
-          0.68
-        ],
-        "off_color": [
           0.325,
           0.31,
           0.25
+        ],
+        "off_color": [
+          0.725,
+          0.71,
+          0.68
         ],
         "res_u": 20,
         "res_v": 20
@@ -56,9 +52,9 @@
     {
       "transform": {
         "scale": [
-          113,
-          113,
-          113
+          160,
+          160,
+          160
         ],
         "rotation": [
           0,
@@ -97,7 +93,7 @@
       ],
       "look_at": [
         -0.953633,
-        2.17253,
+        4.4,
         1.0972613
       ],
       "up": [
@@ -107,14 +103,10 @@
       ]
     },
     "type": "pinhole",
-    "fov": 35
-  },
-  "integrator": {
-    "min_bounces": 0,
-    "max_bounces": 64
+    "fov": 31
   },
   "renderer": {
     "output_file": "head",
-    "spp": 4
+    "spp": 64
   }
 }
