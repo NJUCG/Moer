@@ -71,7 +71,7 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
         // Russian roulette.
         double pSurvive = russianRoulette(throughput, nBounces);
-        if(sampler->sample1D()>=pSurvive){
+         if(sampler->sample1D()>=pSurvive){
             break;
         }
         throughput /= pSurvive;
@@ -96,7 +96,7 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
         //*----- BSDF Sampling -----
         PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(its, ray);
-        if (!sampleScatterRecord.f.isBlack()) {
+        if (!sampleScatterRecord.f.isBlack() && sampleScatterRecord.pdf!=0) {
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
         } else {
             break;

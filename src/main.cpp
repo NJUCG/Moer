@@ -34,10 +34,9 @@ public:
     static void RenderScene(const std::string sceneWorkingDir) {
         TimeCounter renderClock;
 
-        FileUtils::setWorkingDir(sceneWorkingDir + "\\");
+        FileUtils::setWorkingDir(sceneWorkingDir + "/");
         Json sceneJson;
         std::ifstream sceneFile(FileUtils::getWorkingDir() + std::string("scene.json"));
-        auto t = FileUtils::getWorkingDir() + std::string("scene.json");
         sceneFile >> sceneJson;
         std::shared_ptr<Scene> scene = std::make_shared<Scene>(sceneJson);
         std::cout << "scene created" << std::endl;
