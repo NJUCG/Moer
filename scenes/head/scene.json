@@ -1,0 +1,120 @@
+{
+  "mediums": [],
+  "materials": [
+    {
+      "name" : "plastic",
+      "albedo": 0.9,
+      "type" : "plastic"
+    },
+    {
+      "name" : "head",
+      "type" : "kd_subsurface",
+      "mfp": [1.2953e-03,9.5238e-04,6.7114e-04],
+      "Kt" : "head_albedomap.png",
+      "eta" : 1.33,
+      "material" : "Skin1",
+      "bsdf" :
+      {
+        "type" : "dielectric",
+        "eta" : 1.5,
+        "albedo_transmission" : "head_albedomap.png"
+      }
+    },
+    {
+      "name": "Floor",
+      "albedo": {
+        "type": "checker",
+        "on_color": [
+          0.725,
+          0.71,
+          0.68
+        ],
+        "off_color": [
+          0.325,
+          0.31,
+          0.25
+        ],
+        "res_u": 20,
+        "res_v": 20
+      },
+      "type": "lambert"
+    }
+  ],
+  "entities": [
+
+    {
+      "transform": {
+        "position": [-8,5,3],
+        "scale": [20,20,20],
+        "rotation": [0,0,0]
+      },
+      "type": "mesh",
+      "file": "models/head1.obj",
+      "material": "head"
+    },
+
+    {
+      "transform": {
+        "scale": [
+          113,
+          113,
+          113
+        ],
+        "rotation": [
+          0,
+          45,
+          -180
+        ]
+      },
+      "type": "quad",
+      "material": "Floor"
+    },
+    {
+      "transform": {
+        "rotation": [
+          0,
+          67.2614,
+          0
+        ]
+      },
+      "emission": "textures/envmap.hdr",
+      "type": "infinite_sphere",
+      "sample": true
+    }
+  ],
+  "camera": {
+    "tonemap": "filmic",
+    "resolution": [
+      1280,
+      720
+    ],
+    "reconstruction_filter": "tent",
+    "transform": {
+      "position": [
+        23.895,
+        11.2207,
+        0.0400773
+      ],
+      "look_at": [
+        -0.953633,
+        2.17253,
+        1.0972613
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "type": "pinhole",
+    "fov": 35
+  },
+  "integrator": {
+    "min_bounces": 0,
+    "max_bounces": 64
+  },
+  "renderer": {
+    "output_file": "head",
+    "spp": 4
+  }
+}

@@ -3,7 +3,6 @@
 #include "Sphere.h"
 #include "Mesh.h"
 #include "Cube.h"
-#include "Curve.h"
 #include "FunctionLayer/Scene/Scene.h"
 #include "ResourceLayer/ResourceManager.h"
 #include "ResourceLayer/File/FileUtils.h"
@@ -25,7 +24,6 @@ bool handleEntity(std::string type, const Json &json, Scene &scene,
     if (type == "quad") entity = std::make_shared<Quad>(json);
     if (type == "sphere") entity = std::make_shared<Sphere>(json);
     if (type == "cube") entity = std::make_shared<Cube>(json);
-    if (type == "curves") entity = std::make_shared<Curve>(json);
     if (type == "mesh") {
         auto meshDataPath = FileUtils::getWorkingDir() + std::string(json["file"]);
         // for convenience. won't cost much cuz meshDataList not actually contains data.
@@ -69,6 +67,7 @@ bool handleLight(std::string type, const Json &json, Scene &scene) {
     else if (type == "infinite_sphere_cap") {
         scene.addLight(std::make_shared<InfiniteSphereCapLight>(json));
     }
+    return true ;
 }
 
 void LoadEntityFromJson(const Json &json, Scene &scene,

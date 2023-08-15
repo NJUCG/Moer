@@ -9,6 +9,7 @@
 #include "DielectricMaterial.h"
 #include "BumpMapMaterial.h"
 #include "NormalMapMaterial.h"
+#include "BSSRDFMaterial.h"
 
 #include "FunctionLayer/Scene/Scene.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
@@ -26,6 +27,9 @@ std::shared_ptr <Material> LoadMaterialFromJson(const Json json) {
     else if (materialType == "null") return std::make_shared<NullMaterial>(json);
     else if (materialType == "bump") return std::make_shared<BumpMaterial>(json);
     else if (materialType == "normal") return std::make_shared<NormalMapMaterial>(json);
+    else if ( materialType == "subsurface" ) return std::make_shared <BssrdfMaterial>(json);
+    else if ( materialType == "kd_subsurface" ) return std::make_shared <KdSubsurfaceMaterial>(json);
+
     return nullptr;
 }
 

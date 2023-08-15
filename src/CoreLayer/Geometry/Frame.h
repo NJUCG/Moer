@@ -117,4 +117,23 @@ struct Frame {
    static Vec3d reflect(const Vec3d &wo, const Vec3d & n) {
        return -wo + 2 * dot(wo, n) * n;
    }
+
+
+   static Frame FromZ(Normal3d z) {
+       Vec3d x, y;
+       coordinateSystem(z, x, y);
+       return Frame(x,y,z);
+   }
+
+   static Frame FromX(Normal3d x) {
+       Vec3d y, z;
+       coordinateSystem(x, y, z);
+       return Frame(x, y, z);
+   }
+
+   static Frame FromY(Normal3d y) {
+       Vec3d x, z;
+       coordinateSystem(y, z, x);
+       return Frame(x, y, z);
+   }
 };
