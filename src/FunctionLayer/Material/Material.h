@@ -10,19 +10,17 @@
  *
  */
 #pragma once
-
-#include "FunctionLayer/Material/BxDF/BxDF.h"
-#include "FunctionLayer/Material/BSSRDF/BSSRDF.h"
 #include <memory>
 #include <utility>
 #include "CoreLayer/Adapter/JsonUtil.h"
-
+#include "FunctionLayer/Material/BxDF/BxDF.h"
 template<class T>
 class Texture;
 
 struct Intersection;
 
 class Medium;
+class BSSRDF;
 
 enum EMaterialType {
     Unkown = 1 << 0,

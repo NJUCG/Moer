@@ -71,8 +71,9 @@ Spectrum PathIntegratorNew::Li(const Ray &initialRay,
 
         // Russian roulette.
         double pSurvive = russianRoulette(throughput, nBounces);
-        if (randFloat() > pSurvive)
+        if(sampler->sample1D()>=pSurvive){
             break;
+        }
         throughput /= pSurvive;
 
         //* ----- Direct Illumination -----

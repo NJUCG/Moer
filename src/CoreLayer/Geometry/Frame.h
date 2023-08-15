@@ -59,14 +59,14 @@ struct Frame {
 
    /** \brief Assuming that the given direction is in the local coordinate
     * system, return the cosine of the angle between the normal and v */
-   static float cosTheta(const Vec3d &v) {
+   static double cosTheta(const Vec3d &v) {
        return v.z;
    }
 
    /** \brief Assuming that the given direction is in the local coordinate
     * system, return the sine of the angle between the normal and v */
-   static float sinTheta(const Vec3d &v) {
-       float temp = sinTheta2(v);
+   static double sinTheta(const Vec3d &v) {
+       double temp = sinTheta2(v);
        if (temp <= 0.0f)
            return 0.0f;
        return fm::sqrt(temp);
@@ -74,8 +74,8 @@ struct Frame {
 
    /** \brief Assuming that the given direction is in the local coordinate
     * system, return the tangent of the angle between the normal and v */
-   static float tanTheta(const Vec3d &v) {
-       float temp = 1 - v.z*v.z;
+   static double tanTheta(const Vec3d &v) {
+       double temp = 1 - v.z*v.z;
        if (temp <= 0.0f)
            return 0.0f;
        return fm::sqrt(temp) / v.z;
@@ -83,17 +83,17 @@ struct Frame {
 
    /** \brief Assuming that the given direction is in the local coordinate
     * system, return the Squared  sine of the angle between the normal and v */
-   static float sinTheta2(const Vec3d &v) {
+   static double sinTheta2(const Vec3d &v) {
        return 1.0f - v.z * v.z;
    }
 
    /** \brief Assuming that the given direction is in the local coordinate
     * system, return the sine of the phi parameter in spherical coordinates */
-   static float sinPhi(const Vec3d &v) {
-       float sinTheta = Frame::sinTheta(v);
+   static double sinPhi(const Vec3d &v) {
+       double sinTheta = Frame::sinTheta(v);
        if (sinTheta == 0.0f)
-           return 1.0f;
-       return clamp(v.y / sinTheta, -1.0f, 1.0f);
+           return 1.0;
+       return clamp(v.y / sinTheta, -1.0, 1.0);
    }
 
 
@@ -116,5 +116,23 @@ struct Frame {
 
    static Vec3d reflect(const Vec3d &wo, const Vec3d & n) {
        return -wo + 2 * dot(wo, n) * n;
+   }
+
+   static Frame FromZ(Normal3d z) {
+       Vec3d x, y;
+       coordinateSystem(z, x, y);
+       return Frame(x,y,z);
+   }
+
+   static Frame FromX(Normal3d x) {
+       Vec3d y, z;
+       coordinateSystem(x, y, z);
+       return Frame(x, y, z);
+   }
+
+   static Frame FromY(Normal3d y) {
+       Vec3d x, z;
+       coordinateSystem(y, z, x);
+       return Frame(x, y, z);
    }
 };

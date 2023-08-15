@@ -14,9 +14,12 @@
 #include <memory>
 #include "CoreLayer/Geometry/Geometry.h"
 #include "CoreLayer/Geometry/Frame.h"
+#include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Material/Material.h"
-#include "FunctionLayer/Shape/Entity.h"
 
+class Entity;
+class Material;
+class Medium;
 //* Add t in intersection, by zcx 8-22
 struct Intersection
 {
@@ -54,4 +57,11 @@ struct Intersection
 	{
 		return shFrame.toWorld(d);
 	}
+
+    Ray spawnRay(const Point3d & target) const {
+        Vec3d  dir = (target - position);
+        double l = dir.length();
+        const double eps = 1e-4;
+        return Ray(position,normalize(dir),eps,l);
+    }
 };
