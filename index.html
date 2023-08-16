@@ -48,6 +48,32 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<style>
+		.links {
+			display: flex;
+			justify-content: space-between;
+			margin: 20px 0; /* 调整上下边距和左右边距 */
+		}
+
+		.link {
+			text-align: center;
+			outline: none; /* 移除链接的默认外观 */
+		}
+
+		.link img {
+			width: 50px; /* 设置图像宽度 */
+			height: 50px; /* 设置图像高度 */
+			display: block;
+			margin: 0 auto 5px; /* 图像居中并留出一些下边距 */
+		}
+
+		/* 添加焦点样式 */
+		.link:focus {
+			border: 2px solid #007bff; /* 可自定义焦点样式 */
+			border-radius: 4px;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -70,11 +96,13 @@
 							<ul>
 								<li><a href="https://github.com/NJUCG/Moer">Code</a></li>
 								<li><a href="https://github.com/NJUCG/MOER-SCENES">Scene</a></li>
-								<li><a href="pricing.html">Documents</a></li>
+								<li><a href="images/manual.pdf">Document</a></li>
 
 							</ul>
 						</div>
 					</div>
+
+
 
 				</div>
 			</nav>
@@ -87,18 +115,45 @@
 
 
 			<div class="gtco-section border-bottom">
-				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<p>Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for computer vision (CV) and computer graphics (CG) research.
 
-						Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.</p>
+				<div class=" text-center gtco-heading" style="width: 60%;margin-left: 16.7%" >
+					<h1>Moer Render</h1>
+
+					<p>Moer is a phycially based renderer, providing an "easy to deploy and develop" rendering platform for  computer graphics (CG) research.
+
+						Moer is developed by  <a href="http://www.njumeta.com/">NJUMeta</a>  from  <a href="https://www.nju.edu.cn/">Nanjing University</a></p>
 				</div>
+
+				<br></br>
+
+				<div class="links position-relative z-1" style="width: 66.7%;margin-left: 16.7%">
+					<a href="https://github.com/NJUCG/Moer" class="link">
+						<img src="images/代码.svg" alt="Code">
+						<span>Code</span>
+					</a>
+
+					<a href="https://github.com/NJUCG/MOER-SCENES" class="link">
+						<img src="images/图片.svg" alt="Scene">
+						<span>Scene</span>
+					</a>
+
+					<a href="images/manual.pdf" class="link">
+						<img src="images/文档.svg" alt="Document">
+						<span>Document</span>
+					</a>
+				</div>
+
+
+
+				</div>
+
 
 				<div class="gtco-container">
 
 					<div class="row">
 
 						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-							<h2>Render Scenes</h2>
+							<h2>Gallery</h2>
 						</div>
 					</div>
 					<div class="row">
@@ -180,6 +235,36 @@
 				</div>
 			</div>
 
+			<footer id="gtco-footer" role="contentinfo">
+				<div class="gtco-container">
+					<div class="row row-p	b-md">
+
+
+
+
+
+						<div >
+							<div class="" >
+								<div style=";position: relative;font-size: 20px">
+<!--								<span >Get In Touch</span>-->
+								<a href="mailto:moernju@gmail.com" style="left: 45%;transform: translate(-50%);position: relative"><i class="icon-mail2"></i> Connect</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row copyright">
+						<div class="col-md-12 " style="margin-left: 34%">
+							<p class="pull-left">
+								<small class="block">Copyright &copy; 2016.Company name All rights reserved.</small>
+							</p>
+
+						</div>
+					</div>
+
+				</div>
+			</footer>
 
 
 		</div>
