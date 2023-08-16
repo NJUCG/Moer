@@ -1,6 +1,6 @@
 {
   "renderer": {
-    "spp": 4096,
+    "spp": 16,
     "output_file": "green_bathroom"
   },
 

@@ -1,0 +1,102 @@
+{
+  "renderer" : {
+    "spp" : 16,
+    "output_file" : "heterogeneous"
+  },
+
+  "mediums" : [
+
+  ],
+
+  "materials" : [
+    {
+      "name" : "leftWall",
+      "type" : "lambert",
+      "albedo" : [0.63, 0.0065, 0.05]
+    },
+    {
+      "name" : "rightWall",
+      "type" : "lambert",
+      "albedo" : [0.14, 0.45, 0.091]
+    },
+    {
+      "name" : "floor",
+      "type" : "lambert",
+      "albedo" : [0.725, 0.71, 0.68]
+    },
+    {
+      "name" : "ceiling",
+      "type" : "lambert",
+      "albedo" : [0.725, 0.71, 0.68]
+    },
+    {
+      "name" : "backWall",
+      "type" : "lambert",
+      "albedo" : [0.725, 0.71, 0.68]
+    },
+    {
+      "name" : "light",
+      "type" : "lambert",
+      "albedo" : [0, 0, 0]
+    }
+  ],
+
+  "entities" : [
+    {
+      "type" : "quad",
+      "base" : [0, 0, 0],
+      "edge0" : [2, 0, 0],
+      "edge1" : [0, 0, 2],
+      "material" : "floor"
+    },
+    {
+      "type" : "quad",
+      "base" : [0, 2, 0],
+      "edge0" : [0, 0, -2],
+      "edge1" : [-2, 0, 0],
+      "material" : "ceiling"
+    },
+    {
+      "type" : "quad",
+      "base" : [0, 1, -1],
+      "edge0" : [-2, 0, 0],
+      "edge1" : [0, 2, 0],
+      "material" : "backWall"
+    },
+    {
+      "type" : "quad",
+      "base" : [-1, 1, 0],
+      "edge0" : [0, 0, 2],
+      "edge1" : [0, 2, 0],
+      "material" : "leftWall"
+    },
+    {
+      "type" : "quad",
+      "base" : [1, 1, 0],
+      "edge0" : [0, 0, -2],
+      "edge1" : [0, 2, 0],
+      "material" : "rightWall"
+    },
+    {
+      "type" : "quad",
+      "base" : [0, 1.98, -0.03],
+      "edge0" : [0, 0, -0.38],
+      "edge1" : [-0.46, 0, 0],
+      "emission" : [30, 28, 20],
+      "material" : "light"
+    }
+
+  ],
+
+  "camera" : {
+    "resolution" : [1024, 1024],
+    "type" : "pinhole",
+    "fov" : 19.5,
+
+    "transform" : {
+      "position" : [0, 1, 7],
+      "up" : [0, 1, 0],
+      "look_at" : [0, 1, 0]
+    }
+  }
+}

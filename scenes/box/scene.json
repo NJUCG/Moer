@@ -1,5 +1,12 @@
 {
-  "mediums":[],
+  "mediums":[
+    {
+      "name" : "medium1",
+      "type" : "homogeneous",
+      "sigmaT" : [5, 5, 5],
+      "albedo" : [0.5, 0.5, 0.5]
+    }
+  ],
     "materials": [
       {
         "name": "Stand",
@@ -8,7 +15,8 @@
       },
       {
         "name" : "null-bsdf",
-        "type" : "null"
+        "type" : "null",
+        "in_medium" : "medium1"
       } 
     ],
   
@@ -40,9 +48,9 @@
       "reconstruction_filter": "tent",
       "transform": {
         "position": [
-          3.04068,
-          3.17153,
-          3.20454
+          4.04068,
+          4.17153,
+          4.20454
         ],
         "look_at": [
           0.118789,
@@ -75,7 +83,7 @@
       "enable_resume_render": false,
       "stratified_sampler": true,
       "scene_bvh": true,
-      "spp": 128,
+      "spp": 16,
       "spp_step": 16,
       "checkpoint_interval": "0",
       "hdr_output_file": "material-testball.exr"
