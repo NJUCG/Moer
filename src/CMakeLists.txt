@@ -8,6 +8,8 @@ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${ALL_INCLUDE} ${ALL_SOURCES
 add_executable(${TARGET_NAME} ${ALL_INCLUDE} ${ALL_SOURCES})
 target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/ext/FastMath)
+target_include_directories(${TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/ext)
+
 
 add_dependencies(${TARGET_NAME} ext-copy)
 target_link_libraries(${TARGET_NAME} PUBLIC Moer-ext)
