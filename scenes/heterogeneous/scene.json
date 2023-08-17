@@ -5,7 +5,12 @@
   },
 
   "mediums" : [
-
+    {
+      "name" : "homogeneous",
+      "type" : "homogeneous",
+      "sigmaT" : [10, 10, 10],
+      "albedo" : [0.8, 0.8, 0.8]
+    }
   ],
 
   "materials" : [
@@ -38,6 +43,11 @@
       "name" : "light",
       "type" : "lambert",
       "albedo" : [0, 0, 0]
+    },
+    {
+      "name" : "interface",
+      "type" : "null",
+      "in_medium" : "homogeneous"
     }
   ],
 
@@ -84,6 +94,12 @@
       "edge1" : [-0.46, 0, 0],
       "emission" : [30, 28, 20],
       "material" : "light"
+    },
+    {
+      "type" : "sphere",
+      "center" : [0, 1, 0],
+      "radius" : 0.5,
+      "material" : "interface"
     }
 
   ],
