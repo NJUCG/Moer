@@ -21,8 +21,7 @@ struct MediumSampleRecord;
  * @brief 
  * @todo PathIntegratorLocalRecord
  */
-struct PathIntegratorLocalRecord
-{
+struct PathIntegratorLocalRecord {
     Vec3d wi;
     Spectrum f;
     double pdf;
@@ -33,20 +32,19 @@ struct PathIntegratorLocalRecord
  * @brief Base class for all path_tracing-like integrators
  * @ingroup Integrator
  */
-class AbstractPathIntegrator : public MonteCarloIntegrator
-{
+class AbstractPathIntegrator : public MonteCarloIntegrator {
 protected:
-    const int nDirectLightSamples = 1;      ///< Default, sample the direct illumination at each hitpoint once
+    const int nDirectLightSamples = 1;///< Default, sample the direct illumination at each hitpoint once
     const double misWeightPower = 1.0f;
 
 public:
     AbstractPathIntegrator(
-        std::shared_ptr<Camera> _camera, 
-        std::unique_ptr<Film> _film, 
-        std::unique_ptr<TileGenerator> _tileGenerator, 
-        std::shared_ptr<Sampler> _sampler, 
+        std::shared_ptr<Camera> _camera,
+        std::unique_ptr<Film> _film,
+        std::unique_ptr<TileGenerator> _tileGenerator,
+        std::shared_ptr<Sampler> _sampler,
         int _spp,
-        int _renderThreadNum=4);
+        int _renderThreadNum = 4);
 
     virtual Spectrum Li(const Ray &ray, std::shared_ptr<Scene> scene);
     virtual double MISWeight(double x, double y);

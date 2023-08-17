@@ -8,7 +8,7 @@
     {
       "name" : "homogeneous",
       "type" : "homogeneous",
-      "sigmaT" : [10, 10, 10],
+      "sigmaT" : [20, 20, 20],
       "albedo" : [0.8, 0.8, 0.8]
     }
   ],
@@ -89,19 +89,47 @@
     },
     {
       "type" : "quad",
-      "base" : [0, 1.98, -0.03],
-      "edge0" : [0, 0, -0.38],
-      "edge1" : [-0.46, 0, 0],
+      "transform": {
+        "position": [
+            -0.005,
+            1.98,
+            -0.03
+        ],
+        "scale": [
+            0.47,
+            0.1786,
+            0.38
+        ],
+        "rotation": [
+            0,
+            180,
+            180
+        ]
+    },
       "emission" : [30, 28, 20],
       "material" : "light"
     },
     {
-      "type" : "sphere",
-      "center" : [0, 1, 0],
-      "radius" : 0.5,
-      "material" : "interface"
+      "type" : "cube",
+      "material" : "interface",
+      "transform": {
+        "position": [
+            0.328631,
+            0.3,
+            0.374592
+        ],
+        "scale": [
+            0.594811,
+            0.604394,
+            0.6
+        ],
+        "rotation": [
+            90,
+            90,
+            -163.36
+        ]
+      }
     }
-
   ],
 
   "camera" : {

@@ -15,17 +15,14 @@
 #include "CoreLayer/Geometry/Angle.h"
 
 Sphere::Sphere(Point3d _center, double _radius, std::shared_ptr<Material> _material)
-    : center(_center), radius(_radius)
-{
-	this->material = _material;
+    : center(_center), radius(_radius) {
+    this->material = _material;
 }
 
-void Sphere::apply()
-{
+void Sphere::apply() {
 }
 
-std::optional<Intersection> Sphere::intersect(const Ray &r) const
-{
+std::optional<Intersection> Sphere::intersect(const Ray &r) const {
     auto R = radius;
     auto C = center;
     auto o = r.origin;
@@ -43,8 +40,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
     bool flag = false;
     Intersection ans;
     double t = INFINITY;
-    if (t1 >= 0 && t1 < t && t1 >= r.timeMin && t1 <= r.timeMax)
-    {
+    if (t1 >= 0 && t1 < t && t1 >= r.timeMin && t1 <= r.timeMax) {
         t = t1;
         Vec3d n = o + d * t1 - C;
         n = normalize(n);
@@ -59,8 +55,7 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.object = this;
         flag = true;
     }
-    if (t2 >= 0 && t2 < t && t2 >= r.timeMin && t2 <= r.timeMax)
-    {
+    if (t2 >= 0 && t2 < t && t2 >= r.timeMin && t2 <= r.timeMax) {
         t = t2;
         Vec3d n = o + d * t2 - C;
         n = normalize(n);
@@ -75,18 +70,17 @@ std::optional<Intersection> Sphere::intersect(const Ray &r) const
         ans.object = this;
         flag = true;
     }
+    ans.t = t;
     return flag ? std::make_optional(ans) : std::nullopt;
 }
 
-double Sphere::area() const
-{
+double Sphere::area() const {
     return 4 * M_PI * radius * radius;
 }
 
-Intersection Sphere::sample(const Point2d &positionSample) const
-{
+Intersection Sphere::sample(const Point2d &positionSample) const {
     Intersection ans;
-    Polar3d polar=Polar3d(1.0,Angle(positionSample.x * 2 * M_PI,Angle::EAngleType::ANGLE_RAD),Angle(acos(positionSample.y*2.0-1.0),Angle::EAngleType::ANGLE_RAD));
+    Polar3d polar = Polar3d(1.0, Angle(positionSample.x * 2 * M_PI, Angle::EAngleType::ANGLE_RAD), Angle(acos(positionSample.y * 2.0 - 1.0), Angle::EAngleType::ANGLE_RAD));
     Vec3d v = polar.toVec3d();
     ans.position = center + v * radius;
     ans.geometryNormal = v;
@@ -98,13 +92,12 @@ Intersection Sphere::sample(const Point2d &positionSample) const
 }
 
 BoundingBox3f Sphere::WorldBound() const {
-	Point3d pMin = center - Vec3d(radius);
-	Point3d pMax = center + Vec3d(radius);
-	return BoundingBox3f(pMin, pMax);
+    Point3d pMin = center - Vec3d(radius);
+    Point3d pMax = center + Vec3d(radius);
+    return BoundingBox3f(pMin, pMax);
 }
 
-Sphere::Sphere(const Json & json)  :Entity(json){
-    center = getOptional(json,"center",Point3d(0,0,0));
-    radius = getOptional(json,"radius",1.0);
+Sphere::Sphere(const Json &json) : Entity(json) {
+    center = getOptional(json, "center", Point3d(0, 0, 0));
+    radius = getOptional(json, "radius", 1.0);
 }
-

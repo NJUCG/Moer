@@ -54,12 +54,6 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
             // environment lighting will not take effect for infinite medium.
 
-            ////            if (itsOpt && itsOpt->object->getLight()) {
-            ////                auto [x, y, z] = itsOpt->geometryNormal;
-            ////                printf("%.2f, %.2f, %.2f\n", x, y, z);
-            ////                exit(1);
-            ////            }
-
             if (!medium)
                 L += throughput * evalLightRecord.f;
         }
@@ -83,6 +77,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
         // * Ray currently travel inside medium and will continue.
         if (medium &&
             medium->sampleDistance(&mRec, ray, itsOpt.value(), sampler->sample2D())) {
+
             throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
             mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
             //* ----- Luminaire Sampling -----
@@ -125,7 +120,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             if (its.material->getBxDF(its)->isNull()) {
                 nBounces--;
                 medium = getTargetMedium(its, ray.direction);
-                ray = Ray{its.position + eps * ray.direction, ray.direction};
+                ray = Ray{its.position + eps * ray.direction, ray.direction, eps, DBL_MAX};
                 itsOpt = scene->intersect(ray);
                 continue;
             }
