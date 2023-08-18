@@ -8,7 +8,7 @@ class RegularTracker {
 public:
     RegularTracker() = delete;
 
-    RegularTracker(const int min[3], const int max[3], Point3d origin, Vec3d direction, float _tmax, float _voxelSize) {
+    RegularTracker(const int min[3], const int max[3], Point3d origin, Vec3d direction, float _tmax, float _voxelSize, float *t_world = nullptr) {
         voxelSize = _voxelSize * 0.03;
         tmin = .0f;
         tmax = _tmax / voxelSize;
@@ -28,8 +28,10 @@ public:
 
             if (!terminate) {
                 // Set the ray origin at the bound of the grid
-                float t = minBound > 0 ? minBound : maxBound;
+                float t = minBound > 0 ? minBound : 0;
                 origin += direction * t;
+                tmax -= t;
+                if (t_world) *t_world = t * voxelSize;
             }
         }
 
@@ -64,9 +66,10 @@ public:
             stepAxis = 2;
 
         if (nextCrossingT[stepAxis] > tmax) {
-            *dt = (tmax - tmax) * voxelSize;
+            *dt = (tmax - tmin) * voxelSize;
             tmin = tmax;
             terminate = true;
+            //     std::cout << "True";
         } else {
             *dt = (nextCrossingT[stepAxis] - tmin) * voxelSize;
             tmin = nextCrossingT[stepAxis];
@@ -193,7 +196,7 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
     float thick = -fm::log(1 - sample[0]);
     float dt, sum = .0f, t_world = .0f;
 
-    RegularTracker rt(minIndex, maxIndex, origin, direction, its.t, voxelSize);
+    RegularTracker rt(minIndex, maxIndex, origin, direction, its.t, voxelSize, &t_world);
 
     while (rt.track(index, &dt)) {
         nanovdb::Vec3<double> voxel_loc(index[0] + .5f, index[1] + .5f, index[2] + .5f);
@@ -206,6 +209,9 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
             dt = (thick - sum) / density;
             t_world += dt;
             mRec->scatterPoint = ray.at(t_world);
+
+            Point3d idx = worldToIndex(mRec->scatterPoint);
+
             mRec->marchLength = t_world;
             mRec->sigmaA = Spectrum(.0f);//TODO
             mRec->sigmaS = Spectrum(density);

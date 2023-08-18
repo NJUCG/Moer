@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 1,
+    "spp" : 16,
     "output_file" : "heterogeneous"
   },
 
@@ -15,9 +15,9 @@
       "name" : "smoke",
       "type" : "heterogeneous",
       "filepath" : "models/smoke.nvdb",
-      "sigma_scale" : 1000,
+      "sigma_scale" : 10000,
       "transform" : {
-        "position" : [0, 0, 0],
+        "position" : [0, 0.05, 0],
         "scale" : 0.03
       }
     }
@@ -108,10 +108,12 @@
       "material" : "light"
     },
     {
-      "type" : "sphere",
+      "type" : "cube",
       "material" : "interface",
-      "center" : [0,1,0],
-      "radius" : 2
+      "transform" : {
+        "scale" : [3, 3, 3],
+        "position" : [0, 1, 0]
+      }
     }
   ],
 
