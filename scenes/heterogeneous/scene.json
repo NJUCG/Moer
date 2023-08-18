@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 16,
+    "spp" : 1,
     "output_file" : "heterogeneous"
   },
 
@@ -10,6 +10,16 @@
       "type" : "homogeneous",
       "sigmaT" : [20, 20, 20],
       "albedo" : [0.8, 0.8, 0.8]
+    },
+    {
+      "name" : "smoke",
+      "type" : "heterogeneous",
+      "filepath" : "models/smoke.nvdb",
+      "sigma_scale" : 1000,
+      "transform" : {
+        "position" : [0, 0, 0],
+        "scale" : 0.03
+      }
     }
   ],
 
@@ -47,7 +57,7 @@
     {
       "name" : "interface",
       "type" : "null",
-      "in_medium" : "homogeneous"
+      "in_medium" : "smoke"
     }
   ],
 
@@ -90,45 +100,18 @@
     {
       "type" : "quad",
       "transform": {
-        "position": [
-            -0.005,
-            1.98,
-            -0.03
-        ],
-        "scale": [
-            0.47,
-            0.1786,
-            0.38
-        ],
-        "rotation": [
-            0,
-            180,
-            180
-        ]
+        "position": [-0.005, 1.98, -0.03],
+        "scale": [0.47, 0.1786, 0.38],
+        "rotation": [0, 180, 180]
     },
       "emission" : [30, 28, 20],
       "material" : "light"
     },
     {
-      "type" : "cube",
+      "type" : "sphere",
       "material" : "interface",
-      "transform": {
-        "position": [
-            0.328631,
-            0.3,
-            0.374592
-        ],
-        "scale": [
-            0.594811,
-            0.604394,
-            0.6
-        ],
-        "rotation": [
-            90,
-            90,
-            -163.36
-        ]
-      }
+      "center" : [0,1,0],
+      "radius" : 2
     }
   ],
 

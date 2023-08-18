@@ -17,7 +17,7 @@ using BufferT = nanovdb::HostBuffer;
 
 class HeterogeneousMedium : public Medium {
 public:
-    HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase);
+    HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase, TransformMatrix3D _transform, float _sigmaScale = 1.f);
 
     virtual bool sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const override;
 
@@ -28,7 +28,17 @@ protected:
     double scaleSample(nanovdb::Vec3R index,
                        const nanovdb::FloatGrid *grid) const;
 
+    Point3d worldToIndex(Point3d world) const;
+
+    Point3d indexToWorld(Point3d index) const;
+
+    Vec3d worldToIndexDir(Vec3d world) const;
+
+    Vec3d indexToWorldDir(Vec3d index) const;
+
 private:
+    mutable TransformMatrix3D transformMatrix, invTransformMatrix;
+
     float voxelSize;
     float sigmaScale = 1.f;
     int minIndex[3], maxIndex[3];

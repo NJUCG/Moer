@@ -9,11 +9,32 @@ public:
     RegularTracker() = delete;
 
     RegularTracker(const int min[3], const int max[3], Point3d origin, Vec3d direction, float _tmax, float _voxelSize) {
-        voxelSize = _voxelSize;
+        voxelSize = _voxelSize * 0.03;
         tmin = .0f;
-        tmax = _tmax / _voxelSize;
+        tmax = _tmax / voxelSize;
+
+        {
+            // Check if the ray overlap the voxelGrid
+            float minBound = -FLT_MAX, maxBound = FLT_MAX;
+            for (int axis = 0; axis < 3; ++axis) {
+                float t1 = (min[axis] - origin[axis]) / direction[axis],
+                      t2 = (max[axis] - origin[axis]) / direction[axis];
+                if (t1 > t2) std::swap(t1, t2);
+                minBound = std::max(minBound, t1);
+                maxBound = std::min(maxBound, t2);
+
+                if ((minBound > maxBound) || maxBound < 0) terminate = true;
+            }
+
+            if (!terminate) {
+                // Set the ray origin at the bound of the grid
+                float t = minBound > 0 ? minBound : maxBound;
+                origin += direction * t;
+            }
+        }
 
         for (int axis = 0; axis < 3; ++axis) {
+
             voxel[axis] = clamp((int)std::floor(origin[axis]), min[axis], max[axis]);
             deltaT[axis] = 1.f / std::abs(direction[axis]);
 
@@ -79,27 +100,94 @@ double HeterogeneousMedium::scaleSample(nanovdb::Vec3R index,
     return GridSampler(grid->tree())(index) * sigmaScale;
 }
 
-HeterogeneousMedium::HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase) : Medium(phase) {
+Point3d HeterogeneousMedium::worldToIndex(Point3d world) const {
+    world = invTransformMatrix * world;
+    auto index = densityFloatGrid->worldToIndexF(nanovdb::Vec3f{(float)world[0], (float)world[1], (float)world[2]});
+    return Point3d{index[0], index[1], index[2]};
+}
+
+Point3d HeterogeneousMedium::indexToWorld(Point3d index) const {
+    nanovdb::Vec3f idx{(float)index[0], (float)index[1], (float)index[2]};
+    auto wrd = densityFloatGrid->indexToWorldF(idx);
+    Point3d world{wrd[0], wrd[1], wrd[2]};
+    return transformMatrix * world;
+}
+
+Vec3d HeterogeneousMedium::worldToIndexDir(Vec3d world) const {
+    world = invTransformMatrix * world;
+    auto index = densityFloatGrid->worldToIndexDirF(nanovdb::Vec3f{(float)world[0], (float)world[1], (float)world[2]});
+    return normalize(Vec3d{index[0], index[1], index[2]});
+}
+
+Vec3d HeterogeneousMedium::indexToWorldDir(Vec3d index) const {
+    nanovdb::Vec3f idx{(float)index[0], (float)index[1], (float)index[2]};
+    auto wrd = densityFloatGrid->indexToWorldDirF(idx);
+    Vec3d world{wrd[0], wrd[1], wrd[2]};
+    return normalize(transformMatrix * world);
+}
+
+HeterogeneousMedium::HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase, TransformMatrix3D _transformMatrix, float _sigmaScale) : Medium(phase) {
+    transformMatrix = _transformMatrix;
+    invTransformMatrix = _transformMatrix.getInverse();
+
     std::string fullGridFilePath = FileUtils::getWorkingDir() + gridFilePath;
     densityGrid = nanovdb::io::readGrid(fullGridFilePath, "density", 1);
     densityFloatGrid = densityGrid.grid<float>();
+
+    sigmaScale = _sigmaScale;
 
     if (!densityGrid) {
         std::cout << ".nvdb file must contains density grid\n";
         exit(1);
     }
+
+    // Assume every voxel is cube
+    voxelSize = densityFloatGrid->voxelSize()[0];
+
+    auto bbox = densityFloatGrid->worldBBox();
+    Point3d boxMin = Point3d(bbox.min()[0], bbox.min()[1], bbox.min()[2]);
+    Point3d boxMax = Point3d(bbox.max()[0], bbox.max()[1], bbox.max()[2]);
+
+    //* Compute density grid bound
+    minIndex[0] = densityFloatGrid->indexBBox().min().x();
+    minIndex[1] = densityFloatGrid->indexBBox().min().y();
+    minIndex[2] = densityFloatGrid->indexBBox().min().z();
+
+    maxIndex[0] = densityFloatGrid->indexBBox().max().x();
+    maxIndex[1] = densityFloatGrid->indexBBox().max().y();
+    maxIndex[2] = densityFloatGrid->indexBBox().max().z();
 }
 
 bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
 
-    Point3d origin = ray.origin;
-    Vec3d direction = ray.direction;
+    //    nanovdb::Vec3f world_coordinate{5.62f, 17.6f, 3.221f};
+    //    auto index_coordinate = densityFloatGrid->worldToIndexF(world_coordinate);
+    //    printf("%.4f, %.4f, %.4f\n", index_coordinate[0], index_coordinate[1], index_coordinate[2]);
+    //
+    //    Point3d world_p{5.62f, 17.6f, 3.221f};
+    //    auto inverse = transformMatrix.getInverse();
+    //    Point3d p_prim = inverse * (world_p);
+    //
+    //    nanovdb::Vec3f world_p_prim{(float)p_prim[0], (float)p_prim[1], (float)p_prim[2]};
+    //    auto index_p_prim = densityFloatGrid->worldToIndexF(world_p_prim);
+    //    printf("%.4f, %.4f, %.4f\n", index_p_prim[0], index_p_prim[1], index_p_prim[2]);
+    //
+    //    auto world_p_prim_ = densityFloatGrid->indexToWorld(index_p_prim);
+    //    Point3d res = transformMatrix * Point3d((float)world_p_prim_[0], (float)world_p_prim_[1], (float)world_p_prim_[2]);
+    //    printf("%.4f, %.4f, %.4f\n", res[0], res[1], res[2]);
+    //    exit(1);
 
-    auto o_grid = densityFloatGrid->worldToIndexF(nanovdb::Vec3f(origin[0], origin[1], origin[2])),
-         d_grid = densityFloatGrid->worldToIndexDirF(nanovdb::Vec3f(direction[0], direction[1], direction[2]));
+    ////Point3d origin = ray.origin;
+    ////Vec3d direction = ray.direction;
+    ////
+    ////auto o_grid = densityFloatGrid->worldToIndexF(nanovdb::Vec3f(origin[0], origin[1], origin[2])),
+    ////     d_grid = densityFloatGrid->worldToIndexDirF(nanovdb::Vec3f(direction[0], direction[1], direction[2]));
+    ////
+    ////origin = Point3d{o_grid[0], o_grid[1], o_grid[2]};
+    ////direction = normalize(Vec3d{d_grid[0], d_grid[1], d_grid[2]});
 
-    origin = Point3d{o_grid[0], o_grid[1], o_grid[2]};
-    direction = Vec3d{d_grid[0], d_grid[1], d_grid[2]};
+    Point3d origin = worldToIndex(ray.origin);
+    Vec3d direction = worldToIndexDir(ray.direction);
 
     int index[3];
     float thick = -fm::log(1 - sample[0]);
@@ -137,15 +225,18 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
 }
 
 Spectrum HeterogeneousMedium::evalTransmittance(Point3d from, Point3d dest) const {
-    Point3d origin = from;
+    ////Point3d origin = from;
+    ////Vec3d direction = normalize(dest - from);
+    ////
+    ////auto o_grid = densityFloatGrid->worldToIndexF(nanovdb::Vec3f(origin[0], origin[1], origin[2])),
+    ////     d_grid = densityFloatGrid->worldToIndexDirF(nanovdb::Vec3f(direction[0], direction[1], direction[2]));
+    ////
+    ////origin = Point3d{o_grid[0], o_grid[1], o_grid[2]};
+    ////direction = normalize(Vec3d(d_grid[0], d_grid[1], d_grid[2]));
+
     Vec3d direction = normalize(dest - from);
     float t = (dest - from).length();
-
-    auto o_grid = densityFloatGrid->worldToIndexF(nanovdb::Vec3f(origin[0], origin[1], origin[2])),
-         d_grid = densityFloatGrid->worldToIndexDirF(nanovdb::Vec3f(direction[0], direction[1], direction[2]));
-
-    origin = Point3d(o_grid[0], o_grid[1], o_grid[2]);
-    direction = Vec3d(d_grid[0], d_grid[1], d_grid[2]);
+    Point3d origin = worldToIndex(from);
 
     RegularTracker rt(minIndex, maxIndex, origin, direction, t, voxelSize);
 
