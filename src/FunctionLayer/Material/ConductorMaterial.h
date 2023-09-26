@@ -34,4 +34,5 @@ private:
     Vec3d k;
     std::string conductorName;
     std::shared_ptr<Texture<RGB3>> albedo;
+    bool glint;
 };

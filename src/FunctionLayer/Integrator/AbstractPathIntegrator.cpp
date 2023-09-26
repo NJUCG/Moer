@@ -66,6 +66,9 @@ Spectrum AbstractPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene
         }
 
         Intersection its = itsOpt.value();
+        if(ray.hasDifferential){
+            its.computeRayDifferential(ray);
+        }
 
         // RUSSIAN ROULETTE
         nBounce++;
