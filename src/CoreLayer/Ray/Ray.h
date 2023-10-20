@@ -22,6 +22,11 @@ struct Ray
 	Point3d origin;		///< The origin of the ray
 	Vec3d direction;	///< The direction of the ray
 
+	// ray differential
+	bool hasDifferential; 
+	Point3d origin_x, origin_y;
+	Vec3d direction_x, direction_y;
+
 	double timeMin;		///< The time when the shutter open
 	double timeMax;		///< The time when the shutter close
 	Point3d at(double t) const ;

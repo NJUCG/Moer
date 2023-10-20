@@ -1,6 +1,7 @@
 #include "ConductorMaterial.h"
 #include "FunctionLayer/Texture/Texture.h"
 #include "BxDF/ConductorBxDF.h"
+#include "BxDF/GlintBxDF.h"
 #include "BxDF/MicrofacetDistribution.h"
 #include "FunctionLayer/Texture/TextureFactory.h"
 #include "FunctionLayer/Material/BxDF/ComplexIor.h"
@@ -9,6 +10,8 @@ std::shared_ptr < BxDF > ConductorMaterial::getBxDF(const Intersection & interse
     if( roughness || uRoughness || vRoughness){
         double  uRough = uRoughness?uRoughness->eval(intersect):roughness->eval(intersect);
         double  vRough = uRoughness?uRoughness->eval(intersect):roughness->eval(intersect);
+        if(glint)
+            return std::make_shared <GlintBxDF>(eta,k,itsAlbedo, uRough, vRough, intersect, distrib);
         return std::make_shared <RoughConductorBxDF>(eta,k,itsAlbedo,uRough,vRough,distrib);
         //Rough conductor
     }
@@ -31,6 +34,7 @@ ConductorMaterial::ConductorMaterial(const Json & json): Material(json) {
                                       2.1421879552f));
     conductorName = getOptional(json,"conductor",std::string());
     conductorName = getOptional(json,"material",conductorName);
+    glint = getOptional(json, "glint", false);
     if(json.contains("roughness"))
         roughness = TextureFactory::LoadTexture<double>(json["roughness"]);
     if(json.contains("u_roughness"))
