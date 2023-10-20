@@ -4,6 +4,7 @@
 #include "../../Intersection.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 #include <random>
+#include "Vecmat.h"
 
 #define MAX_QUERY_DEPTH 1000
 #define SPATIAL_SAMPLE_NUM 10000000
@@ -69,49 +70,45 @@ struct DirTriangle{
 // dirction query struct
 struct ConicQuery{
     Vec3d wi, wo;
-    Eigen::Matrix3d C;
+    vecmat::mat33d C;
 
     ConicQuery(const Vec3d &_wi, const Vec3d &_wo): wi(_wi), wo(_wo){
         Vec3d x = normalize(cross(wi,wo)), y = normalize(wi - wo), z = normalize(wi + wo);
         double lambda1 = (dot(wi, wo) + cosf(GAMMA)) / (1 - cosf(GAMMA)), lambda2 = 1.f / (tanf(GAMMA/2)*tanf(GAMMA/2));
-        Eigen::Matrix3d Q, A, QTranspose;
-        Q << x[0], y[0], z[0],
-             x[1], y[1], z[1], 
-             x[2], y[2], z[2];
-        A << lambda1, 0.f, 0.f,
-             0.f, lambda2, 0.f, 
-             0.f, 0.f, -1.f;
+        vecmat::mat33d Q({x[0], y[0], z[0], x[1], y[1], z[1], x[2], y[2], z[2]}), 
+                        A({lambda1, 0.f, 0.f, 0.f, lambda2, 0.f, 0.f, 0.f, -1.f}), 
+                        QTranspose;
         C = Q;
-        C *= A;
+        C = C * A;
         QTranspose = Q.transpose();
-        C *= QTranspose;
+        C = C * QTranspose;
     }
 
     //judge if a point falls in cone
     bool inConic(const Point2d &p) const{
         Point3d dir = Spherical2Cartesian(p);
-        Eigen::Vector3d m = Eigen::Vector3d(dir[0], dir[1], dir[2]);
-        return (m.transpose() * C * m) < 0.f;
+        vecmat::mat<3,1,double> m({dir[0], dir[1], dir[2]});
+        return (m.transpose() * C * m).rows[0][0] < 0.f;
     }
 
     //judge if triangle intersects cone 
     //not used yet
     bool IntersectConic(const DirTriangle &_tri) const{
         Point3d tri[3] = {Spherical2Cartesian(_tri[0]), Spherical2Cartesian(_tri[1]), Spherical2Cartesian(_tri[2])};
-        Eigen::Vector3d c, d;
+        vecmat::mat<3,1,double> c, d;
         Vec3d _c, _d;
         double param_a, param_b, param_c, axis;
         for(int i = 0; i < 3; i++)
         {
             _c = tri[i] + tri[(i + 1) % 3] - Point3d(0.f, 0.f, 0.f);
             _d = tri[i] - tri[(i + 1) % 3];
-            c = Eigen::Vector3d(_c[0], _c[1], _c[2]);
-            d = Eigen::Vector3d(_d[0], _d[1], _d[2]);
+            c = vecmat::mat<3,1,double>(_c[0], _c[1], _c[2]);
+            d = vecmat::mat<3,1,double>(_d[0], _d[1], _d[2]);
             // The three coefficients of the equation
-            param_a = d.transpose() * C * d;
-            param_b = d.transpose() * C * c;
+            param_a = (d.transpose() * C * d).rows[0][0];
+            param_b = (d.transpose() * C * c).rows[0][0];
             param_b *= 2.f;
-            param_c = c.transpose() * C * c;
+            param_c = (c.transpose() * C * c).rows[0][0];
 
             // root in [-1, 1]
             if((param_a - param_b + param_c) * (param_a + param_b + param_c) < 0.f)
