@@ -39,7 +39,7 @@ bool handleEntity(std::string type, const Json &json, Scene &scene,
     }
     if (entity) {
         auto material = scene.fetchMaterial(
-            getOptional(json,"material",std::string("default")));
+            getOptional(json, "material", std::string("default")));
         entityCount = 1;
         entity->setMaterial(material);
         entities.push_back(entity);
@@ -69,6 +69,7 @@ bool handleLight(std::string type, const Json &json, Scene &scene) {
     else if (type == "infinite_sphere_cap") {
         scene.addLight(std::make_shared<InfiniteSphereCapLight>(json));
     }
+    return true;
 }
 
 void LoadEntityFromJson(const Json &json, Scene &scene,

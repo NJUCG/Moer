@@ -2,6 +2,7 @@
 #include "Camera.h"
 #include "Pinhole.h"
 #include "Thinlens.h"
+#include "DifferentialPinhole.h"
 
 namespace CameraFactory {
 
@@ -12,10 +13,10 @@ std::shared_ptr<T> cameraCreatorHelper(const Json &json) {
 
 static std::unordered_map<std::string, std::function<std::shared_ptr<Camera>(const Json &)>> cameraMap{
     {"pinhole", cameraCreatorHelper<PinholeCamera>},
-    {"thinlens", cameraCreatorHelper<ThinlensCamera>}
-};
+    {"thinlens", cameraCreatorHelper<ThinlensCamera>},
+    {"differential_pinhole", cameraCreatorHelper<DifferentialPinholeCamera>}};
 
 std::shared_ptr<Camera> LoadCameraFromJson(const Json &json) {
-    return cameraMap[json["type"]](json);
+    return cameraMap[json.at("type")](json);
 }
 }// namespace CameraFactory
