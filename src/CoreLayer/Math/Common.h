@@ -30,14 +30,6 @@ constexpr double INV_TWOPI  =           0.15915494309189533577f;
 constexpr double ONEMINUSEPSILON = 1 - std::numeric_limits<double>::epsilon();
 constexpr double EPSILON = std::numeric_limits<double>::epsilon();
 
-/// Simple floating point clamping function
-inline float clamp(float value, float min, float max) {
-    if (value < min)
-        return min;
-    else if (value > max)
-        return max;
-    else return value;
-}
 
 template<class T>
 inline T clamp(T x, T minVal, T maxVal) {

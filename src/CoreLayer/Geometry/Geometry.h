@@ -28,6 +28,7 @@ using Vec2d = TVector2<double>;
 using Vec2i = TVector2<int>;
 using Vec3f = TVector3<float>;
 using Vec3d = TVector3<double>;
+using Vec4d = TVector4<double>;
 using Vec3i = TVector3<int>;
 // Point.h
 template <typename T>

@@ -1,11 +1,9 @@
 {
   "renderer": {
-    "spp": 4096,
+    "spp": 4,
     "output_file": "green_bathroom"
   },
-
   "mediums": [],
-
   "materials": [
     {
       "name": "bamboo",
@@ -26,14 +24,22 @@
     {
       "name": "ceramics",
       "type": "plastic",
-      "albedo": [0.9, 0.9, 0.9],
+      "albedo": [
+        0.9,
+        0.9,
+        0.9
+      ],
       "roughness": 0.015,
       "ior": 1.45
     },
     {
       "name": "czarne",
       "type": "plastic",
-      "albedo": [0.1, 0.1, 0.1],
+      "albedo": [
+        0.1,
+        0.1,
+        0.1
+      ],
       "roughness": 0.01,
       "ior": 1.7
     },
@@ -42,24 +48,40 @@
       "type": "conductor",
       "distribution": "ggx",
       "material": "Al",
-      "albedo": [0.8, 0.8, 0.8],
+      "albedo": [
+        0.8,
+        0.8,
+        0.8
+      ],
       "roughness": 0.3
     },
     {
       "name": "Material.005",
       "type": "lambert",
-      "albedo": [0.8, 0.8, 0.8]
+      "albedo": [
+        0.8,
+        0.8,
+        0.8
+      ]
     },
     {
       "name": "czerwony",
       "type": "conductor",
-      "albedo": [1, 0.042, 0],
+      "albedo": [
+        1,
+        0.042,
+        0
+      ],
       "roughness": 0.02
     },
     {
       "name": "Material.004",
       "type": "lambert",
-      "albedo": [0.8, 0.779, 0.687]
+      "albedo": [
+        0.8,
+        0.779,
+        0.687
+      ]
     },
     {
       "name": "Material.009",
@@ -74,7 +96,11 @@
     {
       "name": "Material.013",
       "type": "lambert",
-      "albedo": [1, 1, 1]
+      "albedo": [
+        1,
+        1,
+        1
+      ]
     },
     {
       "name": "szare plytki",
@@ -86,19 +112,31 @@
     {
       "name": "biale sciany",
       "type": "lambert",
-      "albedo": [1, 1, 1]
+      "albedo": [
+        1,
+        1,
+        1
+      ]
     },
     {
       "name": "zielony",
       "type": "plastic",
-      "albedo": [0.364, 0.8, 0.110],
+      "albedo": [
+        0.364,
+        0.8,
+        0.110
+      ],
       "roughness": 0.02,
       "ior": 1.5
     },
     {
       "name": "bialy.001",
       "type": "plastic",
-      "albedo": [0.8, 0.8, 0.8],
+      "albedo": [
+        0.8,
+        0.8,
+        0.8
+      ],
       "roughness": 0.01,
       "ior": 1.3
     },
@@ -129,7 +167,11 @@
     {
       "name": "Material.008",
       "type": "lambert",
-      "albedo": [0.8, 0.8, 0.8]
+      "albedo": [
+        0.8,
+        0.8,
+        0.8
+      ]
     },
     {
       "name": "Material.017",
@@ -154,8 +196,16 @@
       "distribution": "ggx",
       "roughness": 0.001,
       "ior": 1.45,
-      "albedo_reflection": [1, 0.717, 0.194],
-      "albedo_transmission": [1, 0.717, 0.194]
+      "albedo_reflection": [
+        1,
+        0.717,
+        0.194
+      ],
+      "albedo_transmission": [
+        1,
+        0.717,
+        0.194
+      ]
     },
     {
       "name": "n5",
@@ -165,13 +215,16 @@
     {
       "name": "White-pot",
       "type": "disney",
-      "albedo": [0.8, 0.8, 0.8],
+      "albedo": [
+        0.8,
+        0.8,
+        0.8
+      ],
       "metallic": 0,
       "specular": 0.5,
       "roughness": 0.5
     }
   ],
-
   "entities": [
     {
       "type": "mesh",
@@ -439,7 +492,9 @@
       "material": "Material.014",
       "transform": {
         "rotation": [
-          0, 0, 0
+          0,
+          0,
+          0
         ]
       }
     },
@@ -538,10 +593,11 @@
       "emission": "textures/envmap.hdr"
     }
   ],
-
   "camera": {
-    "type": "pinhole",
+    "type": "thinlens",
     "fov": 50,
+    "aperture_radius": 0.1,
+    "focus_distance": 10,
     "resolution": [
       1400,
       900

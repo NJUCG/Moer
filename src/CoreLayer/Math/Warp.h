@@ -80,3 +80,25 @@ inline  float SquareToBeckmannPdf(const Vec3d &m, double alpha) {
     float longitudinal = exp(-tan2Theta/(alpha*alpha))  / (alpha*alpha*pow(cosTheta,3));
     return azimuthal * longitudinal;
 }
+
+// Modified implementation from Mitsuba
+inline Point2d SquareToUniformDiskConcentric(const Point2d &sample) {
+    double r1 = 2.0 * sample.x - 1.0;
+    double r2 = 2.0 * sample.y - 1.0;
+
+    double phi, r;
+    if (r1 == 0 && r2 == 0) {
+        r = phi = 0;
+    } else if (r1 * r1 > r2 * r2) {
+        r = r1;
+        phi = (M_PI / 4.0) * (r2 / r1);
+    } else {
+        r = r2;
+        phi = (M_PI / 2.0) - (r1 / r2) * (M_PI / 4.0);
+    }
+
+    double cosPhi = fm::cos(phi);
+    double sinPhi = fm::sin(phi);
+
+    return { r * cosPhi, r * sinPhi };
+}

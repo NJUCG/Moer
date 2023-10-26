@@ -116,3 +116,84 @@ static BoundingBox3<BaseType> BoundingBoxPointUnion(const BoundingBox3<BaseType>
 }
 
 using BoundingBox3f = BoundingBox3<double>;
+
+//Axis-aligned bounding box 2D base type
+template <typename BaseType>
+class BoundingBox2
+{
+public:
+	TPoint2<BaseType> pMin;			
+	TPoint2<BaseType> pMax;
+
+	BoundingBox2(){
+		pMin[0] = pMin[1] = std::numeric_limits<BaseType>::max();
+		pMax[0] = pMax[1] = std::numeric_limits<BaseType>::lowest();
+	}
+
+	BoundingBox2(TPoint2<BaseType> _p)
+	{
+		pMin = pMax = _p;
+	}
+
+	BoundingBox2(TPoint2<BaseType> _pMin, TPoint2<BaseType> _pMax)
+	{
+		pMin = _pMin;
+		pMax = _pMax;
+
+		// corner case: bounding box not exist
+		if(pMin.x > pMax.x || pMin.y > pMax.y){
+			pMin[0] = pMin[1] = std::numeric_limits<BaseType>::max();
+			pMax[0] = pMax[1] = std::numeric_limits<BaseType>::lowest();
+		}
+	}
+
+	// caculate area
+	inline double getSurfaceArea(){
+		double x = pMax[0] - pMin[0];
+		double y = pMax[1] - pMin[1];
+		
+		return x * y;
+	}
+
+	// judge if overlap
+	inline bool overlap(BoundingBox2 &box){
+		if(pMin[0] > box.pMax[0] || pMax[0] < box.pMin[0])
+			return false;
+		if(pMin[1] > box.pMax[1] || pMax[1] < box.pMin[1])
+			return false;
+		return true;
+	}
+
+	// judge if contains some box
+	inline bool contains(BoundingBox2 &box){
+		if(pMin[0] > box.pMin[0] || pMax[0] < box.pMax[0])
+			return false;
+		if(pMin[1] > box.pMin[1] || pMax[1] < box.pMax[1])
+			return false;
+		return true;
+	}
+
+	inline TPoint2<BaseType> getCenter(){
+		return TPoint2<BaseType>((pMin[0] + pMax[0]) / 2, (pMin[1] + pMax[1]) / 2);
+	}
+};
+
+template <typename BaseType>
+static BoundingBox2<BaseType> BoundingBoxUnionIntersect(const BoundingBox2<BaseType>& b1, 
+														const BoundingBox2<BaseType>& b2)
+{
+	TPoint2<BaseType> _pMin(std::max(b1.pMin[0], b2.pMin[0]), std::max(b1.pMin[1], b2.pMin[1]));
+	TPoint2<BaseType> _pMax(std::min(b1.pMax[0], b2.pMax[0]), std::min(b1.pMax[1], b2.pMax[1]));
+	return BoundingBox2(_pMin, _pMax);
+}
+
+template <typename BaseType>
+static BoundingBox2<BaseType> BoundingBoxPointUnion(const BoundingBox2<BaseType>& b1,
+                                                    const TPoint2<BaseType>& p)
+{
+    TPoint2<BaseType> _pMin(std::min(b1.pMin[0], p[0]), std::min(b1.pMin[1], p[1]));
+    TPoint2<BaseType> _pMax(std::max(b1.pMax[0], p[0]), std::max(b1.pMax[1], p[1]));
+    return BoundingBox2(_pMin, _pMax);
+}
+
+using BoundingBox2d = BoundingBox2<double>;
