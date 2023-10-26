@@ -3,43 +3,40 @@
 #include "FunctionLayer/Intersection.h"
 #include "CoreLayer/Geometry/BoundingBox.h"
 
-
-template < typename T >
+template<typename T>
 inline T quadraticDeriv(T p0, T p1, T p2, T p3, double t) {
 
     const double t0 = 1 - t, t1 = t;
-    const double B0 = - ( t0 * t0 );
-    const double B1 = - 2 * ( t0 * t1 ) + ( t0 * t0 );
-    const double B2 = + 2 * ( t0 * t1 ) - ( t1 * t1 );
-    const double B3 = + ( t1 * t1 );
-    return 3.0 * ( B0 * p0 + B1 * p1 + B2 * p2 + B3 * p3 );
+    const double B0 = -(t0 * t0);
+    const double B1 = -2 * (t0 * t1) + (t0 * t0);
+    const double B2 = +2 * (t0 * t1) - (t1 * t1);
+    const double B3 = +(t1 * t1);
+    return 3.0 * (B0 * p0 + B1 * p1 + B2 * p2 + B3 * p3);
 }
 
 template<typename T>
-inline T quadraticDeriv(T p0, T p1, T p2, double t)
-{
-    return (p0 - p1 * 2.0 + p2)*t + (p1 - p0);
+inline T quadraticDeriv(T p0, T p1, T p2, double t) {
+    return (p0 - p1 * 2.0 + p2) * t + (p1 - p0);
 }
 
-template < typename T >
+template<typename T>
 inline T quadratic(T p0, T p1, T p2, double t) {
-    return ( 0.5 * t * t - t + 0.5 ) * p0 + ( t - t * t + 0.5 ) * p1 + 0.5 * t * t * p2;
-
+    return (0.5 * t * t - t + 0.5) * p0 + (t - t * t + 0.5) * p1 + 0.5 * t * t * p2;
 }
 
-template < typename T >
+template<typename T>
 inline T quadratic(T p0, T p1, T p2, T p3, double t) {
     return quadratic(lerp(p0, p1, t), lerp(p1, p2, t), lerp(p2, p3, t), t);
 }
 
 inline Vec2d quadraticMinMax(double p0, double p1, double p2) {
-    double xMin = ( p0 + p1 ) * 0.5;
-    double xMax = ( p1 + p2 ) * 0.5;
-    if ( xMin > xMax )
+    double xMin = (p0 + p1) * 0.5;
+    double xMax = (p1 + p2) * 0.5;
+    if (xMin > xMax)
         std::swap(xMin, xMax);
 
-    double tFlat = ( p0 - p1 ) / ( p0 - 2 * p1 + p2 );
-    if ( tFlat > 0 && tFlat < 1 ) {
+    double tFlat = (p0 - p1) / (p0 - 2 * p1 + p2);
+    if (tFlat > 0 && tFlat < 1) {
         double xFlat = quadratic(p0, p1, p2, tFlat);
         xMin = std::min(xMin, xFlat);
         xMax = std::max(xMax, xFlat);
@@ -54,15 +51,13 @@ static BoundingBox3f curveBox(const Vec4d &q0, const Vec4d &q1, const Vec4d &q2)
     double maxW = std::max(q0[3], std::max(q1[3], q2[3]));
     return {
         Point3d(xMinMax.x, yMinMax.x, zMinMax.x) - Vec3d(maxW),
-        Point3d(xMinMax.y, yMinMax.y, zMinMax.y) + Vec3d(maxW)
-    };
+        Point3d(xMinMax.y, yMinMax.y, zMinMax.y) + Vec3d(maxW)};
 }
 
 static Vec4d project(const Vec3d &o, const Vec3d &lx, const Vec3d &ly, const Vec3d &lz, const Vec4d &q) {
-    Vec3d p(Vec3d(q.x,q.y,q.z)- o);
+    Vec3d p(Vec3d(q.x, q.y, q.z) - o);
     return {dot(lx, p), dot(ly, p), dot(lz, p), q.w};
 }
-
 
 struct CurveIntersection {
     std::uint32_t curveP0;
@@ -87,9 +82,9 @@ struct StackNode {
 
 template<typename T>
 static inline void precomputeBSplineCoefficients(T &p0, T &p1, T &p2) {
-    T q0 = ( p0 * 0.5 - p1 + p2 * 0.5);
+    T q0 = (p0 * 0.5 - p1 + p2 * 0.5);
     T q1 = (p1 - p0);
-    T q2 =  (p0 + p1) * 0.5;
+    T q2 = (p0 + p1) * 0.5;
     p0 = q0;
     p1 = q1;
     p2 = q2;
@@ -97,8 +92,8 @@ static inline void precomputeBSplineCoefficients(T &p0, T &p1, T &p2) {
 
 static inline void intersectHalfCylinder(StackNode node, double tMin,
                                          double &tMax, CurveIntersection &isect) {
-    
-    Vec2d v = Vec2d(node.p1.x - node.p0.x,node.p1.y -node.p0.y);
+
+    Vec2d v = Vec2d(node.p1.x - node.p0.x, node.p1.y - node.p0.y);
     double lengthSq = v.length2();
     double invLengthSq = 1 / lengthSq;
     double invLength = std::sqrt(invLengthSq);
@@ -117,7 +112,7 @@ static inline void intersectHalfCylinder(StackNode node, double tMin,
     double deltaT = std::sqrt(std::max(lSq, 0.0));
     double t0 = depth - deltaT;
 
-    Vec3d v3(node.p0.x - node.p1.x,node.p0.y - node.p1.y,node.p0.z - node.p1.z);
+    Vec3d v3(node.p0.x - node.p1.x, node.p0.y - node.p1.y, node.p0.z - node.p1.z);
     lengthSq = v3.length2();
     segmentT = dot((Vec3d(node.p0.x, node.p0.y, node.p0.z - t0)), v3) / lengthSq;
     if (segmentT < 0 || t0 >= tMax || t0 <= tMin) {
@@ -127,7 +122,7 @@ static inline void intersectHalfCylinder(StackNode node, double tMin,
     double newT = segmentT * (node.tMax - node.tMin) + node.tMin;
 
     if (newT >= 0 && newT <= 1) {
-        isect.uv = Point2d (newT, 0.5 + 0.5 * distance / width);
+        isect.uv = Point2d(newT, 0.5 + 0.5 * distance / width);
         isect.t = t0;
         isect.w = width;
         tMax = t0;
@@ -135,7 +130,7 @@ static inline void intersectHalfCylinder(StackNode node, double tMin,
 }
 
 bool pointOnSpline(Vec4d q0, Vec4d q1, Vec4d q2,
-                   double tMin, double tMax, CurveIntersection * isect) {
+                   double tMin, double tMax, CurveIntersection *isect) {
     const int MaxDepth = 5;
 
     StackNode stackBuf[MaxDepth];
@@ -150,13 +145,12 @@ bool pointOnSpline(Vec4d q0, Vec4d q1, Vec4d q2,
     StackNode cur{
         q2,
         q0 + q1 + q2,
-        0, 1, 0
-    };
+        0, 1, 0};
     double closestDepth = tMax;
 
     while (true) {
-        Vec2d pMin = Vec2d (std::min(cur.p0.x, cur.p1.x),std::min(cur.p0.y, cur.p1.y));
-        Vec2d pMax = Vec2d (std::max(cur.p0.x, cur.p1.x),std::max(cur.p0.y, cur.p1.y));
+        Vec2d pMin = Vec2d(std::min(cur.p0.x, cur.p1.x), std::min(cur.p0.y, cur.p1.y));
+        Vec2d pMax = Vec2d(std::max(cur.p0.x, cur.p1.x), std::max(cur.p0.y, cur.p1.y));
         if (tFlat.x > cur.tMin && tFlat.x < cur.tMax) {
             pMin.x = std::min(pMin.x, xFlat);
             pMax.x = std::max(pMax.x, xFlat);
@@ -194,21 +188,19 @@ bool pointOnSpline(Vec4d q0, Vec4d q1, Vec4d q2,
     return false;
 }
 
-
-class CurveSegment : public  Entity {
+class CurveSegment : public Entity {
 public:
     BoundingBox3f WorldBound() const override {
         return box;
     }
-    CurveSegment(std::vector<Vec4d> * _nodeData,int  id) : _nodeData(_nodeData),id(id){
-        box =     curveBox(_nodeData->operator[](id-2),_nodeData->operator[](id-1),_nodeData->operator[](id));
-
+    CurveSegment(std::vector<Vec4d> *_nodeData, int id) : _nodeData(_nodeData), id(id) {
+        box = curveBox(_nodeData->operator[](id - 2), _nodeData->operator[](id - 1), _nodeData->operator[](id));
     }
     std::optional<Intersection> intersect(const Ray &r) const override {
         CurveIntersection curveIts{};
         bool didIntersect = false;
-        Vec3d o(r.origin.x,r.origin.y,r.origin.z);
-        Vec3d  lz(r.direction);
+        Vec3d o(r.origin.x, r.origin.y, r.origin.z);
+        Vec3d lz(r.direction);
         double d = std::sqrt(lz.x * lz.x + lz.z * lz.z);
         Vec3d lx, ly;
         if (d == 0) {
@@ -222,7 +214,7 @@ public:
         Vec4d q0(project(o, lx, ly, lz, (*_nodeData)[id - 2]));
         Vec4d q1(project(o, lx, ly, lz, (*_nodeData)[id - 1]));
         Vec4d q2(project(o, lx, ly, lz, (*_nodeData)[id - 0]));
-        if (pointOnSpline(q0, q1, q2, r.timeMin,r.timeMax, &curveIts)) {
+        if (pointOnSpline(q0, q1, q2, r.timeMin, r.timeMax, &curveIts)) {
             curveIts.curveP0 = id - 2;
             didIntersect = true;
         }
@@ -235,10 +227,10 @@ public:
         Intersection its{};
 
         auto tangentWithW = (quadraticDeriv((*_nodeData)[p0], (*_nodeData)[p0 + 1], (*_nodeData)[p0 + 2], curveIts.uv.x));
-        Vec3d tangent = normalize(Vec3d (tangentWithW.x,tangentWithW.y,tangentWithW.z));
+        Vec3d tangent = normalize(Vec3d(tangentWithW.x, tangentWithW.y, tangentWithW.z));
 
-        its.geometryNormal  = normalize((-r.direction - tangent * dot(tangent, -r.direction)));
-        its.t  =  curveIts.t;
+        its.geometryNormal = normalize((-r.direction - tangent * dot(tangent, -r.direction)));
+        its.t = curveIts.t;
         its.object = this;
         its.uv = curveIts.uv;
         its.position = r.at(its.t);
@@ -253,48 +245,42 @@ public:
     }
 
 private:
-    std::vector<Vec4d> * _nodeData;
+    std::vector<Vec4d> *_nodeData;
     int id;
     BoundingBox3f box;
 };
 
+Curve::Curve(const Json &json) : Entity(json) {
 
-
-
-
-
-
-Curve::Curve(const Json & json) : Entity(json) {
-
-    CurveIO::LoadCurve(json["file"], & _curveEnds, & _nodeData, & _nodeColor, & _nodeNormals);
+    CurveIO::LoadCurve(json["file"], &_curveEnds, &_nodeData, &_nodeColor, &_nodeNormals);
     _curveCount = _curveEnds.size();
 
     _overrideThickness = containsAndGet(json, "curve_thickness", _curveThickness);
     bool tapper = getOptional(json, "curve_taper", false);
-    if ( _overrideThickness || tapper ) {
-        for ( int i = 0 ; i < _curveCount ; ++ i ) {
+    if (_overrideThickness || tapper) {
+        for (int i = 0; i < _curveCount; ++i) {
             int start = i ? _curveEnds[i - 1] : 0;
-            for ( int t = start ; t < _curveEnds[i] ; ++ t ) {
+            for (int t = start; t < _curveEnds[i]; ++t) {
                 double thickness = _overrideThickness ? _curveThickness : _nodeData[t].w;
-                if ( tapper )
-                    thickness *= 1 - ( t - start -0.5 ) / ( _curveEnds[i] - start - 1 );
-                _nodeData[t].w= thickness;
+                if (tapper)
+                    thickness *= 1 - (t - start - 0.5) / (_curveEnds[i] - start - 1);
+                _nodeData[t].w = thickness;
             }
         }
     }
     double widthScale = getOptional(json, "width_scale", 1.0);
-    double transformMatrix[] =  {0,0,0.1,0,0.13,0,0,0,0,0.1,0,0,0,9.4,0,1};
-    matrix = std::make_shared <TransformMatrix3D>(transformMatrix);
+    double transformMatrix[] = {0, 0, 0.1, 0, 0.13, 0, 0, 0, 0, 0.1, 0, 0, 0, 9.4, 0, 1};
+    matrix = std::make_shared<TransformMatrix3D>(transformMatrix);
 
-    for ( int i = 0 ; i < _nodeData.size() ; i ++ ) {
-        Point3d newP = matrix->operator *(Point3d(_nodeData[i].x, _nodeData[i].y,_nodeData[i].z));
+    for (int i = 0; i < _nodeData.size(); i++) {
+        Point3d newP = matrix->operator*(Point3d(_nodeData[i].x, _nodeData[i].y, _nodeData[i].z));
         _nodeData[i].x = newP.x;
-        _nodeData[i] .y= newP.y;
+        _nodeData[i].y = newP.y;
         _nodeData[i].z = newP.z;
         _nodeData[i].w *= widthScale;
     }
 
-    curveSegments.reserve(_nodeData.size()- 2*_curveCount);
+    curveSegments.reserve(_nodeData.size() - 2 * _curveCount);
 
     for (std::uint32_t i = 0; i < _curveCount; i++) {
         std::uint32_t start = 0;
@@ -302,41 +288,38 @@ Curve::Curve(const Json & json) : Entity(json) {
             start = _curveEnds[i - 1];
         }
         for (std::uint32_t t = start + 2; t < _curveEnds[i]; ++t) {
-            curveSegments.emplace_back(std::make_shared<CurveSegment>(&_nodeData,t));
+            curveSegments.emplace_back(std::make_shared<CurveSegment>(&_nodeData, t));
         }
     }
 
-    for ( const auto & curveSegment : curveSegments ){
-        bb = BoundingBoxUnion(bb,curveSegment->WorldBound());
+    for (const auto &curveSegment : curveSegments) {
+        bb = BoundingBoxUnion(bb, curveSegment->WorldBound());
     }
     curveScene = std::make_unique<EmbreeAccel>(curveSegments);
 }
 
-
-
-
-std::optional < Intersection > Curve::intersect(const Ray & r) const {
+std::optional<Intersection> Curve::intersect(const Ray &r) const {
     auto its = this->curveScene->Intersect(r);
-    if(!its)
+    if (!its)
         return std::nullopt;
     its->material = material;
     its->object = this;
     return its;
 }
 
-double Curve::area( ) const {
+double Curve::area() const {
     return 0;
-    //todo
+    // todo
+    return 1.0;
 }
 
-Intersection Curve::sample(const Point2d & positionSample) const {
-    throw ( "Not Implement Yet" );
+Intersection Curve::sample(const Point2d &positionSample) const {
+    throw("Not Implement Yet");
 }
 
-BoundingBox3f Curve::WorldBound( ) const {
+BoundingBox3f Curve::WorldBound() const {
     return bb;
 }
 
-void Curve::apply( ) {
+void Curve::apply() {
 }
-

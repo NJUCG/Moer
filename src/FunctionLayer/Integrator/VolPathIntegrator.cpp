@@ -420,13 +420,12 @@ Spectrum VolPathIntegrator::evalTransmittance(  std::shared_ptr<Scene> scene,
             }
             return tr;
         }
-
+      
         // corner case: non-null surface
         if(testRayIts.material!=nullptr){
             if(!testRayIts.material->getBxDF(testRayIts)->isNull())
                 return 0.0;
         }
-        
         // hit a null surface, calculate tr
         if (medium != nullptr)
             tr *= medium->evalTransmittance(testRayIts.position,lastScatteringPoint);
