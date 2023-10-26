@@ -1,0 +1,80 @@
+{
+    "mediums": [],
+    "materials": [
+        {
+            "name": "hair",
+            "albedo": 1,
+            "type": "hair",
+            "scale_angle": 2.5,
+            "melanin_ratio": 1,
+            "melanin_concentration": 1.3,
+            "roughness": 0.3
+        }
+    ],
+    "entities": [
+        {
+            "transform":[0,0,0.1,0,0.13,0,0,0,0,0.1,0,0,0,9.4,0,1],
+            "type": "curves",
+            "file": "models/wCurly.fiber",
+            "curve_thickness": 0.05,
+            "curve_taper": false,
+            "subsample": 0,
+            "material": "hair",
+            "width_scale" : 0.111
+        },{
+           "cap_dir": [0.19,0.75,-0.62],
+            "power": 20,
+            "type": "infinite_sphere_cap",
+            "sample": true,
+            "cap_angle": 10
+        }
+
+    ],
+    "camera": {
+        "tonemap": "filmic",
+        "resolution": 1024,
+        "reconstruction_filter": "tent",
+        "transform": {
+            "position": [
+                -0.234672,
+                16.5124,
+                -25.3482
+            ],
+            "look_at": [
+                0.134185,
+                9.92412,
+                -0.828005
+            ],
+            "up": [
+                0,
+                1,
+                0
+            ]
+        },
+        "type": "pinhole",
+        "fov": 35
+    },
+    "integrator": {
+        "min_bounces": 1,
+        "max_bounces": 64,
+        "enable_consistency_checks": false,
+        "enable_two_sided_shading": true,
+        "type": "path_tracer",
+        "enable_light_sampling": true,
+        "enable_volume_light_sampling": true
+    },
+    "renderer": {
+        "output_file": "curly-hair",
+        "resume_render_prefix": "TungstenRenderState",
+        "overwrite_output_files": false,
+        "adaptive_sampling": true,
+        "enable_resume_render": false,
+        "stratified_sampler": true,
+        "scene_bvh": true,
+        "spp": 1,
+        "spp_step": 16,
+        "checkpoint_interval": "0",
+        "timeout": "0",
+        "hdr_output_file": "curly-hair.exr"
+    }
+}

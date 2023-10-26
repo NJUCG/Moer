@@ -15,7 +15,7 @@
 #include "Light.h"
 #include "FunctionLayer/Texture/ImageTexture.h"
 #include "FunctionLayer/Distribution/Distribution.h"
-
+#include "CoreLayer/Geometry/Transform3d.h"
 
 class InfiniteSphereCapLight : public  Light,Transform3D{
 public:

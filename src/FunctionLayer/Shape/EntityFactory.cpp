@@ -64,10 +64,12 @@ bool handleEntity(std::string type, const Json &json, Scene &scene,
 bool handleLight(std::string type, const Json &json, Scene &scene) {
     if (type == "infinite_sphere") {
         scene.addLight(std::make_shared<InfiniteSphereLight>(json));
+        return true;
     }
 
     else if (type == "infinite_sphere_cap") {
         scene.addLight(std::make_shared<InfiniteSphereCapLight>(json));
+        return true;
     }
     return true;
 }

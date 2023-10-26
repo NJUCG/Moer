@@ -247,6 +247,100 @@ struct TVector3 {
     }
 };
 
+
+template <typename T>
+struct TVector4 {
+    T x, y, z,w;
+
+    TVector4 () { }
+
+    TVector4 (T _x, T _y, T _z,T _w) : x(_x), y(_y), z(_z),w(_w) { }
+
+    explicit TVector4 (T t) : x(t), y(t), z(t),w(t) { }
+
+    /*--- operator overloading ---*/
+    TVector4 operator+(T value) const {
+        return TVector4(x + value , y + value, z + value, w + value);
+    }
+
+    TVector4 operator+(const TVector4 &rhs) const {
+        return TVector4(x + rhs.x, y + rhs.y, z + rhs.z, w + rhs.w);
+    }
+
+    TVector4& operator+=(const TVector4 &rhs) {
+        x += rhs.x, y += rhs.y, z += rhs.z, w+=rhs.w;
+        return *this;
+    }
+
+    TVector4 operator-(T value) const {
+        return TVector4(x - value , y - value, z -value, w -value);
+    }
+
+    TVector4 operator-(const TVector4 &rhs) const {
+        return TVector4(x-rhs.x, y-rhs.y, z-rhs.z, w-rhs.w);
+    }
+
+    TVector4& operator-=(const TVector4 &rhs) {
+        x -= rhs.x, y -= rhs.y, z -= rhs.z,w -= rhs.w;
+        return *this;
+    }
+
+    TVector4 operator*(const T t) const {
+        return TVector4(x*t, y*t, z*t, w*t);
+    }
+
+    TVector4 operator*(const TVector4 &rhs) const {
+        return TVector4(x * rhs.x, y * rhs.y, z * rhs.z,w * rhs.z);
+    }
+
+    TVector4& operator*=(const T t) {
+        x*=t, y*=t, z*=t, w*=t;
+        return *this;
+    }
+
+    TVector4 operator/(const T t) const {
+        assert(t != 0);
+        T recip = (T) 1/t;
+        return TVector4(x*recip, y*recip, z*recip, w*recip);
+    }
+
+    TVector4 operator/(const TVector4 &rhs) const {
+        return TVector4(x / rhs.x, y / rhs.y, z / rhs.z, w/rhs.w);
+    }
+
+    TVector4& operator/=(const T t) {
+        assert(t != 0);
+        T recip = (T) 1/t;
+        x*=recip, y*=recip, z*=recip, w*=recip;
+        return *this;
+    }
+
+    TVector4 operator-() const {
+        return TVector4(-x, -y, -z,-w);
+    }
+
+    T operator[](const int i) const {
+        return (&x)[i];
+    }
+
+    T& operator[](const int i) {
+        return (&x)[i];
+    }
+
+
+    bool operator==(const TVector4 &rhs) const {
+        return x==rhs.x && y==rhs.y && z==rhs.z && w==rhs.w;
+    }
+
+    bool operator!=(const TVector4 &rhs) const {
+        return x!=rhs.x || y!=rhs.y || z!=rhs.z || w!=rhs.w;
+    }
+
+    bool isZero() const {
+        return x==0 && y==0 && z==0 && w==0;
+    }
+};
+
 template <typename T>
 std::ostream& operator<<(std::ostream &os, const TVector3<T> &v) {
     os << v.x << " " << v.y << " " << v.z;

@@ -30,7 +30,7 @@ namespace  TextureFactory{
         }
         if(textureJson.is_string()){
             auto emission = std::make_shared < ImageTexture < T, RGB3>>(
-                    FileUtils::getWorkingDir() + textureJson.get<std::string>());
+                    FileUtils::getFullPath(textureJson) );
             return emission;
         }
         if(textureJson.is_object()){

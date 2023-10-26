@@ -1,5 +1,5 @@
 /**
- * @file Cube.h
+ * @file Curve.h
  * @author JunPing Yuan
  * @brief Curve Shape
  * @version
@@ -12,6 +12,10 @@
 #pragma once
 
 #include "Entity.h"
+#include "FunctionLayer/Acceleration/Embree.h"
+
+class CurveSegment;
+
 class Curve : public  Entity{
 public:
     Curve(const Json &json);
@@ -24,14 +28,12 @@ public:
 
     virtual BoundingBox3f WorldBound() const override;
 
-    RTCGeometry toEmbreeGeometry(RTCDevice device) const override;
 
-    std::optional < Intersection > getIntersectionFromRayHit(const UserRayHit1 & rayhit) const override;
 
 protected:
 
     std::vector<int> _curveEnds;
-    std::vector<double> _nodeData;
+    std::vector<Vec4d> _nodeData;
     std::vector<Vec3d> _nodeColor;
     std::vector<Vec3d> _nodeNormals;
 
@@ -39,14 +41,17 @@ protected:
 
    // RTCScene rtcScene;
    // RTCGeometry rtcGeometry;
+    std:: unique_ptr<EmbreeAccel> curveScene;
 
-    double _subSample;
+
+    std::vector<std::shared_ptr<Entity>> curveSegments;
+    RTCScene scene;
+    RTCGeometry geometry;
     double _curveThickness;
     bool _overrideThickness;
 
-    int _curveCount;
+    size_t _curveCount;
 
     BoundingBox3f bb;
     virtual void apply() override;
-    Point3d getPoint(int index) const ;
 };

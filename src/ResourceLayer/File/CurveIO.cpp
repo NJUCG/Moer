@@ -77,7 +77,7 @@ struct FiberAttribute
 
 static bool loadFiber(const std::string & path, std::vector < int > * curveEnds, std::vector < float > * nodeData,
                       std::vector <Vec3f> * nodeColor, std::vector <Vec3f> * nodeNormals) {
-    std::ifstream in(FileUtils::getWorkingDir() + path);
+    std::ifstream in(FileUtils::getWorkingDir() + path,std::ios::binary);
     if ( ! in )
         return false;
 
@@ -141,20 +141,20 @@ static bool loadFiber(const std::string & path, std::vector < int > * curveEnds,
 }
 
 
-void CurveIO::LoadCurve(const std::string & path, std::vector < int > * curveEnds, std::vector < float > *  nodeData,
+void LoadCurve(const std::string & path, std::vector < int > * curveEnds, std::vector <float  > *  nodeData,
                         std::vector <Vec3f> * nodeColor, std::vector <Vec3f> * nodeNormals) {
     auto ext = FileUtils::getFileExtension(path);
-    if(ext == "fiber")
-        loadFiber(path,curveEnds,nodeData,nodeColor,nodeNormals);
+    if (ext == "fiber")
+        loadFiber(path, curveEnds, nodeData, nodeColor, nodeNormals);
 }
-void CurveIO::LoadCurve(const std::string & path, std::vector < int > * curveEnds, std::vector < double > *  nodeData,
+void CurveIO::LoadCurve(const std::string & path, std::vector < int > * curveEnds, std::vector < Vec4d > *  nodeData,
                         std::vector <Vec3d> * nodeColor, std::vector <Vec3d> * nodeNormals) {
     std::vector<float> fnodeData;
     std::vector<Vec3f> fNodeColor,fNodeNormals;
     LoadCurve(path,curveEnds,&fnodeData,&fNodeColor,&fNodeNormals);
-    nodeData->resize(fnodeData.size());
+    nodeData->resize(fnodeData.size()/4);
     for(int i = 0 ;i<nodeData->size();i++)
-        nodeData->operator [](i)  = double (fnodeData[i]);
+        nodeData->operator [](i)  = Vec4d (fnodeData[4*i],fnodeData[4*i+1],fnodeData[4*i+2],fnodeData[4*i+3]);
     nodeColor->resize(fNodeColor.size());
     for(int i = 0 ;i<fNodeColor.size();i++)
         nodeColor->operator [](i)  =

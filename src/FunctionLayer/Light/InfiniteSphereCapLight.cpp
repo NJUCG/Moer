@@ -20,9 +20,10 @@ InfiniteSphereCapLight::InfiniteSphereCapLight(const Json & json) : Light(ELight
         getOptional(json, "transform", Json())) {
     _capAngle = Angle(getOptional(json, "cap_angle", 5), Angle::EAngleType::ANGLE_DEG).getRad();
     _cosCapAngle = cos(_capAngle);
-    _capDir = matrix->operator *(Vec3d(0, 1, 0));
-
-    //_capDir = Vec3d(- 0.865803718, 0.416766226, - 0.276929319);
+     if(json.contains("cap_dir"))
+         _capDir = json["cap_dir"];
+     else
+         _capDir = matrix->operator *(Vec3d(0, 1, 0));
     _capFrame = Frame(_capDir);
     _emission = getOptional(json, "emission", Spectrum(1));
     if ( json.contains("power") ) {
