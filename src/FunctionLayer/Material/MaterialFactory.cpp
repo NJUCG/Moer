@@ -9,9 +9,9 @@
 #include "DielectricMaterial.h"
 #include "BumpMapMaterial.h"
 #include "NormalMapMaterial.h"
+#include "HairMaterial.h"
 
 #include "FunctionLayer/Scene/Scene.h"
-#include "FunctionLayer/Texture/TextureFactory.h"
 
 namespace  MaterialFactory{
 
@@ -26,6 +26,7 @@ std::shared_ptr <Material> LoadMaterialFromJson(const Json json) {
     else if (materialType == "null") return std::make_shared<NullMaterial>(json);
     else if (materialType == "bump") return std::make_shared<BumpMaterial>(json);
     else if (materialType == "normal") return std::make_shared<NormalMapMaterial>(json);
+    else if(materialType=="hair") return std::make_shared<HairMaterial>(json);
     return nullptr;
 }
 

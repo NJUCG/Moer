@@ -10,7 +10,7 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 
 - Easy to deploy, "install & clone & make & run"
 - Structured scene description using `json`
-- Interface for integrator/medium/bxdf/texture... and some pre-set implementions
+- Interface for integrator/medium/bxdf/texture... and some pre-set implementations
 - Unworried resource management for heavy resource (image/mesh)
 
 ## Gallery

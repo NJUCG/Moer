@@ -10,6 +10,7 @@
  */
 
 #include "Material.h"
+#include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Texture/Texture.h"
 
 static std::shared_ptr<Texture<Spectrum>> defaultSpectrum = std::make_shared<ConstantTexture<Spectrum>>(Spectrum(RGB3(1, 1, 1)));

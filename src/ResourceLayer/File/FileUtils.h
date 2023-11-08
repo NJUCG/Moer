@@ -18,7 +18,7 @@ namespace FileUtils{
     std::string getWorkingDir();
     std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite);
     std::string getFileExtension(const std::string & path);
-
+    std::string getFullPath(const std::string & path);
 
     template<typename T>
     static inline void streamRead(std::istream &in, T &dst)

@@ -12,7 +12,7 @@
 #include <nanovdb/NanoVDB.h>
 #include <nanovdb/util/GridHandle.h>
 #include "Medium.h"
-
+#include <CoreLayer/Geometry/Matrix.h>
 using BufferT = nanovdb::HostBuffer;
 
 class HeterogeneousMedium : public Medium {

@@ -1,6 +1,7 @@
 #include <sys/stat.h>
 #include <stdexcept>
 #include <memory>
+#include <algorithm>
 #include "FileUtils.h"
 
 inline bool fileExists (const std::string& name) {
@@ -28,6 +29,13 @@ namespace FileUtils{
         return workingDir;
     }
 
+    std::string getFullPath(const std::string &path) {
+        std::string realPath = path;
+#if _WIN32
+        std::replace(realPath.begin(), realPath.end(), '/', '\\');
+#endif
+        return workingDir+realPath;
+    }
 
     std::string getFilePath(const std::string & path,const std::string & suffix,bool overwrite){
         std::string destPath = path + "." +suffix;
