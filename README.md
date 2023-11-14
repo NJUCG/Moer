@@ -17,7 +17,6 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 
 ![classroom](https://user-images.githubusercontent.com/46410388/204492936-a7fc480b-1557-44e9-afaf-56d0ff1537a2.jpg)
 ![hair](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/C6966B38E3AD16F8AC9CC9D86C73921E.jpg)
-![hair](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/curly-hair.png)
 ![teapot](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/tea-pot.png)
 ![disney](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/disneybsdf.png)
 ## Checklist

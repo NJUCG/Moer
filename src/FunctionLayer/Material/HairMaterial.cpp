@@ -24,11 +24,4 @@ std::shared_ptr < BxDF > HairMaterial::getBxDF(const Intersection & intersect) c
 void HairMaterial::setFrame(Intersection &its, const Ray &ray) const {
     its.shFrame = Frame(its.geometryNormal);
     return;
-    Vec3d T, B, N;
-    N = its.geometryNormal;
-    B = its.geometryTangent;
-    T = cross(B, N);
-    T = normalize(T - dot(T, N) * N);
-    B = cross(N, T);
-    its.shFrame = Frame(T, B, N);
 }
