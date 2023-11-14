@@ -21,8 +21,7 @@
  * @ingroup Integrator
  */
 
-class VolPathIntegrator : public AbstractPathIntegrator
-{
+class VolPathIntegrator : public AbstractPathIntegrator {
 
 public:
     VolPathIntegrator(std::shared_ptr<Camera> _camera,
@@ -34,7 +33,6 @@ public:
 
     virtual Spectrum Li(const Ray &ray,
                         std::shared_ptr<Scene> scene) override;
-
 
     virtual PathIntegratorLocalRecord evalEmittance(std::shared_ptr<Scene> scene,
                                                     std::optional<Intersection> itsOpt,
@@ -55,7 +53,7 @@ public:
                                    int nBounce) override;
 
     virtual std::pair<std::shared_ptr<Light>, double> chooseOneLight(std::shared_ptr<Scene> scene,
-                                                                     double lightSample);   
+                                                                     double lightSample);
 
     virtual double chooseOneLightPdf(std::shared_ptr<Scene> scene,
                                      std::shared_ptr<Light> light);
@@ -64,21 +62,20 @@ public:
                                                     const Ray &ray);
 
     std::shared_ptr<Medium> getTargetMedium(const Intersection &its,
-                                                           Vec3d wi) const;
+                                            Vec3d wi) const;
 
     Spectrum evalTransmittance(std::shared_ptr<Scene> scene,
-                                                const Intersection& its,
-                                                Point3d pointOnLight) const;
+                               const Intersection &its,
+                               Point3d pointOnLight) const;
 
-    Intersection fulfillScatteringPoint(const Point3d& position,
-                                                            const Normal3d& normal,
-                                                            std::shared_ptr<Medium> medium);
+    Intersection fulfillScatteringPoint(const Point3d &position,
+                                        const Normal3d &normal,
+                                        std::shared_ptr<Medium> medium);
 
-    std::pair<std::optional<Intersection>, Spectrum> 
-    intersectIgnoreSurface(std::shared_ptr<Scene> scene, 
-                                                const Ray &ray,
-                                                std::shared_ptr<Medium> medium) const;
-
+    std::pair<std::optional<Intersection>, Spectrum>
+    intersectIgnoreSurface(std::shared_ptr<Scene> scene,
+                           const Ray &ray,
+                           std::shared_ptr<Medium> medium) const;
 
 protected:
     const int nPathLengthLimit = 64;
