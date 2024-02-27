@@ -11,3 +11,6 @@
 [submodule "ext/FastMath"]
 	path = ext/FastMath
 	url = https://github.com/NJUCG/FastMath.git
+[submodule "tools/ScenePreviewer"]
+	path = tools/ScenePreviewer
+	url = https://github.com/r1ckhu/Moer_ScenePreviewer.git
