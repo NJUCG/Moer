@@ -33,3 +33,13 @@ set(CMAKE_RELEASE_POSTFIX "_r")
 
 add_subdirectory(ext)
 add_subdirectory(src)
+
+option(BUILD_SCENEPREVIEWER "Set this option to enable building of scene_previewer" OFF)
+# Moer_ScenePreviewer is a hardware rasterizer designed to offer fast scene previews.
+# It is an additional executable that can be built separately.
+if(BUILD_SCENEPREVIEWER)
+    # Note: Building ScenePreviewer requires additional dependencies compared to Moer. 
+    # Please refer to the README in the ScenePreviewer directory for more information.
+    # Use 'git submodule update --remote tools/ScenePreviewer' to get the latest version.
+    add_subdirectory(tools/ScenePreviewer)
+endif()
