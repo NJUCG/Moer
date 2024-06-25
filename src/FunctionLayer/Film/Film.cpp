@@ -40,14 +40,17 @@ void Film::deposit(const Point2i &p, const Spectrum &s) {
 
 void Film::save(const std::string &path) {
     // ! A temp implementation
+#ifdef _DEBUG
     std::ofstream ofs("render_result.txt");
+#endif
     for (int i = 0; i < resolution.y; i++) {
         for (int j = 0; j < resolution.x; j++) {
             int id = i * resolution.x + j;
             Spectrum value = sumValues[id] / sumWeights[id];
             image->setColorAt(Point2i(j, i), value);
-            // for debug
-            ofs << j << " " << i << " " << value[0] << " " << value[1] << " " << value[2] << " " << std::endl;
+#ifdef _DEBUG
+             ofs << j << " " << i << " " << value[0] << " " << value[1] << " " << value[2] << " " << std::endl;
+#endif
         }
     }
     image->saveTo(path);
