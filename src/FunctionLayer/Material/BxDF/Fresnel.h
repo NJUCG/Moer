@@ -1,13 +1,13 @@
 /**
-* @file Fresnel.h
-* @author JunPing Yuan
-* @brief compute fresnel items
-* @version 0.1
-* @date 2022-9-6
-*
-* @copyright Copyright (c) 2022
-*
-*/
+ * @file Fresnel.h
+ * @author JunPing Yuan
+ * @brief compute fresnel items
+ * @version 0.1
+ * @date 2022-9-6
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 
 #pragma once
 #include "FastMath.h"
@@ -44,6 +44,10 @@ static inline double dielectricReflectance(double eta, double cosThetaI) {
     return dielectricReflectance(eta, cosThetaI, cosThetaT);
 }
 
+static inline Spectrum dielectricReflectance(Vec3d eta, double cosThetaI) {
+    return Spectrum(RGB3{dielectricReflectance(eta[0], cosThetaI), dielectricReflectance(eta[1], cosThetaI), dielectricReflectance(eta[2], cosThetaI)});
+}
+
 static inline double conductorReflectance(double eta, double k, double cosThetaI) {
     double cosThetaISq = cosThetaI * cosThetaI;
     double sinThetaISq = std::max(1.0f - cosThetaISq, 0.0);
@@ -77,7 +81,7 @@ static inline double diffuseReflectance(double eta, double sampleCount) {
         diffuseFresnel += double(fa + fb) * (0.5 / sampleCount);
         fb = fa;
     }
-    
+
     return double(diffuseFresnel);
 }
 }// namespace Fresnel
