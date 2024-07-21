@@ -3,13 +3,12 @@
 PourousLayerBxDF::PourousLayerBxDF(std::shared_ptr<MicrograinBxDF> _micrograinBRDF, std::shared_ptr<BxDF> _bulkBxDF)
     : micrograinBRDF(_micrograinBRDF), bulkBxDF(_bulkBxDF) {
 }
-//TODO: a better importance sampling
+// TODO: a better importance sampling
 Spectrum PourousLayerBxDF::f(const Vec3d &out, const Vec3d &in) const {
     double tau0 = micrograinBRDF->GetTau0();
     double beta = micrograinBRDF->GetBeta();
-    
-    // double w = getMicrograinWeight(tau0, beta, CosTheta(in), CosTheta(out));
-    double w = 0.5;
+
+    double w = getMicrograinWeight(tau0, beta, CosTheta(in), CosTheta(out));
     return micrograinBRDF->f(out, in) + (1. - w) * bulkBxDF->f(out, in);
 }
 
