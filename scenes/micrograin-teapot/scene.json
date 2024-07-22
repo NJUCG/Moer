@@ -1,0 +1,150 @@
+{
+  "mediums": [],
+  "materials": [
+    {
+      "name" : "goldplastic",
+      "type":"porousLayerMicrograin",
+      "bulkMaterial":
+      {
+        "name":"conductor",
+        "type":"conductor",
+        "albedo":"textures/rustyMetal.jpg",
+        "eta":[2,2,2],
+        "k":[0,0,0],
+        "roughness":0.3,
+        "distribution":"ggx"
+      },
+      "micrograinType":"conductor",
+      "tau0":0.3,
+      "beta":0.8,
+      "R0":[0.588,0.294,0.001],
+      "k":[0,0,0]
+    },
+    {
+        "name":"conductor",
+        "type":"conductor",
+        "albedo":"textures/rustyMetal.jpg",
+        "eta":[2,2,2],
+        "k":[0,0,0],
+        "roughness":0.3,
+        "distribution":"ggx"
+    },
+    {
+        "name":"plastic",
+        "albedo":0.9,
+        "type":"plastic"
+    },
+    {
+      "name": "Floor",
+      "albedo": {
+        "type": "checker",
+        "on_color": [
+          0.725,
+          0.71,
+          0.68
+        ],
+        "off_color": [
+          0.325,
+          0.31,
+          0.25
+        ],
+        "res_u": 20,
+        "res_v": 20
+      },
+      "type": "lambert"
+    }
+  ],
+  "entities": [
+
+    {
+      "transform": {},
+      "type": "mesh",
+      "file": "models/Mesh001.obj",
+      "material": "goldplastic"
+    },
+    {
+      "transform": {},
+      "type": "mesh",
+      "file": "models/Mesh000.obj",
+      "material": "goldplastic"
+    },
+    {
+      "transform": {
+        "scale": [
+          113,
+          113,
+          113
+        ],
+        "rotation": [
+          0,
+          45,
+          -180
+        ]
+      },
+      "type": "quad",
+      "material": "Floor"
+    },
+    {
+      "transform": {
+        "rotation": [
+          0,
+          67.2614,
+          0
+        ]
+      },
+      "emission": "textures/envmap.hdr",
+      "type": "infinite_sphere",
+      "sample": true
+    }
+  ],
+  "camera": {
+    "tonemap": "filmic",
+    "resolution": [
+      1280,
+      720
+    ],
+    "reconstruction_filter": "tent",
+    "transform": {
+      "position": [
+        23.895,
+        11.2207,
+        0.0400773
+      ],
+      "look_at": [
+        -0.953633,
+        2.17253,
+        1.0972613
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    "type": "pinhole",
+    "fov": 35
+  },
+  "integrator": {
+    "min_bounces": 0,
+    "max_bounces": 64,
+    "enable_consistency_checks": false,
+    "enable_two_sided_shading": true,
+    "type": "path_tracer",
+    "enable_light_sampling": true,
+    "enable_volume_light_sampling": true
+  },
+  "renderer": {
+    "output_file": "micrograinTeapot",
+    "resume_render_file": "RenderState.dat",
+    "overwrite_output_files": false,
+    "adaptive_sampling": true,
+    "enable_resume_render": false,
+    "stratified_sampler": false,
+    "scene_bvh": true,
+    "spp": 1024,
+    "spp_step": 16,
+    "checkpoint_interval": "0",
+    "timeout": "0",
+    "hdr_output_file": "micrograinTeapot.exr"
+  }
+}
