@@ -14,6 +14,7 @@ public:
 
     // see https://www.shadertoy.com/view/cly3Dt
     double getMicrograinWeight(double _tau0, double _beta, double cosI, double cosO) const {
+        if (cosI < 0. || cosO < 0.) return 0.;
         cosI = std::clamp(abs(cosI), 0.00001, 1.);
         cosO = std::clamp(abs(cosO), 0.00001, 1.);
         return 1. - ((1. - tauThetaPlus(_tau0, _beta, cosI)) * (1. - tauThetaPlus(_tau0, _beta, cosO)) / (1. - _tau0));

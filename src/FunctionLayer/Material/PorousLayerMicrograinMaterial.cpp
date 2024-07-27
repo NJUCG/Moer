@@ -19,7 +19,6 @@ std::shared_ptr<BxDF> PourousLayerMicrograinMaterial::getBxDF(const Intersection
         Spectrum _kd = kd->eval(intersect);
         micrograinBRDF = std::make_shared<PlasticMicrograinBxDF>(_R0, _kd, _tau0, _beta);
     }
-
     return std::make_shared<PourousLayerBxDF>(micrograinBRDF, bulkMaterial->getBxDF(intersect));
 }
 
