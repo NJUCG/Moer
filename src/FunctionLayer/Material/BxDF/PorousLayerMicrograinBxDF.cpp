@@ -15,10 +15,16 @@ ConductorMicrograinBxDF::ConductorMicrograinBxDF(Spectrum _R0, Vec3d _k, double 
 }
 
 Spectrum ConductorMicrograinBxDF::f(const Vec3d &out, const Vec3d &in) const {
+    if (CosTheta(out) < 1e-5 || CosTheta(in) < 1e-5) {
+        return 0.;
+    }
     Vec3d eta = R0ToEta(R0);
     Vec3d half = normalize(in + out);
+    if (dot(half, out) < 0) {
+        return 0.;
+    }
     auto Fr = Fresnel::conductorReflectance(eta, k, dot(half, in));
-    double denominator = 4 * CosTheta(out);
+    double denominator = 4 * CosTheta(out) * CosTheta(in);
     return (Fr * distrib->D(half, {tau0, beta}) * distrib->G(out, in, {tau0, beta})) / denominator;
 }
 
@@ -52,16 +58,22 @@ PlasticMicrograinBxDF::PlasticMicrograinBxDF(Spectrum _R0, Spectrum _kd, double 
 }
 
 Spectrum PlasticMicrograinBxDF::f(const Vec3d &out, const Vec3d &in) const {
+    if (CosTheta(out) < 1e-5 || CosTheta(in) < 1e-5) {
+        return 0.;
+    }
     Vec3d eta = R0ToEta(R0);
     Vec3d half = normalize(in + out);
+    if (dot(half, out) < 0) {
+        return 0.;
+    }
     Spectrum Fr = Fresnel::dielectricReflectance(eta, dot(half, in));
 
-    double denominator = 4 * CosTheta(out);
+    double denominator = 4 * CosTheta(out) * CosTheta(in);
     auto specular = (Fr * distrib->D(half, {tau0, beta}) * distrib->G(out, in, {tau0, beta})) / denominator;
 
     auto Ti = -1. * Fresnel::dielectricReflectance(eta, CosTheta(in)) + 1.;
     auto To = -1. * Fresnel::dielectricReflectance(eta, CosTheta(out)) + 1.;
-    auto diffuse = To * Ti * kd / fm::pi_d * CosTheta(in);
+    auto diffuse = To * Ti * kd / fm::pi_d;
 
     return specular + diffuse;
 }

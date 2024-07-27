@@ -6,17 +6,13 @@
       "type":"porousLayerMicrograin",
       "bulkMaterial":
       {
-        "name":"conductor",
-        "type":"conductor",
-        "albedo":"textures/rustyMetal.jpg",
-        "eta":[2,2,2],
-        "k":[0,0,0],
-        "roughness":0.3,
-        "distribution":"ggx"
+        "name":"plastic",
+        "albedo":0.9,
+        "type":"plastic"
       },
       "micrograinType":"conductor",
-      "tau0":0.3,
-      "beta":0.8,
+      "tau0":0.27,
+      "beta":0.1,
       "R0":[0.588,0.294,0.001],
       "k":[0,0,0]
     },
