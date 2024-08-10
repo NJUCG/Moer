@@ -13,6 +13,9 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 - Interface for integrator/medium/bxdf/texture... and some pre-set implementations
 - Unworried resource management for heavy resource (image/mesh)
 
+<img width="904" alt="MoerRenderer" src="https://github.com/user-attachments/assets/071dfde0-4387-4616-a5db-f8a126f336d9">
+
+
 ## Gallery
 
 ![classroom](https://user-images.githubusercontent.com/46410388/204492936-a7fc480b-1557-44e9-afaf-56d0ff1537a2.jpg)
