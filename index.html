@@ -49,6 +49,45 @@
 	<![endif]-->
 
 	<style>
+	
+	  body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .year-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .year-title:before {
+            content: "•"; /* 添加实心黑点 */
+            margin-right: 8px; /* 点和年份之间的间距 */
+            color: black; /* 实心黑点的颜色 */
+            font-size: 1.2em; /* 实心黑点的大小可以根据需要调整 */
+        }
+        .year-title {
+            font-size: 1.2em;
+            margin-right: 20px;
+            white-space: nowrap; /* 保证年份不换行 */
+        }
+        .assignment-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .assignment-item {
+            margin-right: 15px; /* 列表项之间的间距 */
+        }
+        a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
 		.links {
 			display: flex;
 			justify-content: space-between;
@@ -123,8 +162,8 @@
 
 			<div class="gtco-section border-bottom">
 
-				<div class=" text-center gtco-heading" style="width: 60%;margin-left: 16.7%">
-					<h1><b>Moer Renderer</b></h1>
+				<div class=" gtco-heading" style="width: 60%;margin-left: 16.7%">
+					<h1 class = "text-center"><b>Moer Renderer</b></h1>
 
 					<p><b>Moer</b> is a research-oriented, phycially-based renderer, providing an "easy to deploy and
 						develop" rendering platform
@@ -136,14 +175,35 @@
 					<p><b>Moer</b> also has an educational version: <a
 							href="https://github.com/NJUCG/Moer-lite"><b>Moer-lite</b></a>, accompanied with
 						assignments</p>
-					<p> 2023 <a href="images/lab0.pdf">Assignment 0,&nbsp </a><a href="images/lab1.pdf">Assignment 1,
+					<!-- <p> 2023 <a href="images/lab0.pdf">Assignment 0,&nbsp </a><a href="images/lab1.pdf">Assignment 1,
 							&nbsp
 						</a> <a href="images/lab2.pdf">Assignment 2, &nbsp</a><a href="images/final.pdf">Final
 							Assignment</a></p>
 					<p> 2024 <a href="images/lab1-2024.pdf">Assignment 1,&nbsp </a><a
 							href="images/lab2-2024.pdf">Assignment 2,
 							&nbsp
-						</a> <a href="images/final-2024.pdf">Final Assignment &nbsp</a></p>
+						</a> <a href="images/final-2024.pdf">Final Assignment &nbsp</a></p> -->
+
+						<div class="assignments">
+							<div class="year-group">
+								<span class="year-title">2023</span>
+								<ul class="assignment-list">
+									<li class="assignment-item"><a href="images/lab0.pdf">Assignment 0</a></li>
+									<li class="assignment-item"><a href="images/lab1.pdf">Assignment 1</a></li>
+									<li class="assignment-item"><a href="images/lab2.pdf">Assignment 2</a></li>
+									<li class="assignment-item"><a href="images/final.pdf">Final Assignment</a></li>
+								</ul>
+							</div>
+							<div class="year-group">
+								<span class="year-title">2024</span>
+								<ul class="assignment-list">
+									<li class="assignment-item"><a href="images/lab1-2024.pdf">Assignment 1</a></li>
+									<li class="assignment-item"><a href="images/lab2-2024.pdf">Assignment 2</a></li>
+									<li class="assignment-item"><a href="images/final-2024.pdf">Final Assignment</a></li>
+								</ul>
+							</div>
+						</div>
+					
 				</div>
 
 				<br></br>
