@@ -15,7 +15,7 @@ ConductorMicrograinBxDF::ConductorMicrograinBxDF(Spectrum _R0, Vec3d _k, double 
 }
 
 Spectrum ConductorMicrograinBxDF::f(const Vec3d &out, const Vec3d &in) const {
-    if (CosTheta(out) < 1e-5 || CosTheta(in) < 1e-5) {
+    if (CosTheta(out) < 1e-3 || CosTheta(in) < 1e-3) {
         return 0.;
     }
     Vec3d eta = R0ToEta(R0);
@@ -41,14 +41,14 @@ BxDFSampleResult ConductorMicrograinBxDF::sample(const Vec3d &out, const Point2d
     }
     Vec3d wh = distrib->Sample_wh(out, sample, {tau0, beta});
     Vec3d in = Frame::reflect(out, wh);
-    if (dot(wh, out) < 0 || CosTheta(in) < 0) {
-        result.s = Spectrum(0);
-        return result;
-    }
     result.pdf = pdf(out, in);
-    result.s = f(out, in);
     result.directionIn = in;
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_GLOSSY);
+    if (dot(wh, out) < 0 || CosTheta(in) < 0) {
+        result.s = Spectrum{0};
+        return result;
+    }
+    result.s = f(out, in);
     return result;
 }
 
@@ -63,7 +63,7 @@ Spectrum PlasticMicrograinBxDF::f(const Vec3d &out, const Vec3d &in) const {
     }
     Vec3d eta = R0ToEta(R0);
     Vec3d half = normalize(in + out);
-    if (dot(half, out) < 0) {
+    if (dot(half, out) <= 0) {
         return 0.;
     }
     Spectrum Fr = Fresnel::dielectricReflectance(eta, dot(half, in));
@@ -91,13 +91,13 @@ BxDFSampleResult PlasticMicrograinBxDF::sample(const Vec3d &out, const Point2d &
     }
     Vec3d wh = distrib->Sample_wh(out, sample, {tau0, beta});
     Vec3d in = Frame::reflect(out, wh);
-    if (dot(wh, out) < 0 || CosTheta(in) < 0) {
-        result.s = Spectrum(0);
-        return result;
-    }
     result.pdf = pdf(out, in);
-    result.s = f(out, in);
     result.directionIn = in;
     result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_GLOSSY);
+    if (dot(wh, out) < 0 || CosTheta(in) < 0) {
+        result.s = Spectrum{0};
+        return result;
+    }
+    result.s = f(out, in);
     return result;
 }

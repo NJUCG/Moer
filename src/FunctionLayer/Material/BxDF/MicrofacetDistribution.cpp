@@ -184,8 +184,9 @@ double MicrograinDistribution::D(const Vec3d &wh, const Vec2d &alphaXY) const {
     double cos2 = cos * cos;
     double tan2 = (1.f - cos2) / cos2;
     double tmp = beta2 + tan2;
-    double num = beta2 * fm::log(1. - tau0) * fm::pow<float>(1. - tau0, tan2 / tmp);
+    double num = beta2 * fm::log(1. - tau0) * fm::pow<double>(1. - tau0, tan2 / tmp);
     float denum = tau0 * fm::pi_d * tmp * tmp * cos2 * cos2;
+
     return -num / denum;
 }
 
