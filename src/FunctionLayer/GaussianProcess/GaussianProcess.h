@@ -5,11 +5,6 @@
 #include "Eigen/Dense"
 
 #include "GPFunctions.h"
-enum class DerivativeType {
-    None,
-    First,
-    Second,
-};
 enum class MemoryModel {
     None,
     GlobalN,

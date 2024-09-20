@@ -18,6 +18,8 @@
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Intersection.h"
 
+#include"FunctionLayer/GaussianProcess/GaussianProcess.h"
+
 struct MediumSampleRecord {
     double marchLength;
 	double pdf;
@@ -27,6 +29,10 @@ struct MediumSampleRecord {
     Spectrum tr;
     Spectrum sigmaA;
     Spectrum sigmaS;
+
+#if defined(ENABLE_GPISMEDIUM)
+    GPRealization realization;
+#endif
 };
 
 

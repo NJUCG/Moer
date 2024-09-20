@@ -82,7 +82,7 @@ void GPRealization::applyMemoryModel(Vec3d rayDir, MemoryModel memoryModel) {
         case MemoryModel::None:
             break;
         case MemoryModel::GlobalN:
-            // TODO
+            // TODO(Cchen77): GlobalN memory model
             break;
         case MemoryModel::Renewal: {
             size_t p = pointSize - 1;
@@ -156,7 +156,7 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
     Eigen::MatrixXd kCx = cov(pointsCond, derivativeTypesCond, derivativeDirsCond, derivativeDirCond, numPointsCond,
                               points, derivativeTypes, derivativeDirs, derivativeDir, numPoints);
     // we should solve kCC*x = kCx => xT kCC = kxC => xT = kxC*kCC^-1
-    // https://github.com/daseyb/gpis-light-transport/blob/main/src/core/math/GaussianProcess.cpp
+    // solving method from https://github.com/daseyb/gpis-light-transport/blob/main/src/core/math/GaussianProcess.cpp
     Eigen::MatrixXd solved;
     bool succesfullSolve = false;
     if (kCC.rows() <= 64) {
