@@ -16,10 +16,10 @@ class IsotropicPhase : public PhaseFunction {
 public:
     IsotropicPhase() = default;
 
-    virtual std::tuple<double, double, bool> 
+    virtual std::tuple<Spectrum, double, bool> 
     evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const override;
 
-    virtual std::tuple<Vec3d, double, double, bool>
+    virtual std::tuple<Vec3d, Spectrum, double, bool>
     samplePhase(Vec3d wo, Point3d scatterPoint, Point2d sample) const override;
 
 };

@@ -1,7 +1,7 @@
 #include "HGPhase.h"
 #include"CoreLayer/ColorSpace/Color.h"
 
-std::tuple<double, double, bool>
+std::tuple<Spectrum, double, bool>
 HGPhase::evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
     Vec3d w = wo * wi;
     float cosTheta = (w[0] + w[1] + w[2]) / wo.length() * wi.length();
@@ -11,7 +11,7 @@ HGPhase::evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
     return {phaseValue,phasePdf, false};
 }
 
-std::tuple<Vec3d, double, double, bool>
+std::tuple<Vec3d, Spectrum, double, bool>
 HGPhase::samplePhase(Vec3d wo, Point3d scatterPoint, Point2d sample) const {
     float cosTheta;
     if (std::abs(g) < 1e-3) {

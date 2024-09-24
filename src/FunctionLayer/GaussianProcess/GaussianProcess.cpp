@@ -18,12 +18,12 @@ GPRealization::GPRealization(const GaussianProcess *_gp,
     }
 }
 
-void GPRealization::makeIntersection(size_t p) {
+void GPRealization::makeIntersection(size_t p, double offset) {
     auto preV = values[p - 1];
     auto curV = values[p];
 
-    Point3d zeroCrossing = lerp(points[p - 1], points[p], preV / (preV - curV));
-    double gradValue = (curV - preV) / (points[p] - points[p - 1]).length();
+    Point3d zeroCrossing = lerp(points[p - 1], points[p], offset);
+    double gradValue = (curV - preV) / ((points[p] - points[p - 1]).length());
 
     points.push_back(zeroCrossing);
     derivativeTypes.push_back(DerivativeType::None);
@@ -127,10 +127,6 @@ void GPRealization::applyMemoryModel(Vec3d rayDir, MemoryModel memoryModel) {
 }
 
 GaussianProcess::GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov) : meanFunction(_mean), covFunction(_cov) {
-}
-
-GaussianProcess::GaussianProcess(const Json &json) {
-    // TODO(Cchen77): constructing from json file
 }
 
 GPRealization GaussianProcess::sample(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir, Sampler &sampler) const {

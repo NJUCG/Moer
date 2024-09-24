@@ -6,7 +6,7 @@
  * @version 0.1
  * @date 2022-04-30
  *
- * @copyright NJUMeta (c) 2022 
+ * @copyright NJUMeta (c) 2022
  * www.njumeta.com
  *
  */
@@ -18,11 +18,26 @@
 #include "CoreLayer/Ray/Ray.h"
 #include "FunctionLayer/Intersection.h"
 
-#include"FunctionLayer/GaussianProcess/GaussianProcess.h"
+#include "FunctionLayer/GaussianProcess/GaussianProcess.h"
+
+#include <optional>
+
+struct MediumState {
+    // mainly for gpis medium which need the sampler
+    Sampler &sampler;
+#if defined(ENABLE_GPISMEDIUM)
+    GPRealization realization;
+#endif
+    void reset() {
+#if defined(ENABLE_GPISMEDIUM)
+        realization.reset();
+#endif
+    }
+};
 
 struct MediumSampleRecord {
     double marchLength;
-	double pdf;
+    double pdf;
     Point3d scatterPoint;
     Vec3d wi;
 
@@ -30,41 +45,39 @@ struct MediumSampleRecord {
     Spectrum sigmaA;
     Spectrum sigmaS;
 
-#if defined(ENABLE_GPISMEDIUM)
-    GPRealization realization;
-#endif
-};
+    Spectrum emission;
+    Vec3d aniso;
+    bool needAniso;
 
+    MediumState *mediumState;
+};
 
 class Medium {
 public:
+    /**
+     * @brief Sample a distance, the ray will transport in media without collision until reach the distance
+     * @return
+     * - true, if the ray will endure a collision in medium
+     * - false, if the ray will pass through the media without collision
+     */
 
-	/**
-	 * @brief Sample a distance, the ray will transport in media without collision until reach the distance
-	 * @return 
-	 * - true, if the ray will endure a collision in medium
-	 * - false, if the ray will pass through the media without collision
-	 */
+    Medium(std::shared_ptr<PhaseFunction> phase) : mPhase(phase) {}
 
-	Medium(std::shared_ptr<PhaseFunction> phase) : mPhase(phase) { }
+    virtual bool sampleDistance(MediumSampleRecord *mRec,
+                                const Ray &ray,
+                                const Intersection &itsOpt,
+                                Point2d sample) const = 0;
 
-	virtual bool sampleDistance(MediumSampleRecord *mRec, 
-								const Ray &ray,
-								const Intersection &itsOpt,
-								Point2d sample) const = 0;
+    virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const = 0;
 
-	virtual Spectrum evalTransmittance (Point3d from, Point3d dest) const = 0;
+    auto evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
+        return mPhase->evalPhase(wo, wi, scatterPoint);
+    }
 
-	auto evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
-		return mPhase->evalPhase(wo, wi, scatterPoint);
-	}
-
-	auto samplePhase(Vec3d wo, Point3d scatterPoint, Point2d sample) const {
-		return mPhase->samplePhase(wo, scatterPoint, sample);
-	}
+    auto samplePhase(Vec3d wo, Point3d scatterPoint, Point2d sample) const {
+        return mPhase->samplePhase(wo, scatterPoint, sample);
+    }
 
 protected:
-
-	std::shared_ptr<PhaseFunction> mPhase;
-
+    std::shared_ptr<PhaseFunction> mPhase;
 };

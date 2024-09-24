@@ -38,15 +38,25 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
     PathIntegratorLocalRecord prevLightSampleRecord;
 
     std::shared_ptr<Medium> medium = nullptr;
+    //mainly for GPIS medium now,but maybe some other medium need it also.
+    MediumState mediumState{*sampler};
+   
     auto itsOpt = scene->intersect(ray);
 
     while (true) {
 
-        MediumSampleRecord mRec;
+        MediumSampleRecord mRec{};
+        mRec.mediumState = &mediumState;
         if (medium && medium->sampleDistance(&mRec, ray, itsOpt.value(), sampler->sample2D())) {
             // Handle medium distance sampling
             throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
-            Intersection mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
+            Intersection mediumScatteringPoint;
+            if (!mRec.needAniso) {
+                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
+            } else {
+                //abuse slightly for gpis medium 
+                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, -mRec.aniso, medium);
+            }
             //* ----- Luminaire Sampling -----
             for (int i = 0; i < nDirectLightSamples; ++i) {
                 PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, mediumScatteringPoint, ray);
@@ -63,7 +73,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
             PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(mediumScatteringPoint, ray);
             if (sampleScatterRecord.f.isBlack())
-                break;
+                break; 
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
             ray = Ray{mediumScatteringPoint.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
             itsOpt = scene->intersect(ray);
@@ -91,6 +101,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
             if (its.material->getBxDF(its)->isNull()) {
                 medium = getTargetMedium(its, ray.direction);
+                mediumState.reset();
                 ray = Ray{its.position + eps * ray.direction, ray.direction};
                 itsOpt = scene->intersect(ray);
                 if (!itsOpt) break;
