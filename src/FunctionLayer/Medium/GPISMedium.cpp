@@ -46,8 +46,9 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
 }
 
 Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
-    // TODO(Cchen77): limited by vol path tracer framework,we just have a naive version,which just like apply Renewal memory model before cast the shadowray
-    //                we need a more elegant way
+    // TODO(Cchen77): 
+    // limited by vol path tracer framework,we just have a naive version,which just like apply Renewal memory model before cast the shadowray
+    // need a more elegant way
 
     IndependentSampler transientSampler(1, 5);// 1,5 is meaningless
 
@@ -71,8 +72,7 @@ Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
     its.t = (dest - from)[0] / direction[0];
     bool shadowed = sampleDistance(&sampleRecord, ray, its, {});
 
-    if (shadowed) return 0.;
-    return 1.;
+    return 1 - shadowed;
 }
 
 bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const {

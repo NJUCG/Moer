@@ -13,7 +13,6 @@ enum class DerivativeType {
 class MeanFunction {
 public:
     MeanFunction() = default;
-    MeanFunction(const Json &json);
     virtual double operator()(const DerivativeType &derivativeType, const Point3d &point, const Vec3d &derivativeDir = {}) const {
         if (derivativeType == DerivativeType::None) {
             return mean(point);
@@ -29,7 +28,6 @@ protected:
 class CovarianceFunction {
 public:
     CovarianceFunction() = default;
-    CovarianceFunction(const Json &json);
     virtual double operator()(const DerivativeType &derivativeTypeX, const Point3d &pointX,
                               const DerivativeType &derivativeTypeY, const Point3d &pointY,
                               const Vec3d &derivativeDirX = {}, const Vec3d &derivativeDirY = {}) const {
@@ -50,19 +48,12 @@ public:
     }
 
 protected:
-    //common interface
+    // common interface
     virtual double cov(const Point3d &pointX, const Point3d &pointY) const = 0;
-    //interfaces for autodiff
-    autodiff::real2nd cov(const autodiff::Vector3real1st &pointX, const autodiff::Vector3real1st &pointY) const {
-        Point3d _pointX((double)pointX.x(), (double)pointX.y(), (double)pointX.z());
-        Point3d _pointY((double)pointY.x(), (double)pointY.y(), (double)pointY.z());
-        return cov(_pointX, _pointY);
-    }
-    autodiff::dual2nd cov(const autodiff::Vector3dual2nd &pointX, const autodiff::Vector3dual2nd &pointY) const {
-        Point3d _pointX((double)pointX.x(), (double)pointX.y(), (double)pointX.z());
-        Point3d _pointY((double)pointY.x(), (double)pointY.y(), (double)pointY.z());
-        return cov(_pointX, _pointY);
-    }
+    // interfaces for autodiff
+    virtual autodiff::real2nd cov(const autodiff::Vector3real1st &pointX, const autodiff::Vector3real1st &pointY) const = 0;
+    virtual autodiff::dual2nd cov(const autodiff::Vector3dual2nd &pointX, const autodiff::Vector3dual2nd &pointY) const = 0;
+
     double dcov_dx(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX) const {
         autodiff::Vector3real1st px{pointX.x, pointX.y, pointX.z};
         autodiff::Vector3real1st py{pointY.x, pointY.y, pointY.z};
@@ -89,4 +80,4 @@ protected:
         return res;
     }
 };
-// TODO(Cchen77): MeanFunction&CovarianceFunction implementations
+
