@@ -1,11 +1,15 @@
 #pragma once
 #include "CoreLayer/Adapter/JsonUtil.h"
 #include "CoreLayer/Geometry/Geometry.h"
+#include "CoreLayer/Geometry/Matrix.h"
+
+#include "FunctionLayer/SDFFunction/SdfFunctions.h"
 
 #include "autodiff/forward/dual.hpp"
 #include "autodiff/forward/real.hpp"
 #include "autodiff/forward/dual/eigen.hpp"
 #include "autodiff/forward/real/eigen.hpp"
+
 enum class DerivativeType {
     None,
     First,
@@ -81,3 +85,18 @@ protected:
     }
 };
 
+class ProceduralMean : public MeanFunction {
+public:
+    ProceduralMean(const Json &json);
+
+protected:
+    virtual double mean(const Point3d &point) const override;
+    virtual Vec3d dmean_dp(const Point3d &point) const override;
+
+    mutable TransformMatrix3D transformMatrix;
+    mutable TransformMatrix3D invTransformMatrix;
+
+    SdfFunctions::Function func;
+    double scale;
+    double offset;
+};

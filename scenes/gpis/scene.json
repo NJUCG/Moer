@@ -13,7 +13,13 @@
       "gaussian_process":{
         "type":"std",
         "mean":{
-
+          "type":"procedural",
+          "func":"knob",
+          "transform":{
+            "position":[0,0,0],
+            "scale":[1,1,1],
+            "rotation":[0,0,0]     
+          }
         },
         "covariance":{
             
