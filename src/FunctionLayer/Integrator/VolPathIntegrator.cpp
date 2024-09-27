@@ -55,7 +55,8 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
             } else {
                 //abuse slightly for gpis medium 
-                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, -mRec.aniso, medium);
+                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, mRec.aniso, medium);
+                mediumScatteringPoint.geometryNormal = mRec.aniso;
             }
             //* ----- Luminaire Sampling -----
             for (int i = 0; i < nDirectLightSamples; ++i) {

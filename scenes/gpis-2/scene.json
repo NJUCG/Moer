@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 4,
+    "spp" : 1,
     "output_file" : "gpis"
   },
 
@@ -8,7 +8,7 @@
     {
       "name" : "gpis",
       "type" : "gpis",
-      "num_sample_points": 8,
+      "marching_num_sample_points": 8,
       "marching_step_size": 0.1,
       "gaussian_process":{
         "type":"std",
@@ -16,7 +16,7 @@
           "type":"procedural",
           "func":"knob",
           "transform":{
-            "position":[0,0,0],
+            "position":[0,1,0],
             "scale":[1,1,1],
             "rotation":[0,0,0]     
           }
@@ -81,7 +81,7 @@
     "fov" : 19.5,
 
     "transform" : {
-      "position" : [-7, 7, 7],
+      "position" : [2, 7, 7],
       "up" : [0, 1, 0],
       "look_at" : [0, 0, 0]
     }

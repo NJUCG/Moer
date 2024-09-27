@@ -4,8 +4,10 @@
 #include "FunctionLayer/GaussianProcess/GaussianProcessFactory.h"
 
 GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(json["phase"])) {
-    numSamplePoints = getOptional(json, "num_sample_points", 8);
-    marchingStepSize = getOptional(json, "marching_step_size", 0.1);
+    marchingNumSamplePoints = getOptional(json, "marching_num_sample_points", 8);
+    if (marchingNumSamplePoints < 2) marchingNumSamplePoints = 2;
+    marchingStepSize = getOptional(json, "marching_step_size", 0.);
+    marchingDesiredCov = getOptional(json, "marching_desired_cov", 0.);
 
     gaussianProcess = GaussianProcessFactory::LoadGaussianProcessFromJson(json["gaussian_process"]);
 }
@@ -28,7 +30,7 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
             Point3d point = r.origin + t * r.direction;
             Vec3d grad = gpRealization.sampleGradient(point, r.direction, sampler);
             if (intersected) {
-                mRec->aniso = grad;
+                mRec->aniso = normalize(grad);
                 mRec->marchLength = t;
                 mRec->scatterPoint = point;
             }
@@ -49,7 +51,7 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
 
 Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
     // TODO(Cchen77):
-    // limited by vol path tracer framework,we just have a naive version,which just like apply Renewal memory model before cast the shadowray
+    // limited by vol path tracer framework,we just have a naive version,which just like applying Renewal memory model before cast the shadowray
     // need a more elegant way
 
     IndependentSampler transientSampler(1, 5);// 1,5 is meaningless
@@ -73,13 +75,13 @@ Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
     Intersection its;
     its.t = (dest - from)[0] / direction[0];
     bool shadowed = sampleDistance(&sampleRecord, ray, its, {});
-
+    
     return 1 - shadowed;
 }
 
 bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const {
     double maxDistance = ray.timeMax - t;
-    double determinedStepSize = maxDistance / (numSamplePoints - 1);
+    double determinedStepSize = maxDistance / (marchingNumSamplePoints - 1);
     if (marchingStepSize < determinedStepSize) {
         determinedStepSize = marchingStepSize;
     }
@@ -88,7 +90,12 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
     std::vector<DerivativeType> derivativeTypes;
     std::vector<double> ts;
 
-    for (int i = 0; i < numSamplePoints; ++i) {
+    Point3d p = ray.origin + ray.direction * (determinedStepSize * 0.1 + t);
+    points.push_back(p);
+    derivativeTypes.push_back(DerivativeType::None);
+    ts.push_back(determinedStepSize * 0.1 + t);
+
+    for (int i = 1; i < marchingNumSamplePoints; ++i) {
         Point3d p = ray.origin + ray.direction * (i * determinedStepSize + t);
         points.push_back(p);
         derivativeTypes.push_back(DerivativeType::None);
@@ -97,18 +104,18 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
 
     // it's the first time we have a realization,so we can sampling without condition
     if (gpRealization.isEmpty()) {
-        gpRealization = gaussianProcess->sample(points.data(), derivativeTypes.data(), nullptr, numSamplePoints, {}, sampler);
+        gpRealization = gaussianProcess->sample(points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, sampler);
     }
     // use last realization as conditon
     else {
         gpRealization = gaussianProcess->sampleCond(
-            points.data(), derivativeTypes.data(), nullptr, numSamplePoints, {}, gpRealization, sampler);
+            points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, gpRealization, sampler);
     }
 
     double lastV = gpRealization.values[0];
     double lastT = ray.timeMin;
     t = ts[0];
-    for (int i = 1; i < numSamplePoints; ++i) {
+    for (int i = 1; i < marchingNumSamplePoints; ++i) {
         double curV = gpRealization.values[i];
         double curT = ts[i];
         if (curV * lastV <= 0.) {

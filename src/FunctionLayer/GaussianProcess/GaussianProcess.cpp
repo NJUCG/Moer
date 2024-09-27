@@ -238,6 +238,10 @@ Eigen::MatrixXd GaussianProcess::cov(const Point3d *pointsX, const DerivativeTyp
                     pointsY, derivativeTypesY, derivativeDirsY, derivativeDirY, numPointsY);
 }
 
+double GaussianProcess::goodStepSize(Point3d p, Vec3d rd, double desiredCov) const{
+    return 0.;
+}
+
 Eigen::MatrixXd GaussianProcess::covSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, const Vec3d &derivativeDir, size_t numPoint) const {
     return covPriorSym(points, derivativeTypes, derivativeDirs, derivativeDir, numPoint);
 }

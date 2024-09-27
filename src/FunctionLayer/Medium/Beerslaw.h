@@ -25,6 +25,7 @@ public:
                                 Point2d sample) const;
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const;
+
 private:
     Spectrum mDensity;
 };

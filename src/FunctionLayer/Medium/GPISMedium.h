@@ -21,8 +21,10 @@ public:
 
 private:
     std::shared_ptr<GaussianProcess> gaussianProcess;
-    int numSamplePoints = 8;
-    double marchingStepSize = 0.;
+
+    int marchingNumSamplePoints;
+    double marchingStepSize;
+    double marchingDesiredCov;
 
     MemoryModel memoryModel = MemoryModel::RenewalPlus;
 };

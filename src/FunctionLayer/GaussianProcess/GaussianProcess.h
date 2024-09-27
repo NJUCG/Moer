@@ -62,6 +62,8 @@ struct GaussianProcess {
     std::shared_ptr<MeanFunction> meanFunction;
     std::shared_ptr<CovarianceFunction> covFunction;
 
+    virtual double goodStepSize(Point3d p, Vec3d rd, double desiredCov) const;
+
     // TODO(Cchen77): Global Conditioning
     GPRealization globalCondition;
 
