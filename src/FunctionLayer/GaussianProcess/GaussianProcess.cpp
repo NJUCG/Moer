@@ -52,7 +52,6 @@ Vec3d GPRealization::sampleGradient(Point3d pos, Vec3d rayDir, Sampler &sampler)
         std::array<Vec3d, 2> gradDirs{
             vec_conv<Vec3d>(frame.s),
             vec_conv<Vec3d>(frame.t)};
-
         auto realization = gp->sampleCond(gradPs.data(), gradDerivs.data(), gradDirs.data(), gradDirs.size(), {},
                                           points.data(), derivativeTypes.data(), derivativeDirections.data(), values.data(), points.size(), {}, sampler);
         // intersection's gradient is already known since we perform linear interpolation between points
@@ -63,7 +62,6 @@ Vec3d GPRealization::sampleGradient(Point3d pos, Vec3d rayDir, Sampler &sampler)
             vec_conv<Vec3d>(frame.s),
             vec_conv<Vec3d>(frame.t),
             vec_conv<Vec3d>(frame.n)};
-
         auto realization = gp->sampleCond(gradPs.data(), gradDerivs.data(), gradDirs.data(), gradDirs.size(), {},
                                           points.data(), derivativeTypes.data(), derivativeDirections.data(), values.data(), points.size(), {}, sampler);
         sampleGrad = frame.toWorld({realization.values[0], realization.values[1], realization.values[2]});

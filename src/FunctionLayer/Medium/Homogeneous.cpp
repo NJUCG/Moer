@@ -10,7 +10,7 @@
 ///         False if sampled a point on object boundary (surface), and thus fulfill marchLength, pdf, tr of mRec.
 bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
                                        const Ray &ray,
-                                       const Intersection &its,
+                                       const std::optional<Intersection> &its,
                                        Point2d sample) const {
 
     auto [x, y] = sample;
@@ -19,7 +19,11 @@ bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
     int channelIndex = int(x * nSpectrumSamples);
     double dist = -fm::log(1 - y) / mSigmaT[channelIndex];
 
-    if (dist < its.t) {
+    double maxT = ray.timeMax;
+    if (its) {
+        maxT = std::min(maxT, its.value().t);
+    }
+    if (dist < maxT) {
         // * sampled a scattering point inside the medium.
         mRec->marchLength = dist;
         mRec->scatterPoint = ray.at(dist);
@@ -35,12 +39,12 @@ bool HomogeneousMedium::sampleDistance(MediumSampleRecord *mRec,
         return true;
     } else {
         // sampled a point on object boundary (surface).
-        mRec->marchLength = its.t;
-        mRec->tr = evalTransmittance(ray.origin, its.position);
+        mRec->marchLength = maxT;
+        mRec->tr = evalTransmittance(ray.origin, ray.origin + ray.direction * maxT);
         // calculate discrete probility (instead of continuous probability density), i.e., sum of $1\n * e^{-\sigma_t^i * t_max}$.
         mRec->pdf = 0.0;
         for (int i = 0; i < nSpectrumSamples; i++) {
-            mRec->pdf += fm::exp(-mSigmaT[i] * its.t);
+            mRec->pdf += fm::exp(-mSigmaT[i] * maxT);
         }
         mRec->pdf /= nSpectrumSamples;
         return false;

@@ -20,6 +20,8 @@ MultiVariableNormalDistribution::MultiVariableNormalDistribution(const Eigen::Ve
 
         normTransform = eigs.eigenvectors() * eigs.eigenvalues().cwiseMax(0).cwiseSqrt().asDiagonal();
     }
+
+    mean = _mean;
 }
 
 // https://github.com/daseyb/gpis-light-transport/blob/main/src/core/sampling/Gaussian.cpp

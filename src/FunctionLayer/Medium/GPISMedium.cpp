@@ -1,8 +1,7 @@
 #include "GPISMedium.h"
 #include "GPISPhase.h"
 #include "FunctionLayer/Sampler/Independent.h"
-#include"FunctionLayer/GaussianProcess/GaussianProcessFactory.h"
-
+#include "FunctionLayer/GaussianProcess/GaussianProcessFactory.h"
 
 GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(json["phase"])) {
     numSamplePoints = getOptional(json, "num_sample_points", 8);
@@ -11,13 +10,16 @@ GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(js
     gaussianProcess = GaussianProcessFactory::LoadGaussianProcessFromJson(json["gaussian_process"]);
 }
 
-bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
+bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const std::optional<Intersection> &its, Point2d sample) const {
 #if defined(ENABLE_GPISMEDIUM)
     GPRealization &gpRealization = mRec->mediumState->realization;
     Sampler &sampler = mRec->mediumState->sampler;
 
     Ray r = ray;
-    r.timeMax = std::min(its.t, r.timeMax);
+    r.timeMax = std::min(r.timeMax, r.timeMin + 200);
+    if (its) {
+        r.timeMax = std::min(its.value().t, r.timeMax);
+    }
     double t = r.timeMin;
     bool intersected = false;
     do {
@@ -46,7 +48,7 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
 }
 
 Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
-    // TODO(Cchen77): 
+    // TODO(Cchen77):
     // limited by vol path tracer framework,we just have a naive version,which just like apply Renewal memory model before cast the shadowray
     // need a more elegant way
 
@@ -82,7 +84,7 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
         determinedStepSize = marchingStepSize;
     }
 
-    std::vector<Point3d> points(numSamplePoints);
+    std::vector<Point3d> points;
     std::vector<DerivativeType> derivativeTypes;
     std::vector<double> ts;
 

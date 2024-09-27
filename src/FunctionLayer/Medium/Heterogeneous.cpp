@@ -161,7 +161,7 @@ HeterogeneousMedium::HeterogeneousMedium(std::string gridFilePath, std::shared_p
     maxIndex[2] = densityFloatGrid->indexBBox().max().z();
 }
 
-bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
+bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const std::optional<Intersection> &its, Point2d sample) const {
 
     //    nanovdb::Vec3f world_coordinate{5.62f, 17.6f, 3.221f};
     //    auto index_coordinate = densityFloatGrid->worldToIndexF(world_coordinate);
@@ -196,7 +196,12 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
     float thick = -fm::log(1 - sample[0]);
     float dt, sum = .0f, t_world = .0f;
 
-    RegularTracker rt(minIndex, maxIndex, origin, direction, its.t, voxelSize, &t_world);
+    double maxT = ray.timeMax;
+    if (its) {
+        maxT = std::min(maxT, its.value().t);
+    }
+
+    RegularTracker rt(minIndex, maxIndex, origin, direction, maxT, voxelSize, &t_world);
 
     while (rt.track(index, &dt)) {
         nanovdb::Vec3<double> voxel_loc(index[0] + .5f, index[1] + .5f, index[2] + .5f);
@@ -224,7 +229,7 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
         t_world += dt;
     }
 
-    mRec->marchLength = its.t;
+    mRec->marchLength = maxT;
     mRec->tr = Spectrum(fm::exp(-sum));
     mRec->pdf = mRec->tr[0];
     return false;

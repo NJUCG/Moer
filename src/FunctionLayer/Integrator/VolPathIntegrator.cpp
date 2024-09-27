@@ -32,7 +32,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
     Ray ray = initialRay;
 
-    const double eps = 1e-4;
+    const double eps = 1e-3;
     int nBounces = 0;
     bool specularBounce = false;
     PathIntegratorLocalRecord prevLightSampleRecord;
@@ -47,7 +47,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
         MediumSampleRecord mRec{};
         mRec.mediumState = &mediumState;
-        if (medium && medium->sampleDistance(&mRec, ray, itsOpt.value(), sampler->sample2D())) {
+        if (medium && medium->sampleDistance(&mRec, ray, itsOpt, sampler->sample2D())) {
             // Handle medium distance sampling
             throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
             Intersection mediumScatteringPoint;
@@ -92,9 +92,11 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
                 if (nBounces == 0) {
                     L += throughput * evalLightRecord.f;
-                    if (!itsOpt) break;
                 }
             }
+            // there will be case that itsOpt is null when light cross null interfaces and hit nothing,
+            // for that case we still need to calculate evnlight for it.
+            if (!itsOpt) break;
 
             auto its = itsOpt.value();
             its.medium = medium;
@@ -104,7 +106,6 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 mediumState.reset();
                 ray = Ray{its.position + eps * ray.direction, ray.direction};
                 itsOpt = scene->intersect(ray);
-                if (!itsOpt) break;
                 continue;
             }
 

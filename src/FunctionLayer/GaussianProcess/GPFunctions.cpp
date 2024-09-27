@@ -1,5 +1,31 @@
 #include "GPFunctions.h"
 
+double CovarianceFunction::dcov_dx(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX) const {
+    autodiff::Vector3real2nd px{pointX.x, pointX.y, pointX.z};
+    autodiff::Vector3real2nd py{pointY.x, pointY.y, pointY.z};
+    Eigen::Array3d vx{ddirX.x, ddirX.y, ddirX.z};
+    Eigen::Array3d vy(0.);
+    auto dfdv = autodiff::derivatives([this](const autodiff::Vector3real2nd &x, const autodiff::Vector3real2nd &y) { return cov(x, y); }, autodiff::along(vx, vy), autodiff::at(px, py));
+    return dfdv[1];
+}
+double CovarianceFunction::dcov_dy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirY) const {
+    autodiff::Vector3real2nd px{pointX.x, pointX.y, pointX.z};
+    autodiff::Vector3real2nd py{pointY.x, pointY.y, pointY.z};
+    Eigen::Array3d vx(0.);
+    Eigen::Array3d vy{ddirY.x, ddirY.y, ddirY.z};
+    auto dfdv = autodiff::derivatives([this](const autodiff::Vector3real2nd &x, const autodiff::Vector3real2nd &y) { return cov(x, y); }, autodiff::along(vx, vy), autodiff::at(px, py));
+    return dfdv[1];
+}
+double CovarianceFunction::dcov2_dxdy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX, const Vec3d &ddirY) const {
+    autodiff::Vector3dual2nd px{pointX.x, pointX.y, pointX.z};
+    autodiff::Vector3dual2nd py{pointY.x, pointY.y, pointY.z};
+    Eigen::Matrix3d hess = autodiff::hessian([&](const autodiff::Vector3dual2nd &px, const autodiff::Vector3dual2nd &py) { return cov(px, py); }, wrt(px, py), at(px, py)).block(3, 0, 3, 3);
+    Eigen::Array3d vx{ddirX.x, ddirX.y, ddirX.z};
+    Eigen::Array3d vy{ddirY.x, ddirY.y, ddirY.z};
+    double res = vy.transpose().matrix() * hess * vx.matrix();
+    return res;
+}
+
 ProceduralMean::ProceduralMean(const Json &json) {
     func = SdfFunctions::funcStringToEnum(json["func"]);
 
@@ -37,4 +63,19 @@ Vec3d ProceduralMean::dmean_dp(const Point3d &point) const {
         mean(point)};
 
     return Vec3d(vals[0] - vals[3], vals[1] - vals[3], vals[2] - vals[3]) / eps;
+}
+
+SquaredExponentialCovariance::SquaredExponentialCovariance(const Json &json) {
+    sigma = getOptional(json, "sigma", 0.01);
+    lengthScale = getOptional(json, "lengthScale", 0.1);
+}
+
+autodiff::real2nd SquaredExponentialCovariance::cov(const autodiff::real2nd &dis2) const {
+    return sqr(sigma) * exp(-(dis2 / (2 * sqr(lengthScale))));
+}
+autodiff::dual2nd SquaredExponentialCovariance::cov(const autodiff::dual2nd &dis2) const {
+    return sqr(sigma) * exp(-(dis2 / (2 * sqr(lengthScale))));
+}
+double SquaredExponentialCovariance::cov(double dis2) const {
+    return sqr(sigma) * fm::exp(-(dis2 / (2 * sqr(lengthScale))));
 }

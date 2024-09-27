@@ -19,7 +19,7 @@ class HeterogeneousMedium : public Medium {
 public:
     HeterogeneousMedium(std::string gridFilePath, std::shared_ptr<PhaseFunction> phase, TransformMatrix3D _transform, float _sigmaScale = 1.f);
 
-    virtual bool sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const override;
+    virtual bool sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const std::optional<Intersection> &its, Point2d sample) const override;
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const override;
 

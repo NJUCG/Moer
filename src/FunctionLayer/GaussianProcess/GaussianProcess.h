@@ -55,7 +55,7 @@ struct GaussianProcess {
                              const GPRealization &condRealization,
                              Sampler &sampler) const {
         return sampleCond(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir,
-                          condRealization.points.data(), condRealization.derivativeTypes.data(), condRealization.derivativeDirections.data(), condRealization.values.data(), condRealization.size(), {},
+                          condRealization.points.data(), condRealization.derivativeTypes.data(), condRealization.derivativeDirections.data(), condRealization.values.data(), 0, {},
                           sampler);
     }
 

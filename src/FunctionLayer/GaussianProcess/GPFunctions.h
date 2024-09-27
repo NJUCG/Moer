@@ -14,6 +14,7 @@ enum class DerivativeType {
     None,
     First,
 };
+
 class MeanFunction {
 public:
     MeanFunction() = default;
@@ -29,6 +30,23 @@ protected:
     virtual double mean(const Point3d &point) const = 0;
     virtual Vec3d dmean_dp(const Point3d &point) const = 0;
 };
+
+class ProceduralMean : public MeanFunction {
+public:
+    ProceduralMean(const Json &json);
+
+protected:
+    virtual double mean(const Point3d &point) const override;
+    virtual Vec3d dmean_dp(const Point3d &point) const override;
+
+    mutable TransformMatrix3D transformMatrix;
+    mutable TransformMatrix3D invTransformMatrix;
+
+    SdfFunctions::Function func;
+    double scale;
+    double offset;
+};
+
 class CovarianceFunction {
 public:
     CovarianceFunction() = default;
@@ -55,48 +73,44 @@ protected:
     // common interface
     virtual double cov(const Point3d &pointX, const Point3d &pointY) const = 0;
     // interfaces for autodiff
-    virtual autodiff::real2nd cov(const autodiff::Vector3real1st &pointX, const autodiff::Vector3real1st &pointY) const = 0;
+    virtual autodiff::real2nd cov(const autodiff::Vector3real2nd &pointX, const autodiff::Vector3real2nd &pointY) const = 0;
     virtual autodiff::dual2nd cov(const autodiff::Vector3dual2nd &pointX, const autodiff::Vector3dual2nd &pointY) const = 0;
 
-    double dcov_dx(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX) const {
-        autodiff::Vector3real1st px{pointX.x, pointX.y, pointX.z};
-        autodiff::Vector3real1st py{pointY.x, pointY.y, pointY.z};
-        Eigen::Array3d vx{ddirX.x, ddirX.y, ddirX.z};
-        Eigen::Array3d vy(0.);
-        auto dfdv = autodiff::derivatives([this](const autodiff::Vector3real1st &x, const autodiff::Vector3real1st &y) { return cov(x, y); }, autodiff::along(vx, vy), autodiff::at(px, py));
-        return dfdv[1];
+    double dcov_dx(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX) const;
+    double dcov_dy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirY) const;
+    double dcov2_dxdy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX, const Vec3d &ddirY) const;
+};
+
+class StationaryCovariance : public CovarianceFunction {
+protected:
+    virtual autodiff::real2nd cov(const autodiff::real2nd &dis2) const = 0;
+    virtual autodiff::dual2nd cov(const autodiff::dual2nd &dis2) const = 0;
+    virtual double cov(double dis) const = 0;
+
+    virtual double cov(const Point3d &pointX, const Point3d &pointY) const {
+        auto d = pointX - pointY;
+        return cov(dot(d, d));
     }
-    double dcov_dy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirY) const {
-        autodiff::Vector3real1st px{pointX.x, pointX.y, pointX.z};
-        autodiff::Vector3real1st py{pointY.x, pointY.y, pointY.z};
-        Eigen::Array3d vx(0.);
-        Eigen::Array3d vy{ddirY.x, ddirY.y, ddirY.z};
-        auto dfdv = autodiff::derivatives([this](const autodiff::Vector3real1st &x, const autodiff::Vector3real1st &y) { return cov(x, y); }, autodiff::along(vx, vy), autodiff::at(px, py));
-        return dfdv[1];
+    virtual autodiff::real2nd cov(const autodiff::Vector3real2nd &pointX, const autodiff::Vector3real2nd &pointY) const {
+        auto d = pointX - pointY;
+        return cov(d.dot(d));
     }
-    double dcov2_dxdy(const Point3d &pointX, const Point3d &pointY, const Vec3d &ddirX, const Vec3d &ddirY) const {
-        autodiff::Vector3dual2nd px{pointX.x, pointX.y, pointX.z};
-        autodiff::Vector3dual2nd py{pointY.x, pointY.y, pointY.z};
-        Eigen::Matrix3d hess = autodiff::hessian([&](const autodiff::Vector3dual2nd &px, const autodiff::Vector3dual2nd &py) { return cov(px, py); }, wrt(px, py), at(px, py)).block(3, 0, 3, 3);
-        Eigen::Array3d vx{ddirX.x, ddirX.y, ddirX.z};
-        Eigen::Array3d vy{ddirY.x, ddirY.y, ddirY.z};
-        double res = vy.transpose().matrix() * hess * vx.matrix();
-        return res;
+    virtual autodiff::dual2nd cov(const autodiff::Vector3dual2nd &pointX, const autodiff::Vector3dual2nd &pointY) const {
+        auto d = pointX - pointY;
+        return cov(d.dot(d));
     }
 };
 
-class ProceduralMean : public MeanFunction {
+class SquaredExponentialCovariance : public StationaryCovariance {
 public:
-    ProceduralMean(const Json &json);
+    SquaredExponentialCovariance(const Json &json);
 
 protected:
-    virtual double mean(const Point3d &point) const override;
-    virtual Vec3d dmean_dp(const Point3d &point) const override;
+    virtual autodiff::real2nd cov(const autodiff::real2nd &dis2) const override;
+    virtual autodiff::dual2nd cov(const autodiff::dual2nd &dis2) const override;
+    virtual double cov(double dis2) const;
 
-    mutable TransformMatrix3D transformMatrix;
-    mutable TransformMatrix3D invTransformMatrix;
-
-    SdfFunctions::Function func;
-    double scale;
-    double offset;
+protected:
+    double sigma;
+    double lengthScale;
 };

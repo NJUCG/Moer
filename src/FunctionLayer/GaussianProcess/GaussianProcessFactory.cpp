@@ -14,9 +14,19 @@ std::shared_ptr<GaussianProcess> GaussianProcessFactory::LoadGaussianProcessFrom
 }
 
 std::shared_ptr<MeanFunction> MeanFunctionFactory::LoadMeanFunctionFromJson(const Json &json) {
-    return std::shared_ptr<MeanFunction>();
+    std::string meanType = json.at("type");
+    if (meanType == "procedural") {
+        return std::make_shared<ProceduralMean>(json);
+    } else {
+        return nullptr;
+    }
 }
 
 std::shared_ptr<CovarianceFunction> CovarianceFunctionFactory::LoadCovarianceFunctionFromJson(const Json &json) {
-    return std::shared_ptr<CovarianceFunction>();
+    std::string covType = json.at("type");
+    if (covType == "squared_exponential") {
+        return std::make_shared<SquaredExponentialCovariance>(json);
+    } else {
+        return nullptr;
+    }
 }
