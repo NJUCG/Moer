@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 16,
+    "spp" : 1,
     "output_file" : "gpis"
   },
 

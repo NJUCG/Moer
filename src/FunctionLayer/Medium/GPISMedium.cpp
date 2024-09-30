@@ -12,16 +12,14 @@ GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(js
     gaussianProcess = GaussianProcessFactory::LoadGaussianProcessFromJson(json["gaussian_process"]);
 }
 
-bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const std::optional<Intersection> &its, Point2d sample) const {
+bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
 #if defined(ENABLE_GPISMEDIUM)
     GPRealization &gpRealization = mRec->mediumState->realization;
     Sampler &sampler = mRec->mediumState->sampler;
 
     Ray r = ray;
     r.timeMax = std::min(r.timeMax, r.timeMin + 200);
-    if (its) {
-        r.timeMax = std::min(its.value().t, r.timeMax);
-    }
+    r.timeMax = std::min(its.t, r.timeMax);
     double t = r.timeMin;
     bool intersected = false;
     do {

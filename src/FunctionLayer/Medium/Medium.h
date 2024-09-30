@@ -65,8 +65,25 @@ public:
 
     virtual bool sampleDistance(MediumSampleRecord *mRec,
                                 const Ray &ray,
-                                const std::optional<Intersection> &itsOpt,
+                                const Intersection &its,
                                 Point2d sample) const = 0;
+
+    bool sampleDistanceSafe(MediumSampleRecord *mRec,
+                            const Ray &ray,
+                            const std::optional<Intersection> &itsOpt,
+                            Point2d sample) {
+
+        // this should not happen actually since our medium should be in a bounding box.
+        // but with testing,we found that sometimes ray can not in and out the medium and hit the boundary correctly because of the accuracy
+        // we have already chosen a small 'eps' to avoid the problem,but we don't know if that will happen again.
+        // provided a safe version so that the program won't crash
+        if (!itsOpt) {
+            mRec->tr = 1.;
+            mRec->pdf = 1.;
+            return false;
+        }
+        return sampleDistance(mRec, ray, itsOpt.value(), sample);
+    }
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const = 0;
 

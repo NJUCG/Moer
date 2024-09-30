@@ -2,18 +2,14 @@
 
 bool BeerslawMedium::sampleDistance(MediumSampleRecord *mRec,
                                     const Ray &ray,
-                                    const std::optional<Intersection> &its,
+                                    const Intersection &its,
                                     Point2d sample) const {
     //* No scattering, only absorbtion
-    double maxT = ray.timeMax;
-    if (its) {
-        maxT = std::min(maxT, its.value().t);
-    }
 
-    mRec->marchLength = maxT;
+    mRec->marchLength = its.t;
     mRec->pdf = 1;
 
-    mRec->tr = evalTransmittance(ray.origin, ray.origin + ray.direction * maxT);
+    mRec->tr = evalTransmittance(ray.origin, its.position);
     return false;
 }
 

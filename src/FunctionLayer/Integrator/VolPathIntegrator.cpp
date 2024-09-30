@@ -1,11 +1,11 @@
 /**
  * @file VolPathIntegrator.cpp
  * @author Chenxi Zhou
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2022-09-22
- * 
- * @copyright NJUMeta (c) 2022 
+ *
+ * @copyright NJUMeta (c) 2022
  * www.njumeta.com
  */
 
@@ -32,29 +32,30 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
     Ray ray = initialRay;
 
-    const double eps = 1e-3;
+    const double eps = 1e-4;
     int nBounces = 0;
     bool specularBounce = false;
     PathIntegratorLocalRecord prevLightSampleRecord;
 
     std::shared_ptr<Medium> medium = nullptr;
-    //mainly for GPIS medium now,but maybe some other medium need it also.
+    // mainly for GPIS medium now,but maybe some other medium need it also.
     MediumState mediumState{*sampler};
-   
+
     auto itsOpt = scene->intersect(ray);
 
     while (true) {
 
         MediumSampleRecord mRec{};
         mRec.mediumState = &mediumState;
-        if (medium && medium->sampleDistance(&mRec, ray, itsOpt, sampler->sample2D())) {
+        if (medium && medium->sampleDistanceSafe(&mRec, ray, itsOpt, sampler->sample2D())) {
             // Handle medium distance sampling
             throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
+
             Intersection mediumScatteringPoint;
             if (!mRec.needAniso) {
                 mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
             } else {
-                //abuse slightly for gpis medium 
+                // abuse slightly for gpis medium
                 mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, mRec.aniso, medium);
                 mediumScatteringPoint.geometryNormal = mRec.aniso;
             }
@@ -74,7 +75,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
             PathIntegratorLocalRecord sampleScatterRecord = sampleScatter(mediumScatteringPoint, ray);
             if (sampleScatterRecord.f.isBlack())
-                break; 
+                break;
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
             ray = Ray{mediumScatteringPoint.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
             itsOpt = scene->intersect(ray);
@@ -350,9 +351,9 @@ std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &i
 Spectrum VolPathIntegrator::evalTransmittance(std::shared_ptr<Scene> scene,
                                               const Intersection &its,
                                               Point3d pointOnLight) const {
-    //if (!its.material) {
-    //    std::cout << "Stop!\n";
-    //}
+    // if (!its.material) {
+    //     std::cout << "Stop!\n";
+    // }
 
     float tmax = (pointOnLight - its.position).length();
     Ray shadowRay{its.position, normalize(pointOnLight - its.position), 1e-4f, tmax - 1e-4f};
