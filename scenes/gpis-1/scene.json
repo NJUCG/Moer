@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 1,
+    "spp" : 32,
     "output_file" : "gpis"
   },
 
@@ -8,8 +8,8 @@
     {
       "name" : "gpis",
       "type" : "gpis",
-      "num_sample_points": 8,
-      "marching_step_size": 0.01,
+      "num_sample_points": 32,
+      "marching_step_size": 10000,
       "gaussian_process":{
         "type":"std",
         "mean":{
@@ -18,7 +18,7 @@
           "transform":{
             "position":[0,0,0],
             "scale":[1,1,1],
-            "rotation":[0,0,0]     
+            "rotation":[0,30,0]     
           }
         },
         "covariance":{
@@ -129,7 +129,7 @@
   ],
 
   "camera" : {
-    "resolution" : [1024, 1024],
+    "resolution" : [512, 512],
     "type" : "pinhole",
     "fov" : 19.5,
 

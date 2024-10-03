@@ -87,6 +87,11 @@ public:
 
     virtual Spectrum evalTransmittance(Point3d from, Point3d dest) const = 0;
 
+    // interface for medium those who need state.
+    virtual Spectrum evalTransmittance2(Point3d from, Point3d dest, MediumState *mediumState) const {
+        return evalTransmittance(from, dest);
+    }
+
     auto evalPhase(Vec3d wo, Vec3d wi, Point3d scatterPoint) const {
         return mPhase->evalPhase(wo, wi, scatterPoint);
     }

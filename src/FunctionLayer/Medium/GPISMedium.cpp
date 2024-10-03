@@ -14,12 +14,14 @@ GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(js
 
 bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
 #if defined(ENABLE_GPISMEDIUM)
+    const double eps = 1e-6;
     GPRealization &gpRealization = mRec->mediumState->realization;
     Sampler &sampler = mRec->mediumState->sampler;
 
     Ray r = ray;
     r.timeMax = std::min(r.timeMax, r.timeMin + 200);
     r.timeMax = std::min(its.t, r.timeMax);
+
     double t = r.timeMin;
     bool intersected = false;
     do {
@@ -34,14 +36,13 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
             }
             gpRealization.applyMemoryModel(r.direction, memoryModel);
         }
-    } while (!intersected && t < r.timeMax);
+    } while (!intersected && r.timeMax - t > eps);
     mRec->sigmaS = 1.;
     mRec->sigmaA = 0.;
     mRec->pdf = 1.;
     mRec->tr = 1.;
     mRec->needAniso = true;
     return intersected;
-
 #else
     return false;
 #endif
@@ -51,7 +52,6 @@ Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
     // TODO(Cchen77):
     // limited by vol path tracer framework,we just have a naive version,which just like applying Renewal memory model before cast the shadowray
     // need a more elegant way
-
     IndependentSampler transientSampler(1, 5);// 1,5 is meaningless
 
     Vec3d direction = (dest - from);
@@ -73,8 +73,26 @@ Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
     Intersection its;
     its.t = (dest - from)[0] / direction[0];
     bool shadowed = sampleDistance(&sampleRecord, ray, its, {});
-    
+
     return 1 - shadowed;
+}
+
+Spectrum GPISMedium::evalTransmittance2(Point3d from, Point3d dest, MediumState *mediumState) const {
+    Vec3d direction = (dest - from);
+    if (direction.length() < 1e-4) {
+        return 1.;
+    }
+    direction = normalize(direction);
+    Ray ray{from, direction};
+
+    MediumSampleRecord sampleRecord{};
+    sampleRecord.mediumState = mediumState;
+
+    Intersection its;
+    its.t = (dest - from).length();
+    bool shadowed = sampleDistance(&sampleRecord, ray, its, {});
+
+    return 1. - shadowed;
 }
 
 bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const {
@@ -116,8 +134,8 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
     for (int i = 1; i < marchingNumSamplePoints; ++i) {
         double curV = gpRealization.values[i];
         double curT = ts[i];
-        if (curV * lastV <= 0.) {
-            double offset = curV / (curV - lastV);
+        if (lastV * curV <= 0.) {
+            double offset = lastV / (lastV - curV);
             gpRealization.makeIntersection(i, offset);
             t = lerp(lastT, curT, offset);
             return true;

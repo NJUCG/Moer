@@ -17,6 +17,10 @@ public:
     virtual Spectrum evalTransmittance(Point3d from,
                                        Point3d dest) const override;
 
+    virtual Spectrum evalTransmittance2(Point3d from,
+                                        Point3d dest,
+                                        MediumState *mediumState) const override;
+
     bool intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const;
 
 private:
@@ -27,4 +31,5 @@ private:
     double marchingDesiredCov;
 
     MemoryModel memoryModel = MemoryModel::RenewalPlus;
+
 };

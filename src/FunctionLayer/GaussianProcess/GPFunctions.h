@@ -114,3 +114,5 @@ protected:
     double sigma;
     double lengthScale;
 };
+
+

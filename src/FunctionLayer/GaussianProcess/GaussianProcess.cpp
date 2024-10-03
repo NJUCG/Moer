@@ -27,7 +27,7 @@ void GPRealization::makeIntersection(size_t p, double offset) {
 
     points.push_back(zeroCrossing);
     derivativeTypes.push_back(DerivativeType::None);
-    values.push_back(0.);
+    values.push_back(lerp(preV,curV,offset));
     // place holder
     derivativeDirections.push_back({});
 
@@ -134,6 +134,7 @@ GPRealization GaussianProcess::sample(const Point3d *points, const DerivativeTyp
     auto v = mvn.sample(sampler);
     for (int i = 0; i < numPoints; ++i) {
         values.push_back(v(i));
+        //values.push_back((*meanFunction)(DerivativeType::None, points[i], {}));
     }
 
     return GPRealization(this, points, derivativeTypes, derivativeDirs, values.data(), numPoints, derivativeDir);
@@ -168,7 +169,7 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
         Eigen::BDCSVD<Eigen::MatrixXd, Eigen::ComputeThinU | Eigen::ComputeThinV> solver;
         solver.compute(kCC.triangularView<Eigen::Lower>());
 
-        if (solver.info() != Eigen::ComputationInfo::Success) {
+        if (solver.info() != Eigen::ComputationInfo::Success) {;
             std::cerr << "Conditioning decomposition failed (BDCSVD)!\n";
         }
 
@@ -187,6 +188,7 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
     std::vector<double> values;
     for (int i = 0; i < numPoints; ++i) {
         values.push_back(v(i));
+        //values.push_back((*meanFunction)(DerivativeType::None, points[i], {}));
     }
     return GPRealization(this, points, derivativeTypes, derivativeDirs, values.data(), numPoints, derivativeDir);
 }

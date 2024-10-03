@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 1,
+    "spp" : 32,
     "output_file" : "gpis"
   },
 
@@ -8,15 +8,15 @@
     {
       "name" : "gpis",
       "type" : "gpis",
-      "marching_num_sample_points": 8,
-      "marching_step_size": 0.1,
+      "marching_num_sample_points":64,
+      "marching_step_size": 10000,
       "gaussian_process":{
         "type":"std",
         "mean":{
           "type":"procedural",
           "func":"knob",
           "transform":{
-            "position":[0,1,0],
+            "position":[0,0.7,0],
             "scale":[1,1,1],
             "rotation":[0,0,0]     
           }
@@ -24,7 +24,7 @@
         "covariance":{
           "type":"squared_exponential",
           "lengthScale":0.1,
-          "sigma":0.01
+          "sigma":0.05
         }
       },
       "phase":{
@@ -69,19 +69,19 @@
       "type" : "cube",
       "material" : "interface",
       "transform" : {
-        "scale" : [3, 3, 3],
-        "position" : [0, 1, 0]
+        "scale" : [2.5, 2.5, 2.5],
+        "position" : [0, 1.001, 0]
       }
     }
   ],
 
   "camera" : {
-    "resolution" : [1024, 1024],
+    "resolution" : [512, 512],
     "type" : "pinhole",
     "fov" : 19.5,
 
     "transform" : {
-      "position" : [2, 7, 7],
+      "position" : [2, 4, 7],
       "up" : [0, 1, 0],
       "look_at" : [0, 0, 0]
     }

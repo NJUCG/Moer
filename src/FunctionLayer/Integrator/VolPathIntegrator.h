@@ -4,8 +4,8 @@
  * @brief Path Integrator with volume
  * @version 0.1
  * @date 2022-09-22
- * 
- * @copyright NJUMeta (c) 2022 
+ *
+ * @copyright NJUMeta (c) 2022
  * www.njumeta.com
  */
 
@@ -76,6 +76,23 @@ public:
     intersectIgnoreSurface(std::shared_ptr<Scene> scene,
                            const Ray &ray,
                            std::shared_ptr<Medium> medium) const;
+
+    // some meidum need its state to eval transmittance,we provide the another version for that purpose
+    Spectrum evalTransmittance2(std::shared_ptr<Scene> scene,
+                                const Intersection &its,
+                                Point3d pointOnLight,
+                                const MediumState *mediumState) const;
+
+    PathIntegratorLocalRecord sampleDirectLighting2(std::shared_ptr<Scene> scene,
+                                                    const Intersection &its,
+                                                    const Ray &ray,
+                                                    const MediumState *mediumState);
+
+    std::pair<std::optional<Intersection>, Spectrum>
+    intersectIgnoreSurface2(std::shared_ptr<Scene> scene,
+                            const Ray &ray,
+                            std::shared_ptr<Medium> medium,
+                            const MediumState *mediumState) const;
 
 protected:
     const int nPathLengthLimit = 64;
