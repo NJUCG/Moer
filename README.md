@@ -22,8 +22,8 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 ![hair](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/C6966B38E3AD16F8AC9CC9D86C73921E.jpg)
 ![teapot](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/tea-pot.png)
 ![disney](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/disneybsdf.png)
-![micrograin-teapot](https://github.com/Cchen-77/images/issues/1#issue-2563307265)
-![gpis](https://github.com/Cchen-77/images/issues/2#issue-2564231523)
+![micrograin-teapot](https://github.com/Cchen-77/images/blob/main/micrograin.jpg)
+<img src="https://github.com/Cchen-77/images/blob/main/gpis.jpg" width="200%" height="200%">
 ## Checklist
 
 ### Accelerator
@@ -65,7 +65,7 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 ### Media
 - [X] homogeneous
 - [X] hetergeneous
-- [X] Gaussian Process Implcit Surface 
+- [X] gaussian process implicit surface
 - [ ] others
 
 ### BxDF
