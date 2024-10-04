@@ -80,7 +80,7 @@
       "material" : "interface",
       "transform" : {
         "scale" : [2, 2, 2],
-        "position" : [0, 1, 0]
+        "position" : [0, 1.05, 0]
       }
     }
   ],

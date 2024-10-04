@@ -16,4 +16,4 @@
 	url = https://github.com/r1ckhu/Moer_ScenePreviewer.git
 [submodule "ext/autodiff"]
 	path = ext/autodiff
-	url = git@github.com:autodiff/autodiff.git
+	url = https://github.com/autodiff/autodiff.git
