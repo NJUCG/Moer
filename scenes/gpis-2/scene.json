@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 64,
+    "spp" : 32,
     "output_file" : "gpis"
   },
 
@@ -25,6 +25,25 @@
           "type":"squared_exponential",
           "lengthScale":0.1,
           "sigma":0.01
+        },
+        "global_condition":{
+            "enable":false,
+            "points":[
+                [0,0,0],
+                [1,1,1]
+            ],
+            "derivative_types":[
+                "none",
+                "first"
+            ],
+            "derivative_dirs":[
+                [0,0,0],
+                [1,0,0]
+            ],
+            "values":[
+                0,
+                1
+            ]
         }
       },
       "phase":{

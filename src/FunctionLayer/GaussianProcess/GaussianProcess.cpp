@@ -27,7 +27,7 @@ void GPRealization::makeIntersection(size_t p, double offset) {
 
     points.push_back(zeroCrossing);
     derivativeTypes.push_back(DerivativeType::None);
-    values.push_back(lerp(preV,curV,offset));
+    values.push_back(lerp(preV, curV, offset));
     // place holder
     derivativeDirections.push_back({});
 
@@ -124,7 +124,34 @@ void GPRealization::applyMemoryModel(Vec3d rayDir, MemoryModel memoryModel) {
     }
 }
 
-GaussianProcess::GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov) : meanFunction(_mean), covFunction(_cov) {
+GaussianProcess::GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov, const GPRealization &_globalCondition) : meanFunction(_mean), covFunction(_cov) {
+    initGlobalCondition(_globalCondition);
+}
+
+void GaussianProcess::initGlobalCondition(const GPRealization &_globalCondition) {
+    globalCondition = _globalCondition;
+
+    // solver picking strategy from https://github.com/daseyb/gpis-light-transport/blob/main/src/core/math/GaussianProcess.cpp
+    bool succesfullSolve = false;
+    auto kCC = covPriorSym(EXPAND_GPREALIZATION(globalCondition));
+    if (kCC.rows() <= 64) {
+        Eigen::LDLT<Eigen::MatrixXd> solver(kCC.triangularView<Eigen::Lower>());
+        if (solver.info() == Eigen::ComputationInfo::Success && solver.isPositive()) {
+            globalCondtionSolver = solver;
+            succesfullSolve = true;
+        }
+    }
+    if (!succesfullSolve) {
+        Eigen::BDCSVD<Eigen::MatrixXd, Eigen::ComputeThinU | Eigen::ComputeThinV> solver;
+        solver.compute(kCC.triangularView<Eigen::Lower>());
+        if (solver.info() != Eigen::ComputationInfo::Success) {
+            globalCondtionSolver = solver;
+            succesfullSolve = true;
+        }
+    }
+    if (!succesfullSolve) {
+        std::cerr << "Fail to find a suitable solver for global condition!\n";
+    }
 }
 
 GPRealization GaussianProcess::sample(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir, Sampler &sampler) const {
@@ -134,7 +161,6 @@ GPRealization GaussianProcess::sample(const Point3d *points, const DerivativeTyp
     auto v = mvn.sample(sampler);
     for (int i = 0; i < numPoints; ++i) {
         values.push_back(v(i));
-        //values.push_back((*meanFunction)(DerivativeType::None, points[i], {}));
     }
 
     return GPRealization(this, points, derivativeTypes, derivativeDirs, values.data(), numPoints, derivativeDir);
@@ -147,11 +173,11 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
         return sample(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir, sampler);
     }
 
-    Eigen::MatrixXd kCC = covSym(pointsCond, derivativeTypesCond, derivativeDirsCond, derivativeDirCond, numPointsCond);
-    Eigen::MatrixXd kCx = cov(pointsCond, derivativeTypesCond, derivativeDirsCond, derivativeDirCond, numPointsCond,
-                              points, derivativeTypes, derivativeDirs, derivativeDir, numPoints);
+    Eigen::MatrixXd kCC = covSym(pointsCond, derivativeTypesCond, derivativeDirsCond, numPointsCond, derivativeDirCond);
+    Eigen::MatrixXd kCx = cov(pointsCond, derivativeTypesCond, derivativeDirsCond, numPointsCond, derivativeDirCond,
+                              points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
     // we should solve kCC*x = kCx => xT kCC = kxC => xT = kxC*kCC^-1
-    // solving method from https://github.com/daseyb/gpis-light-transport/blob/main/src/core/math/GaussianProcess.cpp
+    // solving strategy from https://github.com/daseyb/gpis-light-transport/blob/main/src/core/math/GaussianProcess.cpp
     Eigen::MatrixXd solved;
     bool succesfullSolve = false;
     if (kCC.rows() <= 64) {
@@ -169,7 +195,7 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
         Eigen::BDCSVD<Eigen::MatrixXd, Eigen::ComputeThinU | Eigen::ComputeThinV> solver;
         solver.compute(kCC.triangularView<Eigen::Lower>());
 
-        if (solver.info() != Eigen::ComputationInfo::Success) {;
+        if (solver.info() != Eigen::ComputationInfo::Success) {
             std::cerr << "Conditioning decomposition failed (BDCSVD)!\n";
         }
 
@@ -179,16 +205,17 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
         }
     }
 
-    Eigen::VectorXd _mean = mean(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir) +
+    auto [meanxx, kxx] = meanAndCov(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+
+    Eigen::VectorXd _mean = meanxx +
                             (solved * (Eigen::Map<const Eigen::VectorXd>(valuesCond, numPointsCond) - mean(pointsCond, derivativeTypesCond, derivativeDirsCond, numPointsCond, derivativeDirCond)));
-    Eigen::MatrixXd _cov = covSym(points, derivativeTypes, derivativeDirs, derivativeDir, numPoints) -
+    Eigen::MatrixXd _cov = kxx -
                            (solved * kCx);
     MultiVariableNormalDistribution mvn(_mean, _cov);
     auto v = mvn.sample(sampler);
     std::vector<double> values;
     for (int i = 0; i < numPoints; ++i) {
         values.push_back(v(i));
-        //values.push_back((*meanFunction)(DerivativeType::None, points[i], {}));
     }
     return GPRealization(this, points, derivativeTypes, derivativeDirs, values.data(), numPoints, derivativeDir);
 }
@@ -202,8 +229,8 @@ Eigen::VectorXd GaussianProcess::meanPrior(const Point3d *points, const Derivati
     return _mean;
 }
 
-Eigen::MatrixXd GaussianProcess::covPrior(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, const Vec3d &derivativeDirX, size_t numPointsX,
-                                          const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, const Vec3d &derivativeDirY, size_t numPointsY) const {
+Eigen::MatrixXd GaussianProcess::covPrior(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, size_t numPointsX, const Vec3d &derivativeDirX,
+                                          const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, size_t numPointsY, const Vec3d &derivativeDirY) const {
     Eigen::MatrixXd _cov(numPointsX, numPointsY);
     for (int i = 0; i < numPointsX; ++i) {
         Vec3d ddir_i = derivativeDirsX ? derivativeDirsX[i] : derivativeDirX;
@@ -215,7 +242,7 @@ Eigen::MatrixXd GaussianProcess::covPrior(const Point3d *pointsX, const Derivati
     return _cov;
 }
 
-Eigen::MatrixXd GaussianProcess::covPriorSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, const Vec3d &derivativeDir, size_t numPoints) const {
+Eigen::MatrixXd GaussianProcess::covPriorSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const {
     Eigen::MatrixXd _cov(numPoints, numPoints);
     for (int i = 0; i < numPoints; ++i) {
         Vec3d ddir_i = derivativeDirs ? derivativeDirs[i] : derivativeDir;
@@ -229,23 +256,41 @@ Eigen::MatrixXd GaussianProcess::covPriorSym(const Point3d *points, const Deriva
     return _cov;
 }
 
-// TODO(Cchen77): applying global condition,for now we just use prior version
 Eigen::VectorXd GaussianProcess::mean(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const {
-    return meanPrior(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    if (globalCondition.size() == 0) {
+        return meanPrior(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    }
+    auto mean_prior = meanPrior(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+
+    auto kCx = covPrior(EXPAND_GPREALIZATION(globalCondition), points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    auto solved = std::visit([&kCx](auto &solver) -> Eigen::MatrixXd { return solver.solve(kCx).transpose(); }, globalCondtionSolver);
+    return mean_prior +
+           (solved * (Eigen::Map<const Eigen::VectorXd>(globalCondition.values.data(), globalCondition.size()) - meanPrior(EXPAND_GPREALIZATION(globalCondition))));
 }
 
-Eigen::MatrixXd GaussianProcess::cov(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, const Vec3d &derivativeDirX, size_t numPointsX,
-                                     const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, const Vec3d &derivativeDirY, size_t numPointsY) const {
-    return covPrior(pointsX, derivativeTypesX, derivativeDirsX, derivativeDirX, numPointsX,
-                    pointsY, derivativeTypesY, derivativeDirsY, derivativeDirY, numPointsY);
+Eigen::MatrixXd GaussianProcess::cov(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, size_t numPointsX, const Vec3d &derivativeDirX,
+                                     const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, size_t numPointsY, const Vec3d &derivativeDirY) const {
+    if (globalCondition.size() == 0) {
+        return covPrior(pointsX, derivativeTypesX, derivativeDirsX, numPointsX, derivativeDirX,
+                        pointsY, derivativeTypesY, derivativeDirsY, numPointsY, derivativeDirY);
+    }
+    auto cov_prior = covPrior(pointsX, derivativeTypesX, derivativeDirsX, numPointsX, derivativeDirX,
+                              pointsY, derivativeTypesY, derivativeDirsY, numPointsY, derivativeDirY);
+
+    auto kCx = covPrior(EXPAND_GPREALIZATION(globalCondition), pointsX, derivativeTypesX, derivativeDirsX, numPointsX, derivativeDirX);
+    auto kCy = covPrior(EXPAND_GPREALIZATION(globalCondition), pointsY, derivativeTypesY, derivativeDirsY, numPointsY, derivativeDirY);
+    auto solved = std::visit([&kCx](auto &solver) -> Eigen::MatrixXd { return solver.solve(kCx).transpose(); }, globalCondtionSolver);
+    return cov_prior - solved * kCy;
 }
 
-double GaussianProcess::goodStepSize(Point3d p, Vec3d rd, double desiredCov) const{
-    return 0.;
-}
-
-Eigen::MatrixXd GaussianProcess::covSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, const Vec3d &derivativeDir, size_t numPoint) const {
-    return covPriorSym(points, derivativeTypes, derivativeDirs, derivativeDir, numPoint);
+Eigen::MatrixXd GaussianProcess::covSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const {
+    if (globalCondition.size() == 0) {
+        return covPriorSym(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    }
+    auto cov_prior = covPriorSym(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    auto kCx = covPrior(EXPAND_GPREALIZATION(globalCondition), points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    auto solved = std::visit([&kCx](auto &solver) -> Eigen::MatrixXd { return solver.solve(kCx).transpose(); }, globalCondtionSolver);
+    return cov_prior - solved * kCx;
 }
 
 std::tuple<Eigen::VectorXd, Eigen::MatrixXd> GaussianProcess::meanAndCov(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const {
@@ -261,6 +306,16 @@ std::tuple<Eigen::VectorXd, Eigen::MatrixXd> GaussianProcess::meanAndCov(const P
             _cov(i, j) = _cov(j, i) = cov_i_j;
         }
     }
-    // TODO(Cchen77): consider gloabl conditioning when construct mean and cov
+    if (globalCondition.size() == 0) {
+        return {_mean, _cov};
+    }
+    auto kCx = covPrior(EXPAND_GPREALIZATION(globalCondition), points, derivativeTypes, derivativeDirs, numPoints, derivativeDir);
+    auto solved = std::visit([&kCx](auto &solver) -> Eigen::MatrixXd { return solver.solve(kCx).transpose(); }, globalCondtionSolver);
+    _mean += solved * (Eigen::Map<const Eigen::VectorXd>(globalCondition.values.data(), globalCondition.size()) - meanPrior(EXPAND_GPREALIZATION(globalCondition)));
+    _cov -= solved * kCx;
     return {_mean, _cov};
+}
+
+double GaussianProcess::goodStepSize(Point3d p, Vec3d rd, double desiredCov) const {
+    return 0.;
 }

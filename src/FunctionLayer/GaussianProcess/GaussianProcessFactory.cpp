@@ -5,7 +5,26 @@ std::shared_ptr<GaussianProcess> GaussianProcessFactory::LoadGaussianProcessFrom
     if (gpType == "std") {
         auto meanFunction = MeanFunctionFactory::LoadMeanFunctionFromJson(json["mean"]);
         auto covarianceFunction = CovarianceFunctionFactory::LoadCovarianceFunctionFromJson(json["covariance"]);
-        return std::make_shared<GaussianProcess>(meanFunction, covarianceFunction);
+        GPRealization globalCondition;
+        if (json.find("global_condition") != json.end() && getOptional(json["global_condition"], "enable", false)) {
+            auto gcJson = json["global_condition"];
+            auto gcPoints = gcJson["points"];
+            auto gcDerivativeTypes = gcJson["derivative_types"];
+            auto gcDerivativeDirs = gcJson["derivative_dirs"];
+            auto gcValues = gcJson["values"];
+            for (int i = 0; i < gcPoints.size(); ++i) {
+                globalCondition.points.push_back(gcPoints[i]);
+                if (gcDerivativeTypes[i] == "none") {
+                    globalCondition.derivativeTypes.push_back(DerivativeType::None);
+
+                } else if (gcDerivativeTypes[i] == "first") {
+                    globalCondition.derivativeTypes.push_back(DerivativeType::First);
+                }
+                globalCondition.derivativeDirections.push_back(gcDerivativeDirs[i]);
+                globalCondition.values.push_back(gcValues[i]);
+            }
+        }
+        return std::make_shared<GaussianProcess>(meanFunction, covarianceFunction, globalCondition);
     } else if (gpType == "csg") {
         // TODO(Cchen77): csg type process
         return nullptr;

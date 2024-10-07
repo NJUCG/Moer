@@ -125,7 +125,7 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
     // use last realization as conditon
     else {
         gpRealization = gaussianProcess->sampleCond(
-            points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, gpRealization, sampler);
+            points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, EXPAND_GPREALIZATION_WITH_VALUE(gpRealization), sampler);
     }
 
     double lastV = gpRealization.values[0];

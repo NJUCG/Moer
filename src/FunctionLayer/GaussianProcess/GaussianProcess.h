@@ -5,6 +5,8 @@
 #include "Eigen/Dense"
 
 #include "GPFunctions.h"
+
+#include <variant>
 enum class MemoryModel {
     None,
     GlobalN,
@@ -23,7 +25,7 @@ struct GPRealization {
     std::vector<double> values;
 
     // there is a zero-crossing between values[p-1] ~ values[p]
-    virtual void makeIntersection(size_t p,double offset);
+    virtual void makeIntersection(size_t p, double offset);
     virtual Vec3d sampleGradient(Point3d pos, Vec3d rayDir, Sampler &sampler);
     virtual void applyMemoryModel(Vec3d rayDir, MemoryModel memoryModel = MemoryModel::None);
 
@@ -46,38 +48,36 @@ struct GPRealization {
     }
 };
 struct GaussianProcess {
-    GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov);
+    GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov, const GPRealization &_globalCondition);
     virtual GPRealization sample(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir, Sampler &sampler) const;
     virtual GPRealization sampleCond(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir,
                                      const Point3d *pointsCond, const DerivativeType *derivativeTypesCond, const Vec3d *derivativeDirsCond, const double *valuesCond, size_t numPointsCond, const Vec3d &derivativeDirCond,
                                      Sampler &sampler) const;
-    GPRealization sampleCond(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir,
-                             const GPRealization &condRealization,
-                             Sampler &sampler) const {
-        return sampleCond(points, derivativeTypes, derivativeDirs, numPoints, derivativeDir,
-                          condRealization.points.data(), condRealization.derivativeTypes.data(), condRealization.derivativeDirections.data(), condRealization.values.data(), 0, {},
-                          sampler);
-    }
-
     std::shared_ptr<MeanFunction> meanFunction;
     std::shared_ptr<CovarianceFunction> covFunction;
 
     virtual double goodStepSize(Point3d p, Vec3d rd, double desiredCov) const;
 
-    // TODO(Cchen77): Global Conditioning
-    GPRealization globalCondition;
-
 protected:
+    GPRealization globalCondition;
+    std::variant<Eigen::LDLT<Eigen::MatrixXd>, Eigen::BDCSVD<Eigen::MatrixXd, Eigen::ComputeThinU | Eigen::ComputeThinV>> globalCondtionSolver;
+    void initGlobalCondition(const GPRealization &_globalCondition);
+
     // for mean and cov before apply global condition
     Eigen::VectorXd meanPrior(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const;
-    Eigen::MatrixXd covPrior(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, const Vec3d &derivativeDirX, size_t numPointsX,
-                             const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, const Vec3d &derivativeDirY, size_t numPointsY) const;
-    Eigen::MatrixXd covPriorSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, const Vec3d &derivativeDir, size_t numPoints) const;
+    Eigen::MatrixXd covPrior(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, size_t numPointsX, const Vec3d &derivativeDirX,
+                             const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, size_t numPointsY, const Vec3d &derivativeDirY) const;
+    Eigen::MatrixXd covPriorSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPointsconst, const Vec3d &derivativeDir) const;
 
     // for mean and cov after apply global condition
     Eigen::VectorXd mean(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const;
-    Eigen::MatrixXd cov(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, const Vec3d &derivativeDirX, size_t numPointsX,
-                        const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, const Vec3d &derivativeDirY, size_t numPointsY) const;
-    Eigen::MatrixXd covSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, const Vec3d &derivativeDir, size_t numPoint) const;
+    Eigen::MatrixXd cov(const Point3d *pointsX, const DerivativeType *derivativeTypesX, const Vec3d *derivativeDirsX, size_t numPointsX, const Vec3d &derivativeDirX,
+                        const Point3d *pointsY, const DerivativeType *derivativeTypesY, const Vec3d *derivativeDirsY, size_t numPointsY, const Vec3d &derivativeDirY) const;
+    Eigen::MatrixXd covSym(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPointsconst, const Vec3d &derivativeDir) const;
     std::tuple<Eigen::VectorXd, Eigen::MatrixXd> meanAndCov(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const;
 };
+
+#define EXPAND_GPREALIZATION(real) \
+    real.points.data(), real.derivativeTypes.data(), real.derivativeDirections.data(), real.size(), {}
+#define EXPAND_GPREALIZATION_WITH_VALUE(real) \
+    real.points.data(), real.derivativeTypes.data(), real.derivativeDirections.data(), real.values.data(), real.size(), {}
