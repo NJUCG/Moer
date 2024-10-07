@@ -23,7 +23,7 @@ Moer is developed by NJUMeta (www.njumeta.com) from Nanjing University.
 ![teapot](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/tea-pot.png)
 ![disney](https://yjpp.oss-cn-hangzhou.aliyuncs.com/uPic/disneybsdf.png)
 ![micrograin-teapot](https://github.com/Cchen-77/images/blob/main/micrograin.jpg)
-<img src="https://github.com/Cchen-77/images/blob/main/gpis.jpg" width="200%" height="200%">
+![gpis](https://github.com/Cchen-77/images/blob/main/gpis.jpg)
 ## Checklist
 
 ### Accelerator
