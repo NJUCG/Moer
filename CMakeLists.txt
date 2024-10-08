@@ -7,7 +7,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 if (MSVC)
     add_compile_options("/MP")
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>") 
+    add_compile_options("/bigobj")
     # set unicode as character set
     # add_definitions(-DUNICODE -D_UNICODE)
 endif (MSVC)
@@ -18,6 +19,7 @@ endif (FM_SPEED_DEFAULT)
 
 option(EMBREE_USE_TBB "Enable TBB in embree." OFF)
 option(USE_SAMPLED_SPECTRUM "" OFF)
+option(ENABLE_GPISMEDIUM "enable gpis medium feature" ON)
 
 set(MESH_LOADER "Tinyobjloader" CACHE STRING "Select mesh loader")
 set_property(CACHE MESH_LOADER PROPERTY STRINGS Assimp Tinyobjloader)

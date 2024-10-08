@@ -1,0 +1,163 @@
+{
+  "renderer" : {
+    "spp" : 32,
+    "output_file" : "gpis"
+  },
+
+  "mediums" : [
+    {
+      "name" : "gpis-hard",
+      "type" : "gpis",
+      "marching_num_sample_points":64,
+      "marching_step_size": 10000,
+      "gaussian_process":{
+        "type":"std",
+        "mean":{
+          "type":"procedural",
+          "func":"knob",
+          "transform":{
+            "position":[-0.8,0.37,0],
+            "scale":[0.5,0.5,0.5],
+            "rotation":[0,0,0]     
+          }
+        },
+        "covariance":{
+          "type":"squared_exponential",
+          "lengthScale":0.1,
+          "sigma":0.01
+        },
+        "global_condition":{
+            "enable":false,
+            "points":[
+                [0,0,0],
+                [1,1,1]
+            ],
+            "derivative_types":[
+                "none",
+                "first"
+            ],
+            "derivative_dirs":[
+                [0,0,0],
+                [1,0,0]
+            ],
+            "values":[
+                0,
+                1
+            ]
+        }
+      },
+      "phase":{
+        "type":"lambert",
+        "albedo":[0.9, 0.3, 0.35]
+      }  
+    },
+    {
+        "name" : "gpis-soft",
+        "type" : "gpis",
+        "marching_num_sample_points":32,
+        "marching_step_size": 10000,
+        "gaussian_process":{
+          "type":"std",
+          "mean":{
+            "type":"procedural",
+            "func":"knob",
+            "transform":{
+              "position":[0.8,0.37,0],
+              "scale":[0.5,0.5,0.5],
+              "rotation":[0,0,0]     
+            }
+          },
+          "covariance":{
+            "type":"squared_exponential",
+            "lengthScale":0.1,
+            "sigma":0.05
+          }
+        },
+        "phase":{
+          "type":"lambert",
+          "albedo":[0.9, 0.3, 0.35]
+        }  
+    },
+    {
+        "name" : "homogeneous",
+        "type" : "homogeneous",
+        "sigmaT" : [20, 20, 20],
+        "albedo" : [0.8, 0.8, 0.8]
+    }
+  ],
+
+  "materials" : [
+    {
+        "name": "floor",
+        "albedo": {
+          "type": "checker",
+          "on_color": [
+            0.725,
+            0.71,
+            0.68
+          ],
+          "off_color": [
+            0.325,
+            0.31,
+            0.25
+          ],
+          "res_u": 20,
+          "res_v": 20
+        },
+        "type": "lambert"
+    },
+    {
+      "name" : "interface-hard",
+      "type" : "null",
+      "in_medium":"gpis-hard"
+    },
+    {
+      "name" : "interface-soft",
+      "type" : "null",
+      "in_medium":"gpis-soft"
+    }
+  ],
+
+  "entities" : [
+    {
+      "type" : "quad",
+      "base" : [0, 0, 0],
+      "edge0" : [6, 0, 0],
+      "edge1" : [0, 0, 6],
+      
+      "material" : "floor"
+    },
+    {
+      "type" : "infinite_sphere",
+      "emission" : "textures/envmap.hdr"
+    },
+    {
+      "type" : "cube",
+      "material" : "interface-hard",
+      "transform" : {
+        "scale" : [2, 2, 2],
+        "position" : [-0.8, 1.05, 0]
+      }
+    },
+    {
+        "type" : "cube",
+        "material" : "interface-soft",
+        "transform" : {
+          "scale" : [2, 2, 2],
+          "position" : [0.8, 1.05, 0]
+        }
+      }
+  ],
+
+  "camera" : {
+    "resolution" : [1024, 1024],
+    "type" : "pinhole",
+    "fov" : 19.5,
+
+    "transform" : {
+      "position" : [0, 4, 7],
+      "up" : [0, 1, 0],
+      "look_at" : [0, 0, 0]
+    }
+  }
+}

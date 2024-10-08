@@ -33,6 +33,5 @@ BxDFSampleResult LambertainBxDF::sample(const Vec3d  & wo, const Point2d &sample
    result.bxdfSampleType = BXDFType(BXDF_DIFFUSE | BXDF_REFLECTION);
    result.pdf = pdf(wo, wi);
    result.s = f(wo, wi);
-
    return result;
 }

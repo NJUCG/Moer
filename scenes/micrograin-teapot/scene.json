@@ -11,8 +11,8 @@
         "type":"plastic"
       },
       "micrograinType":"conductor",
-      "tau0":0.27,
-      "beta":0.1,
+      "tau0":0.5,
+      "beta":0.8,
       "R0":[0.588,0.294,0.001],
       "k":[0,0,0]
     },
@@ -137,7 +137,7 @@
     "enable_resume_render": false,
     "stratified_sampler": false,
     "scene_bvh": true,
-    "spp": 1024,
+    "spp": 512,
     "spp_step": 16,
     "checkpoint_interval": "0",
     "timeout": "0",

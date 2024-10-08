@@ -213,10 +213,10 @@ bool HeterogeneousMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ra
             Point3d idx = worldToIndex(mRec->scatterPoint);
 
             mRec->marchLength = t_world;
-            mRec->sigmaA = Spectrum(.0f);//TODO
+            mRec->sigmaA = Spectrum(.0f);// TODO
             mRec->sigmaS = Spectrum(density);
             mRec->tr = Spectrum(fm::exp(-thick));
-            mRec->pdf = mRec->tr[0] * density;//TODO
+            mRec->pdf = mRec->tr[0] * density;// TODO
 
             return true;
         }

@@ -36,27 +36,32 @@ BxDFSampleResult PourousLayerBxDF::sample(const Vec3d &out, const Point2d &sampl
         double resample = sample[0] / sampleWeight;
         result = micrograinBRDF->sample(out, {resample, sample[1]});
     } else {
-        result = bulkBxDF->sample(out, sample);
+        double resample = (1.-sample[0]) / (1.-sampleWeight);
+        result = bulkBxDF->sample(out, {resample, sample[1]});
         chooseBulkLobe = true;
     }
     double w = getMicrograinWeight(tau0, beta, CosTheta(result.directionIn), CosTheta(out));
+     
     if (chooseBulkLobe) {
-        result.s = (1 - w) * result.s + w*micrograinBRDF->f(out, result.directionIn);
+        Spectrum micrograin_f = micrograinBRDF->f(out, result.directionIn);
+        result.s = (1 - w) * result.s + w*micrograin_f;
+        double micrograin_pdf = micrograinBRDF->pdf(out, result.directionIn);
+        if (micrograin_pdf > 0) {
+            double misw = 1 - w; 
+            result.s *= misw;
+        }
+        result.pdf *= 1.-sampleWeight;
     } else {
-        result.s = w * result.s + (1 - w) * bulkBxDF->f(out, result.directionIn);
+        Spectrum bulk_f = bulkBxDF->f(out, result.directionIn);
+        result.s = w * result.s + (1 - w) * bulk_f;
+        double bulk_pdf = bulkBxDF->pdf(out, result.directionIn); 
+        if (bulk_pdf > 0) {
+            double misw = w; 
+            result.s *= misw;
+        }
+        result.pdf *= sampleWeight;   
     }
-    result.bxdfSampleType = BXDFType(BXDF_REFLECTION | BXDF_GLOSSY);
-    result.pdf = pdf(out, result.directionIn);
+   
     return result;
 
-    /*double theta = fm::acos(fm::sqrt(1 - sample[0]));
-    double phi = 2 * fm::pi_d * sample[1];
-    Vec3d in = {fm::cos(phi) * fm::sin(theta), fm::sin(phi) * fm::sin(theta), fm::cos(theta)};
-
-    BxDFSampleResult result;
-    result.pdf = pdf(out, in);
-    result.s = f(out, in);
-    result.bxdfSampleType = BXDFType(BXDF_GLOSSY | BXDF_REFLECTION);
-    result.directionIn = in;
-    return result;*/
 }

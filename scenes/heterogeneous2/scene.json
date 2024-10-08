@@ -1,0 +1,99 @@
+{
+  "renderer" : {
+    "spp" : 1,
+    "output_file" : "smoke"
+  },
+
+  "mediums" : [
+    {
+      "name" : "gpis",
+      "type" : "gpis",
+      "marching_num_sample_points": 8,
+      "marching_step_size": 0.1,
+      "gaussian_process":{
+        "type":"std",
+        "mean":{
+          "type":"procedural",
+          "func":"knob",
+          "transform":{
+            "position":[0,1,0],
+            "scale":[1,1,1],
+            "rotation":[0,0,0]     
+          }
+        },
+        "covariance":{
+          "type":"squared_exponential",
+          "lengthScale":0.1,
+          "sigma":0.01
+        }
+      },
+      "phase":{
+        "type":"lambert",
+        "albedo":[0.9, 0.3, 0.35]
+      }  
+    },
+    {
+        "name" : "homogeneous",
+        "type" : "homogeneous",
+        "sigmaT" : [20, 20, 20],
+        "albedo" : [0.8, 0.8, 0.8]
+    },
+    {
+        "name" : "smoke",
+        "type" : "heterogeneous",
+        "filepath" : "models/smoke.nvdb",
+        "sigma_scale" : 10000,
+        "transform" : {
+          "position" : [0, 0.05, 0],
+          "scale" : 0.03
+        }
+    }
+  ],
+
+  "materials" : [
+    {
+      "name" : "floor",
+      "type" : "lambert",
+      "albedo" : [0.725, 0.71, 0.68]
+    },
+    {
+      "name" : "interface",
+      "type" : "null",
+      "in_medium":"smoke"
+    }
+  ],
+
+  "entities" : [
+    {
+      "type" : "quad",
+      "base" : [0, 0, 0],
+      "edge0" : [3, 0, 0],
+      "edge1" : [0, 0, 3],
+      "material" : "floor"
+    },
+    {
+      "type" : "infinite_sphere",
+      "emission" : "textures/envmap.hdr"
+    },
+    {
+      "type" : "cube",
+      "material" : "interface",
+      "transform" : {
+        "scale" : [2, 2, 2],
+        "position" : [0, 1.05, 0]
+      }
+    }
+  ],
+
+  "camera" : {
+    "resolution" : [1024, 1024],
+    "type" : "pinhole",
+    "fov" : 19.5,
+
+    "transform" : {
+      "position" : [2, 7, 7],
+      "up" : [0, 1, 0],
+      "look_at" : [0, 0, 0]
+    }
+  }
+}

@@ -3,6 +3,7 @@
 #include "Heterogeneous.h"
 #include "IsotropicPhase.h"
 #include "Beerslaw.h"
+#include "GPISMedium.h"
 
 namespace MediumFactory {
 std::shared_ptr<Medium> LoadMediumFromJson(const Json json) {
@@ -31,6 +32,8 @@ std::shared_ptr<Medium> LoadMediumFromJson(const Json json) {
                                        EulerType::EULER_YZX);
 
         return std::make_shared<HeterogeneousMedium>(filepath, std::make_shared<IsotropicPhase>(), transformMatrix, sigmaScale);
+    } else if (medium_type == "gpis") {
+        return std::make_shared<GPISMedium>(json);
     }
     return nullptr;
 }

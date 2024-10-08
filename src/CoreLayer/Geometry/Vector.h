@@ -245,6 +245,18 @@ struct TVector3 {
     bool isZero() const {
         return x==0 && y==0 && z==0;
     }
+
+    TVector2<T> xy() const {
+        return TVector2(x, y);
+    }
+    
+    TVector2<T> yz() const {
+        return TVector2(y, z);
+    }
+
+    TVector2<T> xz() const {
+        return TVector2(x, z);
+    }
 };
 
 

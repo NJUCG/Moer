@@ -1,11 +1,11 @@
 /**
  * @file VolPathIntegrator.cpp
  * @author Chenxi Zhou
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2022-09-22
- * 
- * @copyright NJUMeta (c) 2022 
+ *
+ * @copyright NJUMeta (c) 2022
  * www.njumeta.com
  */
 
@@ -32,24 +32,36 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
 
     Ray ray = initialRay;
 
-    const double eps = 1e-4;
+    const double eps = 1e-5;
     int nBounces = 0;
     bool specularBounce = false;
     PathIntegratorLocalRecord prevLightSampleRecord;
 
     std::shared_ptr<Medium> medium = nullptr;
+    // mainly for GPIS medium now,but maybe some other medium need it also.
+    MediumState mediumState{*sampler};
+
     auto itsOpt = scene->intersect(ray);
 
     while (true) {
 
-        MediumSampleRecord mRec;
-        if (medium && medium->sampleDistance(&mRec, ray, itsOpt.value(), sampler->sample2D())) {
+        MediumSampleRecord mRec{};
+        mRec.mediumState = &mediumState;
+        if (medium && medium->sampleDistanceSafe(&mRec, ray, itsOpt, sampler->sample2D())) {
             // Handle medium distance sampling
             throughput *= mRec.tr * mRec.sigmaS / mRec.pdf;
-            Intersection mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
+
+            Intersection mediumScatteringPoint;
+            if (!mRec.needAniso) {
+                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, ray.direction, medium);
+            } else {
+                // abuse slightly for gpis medium
+                mediumScatteringPoint = fulfillScatteringPoint(mRec.scatterPoint, mRec.aniso, medium);
+                mediumScatteringPoint.geometryNormal = mRec.aniso;
+            }
             //* ----- Luminaire Sampling -----
             for (int i = 0; i < nDirectLightSamples; ++i) {
-                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, mediumScatteringPoint, ray);
+                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting2(scene, mediumScatteringPoint, ray, &mediumState);
                 PathIntegratorLocalRecord evalScatterRecord = evalScatter(mediumScatteringPoint, ray, sampleLightRecord.wi);
                 if (!sampleLightRecord.f.isBlack()) {
                     double misw = MISWeight(sampleLightRecord.pdf, evalScatterRecord.pdf);
@@ -67,7 +79,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             throughput *= sampleScatterRecord.f / sampleScatterRecord.pdf;
             ray = Ray{mediumScatteringPoint.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
             itsOpt = scene->intersect(ray);
-            auto [sampleIts, tr] = intersectIgnoreSurface(scene, ray, medium);
+            auto [sampleIts, tr] = intersectIgnoreSurface2(scene, ray, medium, &mediumState);
             auto evalLightRecord = evalEmittance(scene, sampleIts, ray);
             if (!evalLightRecord.f.isBlack()) {
                 double misw = MISWeight(sampleScatterRecord.pdf, evalLightRecord.pdf);
@@ -82,24 +94,26 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
                 PathIntegratorLocalRecord evalLightRecord = evalEmittance(scene, itsOpt, ray);
                 if (nBounces == 0) {
                     L += throughput * evalLightRecord.f;
-                    if (!itsOpt) break;
                 }
             }
+            // there will be case that itsOpt is null when light cross null interfaces and hit nothing,
+            // for that case we still need to calculate evnlight for it.
+            if (!itsOpt) break;
 
             auto its = itsOpt.value();
             its.medium = medium;
 
             if (its.material->getBxDF(its)->isNull()) {
                 medium = getTargetMedium(its, ray.direction);
+                mediumState.reset();
                 ray = Ray{its.position + eps * ray.direction, ray.direction};
                 itsOpt = scene->intersect(ray);
-                if (!itsOpt) break;
                 continue;
             }
 
             //* Direct Illumination
             for (int i = 0; i < nDirectLightSamples; ++i) {
-                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting(scene, its, ray);
+                PathIntegratorLocalRecord sampleLightRecord = sampleDirectLighting2(scene, its, ray,&mediumState);
                 PathIntegratorLocalRecord evalScatterRecord = evalScatter(its, ray, sampleLightRecord.wi);
 
                 if (!sampleLightRecord.f.isBlack()) {
@@ -122,7 +136,7 @@ Spectrum VolPathIntegrator::Li(const Ray &initialRay, std::shared_ptr<Scene> sce
             ray = Ray{its.position + sampleScatterRecord.wi * eps, sampleScatterRecord.wi};
             itsOpt = scene->intersect(ray);
 
-            auto [sampleIts, tr] = intersectIgnoreSurface(scene, ray, medium);
+            auto [sampleIts, tr] = intersectIgnoreSurface2(scene, ray, medium, &mediumState);
 
             auto evalLightRecord = evalEmittance(scene, sampleIts, ray);
             if (!evalLightRecord.f.isBlack()) {
@@ -337,9 +351,9 @@ std::shared_ptr<Medium> VolPathIntegrator::getTargetMedium(const Intersection &i
 Spectrum VolPathIntegrator::evalTransmittance(std::shared_ptr<Scene> scene,
                                               const Intersection &its,
                                               Point3d pointOnLight) const {
-    //if (!its.material) {
-    //    std::cout << "Stop!\n";
-    //}
+    // if (!its.material) {
+    //     std::cout << "Stop!\n";
+    // }
 
     float tmax = (pointOnLight - its.position).length();
     Ray shadowRay{its.position, normalize(pointOnLight - its.position), 1e-4f, tmax - 1e-4f};
@@ -448,6 +462,128 @@ VolPathIntegrator::intersectIgnoreSurface(std::shared_ptr<Scene> scene,
 
         // update medium
         currentMedium = getTargetMedium(testRayIts, dir);
+
+        // update ray and intersection point.
+        marchRay.origin = testRayIts.position + dir * eps;
+        lastScatteringPoint = testRayIts.position;
+        testRayItsOpt = scene->intersect(marchRay);
+    }
+    return {testRayItsOpt, tr};
+}
+
+/// @brief Iteratively eval the transmittance from intersection point its to direction wi.
+/// @param scene Scene description used to operate ray intersection.
+/// @param its Current intersection point or scattering point.
+/// @param pointOnLight Sampled point on light.
+/// @param meidumState Inital meidum state
+/// @return The transmittance from pointOnLight to its. Transmittance will be zero if ray hits a non-null surface.
+Spectrum VolPathIntegrator::evalTransmittance2(std::shared_ptr<Scene> scene, const Intersection &its, Point3d pointOnLight, const MediumState *mediumState) const {
+    MediumState transientMeidumState = *mediumState;
+    float tmax = (pointOnLight - its.position).length();
+    Ray shadowRay{its.position, normalize(pointOnLight - its.position), 1e-4f, tmax - 1e-4f};
+    std::shared_ptr<Medium> medium = its.medium;
+    Spectrum tr(1.f);
+    while (true) {
+        auto itsOpt = scene->intersect(shadowRay);
+
+        if (medium) {
+            if (!itsOpt) {
+                tr *= medium->evalTransmittance2(shadowRay.origin, pointOnLight, &transientMeidumState);
+                break;
+            }
+
+            if (!itsOpt->material->getBxDF(*itsOpt)->isNull()) {
+                tr = .0f;
+                break;
+            }
+
+            tr *= medium->evalTransmittance2(shadowRay.origin, itsOpt->position, &transientMeidumState);
+            medium = getTargetMedium(*itsOpt, shadowRay.direction);
+            transientMeidumState.reset();
+            shadowRay.origin = itsOpt->position;
+            shadowRay.timeMax -= itsOpt->t;
+        } else {
+            if (!itsOpt) break;
+
+            if (!itsOpt->material->getBxDF(*itsOpt)->isNull()) {
+                tr = .0f;
+                break;
+            }
+            medium = getTargetMedium(*itsOpt, shadowRay.direction);
+            transientMeidumState.reset();
+            shadowRay.origin = itsOpt->position;
+            shadowRay.timeMax -= itsOpt->t;
+        }
+    }
+
+    return tr;
+}
+/// @brief Sample on the distribution of direct lighting and take medium transmittance into account.
+/// @param scene Scene description. Multiple shadow ray intersect operations will be performed.
+/// @param its Current intersection point which returned pdf dependent on.
+/// @param ray Current ray. Should only be applied for time records.
+/// @param meidumState Inital meidum state
+/// @return Sampled direction on the distribution of direct lighting and corresponding solid angle dependent pdf. An extra flag indicites that whether it sampled on a delta distribution.
+PathIntegratorLocalRecord VolPathIntegrator::sampleDirectLighting2(std::shared_ptr<Scene> scene, const Intersection &its, const Ray &ray, const MediumState *mediumState) {
+    auto [light, pdfChooseLight] = chooseOneLight(scene, sampler->sample1D());
+    auto record = light->sampleDirect(its, sampler->sample2D(), ray.timeMin);
+    double pdfDirect = record.pdfDirect * pdfChooseLight;// pdfScatter with respect to solid angle
+    Vec3d dirScatter = record.wi;
+    Point3d posL = record.dst;
+    Point3d posS = its.position;
+    auto transmittance = evalTransmittance2(scene, its, record.dst, mediumState);
+    //    if (!its.material && transmittance.sum() < 2.9f) {
+    //        std::cout << transmittance.sum() << "\n";
+    //    }
+    return {dirScatter, transmittance * record.s, pdfDirect, record.isDeltaPos};
+}
+/// @brief Intersect in scene but ignore bsdf with isNull()==true.
+/// @param scene Scene description where multiple intersect operation will be performed.
+/// @param ray Initial ray.
+/// @param medium Initial medium.
+/// @param meidumState Inital meidum state
+/// @return Intersected point and transmittance alone the way.
+std::pair<std::optional<Intersection>, Spectrum> VolPathIntegrator::intersectIgnoreSurface2(std::shared_ptr<Scene> scene, const Ray &ray, std::shared_ptr<Medium> medium, const MediumState *mediumState) const {
+    MediumState transientMeidumState = *mediumState;
+
+    const double eps = 1e-5;
+    Vec3d dir = ray.direction;
+
+    Spectrum tr(1.0);
+    Ray marchRay{ray.origin + dir * eps, dir};
+    std::shared_ptr<Medium> currentMedium = medium;
+
+    Point3d lastScatteringPoint = ray.origin;
+    auto testRayItsOpt = scene->intersect(marchRay);
+
+    // calculate the transmittance of last segment from lastScatteringPoint to testRayItsOpt.
+    while (true) {
+
+        // corner case: infinite medium or infinite light source.
+        if (!testRayItsOpt.has_value()) {
+            if (currentMedium != nullptr)
+                tr = Spectrum(0.0);
+            return {testRayItsOpt, tr};
+        }
+
+        auto testRayIts = testRayItsOpt.value();
+
+        // corner case: non-null surface
+        if (testRayIts.material != nullptr) {
+            if (!testRayIts.material->getBxDF(testRayIts)->isNull()) {
+                if (currentMedium != nullptr)
+                    tr *= currentMedium->evalTransmittance2(testRayIts.position, lastScatteringPoint, &transientMeidumState);
+                return {testRayItsOpt, tr};
+            }
+        }
+
+        // hit a null surface, calculate tr
+        if (currentMedium != nullptr)
+            tr *= currentMedium->evalTransmittance2(testRayIts.position, lastScatteringPoint, &transientMeidumState);
+
+        // update medium
+        currentMedium = getTargetMedium(testRayIts, dir);
+        transientMeidumState.reset();
 
         // update ray and intersection point.
         marchRay.origin = testRayIts.position + dir * eps;
