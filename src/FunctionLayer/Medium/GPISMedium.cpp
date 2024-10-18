@@ -98,9 +98,11 @@ Spectrum GPISMedium::evalTransmittance2(Point3d from, Point3d dest, MediumState 
 bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const {
     double maxDistance = ray.timeMax - t;
     double determinedStepSize = maxDistance / (marchingNumSamplePoints - 1);
+
     if (marchingStepSize < determinedStepSize) {
         determinedStepSize = marchingStepSize;
     }
+    determinedStepSize = std::min(determinedStepSize, gaussianProcess->goodStepSize(ray.origin + ray.direction * t, ray.direction, marchingDesiredCov, determinedStepSize));
 
     std::vector<Point3d> points;
     std::vector<DerivativeType> derivativeTypes;
@@ -127,14 +129,13 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
         gpRealization = gaussianProcess->sampleCond(
             points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, EXPAND_GPREALIZATION_WITH_VALUE(gpRealization), sampler);
     }
-
     double lastV = gpRealization.values[0];
-    double lastT = ray.timeMin;
+    double lastT = ray.timeMin;;
     t = ts[0];
     for (int i = 1; i < marchingNumSamplePoints; ++i) {
         double curV = gpRealization.values[i];
         double curT = ts[i];
-        if (lastV * curV <= 0.) {
+        if (curV * lastV < 0) {
             double offset = lastV / (lastV - curV);
             gpRealization.makeIntersection(i, offset);
             t = lerp(lastT, curT, offset);

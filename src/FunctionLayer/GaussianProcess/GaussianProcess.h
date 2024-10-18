@@ -56,7 +56,8 @@ struct GaussianProcess {
     std::shared_ptr<MeanFunction> meanFunction;
     std::shared_ptr<CovarianceFunction> covFunction;
 
-    virtual double goodStepSize(Point3d p, Vec3d rd, double desiredCov) const;
+    // return a heuristics stepsize base on meanFunction and covFunction
+    virtual double goodStepSize(Point3d p, Vec3d rd, double desiredCov,double stepSize) const;
 
 protected:
     GPRealization globalCondition;

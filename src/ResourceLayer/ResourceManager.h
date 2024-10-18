@@ -59,3 +59,4 @@ public:
 
     std::shared_ptr<MeshDataCollection> getMeshData(const std::string &path);
 };
+

@@ -1,92 +1,58 @@
 {
   "renderer" : {
-    "spp" : 32,
+    "spp" : 8,
     "output_file" : "gpis"
   },
 
   "mediums" : [
     {
-      "name" : "gpis-hard",
-      "type" : "gpis",
-      "marching_num_sample_points":64,
-      "marching_step_size": 10000,
-      "gaussian_process":{
-        "type":"std",
-        "mean":{
-          "type":"procedural",
-          "func":"knob",
-          "transform":{
-            "position":[-0.8,0.37,0],
-            "scale":[0.5,0.5,0.5],
-            "rotation":[0,0,0]     
-          }
-        },
-        "covariance":{
-          "type":"squared_exponential",
-          "lengthScale":0.1,
-          "sigma":0.01
-        },
-        "global_condition":{
-            "enable":false,
-            "points":[
-                [0,0,0],
-                [1,1,1]
-            ],
-            "derivative_types":[
-                "none",
-                "first"
-            ],
-            "derivative_dirs":[
-                [0,0,0],
-                [1,0,0]
-            ],
-            "values":[
-                0,
-                1
-            ]
-        }
-      },
-      "phase":{
-        "type":"lambert",
-        "albedo":[0.9, 0.3, 0.35]
-      }  
-    },
-    {
-        "name" : "gpis-soft",
+        "name" : "gpis",
         "type" : "gpis",
         "marching_num_sample_points":32,
         "marching_step_size": 10000,
         "gaussian_process":{
           "type":"std",
           "mean":{
-            "type":"procedural",
-            "func":"knob",
+            "type":"tabulated",
+            "file":"model/dragon.nvdb",
+            "grid_name":"mesh2ls_dragon",
             "transform":{
-              "position":[0.8,0.37,0],
-              "scale":[0.5,0.5,0.5],
+              "position":[-0.5,0,-0.5],
+              "scale":[1,1,1],
               "rotation":[0,0,0]     
-            }
+            },
+            "grid_should_be_normalized":true
           },
           "covariance":{
-            "type":"squared_exponential",
-            "lengthScale":0.1,
-            "sigma":0.05
+            "type":"nonstationary",
+            "local_variance":"model/local_variance.nvdb",
+            "correlation":"model/correlation.nvdb",
+            "transform":{
+              "position":[-0.5,0,-0.5],
+              "scale":[1,1,1],
+              "rotation":[0,0,0]     
+            },
+            "grid_should_be_normalized":true,
+            "stationary_covariance":{
+              "type":"squared_exponential",
+              "lengthScale":0.1,
+              "sigma":0.01
+            }
           }
         },
+        
         "phase":{
-          "type":"lambert",
-          "albedo":[0.9, 0.3, 0.35]
+          "type":"mirror"
         }  
-    },
-    {
-        "name" : "homogeneous",
-        "type" : "homogeneous",
-        "sigmaT" : [20, 20, 20],
-        "albedo" : [0.8, 0.8, 0.8]
-    }
+      }
   ],
 
   "materials" : [
+    {
+      "name" : "interface",
+      "type" : "null",
+      "in_medium":"gpis"
+    },
     {
         "name": "floor",
         "albedo": {
@@ -105,59 +71,42 @@
           "res_v": 20
         },
         "type": "lambert"
-    },
-    {
-      "name" : "interface-hard",
-      "type" : "null",
-      "in_medium":"gpis-hard"
-    },
-    {
-      "name" : "interface-soft",
-      "type" : "null",
-      "in_medium":"gpis-soft"
     }
   ],
 
   "entities" : [
-    {
-      "type" : "quad",
-      "base" : [0, 0, 0],
-      "edge0" : [6, 0, 0],
-      "edge1" : [0, 0, 6],
-      
-      "material" : "floor"
-    },
-    {
-      "type" : "infinite_sphere",
-      "emission" : "textures/envmap.hdr"
-    },
+    
     {
       "type" : "cube",
-      "material" : "interface-hard",
+      "material" : "interface",
       "transform" : {
-        "scale" : [2, 2, 2],
-        "position" : [-0.8, 1.05, 0]
+        "scale" : [1,0.6,0.6],
+        "position" : [0,0.25,0]
       }
     },
     {
-        "type" : "cube",
-        "material" : "interface-soft",
-        "transform" : {
-          "scale" : [2, 2, 2],
-          "position" : [0.8, 1.05, 0]
-        }
-      }
+        "type" : "quad",
+        "base" : [0, 0, 0],
+        "edge0" : [6, 0, 0],
+        "edge1" : [0, 0, 6],
+        
+        "material" : "floor"
+    },
+    {
+        "type" : "infinite_sphere",
+        "emission" : "textures/envmap.hdr"
+    }
   ],
 
   "camera" : {
-    "resolution" : [1024, 1024],
+    "resolution" : [512, 512],
     "type" : "pinhole",
     "fov" : 19.5,
 
     "transform" : {
-      "position" : [0, 4, 7],
+      "position" : [0, 2, 4],
       "up" : [0, 1, 0],
-      "look_at" : [0, 0, 0]
+      "look_at" : [0, 0.5, 0]
     }
   }
 }

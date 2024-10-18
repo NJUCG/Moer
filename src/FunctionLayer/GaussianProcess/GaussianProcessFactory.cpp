@@ -36,6 +36,8 @@ std::shared_ptr<MeanFunction> MeanFunctionFactory::LoadMeanFunctionFromJson(cons
     std::string meanType = json.at("type");
     if (meanType == "procedural") {
         return std::make_shared<ProceduralMean>(json);
+    } else if (meanType == "tabulated") {
+        return std::make_shared<TabulatedMean>(json);
     } else {
         return nullptr;
     }
@@ -45,6 +47,8 @@ std::shared_ptr<CovarianceFunction> CovarianceFunctionFactory::LoadCovarianceFun
     std::string covType = json.at("type");
     if (covType == "squared_exponential") {
         return std::make_shared<SquaredExponentialCovariance>(json);
+    } else if (covType == "nonstationary") {
+        return std::make_shared<NonstationaryCovariance>(json);
     } else {
         return nullptr;
     }

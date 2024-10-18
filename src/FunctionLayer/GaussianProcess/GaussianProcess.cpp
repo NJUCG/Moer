@@ -316,6 +316,37 @@ std::tuple<Eigen::VectorXd, Eigen::MatrixXd> GaussianProcess::meanAndCov(const P
     return {_mean, _cov};
 }
 
-double GaussianProcess::goodStepSize(Point3d p, Vec3d rd, double desiredCov) const {
-    return 0.;
+double GaussianProcess::goodStepSize(Point3d p, Vec3d rd, double desiredCov, double stepSize) const {
+    return 100000;
+    double stepSizeMean = stepSize;
+    double stepSizeCov = stepSize;
+
+    double unit = stepSize / 100.;
+    for (int i = 1; i < 100; ++i) {
+        if ((*meanFunction)(DerivativeType::None, p + rd * unit) < 0) {
+            stepSizeMean = i * unit;
+            break;
+        }
+    }
+
+    if (desiredCov > 0.) {
+        double iter = 0;
+        double low = 0., high = stepSize;
+        while (high - low > 1e-2 && iter < 100) {
+            double mid = (low + high) / 2;
+            double covResult = (*covFunction)(DerivativeType::None, p, DerivativeType::None, p + mid * rd);
+            if (fm::abs(covResult - desiredCov) < 1e-2) {
+                stepSize = mid;
+                break;
+            }
+            if (covResult < desiredCov) {
+                high = mid;
+            } else {
+                low = mid;
+            }
+            ++iter;
+        }
+    }
+
+    return std::min(stepSizeMean, stepSizeCov);
 }
