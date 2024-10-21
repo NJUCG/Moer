@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 8,
+    "spp" : 32,
     "output_file" : "gpis"
   },
 
@@ -14,7 +14,7 @@
           "type":"std",
           "mean":{
             "type":"tabulated",
-            "file":"model/dragon.nvdb",
+            "file":"model/dragon_low.nvdb",
             "grid_name":"mesh2ls_dragon",
             "transform":{
               "position":[-0.5,0,-0.5],
@@ -29,14 +29,14 @@
             "correlation":"model/correlation.nvdb",
             "transform":{
               "position":[-0.5,0,-0.5],
-              "scale":[1,1,1],
+              "scale":[0.8,0.6,1],
               "rotation":[0,0,0]     
             },
             "grid_should_be_normalized":true,
             "stationary_covariance":{
               "type":"squared_exponential",
               "lengthScale":0.1,
-              "sigma":0.01
+              "sigma":0.1
             }
           }
         },
@@ -85,16 +85,20 @@
       }
     },
     {
-        "type" : "quad",
-        "base" : [0, 0, 0],
-        "edge0" : [6, 0, 0],
-        "edge1" : [0, 0, 6],
-        
-        "material" : "floor"
+        "transform": {
+            "rotation": [
+                -32.512420654296878,
+                160.0,
+                34.0
+            ]
+        },
+        "power": [1, 1, 1],
+        "type": "infinite_sphere_cap",
+        "cap_angle": 50
     },
     {
         "type" : "infinite_sphere",
-        "emission" : "textures/envmap.hdr"
+        "emission" : "textures/FlowCheck.hdr"
     }
   ],
 
@@ -104,7 +108,7 @@
     "fov" : 19.5,
 
     "transform" : {
-      "position" : [0, 2, 4],
+      "position" : [0, 1.5, 4],
       "up" : [0, 1, 0],
       "look_at" : [0, 0.5, 0]
     }
