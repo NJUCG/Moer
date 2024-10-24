@@ -25,14 +25,14 @@ Image::Image(const std::string &path, ImageLoadMode ilm) {
     isHdr = stbi_is_hdr(path.c_str());
     int w, h, c;
     if (isHdr) {
-        float *data = stbi_loadf(path.c_str(), &w, &h, &c, 3);
+        float *data = stbi_loadf(path.c_str(), &w, &h, &c, 0);
         imageRawData = new float[w * h * c];
         std::memcpy(imageRawData, data, w * h * c * sizeof(float));
         free(data);
     } else
     // todo: bw mode
     {
-        unsigned char *data = stbi_load(path.c_str(), &w, &h, &c, 3);
+        unsigned char *data = stbi_load(path.c_str(), &w, &h, &c, 0);
         if (!data) {
             std::cout << "Fail to load image " << path << std::endl;
             return;
