@@ -1,6 +1,6 @@
 {
   "renderer" : {
-    "spp" : 1,
+    "spp" : 32,
     "output_file" : "gpis"
   },
 
@@ -8,7 +8,7 @@
     {
       "name" : "gpis-hard",
       "type" : "gpis",
-      "marching_num_sample_points":64,
+      "marching_num_sample_points":32,
       "marching_step_size": 10000,
       "gaussian_process":{
         "type":"std",

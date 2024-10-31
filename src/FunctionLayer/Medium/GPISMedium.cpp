@@ -108,10 +108,10 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
     std::vector<DerivativeType> derivativeTypes;
     std::vector<double> ts;
 
-    Point3d p = ray.origin + ray.direction * (determinedStepSize * 0.1 + t);
+    Point3d p = ray.origin + ray.direction * (determinedStepSize * 0.01 + t);
     points.push_back(p);
     derivativeTypes.push_back(DerivativeType::None);
-    ts.push_back(determinedStepSize * 0.1 + t);
+    ts.push_back(determinedStepSize * 0.01 + t);
 
     for (int i = 1; i < marchingNumSamplePoints; ++i) {
         Point3d p = ray.origin + ray.direction * (i * determinedStepSize + t);
@@ -130,7 +130,7 @@ bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, doubl
             points.data(), derivativeTypes.data(), nullptr, marchingNumSamplePoints, {}, EXPAND_GPREALIZATION_WITH_VALUE(gpRealization), sampler);
     }
     double lastV = gpRealization.values[0];
-    double lastT = ray.timeMin;;
+    double lastT = ts[0];
     t = ts[0];
     for (int i = 1; i < marchingNumSamplePoints; ++i) {
         double curV = gpRealization.values[i];
