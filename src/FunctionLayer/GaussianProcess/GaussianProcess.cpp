@@ -1,128 +1,5 @@
 #include "GaussianProcess.h"
-
-#include "GaussianProcessUtils.h"
 #include "CoreLayer/Geometry/Frame.h"
-
-GPRealization::GPRealization(const GaussianProcess *_gp,
-                             const Point3d *_points,
-                             const DerivativeType *_derivativeTypes,
-                             const Vec3d *_derivativeDirs,
-                             const double *_values,
-                             size_t numPoints, const Vec3d &derivativeDir) : gp(_gp) {
-    for (int i = 0; i < numPoints; ++i) {
-        Vec3d ddir = _derivativeDirs ? _derivativeDirs[i] : derivativeDir;
-        points.push_back(_points[i]);
-        derivativeTypes.push_back(_derivativeTypes[i]);
-        derivativeDirections.push_back(ddir);
-        values.push_back(_values[i]);
-    }
-}
-
-void GPRealization::makeIntersection(size_t p, double offset) {
-    auto preV = values[p - 1];
-    auto curV = values[p];
-
-    Point3d zeroCrossing = lerp(points[p - 1], points[p], offset);
-    double gradValue = (curV - preV) / ((points[p] - points[p - 1]).length());
-
-    points.push_back(zeroCrossing);
-    derivativeTypes.push_back(DerivativeType::None);
-    values.push_back(lerp(preV, curV, offset));
-    // place holder
-    derivativeDirections.push_back({});
-
-    points.push_back(zeroCrossing);
-    derivativeTypes.push_back(DerivativeType::First);
-    values.push_back(gradValue);
-    derivativeDirections.push_back(normalize(points[p] - points[p - 1]));
-
-    justIntersected = true;
-}
-
-Vec3d GPRealization::sampleGradient(Point3d pos, Vec3d rayDir, Sampler &sampler) {
-    std::array<Point3d, 3> gradPs{pos, pos, pos};
-    std::array<DerivativeType, 3> gradDerivs{DerivativeType::First, DerivativeType::First, DerivativeType::First};
-
-    Frame frame(rayDir);
-
-    Vec3d sampleGrad = {};
-
-    // we just apply 'makeIntersect' method
-    if (justIntersected) {
-        std::array<Vec3d, 2> gradDirs{
-            vec_conv<Vec3d>(frame.s),
-            vec_conv<Vec3d>(frame.t)};
-        auto realization = gp->sampleCond(gradPs.data(), gradDerivs.data(), gradDirs.data(), gradDirs.size(), {},
-                                          points.data(), derivativeTypes.data(), derivativeDirections.data(), values.data(), points.size(), {}, sampler);
-        // intersection's gradient is already known since we perform linear interpolation between points
-        sampleGrad = frame.toWorld({realization.values[0], realization.values[1], values[values.size() - 1]});
-
-    } else {
-        std::array<Vec3d, 3> gradDirs{
-            vec_conv<Vec3d>(frame.s),
-            vec_conv<Vec3d>(frame.t),
-            vec_conv<Vec3d>(frame.n)};
-        auto realization = gp->sampleCond(gradPs.data(), gradDerivs.data(), gradDirs.data(), gradDirs.size(), {},
-                                          points.data(), derivativeTypes.data(), derivativeDirections.data(), values.data(), points.size(), {}, sampler);
-        sampleGrad = frame.toWorld({realization.values[0], realization.values[1], realization.values[2]});
-    }
-    return lastSampledGrad = sampleGrad;
-}
-
-void GPRealization::applyMemoryModel(Vec3d rayDir, MemoryModel memoryModel) {
-    std::vector<Point3d> pointsNew;
-    std::vector<Vec3d> derivativeDirectionsNew;
-    std::vector<DerivativeType> derivativeTypesNew;
-    std::vector<double> valuesNew;
-
-    size_t pointSize = points.size();
-    switch (memoryModel) {
-        case MemoryModel::None:
-            break;
-        case MemoryModel::GlobalN:
-            // TODO(Cchen77): GlobalN memory model
-            break;
-        case MemoryModel::Renewal: {
-            size_t p = pointSize - 1;
-            if (justIntersected) {
-                p = pointSize - 2;
-            }
-            pointsNew.push_back(points[p]);
-            derivativeDirectionsNew.push_back(derivativeDirections[p]);
-            derivativeTypesNew.push_back(derivativeTypes[p]);
-            valuesNew.push_back(values[p]);
-
-            points = pointsNew;
-            derivativeDirections = derivativeDirectionsNew;
-            derivativeTypes = derivativeTypesNew;
-            values = valuesNew;
-            break;
-        }
-        case MemoryModel::RenewalPlus: {
-            size_t p = pointSize - 1;
-            if (justIntersected) {
-                p = pointSize - 2;
-            }
-            pointsNew.push_back(points[p]);
-            derivativeDirectionsNew.push_back({});
-            derivativeTypesNew.push_back(DerivativeType::None);
-            valuesNew.push_back(values[p]);
-
-            pointsNew.push_back(points[p]);
-            derivativeDirectionsNew.push_back(rayDir);
-            derivativeTypesNew.push_back(DerivativeType::First);
-            valuesNew.push_back(dot(lastSampledGrad, rayDir));
-
-            points = pointsNew;
-            derivativeDirections = derivativeDirectionsNew;
-            derivativeTypes = derivativeTypesNew;
-            values = valuesNew;
-            break;
-        }
-        default:
-            break;
-    }
-}
 
 GaussianProcess::GaussianProcess(std::shared_ptr<MeanFunction> _mean, std::shared_ptr<CovarianceFunction> _cov, const GPRealization &_globalCondition) : meanFunction(_mean), covFunction(_cov) {
     initGlobalCondition(_globalCondition);
@@ -220,6 +97,53 @@ GPRealization GaussianProcess::sampleCond(const Point3d *points, const Derivativ
     return GPRealization(this, points, derivativeTypes, derivativeDirs, values.data(), numPoints, derivativeDir);
 }
 
+double GaussianProcess::meanZeroDownCrossingRate(const Point3d &pos, const Vec3d &ddir) {
+    std::array<Point3d, 2> points = {pos, pos};
+    std::array<DerivativeType, 2> derivativeTyes = {DerivativeType::None, DerivativeType::First};
+
+    Eigen::VectorXd Mu = mean(points.data(), derivativeTyes.data(), nullptr, 2, ddir);
+    Eigen::MatrixXd Sigma = covSym(points.data(), derivativeTyes.data(), nullptr, 2, ddir);
+
+    double muX = Mu(0);
+    double muXprime = Mu(1);
+
+    double kXX = Sigma(0, 0);
+    double invKXX = 1. / kXX;
+    double kXprimeX = Sigma(1, 0);
+    double kXXprime = Sigma(0, 1);
+    double kXprimeXprime = Sigma(1, 1);
+
+    double pdf = gaussianPDF(muX, fm::sqrt(kXX), 0);
+    double muXprimeConditioned = muXprime - kXprimeX * invKXX * muXprime;
+    double covXprimeConditioned = kXprimeXprime - kXprimeX * kXXprime * invKXX;
+
+    double cdf = gaussianCDF(muXprimeConditioned, fm::sqrt(covXprimeConditioned), 0.);
+    return pdf * cdf;
+}
+
+double GaussianProcess::sampleFPT(const Ray &ray, double &t, double numSampleCount, Sampler &sampler) {
+    return 0.;
+}
+
+double GaussianProcess::sampleFPTCond(const Ray &ray, double &t, double numSampleCount, Sampler &sampler,
+                                      const Point3d *pointsCond, const DerivativeType *derivativeTypesCond, const Vec3d *derivativeDirsCond, const double *valuesCond, size_t numPointsCond, const Vec3d &derivativeDirCond) {
+    if (numPointsCond == 0) {
+        return sampleFPT(ray, t, numSampleCount, sampler);
+    }
+    // we need the conditioned covariance and mean.
+    // utilize global conditon feature
+    auto transientGlobalCondition = globalCondition;
+    for (int i = 0; i < numPointsCond; ++i) {
+        Vec3d dir = derivativeDirsCond ? derivativeDirsCond[i] : derivativeDirCond;
+        transientGlobalCondition.points.push_back(pointsCond[i]);
+        transientGlobalCondition.derivativeTypes.push_back(derivativeTypesCond[i]);
+        transientGlobalCondition.derivativeDirections.push_back(dir);
+        transientGlobalCondition.values.push_back(valuesCond[i]);
+    }
+    GaussianProcess transientGP(meanFunction, covFunction, transientGlobalCondition);
+    return transientGP.sampleFPT(ray, t, numSampleCount, sampler);
+}
+
 Eigen::VectorXd GaussianProcess::meanPrior(const Point3d *points, const DerivativeType *derivativeTypes, const Vec3d *derivativeDirs, size_t numPoints, const Vec3d &derivativeDir) const {
     Eigen::VectorXd _mean(numPoints);
     for (int i = 0; i < numPoints; ++i) {
@@ -246,11 +170,10 @@ Eigen::MatrixXd GaussianProcess::covPriorSym(const Point3d *points, const Deriva
     Eigen::MatrixXd _cov(numPoints, numPoints);
     for (int i = 0; i < numPoints; ++i) {
         Vec3d ddir_i = derivativeDirs ? derivativeDirs[i] : derivativeDir;
-        for (int j = 0; j <= i; ++j) {
+        for (int j = 0; j < numPoints; ++j) {
             Vec3d ddir_j = derivativeDirs ? derivativeDirs[j] : derivativeDir;
             double cov_i_j = (*covFunction)(derivativeTypes[i], points[i], derivativeTypes[j], points[j], ddir_i, ddir_j);
-            // so our kenrel should satisify cov(x,y) = cov(y,x)
-            _cov(i, j) = _cov(j, i) = cov_i_j;
+            _cov(i, j) = cov_i_j;
         }
     }
     return _cov;

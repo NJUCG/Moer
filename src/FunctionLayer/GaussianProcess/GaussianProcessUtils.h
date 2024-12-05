@@ -1,12 +1,20 @@
 #pragma once
-#include"Eigen/Dense"
-#include"Eigen/Sparse"
-#include"CoreLayer/Geometry/Geometry.h"
-#include"FunctionLayer/Sampler/Sampler.h"
-#include"CoreLayer/Math/Common.h"
+#include "Eigen/Dense"
+#include "Eigen/Sparse"
+#include "CoreLayer/Geometry/Geometry.h"
+#include "FunctionLayer/Sampler/Sampler.h"
+#include "CoreLayer/Math/Common.h"
 
-template<typename To,typename From>
-inline To vec_conv(const From& vd) {
+#define SQRT_2 1.4142135623730951
+#define SQRT_2PI 2.5066282746310007
+
+enum class DerivativeType {
+    None,
+    First,
+};
+
+template<typename To, typename From>
+inline To vec_conv(const From &vd) {
     return To{vd.x, vd.y, vd.x};
 }
 // Box muller transform
@@ -23,18 +31,12 @@ inline Vec2d rand_normal_2(Sampler &sampler) {
     return Vec2d(z1, z2);
 }
 
-inline Eigen::MatrixXd project_to_psd(const Eigen::MatrixXd& in) {
-   
-    Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es(in);
-    Eigen::VectorXd eigenValues = es.eigenvalues();
-    for (int i = 0; i < eigenValues.size(); ++i) {
-        if (eigenValues(i) < 0) {
-            eigenValues(i) = 0;
-        }
-    }
-    Eigen::MatrixXd psdMatrix = es.eigenvectors() * eigenValues.asDiagonal() * es.eigenvectors().transpose();
-    return psdMatrix;
+inline double gaussianCDF(double mu, double s, double x) {
+    return 0.5 * std::erfc(-(x - mu) / (s * SQRT_2));
+}
 
+inline double gaussianPDF(double mu, double s, double x) {
+    return std::exp(-std::pow(x - mu, 2.) / (2 * s * s)) / (s * SQRT_2PI);
 }
 
 struct MultiVariableNormalDistribution {

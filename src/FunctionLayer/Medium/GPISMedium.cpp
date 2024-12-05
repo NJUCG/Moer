@@ -14,6 +14,7 @@ GPISMedium::GPISMedium(const Json &json) : Medium(std::make_shared<GPISPhase>(js
 
 bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const Intersection &its, Point2d sample) const {
 #if defined(ENABLE_GPISMEDIUM)
+#if (GPIS_LIGHT_TRANSPORT_VERSION == 1)
     const double eps = 1e-6;
     GPRealization &gpRealization = mRec->mediumState->realization;
     Sampler &sampler = mRec->mediumState->sampler;
@@ -43,6 +44,51 @@ bool GPISMedium::sampleDistance(MediumSampleRecord *mRec, const Ray &ray, const 
     mRec->tr = 1.;
     mRec->needAniso = true;
     return intersected;
+#elif (GPIS_LIGHT_TRANSPORT_VERSION == 2)
+    // Performance optimized light transport which only work when Renewal or Renewal+ memory model applying
+    // Gamma(t,n|zeta)
+    // = kappa(n|t is first-passage-time,zeta) * first-passage-time-density(t|zeta)
+    // = hat-kappa(n|t is a 0-downcrossing,zeta) * first-passage-density(t|zeta)
+    Sampler &sampler = mRec->mediumState->sampler;
+    GPRealization &gpRealization = mRec->mediumState->realization;
+
+    Ray r = ray;
+    r.timeMax = std::min(r.timeMax, r.timeMin + 200);
+    r.timeMax = std::min(its.t, r.timeMax);
+
+    double t = r.timeMin;
+
+    mRec->sigmaS = 1.;
+    mRec->sigmaA = 0.;
+    mRec->needAniso = true;
+    // since we sample from ff density directly,tr/pdf is always equals 1,so we don't need them
+    mRec->tr = 1.;
+    mRec->pdf = 1.;
+
+    double Tr = 0.;
+    if (gpRealization.isEmpty()) {
+        gpRealization.gp = gaussianProcess.get();
+        Tr = gaussianProcess->sampleFPT(r, t, marchingNumSamplePoints, sampler);
+    } else {
+        Tr = gaussianProcess->sampleFPTCond(r, t, marchingNumSamplePoints, sampler, EXPAND_GPREALIZATION_WITH_VALUE(gpRealization));
+    }
+
+    if (sampler.sample1D() < Tr) {
+        return false;
+    }
+
+    Point3d intersection = r.origin + r.direction * t;
+
+    mRec->marchLength = t;
+    mRec->scatterPoint = intersection;
+    gpRealization.manualIntersectionAndNormal(intersection, r.direction, -1);
+    mRec->aniso = normalize(gpRealization.sampleGradient(intersection, r.direction, sampler));
+    gpRealization.applyMemoryModel(ray.direction, MemoryModel::RenewalPlus);
+
+    return true;
+#else
+    return false;
+#endif
 #else
     return false;
 #endif
@@ -78,6 +124,8 @@ Spectrum GPISMedium::evalTransmittance(Point3d from, Point3d dest) const {
 }
 
 Spectrum GPISMedium::evalTransmittance2(Point3d from, Point3d dest, MediumState *mediumState) const {
+#if defined(ENABLE_GPISMEDIUM)
+#if (GPIS_LIGHT_TRANSPORT_VERSION == 1)
     Vec3d direction = (dest - from);
     if (direction.length() < 1e-4) {
         return 1.;
@@ -93,6 +141,32 @@ Spectrum GPISMedium::evalTransmittance2(Point3d from, Point3d dest, MediumState 
     bool shadowed = sampleDistance(&sampleRecord, ray, its, {});
 
     return 1. - shadowed;
+#elif (GPIS_LIGHT_TRANSPORT_VERSION == 2)
+    Sampler &sampler = mediumState->sampler;
+    GPRealization &gpRealization = mediumState->realization;
+
+    Vec3d direction = (dest - from);
+    if (direction.length() < 1e-4) {
+        return 1.;
+    }
+    direction = normalize(direction);
+    Ray ray{from, direction};
+    ray.timeMax = (dest - from).length();
+
+    double t = 0.;
+    if (gpRealization.isEmpty()) {
+        gpRealization.gp = gaussianProcess.get();
+        return gaussianProcess->sampleFPT(ray, t, marchingNumSamplePoints, sampler);
+    } else {
+        return gaussianProcess->sampleFPTCond(ray, t, marchingNumSamplePoints, sampler, EXPAND_GPREALIZATION_WITH_VALUE(gpRealization));
+    }
+#else
+    return 1.;
+#endif
+
+#else
+    return 1.;
+#endif
 }
 
 bool GPISMedium::intersectGP(const Ray &ray, GPRealization &gpRealization, double &t, Sampler &sampler) const {

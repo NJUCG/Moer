@@ -3,7 +3,7 @@
 #include "Medium.h"
 #include "CoreLayer/Adapter/JsonUtil.h"
 #include "FunctionLayer/GaussianProcess/GaussianProcess.h"
-
+#define GPIS_LIGHT_TRANSPORT_VERSION 1
 class GPISMedium : public Medium {
 public:
     GPISMedium() = default;

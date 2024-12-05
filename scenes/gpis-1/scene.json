@@ -120,14 +120,6 @@
 
   "entities" : [
     {
-      "type" : "quad",
-      "base" : [0, 0, 0],
-      "edge0" : [6, 0, 0],
-      "edge1" : [0, 0, 6],
-      
-      "material" : "floor"
-    },
-    {
       "type" : "infinite_sphere",
       "emission" : "textures/envmap.hdr"
     },

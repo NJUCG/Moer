@@ -13,10 +13,7 @@
 #include <nanovdb/NanoVDB.h>
 #include <nanovdb/util/GridHandle.h>
 
-enum class DerivativeType {
-    None,
-    First,
-};
+#include "GaussianProcessUtils.h"
 
 class MeanFunction {
 public:
