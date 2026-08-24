@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>《图形绘制技术》课程优秀作业展示</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<style>
+		/* 让不同长宽比的效果图在卡片中统一裁切显示 */
+		.excellent-card figure img {
+			width: 100%;
+			height: 240px;
+			object-fit: cover;
+		}
+
+		/* 卡片整体可点击，hover 时保持无下划线 */
+		.excellent-card-link:hover,
+		.excellent-card-link:focus {
+			text-decoration: none;
+		}
+
+		/* Bootstrap float 布局下卡片高度不一会导致换行错位，每行首张卡片强制 clear */
+		@media (min-width: 992px) {
+			#excellent-grid>div:nth-child(3n+1) {
+				clear: left;
+			}
+		}
+
+		@media (min-width: 768px) and (max-width: 991px) {
+			#excellent-grid>div:nth-child(3n+1) {
+				clear: left;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#excellent-grid>div:nth-child(2n+1) {
+				clear: left;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="gtco-loader"></div>
+
+	<div id="page">
+
+		<div class="page-inner">
+			<nav class="gtco-nav" role="navigation">
+				<div class="gtco-container">
+
+					<div class="row">
+						<div class="col-sm-4 col-xs-12">
+							<div id="gtco-logo"><a href="index.html">Moer
+									<em>.</em></a></div>
+						</div>
+						<div class="col-xs-8 text-right menu-1">
+							<ul>
+								<li><a href="https://github.com/NJUCG/Moer"><b>Code</b></a></li>
+								<li><a href="https://github.com/NJUCG/MOER-SCENES"><b>Scenes</b></a></li>
+								<li><a href="images/manual.pdf"><b>Documentation</b></a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</nav>
+
+			<!-- 与首页一致的深色横幅，为白色导航文字提供底色 -->
+			<header id="gtco-header" class="gtco-cover" role="banner"
+				style="background-image: url(images/backgound.jpg)">
+				<div class="overlay"></div>
+			</header>
+
+			<div class="gtco-section border-bottom">
+				<div class="gtco-container">
+
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+							<h2><b>《图形绘制技术》课程优秀作业展示</b></h2>
+							<p>2026</p>
+						</div>
+					</div>
+
+					<!-- 每张卡片：点击效果图或标题均可打开对应的 PDF 报告 -->
+					<!-- 注意：fh5co-project-item 只能加在单个卡片上；若加在 row 上，hover 会冒泡导致所有卡片同时触发选中态 -->
+					<div class="row" id="excellent-grid">
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/sppm.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/sppm.jpg" alt="SPPM" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>基于 Moer 的 Stochastic Progressive Photon Mapping 实现</h2>
+										<span>央金同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/volume-rendering.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/volume-rendering.jpg" alt="体积渲染" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>体积渲染</h2>
+										<span>潘同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/npr-halftone.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/npr-halftone.jpg" alt="卡通渲染与半色调" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>卡通渲染、描边与半色调风格化（MoerEngine）</h2>
+										<span>张辰同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/nrc.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/nrc.jpg" alt="Neural Radiance Cache" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>Neural Radiance Cache</h2>
+										<span>闵同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/volumetric-fog.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/volumetric-fog.jpg" alt="实时体积雾" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>基于 Ray Marching 的实时体积雾</h2>
+										<span>胡同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/hardware-path-tracing.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/hardware-path-tracing.jpg" alt="硬件路径追踪" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>基于 MoerEngine 的硬件路径追踪</h2>
+										<span>张潍同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<a href="files/excellent-2026/npr-toon.pdf" class="excellent-card-link" target="_blank">
+								<div class="fh5co-project-item excellent-card">
+									<figure>
+										<div class="overlay"><i class="ti-file"></i></div>
+										<img src="images/excellent-2026/npr-toon.jpg" alt="二次元非真实感渲染" class="img-responsive">
+									</figure>
+									<div class="fh5co-text">
+										<h2>基于 MoerEngine 的二次元非真实感渲染与风格化后处理</h2>
+										<span>叶同学</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<footer id="gtco-footer" role="contentinfo">
+				<div class="gtco-container">
+					<div class="row row-p	b-md">
+						<div>
+							<div class="">
+								<div style="font-size: 20px">
+									<a href="mailto:guojie@nju.edu.cn" style="left: 45%;position: relative"><i
+											class="icon-mail2"></i> Connect</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row copyright">
+						<div class="col-md-12 " style="margin-left: 34%">
+							<p class="pull-left">
+								<small class="block">Copyright &copy; 2023.NJUMETA All rights reserved.</small>
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</footer>
+
+		</div>
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Carousel（main.js 会无条件调用 owlCarousel，必须加载否则会报错导致 loader 不消失） -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
