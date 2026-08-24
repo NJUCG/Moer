@@ -41,6 +41,28 @@
 			text-decoration: none;
 		}
 
+		/* 左上角返回首页按钮 */
+		.back-home-btn {
+			display: inline-block;
+			padding: 10px 22px;
+			margin-bottom: 30px;
+			background: #3498db;
+			color: #fff;
+			border-radius: 30px;
+			font-size: 16px;
+			font-weight: bold;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+
+		.back-home-btn:hover,
+		.back-home-btn:focus {
+			background: #2470a8;
+			color: #fff;
+			text-decoration: none;
+		}
+
 		/* Bootstrap float 布局下卡片高度不一会导致换行错位，每行首张卡片强制 clear */
 		@media (min-width: 992px) {
 			#excellent-grid>div:nth-child(3n+1) {
@@ -98,6 +120,13 @@
 
 			<div class="gtco-section border-bottom">
 				<div class="gtco-container">
+
+					<!-- 左上角返回首页按钮 -->
+					<div class="row">
+						<div class="col-md-12">
+							<a href="index.html" class="back-home-btn"><i class="ti-arrow-left"></i> 返回首页</a>
+						</div>
+					</div>
 
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
